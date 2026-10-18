@@ -1,0 +1,79 @@
+/* hamaratlabs marka kitabı v1.0: Ink, Lime, Ivory */
+:root {
+  --ink: #101317;
+  --ink-2: #1b1f25;
+  --ink-line: #2a3038;
+  --lime: #d0ff63;
+  --ivory: #fffdf8;
+  --paper: #f2efe6;
+  --line: #e4dfd3;
+  --muted: #5a5e66;
+  --muted-dark: #a9aeb7;
+
+  --font: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
+
+  --gutter: clamp(16px, 4vw, 48px);
+  --radius: 24px;
+  --topbar-h: 64px;
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
