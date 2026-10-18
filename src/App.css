@@ -671,3 +671,17 @@ mark {
 .comments h2 { font-family: 'Geist', var(--font); font-weight: 600; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
 .card__stage--beta::before { background: var(--lime); box-shadow: 0 0 0 1.5px #7fae12; }
 .card__get { font-size: 13px; font-weight: 600; color: var(--ink); }
+
+/* Instagram reels şeridi: yatay kaydırma, kartlar yerine oturur */
+.insta {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+  margin-right: calc(-1 * var(--gutter));
+  padding-right: var(--gutter);
+  scrollbar-width: thin;
+}
+.insta__item { flex: 0 0 340px; scroll-snap-align: start; }
+.insta__item .instagram-media { margin: 0 !important; min-width: 0 !important; width: 100% !important; border-radius: 18px !important; }

@@ -8,6 +8,14 @@ export const LINKS = {
   contact: 'https://vialess.me/yusuf-hamarat'
 };
 
+// Paylaşıyorum'da gömülen Instagram reels'leri. Yenisini öne çıkarmak için linki buraya ekle.
+export const INSTAGRAM_POSTS = [
+  'https://www.instagram.com/reel/DefTpcnR46O/',
+  'https://www.instagram.com/reel/Dejy2XWtqFx/',
+  'https://www.instagram.com/reel/DeksxMdMZ4f/',
+  'https://www.instagram.com/reel/Debb4DjR9h5/'
+];
+
 export const MENU = [
   { id: 'uretiyorum', label: 'Üretiyorum', hint: 'UYGULAMA MAĞAZASI' },
   { id: 'paylasiyorum', label: 'Paylaşıyorum', hint: 'SOSYAL MEDYA' },

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { FEATURED, APPS, SERIES, INSPIRATION, LINKS, slugOf } from './data';
 import AppPage from './AppPage';
+import InstagramFeed from './InstagramFeed';
 import { NavContext, Link } from './nav';
 import { asset, stripBase } from './base';
 import BorderGlow from './components/rb/BorderGlow/BorderGlow';
@@ -437,14 +438,7 @@ function Share({ page = false }) {
           </span>
         </div>
       </div>
-      <div className="share">
-        {[1, 2, 3, 4].map(n => (
-          <div key={n} className="share__slot">
-            <span className="mono">PAYLAŞIM</span>
-            <span className="share__ph">[İçerik {n}]</span>
-          </div>
-        ))}
-      </div>
+      <InstagramFeed />
     </section>
   );
 }
