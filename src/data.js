@@ -122,7 +122,7 @@ export const slugOf = name =>
 // Giscus yorumları: giscus.app'ten alınan kimlikler buraya. Boşken yorum alanı görünmez.
 export const GISCUS = {
   repo: 'hamarat52/hamaratlabs-web',
-  repoId: '',
-  category: 'Yorumlar',
-  categoryId: ''
+  repoId: 'R_kgDOVO3Xgw',
+  category: 'Announcements',
+  categoryId: 'DIC_kwDOVO3Xg84DI8cO'
 };
