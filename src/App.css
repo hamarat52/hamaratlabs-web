@@ -669,3 +669,5 @@ mark {
 /* Yorumlar */
 .comments { padding-top: 24px; padding-bottom: 96px; font-family: 'Geist', var(--font); }
 .comments h2 { font-family: 'Geist', var(--font); font-weight: 600; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+.card__stage--beta::before { background: var(--lime); box-shadow: 0 0 0 1.5px #7fae12; }
+.card__get { font-size: 13px; font-weight: 600; color: var(--ink); }

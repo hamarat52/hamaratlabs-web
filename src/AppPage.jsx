@@ -2,12 +2,12 @@ import AppIcon from './AppIcon';
 import { Link } from './nav';
 import Comments from './Comments';
 
-const STAGE = { dev: 'Geliştirmede', idea: 'Fikir', live: 'Yayında' };
+const STAGE = { beta: 'Açık beta', dev: 'Geliştirmede', idea: 'Fikir', live: 'Yayında' };
 const isPlaceholder = v => !v || v.startsWith('[');
 
 // Tek bir uygulamanın sayfası: büyük ikon, ad, kısa tanım, indirme ve özellikler.
 export default function AppPage({ app }) {
-  const live = app.stage === 'live';
+  const available = (app.stage === 'live' || app.stage === 'beta') && app.download;
   const points = (app.points || []).filter(p => !isPlaceholder(p));
   return (
     <article className="apppage">
@@ -22,9 +22,9 @@ export default function AppPage({ app }) {
             <h1>{app.name}</h1>
             {!isPlaceholder(app.lead) && <p>{app.lead}</p>}
             <div className="apppage__actions">
-              {live ? (
-                <a className="apppage__dl" href={app.download || '#'}>
-                  İndir
+              {available ? (
+                <a className="apppage__dl" href={app.download} target="_blank" rel="noopener noreferrer">
+                  {app.downloadLabel || 'İndir'}
                 </a>
               ) : (
                 <span className="apppage__dl is-off">Yakında</span>

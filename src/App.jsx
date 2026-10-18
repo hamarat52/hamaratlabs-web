@@ -328,12 +328,12 @@ function Breath() {
   );
 }
 
-const STAGE = { dev: 'Geliştirmede', idea: 'Fikir', live: 'Yayında' };
+const STAGE = { beta: 'Açık beta', dev: 'Geliştirmede', idea: 'Fikir', live: 'Yayında' };
 const isPlaceholder = v => !v || v.startsWith('[');
 
 // Uygulama kartı: tek sakin yüzey, büyük logo, kısa bilgi. Kenarında imleci izleyen ışık (Border Glow).
 function AppCard({ app, big = false }) {
-  const live = app.stage === 'live';
+  const available = (app.stage === 'live' || app.stage === 'beta') && app.download;
   return (
     <BorderGlow
       className={`card${big ? ' card--big' : ''}`}
@@ -354,7 +354,7 @@ function AppCard({ app, big = false }) {
           {!isPlaceholder(app.lead) && <p>{app.lead}</p>}
           <div className="card__foot">
             {!isPlaceholder(app.platform) && <span className="card__platform">{app.platform}</span>}
-            <span className={live ? 'card__dl' : 'card__soon'}>{live ? 'İndir' : 'Yakında'}</span>
+            <span className={available ? 'card__get' : 'card__soon'}>{available ? (app.stage === 'beta' ? 'Açık betada →' : 'İndir →') : 'Yakında'}</span>
           </div>
         </div>
       </Link>
@@ -370,6 +370,7 @@ function Apps({ page = false }) {
     ['all', 'Tümü', all.length],
     ['dev', 'Geliştirmede', count('dev')],
     ['idea', 'Fikir', count('idea')],
+    ['beta', 'Açık beta', count('beta')],
     ['live', 'Yayında', count('live')]
   ];
   const show = a => filter === 'all' || a.stage === filter;

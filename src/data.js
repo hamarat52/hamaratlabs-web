@@ -18,10 +18,12 @@ export const MENU = [
 export const FEATURED = [
   {
     name: 'SesVer',
-    stage: 'dev',
-    lead: 'Türkçe yapay zekâ seslendirme. Yazdığını kendi bilgisayarında sese çevirir.',
-    points: ['Hazır Türkçe sesler', 'Tarif ederek yeni ses tasarla', 'Kendi sesini klonla', 'Bilgisayarında çalışır, buluta gönderilmez'],
-    platform: 'macOS · WINDOWS'
+    stage: 'beta',
+    lead: 'Ücretsiz, yerel ve açık kaynak Türkçe ses üretimi ve klonlama. Yazdığını kendi bilgisayarında sese çevirir.',
+    points: ['Hazır Türkçe sesler', 'Tarif ederek yeni ses tasarla', 'Kendi sesini klonla', 'Bilgisayarında çalışır, buluta gönderilmez', 'Ücretsiz ve açık kaynak'],
+    platform: 'macOS · WINDOWS',
+    download: 'https://github.com/hamarat52/sesver',
+    downloadLabel: "GitHub'dan indir"
   },
   {
     name: 'WingWire',
