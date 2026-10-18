@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { GISCUS } from './data';
+import { asset } from './base';
 
 // Uygulama sayfalarının altındaki yorum ve emoji alanı (Giscus, GitHub Discussions üzerinde çalışır).
 // Kimlikler data.js'te boşken hiçbir şey göstermez.
@@ -26,7 +27,9 @@ export default function Comments({ term }) {
       'data-reactions-enabled': '1',
       'data-emit-metadata': '0',
       'data-input-position': 'top',
-      'data-theme': 'light',
+      // Kendi tema dosyamız yalnız https'te yüklenebiliyor; yerelde (http) Giscus'un açık teması.
+      'data-theme':
+        window.location.protocol === 'https:' ? `${window.location.origin}${asset('/giscus-hamaratlabs.css')}` : 'light',
       'data-lang': 'tr',
       'data-loading': 'lazy'
     };
