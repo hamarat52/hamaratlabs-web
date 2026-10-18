@@ -3,6 +3,7 @@ import './App.css';
 import { FEATURED, APPS, SERIES, INSPIRATION, LINKS, slugOf } from './data';
 import AppPage from './AppPage';
 import { NavContext, Link } from './nav';
+import { asset, stripBase } from './base';
 import BorderGlow from './components/rb/BorderGlow/BorderGlow';
 import AppIcon from './AppIcon';
 import FlexCarousel from './components/rb/FlexCarousel/FlexCarousel';
@@ -43,16 +44,16 @@ const PAGES = {
 };
 
 function usePath() {
-  const [path, setPath] = useState(() => window.location.pathname);
+  const [path, setPath] = useState(() => stripBase(window.location.pathname));
   useEffect(() => {
-    const onPop = () => setPath(window.location.pathname);
+    const onPop = () => setPath(stripBase(window.location.pathname));
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, []);
   const navigate = to => {
     const [p, hash] = to.split('#');
-    if (p && p !== window.location.pathname) {
-      window.history.pushState({}, '', to);
+    if (p && p !== stripBase(window.location.pathname)) {
+      window.history.pushState({}, '', asset(to));
       setPath(p);
     }
     requestAnimationFrame(() => {
@@ -140,7 +141,7 @@ function Header({ path }) {
     <header className={`topbar${clear ? ' topbar--clear' : ''}`}>
       <div className="wrap topbar__row">
         <Link to="/" aria-label="hamaratlabs ana sayfa">
-          <img src="/brand/hamaratlabs-logo-main.svg" alt="hamaratlabs" className="topbar__logo" />
+          <img src={asset('/brand/hamaratlabs-logo-main.svg')} alt="hamaratlabs" className="topbar__logo" />
         </Link>
         <nav aria-label="Ana menü" className="topbar__nav">
           {tabs.map(([to, label]) => (
@@ -486,7 +487,7 @@ function Footer() {
       </div>
       <div className="wrap footer__row">
         <div className="footer__brand">
-          <img src="/brand/hamaratlabs-logo-main.svg" alt="hamaratlabs" />
+          <img src={asset('/brand/hamaratlabs-logo-main.svg')} alt="hamaratlabs" />
           <p>Üretiyorum. Paylaşıyorum. Anlatıyorum.</p>
         </div>
         <nav aria-label="Alt menü" className="footer__nav">

@@ -1,4 +1,5 @@
 import { createContext, forwardRef, useContext } from 'react';
+import { asset } from './base';
 
 export const NavContext = createContext(() => {});
 
@@ -7,7 +8,7 @@ export const Link = forwardRef(function Link({ to, children, ...rest }, ref) {
   return (
     <a
       ref={ref}
-      href={to}
+      href={to.startsWith('/') ? asset(to) : to}
       onClick={e => {
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
         e.preventDefault();

@@ -1,3 +1,5 @@
+import { asset } from './base';
+
 // Dış bağlantılar
 export const LINKS = {
   site: 'https://hamaratlabs.com',
@@ -108,7 +110,7 @@ export const INSPIRATION = [
   'Yılbaşı vitrini',
   'Sarman',
   'Kız Kulesi, gece'
-].map((title, i) => ({ src: `/ilham/${String(i + 1).padStart(2, '0')}.jpg`, alt: title, title }));
+].map((title, i) => ({ src: asset(`/ilham/${String(i + 1).padStart(2, '0')}.jpg`), alt: title, title }));
 
 export const slugOf = name =>
   name
