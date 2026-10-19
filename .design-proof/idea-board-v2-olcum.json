@@ -1,0 +1,484 @@
+{
+ "desktop:pomodoro-restoran": {
+  "viewport": 1280,
+  "scrollWidth": 1280,
+  "board": {
+   "w": 1104,
+   "h": 637
+  },
+  "notes": 6,
+  "emptyNotes": 4,
+  "notesOutsideBoard": 0,
+  "rotatedPaperOutsideBoard": 0,
+  "overlappingPairs": 0,
+  "textOutsidePaper": [],
+  "questionMarkGlyphs": 0,
+  "clusterTitles": 0,
+  "caveat": true
+ },
+ "mobile375:pomodoro-restoran": {
+  "viewport": 375,
+  "scrollWidth": 375,
+  "board": {
+   "w": 343,
+   "h": 822
+  },
+  "notes": 6,
+  "emptyNotes": 4,
+  "notesOutsideBoard": 0,
+  "rotatedPaperOutsideBoard": 0,
+  "overlappingPairs": 0,
+  "textOutsidePaper": [],
+  "questionMarkGlyphs": 0,
+  "clusterTitles": 0,
+  "caveat": true
+ },
+ "desktop:duo-for-x": {
+  "viewport": 1280,
+  "scrollWidth": 1280,
+  "board": {
+   "w": 1104,
+   "h": 707
+  },
+  "notes": 6,
+  "emptyNotes": 4,
+  "notesOutsideBoard": 0,
+  "rotatedPaperOutsideBoard": 0,
+  "overlappingPairs": 0,
+  "textOutsidePaper": [],
+  "questionMarkGlyphs": 0,
+  "clusterTitles": 0,
+  "caveat": true
+ },
+ "mobile375:duo-for-x": {
+  "viewport": 375,
+  "scrollWidth": 375,
+  "board": {
+   "w": 343,
+   "h": 994
+  },
+  "notes": 6,
+  "emptyNotes": 4,
+  "notesOutsideBoard": 0,
+  "rotatedPaperOutsideBoard": 0,
+  "overlappingPairs": 0,
+  "textOutsidePaper": [],
+  "questionMarkGlyphs": 0,
+  "clusterTitles": 0,
+  "caveat": true
+ },
+ "desktop:titimer": {
+  "viewport": 1280,
+  "scrollWidth": 1280,
+  "board": {
+   "w": 1104,
+   "h": 667
+  },
+  "notes": 8,
+  "emptyNotes": 0,
+  "notesOutsideBoard": 0,
+  "rotatedPaperOutsideBoard": 0,
+  "overlappingPairs": 0,
+  "textOutsidePaper": [],
+  "questionMarkGlyphs": 0,
+  "clusterTitles": 0,
+  "caveat": true
+ },
+ "mobile375:titimer": {
+  "viewport": 375,
+  "scrollWidth": 375,
+  "board": {
+   "w": 343,
+   "h": 977
+  },
+  "notes": 8,
+  "emptyNotes": 0,
+  "notesOutsideBoard": 0,
+  "rotatedPaperOutsideBoard": 0,
+  "overlappingPairs": 0,
+  "textOutsidePaper": [],
+  "questionMarkGlyphs": 0,
+  "clusterTitles": 0,
+  "caveat": true
+ },
+ "desktop:kitabe": {
+  "viewport": 1280,
+  "scrollWidth": 1280,
+  "board": {
+   "w": 1104,
+   "h": 717
+  },
+  "notes": 8,
+  "emptyNotes": 0,
+  "notesOutsideBoard": 0,
+  "rotatedPaperOutsideBoard": 0,
+  "overlappingPairs": 0,
+  "textOutsidePaper": [],
+  "questionMarkGlyphs": 0,
+  "clusterTitles": 0,
+  "caveat": true
+ },
+ "mobile375:kitabe": {
+  "viewport": 375,
+  "scrollWidth": 375,
+  "board": {
+   "w": 343,
+   "h": 996
+  },
+  "notes": 8,
+  "emptyNotes": 0,
+  "notesOutsideBoard": 0,
+  "rotatedPaperOutsideBoard": 0,
+  "overlappingPairs": 0,
+  "textOutsidePaper": [],
+  "questionMarkGlyphs": 0,
+  "clusterTitles": 0,
+  "caveat": true
+ },
+ "mouse:titimer:text-2": {
+  "hitKey": "text-2",
+  "requested": {
+   "dx": 300,
+   "dy": 150
+  },
+  "before": {
+   "x": 360,
+   "y": 87
+  },
+  "after": {
+   "x": 660,
+   "y": 237
+  },
+  "delta": {
+   "x": 300,
+   "y": 150
+  },
+  "transformAfter": "translate3d(659px, 236px, 0px)",
+  "liftedDuringDrag": true,
+  "liftedAfter": false
+ },
+ "mouse:titimer:check-7:clamp": {
+  "hitKey": "check-7",
+  "requested": {
+   "dx": 4000,
+   "dy": 4000
+  },
+  "before": {
+   "x": 851,
+   "y": 75
+  },
+  "after": {
+   "x": 889,
+   "y": 446
+  },
+  "delta": {
+   "x": 38,
+   "y": 371
+  },
+  "transformAfter": "translate3d(888px, 445px, 0px)",
+  "board": {
+   "w": 1104,
+   "h": 667
+  },
+  "insideBoard": true
+ },
+ "mouse:titimer:text-3:clamp-top-left": {
+  "hitKey": "text-3",
+  "requested": {
+   "dx": -500,
+   "dy": -900
+  },
+  "before": {
+   "x": 582,
+   "y": 392
+  },
+  "after": {
+   "x": 82,
+   "y": 21
+  },
+  "delta": {
+   "x": -500,
+   "y": -371
+  },
+  "transformAfter": "translate3d(81px, 20px, 0px)",
+  "insideBoard": true
+ },
+ "mouse:titimer:click-vs-drag": {
+  "press3px": {
+   "hitKey": "name-0",
+   "requested": {
+    "dx": 3,
+    "dy": 0
+   },
+   "before": {
+    "x": 56,
+    "y": 85
+   },
+   "after": {
+    "x": 56,
+    "y": 85
+   },
+   "delta": {
+    "x": 0,
+    "y": 0
+   },
+   "transformAfter": "translate3d(55px, 84px, 0px)",
+   "clickFired": true
+  },
+  "drag": {
+   "hitKey": "name-0",
+   "requested": {
+    "dx": 240,
+    "dy": 160
+   },
+   "before": {
+    "x": 56,
+    "y": 85
+   },
+   "after": {
+    "x": 296,
+    "y": 245
+   },
+   "delta": {
+    "x": 240,
+    "y": 160
+   },
+   "transformAfter": "translate3d(295px, 244px, 0px)",
+   "clickSwallowed": true
+  }
+ },
+ "desktop:titimer:after-drag": {
+  "viewport": 1280,
+  "scrollWidth": 1280,
+  "board": {
+   "w": 1104,
+   "h": 667
+  },
+  "notes": 8,
+  "emptyNotes": 0,
+  "notesOutsideBoard": 0,
+  "rotatedPaperOutsideBoard": 0,
+  "overlappingPairs": 5,
+  "textOutsidePaper": [],
+  "questionMarkGlyphs": 0,
+  "clusterTitles": 0
+ },
+ "desktop:titimer:resize-1280-900-1280": {
+  "samePositionsAfterRestore": true,
+  "changedWhileNarrow": 4,
+  "positions": {
+   "name-0": "translate3d(295px, 244px, 0px)",
+   "text-1": "translate3d(97px, 411px, 0px)",
+   "text-2": "translate3d(659px, 236px, 0px)",
+   "text-3": "translate3d(81px, 20px, 0px)",
+   "text-4": "translate3d(830px, 378px, 0px)",
+   "text-5": "translate3d(339px, 390px, 0px)",
+   "platform-6": "translate3d(630px, 88px, 0px)",
+   "check-7": "translate3d(888px, 445px, 0px)"
+  }
+ },
+ "mouse:pomodoro:text-1": {
+  "hitKey": "text-1",
+  "requested": {
+   "dx": 200,
+   "dy": -160
+  },
+  "before": {
+   "x": 446,
+   "y": 382
+  },
+  "after": {
+   "x": 646,
+   "y": 222
+  },
+  "delta": {
+   "x": 200,
+   "y": -160
+  },
+  "transformAfter": "translate3d(645px, 221px, 0px)",
+  "liftedDuringDrag": true
+ },
+ "touch375:kitabe:text-1:hold-drag": {
+  "hitKey": "text-1",
+  "requested": {
+   "dx": -90,
+   "dy": -140
+  },
+  "before": {
+   "x": 175,
+   "y": 830
+  },
+  "after": {
+   "x": 85,
+   "y": 690
+  },
+  "delta": {
+   "x": -90,
+   "y": -140
+  },
+  "transformAfter": "translate3d(84px, 689px, 0px)",
+  "liftedDuringHold": true,
+  "scrollBefore": 532,
+  "scrollAfter": 532,
+  "firstMoveAfterMs": 422
+ },
+ "touch375:kitabe:name-0:quick-swipe": {
+  "hitKey": "name-0",
+  "requested": {
+   "dx": 0,
+   "dy": -160
+  },
+  "before": {
+   "x": 30,
+   "y": 33
+  },
+  "after": {
+   "x": 30,
+   "y": 33
+  },
+  "delta": {
+   "x": 0,
+   "y": 0
+  },
+  "transformAfter": "translate3d(29px, 32px, 0px)",
+  "liftedAfterFirstMove": false,
+  "scrollBefore": 0,
+  "scrollAfter": 145,
+  "firstMoveAfterMs": 67
+ },
+ "touch375:kitabe:clamp": {
+  "hitKey": "check-7",
+  "requested": {
+   "dx": 900,
+   "dy": 900
+  },
+  "before": {
+   "x": 19,
+   "y": 616
+  },
+  "after": {
+   "x": 175,
+   "y": 797
+  },
+  "delta": {
+   "x": 156,
+   "y": 181
+  },
+  "transformAfter": "translate3d(174px, 796px, 0px)",
+  "board": {
+   "w": 343,
+   "h": 996
+  },
+  "insideBoard": true
+ },
+ "mobile375:kitabe:after-drag": {
+  "viewport": 375,
+  "scrollWidth": 375,
+  "board": {
+   "w": 343,
+   "h": 996
+  },
+  "notes": 8,
+  "emptyNotes": 0,
+  "notesOutsideBoard": 0,
+  "rotatedPaperOutsideBoard": 0,
+  "overlappingPairs": 2,
+  "textOutsidePaper": [],
+  "questionMarkGlyphs": 0,
+  "clusterTitles": 0
+ },
+ "touch375:duo-for-x:text-1:hold-drag": {
+  "hitKey": "text-1",
+  "requested": {
+   "dx": -90,
+   "dy": 140
+  },
+  "before": {
+   "x": 175,
+   "y": 269
+  },
+  "after": {
+   "x": 85,
+   "y": 409
+  },
+  "delta": {
+   "x": -90,
+   "y": 140
+  },
+  "transformAfter": "translate3d(84px, 408px, 0px)",
+  "liftedDuringHold": true,
+  "scrollBefore": 0,
+  "scrollAfter": 0,
+  "firstMoveAfterMs": 417
+ },
+ "touch375:duo-for-x:name-0:quick-swipe": {
+  "hitKey": "name-0",
+  "requested": {
+   "dx": 0,
+   "dy": -160
+  },
+  "before": {
+   "x": 35,
+   "y": 37
+  },
+  "after": {
+   "x": 35,
+   "y": 37
+  },
+  "delta": {
+   "x": 0,
+   "y": 0
+  },
+  "transformAfter": "translate3d(34px, 36px, 0px)",
+  "liftedAfterFirstMove": false,
+  "scrollBefore": 0,
+  "scrollAfter": 145,
+  "firstMoveAfterMs": 75
+ },
+ "touch375:duo-for-x:clamp": {
+  "hitKey": "check-5",
+  "requested": {
+   "dx": 900,
+   "dy": 900
+  },
+  "before": {
+   "x": 19,
+   "y": 271
+  },
+  "after": {
+   "x": 175,
+   "y": 795
+  },
+  "delta": {
+   "x": 156,
+   "y": 524
+  },
+  "transformAfter": "translate3d(174px, 794px, 0px)",
+  "board": {
+   "w": 343,
+   "h": 994
+  },
+  "insideBoard": true
+ },
+ "mobile375:duo-for-x:after-drag": {
+  "viewport": 375,
+  "scrollWidth": 375,
+  "board": {
+   "w": 343,
+   "h": 994
+  },
+  "notes": 6,
+  "emptyNotes": 4,
+  "notesOutsideBoard": 0,
+  "rotatedPaperOutsideBoard": 0,
+  "overlappingPairs": 3,
+  "textOutsidePaper": [],
+  "questionMarkGlyphs": 0,
+  "clusterTitles": 0
+ },
+ "list": {
+  "cards": 4,
+  "q": 0
+ },
+ "consoleErrors": []
+}

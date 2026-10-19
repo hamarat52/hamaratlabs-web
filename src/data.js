@@ -45,11 +45,13 @@ export const FEATURED = [
 export const APPS = [
   {
     name: 'Income vs Desires',
-    stage: 'dev',
+    stage: 'beta',
     short: 'Fiyatı çalışma saatine çevir',
     lead: 'Gezinirken gördüğün fiyatları, maaşına göre kaç saat çalışman gerektiğine çevirir.',
     points: ['"500 TL" yerine "1,8 saat" yazar', 'Rakama tıklayınca orijinal fiyat geri gelir', 'Saatlik ücretini kendin girersin'],
-    platform: 'CHROME · WEB'
+    platform: 'CHROME · WEB',
+    download: 'https://github.com/hamarat52/income-vs-desires',
+    downloadLabel: "GitHub'dan indir"
   },
   {
     name: 'tiTimer',

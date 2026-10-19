@@ -1,0 +1,177 @@
+.pulse-heart {
+  --ph-size: 22px;
+  --ph-color: #ff3b5c;
+  --ph-idle: currentColor;
+  --ph-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  position: relative;
+  display: inline-flex;
+  font-family: inherit;
+  color: inherit;
+}
+
+.pulse-heart__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 6px 8px;
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-family: var(--mono, monospace);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.pulse-heart__btn:focus-visible {
+  outline: 2px solid var(--ph-color);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pulse-heart[data-state]:not([data-state='disabled']) .pulse-heart__btn:hover {
+    border-color: color-mix(in srgb, var(--ph-color) 55%, transparent);
+    background: color-mix(in srgb, var(--ph-color) 8%, transparent);
+  }
+
+  .pulse-heart:not([data-state='disabled']) .pulse-heart__btn:hover .pulse-heart__svg {
+    transform: scale(1.08);
+  }
+}
+
+.pulse-heart__btn:active .pulse-heart__svg {
+  transform: scale(0.9);
+}
+
+.pulse-heart__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--ph-size);
+  height: var(--ph-size);
+}
+
+.pulse-heart__svg {
+  display: block;
+  overflow: visible;
+  transition: transform 180ms var(--ph-ease-out);
+}
+
+.pulse-heart__svg path {
+  fill: transparent;
+  stroke: var(--ph-idle);
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  transition: fill 240ms ease, stroke 240ms ease;
+}
+
+.pulse-heart__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--ph-color);
+  opacity: 0;
+  transform: scale(0.2);
+  pointer-events: none;
+}
+
+/* Tıklama: kalp noktaya büzülür, renk döner, taşarak nabız gibi geri atar, halka yayılır. */
+.pulse-heart__btn[data-pulsing='true'] .pulse-heart__svg {
+  animation: pulse-heart-beat 820ms var(--ph-ease-out) both;
+}
+
+.pulse-heart__btn[data-pulsing='true'] .pulse-heart__svg path {
+  fill: var(--ph-color);
+  stroke: var(--ph-color);
+}
+
+.pulse-heart__btn[data-pulsing='true'] .pulse-heart__ring {
+  animation: pulse-heart-ring 620ms 150ms var(--ph-ease-out) both;
+}
+
+@keyframes pulse-heart-beat {
+  0% { transform: scale(1); }
+  16% { transform: scale(0.18); }
+  40% { transform: scale(1.32); }
+  56% { transform: scale(0.92); }
+  72% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse-heart-ring {
+  0% { opacity: 0.9; transform: scale(0.3); border-width: 3px; }
+  100% { opacity: 0; transform: scale(2.1); border-width: 0.5px; }
+}
+
+.pulse-heart__count {
+  min-width: 1ch;
+  margin-right: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pulse-heart__skeleton {
+  display: inline-block;
+  width: 2.2ch;
+  height: 0.9em;
+  margin-right: 4px;
+  border-radius: 4px;
+  background: color-mix(in srgb, currentColor 14%, transparent);
+  animation: pulse-heart-shimmer 1.1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-heart-shimmer {
+  from { opacity: 0.45; }
+  to { opacity: 1; }
+}
+
+/* Repo yok: soluk, tıklanamaz, ipucu gösterir. */
+.pulse-heart[data-state='disabled'] .pulse-heart__btn {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pulse-heart__tip {
+  position: absolute;
+  /* Butonun başına hizalı: ortalı ipucu küçük kalpte ekran kenarından taşıyordu. */
+  left: 0;
+  bottom: calc(100% + 8px);
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--ink, #101317);
+  color: var(--ivory, #fffdf8);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms var(--ph-ease-out);
+}
+
+.pulse-heart[data-state='disabled']:hover .pulse-heart__tip,
+.pulse-heart[data-state='disabled']:focus-within .pulse-heart__tip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-heart__svg,
+  .pulse-heart__svg path,
+  .pulse-heart__tip {
+    transition: none;
+  }
+
+  .pulse-heart__skeleton {
+    animation: none;
+  }
+}

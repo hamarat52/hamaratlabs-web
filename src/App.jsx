@@ -1,7 +1,8 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import './App.css';
 import { FEATURED, APPS, SERIES, INSPIRATION, LINKS, slugOf } from './data';
 import AppPage from './AppPage';
+import TiTimerPage from './TiTimerPage';
 import InstagramFeed from './InstagramFeed';
 import { NavContext, Link } from './nav';
 import { asset, stripBase } from './base';
@@ -12,6 +13,7 @@ import PixelSnow from './components/rb/PixelSnow/PixelSnow';
 import TechText from './components/rb/TechText/TechText';
 import GradientASCII from './components/rb/GradientASCII/GradientASCII';
 import GhostFibers from './components/rb/GhostFibers/GhostFibers';
+import LetterGlitch from './components/rb/LetterGlitch/LetterGlitch';
 import Lanyard from './components/rb/Lanyard/Lanyard';
 import FadeContent from './components/rb/FadeContent/FadeContent';
 import DriftWall from './components/rb/DriftWall/DriftWall';
@@ -19,6 +21,20 @@ import DriftWall from './components/rb/DriftWall/DriftWall';
 // WebGL bileşenleri ilk ekranın altında; ayrı parçada indirilir, ana paketi büyütmez.
 const Strands = lazy(() => import('./components/rb/Strands/Strands'));
 const CrystalizedBall = lazy(() => import('./components/rb/CrystalizedBall/CrystalizedBall'));
+
+// Kendi tasarım dili olan uygulamalar genel AppPage yerine özel sayfayla açılır.
+// Anahtar slugOf(ad); yol yine /uretiyorum/<slugOf(ad)>. WingWire ayrı parça olarak yüklenir.
+const CUSTOM_PAGES = {
+  titimer: TiTimerPage,
+  wingwire: lazy(() => import('./wingwire/WingWirePage'))
+};
+
+// Özel sayfası olmayan uygulamalar aşamalarına göre şablon alır; beta/tanımsız → AppPage.
+// Fikir panosu (Three.js buruşturma) ve geliştirme şablonu ayrı parça olarak yüklenir.
+const STAGE_PAGES = {
+  idea: lazy(() => import('./IdeaBoardPage')),
+  dev: lazy(() => import('./DevStagePage'))
+};
 
 /* Kullanılan efektler (bölüm başına en fazla bir):
    ilk ekran: ziyaretçinin seçtiği zemin (Pixel Snow / Gradient ASCII / Ghost Fibers)
@@ -84,7 +100,18 @@ export default function App() {
       <Header path={path} />
       <main>
         {appMatch ? (
-          <AppPage app={appMatch} />
+          (() => {
+            // Öncelik: özel sayfa → fikir panosu (idea) → geliştirme şablonu (dev) → genel AppPage.
+            const Custom = CUSTOM_PAGES[slugOf(appMatch.name)];
+            const Page = Custom || STAGE_PAGES[appMatch.stage];
+            return Page ? (
+              <Suspense fallback={<div style={{ minHeight: '100vh', background: Custom ? '#0b0f14' : undefined }} />}>
+                <Page app={appMatch} />
+              </Suspense>
+            ) : (
+              <AppPage app={appMatch} />
+            );
+          })()
         ) : page ? (
           <>
             <PageHead title={page.title} lead={page.lead} />
@@ -146,13 +173,35 @@ function Header({ path }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, [path]);
 
+  // Dar ekranda yatay menü gizli; düğmeyle açılan panel aynı linkleri gösterir.
+  const [open, setOpen] = useState(false);
+  useEffect(() => setOpen(false), [path]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = e => e.key === 'Escape' && setOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
   return (
-    <header className={`topbar${clear ? ' topbar--clear' : ''}`}>
+    <header className={`topbar${clear && !open ? ' topbar--clear' : ''}${open ? ' topbar--open' : ''}`}>
       <div className="wrap topbar__row">
         <Link to="/" aria-label="hamaratlabs ana sayfa">
           <img src={asset('/brand/hamaratlabs-logo-main.svg')} alt="hamaratlabs" className="topbar__logo" />
         </Link>
-        <nav aria-label="Ana menü" className="topbar__nav">
+        <button
+          type="button"
+          className="topbar__menu"
+          aria-expanded={open}
+          aria-controls="ana-menu"
+          aria-label={open ? 'Menüyü kapat' : 'Menüyü aç'}
+          onClick={() => setOpen(o => !o)}
+        >
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" {...ICON}>
+            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+          </svg>
+        </button>
+        <nav id="ana-menu" aria-label="Ana menü" className="topbar__nav" onClick={e => e.target.closest('a') && setOpen(false)}>
           {tabs.map(([to, label]) => (
             <Link key={to} to={to} aria-current={path === to || path.startsWith(`${to}/`) ? 'page' : undefined}>
               {label}
@@ -185,6 +234,11 @@ const GROUNDS = [
     id: 'fibers',
     label: 'Lifler',
     icon: <path d="M3 8c4-4 8 4 12 0s5-2 6-1M3 13c4-4 8 4 12 0s5-2 6-1M3 18c4-4 8 4 12 0s5-2 6-1" />
+  },
+  {
+    id: 'glitch',
+    label: 'Glitch',
+    icon: <path d="M4 6h10M4 10h6M13 10h7M4 14h12M8 18h12" />
   }
 ];
 
@@ -226,6 +280,9 @@ function Ground({ id, color }) {
       />
     );
   if (id === 'fibers') return <GhostFibers lightMode glowColor={color} secondaryColor="#101317" speed={0.35} threads={56} vignette={0.2} />;
+  // Açık zemin üstünde soluk harf ızgarası; parıltılar seçili tonla yanar.
+  if (id === 'glitch')
+    return <LetterGlitch background="#fffdf8" glitchColors={['#e7e2d6', '#d3cdbf', color]} glitchSpeed={70} flashChance={0.04} outerVignette={false} />;
   return null;
 }
 
