@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import './App.css';
 import { FEATURED, APPS, SERIES, INSPIRATION, LINKS, slugOf } from './data';
 import AppPage from './AppPage';
@@ -12,6 +12,12 @@ import PixelSnow from './components/rb/PixelSnow/PixelSnow';
 import TechText from './components/rb/TechText/TechText';
 import GradientASCII from './components/rb/GradientASCII/GradientASCII';
 import GhostFibers from './components/rb/GhostFibers/GhostFibers';
+
+// Kendi tasarım dili olan uygulamalar genel AppPage yerine özel sayfayla açılır.
+// Anahtar data.js'teki ad; yol yine /uretiyorum/<slugOf(ad)>. Ayrı parça olarak yüklenir.
+const CUSTOM_PAGES = {
+  WingWire: lazy(() => import('./wingwire/WingWirePage'))
+};
 
 /* Kullanılan efektler (bölüm başına en fazla bir):
    ilk ekran: ziyaretçinin seçtiği zemin (Pixel Snow / Gradient ASCII / Ghost Fibers)
@@ -72,12 +78,19 @@ export default function App() {
   const appMatch = path.startsWith('/uretiyorum/')
     ? [...FEATURED, ...APPS].find(a => `/uretiyorum/${slugOf(a.name)}` === path)
     : null;
+  const Custom = appMatch ? CUSTOM_PAGES[appMatch.name] : null;
   return (
     <NavContext.Provider value={navigate}>
       <Header path={path} />
       <main>
         {appMatch ? (
-          <AppPage app={appMatch} />
+          Custom ? (
+            <Suspense fallback={<div style={{ minHeight: '100vh', background: '#0b0f14' }} />}>
+              <Custom app={appMatch} />
+            </Suspense>
+          ) : (
+            <AppPage app={appMatch} />
+          )
         ) : page ? (
           <>
             <PageHead title={page.title} lead={page.lead} />
