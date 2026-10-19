@@ -50,7 +50,7 @@ export default function DriftWall({
   const lanes = useMemo(() => {
     if (!list.length) return [];
     // Her sütun listeyi farklı bir noktadan başlatır; komşu sütunlarda aynı öğe yan yana gelmez.
-    const per = Math.max(4, Math.ceil((list.length * 1.4) / cols) + 2);
+    const per = Math.max(10, Math.ceil((list.length * 1.4) / cols) + 2);
     return Array.from({ length: cols }, (_, c) =>
       Array.from({ length: per }, (_, i) => list[(c * 3 + i * cols + c) % list.length])
     );

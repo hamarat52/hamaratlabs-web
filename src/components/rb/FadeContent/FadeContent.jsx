@@ -11,7 +11,7 @@ const reducedMotion = () =>
    Saydamlık + bulanıklık + küçük bir kayma; hepsi CSS geçişiyle, tek IntersectionObserver ile. */
 export default function FadeContent({
   children,
-  as: Tag = 'div',
+  as = 'div',
   blur = true,
   blurAmount = 10,
   duration = 900,
@@ -29,6 +29,7 @@ export default function FadeContent({
   ...rest
 }) {
   const ref = useRef(null);
+  const Tag = as;
   const [shown, setShown] = useState(false);
 
   useEffect(() => {

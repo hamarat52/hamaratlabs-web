@@ -41,7 +41,6 @@
   -webkit-user-select: none;
   will-change: transform;
   transform-style: preserve-3d;
-  filter: drop-shadow(0 22px 28px rgba(16, 19, 23, 0.22)) drop-shadow(0 4px 8px rgba(16, 19, 23, 0.14));
 }
 
 .lanyard__card--drag {
@@ -56,24 +55,26 @@
   border-radius: 18px;
   background: #fffdf8;
   border: 1px solid rgba(16, 19, 23, 0.12);
+  box-shadow: 0 22px 34px -8px rgba(16, 19, 23, 0.26), 0 4px 10px rgba(16, 19, 23, 0.12);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  isolation: isolate;
 }
 
 /* Kartın üstünden geçen, eğime göre kayan ışık */
 .lanyard__face::after {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  width: 300%;
   pointer-events: none;
-  background: linear-gradient(
-    115deg,
-    transparent calc(var(--ly-sheen) - 22%),
-    rgba(255, 255, 255, 0.55) var(--ly-sheen),
-    transparent calc(var(--ly-sheen) + 22%)
-  );
-  mix-blend-mode: soft-light;
+  background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, 0.42) 50%, transparent 62%);
+  /* Yalnız transform değişir: yeniden boyama yok */
+  transform: translate3d(calc((var(--ly-sheen) - 50%) / 3), 0, 0);
+  will-change: transform;
 }
 
 /* Kayış kartı tuttuğu metal klips */
