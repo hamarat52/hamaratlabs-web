@@ -1,6 +1,7 @@
 import AppIcon from './AppIcon';
 import { Link } from './nav';
 import Comments from './Comments';
+import DodgeField from './components/rb/DodgeField/DodgeField';
 import { LINKS } from './data';
 import './DevStagePage.css';
 
@@ -135,7 +136,14 @@ export default function DevStagePage({ app }) {
             <Progress steps={steps} current={current} />
 
             <div className="devpage__actions">
-              <span className="devpage__off">Henüz indirilemez</span>
+              <DodgeField
+                label="İndir"
+                dodgeLabel="Henüz değil"
+                height={104}
+                align="start"
+                className="devpage__dodge"
+                ariaLabel={`${app.name} henüz indirilemez`}
+              />
               <a className="devpage__follow" href={LINKS.contact} target="_blank" rel="noopener noreferrer">
                 Erken denemek istersen yaz →
               </a>

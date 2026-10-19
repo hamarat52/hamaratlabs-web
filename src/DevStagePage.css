@@ -160,16 +160,7 @@
 .devpage__hint { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
 
 .devpage__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 10px; }
-.devpage__off {
-  display: inline-flex;
-  align-items: center;
-  min-height: 48px;
-  padding: 0 24px;
-  border: 1.5px dashed var(--dp-dash);
-  border-radius: 999px;
-  color: var(--muted);
-  font-weight: 600;
-}
+.devpage__dodge { flex: 1 1 260px; max-width: 380px; }
 .devpage__follow {
   font-weight: 600;
   color: var(--ink);
