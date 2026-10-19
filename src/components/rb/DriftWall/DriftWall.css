@@ -1,0 +1,74 @@
+.drift-wall {
+  position: relative;
+  height: var(--dw-height, 460px);
+  overflow: hidden;
+  perspective: 1200px;
+  contain: layout paint;
+}
+
+.drift-wall--fade {
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* Düzlem, kutudan taşacak kadar büyük; eğildiğinde köşeler boş kalmaz. */
+.drift-wall__plane {
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  top: -40%;
+  bottom: -40%;
+  display: grid;
+  gap: var(--dw-gap, 16px);
+  transform: rotateX(var(--dw-tilt-x, 22deg)) rotateZ(var(--dw-tilt-z, -12deg));
+  transform-style: preserve-3d;
+}
+
+.drift-wall__col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  animation: drift-wall-down var(--dw-duration, 38s) linear infinite;
+  will-change: transform;
+}
+
+.drift-wall__col--up {
+  animation-name: drift-wall-up;
+}
+
+.drift-wall__track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dw-gap, 16px);
+  padding-bottom: var(--dw-gap, 16px);
+}
+
+.drift-wall__item {
+  min-width: 0;
+  transition: transform 0.35s ease;
+}
+
+.drift-wall--hover:hover .drift-wall__col,
+.drift-wall--paused .drift-wall__col {
+  animation-play-state: paused;
+}
+
+@keyframes drift-wall-down {
+  from { transform: translate3d(0, -50%, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes drift-wall-up {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, -50%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift-wall__col { animation: none; }
+}

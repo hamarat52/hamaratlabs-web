@@ -123,6 +123,9 @@ h3 { margin: 0; font-weight: 800; }
   border-bottom: 2px solid var(--lime);
 }
 .more:hover { border-bottom-color: var(--ink); }
+/* Alt çizgi yerinde kalsın; dokunma alanı görünmez katmanla 44px */
+.more { position: relative; }
+.more::before { content: ''; position: absolute; inset: -8px 0; }
 
 /* ---------- Hero ---------- */
 /* ---------- İlk ekran: nefes alanı ---------- */
@@ -419,6 +422,8 @@ mark {
 .footer__nav div { display: flex; flex-direction: column; gap: 10px; }
 .footer__nav a { text-decoration: none; font-weight: 700; }
 .footer__nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+/* Dokunma alanı 44px; negatif margin satır aralığını korur */
+.footer__nav a { padding: 9px 0; margin: -9px 0; }
 .footer__bottom {
   display: flex;
   flex-wrap: wrap;
@@ -470,7 +475,11 @@ mark {
 .card__info { flex: 1; display: flex; flex-direction: column; gap: 8px; padding: 0 22px 22px; min-width: 0; font-family: 'Geist', var(--font); }
 .card--big .card__info { padding: 36px 36px 32px 0; justify-content: center; }
 .card__info h3 { font-family: 'Geist', var(--font); font-weight: 600; font-size: 20px; letter-spacing: -0.02em; line-height: 1.15; }
-.card--big .card__info h3 { font-size: 36px; }
+.card--big .card__info h3 { font-size: clamp(28px, 3.2vw, 36px); }
+/* Uzun tek kelimelik ad kart sınırını aşmasın */
+.card__info h3 { overflow-wrap: anywhere; }
+/* Kart içeriğe göre uzasın; iç kaydırma/kesik alt satır olmasın */
+.card .border-glow-inner { overflow: visible; }
 .card__info p { margin: 0; font-size: 14.5px; line-height: 1.5; color: #4a4f57; }
 .card--big .card__info p { font-size: 17px; max-width: 30em; }
 .card__stage { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--muted); }
@@ -492,10 +501,14 @@ mark {
   font-weight: 600;
   text-decoration: none;
 }
-@media (max-width: 1100px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* .cards--big kuralları .cards'tan sonra gelmeli; yoksa büyük kartlar dar sütuna sıkışır */
+@media (max-width: 1100px) {
+  .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cards--big { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 760px) {
-  .cards--big { grid-template-columns: minmax(0, 1fr); }
   .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards--big { grid-template-columns: minmax(0, 1fr); }
   .card--big .card__body { flex-direction: column; }
   .card--big .card__logo { min-height: 200px; }
   .card--big .card__info { padding: 0 24px 24px; }
@@ -589,9 +602,10 @@ mark {
 .grounds button:hover { color: var(--muted); }
 .grounds button[aria-pressed='true'] { color: var(--ink); }
 .tints button {
+  position: relative;
   width: 22px;
   height: 22px;
-  margin: 5px;
+  margin: 11px;
   padding: 0;
   border: 0;
   border-radius: 50%;
@@ -602,6 +616,14 @@ mark {
 }
 .tints button:hover { opacity: 0.7; }
 .tints button[aria-pressed='true'] { filter: none; opacity: 1; transform: scale(1.15); }
+/* Dokunma alanı ≥44×44: görünen daire/ikon aynı boyutta kalır, görünmez halka tıklanabilir */
+.grounds button { position: relative; }
+.grounds button::before,
+.tints button::before { content: ''; position: absolute; border-radius: 50%; }
+.grounds button::before { inset: -2px; }
+.tints button::before { inset: -11px; }
+.tints button[aria-pressed='true']::before { inset: -10px; }
+.tints { gap: 0; }
 
 /* Aşağı oku */
 .breath__down {
@@ -612,6 +634,8 @@ mark {
   transition: opacity 0.2s ease;
 }
 .breath__down:hover { opacity: 1; }
+/* Ok küçük; dokunma alanı padding ile 44×44, negatif margin yerleşimi korur */
+.breath__down { padding: 4px 13px; margin: -4px -13px; }
 .breath__down-line { stroke-dasharray: 10 40; animation: down-run 1.8s cubic-bezier(0.6, 0, 0.4, 1) infinite; }
 @keyframes down-run {
   from { stroke-dashoffset: 10; }
@@ -658,6 +682,13 @@ mark {
 }
 .apppage__dl.is-off { background: #e8e3d7; color: var(--muted); }
 .apppage__platform { font-size: 14px; color: var(--muted); letter-spacing: 0.02em; }
+.apppage__dodge { flex: 1 1 260px; max-width: 420px; }
+/* Puan + sosyal eylemler: başlık bloğunun altında tek şerit, dar ekranda alt alta. */
+.apppage__extras { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px 48px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); font-family: 'Geist', var(--font); }
+.apppage__rating { flex: 0 1 auto; min-width: 0; }
+.apppage__social { display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; }
+.apppage__social-item { display: inline-flex; align-items: center; gap: 14px; }
+.apppage__social-label { font-size: 14px; color: var(--muted); letter-spacing: 0.02em; }
 .apppage__points { padding-top: 72px; padding-bottom: 96px; font-family: 'Geist', var(--font); }
 .apppage__points h2 { font-family: 'Geist', var(--font); font-weight: 600; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
 .apppage__points ul { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }
@@ -665,6 +696,43 @@ mark {
 .channel--off { opacity: 0.55; cursor: default; }
 .topbar__contact { padding: 2px 12px; margin: -2px 0; border: 1.5px solid var(--ink); border-radius: 999px; }
 .topbar__contact:hover { background: var(--ink); color: var(--ivory); text-decoration: none !important; }
+
+/* ---------- Mobil menü ---------- */
+/* Düğme yalnız yatay nav'ın gizlendiği dar ekranda görünür */
+.topbar__menu {
+  display: none;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+@media (max-width: 620px) {
+  .topbar__menu { display: inline-flex; }
+  .topbar--open .topbar__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px var(--gutter) 16px;
+    background: var(--ivory);
+    border-bottom: 1px solid var(--line);
+    font-size: 17px;
+  }
+  .topbar--open .topbar__nav a { display: flex; align-items: center; min-height: 48px; }
+  .topbar--open .topbar__nav a + a { border-top: 1px solid var(--line); }
+  /* Aktif sayfa vurgusu gutter dışına taşmasın */
+  .topbar--open .topbar__nav a[aria-current='page'] { margin: 0 -10px; padding: 0 10px; }
+  .topbar--open .topbar__nav a.topbar__contact { align-self: flex-start; min-height: 44px; margin: 12px 0 0; padding: 0 18px; border-top-color: var(--ink); }
+}
 
 /* Yorumlar */
 .comments { padding-top: 24px; padding-bottom: 96px; font-family: 'Geist', var(--font); }
@@ -717,3 +785,39 @@ mark {
 }
 .insta__link span:first-child { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .insta__link:hover { color: var(--ink); }
+/* Dokunma alanı 44px; negatif margin satırın yerini korur */
+.insta__link { min-height: 44px; margin: -11px 0; }
+
+/* Açılış: ipe asılı hamaratlabs kartı (Lanyard). Zeminin üstünde, seçicilerin altında. */
+.breath__lanyard { z-index: 1; }
+@media (max-width: 620px) {
+  .breath__lanyard .lanyard__meta { font-size: 9px; padding: 8px 10px; }
+  .breath__lanyard .lanyard__body { padding: 34px 12px 6px; }
+}
+
+/* Uygulamalar ile Paylaşıyorum arası: süzülen ikon duvarı (Drift Wall) */
+.labwall { background: var(--ivory); overflow: hidden; }
+.labwall__tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 10px 14px;
+  border-radius: 20px;
+  background: #f4f1e9;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  font-family: 'Geist', var(--font);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+.labwall__tile span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Anlatıyorum başlığının yanında kristal küre (Crystalized Ball) */
+.section__head > .series__ball { flex: 0 0 auto; width: clamp(120px, 14vw, 180px); height: clamp(120px, 14vw, 180px); align-self: center; }
+@media (max-width: 620px) { .section__head > .series__ball { width: 112px; height: 112px; align-self: flex-start; } }
+
+/* Alt bilgi: logo satırının üstünde hafif ışık iplikleri (Strands) */
+.footer__strands { height: clamp(140px, 16vw, 220px); margin-top: 8px; pointer-events: auto; }
