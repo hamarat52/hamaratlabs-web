@@ -393,8 +393,18 @@ export default function ShareSling({
       </SlingButton>
 
       <MotionSpan className="share-sling__cue" style={{ x: lx, y: ly }} aria-hidden="true">
-        <span className="share-sling__cue-text" data-show={pulling ? '' : undefined}>
-          {phase === 'armed' ? 'Bırak' : 'Çek'}
+        {/* Metin yalnız etkileşimde: hover/odakta kısa ipucu (CSS), çekerken hedef platform.
+            Absolute konumlu → görünüp kaybolurken çevredeki öğeler kaymaz. */}
+        <span
+          className="share-sling__cue-text"
+          data-show={pulling ? '' : undefined}
+          data-hint={phase === 'idle' ? '' : undefined}
+        >
+          {phase === 'idle'
+            ? 'Basılı tut, çek'
+            : phase === 'armed' && target && PLATFORMS[target]
+              ? `Bırak → ${PLATFORMS[target].label}`
+              : 'Çek'}
         </span>
       </MotionSpan>
 

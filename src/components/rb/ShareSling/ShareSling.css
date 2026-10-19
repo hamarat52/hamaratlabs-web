@@ -197,6 +197,22 @@
   transform: translate(-50%, 0) scale(1);
 }
 
+/* Boştayken ipucu yalnız hover'da belirir (metin yer kaplamaz). */
+.share-sling__cue-text[data-hint] {
+  color: var(--ss-ivory);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .share-sling:hover .share-sling__cue-text[data-hint] {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    transition-delay: 180ms;
+  }
+}
+
 /* --- Bilgi notu --- */
 .share-sling__toast {
   position: absolute;

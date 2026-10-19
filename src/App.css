@@ -688,7 +688,6 @@ mark {
 .apppage__rating { flex: 0 1 auto; min-width: 0; }
 .apppage__social { display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; }
 .apppage__social-item { display: inline-flex; align-items: center; gap: 14px; }
-.apppage__social-label { font-size: 14px; color: var(--muted); letter-spacing: 0.02em; }
 .apppage__points { padding-top: 72px; padding-bottom: 96px; font-family: 'Geist', var(--font); }
 .apppage__points h2 { font-family: 'Geist', var(--font); font-weight: 600; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
 .apppage__points ul { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }

@@ -64,12 +64,10 @@ export default function AppPage({ app }) {
             {repo && (
               <span className="apppage__social-item">
                 <PulseHeart repoOwner={repo.owner} repoName={repo.name} />
-                <span className="apppage__social-label">GitHub'da yıldızla</span>
               </span>
             )}
             <span className="apppage__social-item apppage__share">
               <ShareSling shareUrl={pageUrl(slug)} shareText={app.name} ariaLabel={`${app.name} sayfasını paylaş`} />
-              <span className="apppage__social-label">Paylaş: basılı tut, çek, bırak</span>
             </span>
           </div>
         </div>

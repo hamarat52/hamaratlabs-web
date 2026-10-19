@@ -58,40 +58,40 @@ export default function ProductRating({ productSlug, tone = 'ivory', size = 28, 
     const saved = writeRating(key, next);
     setState({ key, value: next });
     let message = next > 0 ? 'Teşekkürler!' : 'Puanın kaldırıldı';
-    if (!saved && next > 0) message = 'Teşekkürler! (bu tarayıcıda saklanamadı)';
+    if (!saved && next > 0) message = 'Kaydedilemedi';
     setFeedback(message);
     clearTimeout(timer.current);
     timer.current = setTimeout(() => setFeedback(''), FEEDBACK_MS);
   };
 
   const colors = TONES[tone] || TONES.ivory;
+  const noteId = `product-rating-note-${productSlug}`;
 
+  // Görünür metin yok: yıldızlar kendini anlatır, etiket hover'da PeekRating balonunda çıkar.
+  // "Teşekkürler" absolute konumlanır → görünüp kaybolurken hiçbir öğe kaymaz.
   return (
-    <div className={`product-rating product-rating--${TONES[tone] ? tone : 'ivory'}${className ? ` ${className}` : ''}`}>
-      <div className="product-rating__head">
-        <span className="product-rating__label">Senin puanın</span>
-        <span className="product-rating__value" data-empty={value === 0}>
-          {value > 0 ? `${value}/${COUNT} · ${LABELS[value - 1]}` : 'Henüz puan vermedin'}
-        </span>
-      </div>
-      <div className="product-rating__body">
-        <PeekRating
-          value={value}
-          onChange={handleChange}
-          count={COUNT}
-          labels={LABELS}
-          size={size}
-          activeColor={colors.active}
-          idleColor={colors.idle}
-          tipColor={colors.tip}
-          tipTextColor={colors.tipText}
-          ariaLabel="Senin puanın"
-        />
-        <span className="product-rating__thanks" role="status" aria-live="polite" data-show={feedback !== ''}>
-          {feedback}
-        </span>
-      </div>
-      <p className="product-rating__note">Puanın yalnız bu tarayıcıda saklanır, kimseyle paylaşılmaz.</p>
+    <div
+      className={`product-rating product-rating--${TONES[tone] ? tone : 'ivory'}${className ? ` ${className}` : ''}`}
+      aria-describedby={noteId}
+    >
+      <PeekRating
+        value={value}
+        onChange={handleChange}
+        count={COUNT}
+        labels={LABELS}
+        size={size}
+        activeColor={colors.active}
+        idleColor={colors.idle}
+        tipColor={colors.tip}
+        tipTextColor={colors.tipText}
+        ariaLabel={value > 0 ? `Senin puanın: ${value}/${COUNT}` : 'Puan ver'}
+      />
+      <span className="product-rating__thanks" role="status" aria-live="polite" data-show={feedback !== ''}>
+        {feedback}
+      </span>
+      <span id={noteId} className="product-rating__sr">
+        Puanın yalnız bu tarayıcıda saklanır, kimseyle paylaşılmaz.
+      </span>
     </div>
   );
 }
