@@ -1,0 +1,24 @@
+.crystal-ball {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+}
+
+.crystal-ball canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* WebGL yoksa: düz CSS küre */
+.crystal-ball--fallback::before {
+  content: '';
+  position: absolute;
+  inset: 7%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.9) 0 6%, transparent 14%),
+    conic-gradient(from 30deg, var(--cb-color, #b6e04a), var(--cb-ink, #101317), var(--cb-color, #b6e04a), #fffdf8, var(--cb-color, #b6e04a));
+  box-shadow: 0 0 40px color-mix(in srgb, var(--cb-color, #b6e04a) 40%, transparent);
+}

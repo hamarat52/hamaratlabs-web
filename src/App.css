@@ -717,3 +717,37 @@ mark {
 }
 .insta__link span:first-child { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .insta__link:hover { color: var(--ink); }
+
+/* Açılış: ipe asılı hamaratlabs kartı (Lanyard). Zeminin üstünde, seçicilerin altında. */
+.breath__lanyard { z-index: 1; }
+@media (max-width: 620px) {
+  .breath__lanyard .lanyard__meta { font-size: 9px; padding: 8px 10px; }
+  .breath__lanyard .lanyard__body { padding: 34px 12px 6px; }
+}
+
+/* Uygulamalar ile Paylaşıyorum arası: süzülen ikon duvarı (Drift Wall) */
+.labwall { background: var(--ivory); overflow: hidden; }
+.labwall__tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 10px 14px;
+  border-radius: 20px;
+  background: #f4f1e9;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  font-family: 'Geist', var(--font);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+.labwall__tile span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Anlatıyorum başlığının yanında kristal küre (Crystalized Ball) */
+.section__head > .series__ball { flex: 0 0 auto; width: clamp(120px, 14vw, 180px); height: clamp(120px, 14vw, 180px); align-self: center; }
+@media (max-width: 620px) { .section__head > .series__ball { width: 112px; height: 112px; align-self: flex-start; } }
+
+/* Alt bilgi: logo satırının üstünde hafif ışık iplikleri (Strands) */
+.footer__strands { height: clamp(140px, 16vw, 220px); margin-top: 8px; pointer-events: auto; }
