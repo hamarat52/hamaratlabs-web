@@ -267,6 +267,9 @@ const PaperCrumple = ({
   seed = 7,
   detail = 64,
   disabled = false,
+  // Programatik buruşturma: true olunca kâğıt (hazır olduğunda) basılı tutulmuş gibi
+  // animasyonla buruşur, false olunca bırakılır. Varsayılan davranışı değiştirmez.
+  crumpled = false,
   resetKey = 0,
   onStateChange,
   onError,
@@ -279,6 +282,7 @@ const PaperCrumple = ({
   const hitRef = useRef(null);
   const resetRef = useRef(null);
   const cancelRef = useRef(null);
+  const startRef = useRef(null);
   const [status, setStatus] = useState('loading');
   const options = useRef({
     releaseBehavior,
@@ -786,6 +790,9 @@ const PaperCrumple = ({
     }
     resetRef.current = reset;
     cancelRef.current = () => finish(true);
+    startRef.current = () => {
+      if (!held) start();
+    };
     function start() {
       held = true;
       peak = amount.value;
@@ -1014,7 +1021,7 @@ const PaperCrumple = ({
       disposed = true;
       cancelAnimationFrame(frame);
       if (pointerId !== null && hit.hasPointerCapture(pointerId)) hit.releasePointerCapture(pointerId);
-      resetRef.current = cancelRef.current = null;
+      resetRef.current = cancelRef.current = startRef.current = null;
       observer.disconnect();
       intersectionObserver.disconnect();
       hit.removeEventListener('pointerdown', pointerDown);
@@ -1067,6 +1074,11 @@ const PaperCrumple = ({
   useEffect(() => {
     if (disabled) cancelRef.current?.();
   }, [disabled]);
+  useEffect(() => {
+    if (status !== 'ready') return;
+    if (crumpled) startRef.current?.();
+    else cancelRef.current?.();
+  }, [crumpled, status]);
   const shadowFilter = shadow
     ? `drop-shadow(0 6px 10px rgb(0 0 0 / ${clamp(finite(shadowOpacity, 0.08), 0, 1)}))`
     : undefined;
