@@ -138,13 +138,35 @@ function Header({ path }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, [path]);
 
+  // Dar ekranda yatay menü gizli; düğmeyle açılan panel aynı linkleri gösterir.
+  const [open, setOpen] = useState(false);
+  useEffect(() => setOpen(false), [path]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = e => e.key === 'Escape' && setOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
   return (
-    <header className={`topbar${clear ? ' topbar--clear' : ''}`}>
+    <header className={`topbar${clear && !open ? ' topbar--clear' : ''}${open ? ' topbar--open' : ''}`}>
       <div className="wrap topbar__row">
         <Link to="/" aria-label="hamaratlabs ana sayfa">
           <img src={asset('/brand/hamaratlabs-logo-main.svg')} alt="hamaratlabs" className="topbar__logo" />
         </Link>
-        <nav aria-label="Ana menü" className="topbar__nav">
+        <button
+          type="button"
+          className="topbar__menu"
+          aria-expanded={open}
+          aria-controls="ana-menu"
+          aria-label={open ? 'Menüyü kapat' : 'Menüyü aç'}
+          onClick={() => setOpen(o => !o)}
+        >
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" {...ICON}>
+            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+          </svg>
+        </button>
+        <nav id="ana-menu" aria-label="Ana menü" className="topbar__nav" onClick={e => e.target.closest('a') && setOpen(false)}>
           {tabs.map(([to, label]) => (
             <Link key={to} to={to} aria-current={path === to || path.startsWith(`${to}/`) ? 'page' : undefined}>
               {label}

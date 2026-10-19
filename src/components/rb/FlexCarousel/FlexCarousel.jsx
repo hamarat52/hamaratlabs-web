@@ -5,6 +5,18 @@ import { Renderer, Program, Mesh, Triangle, Plane, Texture, RenderTarget } from 
 
 import './FlexCarousel.css';
 
+// hamaratlabs: captureWheel={false} iken sayfa kaydırmasını kesmemek için yatay
+// tespit sıkı tutulur. dx, dy'nin bu katını aşmadıkça olay sayfaya bırakılır;
+// trackpad'in dikey kaydırmadaki doğal ±birkaç px yatay titreşimi galeriyi tetiklemez.
+const PASSIVE_WHEEL_AXIS_RATIO = 1.5;
+// Dikey bir jest sürerken (son dikey olaydan bu kadar ms geçmeden) gelen olaylar
+// oran ne olursa olsun dikey sayılır; tek karelik dx > dy gürültüsü kaydırmayı kesmez.
+const PASSIVE_WHEEL_AXIS_LOCK_MS = 250;
+// |dx| bu eşiğin (px) altındaysa yeni bir yatay jest başlatılmaz; yavaş/zor dikey
+// kaydırmada dy 1-4 iken gelen ±5 px yatay titreşim galeriyi tetiklemez. Süren bir
+// yatay jestin küçük kareleri (yavaşlama/momentum kuyruğu) yatay kalmaya devam eder.
+const PASSIVE_WHEEL_MIN_DX = 8;
+
 const photo = id => `https://images.unsplash.com/${id}?w=1200&q=80&auto=format&fit=max`;
 
 const DEFAULT_ITEMS = [
@@ -425,6 +437,8 @@ const FlexCarousel = ({
     let goal = 0;
     let mode = 'spring';
     let wheelAt = 0;
+    let verticalWheelAt = -Infinity;
+    let horizontalWheelAt = -Infinity;
     let raf = 0;
     let last = performance.now();
     let visible = true;
@@ -1124,8 +1138,24 @@ const FlexCarousel = ({
         dy = 0;
       }
       const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? height : 1;
-      const horizontal = Math.abs(dx) > Math.abs(dy);
-      if (!horizontal && !s.captureWheel) return;
+      let horizontal;
+      if (s.captureWheel) {
+        horizontal = Math.abs(dx) > Math.abs(dy);
+      } else {
+        const now = performance.now();
+        const inVerticalGesture = !e.shiftKey && now - verticalWheelAt < PASSIVE_WHEEL_AXIS_LOCK_MS;
+        const inHorizontalGesture = now - horizontalWheelAt < PASSIVE_WHEEL_AXIS_LOCK_MS;
+        const horizontalShape = Math.abs(dx) > Math.abs(dy) * PASSIVE_WHEEL_AXIS_RATIO;
+        const tinyDx = !e.shiftKey && !inHorizontalGesture && Math.abs(dx) * unit < PASSIVE_WHEEL_MIN_DX;
+        horizontal = !inVerticalGesture && horizontalShape && !tinyDx;
+        if (!horizontal) {
+          // Yalnız dikey jest kanıtı varken kilidi tazele; küçük karelerle başlayan
+          // gerçek bir yatay jest kendini dikey kilide sokmasın.
+          if (!horizontalShape || inVerticalGesture) verticalWheelAt = now;
+          return;
+        }
+        horizontalWheelAt = now;
+      }
       e.preventDefault();
       skipIntro();
       interactedAt = performance.now();
@@ -1242,7 +1272,13 @@ const FlexCarousel = ({
     <div
       ref={containerRef}
       className={`flex-carousel ${className}`.trim()}
-      style={{ ...style, '--flex-carousel-half': `${Math.min(Math.max(cardHeight, 0.05), 1) * 50}%` }}
+      style={{
+        // hamaratlabs: captureWheel={false} iken CSS'teki overscroll-behavior:contain,
+        // galeri üzerindeki dikey wheel'in sayfaya zincirlenmesini keser; sayfaya bırak.
+        ...(captureWheel ? null : { overscrollBehavior: 'auto' }),
+        ...style,
+        '--flex-carousel-half': `${Math.min(Math.max(cardHeight, 0.05), 1) * 50}%`
+      }}
       role="region"
       aria-roledescription="carousel"
       aria-label="Image carousel"
