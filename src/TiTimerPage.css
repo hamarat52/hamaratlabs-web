@@ -1,0 +1,278 @@
+/* ---------- tiTimer sayfası ----------
+   Çerçeve hamaratlabs'ın koyu Ink zemini; içerik tiTimer'ın kağıt/teal/mercan dilinde.
+   Tüm sınıflar .tt önekli: genel şablona ve diğer sayfalara sızmaz. */
+
+.tt {
+  --tt-teal: #2f6d7c;
+  --tt-teal-dark: #245766;
+  --tt-coral: #f17d68;
+  --tt-coral-dark: #d9604c;
+  --tt-paper: #f8f7f3;
+  --tt-cream: #fcfbf7;
+  --tt-ink: #1d3a42;
+  --tt-mist: #a9ccd3;
+  --tt-blush: #f7c2b5;
+  --tt-sand: #eedfc2;
+  --tt-hand: 'Kalam', 'Comic Sans MS', cursive;
+  --tt-round: 'Nunito', 'Geist', var(--font);
+}
+
+.tt-stage {
+  background: var(--ink);
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 253, 248, 0.07) 1px, transparent 0);
+  background-size: 22px 22px;
+  padding: 40px 0 88px;
+  overflow: hidden;
+}
+
+.tt-back {
+  display: inline-block;
+  margin-bottom: 28px;
+  font-family: 'Geist', var(--font);
+  font-size: 15px;
+  color: var(--muted-dark);
+  text-decoration: none;
+}
+.tt-back:hover { color: var(--lime); }
+
+/* Kağıt yaprak: hafif doku, yumuşak köşe, sıcak gölge */
+.tt-sheet {
+  position: relative;
+  background-color: var(--tt-paper);
+  background-image:
+    radial-gradient(ellipse 60% 50% at 92% 8%, rgba(247, 194, 181, 0.55), transparent 70%),
+    radial-gradient(ellipse 55% 45% at 4% 96%, rgba(169, 204, 211, 0.5), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(29, 58, 66, 0.035) 0 1px, transparent 1px 30px);
+  color: var(--tt-ink);
+  border-radius: 32px;
+  box-shadow: 0 1px 0 rgba(255, 253, 248, 0.6) inset, 0 30px 80px -30px rgba(0, 0, 0, 0.6);
+  font-family: var(--tt-round);
+}
+
+/* ---------- Kahraman ---------- */
+.tt-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 40px;
+  padding: clamp(28px, 5vw, 64px);
+}
+
+.tt-hero__intro { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; min-width: 0; }
+
+.tt-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 10px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--ivory);
+  font-family: 'Geist', var(--font);
+  font-size: 13px;
+  font-weight: 500;
+}
+.tt-pill::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); }
+
+.tt-hero__name { display: flex; align-items: center; gap: 16px; }
+.tt-hero__name h1 {
+  margin: 0;
+  font-family: var(--tt-round);
+  font-weight: 800;
+  font-size: clamp(48px, 7vw, 92px);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--tt-teal-dark);
+}
+
+.tt-hero__short {
+  margin: 0;
+  font-family: var(--tt-hand);
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.2;
+  color: var(--tt-coral-dark);
+  transform: rotate(-1.5deg);
+}
+
+.tt-hero__lead { margin: 4px 0 0; max-width: 30em; font-size: 19px; line-height: 1.55; color: #3d5960; }
+
+.tt-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 10px; }
+
+.tt-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  background: var(--tt-teal);
+  color: var(--tt-cream);
+  font-weight: 700;
+  font-size: 17px;
+  text-decoration: none;
+  box-shadow: 0 4px 0 var(--tt-teal-dark);
+}
+.tt-btn.is-off {
+  background: var(--tt-cream);
+  color: var(--tt-teal);
+  border: 2px dashed var(--tt-mist);
+  box-shadow: none;
+}
+.tt-hero__platform { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; color: #6b8187; }
+
+.tt-hero__device { display: flex; justify-content: center; min-width: 0; }
+
+/* ---------- Telefon taslağı ---------- */
+.tt-phone {
+  width: min(300px, 100%);
+  padding: 10px;
+  border-radius: 46px;
+  background: var(--ink);
+  box-shadow: 0 0 0 1.5px var(--ink-line), 0 24px 48px -16px rgba(29, 58, 66, 0.55);
+  transform: rotate(2.5deg);
+}
+.tt-phone__screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 40px 18px 22px;
+  border-radius: 37px;
+  background: var(--tt-cream);
+  background-image: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(169, 204, 211, 0.45), transparent 70%);
+  overflow: hidden;
+}
+.tt-phone__notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 84px;
+  height: 22px;
+  margin-left: -42px;
+  border-radius: 999px;
+  background: var(--ink);
+}
+
+.tt-app__bar { display: flex; align-items: center; justify-content: space-between; }
+.tt-app__title { font-family: var(--tt-hand); font-weight: 700; font-size: 24px; color: var(--tt-teal-dark); }
+.tt-app__chip {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--tt-blush);
+  color: var(--tt-coral-dark);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tt-focus { display: flex; justify-content: center; }
+.tt-focus__ring { position: relative; width: 132px; height: 132px; }
+.tt-focus__center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tt-focus__time {
+  font-family: var(--tt-round);
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: var(--tt-ink);
+  font-variant-numeric: tabular-nums;
+}
+.tt-focus__cap { font-family: var(--tt-hand); font-size: 14px; color: var(--tt-coral-dark); }
+
+.tt-ring__track { fill: none; stroke: var(--tt-sand); }
+.tt-ring__fill { fill: none; stroke: var(--tt-coral); stroke-linecap: round; transition: stroke-dashoffset 0.9s linear; }
+
+/* Sayaç listesi (telefon ve sahnelerde ortak) */
+.tt-timers { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.tt-timer {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1.5px solid rgba(29, 58, 66, 0.08);
+  font-weight: 700;
+  font-size: 15px;
+}
+.tt-timer__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--tt-sand); }
+.tt-timer--teal .tt-timer__dot { background: var(--tt-teal); }
+.tt-timer--coral .tt-timer__dot { background: var(--tt-coral); }
+.tt-timer.is-on .tt-timer__dot { animation: tt-pulse 2s ease-in-out infinite; }
+.tt-timer__label { color: var(--tt-ink); }
+.tt-timer__time { color: var(--tt-teal-dark); font-variant-numeric: tabular-nums; }
+.tt-timer:not(.is-on) .tt-timer__time { color: #9aaaae; }
+
+@keyframes tt-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(241, 125, 104, 0.45); }
+  50% { box-shadow: 0 0 0 5px rgba(241, 125, 104, 0); }
+}
+
+/* Haftalık çubuklar */
+.tt-app__week { padding: 12px 14px 10px; border-radius: 20px; background: var(--tt-paper); }
+.tt-app__weekcap { display: block; margin-bottom: 6px; font-family: var(--tt-hand); font-size: 15px; color: var(--tt-teal); }
+.tt-week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; align-items: end; height: 76px; }
+.tt-week__col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%; }
+.tt-week__bar {
+  width: 100%;
+  max-width: 22px;
+  height: calc(var(--h) * 100% - 18px);
+  min-height: 6px;
+  border-radius: 8px 8px 4px 4px;
+  background: var(--tt-mist);
+}
+.tt-week__col.is-today .tt-week__bar { background: var(--tt-coral); }
+.tt-week__day { font-size: 11px; font-weight: 700; color: #6b8187; }
+
+/* ---------- Neler yapar: defter notları ---------- */
+.tt-notes { margin-top: 28px; padding: clamp(28px, 5vw, 56px); }
+.tt-notes__title {
+  margin: 0 0 24px;
+  font-family: var(--tt-hand);
+  font-weight: 700;
+  font-size: clamp(30px, 3.6vw, 44px);
+  color: var(--tt-teal-dark);
+}
+.tt-notes__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.tt-note {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  padding: 22px 22px 24px;
+  border-radius: 24px;
+  background: var(--tt-cream);
+  border: 1.5px solid rgba(29, 58, 66, 0.08);
+}
+.tt-note:nth-child(1) { transform: rotate(-0.8deg); }
+.tt-note:nth-child(2) { transform: rotate(0.6deg); background: #fff6f2; }
+.tt-note:nth-child(3) { transform: rotate(-0.4deg); background: #f2f8f8; }
+.tt-note__num { font-family: var(--tt-hand); font-weight: 700; font-size: 20px; color: var(--tt-coral); }
+.tt-note__text { margin: 0; font-weight: 800; font-size: clamp(20px, 2vw, 24px); line-height: 1.2; letter-spacing: -0.01em; color: var(--tt-ink); }
+.tt-note__scene { margin-top: auto; padding-top: 12px; display: flex; justify-content: center; }
+.tt-scene-ring { position: relative; display: grid; place-items: center; }
+.tt-scene-ring > * { grid-area: 1 / 1; }
+.tt-note .tt-week { width: 100%; height: 120px; }
+
+/* ---------- Duyarlı ---------- */
+@media (max-width: 900px) {
+  .tt-hero { grid-template-columns: minmax(0, 1fr); }
+  .tt-notes__list { grid-template-columns: minmax(0, 1fr); }
+  .tt-note { transform: none !important; }
+}
+@media (max-width: 520px) {
+  .tt-stage { padding: 24px 0 56px; }
+  .tt-sheet { border-radius: 24px; }
+  .tt-hero__name { gap: 12px; }
+  .tt-hero__name .appicon, .tt-hero__name > :first-child { flex: none; }
+  .tt-phone { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tt-timer.is-on .tt-timer__dot { animation: none; }
+  .tt-ring__fill { transition: none; }
+}
