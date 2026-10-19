@@ -683,9 +683,8 @@ mark {
 .apppage__dl.is-off { background: #e8e3d7; color: var(--muted); }
 .apppage__platform { font-size: 14px; color: var(--muted); letter-spacing: 0.02em; }
 .apppage__dodge { flex: 1 1 260px; max-width: 420px; }
-/* Puan + sosyal eylemler: başlık bloğunun altında tek şerit, dar ekranda alt alta. */
-.apppage__extras { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px 48px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); font-family: 'Geist', var(--font); }
-.apppage__rating { flex: 0 1 auto; min-width: 0; }
+/* Sosyal eylemler: başlık bloğunun altında tek şerit, dar ekranda alt alta. */
+.apppage__extras { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 32px 48px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); font-family: 'Geist', var(--font); }
 .apppage__social { display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; }
 .apppage__social-item { display: inline-flex; align-items: center; gap: 14px; }
 .apppage__points { padding-top: 72px; padding-bottom: 96px; font-family: 'Geist', var(--font); }

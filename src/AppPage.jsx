@@ -2,7 +2,6 @@ import AppIcon from './AppIcon';
 import { Link } from './nav';
 import Comments from './Comments';
 import { slugOf } from './data';
-import ProductRating from './components/rb/ProductRating/ProductRating';
 import PulseHeart from './components/rb/PulseHeart/PulseHeart';
 import ShareSling from './components/rb/ShareSling/ShareSling';
 import DodgeField from './components/rb/DodgeField/DodgeField';
@@ -59,7 +58,6 @@ export default function AppPage({ app }) {
         </div>
 
         <div className="apppage__extras">
-          <ProductRating productSlug={slug} className="apppage__rating" />
           <div className="apppage__social">
             {repo && (
               <span className="apppage__social-item">

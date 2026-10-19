@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, useMotionTemplate, useMotionValue, useReducedMotion } from 'motion/react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import {
@@ -33,6 +34,91 @@ const enc = encodeURIComponent;
 const stripUrl = (text, url) => (url ? text.split(url).join(' ') : text).replace(/\s+/g, ' ').trim();
 const withUrl = (text, url) => (!url || text.includes(url) ? text.trim() : `${text} ${url}`.trim());
 const angDiff = (a, b) => Math.abs(Math.atan2(Math.sin(a - b), Math.cos(a - b)));
+
+// --- Halka yerleşimi: viewport kenarına yakınken ikonlar ekran dışına taşmasın ---
+const EDGE = 8; // viewport kenarından bırakılacak boşluk (px)
+const CHIP = 44; // .share-sling__chip çapı (CSS --ss-chip ile aynı)
+const CHIP_HALF = (CHIP / 2) * 1.16 + 6; // seçili hâldeki büyüme + lime halka payı
+const LABEL_BELOW = 6 + 20; // isim etiketi chip'in altında
+const SAMPLES = 180; // 2° çözünürlük
+
+const evenRing = (n, r) =>
+  Array.from({ length: n }, (_, i) => {
+    const a = -Math.PI / 2 + (i * TAU) / n;
+    return { a, x: r * Math.cos(a), y: r * Math.sin(a) };
+  });
+
+/*
+ * Basış anında ölçülen merkez (cx, cy) için halkayı viewport'a sığdırır:
+ * 1) Tam halka (varsayılan yarıçaptan, gerekirse %75'ine kadar küçülterek),
+ * 2) olmazsa ikonları açık taraftaki en geniş yaya (sırayı koruyarak) dizer;
+ *    yarıçap pad'e çarpmayacak alt sınıra kadar küçülebilir.
+ * Açılar korunur → "fırlatma yönüne en yakın ikon" seçimi aynı mantıkla çalışır.
+ */
+function fitRing(n, base, size, { cx, cy, vw, vh, labelHalf }) {
+  const hx = Math.max(CHIP_HALF, labelHalf);
+  const fits = (r, a) => {
+    const x = cx + r * Math.cos(a);
+    const y = cy + r * Math.sin(a);
+    return x - hx >= EDGE && x + hx <= vw - EDGE && y - CHIP_HALF >= EDGE && y + CHIP_HALF + LABEL_BELOW <= vh - EDGE;
+  };
+  const minR = Math.min(base, size / 2 + CHIP / 2 + 16);
+  const radii = [];
+  for (let r = base; r > minR; r -= 4) radii.push(r);
+  radii.push(minR);
+
+  for (const r of radii) {
+    if (r < base * 0.75) break;
+    const pts = evenRing(n, r);
+    if (pts.every(p => fits(r, p.a))) return { r, pts };
+  }
+
+  let best = null;
+  for (const r of radii) {
+    const ok = Array.from({ length: SAMPLES }, (_, k) => fits(r, (k * TAU) / SAMPLES));
+    if (ok.every(Boolean)) return { r, pts: evenRing(n, r) };
+    // Dairesel olarak en uzun izinli açı dizisi
+    let runStart = -1;
+    let runLen = 0;
+    let curStart = 0;
+    let cur = 0;
+    for (let k = 0; k < SAMPLES * 2; k++) {
+      if (ok[k % SAMPLES]) {
+        if (cur === 0) curStart = k;
+        cur += 1;
+        if (cur > runLen && cur <= SAMPLES) {
+          runLen = cur;
+          runStart = curStart;
+        }
+      } else cur = 0;
+    }
+    if (runLen === 0) continue;
+    const step = TAU / SAMPLES;
+    const span = (runLen - 1) * step;
+    const need = n > 1 ? (n - 1) * 2 * Math.asin(Math.min(1, (CHIP + 12) / (2 * r))) : 0;
+    const cand = { r, start: runStart * step, span };
+    if (!best || span - need > best.span - best.need) best = { ...cand, need };
+    if (span >= need) break;
+  }
+  if (!best) return { r: base, pts: evenRing(n, base) };
+  const gap = n > 1 ? Math.min(best.span / (n - 1), TAU / n) : 0;
+  const mid = best.start + best.span / 2;
+  const pts = Array.from({ length: n }, (_, i) => {
+    const a = Math.atan2(Math.sin(mid + (i - (n - 1) / 2) * gap), Math.cos(mid + (i - (n - 1) / 2) * gap));
+    return { a, x: best.r * Math.cos(a), y: best.r * Math.sin(a) };
+  });
+  return { r: best.r, pts };
+}
+
+// Merkezi cx olan w genişliğindeki kutuyu viewport içine iten yatay kaydırma.
+const edgeShift = (cx, w, vw) => {
+  const left = cx - w / 2;
+  const right = cx + w / 2;
+  if (w + 2 * EDGE >= vw) return vw / 2 - cx;
+  if (left < EDGE) return EDGE - left;
+  if (right > vw - EDGE) return vw - EDGE - right;
+  return 0;
+};
 
 const PLATFORMS = {
   whatsapp: {
@@ -129,10 +215,53 @@ export default function ShareSling({
   const beamT = useMotionTemplate`rotate(${beamRot}deg) scaleX(${beamLen})`;
 
   const ids = platforms.filter(id => PLATFORMS[id]);
-  const ring = ids.map((id, i) => {
-    const a = -Math.PI / 2 + (i * TAU) / ids.length;
-    return { id, a, x: radius * Math.cos(a), y: radius * Math.sin(a) };
-  });
+  // Halka, üst elemanların overflow'undan etkilenmesin diye body'ye portal edilen
+  // position:fixed bir katmanda çizilir; yerleşim basış anında viewport'a sığdırılır.
+  const [layout, setLayout] = useState(null); // { n, r, pts }
+  const layoutRef = useRef(null);
+  const [mounted, setMounted] = useState(false);
+  const layerRef = useRef(null);
+  const toastRef = useRef(null);
+  const cueTextRef = useRef(null);
+  const centerRef = useRef(null); // { cx, cy, vw, vh }
+
+  const ringFor = lay =>
+    ids.map((id, i) => {
+      if (lay && lay.n === ids.length) return { id, ...lay.pts[i] };
+      const a = -Math.PI / 2 + (i * TAU) / ids.length;
+      return { id, a, x: radius * Math.cos(a), y: radius * Math.sin(a) };
+    });
+  const ring = ringFor(layout);
+  const ringR = layout && layout.n === ids.length ? layout.r : radius;
+
+  // Bileşen merkezini ölç, katmanı oraya taşı.
+  const measure = () => {
+    const root = rootRef.current;
+    if (!root || typeof window === 'undefined') return null;
+    const b = root.getBoundingClientRect();
+    const c = {
+      cx: b.left + b.width / 2,
+      cy: b.top + b.height / 2,
+      vw: document.documentElement.clientWidth || window.innerWidth,
+      vh: window.innerHeight
+    };
+    centerRef.current = c;
+    const L = layerRef.current;
+    if (L) {
+      L.style.left = `${c.cx}px`;
+      L.style.top = `${c.cy}px`;
+      L.style.fontFamily = getComputedStyle(root).fontFamily;
+    }
+    return c;
+  };
+
+  // Çek/ipucu etiketini (pad ile birlikte hareket eder) yatayda ekranda tut.
+  const placeCue = px => {
+    const el = cueTextRef.current;
+    const c = centerRef.current || measure();
+    if (!el || !c) return;
+    el.style.marginLeft = `${edgeShift(c.cx + px, el.offsetWidth, c.vw)}px`;
+  };
 
   const url = shareUrl || (typeof window !== 'undefined' ? window.location.href : '');
 
@@ -156,7 +285,7 @@ export default function ShareSling({
   const nearest = angle => {
     let best = null;
     let bestD = Infinity;
-    for (const r of ring) {
+    for (const r of ringFor(layoutRef.current)) {
       const d = angDiff(r.a, angle);
       if (d < bestD) {
         bestD = d;
@@ -188,6 +317,19 @@ export default function ShareSling({
     );
     const x0 = m ? parseFloat(m[1]) : 0;
     const y0 = m ? parseFloat(m[2]) : 0;
+    // Halkayı bu basışın konumuna göre viewport'a sığdır.
+    const c = measure();
+    if (c) {
+      let labelHalf = 0;
+      layerRef.current?.querySelectorAll('.share-sling__name').forEach(n => {
+        labelHalf = Math.max(labelHalf, n.offsetWidth / 2);
+      });
+      const fit = fitRing(ids.length, radius, size, { ...c, labelHalf });
+      const lay = { n: ids.length, r: fit.r, pts: fit.pts };
+      layoutRef.current = lay;
+      setLayout(lay);
+    }
+    placeCue(x0);
     const dNow = Math.hypot(x0, y0);
     const dC = Math.min(dNow, 0.95 * R);
     const rawNow = dNow > 0.5 ? (R * dC) / (R - dC) : 0;
@@ -225,6 +367,7 @@ export default function ShareSling({
     const uy = ry / raw;
     lx.set(d * ux);
     ly.set(d * uy);
+    placeCue(d * ux);
     const aimAngle = aim === 'pull' ? Math.atan2(uy, ux) : Math.atan2(-uy, -ux);
     beamRot.set((aimAngle * 180) / Math.PI);
     beamLen.set(clamp((d - REVEAL) / (ARM - REVEAL), 0, 1));
@@ -311,6 +454,37 @@ export default function ShareSling({
     []
   );
 
+  // Katman body'de; mount sonrası portal'ı aç ve merkezi ölç.
+  useEffect(() => setMounted(true), []);
+  useLayoutEffect(() => {
+    if (mounted) measure();
+  });
+
+  // Bilgi notu: viewport içinde kalsın (yatay kaydır; altta yer yoksa halkanın üstüne al).
+  useLayoutEffect(() => {
+    if (!toast.show) return;
+    const el = toastRef.current;
+    const c = measure();
+    if (!el || !c) return;
+    const h = el.offsetHeight;
+    const below = ringR + 36;
+    el.style.top = `${c.cy + below + h + EDGE <= c.vh ? below : -(below + h)}px`;
+    el.style.marginLeft = `${edgeShift(c.cx, el.offsetWidth, c.vw)}px`;
+  }, [toast.show, toast.msg, ringR]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Açıkken / not görünürken sayfa kayar ya da boyut değişirse katman takip etsin.
+  const following = phase !== 'idle' || toast.show;
+  useEffect(() => {
+    if (!following) return undefined;
+    const on = () => measure();
+    window.addEventListener('scroll', on, true);
+    window.addEventListener('resize', on);
+    return () => {
+      window.removeEventListener('scroll', on, true);
+      window.removeEventListener('resize', on);
+    };
+  }, [following]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const open = phase === 'reveal' || phase === 'armed' || phase === 'fired';
   const pulling = phase === 'held' || phase === 'reveal' || phase === 'armed';
 
@@ -342,39 +516,6 @@ export default function ShareSling({
       onLostPointerCaptureCapture={onCancelCapture}
       onKeyDownCapture={onKeyDownCapture}
     >
-      <span className="share-sling__stage" aria-hidden="true">
-        <MotionSpan className="share-sling__beam" style={{ transform: beamT }} />
-        {ring.map((r, i) => {
-          const s = iconState(r, i);
-          const P = PLATFORMS[r.id];
-          return (
-            <MotionSpan
-              key={r.id}
-              className="share-sling__target"
-              data-platform={r.id}
-              data-target={target === r.id ? '' : undefined}
-              initial={false}
-              animate={{ x: s.x, y: s.y, scale: s.scale, opacity: s.opacity }}
-              transition={
-                reduce
-                  ? { duration: 0.12 }
-                  : {
-                      ...spring,
-                      x: { ...spring, delay: open ? i * 0.028 : 0 },
-                      y: { ...spring, delay: open ? i * 0.028 : 0 },
-                      opacity: { duration: phase === 'fired' ? 0.32 : 0.16 }
-                    }
-              }
-            >
-              <span className="share-sling__chip">
-                <HugeiconsIcon icon={P.icon} size={20} strokeWidth={1.8} />
-              </span>
-              <span className="share-sling__name">{P.label}</span>
-            </MotionSpan>
-          );
-        })}
-      </span>
-
       <SlingButton
         onSend={handleSend}
         size={size}
@@ -396,6 +537,7 @@ export default function ShareSling({
         {/* Metin yalnız etkileşimde: hover/odakta kısa ipucu (CSS), çekerken hedef platform.
             Absolute konumlu → görünüp kaybolurken çevredeki öğeler kaymaz. */}
         <span
+          ref={cueTextRef}
           className="share-sling__cue-text"
           data-show={pulling ? '' : undefined}
           data-hint={phase === 'idle' ? '' : undefined}
@@ -408,9 +550,61 @@ export default function ShareSling({
         </span>
       </MotionSpan>
 
-      <span className="share-sling__toast" role="status" aria-live="polite" data-show={toast.show ? '' : undefined}>
-        {toast.msg}
-      </span>
+      {/* Halka + bilgi notu body'ye portal edilen position:fixed katmanda: üst
+          elemanların overflow'u kırpmaz, yerleşim viewport'a sığdırılır. */}
+      {mounted &&
+        createPortal(
+          <span
+            ref={layerRef}
+            className="share-sling-layer"
+            data-phase={phase}
+            data-open={open ? '' : undefined}
+            style={{ '--ss-size': `${size}px`, '--ss-radius': `${ringR}px` }}
+          >
+            <span className="share-sling__stage" aria-hidden="true">
+              <MotionSpan className="share-sling__beam" style={{ transform: beamT }} />
+              {ring.map((r, i) => {
+                const s = iconState(r, i);
+                const P = PLATFORMS[r.id];
+                return (
+                  <MotionSpan
+                    key={r.id}
+                    className="share-sling__target"
+                    data-platform={r.id}
+                    data-target={target === r.id ? '' : undefined}
+                    initial={false}
+                    animate={{ x: s.x, y: s.y, scale: s.scale, opacity: s.opacity }}
+                    transition={
+                      reduce
+                        ? { duration: 0.12 }
+                        : {
+                            ...spring,
+                            x: { ...spring, delay: open ? i * 0.028 : 0 },
+                            y: { ...spring, delay: open ? i * 0.028 : 0 },
+                            opacity: { duration: phase === 'fired' ? 0.32 : 0.16 }
+                          }
+                    }
+                  >
+                    <span className="share-sling__chip">
+                      <HugeiconsIcon icon={P.icon} size={20} strokeWidth={1.8} />
+                    </span>
+                    <span className="share-sling__name">{P.label}</span>
+                  </MotionSpan>
+                );
+              })}
+            </span>
+            <span
+              ref={toastRef}
+              className="share-sling__toast"
+              role="status"
+              aria-live="polite"
+              data-show={toast.show ? '' : undefined}
+            >
+              {toast.msg}
+            </span>
+          </span>,
+          document.body
+        )}
     </span>
   );
 }

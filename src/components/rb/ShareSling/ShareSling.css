@@ -23,6 +23,26 @@
   -webkit-touch-callout: none;
 }
 
+/* Halka katmanı: body'ye portal edilir, merkez JS ile bileşenin viewport
+   konumuna yerleştirilir. Üst elemanların overflow'u bunu kırpmaz. */
+.share-sling-layer {
+  --ss-ink: var(--ink, #101317);
+  --ss-ink-line: var(--ink-line, #2a3038);
+  --ss-lime: var(--lime, #d0ff63);
+  --ss-ivory: var(--ivory, #fffdf8);
+  --ss-mono: var(--mono, 'JetBrains Mono', 'Courier New', monospace);
+  --ss-ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --ss-chip: 44px;
+
+  position: fixed;
+  left: -9999px;
+  top: -9999px;
+  width: 0;
+  height: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
 .share-sling__sling {
   position: relative;
   z-index: 2;
@@ -58,12 +78,12 @@
     transform 360ms var(--ss-ease);
 }
 
-.share-sling[data-open] .share-sling__stage::before {
+:is(.share-sling, .share-sling-layer)[data-open] .share-sling__stage::before {
   opacity: 1;
   transform: scale(1);
 }
 
-.share-sling[data-phase='fired'] .share-sling__stage::before {
+:is(.share-sling, .share-sling-layer)[data-phase='fired'] .share-sling__stage::before {
   opacity: 0;
   transition-duration: 320ms;
 }
@@ -81,11 +101,11 @@
   transition: opacity 140ms ease;
 }
 
-.share-sling[data-open]:not([data-phase='fired']) .share-sling__beam {
+:is(.share-sling, .share-sling-layer)[data-open]:not([data-phase='fired']) .share-sling__beam {
   opacity: 0.55;
 }
 
-.share-sling[data-phase='armed'] .share-sling__beam {
+:is(.share-sling, .share-sling-layer)[data-phase='armed'] .share-sling__beam {
   opacity: 0.9;
 }
 
@@ -120,8 +140,8 @@
   color: var(--ss-lime);
 }
 
-.share-sling[data-phase='armed'] .share-sling__target[data-target] .share-sling__chip,
-.share-sling[data-phase='fired'] .share-sling__target[data-target] .share-sling__chip {
+:is(.share-sling, .share-sling-layer)[data-phase='armed'] .share-sling__target[data-target] .share-sling__chip,
+:is(.share-sling, .share-sling-layer)[data-phase='fired'] .share-sling__target[data-target] .share-sling__chip {
   box-shadow:
     0 0 0 1px var(--ss-ink),
     0 0 0 5px var(--ss-lime),
@@ -215,9 +235,10 @@
 
 /* --- Bilgi notu --- */
 .share-sling__toast {
+  /* Katman merkezine göre; JS altta yer yoksa üste alır, yatayda ekranda tutar. */
   position: absolute;
-  left: 50%;
-  top: calc(100% + var(--ss-radius) - var(--ss-size) / 2 + 36px);
+  left: 0;
+  top: calc(var(--ss-radius) + 36px);
   z-index: 4;
   width: max-content;
   max-width: min(280px, 86vw);
