@@ -6,6 +6,7 @@ import { Link } from './nav';
 import { slugOf } from './data';
 import { CrumpleFlight, TrashBin } from './IdeaBoardTrash';
 import { preloadSticker, snapshotNote } from './ideaBoardSnapshot';
+import { noteCrumpleOptions, preparePaper } from './crumplePrep';
 
 /* Fikir aşamasındaki ürünlerin sayfası: design thinking'teki beyin fırtınası panosu.
    Her alan (ad, kısa tanım, tanım, özellikler, platform) ayrı bir yapışkan nota düşer;
@@ -349,6 +350,7 @@ function IdeaBoard({ app }) {
     if (!board || drag.current) return;
     const p = shown(key);
     const d = { key, sx: x, sy: y, ox: p.x, oy: p.y, live: false, lifted: false, over: false, touch, timer: 0 };
+    warm(key, true);
     const lift = () => {
       d.lifted = true;
       setDropped(null);
@@ -477,6 +479,21 @@ function IdeaBoard({ app }) {
     if (ready) preloadSticker(boardRef.current?.querySelector('.ib-sticker svg'));
   }, [ready]);
 
+  /* Buruşma yolları ağır bir fizik hesabı: sayfa sakinleşince Web Worker'da, notların o anki
+     kâğıt ölçüleriyle önceden hazırlanır. Kullanıcı bir nota yönelince o not öne alınır. */
+  const warm = useCallback((key, urgent) => {
+    const paper = noteEls.current.get(key)?.querySelector('.ib-note__paper');
+    if (paper && paper.offsetWidth) preparePaper(noteCrumpleOptions(key, paper.offsetWidth, paper.offsetHeight), urgent);
+  }, []);
+  const boardW = board?.w;
+  useEffect(() => {
+    if (!ready) return;
+    const go = () => notes.forEach(n => warm(n.key, false));
+    const idle = window.requestIdleCallback;
+    const id = idle ? idle(go, { timeout: 2500 }) : setTimeout(go, 1200);
+    return () => (idle ? window.cancelIdleCallback(id) : clearTimeout(id));
+  }, [ready, boardW, fontVersion, notes, warm]);
+
   const onKeyDown = (key, e) => {
     if ((e.key === 'Delete' || e.key === 'Backspace') && e.target === e.currentTarget) {
       e.preventDefault();
@@ -546,6 +563,8 @@ function IdeaBoard({ app }) {
               onMouseDown={e => e.button === 0 && start(note.key, e.clientX, e.clientY, false)}
               onTouchStart={e => e.touches.length === 1 && start(note.key, e.touches[0].clientX, e.touches[0].clientY, true)}
               onKeyDown={e => onKeyDown(note.key, e)}
+              onMouseEnter={() => warm(note.key, true)}
+              onFocus={() => warm(note.key, true)}
               onDragStart={e => e.preventDefault()}
               onContextMenu={e => lifted === note.key && e.preventDefault()}
               onAnimationEnd={e => {

@@ -1,20 +1,16 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import PaperCrumple from './components/rb/PaperCrumple/PaperCrumple';
+import { hasPaperPath, noteCrumpleOptions, preparePaper } from './crumplePrep';
 
 /* Fikir panosunda "buruştur ve at":
    - Notun kâğıt görüntüsü ideaBoardSnapshot.js'te üretilir; PaperCrumple'ın dokusu olur.
+   - Buruşma yolu crumplePrep.js ile Web Worker'da (çoğunlukla önceden) hesaplanır.
    - CrumpleFlight: kâğıdı notun durduğu yerde, aynı açı ve ölçekte buruşturur, sonra top
      hâline gelmiş kâğıdı kavisle çöp kutusuna atar.
    - TrashBin: panonun sol altındaki tel çöp kutusu. Atılan notlar içinde top olarak görünür;
      basınca son atılan not panoya geri döner. Silme yalnız bu oturumda, veri değişmez. */
 
 const PAD = 48; // PaperCrumple kâğıdı tam boyutta çizsin diye sahneye eklenen pay
-
-const seedOf = text => {
-  let h = 7;
-  for (let i = 0; i < text.length; i++) h = (h * 31 + text.charCodeAt(i)) | 0;
-  return Math.abs(h) % 997;
-};
 
 const reduced = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
@@ -24,6 +20,8 @@ const CRUMPLE_S = 0.6;
 export function CrumpleFlight({ item, getTarget, onDone }) {
   const ref = useRef(null);
   const [cover, setCover] = useState(true); // WebGL ilk kareyi çizene kadar düz kâğıt görüntüsü
+  const [options] = useState(() => noteCrumpleOptions(item.key, item.w, item.h));
+  const [prepared, setPrepared] = useState(() => hasPaperPath(options));
   const flown = useRef(false);
   const timers = useRef([]);
   const W = item.w + PAD;
@@ -59,9 +57,19 @@ export function CrumpleFlight({ item, getTarget, onDone }) {
 
   useEffect(() => {
     const list = timers.current;
-    list.push(setTimeout(fly, 3000)); // WebGL hiç hazır olmazsa bile not çöpe gider
+    list.push(setTimeout(fly, 4000)); // WebGL ya da worker hiç hazır olmazsa bile not çöpe gider
     return () => list.forEach(clearTimeout);
   }, [fly]);
+
+  // Yol önceden hazırlanmadıysa worker'da hemen (sıranın başında) hesaplat; bu sırada düz kâğıt görünür.
+  useEffect(() => {
+    if (prepared) return;
+    let on = true;
+    preparePaper(options, true).then(() => on && setPrepared(true));
+    return () => {
+      on = false;
+    };
+  }, [prepared, options]);
 
   const onState = s => {
     if (s !== 'holding') return;
@@ -75,33 +83,30 @@ export function CrumpleFlight({ item, getTarget, onDone }) {
       className="ib-crumple"
       style={{ left: item.cx - W / 2, top: item.cy - H / 2, width: W, height: H, transform: base }}
       data-crumple={item.key}
+      data-prepared={prepared}
       aria-hidden="true"
       inert
     >
       {cover && <img className="ib-crumple__cover" src={item.src} alt="" style={{ width: item.w, height: item.h }} />}
-      <PaperCrumple
-        src={item.src}
-        alt=""
-        width={item.w}
-        height={item.h}
-        sceneHeight={H}
-        style={{ width: W }}
-        crumpled
-        draggable={false}
-        releaseBehavior="stay"
-        crumpleAmount={1}
-        crumpleDuration={CRUMPLE_S}
-        foldCount={7}
-        foldSharpness={0.7}
-        wrinkleDepth={0.8}
-        paperColor={item.color}
-        lightIntensity={1.7}
-        shadowOpacity={0.14}
-        detail={56}
-        seed={seedOf(item.key) + 3}
-        onStateChange={onState}
-        onError={fly}
-      />
+      {prepared && (
+        <PaperCrumple
+          {...options}
+          src={item.src}
+          alt=""
+          sceneHeight={H}
+          style={{ width: W }}
+          crumpled
+          draggable={false}
+          releaseBehavior="stay"
+          crumpleAmount={1}
+          crumpleDuration={CRUMPLE_S}
+          paperColor={item.color}
+          lightIntensity={1.7}
+          shadowOpacity={0.14}
+          onStateChange={onState}
+          onError={fly}
+        />
+      )}
     </div>
   );
 }
