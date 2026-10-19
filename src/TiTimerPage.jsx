@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import AppIcon from './AppIcon';
 import { Link } from './nav';
 import Comments from './Comments';
+import DodgeField from './components/rb/DodgeField/DodgeField';
 import './TiTimerPage.css';
 
 // tiTimer'ın kendi tanıtım sayfası. Metinler src/data.js'teki kayıttan gelir;
@@ -233,7 +234,14 @@ export default function TiTimerPage({ app }) {
                     {app.downloadLabel || 'İndir'}
                   </a>
                 ) : (
-                  <span className="tt-btn is-off">Yakında</span>
+                  <DodgeField
+                    label="İndir"
+                    dodgeLabel="Henüz değil"
+                    height={112}
+                    align="start"
+                    className="tt-dodge"
+                    ariaLabel="tiTimer henüz indirilemez"
+                  />
                 )}
                 {!isPlaceholder(app.platform) && <span className="tt-hero__platform">{app.platform}</span>}
               </div>

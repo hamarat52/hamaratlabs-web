@@ -131,6 +131,7 @@
 .tt-hero__lead { margin: 0; max-width: 44ch; font-family: var(--tt-ui); font-size: 17px; line-height: 1.55; color: #4c6b74; }
 
 .tt-hero__actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.tt-dodge { flex: 1 1 260px; max-width: 400px; }
 .tt-btn {
   display: inline-flex;
   align-items: center;
