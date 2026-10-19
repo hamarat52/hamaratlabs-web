@@ -1,26 +1,29 @@
-/* ---------- tiTimer sayfası ----------
-   Çerçeve hamaratlabs'ın koyu Ink zemini; içerik tiTimer'ın kağıt/teal/mercan dilinde.
-   Tüm sınıflar .tt önekli: genel şablona ve diğer sayfalara sızmaz. */
+/* tiTimer sayfası — Figma token'ları (TITIMER_FIGMA_TOKENS.md) üstüne kurulu.
+   Dil: beyaz zeminde teal halka, coral vurgu, odak modunda saf siyah.
+   hamaratlabs çerçevesi (Ink zemin, header/footer) korunur. */
 
 .tt {
-  --tt-teal: #2f6d7c;
-  --tt-teal-dark: #245766;
-  --tt-coral: #f17d68;
-  --tt-coral-dark: #d9604c;
-  --tt-paper: #f8f7f3;
-  --tt-cream: #fcfbf7;
-  --tt-ink: #1d3a42;
-  --tt-mist: #a9ccd3;
-  --tt-blush: #f7c2b5;
-  --tt-sand: #eedfc2;
-  --tt-hand: 'Kalam', 'Comic Sans MS', cursive;
-  --tt-round: 'Nunito', 'Geist', var(--font);
+  /* Figma'dan doğrulanmış renkler */
+  --tt-teal: #316879;          /* primary: quote banner, halka, buton */
+  --tt-coral: #f47a60;         /* secondary/action: Pomodoro, vurgulu kelime */
+  --tt-error: #a30015;         /* error */
+  --tt-muted-on-teal: #ced7d8; /* textMutedOnTeal: yazar adı, teal üstü soluk metin */
+  --tt-white: #ffffff;         /* home/welcome zemini */
+  --tt-black: #000000;         /* focus zemini */
+  --tt-end: rgba(255, 255, 255, 0.65); /* End : 10:40 — %65 beyaz */
+  --tt-bar: rgba(49, 104, 121, 0.25);  /* buttom_main: yarı saydam teal */
+  --tt-ring-track: #d7e2e1;    /* ringTrack (provisional) */
+
+  /* Figma aileleri → Google Fonts karşılıkları */
+  --tt-quote: 'Zen Maru Gothic', 'Yuanti SC', system-ui, sans-serif;  /* Yuanti SC */
+  --tt-label: 'Kdam Thmor Pro', 'Kdam Thmor', var(--font);            /* Kdam Thmor */
+  --tt-serif: 'Scheherazade New', Georgia, serif;                     /* Scheherazade New */
+  --tt-display: 'Monoton', 'Geist', var(--font);                      /* Monoton */
+  --tt-ui: -apple-system, 'SF Pro Text', system-ui, 'Geist', sans-serif; /* SF Pro Text */
 }
 
 .tt-stage {
   background: var(--ink);
-  background-image: radial-gradient(circle at 1px 1px, rgba(255, 253, 248, 0.07) 1px, transparent 0);
-  background-size: 22px 22px;
   padding: 40px 0 88px;
   overflow: hidden;
 }
@@ -35,30 +38,48 @@
 }
 .tt-back:hover { color: var(--lime); }
 
-/* Kağıt yaprak: hafif doku, yumuşak köşe, sıcak gölge */
+/* Beyaz yaprak: tiTimer'ın home/welcome zemini. Düz, temiz, doku yok. */
 .tt-sheet {
   position: relative;
-  background-color: var(--tt-paper);
-  background-image:
-    radial-gradient(ellipse 60% 50% at 92% 8%, rgba(247, 194, 181, 0.55), transparent 70%),
-    radial-gradient(ellipse 55% 45% at 4% 96%, rgba(169, 204, 211, 0.5), transparent 70%),
-    repeating-linear-gradient(0deg, rgba(29, 58, 66, 0.035) 0 1px, transparent 1px 30px);
-  color: var(--tt-ink);
+  background: var(--tt-white);
+  color: var(--tt-teal);
   border-radius: 32px;
-  box-shadow: 0 1px 0 rgba(255, 253, 248, 0.6) inset, 0 30px 80px -30px rgba(0, 0, 0, 0.6);
-  font-family: var(--tt-round);
+  overflow: hidden;
 }
 
-/* ---------- Kahraman ---------- */
+/* ---------- Hero ---------- */
 .tt-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 48px;
   align-items: center;
-  gap: 40px;
-  padding: clamp(28px, 5vw, 64px);
+  padding: clamp(28px, 5vw, 72px);
 }
-
-.tt-hero__intro { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; min-width: 0; }
+/* Welcome ekranındaki dev saat halkasından alıntı: köşeden taşan ince teal çemberler */
+.tt-hero::before,
+.tt-hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.tt-hero::before {
+  width: 560px;
+  height: 560px;
+  left: -300px;
+  bottom: -330px;
+  border: 22px solid var(--tt-teal);
+  opacity: 0.16;
+}
+.tt-hero::after {
+  width: 470px;
+  height: 470px;
+  left: -255px;
+  bottom: -285px;
+  border: 8px dashed var(--tt-teal);
+  opacity: 0.16;
+}
+.tt-hero__intro { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
 
 .tt-pill {
   display: inline-flex;
@@ -66,213 +87,263 @@
   gap: 8px;
   padding: 6px 14px 6px 10px;
   border-radius: 999px;
-  background: var(--ink);
-  color: var(--ivory);
+  background: var(--tt-teal);
+  color: var(--tt-white);
   font-family: 'Geist', var(--font);
   font-size: 13px;
   font-weight: 500;
 }
-.tt-pill::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); }
+.tt-pill::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--tt-coral); }
 
 .tt-hero__name { display: flex; align-items: center; gap: 16px; }
 .tt-hero__name h1 {
   margin: 0;
-  font-family: var(--tt-round);
-  font-weight: 800;
-  font-size: clamp(48px, 7vw, 92px);
-  letter-spacing: -0.035em;
+  font-family: var(--tt-quote);
+  font-weight: 700;
+  font-size: clamp(48px, 7vw, 88px);
+  letter-spacing: -0.02em;
   line-height: 1;
-  color: var(--tt-teal-dark);
+  color: var(--tt-coral); /* Figma: "Titimer" logo, Yuanti SC, coral */
 }
 
-.tt-hero__short {
+/* Welcome ekranının alıntısı: teal yuvarlak sans, coral vurgu */
+.tt-quote { margin: 0; max-width: 30ch; }
+.tt-quote p {
   margin: 0;
-  font-family: var(--tt-hand);
-  font-size: clamp(22px, 2.4vw, 30px);
-  line-height: 1.2;
-  color: var(--tt-coral-dark);
-  transform: rotate(-1.5deg);
+  font-family: var(--tt-quote);
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.3;
+  color: var(--tt-teal);
+}
+.tt-quote em, .tt-banner em { font-style: normal; color: var(--tt-coral); }
+.tt-quote cite {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--tt-ui);
+  font-style: normal;
+  font-size: 13px;
+  color: var(--tt-teal);
+  opacity: 0.55; /* welcome'da yazar adı açık zeminde soluk; #CED7D8 yalnız teal yüzeyde */
 }
 
-.tt-hero__lead { margin: 4px 0 0; max-width: 30em; font-size: 19px; line-height: 1.55; color: #3d5960; }
+.tt-hero__short { margin: 0; font-family: var(--tt-label); font-size: 22px; color: var(--tt-teal); }
+.tt-hero__lead { margin: 0; max-width: 44ch; font-family: var(--tt-ui); font-size: 17px; line-height: 1.55; color: #4c6b74; }
 
-.tt-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 10px; }
-
+.tt-hero__actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
 .tt-btn {
   display: inline-flex;
   align-items: center;
   height: 52px;
-  padding: 0 26px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--tt-coral);
+  color: var(--tt-white);
+  font-family: var(--tt-ui);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+}
+.tt-btn.is-off { background: transparent; color: var(--tt-teal); border: 3px solid var(--tt-teal); }
+.tt-hero__platform { font-family: var(--tt-ui); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--tt-teal); opacity: 0.7; }
+
+.tt-hero__device { position: relative; z-index: 1; display: flex; justify-content: center; min-width: 0; }
+
+/* ---------- Telefon ---------- */
+.tt-phone {
+  position: relative;
+  width: 300px;
+  max-width: 100%;
+  aspect-ratio: 390 / 780;
+  border-radius: 44px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--tt-ui);
+}
+.tt-phone--home {
+  background: var(--tt-white);
+  box-shadow: 0 0 0 10px #e9eef0, 0 0 0 11px #d5dfe2, 0 30px 60px -20px rgba(49, 104, 121, 0.45);
+}
+
+.tt-status { display: flex; justify-content: space-between; align-items: center; padding: 16px 26px 6px; font-size: 13px; font-weight: 600; color: #000; }
+.tt-status.is-dark { color: #fff; }
+.tt-status__icons { display: flex; gap: 4px; align-items: center; }
+.tt-status__icons i { width: 4px; height: 8px; border-radius: 1px; background: currentColor; }
+.tt-status__icons b { width: 18px; height: 9px; border-radius: 3px; background: currentColor; }
+
+/* Teal alıntı bandı (Figma: QuoteBanner) */
+.tt-banner {
+  position: relative;
+  margin: 6px 14px 22px;
+  padding: 10px 14px 16px;
+  border-radius: 14px;
+  background: var(--tt-teal);
+  text-align: center;
+}
+.tt-banner p {
+  margin: 0;
+  font-family: var(--tt-quote);
+  font-weight: 500;
+  font-size: 11.5px;
+  line-height: 1.25;
+  color: var(--tt-white);
+}
+.tt-banner__author {
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  transform: translateX(-50%);
+  padding: 2px 12px;
   border-radius: 999px;
   background: var(--tt-teal);
-  color: var(--tt-cream);
-  font-weight: 700;
-  font-size: 17px;
-  text-decoration: none;
-  box-shadow: 0 4px 0 var(--tt-teal-dark);
-}
-.tt-btn.is-off {
-  background: var(--tt-cream);
-  color: var(--tt-teal);
-  border: 2px dashed var(--tt-mist);
-  box-shadow: none;
-}
-.tt-hero__platform { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; color: #6b8187; }
-
-.tt-hero__device { display: flex; justify-content: center; min-width: 0; }
-
-/* ---------- Telefon taslağı ---------- */
-.tt-phone {
-  width: min(300px, 100%);
-  padding: 10px;
-  border-radius: 46px;
-  background: var(--ink);
-  box-shadow: 0 0 0 1.5px var(--ink-line), 0 24px 48px -16px rgba(29, 58, 66, 0.55);
-  transform: rotate(2.5deg);
-}
-.tt-phone__screen {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 40px 18px 22px;
-  border-radius: 37px;
-  background: var(--tt-cream);
-  background-image: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(169, 204, 211, 0.45), transparent 70%);
-  overflow: hidden;
-}
-.tt-phone__notch {
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  width: 84px;
-  height: 22px;
-  margin-left: -42px;
-  border-radius: 999px;
-  background: var(--ink);
+  font-family: var(--tt-ui);
+  font-size: 9px;
+  color: var(--tt-muted-on-teal);
+  white-space: nowrap;
 }
 
-.tt-app__bar { display: flex; align-items: center; justify-content: space-between; }
-.tt-app__title { font-family: var(--tt-hand); font-weight: 700; font-size: 24px; color: var(--tt-teal-dark); }
-.tt-app__chip {
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: var(--tt-blush);
-  color: var(--tt-coral-dark);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.tt-focus { display: flex; justify-content: center; }
-.tt-focus__ring { position: relative; width: 132px; height: 132px; }
-.tt-focus__center {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.tt-focus__time {
-  font-family: var(--tt-round);
-  font-weight: 800;
-  font-size: 28px;
-  letter-spacing: -0.02em;
-  color: var(--tt-ink);
-  font-variant-numeric: tabular-nums;
-}
-.tt-focus__cap { font-family: var(--tt-hand); font-size: 14px; color: var(--tt-coral-dark); }
-
-.tt-ring__track { fill: none; stroke: var(--tt-sand); }
-.tt-ring__fill { fill: none; stroke: var(--tt-coral); stroke-linecap: round; transition: stroke-dashoffset 0.9s linear; }
-
-/* Sayaç listesi (telefon ve sahnelerde ortak) */
-.tt-timers { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; width: 100%; }
-.tt-timer {
+/* 2×2 (+1) halka ızgarası */
+.tt-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0 28px;
   display: grid;
-  grid-template-columns: 12px 1fr auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 20px;
+  justify-items: center;
+}
+.tt-grid li { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.tt-label { font-family: var(--tt-serif); font-size: 14px; line-height: 1; color: #000; }
+.tt-label--light { color: var(--tt-white); }
+
+/* Halka (Figma: TimerNew) */
+.tt-ring { display: block; overflow: visible; }
+.tt-ring circle, .tt-ring line, .tt-ring path { fill: none; stroke-linecap: round; }
+.tt-ring__outer { stroke: var(--tt-teal); stroke-width: 5; }
+.tt-ring__track { stroke: var(--tt-ring-track); stroke-width: 2; }
+.tt-ring__arc { stroke: var(--tt-teal); stroke-width: 2; transition: stroke-dasharray 0.9s linear; }
+.tt-ring__hand { stroke: var(--tt-teal); stroke-width: 2.5; }
+.tt-ring__plus { stroke: var(--tt-coral); stroke-width: 2; }
+
+/* Yarı saydam teal alt bar (Figma: BottomBar) */
+.tt-bar {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 10px 14px;
-  border-radius: 18px;
-  background: #fff;
-  border: 1.5px solid rgba(29, 58, 66, 0.08);
+  padding: 14px 10px 30px;
+  background: var(--tt-bar);
+}
+.tt-bar__btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--tt-white);
+  box-shadow: 0 3px 8px rgba(49, 104, 121, 0.18);
+  color: var(--tt-coral);
+}
+.tt-bar__btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.tt-bar__btn svg .is-fill { fill: currentColor; stroke: none; }
+.tt-bar__btn--add { font-size: 24px; font-weight: 300; line-height: 1; }
+.tt-bar__pomo {
+  width: 52px;
+  height: 46px;
+  font-family: var(--tt-display);
+  font-size: 11px;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ---------- Odak modu: tamamen siyah ---------- */
+.tt-focus {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 48px;
+  align-items: center;
+  padding: clamp(28px, 5vw, 72px);
+  border-radius: 32px;
+  background: var(--tt-black);
+  color: var(--tt-white);
+}
+.tt-focus__copy { max-width: 40ch; }
+.tt-focus__kicker {
+  font-family: var(--tt-ui);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tt-coral);
+}
+.tt-focus__copy h2 {
+  margin: 12px 0 14px;
+  font-family: var(--tt-quote);
   font-weight: 700;
-  font-size: 15px;
+  font-size: clamp(30px, 3.6vw, 46px);
+  line-height: 1.1;
 }
-.tt-timer__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--tt-sand); }
-.tt-timer--teal .tt-timer__dot { background: var(--tt-teal); }
-.tt-timer--coral .tt-timer__dot { background: var(--tt-coral); }
-.tt-timer.is-on .tt-timer__dot { animation: tt-pulse 2s ease-in-out infinite; }
-.tt-timer__label { color: var(--tt-ink); }
-.tt-timer__time { color: var(--tt-teal-dark); font-variant-numeric: tabular-nums; }
-.tt-timer:not(.is-on) .tt-timer__time { color: #9aaaae; }
+.tt-focus__copy p { margin: 0; font-family: var(--tt-ui); font-size: 17px; line-height: 1.55; color: var(--tt-end); }
 
-@keyframes tt-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(241, 125, 104, 0.45); }
-  50% { box-shadow: 0 0 0 5px rgba(241, 125, 104, 0); }
+.tt-phone--focus {
+  background: var(--tt-black);
+  align-items: center;
+  box-shadow: 0 0 0 10px #1a1a1a, 0 0 0 11px #2b2b2b;
 }
+.tt-phone--focus.is-bare {
+  width: 340px;
+  aspect-ratio: auto;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 8px 0;
+  gap: 0;
+}
+.tt-idiom { margin: 0 0 22px; font-family: var(--tt-label); font-size: 16px; color: #fff; text-align: center; }
+.tt-focus__ring { position: relative; display: grid; place-items: center; margin-bottom: 14px; }
+.tt-focus__ring svg { display: block; }
+.tt-focus__track { fill: none; stroke: #fff; stroke-opacity: 0.16; stroke-width: 4; }
+.tt-focus__arc { fill: none; stroke: #fff; stroke-width: 8; stroke-linecap: round; transition: stroke-dasharray 0.9s linear; }
+.tt-focus__nums { position: absolute; display: flex; flex-direction: column; align-items: center; }
+.tt-focus__sub { margin-top: 2px; font-family: var(--tt-label); font-size: 18px; color: rgba(255, 255, 255, 0.35); }
+.tt-focus__num {
+  font-family: var(--tt-label);
+  font-size: 72px;
+  line-height: 1;
+  color: #fff;
+}
+.tt-focus__end { margin: 22px 0 0; font-family: var(--tt-label); font-size: 17px; letter-spacing: 0.04em; color: var(--tt-end); }
 
-/* Haftalık çubuklar */
-.tt-app__week { padding: 12px 14px 10px; border-radius: 20px; background: var(--tt-paper); }
-.tt-app__weekcap { display: block; margin-bottom: 6px; font-family: var(--tt-hand); font-size: 15px; color: var(--tt-teal); }
-.tt-week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; align-items: end; height: 76px; }
-.tt-week__col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%; }
-.tt-week__bar {
-  width: 100%;
-  max-width: 22px;
-  height: calc(var(--h) * 100% - 18px);
-  min-height: 6px;
-  border-radius: 8px 8px 4px 4px;
-  background: var(--tt-mist);
-}
-.tt-week__col.is-today .tt-week__bar { background: var(--tt-coral); }
-.tt-week__day { font-size: 11px; font-weight: 700; color: #6b8187; }
-
-/* ---------- Neler yapar: defter notları ---------- */
-.tt-notes { margin-top: 28px; padding: clamp(28px, 5vw, 56px); }
-.tt-notes__title {
-  margin: 0 0 24px;
-  font-family: var(--tt-hand);
-  font-weight: 700;
-  font-size: clamp(30px, 3.6vw, 44px);
-  color: var(--tt-teal-dark);
-}
-.tt-notes__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-.tt-note {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 0;
-  padding: 22px 22px 24px;
-  border-radius: 24px;
-  background: var(--tt-cream);
-  border: 1.5px solid rgba(29, 58, 66, 0.08);
-}
-.tt-note:nth-child(1) { transform: rotate(-0.8deg); }
-.tt-note:nth-child(2) { transform: rotate(0.6deg); background: #fff6f2; }
-.tt-note:nth-child(3) { transform: rotate(-0.4deg); background: #f2f8f8; }
-.tt-note__num { font-family: var(--tt-hand); font-weight: 700; font-size: 20px; color: var(--tt-coral); }
-.tt-note__text { margin: 0; font-weight: 800; font-size: clamp(20px, 2vw, 24px); line-height: 1.2; letter-spacing: -0.01em; color: var(--tt-ink); }
-.tt-note__scene { margin-top: auto; padding-top: 12px; display: flex; justify-content: center; }
-.tt-scene-ring { position: relative; display: grid; place-items: center; }
-.tt-scene-ring > * { grid-area: 1 / 1; }
-.tt-note .tt-week { width: 100%; height: 120px; }
+/* ---------- Neler yapar ---------- */
+.tt-points { margin-top: 24px; padding: clamp(28px, 5vw, 56px); }
+.tt-points__title { margin: 0 0 28px; font-family: var(--tt-quote); font-weight: 700; font-size: clamp(28px, 3vw, 38px); color: var(--tt-teal); }
+.tt-points__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.tt-point { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 18px; align-items: center; }
+.tt-point .tt-ring { grid-row: span 2; }
+.tt-point__num { font-family: var(--tt-ui); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--tt-coral); }
+.tt-point__text { margin: 2px 0 0; font-family: var(--tt-label); font-size: 20px; line-height: 1.2; color: var(--tt-teal); }
 
 /* ---------- Duyarlı ---------- */
 @media (max-width: 900px) {
-  .tt-hero { grid-template-columns: minmax(0, 1fr); }
-  .tt-notes__list { grid-template-columns: minmax(0, 1fr); }
-  .tt-note { transform: none !important; }
+  .tt-hero, .tt-focus { grid-template-columns: 1fr; gap: 36px; }
+  .tt-focus__copy { max-width: none; }
+  .tt-phone--focus.is-bare { justify-self: center; }
+  .tt-points__list { grid-template-columns: 1fr; gap: 20px; }
 }
 @media (max-width: 520px) {
   .tt-stage { padding: 24px 0 56px; }
-  .tt-sheet { border-radius: 24px; }
+  .tt-sheet, .tt-focus { border-radius: 24px; }
   .tt-hero__name { gap: 12px; }
-  .tt-hero__name .appicon, .tt-hero__name > :first-child { flex: none; }
-  .tt-phone { transform: none; }
+  .tt-hero__name > :first-child { flex: none; }
+  .tt-phone { width: 270px; }
+  .tt-phone--focus.is-bare { width: 100%; }
+  .tt-focus__ring svg { width: 170px; height: 170px; }
+  .tt-focus__num { font-size: 60px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .tt-timer.is-on .tt-timer__dot { animation: none; }
-  .tt-ring__fill { transition: none; }
+  .tt-ring__arc, .tt-focus__arc { transition: none; }
 }

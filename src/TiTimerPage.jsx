@@ -5,13 +5,18 @@ import Comments from './Comments';
 import './TiTimerPage.css';
 
 // tiTimer'ın kendi tanıtım sayfası. Metinler src/data.js'teki kayıttan gelir;
-// burada yalnız sunum var: hamaratlabs'ın koyu zemini üstünde tiTimer'ın kağıt/teal/mercan dili.
+// sunum tiTimer'ın Figma'daki diline dayanır (TITIMER_FIGMA_TOKENS.md):
+// beyaz zeminde teal halka, coral vurgu, odak modunda tamamen siyah ekran.
 
 const STAGE = { beta: 'Açık beta', dev: 'Geliştirmede', idea: 'Fikir', live: 'Yayında' };
 const isPlaceholder = v => !v || v.startsWith('[');
-const FONTS = 'https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap';
 
-// Kalam + Nunito yalnız bu sayfada gerekiyor; genel index.html'e dokunmamak için burada yüklenir.
+// Figma aileleri → Google Fonts karşılıkları:
+// Monoton, Scheherazade New birebir; Kdam Thmor → Kdam Thmor Pro; Yuanti SC → Zen Maru Gothic (yuvarlak uçlu sans).
+const FONTS =
+  'https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Monoton&family=Scheherazade+New:wght@400;700&family=Zen+Maru+Gothic:wght@500;700&display=swap';
+
+// Fontlar yalnız bu sayfada gerekiyor; genel index.html'e dokunmamak için burada yüklenir.
 function useTiFonts() {
   useEffect(() => {
     if (document.getElementById('tt-fonts')) return;
@@ -35,128 +40,170 @@ function useTick() {
 }
 
 const pad = n => String(n).padStart(2, '0');
-const fmt = s => {
-  const h = Math.floor(s / 3600);
-  const m = Math.floor((s % 3600) / 60);
-  return h ? `${h}:${pad(m)}:${pad(s % 60)}` : `${pad(m)}:${pad(s % 60)}`;
-};
 
-// Örnek görünüm verisi (yalnız çizim için; ürün iddiası değil).
-const TIMERS = [
-  { label: 'Odak', tone: 'teal', base: 25 * 60 + 12, running: true },
-  { label: 'Okuma', tone: 'coral', base: 47 * 60 + 3, running: true },
-  { label: 'Mola', tone: 'sand', base: 8 * 60 + 40, running: false }
-];
-const COUNT_FROM = 25 * 60;
-const COUNT_START = 18 * 60 + 42;
-const WEEK = [
-  ['Pt', 0.55],
-  ['Sa', 0.8],
-  ['Ça', 0.4],
-  ['Pe', 0.95],
-  ['Cu', 0.62],
-  ['Ct', 0.3],
-  ['Pz', 0.18]
-];
-
-function Ring({ remaining, size = 132, stroke = 10 }) {
-  const r = (size - stroke) / 2;
-  const c = 2 * Math.PI * r;
-  const frac = Math.max(0, remaining) / COUNT_FROM;
+// Kategori halkası (Figma: TimerNew). Kalın teal dış çember, içinde ince doluluk yayı
+// ve doluluğu gösteren ibre. `fill` 0–1 arası.
+function Ring({ fill = 0, size = 76, tone = 'teal', double = false }) {
+  const c = size / 2;
+  const outer = c - 3;
+  const inner = outer - 7;
+  const len = 2 * Math.PI * inner;
+  const a = fill * 2 * Math.PI - Math.PI / 2;
+  const hand = inner - 9;
   return (
-    <svg className="tt-ring" width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
-      <circle cx={size / 2} cy={size / 2} r={r} className="tt-ring__track" strokeWidth={stroke} />
+    <svg className={`tt-ring tt-ring--${tone}`} width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
+      <circle className="tt-ring__outer" cx={c} cy={c} r={outer} />
+      <circle className="tt-ring__track" cx={c} cy={c} r={inner} />
       <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={r}
-        className="tt-ring__fill"
-        strokeWidth={stroke}
-        strokeDasharray={c}
-        strokeDashoffset={c * (1 - frac)}
-        transform={`rotate(-90 ${size / 2} ${size / 2})`}
+        className="tt-ring__arc"
+        cx={c}
+        cy={c}
+        r={inner}
+        strokeDasharray={`${(double ? 1 : fill) * len} ${len}`}
+        transform={`rotate(-90 ${c} ${c})`}
+      />
+      <line
+        className="tt-ring__hand"
+        x1={c + Math.cos(a) * 4}
+        y1={c + Math.sin(a) * 4}
+        x2={c + Math.cos(a) * hand}
+        y2={c + Math.sin(a) * hand}
       />
     </svg>
   );
 }
 
-function TimerList({ t }) {
+function AddRing({ size = 76 }) {
+  const c = size / 2;
   return (
-    <ul className="tt-timers">
-      {TIMERS.map(x => (
-        <li key={x.label} className={`tt-timer tt-timer--${x.tone}${x.running ? ' is-on' : ''}`}>
-          <span className="tt-timer__dot" />
-          <span className="tt-timer__label">{x.label}</span>
-          <span className="tt-timer__time">{fmt(x.base + (x.running ? t : 0))}</span>
-        </li>
-      ))}
-    </ul>
+    <svg className="tt-ring tt-ring--add" width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
+      <circle className="tt-ring__outer" cx={c} cy={c} r={c - 3} />
+      <path className="tt-ring__plus" d={`M${c - 9} ${c}H${c + 9}M${c} ${c - 9}V${c + 9}`} />
+    </svg>
   );
 }
 
-function Week() {
-  return (
-    <div className="tt-week" aria-hidden="true">
-      {WEEK.map(([d, v], i) => (
-        <div key={d} className={`tt-week__col${i === 3 ? ' is-today' : ''}`}>
-          <span className="tt-week__bar" style={{ '--h': v }} />
-          <span className="tt-week__day">{d}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// Telefon çerçevesi: gerçek ekranlardan esinlenen ama birebir olmayan bir kompozisyon.
-function Phone({ t }) {
-  const remaining = Math.max(0, COUNT_START - t);
-  return (
-    <div className="tt-phone" role="img" aria-label="tiTimer ekran taslağı: çalışan sayaçlar ve ters sayaç">
-      <div className="tt-phone__screen">
-        <div className="tt-phone__notch" />
-        <div className="tt-app__bar">
-          <span className="tt-app__title">tiTimer</span>
-          <span className="tt-app__chip">bugün</span>
-        </div>
-        <div className="tt-focus">
-          <div className="tt-focus__ring">
-            <Ring remaining={remaining} />
-            <div className="tt-focus__center">
-              <span className="tt-focus__time">{fmt(remaining)}</span>
-              <span className="tt-focus__cap">ters sayaç</span>
-            </div>
-          </div>
-        </div>
-        <TimerList t={t} />
-        <div className="tt-app__week">
-          <span className="tt-app__weekcap">bu hafta</span>
-          <Week />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Her özelliğe kendi küçük sahnesi; metin data.js'ten sırayla gelir.
-const SCENES = [
-  t => <TimerList t={t} />,
-  t => {
-    const remaining = Math.max(0, COUNT_START - t);
-    return (
-      <div className="tt-scene-ring">
-        <Ring remaining={remaining} size={148} stroke={12} />
-        <span className="tt-focus__time">{fmt(remaining)}</span>
-      </div>
-    );
-  },
-  () => <Week />
+const CATEGORIES = [
+  { name: 'Reading', base: 0.62 },
+  { name: 'Math.', base: 0.08 },
+  { name: 'Sport', base: 0.5 },
+  { name: 'Flutter', base: 0.98, double: true }
 ];
+
+function StatusBar({ dark }) {
+  return (
+    <div className={`tt-status${dark ? ' is-dark' : ''}`} aria-hidden="true">
+      <span>8:00</span>
+      <span className="tt-status__icons">
+        <i />
+        <i />
+        <b />
+      </span>
+    </div>
+  );
+}
+
+// Ana ekran: teal alıntı bandı, 2×2 (+1) halka sayaçlar, yarı saydam teal alt bar.
+function HomeScreen({ t }) {
+  return (
+    <div className="tt-phone tt-phone--home" role="img" aria-label="tiTimer ana ekranı: alıntı bandı, kategori halkaları ve Pomodoro çubuğu">
+      <StatusBar />
+      <div className="tt-banner">
+        <p>
+          “Zamanı birçok yolla <em>öldürebilirsin</em>, fakat bu her zaman <em>savaştığın</em> zamana bağlı…”
+        </p>
+        <span className="tt-banner__author">Martin Amis</span>
+      </div>
+      <ul className="tt-grid">
+        {CATEGORIES.map(c => (
+          <li key={c.name}>
+            <Ring fill={c.double ? 1 : (c.base + t / 600) % 1} double={c.double} />
+            <span className="tt-label">{c.name}</span>
+          </li>
+        ))}
+        <li>
+          <AddRing />
+          <span className="tt-label">Add</span>
+        </li>
+      </ul>
+      <div className="tt-bar">
+        <span className="tt-bar__btn tt-bar__btn--add">+</span>
+        <span className="tt-bar__btn">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M3 5h4M3 8h10M3 11h7" />
+          </svg>
+        </span>
+        <span className="tt-bar__btn tt-bar__pomo">
+          Pomo
+          <br />
+          doro
+        </span>
+        <span className="tt-bar__btn">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path className="is-fill" d="M8 2.5l1.7 3.5 3.8.5-2.8 2.6.7 3.8L8 11l-3.4 1.9.7-3.8L2.5 6.5l3.8-.5z" />
+          </svg>
+        </span>
+      </div>
+    </div>
+  );
+}
+
+// Odak (Pomodoro) ekranı: tamamen siyah zemin, büyük beyaz halka, soluk bitiş saati.
+const WORK = 25 * 60;
+
+function useEnd(remaining) {
+  const [now] = useState(() => new Date());
+  const end = new Date(now.getTime() + remaining * 1000);
+  return `${pad(end.getHours())}:${pad(end.getMinutes())}`;
+}
+
+function FocusScreen({ t, framed = true }) {
+  const start = 13 * 60 + 20;
+  const remaining = Math.max(start - t, 0);
+  const end = useEnd(start);
+  const size = 196;
+  const c = size / 2;
+  const r = c - 10;
+  const len = 2 * Math.PI * r;
+  const done = 1 - remaining / WORK;
+  return (
+    <div
+      className={`tt-phone tt-phone--focus${framed ? '' : ' is-bare'}`}
+      role="img"
+      aria-label={`Odak modu: ${Math.ceil(remaining / 60)} dakika kaldı, bitiş ${end}`}
+    >
+      {framed && <StatusBar dark />}
+      <p className="tt-idiom">Lost time is never found again.</p>
+      <div className="tt-focus__ring">
+        <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
+          <circle className="tt-focus__track" cx={c} cy={c} r={r} />
+          <circle
+            className="tt-focus__arc"
+            cx={c}
+            cy={c}
+            r={r}
+            strokeDasharray={`${(1 - done) * len} ${len}`}
+            transform={`rotate(-90 ${c} ${c})`}
+          />
+        </svg>
+        <span className="tt-focus__nums">
+          <span className="tt-focus__num">{Math.floor(remaining / 60)}</span>
+          <span className="tt-focus__sub">{pad(remaining % 60)}</span>
+        </span>
+      </div>
+      <span className="tt-label tt-label--light">Math.</span>
+      <p className="tt-focus__end">End : {end}</p>
+    </div>
+  );
+}
 
 export default function TiTimerPage({ app }) {
   useTiFonts();
   const t = useTick();
   const available = (app.stage === 'live' || app.stage === 'beta') && app.download;
   const points = (app.points || []).filter(p => !isPlaceholder(p));
+  // Figma TimerNew'in üç doluluk durumu: 0, 50, 66.
+  const states = [0, 0.5, 0.66];
   return (
     <article className="tt">
       <section className="tt-stage">
@@ -164,6 +211,7 @@ export default function TiTimerPage({ app }) {
           <Link to="/uretiyorum" className="tt-back">
             ← Uygulamalar
           </Link>
+
           <div className="tt-sheet tt-hero">
             <div className="tt-hero__intro">
               <span className={`tt-pill tt-pill--${app.stage}`}>{STAGE[app.stage]}</span>
@@ -171,6 +219,12 @@ export default function TiTimerPage({ app }) {
                 <AppIcon name={app.name} size={64} />
                 <h1>{app.name}</h1>
               </div>
+              <blockquote className="tt-quote">
+                <p>
+                  “It’s <em>not enough</em> to be busy, so are the ants. The question is, what are we busy <em>about</em>?”
+                </p>
+                <cite>Henry David Thoreau</cite>
+              </blockquote>
               {!isPlaceholder(app.short) && <p className="tt-hero__short">{app.short}</p>}
               {!isPlaceholder(app.lead) && <p className="tt-hero__lead">{app.lead}</p>}
               <div className="tt-hero__actions">
@@ -185,19 +239,30 @@ export default function TiTimerPage({ app }) {
               </div>
             </div>
             <div className="tt-hero__device">
-              <Phone t={t} />
+              <HomeScreen t={t} />
             </div>
           </div>
 
+          <section className="tt-focus" aria-label="Odak modu">
+            <div className="tt-focus__copy">
+              <span className="tt-focus__kicker">Odak modu</span>
+              <h2>Sayaç başlayınca ekran kararır.</h2>
+              <p>
+                Pomodoro açıldığında beyaz ana ekran çekilir; geriye siyah zemin, tek bir halka ve bitiş saati kalır.
+              </p>
+            </div>
+            <FocusScreen t={t} framed={false} />
+          </section>
+
           {points.length > 0 && (
-            <section className="tt-sheet tt-notes" aria-label="Neler yapar">
-              <h2 className="tt-notes__title">Neler yapar</h2>
-              <ol className="tt-notes__list">
+            <section className="tt-sheet tt-points" aria-label="Neler yapar">
+              <h2 className="tt-points__title">Neler yapar</h2>
+              <ol className="tt-points__list">
                 {points.map((p, i) => (
-                  <li key={p} className="tt-note">
-                    <span className="tt-note__num">{pad(i + 1)}</span>
-                    <p className="tt-note__text">{p}</p>
-                    {SCENES[i] && <div className="tt-note__scene" aria-hidden="true">{SCENES[i](t)}</div>}
+                  <li key={p} className="tt-point">
+                    <Ring fill={states[i % states.length]} size={64} />
+                    <span className="tt-point__num">{pad(i + 1)}</span>
+                    <p className="tt-point__text">{p}</p>
                   </li>
                 ))}
               </ol>
