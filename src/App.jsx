@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
 import './App.css';
-import { FEATURED, APPS, SERIES, INSPIRATION, LINKS, slugOf } from './data';
+import { FEATURED, APPS, SERIES, TOOLS, INSPIRATION, LINKS, slugOf } from './data';
 import AppPage from './AppPage';
 import TiTimerPage from './TiTimerPage';
 import InstagramFeed from './InstagramFeed';
@@ -61,7 +61,8 @@ export const GLYPHS = {
 const PAGES = {
   '/uretiyorum': { title: 'Üretiyorum', lead: 'Uygulamalarımın mağazası.' },
   '/paylasiyorum': { title: 'Paylaşıyorum', lead: 'Sosyal medyada paylaştıklarım.' },
-  '/anlatiyorum': { title: 'Anlatıyorum', lead: 'Yapay zekâ ve araçlar üzerine eğitici içerikler.' }
+  '/anlatiyorum': { title: 'Anlatıyorum', lead: 'Yapay zekâ ve araçlar üzerine eğitici içerikler.' },
+  '/oneriyorum': { title: 'Öneriyorum', lead: 'Kullandığım, ücretsiz veya açık kaynak araçlar.' }
 };
 
 function usePath() {
@@ -115,12 +116,12 @@ export default function App() {
             {path === '/uretiyorum' && <Apps page />}
             {path === '/paylasiyorum' && <Share page />}
             {path === '/anlatiyorum' && <Teach page />}
+            {path === '/oneriyorum' && <Tools />}
           </>
         ) : (
           <>
             <Breath />
             <Apps />
-            <LabWall />
             <Share />
             <Teach />
           </>
@@ -155,7 +156,8 @@ function Header({ path }) {
   const tabs = [
     ['/uretiyorum', 'Üretiyorum'],
     ['/paylasiyorum', 'Paylaşıyorum'],
-    ['/anlatiyorum', 'Anlatıyorum']
+    ['/anlatiyorum', 'Anlatıyorum'],
+    ['/oneriyorum', 'Öneriyorum']
   ];
   // Ana sayfanın en üstünde bar şeffaf durur; efekt ekranın tepesine kadar uzanır. Kaydırınca bar belirir.
   const [clear, setClear] = useState(false);
@@ -490,22 +492,39 @@ function Apps({ page = false }) {
   );
 }
 
-// Ara bölüm: uygulama ikonlarından oluşan, eğik düzlemde ters yönlere süzülen duvar.
-function LabWall() {
-  const tiles = [...FEATURED, ...APPS]
-    .filter(a => ICONS[a.name])
-    .map(a => (
-      <Link key={a.name} to={`/uretiyorum/${slugOf(a.name)}`} className="labwall__tile" tabIndex={-1}>
-        <AppIcon name={a.name} size={56} />
-        <span>{a.name}</span>
-      </Link>
-    ));
-  if (!tiles.length) return null;
+// Öneriyorum: ücretsiz / açık kaynak üçüncü taraf araçlar (data.js → TOOLS, taslak liste).
+// Üstte eğik düzlemde süzülen isim duvarı (DriftWall, dekoratif); asıl içerik altındaki kart ızgarası.
+function Tools() {
+  const tiles = TOOLS.map(t => (
+    <span key={t.name} className="toolwall__tile">
+      <strong>{t.name}</strong>
+      <span className="mono">{t.license}</span>
+    </span>
+  ));
   return (
-    <section className="labwall" aria-label="Laboratuvar duvarı">
-      <DriftWall columns={8} minColumnWidth={130} duration={42} gap={14} height="clamp(300px, 42vw, 440px)">
-        {tiles}
-      </DriftWall>
+    <section className="wrap section tools">
+      {/* Gölgeli kutucuklar DriftWall'un içinde; duvarın kendi kırpma kenarına iç boşluk bırakılır (bkz. .toolwall). */}
+      <div className="toolwall" aria-hidden="true">
+        <DriftWall columns={6} minColumnWidth={150} duration={46} gap={16} height="clamp(240px, 32vw, 340px)" pauseOnHover={false}>
+          {tiles}
+        </DriftWall>
+      </div>
+      <ul className="toolgrid">
+        {TOOLS.map(t => (
+          <li key={t.name}>
+            <a href={t.url} target="_blank" rel="noopener noreferrer" className="tool">
+              <span className="tool__meta mono">
+                {t.category} · {t.license}
+              </span>
+              <strong className="tool__name">{t.name}</strong>
+              <span className="tool__lead">{t.lead}</span>
+              <span className="tool__go mono">
+                {t.url.replace(/^https?:\/\/(www\.)?/, '')} <span aria-hidden="true">↗</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

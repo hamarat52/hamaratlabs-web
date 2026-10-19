@@ -107,6 +107,20 @@ export const SERIES = [
   { platform: 'REELS', cover: 'Bu hafta öne çıkan araçlar.', box: 'Haftalık', title: 'Haftanın araçları', when: 'HER ÇARŞAMBA' }
 ];
 
+// Öneriyorum sekmesi: kullandığım, ücretsiz veya açık kaynak ÜÇÜNCÜ TARAF araçlar (kendi ürünlerim değil).
+// TASLAK LİSTE: Yusuf'un onayı/düzenlemesi bekleniyor; yayına hazır "kesin" bir liste değildir.
+// license: 'Açık kaynak' (kaynak kodu açık lisanslı) | 'Ücretsiz' (ücretsiz ama kapalı kaynak).
+export const TOOLS = [
+  { name: 'Ollama', category: 'YAPAY ZEKÂ', license: 'Açık kaynak', lead: 'Açık dil modellerini tek komutla kendi bilgisayarında çalıştırır.', url: 'https://ollama.com' },
+  { name: 'LM Studio', category: 'YAPAY ZEKÂ', license: 'Ücretsiz', lead: 'Yerel dil modellerini arayüzden indirip sohbet ettiren masaüstü uygulaması.', url: 'https://lmstudio.ai' },
+  { name: 'Whisper', category: 'YAPAY ZEKÂ', license: 'Açık kaynak', lead: "OpenAI'ın konuşmayı metne çeviren açık kaynak modeli; Türkçe de destekler.", url: 'https://github.com/openai/whisper' },
+  { name: 'Hermes Agent', category: 'YAPAY ZEKÂ', license: 'Açık kaynak', lead: "Nous Research'ün terminalde ve mesajlaşma uygulamalarında çalışan açık kaynak yapay zekâ ajanı.", url: 'https://hermes-agent.nousresearch.com' },
+  { name: 'Obsidian', category: 'PRODÜKTİVİTE', license: 'Ücretsiz', lead: 'Notlarını kendi bilgisayarında düz Markdown dosyaları olarak tutan, birbirine bağlayan not uygulaması.', url: 'https://obsidian.md' },
+  { name: 'VS Code', category: 'PRODÜKTİVİTE', license: 'Ücretsiz', lead: "Microsoft'un eklentilerle genişleyen ücretsiz kod düzenleyicisi; kaynak kodu MIT lisanslı.", url: 'https://code.visualstudio.com' },
+  { name: 'OBS Studio', category: 'İÇERİK ÜRETİMİ', license: 'Açık kaynak', lead: 'Ekran kaydı ve canlı yayın için ücretsiz, açık kaynak yazılım.', url: 'https://obsproject.com' },
+  { name: 'Audacity', category: 'İÇERİK ÜRETİMİ', license: 'Açık kaynak', lead: 'Ses kaydı ve düzenleme için ücretsiz, açık kaynak ses editörü.', url: 'https://www.audacityteam.org' }
+];
+
 // Footer'daki kayan şerit: Yusuf'un çektiği fotoğraflar.
 export const INSPIRATION = [
   'Ördek',
