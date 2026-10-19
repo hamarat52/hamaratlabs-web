@@ -1,10 +1,40 @@
 // HamaratLabs "liquid glass" uygulama ikonu.
 // Apple'ın cam ikon dili (tek renk ailesi zemin, buzlu cam sembol, iç gölge, üstte ışık)
-// + hamaratlabs imzası: Ivory cam gövde, altta kenarın kestiği Ink yuva içinde Lime "labs" ışığı.
 // Tamamı SVG: cam hissi feSpecularLighting + iç gölge filtreleriyle yaklaşık olarak kurulur.
 
-const SQUIRCLE =
-  'M50 0C80 0 91 0 95.5 4.5S100 20 100 50 100 91 95.5 95.5 80 100 50 100 9 100 4.5 95.5 0 80 0 50 0 9 4.5 4.5 20 0 50 0Z';
+// Apple "continuous corner" (iOS 7+ UIBezierPath roundedRect / ikon maskesi): köşe tek bir
+// çember yayı değil; eğrilik düz kenarda 0'dan başlayıp yumuşakça artar. Sabitler PaintCode'un
+// UIKit çıktısından ölçtüğü sağ-üst köşe noktaları: her nokta (W - u·r, v·r). Köşe kenar boyunca
+// 1.52866483·r uzanır; diğer köşeler 90° döndürülerek elde edilir.
+const CORNER_EXTENT = 1.52866483;
+const CORNER = [
+  ['C', [1.08849323, 0], [0.86840689, 0], [0.66993427, 0.065496]],
+  ['L', [0.63149399, 0.074911]],
+  ['C', [0.37282392, 0.16905899], [0.16906013, 0.37282401], [0.07491176, 0.63149399]],
+  ['C', [0, 0.86840701], [0, 1.08849299], [0, CORNER_EXTENT]]
+];
+
+// w x h alanında, r köşe yarıçaplı Apple squircle path'i üretir.
+function squirclePath(w, h, r) {
+  const k = Math.min(r, Math.min(w, h) / 2 / CORNER_EXTENT);
+  const n = v => +v.toFixed(3);
+  // Saat yönünde köşeler: (u, v) köşe-yerel → mutlak koordinat
+  const corners = [
+    (u, v) => [w - u * k, v * k], // sağ-üst
+    (u, v) => [w - v * k, h - u * k], // sağ-alt
+    (u, v) => [u * k, h - v * k], // sol-alt
+    (u, v) => [v * k, u * k] // sol-üst
+  ];
+  let d = `M${n(CORNER_EXTENT * k)} 0`;
+  for (const at of corners) {
+    d += `L${at(CORNER_EXTENT, 0).map(n).join(' ')}`;
+    for (const [cmd, ...pts] of CORNER) d += cmd + pts.map(p => at(...p).map(n).join(' ')).join(' ');
+  }
+  return `${d}Z`;
+}
+
+// r = 26.1: macOS'un gerçek ikon maskesine (824 px gövde, 1024 tuval) en iyi oturan değer.
+const SQUIRCLE = squirclePath(100, 100, 26.1);
 
 const INK = '#101317';
 const LIME = '#d0ff63';
@@ -182,7 +212,7 @@ export default function AppIcon({ name, size = 88 }) {
           <stop offset="0.66" stopColor={c2} />
           <stop offset="1" stopColor={deep} />
         </linearGradient>
-        <radialGradient id={`halo-${id}`} cx="0.5" cy="0.44" r="0.42">
+        <radialGradient id={`halo-${id}`} cx="0.5" cy="0.48" r="0.42">
           <stop offset="0" stopColor={IVORY} stopOpacity="0.34" />
           <stop offset="1" stopColor={IVORY} stopOpacity="0" />
         </radialGradient>
@@ -204,17 +234,9 @@ export default function AppIcon({ name, size = 88 }) {
           <stop offset="0" stopColor={mix(deep, INK, 0.3)} />
           <stop offset="1" stopColor={deep} />
         </linearGradient>
-        <linearGradient id={`lime-${id}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#efffc4" />
-          <stop offset="0.45" stopColor={LIME} />
-          <stop offset="1" stopColor="#a9e035" />
-        </linearGradient>
         <filter id={`grain-${id}`} x="0" y="0" width="100%" height="100%">
           <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" stitchTiles="stitch" />
           <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0.2 0 0 0 -0.08" />
-        </filter>
-        <filter id={`glow-${id}`} x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="3.5" />
         </filter>
         {/* Cam filtresi: yumuşak gölge + kabarık yüzey ışığı + altta renkli iç gölge + üstte ışık kenarı */}
         <filter
@@ -282,15 +304,12 @@ export default function AppIcon({ name, size = 88 }) {
         <rect width="100" height="100" fill={u('halo')} />
         <rect width="100" height="100" filter={u('grain')} />
         <ellipse cx="44" cy="-4" rx="80" ry="44" fill={u('sheen')} />
-        {/* hamaratlabs imzası: kenarın kestiği Ink yuva, içinde Lime "labs" ışığı */}
-        <ellipse cx="50" cy="100" rx="19" ry="8" fill={LIME} opacity="0.5" filter={u('glow')} />
-        <rect x="34" y="91" width="32" height="20" rx="8" fill={INK} />
-        <rect x="36.2" y="93.2" width="27.6" height="20" rx="6" fill={u('lime')} />
-        <rect x="39.5" y="94" width="21" height="1.3" rx="0.65" fill="#fff" opacity="0.8" />
         <path d={SQUIRCLE} fill="none" stroke={u('rim')} strokeWidth="2.2" />
       </g>
 
-      <g transform="translate(20 13) scale(1.25)">
+      {/* İmza kaldırıldı: sembol alanı (48x48 → 60x60) dikeyde ortalandı; cam gölgesi aşağı
+          düştüğü için 2 birim yukarıda optik merkez */}
+      <g transform="translate(20 18) scale(1.25)">
         <g filter={u('glass')} fill={u('body')} color={IVORY} stroke="none">
           {icon.glyph(p)}
         </g>
