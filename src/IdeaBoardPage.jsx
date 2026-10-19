@@ -449,7 +449,8 @@ function IdeaBoard({ app }) {
   const binTarget = useCallback(() => {
     const b = boardRef.current.getBoundingClientRect();
     const r = binRef.current.getBoundingClientRect();
-    return { x: r.left + r.width / 2 - b.left, y: r.top + r.height * 0.42 - b.top };
+    // Ağzın biraz altı: top ön kenarın arkasına düşerek kaybolur.
+    return { x: r.left + r.width / 2 - b.left, y: r.top + r.height * 0.3 - b.top };
   }, []);
 
   const flying = new Set(flights.map(f => f.key));
