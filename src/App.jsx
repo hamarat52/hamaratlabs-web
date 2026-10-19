@@ -13,6 +13,7 @@ import PixelSnow from './components/rb/PixelSnow/PixelSnow';
 import TechText from './components/rb/TechText/TechText';
 import GradientASCII from './components/rb/GradientASCII/GradientASCII';
 import GhostFibers from './components/rb/GhostFibers/GhostFibers';
+import LetterGlitch from './components/rb/LetterGlitch/LetterGlitch';
 import Lanyard from './components/rb/Lanyard/Lanyard';
 import FadeContent from './components/rb/FadeContent/FadeContent';
 import DriftWall from './components/rb/DriftWall/DriftWall';
@@ -233,6 +234,11 @@ const GROUNDS = [
     id: 'fibers',
     label: 'Lifler',
     icon: <path d="M3 8c4-4 8 4 12 0s5-2 6-1M3 13c4-4 8 4 12 0s5-2 6-1M3 18c4-4 8 4 12 0s5-2 6-1" />
+  },
+  {
+    id: 'glitch',
+    label: 'Glitch',
+    icon: <path d="M4 6h10M4 10h6M13 10h7M4 14h12M8 18h12" />
   }
 ];
 
@@ -274,6 +280,9 @@ function Ground({ id, color }) {
       />
     );
   if (id === 'fibers') return <GhostFibers lightMode glowColor={color} secondaryColor="#101317" speed={0.35} threads={56} vignette={0.2} />;
+  // Açık zemin üstünde soluk harf ızgarası; parıltılar seçili tonla yanar.
+  if (id === 'glitch')
+    return <LetterGlitch background="#fffdf8" glitchColors={['#e7e2d6', '#d3cdbf', color]} glitchSpeed={70} flashChance={0.04} outerVignette={false} />;
   return null;
 }
 
