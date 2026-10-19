@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LetterGlitch — izole demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+    <style>
+      html, body, #root { margin: 0; height: 100%; background: #101317; }
+      .stage { position: relative; height: 100vh; }
+      .copy {
+        position: absolute; inset: 0; display: grid; place-content: center; text-align: center;
+        color: #fffdf8; font-family: 'Geist', system-ui, sans-serif; pointer-events: none; padding: 24px;
+      }
+      .copy h1 { margin: 0; font-size: clamp(36px, 7vw, 88px); letter-spacing: -0.03em; }
+      .copy p { margin: 12px 0 0; font-size: clamp(16px, 1.6vw, 20px); color: #a9aeb7; }
+      .copy b { color: #d0ff63; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Yalnız doğrulama için; build girdisi değil (vite yalnız index.html'i paketler). -->
+    <script type="module" src="./letter-glitch-demo.jsx"></script>
+  </body>
+</html>
