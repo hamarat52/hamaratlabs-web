@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { FEATURED, APPS, SERIES, INSPIRATION, LINKS, slugOf } from './data';
 import AppPage from './AppPage';
+import TiTimerPage from './TiTimerPage';
 import InstagramFeed from './InstagramFeed';
 import { NavContext, Link } from './nav';
 import { asset, stripBase } from './base';
@@ -44,6 +45,9 @@ const PAGES = {
   '/anlatiyorum': { title: 'Anlatıyorum', lead: 'Yapay zekâ ve araçlar üzerine eğitici içerikler.' }
 };
 
+// slug → kendi tanıtım sayfası. Burada olmayan uygulamalar AppPage şablonunu kullanır.
+const CUSTOM_PAGES = { titimer: TiTimerPage };
+
 function usePath() {
   const [path, setPath] = useState(() => stripBase(window.location.pathname));
   useEffect(() => {
@@ -77,7 +81,11 @@ export default function App() {
       <Header path={path} />
       <main>
         {appMatch ? (
-          <AppPage app={appMatch} />
+          (() => {
+            // Kendi tasarımı olan uygulamalar özel sayfasını, diğerleri ortak şablonu kullanır.
+            const Page = CUSTOM_PAGES[slugOf(appMatch.name)] || AppPage;
+            return <Page app={appMatch} />;
+          })()
         ) : page ? (
           <>
             <PageHead title={page.title} lead={page.lead} />
