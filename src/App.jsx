@@ -449,7 +449,7 @@ function LabWall() {
   if (!tiles.length) return null;
   return (
     <section className="labwall" aria-label="Laboratuvar duvarı">
-      <DriftWall columns={6} minColumnWidth={140} duration={42} gap={14} height="clamp(300px, 42vw, 440px)">
+      <DriftWall columns={8} minColumnWidth={130} duration={42} gap={14} height="clamp(300px, 42vw, 440px)">
         {tiles}
       </DriftWall>
     </section>

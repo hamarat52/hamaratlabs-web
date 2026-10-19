@@ -62,6 +62,9 @@ export default function Lanyard({
     let last = 0;
     let t0 = 0;
     let pendingKick = 0;
+    // Uyku: esinti son etkileşimden sonra söner; kart durulunca döngü durur, scroll/dokunuşla uyanır.
+    let wakeAt = 0;
+    let calm = 0;
 
     const layout = first => {
       const r = root.getBoundingClientRect();
@@ -95,7 +98,8 @@ export default function Lanyard({
     const step = (dt, time) => {
       const { gravity: g, damping: damp, wind: wd, scrollKick: sk } = propsRef.current;
       const dt2 = dt * dt;
-      const breeze = still ? 0 : wd * 26 * Math.sin(time * 0.0009) * Math.sin(time * 0.00037 + 1.3);
+      const fade = Math.max(0, 1 - (time - wakeAt) / 7000);
+      const breeze = still ? 0 : fade * wd * 26 * Math.sin(time * 0.0009) * Math.sin(time * 0.00037 + 1.3);
       if (pendingKick) {
         center.px -= pendingKick * sk;
         pendingKick = 0;
@@ -184,13 +188,22 @@ export default function Lanyard({
       const n = Math.max(1, Math.round(dt / (1 / 120)));
       for (let i = 0; i < n; i++) step(dt / n, now - t0);
       render();
+      const speed = Math.hypot(center.x - center.px, center.y - center.py) + Math.abs(pts[pts.length >> 1].x - pts[pts.length >> 1].px);
+      const breezing = now - t0 - wakeAt < 7000;
+      calm = !drag && !breezing && speed < 0.02 ? calm + 1 : 0;
+      if (calm > 45) return; // ~0.75 sn tam durgun: uyku
       raf = requestAnimationFrame(loop);
     };
     const start = () => {
       if (!raf && visible) {
         last = 0;
+        calm = 0;
         raf = requestAnimationFrame(loop);
       }
+    };
+    const wake = () => {
+      if (t0) wakeAt = performance.now() - t0;
+      start();
     };
 
     layout(true);
@@ -200,6 +213,7 @@ export default function Lanyard({
     const ro = new ResizeObserver(() => {
       const ax = anchor.x;
       layout(false);
+      wake();
       const shift = anchor.x - ax;
       if (shift) {
         for (const p of pts) {
@@ -228,7 +242,10 @@ export default function Lanyard({
       const y = window.scrollY;
       const dy = Math.max(-60, Math.min(60, y - lastY));
       lastY = y;
-      if (!still) pendingKick += dy * 0.18;
+      if (!still && dy) {
+        pendingKick += dy * 0.18;
+        wake();
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -242,6 +259,7 @@ export default function Lanyard({
       drag = { ox: p.x - center.x, oy: p.y - center.y, tx: center.x, ty: center.y };
       card.setPointerCapture?.(ev.pointerId);
       card.classList.add('lanyard__card--drag');
+      wake();
       ev.preventDefault();
     };
     const onMove = ev => {
@@ -255,6 +273,7 @@ export default function Lanyard({
       drag = null;
       card.releasePointerCapture?.(ev.pointerId);
       card.classList.remove('lanyard__card--drag');
+      wake();
     };
     card.addEventListener('pointerdown', onDown);
     card.addEventListener('pointermove', onMove);

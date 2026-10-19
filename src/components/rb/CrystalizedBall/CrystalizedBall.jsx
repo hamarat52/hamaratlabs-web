@@ -55,7 +55,7 @@ vec3 facet(vec3 n, out float edge){
 
 vec3 env(vec3 d){
   float t = d.y * 0.5 + 0.5;
-  vec3 c = mix(uInk, uA, smoothstep(0.0, 0.9, t));
+  vec3 c = mix(mix(uInk, uA, 0.45), uA, smoothstep(0.0, 0.8, t));
   c = mix(c, uB, smoothstep(0.55, 1.0, t) * 0.8);
   float band = smoothstep(0.92, 1.0, sin(d.x * 6.0 + d.y * 3.0 + uTime * 0.4) * 0.5 + 0.5);
   return c + band * 0.35;
@@ -81,7 +81,7 @@ void main(){
     vec3 rb = refract(-v, fn, 0.70);
     vec3 inner = vec3(env(rr).r, env(rg).g, env(rb).b);
     float fres = pow(1.0 - max(dot(fn, v), 0.0), 2.4);
-    col = mix(inner * 0.9, env(refl), 0.25 + fres * 0.6);
+    col = mix(inner * 1.08, env(refl), 0.2 + fres * 0.6);
     vec3 L = normalize(vec3(-0.5, 0.7, 0.6));
     float spec = pow(max(dot(reflect(-L, fn), v), 0.0), 40.0) * uLight;
     col += spec;
@@ -90,7 +90,7 @@ void main(){
     a = smoothstep(R*R, R*R - 0.012, d2);
   }
   // yumuşak dış hale
-  float halo = exp(-max(0.0, sqrt(d2) - R) * 9.0) * 0.28 * step(R*R, d2);
+  float halo = 0.0;
   col += uA * halo;
   a = max(a, halo);
   gl_FragColor = vec4(col * a, a);
