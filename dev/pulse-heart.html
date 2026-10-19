@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseHeart test sayfası (yalnız geliştirme)</title>
+    <!--
+      Yalnız `npm run dev` ile /dev/pulse-heart.html adresinde açılır; build girdisi değildir.
+      Bileşen sitenin hiçbir sayfasına bağlı değil (entegrasyon ayrı turda).
+    -->
+    <script>
+      // Kanıt günlüğü: GitHub API çağrılarını ve window.open çağrılarını sayfaya yazar.
+      window.__phLog = [];
+      const log = msg => {
+        window.__phLog.push(msg);
+        const el = document.getElementById('log');
+        if (el) el.textContent = window.__phLog.join('\n');
+      };
+      const realFetch = window.fetch.bind(window);
+      window.fetch = async (url, opts) => {
+        // ?slow: API yanıtını 3 sn geciktir (yükleme iskeletini görmek için)
+        if (new URLSearchParams(location.search).has('slow')) await new Promise(r => setTimeout(r, 3000));
+        const res = await realFetch(url, opts);
+        log(`fetch ${url} -> HTTP ${res.status}`);
+        return res;
+      };
+      const realOpen = window.open.bind(window);
+      window.__phMockOpen = true; // test: varsayılan mock (sekme açmaz, yalnız loglar)
+      window.open = (url, target, features) => {
+        log(`window.open("${url}", "${target}", "${features}")${window.__phMockOpen ? ' [mock]' : ''}`);
+        return window.__phMockOpen ? null : realOpen(url, target, features);
+      };
+      window.__phLogFn = log;
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <pre id="log" style="margin: 0 24px; white-space: pre-wrap; word-break: break-all; font-size: 11px"></pre>
+    <script type="module" src="./pulse-heart-demo.jsx"></script>
+  </body>
+</html>
