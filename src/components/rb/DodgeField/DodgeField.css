@@ -1,0 +1,87 @@
+.dodge-field {
+  --df-height: 168px;
+  --df-bg: var(--ink, #101317);
+  --df-fg: var(--ivory, #fffdf8);
+  --df-away-bg: var(--lime, #d0ff63);
+  --df-away-fg: var(--ink, #101317);
+  --df-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--df-height);
+}
+
+.dodge-field[data-align='start'] {
+  justify-content: flex-start;
+}
+
+/* Sitedeki .apppage__dl ile aynı görünüm: ilk bakışta sıradan bir indir butonu. */
+.dodge-field__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin: 0;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--df-bg);
+  color: var(--df-fg);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  will-change: transform;
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dodge-field__btn:hover {
+    box-shadow: 0 6px 18px rgb(16 19 23 / 0.18);
+  }
+}
+
+.dodge-field__btn:focus-visible {
+  outline: 2px solid var(--df-bg);
+  outline-offset: 3px;
+}
+
+.dodge-field__btn[data-away='true'] {
+  background: var(--df-away-bg);
+  color: var(--df-away-fg);
+}
+
+.dodge-field__text {
+  display: inline-block;
+  animation: dodge-field-pop 260ms var(--df-ease-out);
+}
+
+@keyframes dodge-field-pop {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.92);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dodge-field__text {
+    animation: none;
+  }
+}
