@@ -28,6 +28,13 @@ const CUSTOM_PAGES = {
   wingwire: lazy(() => import('./wingwire/WingWirePage'))
 };
 
+// Özel sayfası olmayan uygulamalar aşamalarına göre şablon alır; beta/tanımsız → AppPage.
+// Fikir panosu (Three.js buruşturma) ve geliştirme şablonu ayrı parça olarak yüklenir.
+const STAGE_PAGES = {
+  idea: lazy(() => import('./IdeaBoardPage')),
+  dev: lazy(() => import('./DevStagePage'))
+};
+
 /* Kullanılan efektler (bölüm başına en fazla bir):
    ilk ekran: ziyaretçinin seçtiği zemin (Pixel Snow / Gradient ASCII / Ghost Fibers)
    uygulama kartları: BorderGlow · footer: FlexCarousel.
@@ -93,9 +100,11 @@ export default function App() {
       <main>
         {appMatch ? (
           (() => {
-            const Page = CUSTOM_PAGES[slugOf(appMatch.name)];
+            // Öncelik: özel sayfa → fikir panosu (idea) → geliştirme şablonu (dev) → genel AppPage.
+            const Custom = CUSTOM_PAGES[slugOf(appMatch.name)];
+            const Page = Custom || STAGE_PAGES[appMatch.stage];
             return Page ? (
-              <Suspense fallback={<div style={{ minHeight: '100vh', background: '#0b0f14' }} />}>
+              <Suspense fallback={<div style={{ minHeight: '100vh', background: Custom ? '#0b0f14' : undefined }} />}>
                 <Page app={appMatch} />
               </Suspense>
             ) : (
