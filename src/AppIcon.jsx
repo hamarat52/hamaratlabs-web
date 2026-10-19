@@ -1,102 +1,155 @@
-// Apple tarzı uygulama ikonu: sürekli köşeli kare (squircle), renk geçişli zemin,
-// üstte cam parlaması ve beyaz, hafif şeffaf "liquid glass" sembol.
+// HamaratLabs "liquid glass" uygulama ikonu.
+// Apple'ın cam ikon dili (tek renk ailesi zemin, buzlu cam sembol, iç gölge, üstte ışık)
+// + hamaratlabs imzası: Ivory cam gövde, altta kenarın kestiği Ink yuva içinde Lime "labs" ışığı.
+// Tamamı SVG: cam hissi feSpecularLighting + iç gölge filtreleriyle yaklaşık olarak kurulur.
 
 const SQUIRCLE =
   'M50 0C80 0 91 0 95.5 4.5S100 20 100 50 100 91 95.5 95.5 80 100 50 100 9 100 4.5 95.5 0 80 0 50 0 9 4.5 4.5 20 0 50 0Z';
 
+const INK = '#101317';
+const LIME = '#d0ff63';
+const IVORY = '#fffdf8';
+
+// İki hex rengi t oranında karıştırır (0 = a, 1 = b).
+const mix = (a, b, t) => {
+  const pa = a.match(/\w\w/g).map(h => parseInt(h, 16));
+  const pb = b.match(/\w\w/g).map(h => parseInt(h, 16));
+  return `#${pa.map((v, i) => Math.round(v + (pb[i] - v) * t).toString(16).padStart(2, '0')).join('')}`;
+};
+
+// glyph: 48x48 alanında cam gövde (filtre tüm grubu tek cam kütlesi gibi işler).
+// inset: camın içine oyulmuş koyu ayrıntılar (çubuklar, kum, satırlar).
+// p = { c1, c2, deep } ürün renkleri.
 export const ICONS = {
   SesVer: {
-    colors: ['#ff4f7b', '#ff9f0a'],
-    glyph: (
-      <>
-        <rect x="4" y="5" width="40" height="24" rx="12" fill="none" stroke="#fff" strokeWidth="3.4" />
-        <path d="M14 27 L8 40 L24 29 Z" fill="#fff" />
-        <rect x="11" y="13" width="4" height="8" rx="2" fill="#fff" />
-        <rect x="17" y="10" width="4" height="14" rx="2" fill="#fff" />
-        <rect x="23" y="8" width="4" height="18" rx="2" fill="#fff" />
-        <rect x="29" y="10" width="4" height="14" rx="2" fill="#fff" />
-        <rect x="35" y="13" width="4" height="8" rx="2" fill="#fff" />
-      </>
+    colors: ['#ff5c86', '#ff8f1f'],
+    glyph: () => (
+      <path d="M18 4H30A15 15 0 0 1 30 34H22C18 37.5 13.5 41 9.8 42.6 9 43 8.4 42.4 8.9 41.7 10.8 39 12.4 36.4 13 33.2A15 15 0 0 1 18 4Z" />
     ),
-    filled: true
+    inset: () => (
+      <>
+        <rect x="9.1" y="15" width="4.2" height="8" rx="2.1" />
+        <rect x="15.5" y="12" width="4.2" height="14" rx="2.1" />
+        <rect x="21.9" y="10" width="4.2" height="18" rx="2.1" />
+        <rect x="28.3" y="12" width="4.2" height="14" rx="2.1" />
+        <rect x="34.7" y="15" width="4.2" height="8" rx="2.1" />
+      </>
+    )
   },
   WingWire: {
-    colors: ['#5ad8ff', '#1a5cff'],
-    glyph: (
+    colors: ['#5ad2ff', '#1f5cff'],
+    glyph: p => (
       <>
-        <path d="M6 38 Q18 30 30 34" fill="none" stroke="#fff" strokeOpacity="0.55" strokeWidth="2.6" strokeLinecap="round" strokeDasharray="1 5.5" />
-        <path d="M44 6 L4 20 L20 24 L26 44 Z" fill="#fff" />
-        <path d="M44 6 L20 24" fill="none" stroke="#fff" strokeOpacity="0.5" strokeWidth="2.2" strokeLinecap="round" />
+        <path
+          d="M7 40C11 35 15 34 19 36"
+          fill="none"
+          stroke="currentColor"
+          strokeOpacity="0.7"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+          strokeDasharray="0.1 4.6"
+        />
+        <path d="M43 6 5 20.5 20 25 26 43Z" stroke="currentColor" strokeWidth="3.6" strokeLinejoin="round" />
+        <path d="M43 6 20 25 26 43Z" fill={p.c2} fillOpacity="0.22" stroke={p.c2} strokeOpacity="0.22" strokeWidth="3.6" strokeLinejoin="round" />
       </>
-    ),
-    filled: true
+    )
   },
   'Income vs Desires': {
-    colors: ['#3ddc84', '#0a8f6a'],
-    glyph: (
+    colors: ['#43e08c', '#0c9a6c'],
+    glyph: () => (
       <>
-        <circle cx="24" cy="8" r="2.4" />
-        <path d="M24 10.6v31.4M14 42h20M8 17h32M8 17v10M40 17v10" />
-        <path d="M3 27a5 5 0 0 0 10 0M35 27a5 5 0 0 0 10 0" />
+        <circle cx="24" cy="8.5" r="3.6" />
+        <rect x="22" y="9" width="4" height="31" rx="2" />
+        <path d="M12 45C12 39.5 16.5 37 24 37S36 39.5 36 45Z" />
+        <rect x="5" y="13.5" width="38" height="4.2" rx="2.1" />
+        <path
+          d="M8.5 16 3.5 29M8.5 16 13.5 29M39.5 16 34.5 29M39.5 16 44.5 29"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+        <path d="M2 28.5H15A6.5 6.5 0 0 1 2 28.5Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+        <path d="M33 28.5H46A6.5 6.5 0 0 1 33 28.5Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
       </>
     )
   },
   tiTimer: {
-    colors: ['#ffd84d', '#ff8a00'],
-    glyph: (
+    colors: ['#ffd64a', '#ff8a0a'],
+    glyph: () => (
       <>
-        <rect x="12" y="7" width="24" height="4" rx="2" />
-        <rect x="12" y="37" width="24" height="4" rx="2" />
-        <path d="M14 11 L34 11 L24 23 Z" />
-        <path d="M14 37 L34 37 L24 25 Z" />
+        <rect x="9" y="4" width="30" height="5.5" rx="2.75" />
+        <rect x="9" y="38.5" width="30" height="5.5" rx="2.75" />
+        <path
+          d="M12.5 9.5H35.5C35.5 18 27 21 27 24S35.5 30 35.5 38.5H12.5C12.5 30 21 27 21 24S12.5 18 12.5 9.5Z"
+          fillOpacity="0.78"
+        />
       </>
     ),
-    filled: true
+    inset: () => (
+      <>
+        <path d="M16.5 13.5H31.5C30.5 17.5 26 19.5 24 22 22 19.5 17.5 17.5 16.5 13.5Z" />
+        <path d="M15.5 36C16.5 31 21.5 29.5 24 27.5 26.5 29.5 31.5 31 32.5 36Z" />
+        <rect x="23.1" y="22" width="1.8" height="7" rx="0.9" />
+      </>
+    )
   },
   Kitabe: {
-    colors: ['#e9c27a', '#8c5a24'],
-    glyph: (
-      <>
-        <path d="M24 14C24 11 20 8 10 8 6 8 4 9.3 4 11.4V36.6C4 38.7 6 40 10 40 18 40 22 42 24 45 26 42 30 40 38 40 42 40 44 38.7 44 36.6V11.4C44 9.3 42 8 38 8 28 8 24 11 24 14Z" />
-        <path d="M24 14V45" fill="none" stroke="rgba(0,0,0,0.25)" strokeWidth="1.6" />
-        <rect x="9" y="16" width="11" height="2.2" rx="1.1" fill="rgba(0,0,0,0.28)" />
-        <rect x="9" y="21" width="11" height="2.2" rx="1.1" fill="rgba(0,0,0,0.28)" />
-        <rect x="9" y="26" width="11" height="2.2" rx="1.1" fill="rgba(0,0,0,0.28)" />
-        <rect x="9" y="31" width="8" height="2.2" rx="1.1" fill="rgba(0,0,0,0.28)" />
-        <rect x="28" y="16" width="11" height="2.2" rx="1.1" fill="rgba(0,0,0,0.28)" />
-        <rect x="28" y="21" width="11" height="2.2" rx="1.1" fill="rgba(0,0,0,0.28)" />
-        <rect x="28" y="26" width="11" height="2.2" rx="1.1" fill="rgba(0,0,0,0.28)" />
-        <rect x="28" y="31" width="8" height="2.2" rx="1.1" fill="rgba(0,0,0,0.28)" />
-      </>
+    colors: ['#ebc47c', '#9a6428'],
+    glyph: () => (
+      <path d="M24 14C24 11 20 8 10 8 6 8 4 9.3 4 11.4V36.6C4 38.7 6 40 10 40 18 40 22 42 24 45 26 42 30 40 38 40 42 40 44 38.7 44 36.6V11.4C44 9.3 42 8 38 8 28 8 24 11 24 14Z" />
     ),
-    filled: true
+    inset: () => (
+      <>
+        <rect x="23.2" y="14.5" width="1.6" height="29" rx="0.8" opacity="0.7" />
+        <g opacity="0.55">
+          <rect x="9" y="16" width="11" height="2.2" rx="1.1" />
+          <rect x="9" y="21.5" width="11" height="2.2" rx="1.1" />
+          <rect x="9" y="27" width="11" height="2.2" rx="1.1" />
+          <rect x="9" y="32.5" width="7" height="2.2" rx="1.1" />
+          <rect x="28" y="16" width="11" height="2.2" rx="1.1" />
+          <rect x="28" y="21.5" width="11" height="2.2" rx="1.1" />
+          <rect x="28" y="27" width="11" height="2.2" rx="1.1" />
+          <rect x="28" y="32.5" width="7" height="2.2" rx="1.1" />
+        </g>
+      </>
+    )
   },
   'Pomodoro Restoran': {
-    colors: ['#ff6a5b', '#c81e1e'],
-    glyph: (
+    colors: ['#ff6b5c', '#d0262a'],
+    glyph: () => (
       <>
-        <ellipse cx="22" cy="28" rx="15" ry="13.5" />
-        <path d="M24 15C19 10 13 11 10 16 16 17 21 16 24 15Z" />
-        <path d="M24 15C29 10 35 11 38 16 32 17 27 16 24 15Z" />
-        <rect x="22.5" y="11" width="3" height="7" rx="1.5" />
-        <path d="M35 30v6M39 29v7M43 30v6M35 36h8M39 36v9" fill="none" stroke="#fff" strokeOpacity="0.9" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        <ellipse cx="21" cy="29" rx="16" ry="14.5" />
+        <path
+          d="M37.5 27v7.5M41.5 26.5v8.5M45.5 27v7.5M37.5 35h8M41.5 35v10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </>
     ),
-    filled: true
+    inset: () => (
+      <>
+        <path d="M21 16.5C16.5 11.5 10.5 12 7.5 16.5 13.5 18.5 18 18 21 16.5Z" fill={LIME} />
+        <path d="M21 16.5C25.5 11.5 31.5 12 34.5 16.5 28.5 18.5 24 18 21 16.5Z" fill={LIME} />
+        <rect x="19.5" y="10.5" width="3" height="7.5" rx="1.5" fill={LIME} />
+      </>
+    )
   },
   'Duo for X': {
-    colors: ['#c86bff', '#6a35f0'],
-    glyph: (
+    colors: ['#c06bff', '#6236f0'],
+    glyph: () => (
       <>
-        <g opacity="0.55">
-          <circle cx="15" cy="15" r="7" />
-          <path d="M3 41C3 28 8 23 15 23 22 23 27 28 27 41Z" />
+        <g opacity="0.6">
+          <circle cx="15" cy="15" r="7.5" />
+          <path d="M2.5 42C2.5 29 8 24 15 24S27.5 29 27.5 42Z" />
         </g>
-        <circle cx="31" cy="18" r="8" />
-        <path d="M16 44C16 30 22 25 31 25 40 25 46 30 46 44Z" />
+        <circle cx="31" cy="17" r="8.5" />
+        <path d="M16 45C16 31 22 26 31 26S46 31 46 45Z" />
       </>
-    ),
-    filled: true
+    )
   }
 };
 
@@ -105,9 +158,9 @@ export default function AppIcon({ name, size = 88 }) {
   if (!icon) return null;
   const id = name.replace(/[^a-z0-9]/gi, '').toLowerCase();
   const [c1, c2] = icon.colors;
-  const paint = icon.filled
-    ? { fill: `url(#gl-${id})`, stroke: 'none' }
-    : { fill: 'none', stroke: `url(#gl-${id})`, strokeWidth: 4.4, strokeLinecap: 'round', strokeLinejoin: 'round' };
+  const deep = mix(c2, INK, 0.3);
+  const p = { c1, c2, deep };
+  const u = k => `url(#${k}-${id})`;
 
   return (
     <svg
@@ -120,34 +173,133 @@ export default function AppIcon({ name, size = 88 }) {
       style={{ '--icon-shadow': `${c2}55` }}
     >
       <defs>
-        <linearGradient id={`bg-${id}`} x1="0" y1="0" x2="0.35" y2="1">
-          <stop offset="0" stopColor={c1} />
-          <stop offset="1" stopColor={c2} />
-        </linearGradient>
-        <linearGradient id={`gl-${id}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#fff" stopOpacity="1" />
-          <stop offset="1" stopColor="#fff" stopOpacity="0.78" />
-        </linearGradient>
-        <radialGradient id={`hl-${id}`} cx="0.3" cy="0" r="0.9">
-          <stop offset="0" stopColor="#fff" stopOpacity="0.5" />
-          <stop offset="0.6" stopColor="#fff" stopOpacity="0.08" />
-          <stop offset="1" stopColor="#fff" stopOpacity="0" />
-        </radialGradient>
         <clipPath id={`sq-${id}`}>
           <path d={SQUIRCLE} />
         </clipPath>
-        <filter id={`sh-${id}`} x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="1.6" stdDeviation="1.6" floodColor="#000" floodOpacity="0.22" />
+        {/* Zemin: tek renk ailesi, altta Ink'e doğru derinleşir */}
+        <linearGradient id={`bg-${id}`} x1="0" y1="0" x2="0.3" y2="1">
+          <stop offset="0" stopColor={mix(c1, IVORY, 0.1)} />
+          <stop offset="0.66" stopColor={c2} />
+          <stop offset="1" stopColor={deep} />
+        </linearGradient>
+        <radialGradient id={`halo-${id}`} cx="0.5" cy="0.44" r="0.42">
+          <stop offset="0" stopColor={IVORY} stopOpacity="0.34" />
+          <stop offset="1" stopColor={IVORY} stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id={`sheen-${id}`} cx="0.4" cy="0" r="0.75">
+          <stop offset="0" stopColor="#fff" stopOpacity="0.42" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id={`rim-${id}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fff" stopOpacity="0.7" />
+          <stop offset="0.45" stopColor="#fff" stopOpacity="0.06" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0.3" />
+        </linearGradient>
+        {/* Cam gövde: üstte Ivory, altta ürün rengini emer */}
+        <linearGradient id={`body-${id}`} gradientUnits="userSpaceOnUse" x1="0" y1="4" x2="0" y2="46">
+          <stop offset="0" stopColor={IVORY} stopOpacity="0.98" />
+          <stop offset="1" stopColor={mix(IVORY, c1, 0.42)} stopOpacity="0.9" />
+        </linearGradient>
+        <linearGradient id={`well-${id}`} gradientUnits="userSpaceOnUse" x1="0" y1="8" x2="0" y2="40">
+          <stop offset="0" stopColor={mix(deep, INK, 0.3)} />
+          <stop offset="1" stopColor={deep} />
+        </linearGradient>
+        <linearGradient id={`lime-${id}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#efffc4" />
+          <stop offset="0.45" stopColor={LIME} />
+          <stop offset="1" stopColor="#a9e035" />
+        </linearGradient>
+        <filter id={`grain-${id}`} x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" stitchTiles="stitch" />
+          <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0.2 0 0 0 -0.08" />
+        </filter>
+        <filter id={`glow-${id}`} x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3.5" />
+        </filter>
+        {/* Cam filtresi: yumuşak gölge + kabarık yüzey ışığı + altta renkli iç gölge + üstte ışık kenarı */}
+        <filter
+          id={`glass-${id}`}
+          filterUnits="userSpaceOnUse"
+          x="-10"
+          y="-10"
+          width="68"
+          height="72"
+          colorInterpolationFilters="sRGB"
+        >
+          <feGaussianBlur in="SourceAlpha" stdDeviation="1.7" result="b" />
+          <feGaussianBlur in="SourceAlpha" stdDeviation="2.6" result="sb" />
+          <feOffset in="sb" dy="3" result="so" />
+          <feFlood floodColor={deep} floodOpacity="0.55" />
+          <feComposite in2="so" operator="in" result="shadow" />
+          <feSpecularLighting
+            in="b"
+            surfaceScale="3.6"
+            specularConstant="1.3"
+            specularExponent="18"
+            lightingColor="#fff"
+            result="sp"
+          >
+            <feDistantLight azimuth="240" elevation="38" />
+          </feSpecularLighting>
+          <feComposite in="sp" in2="SourceAlpha" operator="in" result="spec" />
+          <feOffset in="b" dy="-1.9" result="bu" />
+          <feComposite in="SourceAlpha" in2="bu" operator="out" result="bottomEdge" />
+          <feFlood floodColor={c2} floodOpacity="0.6" />
+          <feComposite in2="bottomEdge" operator="in" result="bottomShade" />
+          <feOffset in="b" dy="1.3" result="bd" />
+          <feComposite in="SourceAlpha" in2="bd" operator="out" result="topEdge" />
+          <feFlood floodColor="#fff" floodOpacity="0.95" />
+          <feComposite in2="topEdge" operator="in" result="topLight" />
+          <feMerge>
+            <feMergeNode in="shadow" />
+            <feMergeNode in="SourceGraphic" />
+            <feMergeNode in="bottomShade" />
+            <feMergeNode in="topLight" />
+            <feMergeNode in="spec" />
+          </feMerge>
+        </filter>
+        {/* Camın içine oyulmuş ayrıntı: üstte koyu, altta ışık */}
+        <filter id={`inset-${id}`} filterUnits="userSpaceOnUse" x="-4" y="-4" width="56" height="56">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="0.7" result="b" />
+          <feOffset in="b" dy="0.9" result="bd" />
+          <feComposite in="SourceAlpha" in2="bd" operator="out" result="top" />
+          <feFlood floodColor={INK} floodOpacity="0.55" />
+          <feComposite in2="top" operator="in" result="topShade" />
+          <feOffset in="b" dy="-0.9" result="bu" />
+          <feComposite in="SourceAlpha" in2="bu" operator="out" result="bot" />
+          <feFlood floodColor="#fff" floodOpacity="0.45" />
+          <feComposite in2="bot" operator="in" result="botLight" />
+          <feMerge>
+            <feMergeNode in="SourceGraphic" />
+            <feMergeNode in="topShade" />
+            <feMergeNode in="botLight" />
+          </feMerge>
         </filter>
       </defs>
-      <g clipPath={`url(#sq-${id})`}>
-        <rect width="100" height="100" fill={`url(#bg-${id})`} />
-        <ellipse cx="38" cy="2" rx="78" ry="46" fill={`url(#hl-${id})`} />
+
+      <g clipPath={u('sq')}>
+        <rect width="100" height="100" fill={u('bg')} />
+        <rect width="100" height="100" fill={u('halo')} />
+        <rect width="100" height="100" filter={u('grain')} />
+        <ellipse cx="44" cy="-4" rx="80" ry="44" fill={u('sheen')} />
+        {/* hamaratlabs imzası: kenarın kestiği Ink yuva, içinde Lime "labs" ışığı */}
+        <ellipse cx="50" cy="100" rx="19" ry="8" fill={LIME} opacity="0.5" filter={u('glow')} />
+        <rect x="34" y="91" width="32" height="20" rx="8" fill={INK} />
+        <rect x="36.2" y="93.2" width="27.6" height="20" rx="6" fill={u('lime')} />
+        <rect x="39.5" y="94" width="21" height="1.3" rx="0.65" fill="#fff" opacity="0.8" />
+        <path d={SQUIRCLE} fill="none" stroke={u('rim')} strokeWidth="2.2" />
       </g>
-      <g transform="translate(20 20) scale(1.25)" filter={`url(#sh-${id})`} {...paint}>
-        {icon.glyph}
+
+      <g transform="translate(20 13) scale(1.25)">
+        <g filter={u('glass')} fill={u('body')} color={IVORY} stroke="none">
+          {icon.glyph(p)}
+        </g>
+        {icon.inset && (
+          <g filter={u('inset')} fill={u('well')}>
+            {icon.inset(p)}
+          </g>
+        )}
       </g>
-      <path d={SQUIRCLE} fill="none" stroke="#fff" strokeOpacity="0.35" strokeWidth="1" />
     </svg>
   );
 }
