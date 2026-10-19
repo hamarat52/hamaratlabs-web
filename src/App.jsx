@@ -7,12 +7,19 @@ import InstagramFeed from './InstagramFeed';
 import { NavContext, Link } from './nav';
 import { asset, stripBase } from './base';
 import BorderGlow from './components/rb/BorderGlow/BorderGlow';
-import AppIcon from './AppIcon';
+import AppIcon, { ICONS } from './AppIcon';
 import FlexCarousel from './components/rb/FlexCarousel/FlexCarousel';
 import PixelSnow from './components/rb/PixelSnow/PixelSnow';
 import TechText from './components/rb/TechText/TechText';
 import GradientASCII from './components/rb/GradientASCII/GradientASCII';
 import GhostFibers from './components/rb/GhostFibers/GhostFibers';
+import Lanyard from './components/rb/Lanyard/Lanyard';
+import FadeContent from './components/rb/FadeContent/FadeContent';
+import DriftWall from './components/rb/DriftWall/DriftWall';
+
+// WebGL bileşenleri ilk ekranın altında; ayrı parçada indirilir, ana paketi büyütmez.
+const Strands = lazy(() => import('./components/rb/Strands/Strands'));
+const CrystalizedBall = lazy(() => import('./components/rb/CrystalizedBall/CrystalizedBall'));
 
 // Kendi tasarım dili olan uygulamalar genel AppPage yerine özel sayfayla açılır.
 // Anahtar slugOf(ad); yol yine /uretiyorum/<slugOf(ad)>. WingWire ayrı parça olarak yüklenir.
@@ -106,6 +113,7 @@ export default function App() {
           <>
             <Breath />
             <Apps />
+            <LabWall />
             <Share />
             <Teach />
           </>
@@ -281,6 +289,17 @@ function Breath() {
       <div className="breath__bg" aria-hidden="true" key={`${ground}-${tint}`}>
         <Ground id={ground} color={color} />
       </div>
+      <Lanyard
+        className="breath__lanyard"
+        image={asset('/brand/hamaratlabs-lockup-card.webp')}
+        imageAlt="hamaratlabs kartı"
+        color={tint === 'ink' || tint === 'grey' ? '#d0ff63' : color}
+        cardWidth={232}
+        cardHeight={268}
+        ropeLength={0.17}
+        minRope={90}
+        maxRope={190}
+      />
       <div className="grounds" role="group" aria-label="Zemini değiştir">
         {GROUNDS.map(g => (
           <button
@@ -420,12 +439,12 @@ function Apps({ page = false }) {
   return (
     <section id="uretiyorum" className="wrap section">
       <div className="section__head">
-        <div>
+        <FadeContent>
           {!page && <span className="mono muted">ÜRETİYORUM</span>}
           <h2>Uygulamalar</h2>
           <p className="muted">Geliştirdiğim bütün uygulamalar tek yerde.</p>
           {!page && <More to="/uretiyorum" />}
-        </div>
+        </FadeContent>
         <div className="chips" role="group" aria-label="Aşamaya göre süz">
           {chips.map(([key, label, n]) => (
             <button key={key} type="button" className="chip" aria-pressed={filter === key} onClick={() => setFilter(key)}>
@@ -456,16 +475,36 @@ function Apps({ page = false }) {
   );
 }
 
+// Ara bölüm: uygulama ikonlarından oluşan, eğik düzlemde ters yönlere süzülen duvar.
+function LabWall() {
+  const tiles = [...FEATURED, ...APPS]
+    .filter(a => ICONS[a.name])
+    .map(a => (
+      <Link key={a.name} to={`/uretiyorum/${slugOf(a.name)}`} className="labwall__tile" tabIndex={-1}>
+        <AppIcon name={a.name} size={56} />
+        <span>{a.name}</span>
+      </Link>
+    ));
+  if (!tiles.length) return null;
+  return (
+    <section className="labwall" aria-label="Laboratuvar duvarı">
+      <DriftWall columns={6} minColumnWidth={140} duration={42} gap={14} height="clamp(300px, 42vw, 440px)">
+        {tiles}
+      </DriftWall>
+    </section>
+  );
+}
+
 function Share({ page = false }) {
   return (
     <section id="paylasiyorum" className="wrap section">
       <div className="section__head">
-        <div>
+        <FadeContent>
           {!page && <span className="mono muted">PAYLAŞIYORUM</span>}
           <h2>Sosyal medya</h2>
           <p className="muted">Instagram ve YouTube'da paylaştıklarım.</p>
           {!page && <More to="/paylasiyorum" />}
-        </div>
+        </FadeContent>
         <div className="channels">
           <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer" className="channel">
             <strong>Instagram</strong>
@@ -487,14 +526,19 @@ function Teach({ page = false }) {
     <section id="anlatiyorum" className="series">
       <div className="wrap section">
         <div className="section__head">
-          <div>
+          <FadeContent>
             {!page && <span className="mono muted">ANLATIYORUM</span>}
             <h2>Eğitici içerikler</h2>
             <p className="muted">Yapay zekâyı ve kullandığım araçları adım adım anlatıyorum.</p>
             {!page && <More to="/anlatiyorum" />}
+          </FadeContent>
+          <div className="series__ball" aria-hidden="true">
+            <Suspense fallback={null}>
+              <CrystalizedBall color="#b6e04a" secondaryColor="#fffdf8" inkColor="#101317" facets={40} speed={0.8} />
+            </Suspense>
           </div>
         </div>
-        <ul className="lessons">
+        <FadeContent as="ul" className="lessons" delay={120} offsetY={24}>
           {SERIES.map(item => (
             <li key={item.title}>
               <a href="#anlatiyorum" className="lesson">
@@ -505,7 +549,7 @@ function Teach({ page = false }) {
               </a>
             </li>
           ))}
-        </ul>
+        </FadeContent>
       </div>
     </section>
   );
@@ -518,6 +562,19 @@ function Footer() {
         <div className="footer__carousel">
           <FlexCarousel items={INSPIRATION} autoplay interval={4} captureWheel={false} gap={16} radius={18} />
         </div>
+      </div>
+      <div className="footer__strands" aria-hidden="true">
+        <Suspense fallback={null}>
+          <Strands
+            lightMode
+            colors={['#d0ff63', '#b6e04a', '#7fae12', '#101317']}
+            count={3}
+            speed={0.6}
+            amplitude={0.8}
+            thickness={0.9}
+            glassSize={0.8}
+          />
+        </Suspense>
       </div>
       <div className="wrap footer__row">
         <div className="footer__brand">

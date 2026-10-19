@@ -1,0 +1,26 @@
+.fade-content {
+  opacity: var(--fc-opacity, 0);
+  filter: blur(var(--fc-blur, 10px));
+  transform: translate3d(0, var(--fc-y, 18px), 0) scale(var(--fc-scale, 1));
+  transition:
+    opacity var(--fc-duration, 900ms) var(--fc-ease, ease) var(--fc-delay, 0ms),
+    filter var(--fc-duration, 900ms) var(--fc-ease, ease) var(--fc-delay, 0ms),
+    transform var(--fc-duration, 900ms) var(--fc-ease, ease) var(--fc-delay, 0ms);
+  will-change: opacity, filter, transform;
+}
+
+.fade-content--in {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-content {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
