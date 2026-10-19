@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import './App.css';
 import { FEATURED, APPS, SERIES, INSPIRATION, LINKS, slugOf } from './data';
 import AppPage from './AppPage';
@@ -13,6 +13,13 @@ import PixelSnow from './components/rb/PixelSnow/PixelSnow';
 import TechText from './components/rb/TechText/TechText';
 import GradientASCII from './components/rb/GradientASCII/GradientASCII';
 import GhostFibers from './components/rb/GhostFibers/GhostFibers';
+
+// Kendi tasarım dili olan uygulamalar genel AppPage yerine özel sayfayla açılır.
+// Anahtar slugOf(ad); yol yine /uretiyorum/<slugOf(ad)>. WingWire ayrı parça olarak yüklenir.
+const CUSTOM_PAGES = {
+  titimer: TiTimerPage,
+  wingwire: lazy(() => import('./wingwire/WingWirePage'))
+};
 
 /* Kullanılan efektler (bölüm başına en fazla bir):
    ilk ekran: ziyaretçinin seçtiği zemin (Pixel Snow / Gradient ASCII / Ghost Fibers)
@@ -44,9 +51,6 @@ const PAGES = {
   '/paylasiyorum': { title: 'Paylaşıyorum', lead: 'Sosyal medyada paylaştıklarım.' },
   '/anlatiyorum': { title: 'Anlatıyorum', lead: 'Yapay zekâ ve araçlar üzerine eğitici içerikler.' }
 };
-
-// slug → kendi tanıtım sayfası. Burada olmayan uygulamalar AppPage şablonunu kullanır.
-const CUSTOM_PAGES = { titimer: TiTimerPage };
 
 function usePath() {
   const [path, setPath] = useState(() => stripBase(window.location.pathname));
@@ -82,9 +86,14 @@ export default function App() {
       <main>
         {appMatch ? (
           (() => {
-            // Kendi tasarımı olan uygulamalar özel sayfasını, diğerleri ortak şablonu kullanır.
-            const Page = CUSTOM_PAGES[slugOf(appMatch.name)] || AppPage;
-            return <Page app={appMatch} />;
+            const Page = CUSTOM_PAGES[slugOf(appMatch.name)];
+            return Page ? (
+              <Suspense fallback={<div style={{ minHeight: '100vh', background: '#0b0f14' }} />}>
+                <Page app={appMatch} />
+              </Suspense>
+            ) : (
+              <AppPage app={appMatch} />
+            );
           })()
         ) : page ? (
           <>
