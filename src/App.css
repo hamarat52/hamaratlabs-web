@@ -815,9 +815,7 @@ mark {
 }
 .labwall__tile span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-/* Anlatıyorum başlığının yanında kristal küre (Crystalized Ball) */
+/* Anlatıyorum başlığının yanında Siri tarzı ses küresi (SiriOrb) */
 .section__head > .series__ball { flex: 0 0 auto; width: clamp(120px, 14vw, 180px); height: clamp(120px, 14vw, 180px); align-self: center; }
 @media (max-width: 620px) { .section__head > .series__ball { width: 112px; height: 112px; align-self: flex-start; } }
 
-/* Alt bilgi: logo satırının üstünde hafif ışık iplikleri (Strands) */
-.footer__strands { height: clamp(140px, 16vw, 220px); margin-top: 8px; pointer-events: auto; }

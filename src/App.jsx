@@ -17,10 +17,7 @@ import LetterGlitch from './components/rb/LetterGlitch/LetterGlitch';
 import Lanyard from './components/rb/Lanyard/Lanyard';
 import FadeContent from './components/rb/FadeContent/FadeContent';
 import DriftWall from './components/rb/DriftWall/DriftWall';
-
-// WebGL bileşenleri ilk ekranın altında; ayrı parçada indirilir, ana paketi büyütmez.
-const Strands = lazy(() => import('./components/rb/Strands/Strands'));
-const CrystalizedBall = lazy(() => import('./components/rb/CrystalizedBall/CrystalizedBall'));
+import SiriOrb from './components/rb/SiriOrb/SiriOrb';
 
 // Kendi tasarım dili olan uygulamalar genel AppPage yerine özel sayfayla açılır.
 // Anahtar slugOf(ad); yol yine /uretiyorum/<slugOf(ad)>. WingWire ayrı parça olarak yüklenir.
@@ -550,10 +547,8 @@ function Teach({ page = false }) {
             <p className="muted">Yapay zekâyı ve kullandığım araçları adım adım anlatıyorum.</p>
             {!page && <More to="/anlatiyorum" />}
           </FadeContent>
-          <div className="series__ball" aria-hidden="true">
-            <Suspense fallback={null}>
-              <CrystalizedBall color="#b6e04a" secondaryColor="#fffdf8" inkColor="#101317" facets={40} speed={0.8} />
-            </Suspense>
+          <div className="series__ball">
+            <SiriOrb src={asset('/audio/anlatiyorum-ses.mp3')} label="Sesi oynat" />
           </div>
         </div>
         <FadeContent as="ul" className="lessons" delay={120} offsetY={24}>
@@ -580,19 +575,6 @@ function Footer() {
         <div className="footer__carousel">
           <FlexCarousel items={INSPIRATION} autoplay interval={4} captureWheel={false} gap={16} radius={18} />
         </div>
-      </div>
-      <div className="footer__strands" aria-hidden="true">
-        <Suspense fallback={null}>
-          <Strands
-            lightMode
-            colors={['#d0ff63', '#b6e04a', '#7fae12', '#101317']}
-            count={3}
-            speed={0.6}
-            amplitude={0.8}
-            thickness={0.9}
-            glassSize={0.8}
-          />
-        </Suspense>
       </div>
       <div className="wrap footer__row">
         <div className="footer__brand">
