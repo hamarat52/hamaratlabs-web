@@ -1,0 +1,50 @@
+{
+ "home": {
+  "vw": 375,
+  "sw": 388,
+  "bodySW": 388,
+  "over": [
+   "SPAN.edge-light:388",
+   "SPAN.edge-light:388",
+   "SPAN.edge-light:388",
+   "SPAN.edge-light:388",
+   "DIV.drift-wall__plane:503",
+   "DIV.drift-wall__col drift-wall__col--up:1242"
+  ]
+ },
+ "kitabe": {
+  "vw": 375,
+  "sw": 375,
+  "bodySW": 375,
+  "h1": "Kitabe",
+  "over": []
+ },
+ "pomodoro": {
+  "vw": 375,
+  "sw": 375,
+  "bodySW": 375,
+  "h1": "Pomodoro Restoran",
+  "over": []
+ },
+ "sesver": {
+  "vw": 375,
+  "sw": 375,
+  "bodySW": 375,
+  "h1": "SesVer",
+  "over": []
+ },
+ "titimer": {
+  "vw": 375,
+  "sw": 375,
+  "bodySW": 375,
+  "h1": "tiTimer",
+  "over": []
+ },
+ "wingwire-dev": {
+  "vw": 375,
+  "sw": 375,
+  "bodySW": 375,
+  "h1": "WingWire",
+  "over": []
+ }
+}

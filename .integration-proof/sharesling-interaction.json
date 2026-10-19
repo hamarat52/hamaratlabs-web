@@ -1,0 +1,67 @@
+{
+ "pad": [
+  967.65625,
+  328.515625
+ ],
+ "platforms": [
+  [
+   "whatsapp",
+   968,
+   329
+  ],
+  [
+   "x",
+   968,
+   329
+  ],
+  [
+   "telegram",
+   968,
+   329
+  ],
+  [
+   "instagram",
+   968,
+   329
+  ],
+  [
+   "copy",
+   968,
+   329
+  ]
+ ],
+ "steps": [
+  [
+   "held",
+   {
+    "phase": "held",
+    "open": false,
+    "target": null,
+    "toast": "",
+    "opened": []
+   }
+  ],
+  [
+   "pulled",
+   {
+    "phase": "armed",
+    "open": true,
+    "target": "whatsapp",
+    "toast": "",
+    "opened": []
+   }
+  ],
+  [
+   "released",
+   {
+    "phase": "fired",
+    "open": true,
+    "target": "whatsapp",
+    "toast": "WhatsApp açılıyor…",
+    "opened": [
+     "https://wa.me/?text=SesVer%20http%3A%2F%2Flocalhost%3A5260%2Furetiyorum%2Fsesver"
+    ]
+   }
+  ]
+ ]
+}

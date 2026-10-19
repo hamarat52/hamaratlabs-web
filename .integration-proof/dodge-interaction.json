@@ -1,0 +1,95 @@
+{
+ "start": {
+  "bx": 206.421875,
+  "by": 328.5,
+  "relx": 8,
+  "rely": 32,
+  "fy": 272.5,
+  "txt": "İndir",
+  "away": "false",
+  "count": "0",
+  "scroll": 206
+ },
+ "approach_samples": [
+  {
+   "bx": 206.421875,
+   "by": 328.5,
+   "relx": 8,
+   "rely": 32,
+   "fy": 272.5,
+   "txt": "İndir",
+   "away": "false",
+   "count": "0",
+   "scroll": 206
+  },
+  {
+   "bx": 333.8778991699219,
+   "by": 331.3982849121094,
+   "relx": 106,
+   "rely": 35,
+   "fy": 272.5,
+   "txt": "Henüz değil",
+   "away": "true",
+   "count": "2",
+   "scroll": 206
+  },
+  {
+   "bx": 395.50035095214844,
+   "by": 402.4053955078125,
+   "relx": 112,
+   "rely": 45,
+   "fy": 333.375,
+   "txt": "Gerçekten henüz değil 😅",
+   "away": "true",
+   "count": "3",
+   "scroll": 177
+  }
+ ],
+ "after_approach": {
+  "bx": 291.5546875,
+  "by": 377.25421142578125,
+  "relx": 8,
+  "rely": 48,
+  "fy": 305.375,
+  "txt": "Gerçekten henüz değil 😅",
+  "away": "true",
+  "count": "3",
+  "scroll": 205
+ },
+ "clicks": [
+  {
+   "bx": 291.5546875,
+   "by": 337.55859375,
+   "relx": 8,
+   "rely": 8,
+   "fy": 305.375,
+   "txt": "Gerçekten henüz değil 😅",
+   "away": "true",
+   "count": "4",
+   "scroll": 205
+  },
+  {
+   "bx": 291.5546875,
+   "by": 384.217529296875,
+   "relx": 8,
+   "rely": 55,
+   "fy": 305.375,
+   "txt": "Gerçekten henüz değil 😅",
+   "away": "true",
+   "count": "5",
+   "scroll": 205
+  },
+  {
+   "bx": 252.3515625,
+   "by": 305.42913818359375,
+   "relx": 8,
+   "rely": 9,
+   "fy": 272.5,
+   "txt": "Söz, yakında 🙏",
+   "away": "true",
+   "count": "6",
+   "scroll": 206
+  }
+ ],
+ "url_after": "/uretiyorum/titimer"
+}
