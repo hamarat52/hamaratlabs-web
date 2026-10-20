@@ -1,4 +1,5 @@
-/* Fikir panosu: notun kâğıdını (renk, doku, yazı, tikler, sticker) canvas'a birebir çizer.
+/* Fikir panosu: notun kâğıdını (renk, doku, yazı, boş satırlar, "örnek" damgası, sticker)
+   canvas'a birebir çizer.
    Bu görüntü buruşturma sahnesinde (PaperCrumple, Three.js) kâğıt dokusu olarak kullanılır. */
 
 const SCALE = 2; // doku çözünürlüğü (CSS px başına)
@@ -49,7 +50,7 @@ function drawText(ctx, root, o) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
   for (let node = walker.nextNode(); node; node = walker.nextNode()) {
     const el = node.parentElement;
-    if (!node.data.trim() || el.closest('.sr-only, .ib-sticker, svg')) continue;
+    if (!node.data.trim() || el.closest('.sr-only, .ib-sticker, .ib-note__stamp, svg')) continue;
     const st = getComputedStyle(el);
     if (st.display === 'none' || st.visibility === 'hidden') continue;
     ctx.save();
@@ -85,44 +86,61 @@ function drawText(ctx, root, o) {
   }
 }
 
-function drawTicks(ctx, root, o) {
-  for (const svg of root.querySelectorAll('svg.ib-tick')) {
-    const r = svg.getBoundingClientRect();
-    const s = r.width / 24;
-    for (const p of svg.querySelectorAll('path')) {
-      const ps = getComputedStyle(p);
-      ctx.save();
-      ctx.translate(r.left - o.left, r.top - o.top);
-      ctx.scale(s, s);
-      ctx.globalAlpha = alphaOf(p, root);
-      ctx.strokeStyle = /currentcolor/i.test(ps.stroke) ? ps.color : ps.stroke;
-      ctx.lineWidth = parseFloat(ps.strokeWidth) || 1.6;
-      ctx.lineCap = ps.strokeLinecap;
-      ctx.lineJoin = ps.strokeLinejoin;
-      ctx.stroke(new Path2D(p.getAttribute('d')));
-      ctx.restore();
-    }
+const angleOf = el => {
+  const t = getComputedStyle(el).transform;
+  const m = new DOMMatrix(t === 'none' ? undefined : t);
+  return Math.atan2(m.b, m.a);
+};
+
+// Künyedeki boş alanların kesik çizgili "doldurulacak" satırı (border-bottom).
+function drawBlanks(ctx, root, o) {
+  for (const el of root.querySelectorAll('.ib-fact__blank')) {
+    const st = getComputedStyle(el);
+    const lw = parseFloat(st.borderBottomWidth) || 0;
+    if (!lw || st.borderBottomStyle === 'none') continue;
+    const r = el.getBoundingClientRect();
+    const y = r.bottom - o.top - lw / 2;
+    ctx.save();
+    ctx.globalAlpha = alphaOf(el, root);
+    ctx.strokeStyle = st.borderBottomColor;
+    ctx.lineWidth = lw;
+    if (st.borderBottomStyle === 'dashed') ctx.setLineDash([lw * 3, lw * 3]);
+    ctx.beginPath();
+    ctx.moveTo(r.left - o.left, y);
+    ctx.lineTo(r.right - o.left, y);
+    ctx.stroke();
+    ctx.restore();
   }
 }
 
-// Platform listesindeki "→" (::before) imleri.
-function drawMarkers(ctx, root, o) {
-  for (const li of root.querySelectorAll('.ib-tags li')) {
-    const ps = getComputedStyle(li, '::before');
-    const content = (ps.content || '').replace(/^["']|["']$/g, '');
-    if (!content || content === 'none') continue;
-    const st = getComputedStyle(li);
-    const r = li.getBoundingClientRect();
-    ctx.save();
-    ctx.font = fontOf(ps);
-    ctx.fillStyle = st.color;
-    ctx.globalAlpha = alphaOf(li, root) * Number(ps.opacity || 1);
-    const m = ctx.measureText(content);
-    const lh = parseFloat(st.lineHeight) || parseFloat(st.fontSize) * 1.1;
-    const lead = (lh - (m.fontBoundingBoxAscent + m.fontBoundingBoxDescent)) / 2;
-    ctx.fillText(content, r.left - o.left, r.top - o.top + lead + m.fontBoundingBoxAscent);
-    ctx.restore();
+// Örnek fikir notlarındaki "örnek" damgası: çerçeve + yazı, kendi açısıyla.
+function drawStamp(ctx, root, o) {
+  const el = root.querySelector('.ib-note__stamp');
+  if (!el) return;
+  const st = getComputedStyle(el);
+  const r = el.getBoundingClientRect();
+  const w = el.offsetWidth;
+  const h = el.offsetHeight;
+  const bw = parseFloat(st.borderTopWidth) || 0;
+  ctx.save();
+  ctx.globalAlpha = alphaOf(el, root);
+  ctx.translate(r.left + r.width / 2 - o.left, r.top + r.height / 2 - o.top);
+  ctx.rotate(angleOf(el));
+  if (bw) {
+    ctx.strokeStyle = st.borderTopColor;
+    ctx.lineWidth = bw;
+    ctx.beginPath();
+    ctx.roundRect(-w / 2 + bw / 2, -h / 2 + bw / 2, w - bw, h - bw, parseFloat(st.borderTopLeftRadius) || 0);
+    ctx.stroke();
   }
+  ctx.fillStyle = st.color;
+  ctx.font = fontOf(st);
+  if ('letterSpacing' in ctx) ctx.letterSpacing = st.letterSpacing === 'normal' ? '0px' : st.letterSpacing;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  const text = st.textTransform === 'uppercase' ? el.textContent.trim().toLocaleUpperCase('tr-TR') : el.textContent.trim();
+  ctx.fillText(text, 0, (parseFloat(st.paddingTop) - parseFloat(st.paddingBottom)) / 2);
+  ctx.restore();
 }
 
 function drawSticker(ctx, root, o) {
@@ -180,31 +198,23 @@ export function snapshotNote(li, board) {
     ctx.scale(SCALE, SCALE);
 
     // Kâğıt: CSS'teki köşe yarıçapları (sol alt kıvrık), zemin rengi, ışık geçişi, doku.
-    const isCard = li.classList.contains('ib-note--card');
     ctx.beginPath();
-    ctx.roundRect(0, 0, w, h, isCard ? 3 : [2, 2, 3, { x: 14, y: 6 }]);
+    ctx.roundRect(0, 0, w, h, [2, 2, 3, { x: 14, y: 6 }]);
     ctx.fillStyle = st.backgroundColor;
     ctx.fill();
     ctx.save();
     ctx.clip();
-    if (isCard) {
-      ctx.fillStyle = 'rgba(80, 140, 200, 0.22)';
-      for (let y = 13; y < h; y += 34) ctx.fillRect(0, y, w, 1);
-      ctx.fillStyle = 'rgba(232, 131, 58, 0.55)';
-      ctx.fillRect(20, 0, 1.5, h);
-    } else if (!li.classList.contains('is-empty')) {
-      const g = ctx.createLinearGradient(0, 0, 0, h);
-      g.addColorStop(0, 'rgba(0, 0, 0, 0.035)');
-      g.addColorStop(0.22, 'rgba(0, 0, 0, 0)');
-      g.addColorStop(1, 'rgba(255, 255, 255, 0.18)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, w, h);
-    }
+    const g = ctx.createLinearGradient(0, 0, 0, h);
+    g.addColorStop(0, 'rgba(0, 0, 0, 0.035)');
+    g.addColorStop(0.22, 'rgba(0, 0, 0, 0)');
+    g.addColorStop(1, 'rgba(255, 255, 255, 0.18)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, w, h);
     ctx.fillStyle = ctx.createPattern(noiseCanvas(), 'repeat');
     ctx.fillRect(0, 0, w, h);
     drawText(ctx, cpaper, o);
-    drawMarkers(ctx, cpaper, o);
-    drawTicks(ctx, cpaper, o);
+    drawBlanks(ctx, cpaper, o);
+    drawStamp(ctx, cpaper, o);
     drawSticker(ctx, cpaper, o);
     ctx.restore();
 

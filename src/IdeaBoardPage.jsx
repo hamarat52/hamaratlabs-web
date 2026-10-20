@@ -8,9 +8,11 @@ import { CrumpleFlight, TrashBin } from './IdeaBoardTrash';
 import { preloadSticker, snapshotNote } from './ideaBoardSnapshot';
 import { noteCrumpleOptions, preparePaper } from './crumplePrep';
 
-/* Fikir aşamasındaki ürünlerin sayfası: design thinking'teki beyin fırtınası panosu.
-   Her alan (ad, kısa tanım, tanım, özellikler, platform) ayrı bir yapışkan nota düşer;
-   panoda kâğıt dışında hiçbir yazı yok. Notlar serbestçe dağılır ve sürüklenip
+/* Fikir aşamasındaki ürünlerin sayfası: design thinking'teki fikir üretme (ideation) panosu.
+   Sarı büyük not ürünün künyesidir (ad, ne olduğu, platform, hedef kitle; boş alanlar
+   doldurulacak satır olarak kalır). Kalan yapışkan notların her biri tek, kısa bir fikirdir:
+   önce ürünün kendi tanımı ve özellikleri, eksik kalırsa genel "örnek" fikirler.
+   Panoda kâğıt dışında hiçbir yazı yok. Notlar serbestçe dağılır ve sürüklenip
    bırakıldığı yerde kalır (fare, dokunmatik ve klavye). Konum yalnız oturum boyunca
    tutulur. Açılar, bant/iğne ve ilk dağılım ürün adından türetilir: her yenilemede
    aynı, her üründe farklı.
@@ -37,32 +39,59 @@ function seeded(text) {
 // ±min..max derece; işaret ve büyüklük rastgele, ama sıfıra yakın değil.
 const tilt = (rnd, min, max) => (rnd() < 0.5 ? -1 : 1) * (min + rnd() * (max - min));
 
-// Data.js alanlarından notları üretir. Hiçbir ürün içeriği burada sabit yazılı değil.
+/* Genel örnek fikirler: hiçbir ürüne özgü değil, ürün hakkında iddia taşımaz. Ürünün kendi
+   fikirleri 5'ten azsa pano bunlarla tamamlanır ve her biri "örnek" damgasıyla ayrılır. */
+const SAMPLE_IDEAS = [
+  'tek dokunuşla başlasın',
+  'ya hiç üyelik istemese?',
+  "ilk 30 saniyede 'aha!' anı",
+  'internet yokken de çalışsa?',
+  'bir arkadaşla birlikte?',
+  'haftada bir küçük özet',
+  'sesle de kullanılsa?',
+  'ekranda tek bir büyük buton'
+];
+const IDEA_COUNT = 5;
+const IDEA_TONES = ['pink', 'lime', 'blue', 'orange'];
+const MARKS = ['!', '→', '*', '!!']; // köşedeki karalama işareti (yalnız süs)
+
+// Künye alanları: değer yoksa boş ('') döner, satır "doldurulacak" olarak çizilir.
+function factsOf(app) {
+  const platforms = isPlaceholder(app.platform) ? [] : app.platform.split('·').map(s => s.trim()).filter(Boolean);
+  const text = v => (isPlaceholder(v) ? '' : String(v).trim());
+  return [
+    { label: 'Ad', value: app.name },
+    { label: 'Ne?', value: text(app.short), ask: 'tek cümleyle…' },
+    { label: 'Platform', value: platforms.join(' · '), ask: 'iOS? web? …' },
+    // audience: data.js'te isteğe bağlı alan; çoğu üründe henüz yok.
+    { label: 'Hedef kitle', value: text(app.audience), ask: 'kim kullanır?' }
+  ];
+}
+
+/* Data.js alanlarından notları üretir. Ürün içeriği yalnız data.js'ten gelir; burada sabit
+   yazılı olan tek metin, ürünlere özgü olmayan genel örnek fikir havuzudur (SAMPLE_IDEAS). */
 function buildNotes(app) {
   const rnd = seeded(app.name);
   const points = (app.points || []).filter(p => !isPlaceholder(p));
-  const platforms = isPlaceholder(app.platform) ? [] : app.platform.split('·').map(s => s.trim()).filter(Boolean);
+  const offset = Math.floor(rnd() * IDEA_TONES.length);
+  const tone = n => IDEA_TONES[(offset + n) % IDEA_TONES.length];
+
+  const ideas = [
+    ...(isPlaceholder(app.lead) ? [] : [{ tone: 'blue', size: 'wide', text: app.lead }]),
+    ...points.map((p, n) => ({ tone: tone(n), size: 'sm', text: p }))
+  ];
+  const pool = [...SAMPLE_IDEAS];
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(rnd() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  pool
+    .slice(0, Math.max(0, IDEA_COUNT - ideas.length))
+    .forEach((text, n) => ideas.push({ tone: tone(points.length + n), size: 'sm', text, sample: true }));
 
   const raw = [
     { kind: 'name', tone: 'yellow', size: 'lg', stuck: 'tape' },
-    { kind: 'text', tone: 'pink', label: 'Tek cümlede', text: app.short, ask: 'tek cümleyle ne?' },
-    { kind: 'text', tone: 'blue', size: 'wide', label: 'Ne yapar?', text: app.lead, ask: 'kimin hangi işini görür?' },
-    ...(points.length
-      ? points.map((p, n) => ({ kind: 'text', tone: 'lime', size: 'sm', label: `Özellik ${n + 1}`, text: p }))
-      : [{ kind: 'text', tone: 'lime', label: 'Özellik', text: '', ask: 'ilk özellik?' }]),
-    { kind: 'platform', tone: 'orange', label: 'Nerede?', platforms, ask: 'hangi platform?' },
-    {
-      kind: 'check',
-      tone: 'card',
-      label: 'Netleşenler',
-      stuck: 'pin',
-      checklist: [
-        ['Tek cümle', !isPlaceholder(app.short)],
-        ['Tanım', !isPlaceholder(app.lead)],
-        ['Özellikler', points.length > 0],
-        ['Platform', platforms.length > 0]
-      ]
-    }
+    ...ideas.map(idea => ({ kind: 'idea', ...idea, mark: rnd() < 0.5 ? MARKS[Math.floor(rnd() * MARKS.length)] : null }))
   ];
 
   return raw.map((note, i) => ({
@@ -155,7 +184,10 @@ const KEY_STEP = 12;
 const BIN_SLACK = 26; // px: imleç çöp kutusuna bu kadar yaklaşınca not "kutunun üstünde" sayılır
 const binRoom = narrow => (narrow ? 58 : 66); // panonun dibinde kutuya ayrılan pay
 
-const noteLabel = (note, app) => (note.kind === 'name' ? app.name : note.label);
+// Erişilebilir ad (duyuru ve buruştur düğmesi): künyede ürün adı, fikirde fikrin kısa hali.
+const clip = (t, n = 40) => (t.length > n ? `${t.slice(0, n - 2).trimEnd()}…` : t);
+const noteLabel = (note, app) =>
+  note.kind === 'name' ? app.name : `${note.sample ? 'Örnek fikir' : 'Fikir'} “${clip(note.text)}”`;
 
 // Caveat geç yüklenirse not yükseklikleri değişir; yeniden dağıtmak için sayaç.
 function useFontVersion() {
@@ -175,26 +207,33 @@ function useFontVersion() {
   return v;
 }
 
-// Elle çizilmiş tik kutusu.
-const Tick = ({ on }) => (
-  <svg className="ib-tick" viewBox="0 0 24 24" aria-hidden="true">
-    <path className="ib-tick__box" d="M4 5.5c5-.8 10-.6 15 .2.6 4.6.5 9.4-.2 13.6-5 .6-10 .5-14.6-.2-.6-4.6-.7-9 .2-13.6Z" />
-    {on && <path className="ib-tick__mark" d="M7 12.5l3.6 3.8L21 3.5" />}
-  </svg>
-);
-
 function Stuck({ kind }) {
   if (kind === 'tape') return <span className="ib-tape" aria-hidden="true" />;
   if (kind === 'pin') return <span className="ib-pin" aria-hidden="true" />;
   return null;
 }
 
-function NoteContent({ note, app, empty }) {
+function NoteContent({ note, app }) {
   if (note.kind === 'name') {
     return (
       <>
         <span className="ib-note__label">Fikir aşaması</span>
         <h1 className="ib-note__name">{app.name}</h1>
+        <dl className="ib-facts">
+          {factsOf(app).map(f => (
+            <div key={f.label} className="ib-fact">
+              <dt>{f.label}</dt>
+              <dd>
+                {f.value || (
+                  <span className="ib-fact__blank">
+                    <span aria-hidden="true">{f.ask}</span>
+                    <span className="sr-only">henüz yazılmadı</span>
+                  </span>
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
         <span className="ib-note__hint" aria-hidden="true">
           notları tutup taşıyabilirsin
         </span>
@@ -206,31 +245,19 @@ function NoteContent({ note, app, empty }) {
   }
   return (
     <>
-      <span className="ib-note__label">{note.label}</span>
-      {empty && (
-        <span className="ib-note__ask">
-          {note.ask}
-          <span className="sr-only"> Henüz yazılmadı.</span>
+      {note.mark && (
+        <span className="ib-note__mark" aria-hidden="true">
+          {note.mark}
         </span>
       )}
-      {note.kind === 'text' && !empty && <p className="ib-note__text">{note.text}</p>}
-      {note.kind === 'platform' && !empty && (
-        <ul className="ib-tags">
-          {note.platforms.map(p => (
-            <li key={p}>{p}</li>
-          ))}
-        </ul>
-      )}
-      {note.kind === 'check' && (
-        <ul className="ib-check">
-          {note.checklist.map(([label, done]) => (
-            <li key={label} className={done ? 'is-done' : undefined}>
-              <Tick on={done} />
-              <span>{label}</span>
-              <span className="sr-only">{done ? ': netleşti' : ': henüz netleşmedi'}</span>
-            </li>
-          ))}
-        </ul>
+      <p className="ib-note__idea">
+        {note.sample && <span className="sr-only">Örnek fikir: </span>}
+        {note.text}
+      </p>
+      {note.sample && (
+        <span className="ib-note__stamp" aria-hidden="true">
+          örnek
+        </span>
       )}
     </>
   );
@@ -528,14 +555,12 @@ function IdeaBoard({ app }) {
       <ul className="ib-notes">
         {notes.map(note => {
           if (trashed.includes(note.key)) return null;
-          const empty =
-            (note.kind === 'text' && isPlaceholder(note.text)) || (note.kind === 'platform' && note.platforms.length === 0);
           const p = board ? shown(note.key) : null;
           const cls = [
             'ib-note',
             `ib-note--${note.tone}`,
             note.size && `ib-note--${note.size}`,
-            empty && 'is-empty',
+            note.sample && 'is-sample',
             lifted === note.key && 'is-lifted',
             dropped === note.key && 'is-dropped',
             active === note.key && 'is-active',
@@ -576,7 +601,7 @@ function IdeaBoard({ app }) {
               <div className="ib-note__body">
                 <Stuck kind={note.stuck} />
                 <div className="ib-note__paper">
-                  <NoteContent note={note} app={app} empty={empty} />
+                  <NoteContent note={note} app={app} />
                 </div>
                 <button
                   type="button"
