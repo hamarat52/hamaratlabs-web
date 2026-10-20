@@ -11,7 +11,6 @@ import PixelSnow from './components/rb/PixelSnow/PixelSnow';
 import TechText from './components/rb/TechText/TechText';
 import Lanyard from './components/rb/Lanyard/Lanyard';
 import FadeContent from './components/rb/FadeContent/FadeContent';
-import DriftWall from './components/rb/DriftWall/DriftWall';
 import CrystalizedBallButton from './components/rb/CrystalizedBall/CrystalizedBallButton';
 import WhenNear from './components/WhenNear';
 
@@ -22,7 +21,6 @@ import WhenNear from './components/WhenNear';
 const AppPage = lazy(() => import('./AppPage'));
 const FlexCarousel = lazy(() => import('./components/rb/FlexCarousel/FlexCarousel'));
 const GradientASCII = lazy(() => import('./components/rb/GradientASCII/GradientASCII'));
-const GhostFibers = lazy(() => import('./components/rb/GhostFibers/GhostFibers'));
 const LetterGlitch = lazy(() => import('./components/rb/LetterGlitch/LetterGlitch'));
 
 // Kendi tasarım dili olan uygulamalar genel AppPage yerine özel sayfayla açılır.
@@ -243,11 +241,6 @@ const GROUNDS = [
     icon: <path d="M5 6h3M11 6h3M17 6h2M5 12h2M10 12h4M17 12h2M5 18h4M12 18h2M17 18h2" />
   },
   {
-    id: 'fibers',
-    label: 'Lifler',
-    icon: <path d="M3 8c4-4 8 4 12 0s5-2 6-1M3 13c4-4 8 4 12 0s5-2 6-1M3 18c4-4 8 4 12 0s5-2 6-1" />
-  },
-  {
     id: 'glitch',
     label: 'Glitch',
     icon: <path d="M4 6h10M4 10h6M13 10h7M4 14h12M8 18h12" />
@@ -291,7 +284,6 @@ function Ground({ id, color }) {
         fontFamily="'JetBrains Mono', monospace"
       />
     );
-  if (id === 'fibers') return <GhostFibers lightMode glowColor={color} secondaryColor="#101317" speed={0.35} threads={56} vignette={0.2} />;
   // Açık zemin üstünde soluk harf ızgarası; parıltılar seçili tonla yanar.
   if (id === 'glitch')
     return <LetterGlitch background="#fffdf8" glitchColors={['#e7e2d6', '#d3cdbf', color]} glitchSpeed={70} flashChance={0.04} outerVignette={false} />;
@@ -510,22 +502,9 @@ function Apps({ page = false }) {
 }
 
 // Öneriyorum: ücretsiz / açık kaynak üçüncü taraf araçlar (data.js → TOOLS, taslak liste).
-// Üstte eğik düzlemde süzülen isim duvarı (DriftWall, dekoratif); asıl içerik altındaki kart ızgarası.
 function Tools() {
-  const tiles = TOOLS.map(t => (
-    <span key={t.name} className="toolwall__tile">
-      <strong>{t.name}</strong>
-      <span className="mono">{t.license}</span>
-    </span>
-  ));
   return (
     <section className="wrap section tools">
-      {/* Gölgeli kutucuklar DriftWall'un içinde; duvarın kendi kırpma kenarına iç boşluk bırakılır (bkz. .toolwall). */}
-      <div className="toolwall" aria-hidden="true">
-        <DriftWall columns={6} minColumnWidth={150} duration={46} gap={16} height="clamp(240px, 32vw, 340px)" pauseOnHover={false}>
-          {tiles}
-        </DriftWall>
-      </div>
       <ul className="toolgrid">
         {TOOLS.map(t => (
           <li key={t.name}>
