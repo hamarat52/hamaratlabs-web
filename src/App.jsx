@@ -318,8 +318,10 @@ function Breath() {
       </div>
       <Lanyard
         className="breath__lanyard"
-        image={asset('/brand/hamaratlabs-lockup-card.webp')}
-        imageAlt="hamaratlabs kartı"
+        image={asset('/brand/yusuf-kart.webp')}
+        imageAlt="Yusuf Hamarat"
+        label="YUSUF HAMARAT"
+        serial="KURUCU · HL 001"
         color={tint === 'ink' || tint === 'grey' ? '#d0ff63' : color}
         cardWidth={232}
         cardHeight={268}
