@@ -474,6 +474,19 @@ const FlexCarousel = ({
     const focus = { index: -1, pending: -1, t: 0, v: 0, target: 0 };
     let instances = [];
 
+    // hamaratlabs: öğe `variants: [{ src, height }]` verirse (bkz. data.js INSPIRATION), kartın
+    // ekranda çizilebileceği en büyük piksel yüksekliğine — kart yüksekliği × odak büyütmesi
+    // (en çok 1.3) × dpr × %25 pay — yetecek en küçük varyant seçilir; hiçbiri yetmezse özgün src.
+    // Görüntü kalitesi aynı kalır, çözülen/GPU'ya yüklenen piksel sayısı düşer.
+    const pickSource = item => {
+      const variants = item.variants;
+      if (!variants || !variants.length) return item.src;
+      const s = settingsRef.current;
+      const need = Math.max(24, (s ? s.cardHeight : 0.5) * height) * 1.3 * (renderer.dpr || 1) * 1.25;
+      const fit = [...variants].sort((a, b) => a.height - b.height).find(v => v.height >= need);
+      return fit ? fit.src : item.src;
+    };
+
     const loadSlot = (item, index) => {
       const texture = new Texture(gl, {
         generateMipmaps: true,
@@ -496,7 +509,16 @@ const FlexCarousel = ({
       const image = new Image();
       image.crossOrigin = 'anonymous';
       image.decoding = 'async';
+      let src = pickSource(item);
+      // hamaratlabs: texImage2D/drawImage çözülmemiş bir görselle çağrılırsa tarayıcı onu ana
+      // iş parçacığında, senkron çözer (13 foto × ~100 ms uzun görev). decode() çözmeyi arka
+      // plana alır; yükleme bitince önce o beklenir, sonra GPU'ya aktarılır.
       image.onload = () => {
+        if (!alive || !slots.includes(slot)) return;
+        const decoded = typeof image.decode === 'function' ? image.decode() : Promise.resolve();
+        decoded.catch(() => {}).then(upload);
+      };
+      const upload = () => {
         if (!alive || !slots.includes(slot)) return;
         texture.image = image;
         texture.update();
@@ -527,11 +549,17 @@ const FlexCarousel = ({
       };
       image.onerror = () => {
         if (!alive) return;
+        // Optimize varyant yoksa (ör. sharp'sız build) veya açılamazsa özgün görsele düş.
+        if (src !== item.src) {
+          src = item.src;
+          image.src = src;
+          return;
+        }
         slot.failed = true;
         dirty = true;
         start();
       };
-      image.src = item.src;
+      image.src = src;
       slot.dispose = () => {
         image.onload = null;
         image.onerror = null;

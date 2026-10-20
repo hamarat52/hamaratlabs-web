@@ -122,6 +122,12 @@ export const TOOLS = [
 ];
 
 // Footer'daki kayan şerit: Yusuf'un çektiği fotoğraflar.
+// src: özgün JPG (yedek). variants: build öncesi üretilen WebP'ler (scripts/optimize-images.mjs);
+// FlexCarousel kartın ekrandaki piksel yüksekliğine yetecek en küçüğünü seçer.
+const ilham = n => ({
+  src: asset(`/ilham/${n}.jpg`),
+  variants: [640, 960].map(height => ({ src: asset(`/ilham/opt/${n}-${height}.webp`), height }))
+});
 export const INSPIRATION = [
   'Ördek',
   'Vapurda',
@@ -136,7 +142,7 @@ export const INSPIRATION = [
   'Yılbaşı vitrini',
   'Sarman',
   'Kız Kulesi, gece'
-].map((title, i) => ({ src: asset(`/ilham/${String(i + 1).padStart(2, '0')}.jpg`), alt: title, title }));
+].map((title, i) => ({ ...ilham(String(i + 1).padStart(2, '0')), alt: title, title }));
 
 export const slugOf = name =>
   name

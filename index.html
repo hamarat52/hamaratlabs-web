@@ -12,9 +12,9 @@
     <meta property="og:description" content="Ürettiğim, anlattığım ve paylaştığım laboratuvar." />
     <meta property="og:url" content="https://hamaratlabs.com/" />
     <meta name="theme-color" content="#fffdf8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+    <!-- Fontlar kendi sunucumuzda (src/fonts.css, public/fonts). İlk ekrandaki Geist (Türkçe harfler latin-ext'te) önden istenir. -->
+    <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
     <title>hamaratlabs</title>
   </head>
   <body>
