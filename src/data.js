@@ -42,6 +42,8 @@ export const FEATURED = [
   }
 ];
 
+// İsteğe bağlı alan: `audience` (hedef kitle, düz metin). Fikir panosundaki künye notu okur;
+// yazılmamışsa satır "doldurulacak" olarak boş kalır.
 export const APPS = [
   {
     name: 'Income vs Desires',

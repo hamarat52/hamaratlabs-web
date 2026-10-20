@@ -10,40 +10,46 @@
   --ib-blue: #aed9ff;
   --ib-lime: var(--lime, #d0ff63);
   --ib-orange: #ffc483;
-  --ib-card: #fffdf8;
   --ib-ink: #23262b;
   --ib-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.25 0 0 0 0 0.1 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   overflow-x: clip;
 }
 
 /* Sayfanın tamamı tek bir kâğıt yaprağı: pano kutusu yok, notlar doğrudan kâğıda yapışık.
-   Doku notlardaki --ib-noise ile aynı aileden (feTurbulence, aynı kahverengi ton), üç katman:
-   ince lif/tane, geniş ve silik dalgalanma (kâğıdın hamuru), alçak kabartmalı hafif kırışıklık.
-   Karolar farklı ve aralarında asal boyutlarda (180 / 613 / 877); üst üste bindikleri için
-   tekrar göze gelmez. Hepsi bir kez rasterlanan statik görüntüler: kaydırmada iş yükü yok.
+   Doku notlardaki --ib-noise ile aynı aileden (feTurbulence, aynı kahverengi ton), dört katman:
+   ince tane, seyrek uzun lifler, geniş ve silik dalgalanma (kâğıdın hamuru), alçak kabartmalı
+   hafif kırışıklık. Üstüne üç ince katlanma izi (açık sırt + koyu oluk çifti) ve kenarlarda
+   hafif vinyet. Karolar farklı ve aralarında asal boyutlarda (180 / 263 / 331 / 613 / 877);
+   üst üste bindikleri için tekrar göze gelmez. Hepsi bir kez rasterlanan statik görüntüler:
+   kaydırmada iş yükü yok, ağ isteği yok. Notların zemini opak: doku notun içine geçmez.
    Arka plan body'den tuvale yayılır; yalnız bu sayfa açıkken (:has) geçerlidir. */
 body:has(.ideaboard) {
-  --ib-paper: #f3eee3;
-  --ib-paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .25 0 0 0 0 .1 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --ib-paper: #f4ead6;
+  --ib-paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .24 0 0 0 0 .1 0 0 0 .17 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --ib-paper-fibers: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='263' height='263'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035 .24' numOctaves='3' seed='21' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .28 0 0 0 0 .13 1.1 0 0 0 -.7'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
   --ib-paper-specks: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='331' height='331'%3E%3Cfilter id='s' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.09 .5' numOctaves='2' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .25 0 0 0 0 .12 0 0 0 5 -3.95'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
   --ib-paper-mottle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='613' height='613'%3E%3Cfilter id='m' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.011' numOctaves='4' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .33 0 0 0 0 .15 .26 0 0 0 -.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
   --ib-paper-relief: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='877' height='877'%3E%3Cfilter id='w' x='0' y='0' width='100%25' height='100%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0068' numOctaves='3' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1'/%3E%3CfeConvolveMatrix order='11' kernelMatrix='-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1' divisor='1' bias='0.5' edgeMode='wrap' preserveAlpha='true'/%3E%3CfeColorMatrix values='0 0 0 0 .34 0 0 0 0 .26 0 0 0 0 .12 -2.2 0 0 0 1.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
   --ib-paper-shine: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='877' height='877'%3E%3Cfilter id='h' x='0' y='0' width='100%25' height='100%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0068' numOctaves='3' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1'/%3E%3CfeConvolveMatrix order='11' kernelMatrix='-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1' divisor='1' bias='0.5' edgeMode='wrap' preserveAlpha='true'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 .98 2.6 0 0 0 -1.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23h)'/%3E%3C/svg%3E");
   background:
     var(--ib-paper-grain) 0 0 / 180px 180px,
+    var(--ib-paper-fibers) 0 0 / 263px 263px,
     var(--ib-paper-specks) 0 0 / 331px 331px,
     var(--ib-paper-relief) 0 0 / 877px 877px,
     var(--ib-paper-shine) 0 0 / 877px 877px,
     var(--ib-paper-mottle) 0 0 / 613px 613px,
-    linear-gradient(104deg, transparent 61.7%, rgba(255, 255, 255, 0.6) 61.85%, rgba(120, 95, 50, 0.1) 62.05%, transparent 62.7%) 0 0 / 100% 100%,
-    radial-gradient(130% 90% at 50% 28%, transparent 58%, rgba(120, 95, 50, 0.07) 100%) 0 0 / 100% 100%,
+    linear-gradient(104deg, transparent 61.7%, rgba(255, 255, 255, 0.6) 61.85%, rgba(120, 95, 50, 0.11) 62.05%, transparent 62.7%) 0 0 / 100% 100%,
+    linear-gradient(7deg, transparent 33.6%, rgba(255, 255, 255, 0.5) 33.7%, rgba(120, 95, 50, 0.08) 33.85%, transparent 34.3%) 0 0 / 100% 100%,
+    linear-gradient(81deg, transparent 21.2%, rgba(120, 95, 50, 0.07) 21.35%, rgba(255, 255, 255, 0.45) 21.5%, transparent 22%) 0 0 / 100% 100%,
+    linear-gradient(90deg, rgba(120, 95, 50, 0.09), transparent 7%, transparent 93%, rgba(120, 95, 50, 0.09)) 0 0 / 100% 100%,
+    radial-gradient(130% 90% at 50% 28%, transparent 55%, rgba(120, 95, 50, 0.11) 100%) 0 0 / 100% 100%,
     var(--ib-paper);
 }
-body:has(.ideaboard) .topbar:not(.topbar--clear) { background: rgba(243, 238, 227, 0.86); border-bottom-color: rgba(120, 95, 50, 0.14); }
+body:has(.ideaboard) .topbar:not(.topbar--clear) { background: rgba(244, 234, 214, 0.88); border-bottom-color: rgba(120, 95, 50, 0.16); }
 body:has(.ideaboard) .footer { background: transparent; }
 /* :has desteklemeyen tarayıcı: kâğıt en azından sayfanın içeriğini kaplasın. */
 @supports not selector(:has(a)) {
-  .ideaboard { background: #f3eee3; }
+  .ideaboard { background: #f4ead6; }
 }
 
 .ideaboard__head { padding-top: 48px; padding-bottom: 28px; font-family: 'Geist', var(--font); }
@@ -92,7 +98,6 @@ body:has(.ideaboard) .footer { background: transparent; }
 .ib-note--blue { --tone: var(--ib-blue); }
 .ib-note--lime { --tone: var(--ib-lime); }
 .ib-note--orange { --tone: var(--ib-orange); }
-.ib-note--card { --tone: var(--ib-card); }
 
 .ib-note__body {
   position: relative;
@@ -130,17 +135,33 @@ body:has(.ideaboard) .footer { background: transparent; }
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-/* Boş not: yalnız soluk, düz bir kâğıt; küçük ve silik bir kurşun kalem notu */
-.ib-note.is-empty .ib-note__paper {
-  background: var(--ib-noise), color-mix(in oklab, var(--tone) 38%, #fffdf8);
-  box-shadow: 0 1px 1px rgba(16, 19, 23, 0.08), 0 4px 10px -7px rgba(16, 19, 23, 0.22);
+/* Örnek fikir (ürüne özgü olmayan genel tohum): kâğıt biraz daha soluk, yazı kurşun kalem
+   tonunda (her not renginde WCAG AA ≥ 4.5:1), köşede küçük "örnek" damgası. */
+.ib-note.is-sample .ib-note__paper {
+  background:
+    var(--ib-noise),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.035) 0, rgba(0, 0, 0, 0) 22%, rgba(255, 255, 255, 0.18) 100%),
+    color-mix(in oklab, var(--tone) 64%, #fffdf8);
 }
-.ib-note.is-empty .ib-note__paper::after { box-shadow: 0 10px 10px rgba(16, 19, 23, 0.14); }
-.ib-note.is-empty .ib-note__label { opacity: 0.4; }
-.ib-note__ask { margin-top: auto; font-family: var(--hand); font-weight: 500; font-size: 20px; line-height: 1.1; color: rgba(35, 38, 43, 0.38); }
+.ib-note.is-sample .ib-note__idea { color: #45484d; }
+.ib-note__stamp {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 2px 6px 1px;
+  border: 1.5px solid rgba(35, 38, 43, 0.72);
+  border-radius: 3px;
+  color: rgba(35, 38, 43, 0.82);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  transform: rotate(-7deg);
+}
 
-/* Sürükleme: kâğıt panodan kalkar, düzleşir ve gölgesi büyüyüp yumuşar
-   (boş notlar dahil; bu yüzden boş not kuralından sonra gelir) */
+/* Sürükleme: kâğıt panodan kalkar, düzleşir ve gölgesi büyüyüp yumuşar */
 .ib-note.is-lifted .ib-note__body {
   transform: translateY(-12px) rotate(calc(var(--r, -3deg) * 0.45)) scale(1.06);
   transition-duration: 0.18s;
@@ -159,34 +180,24 @@ body:has(.ideaboard) .footer { background: transparent; }
 
 .ib-note__label { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.55; }
 .ib-note__name { margin: 2px 0 0; font-family: var(--hand); font-weight: 700; font-size: clamp(46px, 5vw, 60px); line-height: 0.95; letter-spacing: 0; overflow-wrap: anywhere; }
-.ib-note__hint { margin-top: auto; padding-right: 58px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; line-height: 1.35; opacity: 0.45; }
-.ib-note__text { margin: 0; font-family: var(--hand); font-weight: 500; font-size: 25px; line-height: 1.12; overflow-wrap: anywhere; text-wrap: pretty; }
-.ib-note--sm .ib-note__text { font-size: 24px; }
+.ib-note__hint { margin-top: auto; padding-top: 6px; padding-right: 58px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; line-height: 1.35; opacity: 0.45; }
+
+/* Künye: el yazısıyla doldurulmuş kısa bir form. Etiket solda (daktilo), değer sağda
+   (el yazısı); boş değer kesik çizgili "doldurulacak" satır + soluk ipucu. */
+.ib-facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 5px 10px; margin: 4px 0 0; }
+.ib-fact { display: contents; }
+.ib-facts dt { padding-top: 7px; font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(35, 38, 43, 0.8); }
+.ib-facts dd { margin: 0; min-width: 0; font-family: var(--hand); font-weight: 700; font-size: 23px; line-height: 1.1; overflow-wrap: anywhere; }
+.ib-fact__blank { display: block; border-bottom: 1.5px dashed rgba(35, 38, 43, 0.42); font-weight: 500; font-size: 20px; color: rgba(35, 38, 43, 0.8); }
+
+/* Fikir notu: tek kısa el yazısı cümle, etiket yok; bazen köşede küçük bir karalama */
+.ib-note__idea { margin: auto 0; font-family: var(--hand); font-weight: 500; font-size: 27px; line-height: 1.1; overflow-wrap: anywhere; text-wrap: pretty; }
+.ib-note--wide .ib-note__idea { font-size: 25px; }
+.ib-note__mark { position: absolute; top: 6px; left: 12px; font-family: var(--hand); font-weight: 700; font-size: 26px; line-height: 1; opacity: 0.55; transform: rotate(-8deg); }
+.ib-note.is-sample .ib-note__idea { padding-bottom: 14px; }
 
 .ib-sticker { position: absolute; right: -14px; bottom: -16px; transform: rotate(9deg); pointer-events: none; }
 .ib-sticker .appicon { filter: drop-shadow(0 4px 6px rgba(16, 19, 23, 0.22)); }
-
-.ib-tags { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-family: var(--hand); font-weight: 700; font-size: 25px; line-height: 1.1; }
-.ib-tags li { display: flex; gap: 6px; min-width: 0; overflow-wrap: anywhere; }
-.ib-tags li::before { content: '→'; flex: none; font-weight: 500; opacity: 0.55; }
-
-/* Çizgili fiş kartı + kenar çizgisi */
-.ib-note--card .ib-note__paper {
-  padding-left: 30px;
-  background:
-    linear-gradient(90deg, transparent 20px, rgba(232, 131, 58, 0.55) 20px, rgba(232, 131, 58, 0.55) 21.5px, transparent 21.5px),
-    repeating-linear-gradient(180deg, transparent 0 33px, rgba(80, 140, 200, 0.22) 33px 34px),
-    var(--ib-noise),
-    var(--ib-card);
-  background-position: 0 0, 0 14px, 0 0, 0 0;
-  border-radius: 3px;
-}
-.ib-check { list-style: none; margin: 0; padding: 0; font-family: var(--hand); font-size: 25px; line-height: 34px; }
-.ib-check li { display: flex; align-items: center; gap: 8px; }
-.ib-check li:not(.is-done) { color: rgba(35, 38, 43, 0.6); }
-.ib-tick { flex: none; width: 22px; height: 22px; overflow: visible; }
-.ib-tick__box { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; opacity: 0.7; }
-.ib-tick__mark { fill: none; stroke: #4f8a00; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 
 /* Yapıştırma: yarı saydam kâğıt bant veya toplu iğne */
 .ib-tape {
@@ -414,11 +425,10 @@ body:has(.ideaboard) .footer { background: transparent; }
   .ib-note__paper { min-height: 140px; padding: 20px 14px 16px; }
   .ib-note--lg .ib-note__paper { min-height: 190px; }
   .ib-note__name { font-size: 46px; }
-  .ib-note__text,
-  .ib-note--sm .ib-note__text { font-size: 22px; }
-  .ib-note__ask { font-size: 18px; }
-  .ib-tags { font-size: 23px; }
-  .ib-check { font-size: 22px; line-height: 30px; }
+  .ib-note__idea { font-size: 23px; }
+  .ib-note--wide .ib-note__idea { font-size: 22px; }
+  .ib-facts dd { font-size: 21px; }
+  .ib-fact__blank { font-size: 18px; }
   .ib-tape { width: 72px; margin-left: -36px; height: 22px; }
   .ib-sticker { right: -6px; bottom: -12px; }
   .ib-sticker .appicon { width: 52px; height: 52px; }
