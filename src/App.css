@@ -57,6 +57,16 @@ h3 { margin: 0; font-weight: 800; }
 .section__head > div { flex: 1 1 420px; min-width: 0; }
 .section__head p { margin: 10px 0 0; max-width: 36em; }
 
+/* ---------- Gizlilik Politikası ---------- */
+.privacy { max-width: 760px; }
+.privacy__body { margin-top: 32px; max-width: 68ch; }
+.privacy__body h2 { font-size: clamp(20px, 2.4vw, 26px); margin-top: 40px; margin-bottom: 14px; }
+.privacy__body p { margin: 0 0 16px; line-height: 1.6; }
+.privacy__body ul { margin: 0 0 16px; padding-left: 22px; line-height: 1.6; }
+.privacy__body li { margin-bottom: 6px; }
+.privacy__body a { color: var(--ink); text-decoration-color: var(--muted); }
+.privacy__updated { margin-top: 32px; }
+
 /* ---------- Karşılama (ana sayfanın ilk ekranı) ---------- */
 .welcome {
   position: relative;

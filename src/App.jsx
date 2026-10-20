@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import './App.css';
 import { FEATURED, APPS, SERIES, TOOLS, INSPIRATION, LINKS, slugOf } from './data';
 import AppPage from './AppPage';
+import PrivacyPage from './PrivacyPage';
 import TiTimerPage from './TiTimerPage';
 import InstagramFeed from './InstagramFeed';
 import { NavContext, Link } from './nav';
@@ -65,6 +66,12 @@ const PAGES = {
   '/oneriyorum': { title: 'Öneriyorum', lead: 'Kullandığım, ücretsiz veya açık kaynak araçlar.' }
 };
 
+// Google OAuth onay ekranı gibi dış servislerin gerektirdiği statik, bağımsız sayfa.
+// Genel PageHead şablonunu kullanmaz; kendi başlığını PrivacyPage içinde çizer.
+const STATIC_PAGES = {
+  '/privacy': PrivacyPage
+};
+
 function usePath() {
   const [path, setPath] = useState(() => stripBase(window.location.pathname));
   useEffect(() => {
@@ -90,6 +97,7 @@ function usePath() {
 export default function App() {
   const [path, navigate] = usePath();
   const page = PAGES[path];
+  const StaticPage = STATIC_PAGES[path];
   const appMatch = path.startsWith('/uretiyorum/')
     ? [...FEATURED, ...APPS].find(a => `/uretiyorum/${slugOf(a.name)}` === path)
     : null;
@@ -97,7 +105,9 @@ export default function App() {
     <NavContext.Provider value={navigate}>
       <Header path={path} />
       <main>
-        {appMatch ? (
+        {StaticPage ? (
+          <StaticPage />
+        ) : appMatch ? (
           (() => {
             // Öncelik: özel sayfa → fikir panosu (idea) → geliştirme şablonu (dev) → genel AppPage.
             const Custom = CUSTOM_PAGES[slugOf(appMatch.name)];
