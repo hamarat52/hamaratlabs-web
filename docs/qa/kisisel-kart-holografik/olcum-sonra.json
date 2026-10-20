@@ -1,0 +1,588 @@
+{
+ "log": [
+  {
+   "name": "1-dinlenme",
+   "x": 346.4,
+   "y": 59.9,
+   "w": 346.5,
+   "h": 355.3,
+   "transform": "translate3d(404.9px, 104.9px, 0px) rotate(0.6261rad) rotateY(3.28deg)",
+   "sheen": "17.7%",
+   "foil": "-0.915",
+   "glow": "1.000",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 246.81097412109375,
+    "height": 247.45498657226562
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "surukleniyor",
+   "x": 596.3,
+   "y": 107.8,
+   "w": 314,
+   "h": 334.3,
+   "transform": "translate3d(637.3px, 141px, 0px) rotate(-0.3748rad) rotateY(0deg)",
+   "sheen": "72.5%",
+   "foil": "0.600",
+   "glow": "0.525",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 228.21343994140625,
+    "height": 228.21343994140625
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "9-durulmus",
+   "x": 532.9,
+   "y": 125.6,
+   "w": 255.2,
+   "h": 288.4,
+   "transform": "translate3d(544.1px, 136.2px, 0px) rotate(-0.0898rad) rotateY(-1.17deg)",
+   "sheen": "53.5%",
+   "foil": "0.113",
+   "glow": "0.171",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 191.11639404296875,
+    "height": 191.61802673339844
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  }
+ ],
+ "swing": [
+  {
+   "t": 1,
+   "x": 596.3,
+   "foil": "0.600",
+   "glow": "0.525"
+  },
+  {
+   "t": 60,
+   "x": 588.6,
+   "foil": "0.445",
+   "glow": "0.764"
+  },
+  {
+   "t": 102,
+   "x": 588.6,
+   "foil": "0.445",
+   "glow": "0.764"
+  },
+  {
+   "t": 167,
+   "x": 578.6,
+   "foil": "0.450",
+   "glow": "0.761"
+  },
+  {
+   "t": 237,
+   "x": 568.9,
+   "foil": "0.451",
+   "glow": "0.755"
+  },
+  {
+   "t": 281,
+   "x": 564.3,
+   "foil": "0.450",
+   "glow": "0.751"
+  },
+  {
+   "t": 364,
+   "x": 555.2,
+   "foil": "0.445",
+   "glow": "0.740"
+  },
+  {
+   "t": 420,
+   "x": 550.8,
+   "foil": "0.440",
+   "glow": "0.735"
+  },
+  {
+   "t": 464,
+   "x": 550.8,
+   "foil": "0.440",
+   "glow": "0.735"
+  },
+  {
+   "t": 517,
+   "x": 542.1,
+   "foil": "0.430",
+   "glow": "0.721"
+  },
+  {
+   "t": 569,
+   "x": 537.8,
+   "foil": "0.423",
+   "glow": "0.713"
+  },
+  {
+   "t": 612,
+   "x": 537.8,
+   "foil": "0.423",
+   "glow": "0.713"
+  },
+  {
+   "t": 675,
+   "x": 529.7,
+   "foil": "0.408",
+   "glow": "0.694"
+  },
+  {
+   "t": 719,
+   "x": 525.7,
+   "foil": "0.399",
+   "glow": "0.686"
+  },
+  {
+   "t": 762,
+   "x": 517.8,
+   "foil": "0.380",
+   "glow": "0.665"
+  },
+  {
+   "t": 824,
+   "x": 510.2,
+   "foil": "0.358",
+   "glow": "0.643"
+  },
+  {
+   "t": 915,
+   "x": 499.3,
+   "foil": "0.323",
+   "glow": "0.605"
+  },
+  {
+   "t": 957,
+   "x": 499.3,
+   "foil": "0.323",
+   "glow": "0.605"
+  },
+  {
+   "t": 1025,
+   "x": 492.4,
+   "foil": "0.297",
+   "glow": "0.579"
+  },
+  {
+   "t": 1067,
+   "x": 492.4,
+   "foil": "0.297",
+   "glow": "0.579"
+  },
+  {
+   "t": 1132,
+   "x": 485.6,
+   "foil": "0.269",
+   "glow": "0.553"
+  },
+  {
+   "t": 1175,
+   "x": 485.6,
+   "foil": "0.269",
+   "glow": "0.553"
+  },
+  {
+   "t": 1229,
+   "x": 478.9,
+   "foil": "0.241",
+   "glow": "0.524"
+  },
+  {
+   "t": 1273,
+   "x": 478.9,
+   "foil": "0.241",
+   "glow": "0.524"
+  },
+  {
+   "t": 1317,
+   "x": 472.6,
+   "foil": "0.212",
+   "glow": "0.494"
+  },
+  {
+   "t": 1360,
+   "x": 469.6,
+   "foil": "0.197",
+   "glow": "0.479"
+  },
+  {
+   "t": 1404,
+   "x": 469.6,
+   "foil": "0.197",
+   "glow": "0.479"
+  },
+  {
+   "t": 1481,
+   "x": 463.5,
+   "foil": "0.168",
+   "glow": "0.448"
+  },
+  {
+   "t": 1544,
+   "x": 457.7,
+   "foil": "0.138",
+   "glow": "0.416"
+  },
+  {
+   "t": 1617,
+   "x": 452.1,
+   "foil": "0.107",
+   "glow": "0.384"
+  },
+  {
+   "t": 1702,
+   "x": 446.8,
+   "foil": "0.076",
+   "glow": "0.351"
+  },
+  {
+   "t": 1748,
+   "x": 441.8,
+   "foil": "0.043",
+   "glow": "0.319"
+  },
+  {
+   "t": 1790,
+   "x": 441.8,
+   "foil": "0.043",
+   "glow": "0.319"
+  },
+  {
+   "t": 1839,
+   "x": 446.8,
+   "foil": "-0.119",
+   "glow": "0.183"
+  },
+  {
+   "t": 1885,
+   "x": 431.6,
+   "foil": "-0.265",
+   "glow": "0.301"
+  },
+  {
+   "t": 1944,
+   "x": 402.7,
+   "foil": "-0.545",
+   "glow": "0.520"
+  },
+  {
+   "t": 2027,
+   "x": 381.8,
+   "foil": "-0.808",
+   "glow": "0.711"
+  },
+  {
+   "t": 2069,
+   "x": 381.8,
+   "foil": "-0.808",
+   "glow": "0.711"
+  },
+  {
+   "t": 2136,
+   "x": 377,
+   "foil": "-0.926",
+   "glow": "0.864"
+  },
+  {
+   "t": 2214,
+   "x": 376.1,
+   "foil": "-1.012",
+   "glow": "0.998"
+  }
+ ],
+ "frames": [
+  {
+   "name": "atis-00",
+   "x": 256.8,
+   "y": 10.9,
+   "w": 360.7,
+   "h": 362.4,
+   "transform": "translate3d(329.5px, 66.5px, 0px) rotate(0.7681rad) rotateY(20.95deg)",
+   "sheen": "37.4%",
+   "foil": "-0.678",
+   "glow": "1.000",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 254.06637573242188,
+    "height": 255.39431762695312
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-01",
+   "x": 429.7,
+   "y": -119.8,
+   "w": 343.1,
+   "h": 373.9,
+   "transform": "translate3d(492.2px, -59.3px, 0px) rotate(0.6833rad) rotateY(18.37deg)",
+   "sheen": "38.4%",
+   "foil": "-0.610",
+   "glow": "1.000",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 242.5679931640625,
+    "height": 262.57501220703125
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-02",
+   "x": 610.9,
+   "y": -72.5,
+   "w": 277.7,
+   "h": 297.9,
+   "transform": "translate3d(636.8px, -60.9px, 0px) rotate(-0.2251rad) rotateY(9.93deg)",
+   "sheen": "79.4%",
+   "foil": "0.622",
+   "glow": "0.697",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 204.58056640625,
+    "height": 199.0577850341797
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-03",
+   "x": 654.8,
+   "y": -19.5,
+   "w": 348.2,
+   "h": 337.1,
+   "transform": "translate3d(714.4px, 13.6px, 0px) rotate(-0.981rad) rotateY(3.81deg)",
+   "sheen": "114.9%",
+   "foil": "1.670",
+   "glow": "1.000",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 241.55059814453125,
+    "height": 240.51177978515625
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-04",
+   "x": 618.6,
+   "y": 19,
+   "w": 355,
+   "h": 343.8,
+   "transform": "translate3d(675.3px, 61.6px, 0px) rotate(-1.0297rad) rotateY(-12.23deg)",
+   "sheen": "92.2%",
+   "foil": "1.326",
+   "glow": "1.000",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 245.57794189453125,
+    "height": 246.80978393554688
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-05",
+   "x": 534.9,
+   "y": 78.8,
+   "w": 311.1,
+   "h": 340.9,
+   "transform": "translate3d(569.8px, 120.3px, 0px) rotate(-0.3739rad) rotateY(-13.26deg)",
+   "sheen": "51.2%",
+   "foil": "0.249",
+   "glow": "1.000",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 225.80908203125,
+    "height": 233.3550567626953
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-06",
+   "x": 407.4,
+   "y": 89.3,
+   "w": 319.3,
+   "h": 334.4,
+   "transform": "translate3d(447.4px, 118.7px, 0px) rotate(0.4528rad) rotateY(-10.15deg)",
+   "sheen": "6.6%",
+   "foil": "-0.992",
+   "glow": "1.000",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 230.318359375,
+    "height": 228.83084106445312
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-07",
+   "x": 328.1,
+   "y": 50.4,
+   "w": 347,
+   "h": 352,
+   "transform": "translate3d(384.5px, 91.3px, 0px) rotate(0.6806rad) rotateY(-2.75deg)",
+   "sheen": "4.8%",
+   "foil": "-1.161",
+   "glow": "1.000",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 246.11639404296875,
+    "height": 245.7237548828125
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-08",
+   "x": 319.6,
+   "y": 48.5,
+   "w": 349.1,
+   "h": 355.4,
+   "transform": "translate3d(378.8px, 92.9px, 0px) rotate(0.6672rad) rotateY(1.71deg)",
+   "sheen": "12.7%",
+   "foil": "-1.023",
+   "glow": "1.000",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 247.92752075195312,
+    "height": 248.1607666015625
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-09",
+   "x": 379.6,
+   "y": 80.1,
+   "w": 319.5,
+   "h": 340.7,
+   "transform": "translate3d(425.5px, 118.8px, 0px) rotate(0.3996rad) rotateY(6.08deg)",
+   "sheen": "35.8%",
+   "foil": "-0.479",
+   "glow": "0.793",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 231.70352172851562,
+    "height": 233.4292755126953
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-10",
+   "x": 467.9,
+   "y": 117.5,
+   "w": 257.9,
+   "h": 294.5,
+   "transform": "translate3d(482.9px, 133.1px, 0px) rotate(0.1029rad) rotateY(7.09deg)",
+   "sheen": "55.2%",
+   "foil": "0.022",
+   "glow": "0.417",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 192.81161499023438,
+    "height": 196.4137420654297
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-11",
+   "x": 539.7,
+   "y": 127.7,
+   "w": 255.8,
+   "h": 286.4,
+   "transform": "translate3d(553.2px, 135.1px, 0px) rotate(-0.1rad) rotateY(5.65deg)",
+   "sheen": "65.0%",
+   "foil": "0.309",
+   "glow": "0.357",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 191.3096923828125,
+    "height": 189.96939086914062
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-12",
+   "x": 567.6,
+   "y": 96.1,
+   "w": 304.5,
+   "h": 326.7,
+   "transform": "translate3d(604.5px, 124.8px, 0px) rotate(-0.3246rad) rotateY(1.92deg)",
+   "sheen": "72.6%",
+   "foil": "0.570",
+   "glow": "0.528",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 222.3365478515625,
+    "height": 221.94288635253906
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-13",
+   "x": 571.1,
+   "y": 91.6,
+   "w": 308.2,
+   "h": 330.4,
+   "transform": "translate3d(608.9px, 123.1px, 0px) rotate(-0.3389rad) rotateY(-0.76deg)",
+   "sheen": "69.1%",
+   "foil": "0.522",
+   "glow": "0.504",
+   "img": "yusuf-kart-kesilmis.webp",
+   "imgBox": {
+    "width": 224.700439453125,
+    "height": 224.88348388671875
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  }
+ ]
+}

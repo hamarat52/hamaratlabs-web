@@ -1,0 +1,588 @@
+{
+ "log": [
+  {
+   "name": "1-dinlenme",
+   "x": 332.2,
+   "y": 51.5,
+   "w": 351.8,
+   "h": 355.4,
+   "transform": "translate3d(392.6px, 95.7px, 0px) rotate(0.7186rad) rotateY(1.24deg)",
+   "sheen": "8.9%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 280.013427734375,
+    "height": 280.13580322265625
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "surukleniyor",
+   "x": 587.2,
+   "y": 111.6,
+   "w": 288.4,
+   "h": 314.9,
+   "transform": "translate3d(615.4px, 135.1px, 0px) rotate(-0.2368rad) rotateY(0.01deg)",
+   "sheen": "64.2%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 238.92041015625,
+    "height": 238.91932678222656
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "9-durulmus",
+   "x": 520.1,
+   "y": 135.4,
+   "w": 236.2,
+   "h": 271.3,
+   "transform": "translate3d(522.4px, 136.9px, 0px) rotate(-0.0159rad) rotateY(0.54deg)",
+   "sheen": "51.8%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 201.117431640625,
+    "height": 200.8761749267578
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  }
+ ],
+ "swing": [
+  {
+   "t": 1,
+   "x": 587.2,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 60,
+   "x": 584.9,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 104,
+   "x": 584.9,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 147,
+   "x": 581.5,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 190,
+   "x": 581.5,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 249,
+   "x": 578.2,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 293,
+   "x": 578.2,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 343,
+   "x": 575.1,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 386,
+   "x": 575.1,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 456,
+   "x": 571.8,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 497,
+   "x": 570.2,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 563,
+   "x": 567,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 605,
+   "x": 563.7,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 649,
+   "x": 563.7,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 724,
+   "x": 560.5,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 768,
+   "x": 558.8,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 856,
+   "x": 555.5,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 898,
+   "x": 555.5,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 956,
+   "x": 552.3,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1019,
+   "x": 549,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1063,
+   "x": 547.3,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1106,
+   "x": 547.3,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1148,
+   "x": 547.3,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1191,
+   "x": 543.9,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1233,
+   "x": 543.9,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1274,
+   "x": 543.9,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1327,
+   "x": 539.5,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1370,
+   "x": 539.5,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1413,
+   "x": 539.5,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1457,
+   "x": 531.2,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1501,
+   "x": 531.2,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1545,
+   "x": 531.2,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1660,
+   "x": 521.2,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1738,
+   "x": 515.6,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1811,
+   "x": 512.4,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1859,
+   "x": 510,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1907,
+   "x": 509.3,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 1976,
+   "x": 510.8,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 2020,
+   "x": 510.8,
+   "foil": "",
+   "glow": ""
+  },
+  {
+   "t": 2062,
+   "x": 493.2,
+   "foil": "",
+   "glow": ""
+  }
+ ],
+ "frames": [
+  {
+   "name": "atis-00",
+   "x": 224.8,
+   "y": 80.3,
+   "w": 351.8,
+   "h": 354.4,
+   "transform": "translate3d(284.7px, 123.5px, 0px) rotate(0.7349rad) rotateY(-0.01deg)",
+   "sheen": "5.9%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 279.64788818359375,
+    "height": 279.65216064453125
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-01",
+   "x": 472.7,
+   "y": -182.8,
+   "w": 334.8,
+   "h": 380,
+   "transform": "translate3d(534.5px, -115px, 0px) rotate(0.8238rad) rotateY(28.74deg)",
+   "sheen": "46.6%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 263.6383056640625,
+    "height": 302.34173583984375
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-02",
+   "x": 513.3,
+   "y": -54.3,
+   "w": 317.2,
+   "h": 337.7,
+   "transform": "translate3d(555.6px, -19.1px, 0px) rotate(-0.3941rad) rotateY(-0.91deg)",
+   "sheen": "72.2%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 258.95086669921875,
+    "height": 259.8044128417969
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-03",
+   "x": 477.2,
+   "y": 20.2,
+   "w": 353.6,
+   "h": 356.9,
+   "transform": "translate3d(536.1px, 66.6px, 0px) rotate(-0.7986rad) rotateY(-4.77deg)",
+   "sheen": "90.3%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 279.88726806640625,
+    "height": 283.04254150390625
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-04",
+   "x": 449,
+   "y": 106.3,
+   "w": 304,
+   "h": 325.3,
+   "transform": "translate3d(483.5px, 133.3px, 0px) rotate(0.3249rad) rotateY(-4.36deg)",
+   "sheen": "23.5%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 249.58920288085938,
+    "height": 248.61911010742188
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-05",
+   "x": 427.1,
+   "y": 55.3,
+   "w": 335.1,
+   "h": 348.8,
+   "transform": "translate3d(479px, 96px, 0px) rotate(0.5236rad) rotateY(0.89deg)",
+   "sheen": "20.0%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 270.6240539550781,
+    "height": 271.0133056640625
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-06",
+   "x": 439.1,
+   "y": 51.8,
+   "w": 343.1,
+   "h": 354.3,
+   "transform": "translate3d(495.7px, 96.1px, 0px) rotate(0.6016rad) rotateY(2.87deg)",
+   "sheen": "18.5%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 275.4756164550781,
+    "height": 276.9464416503906
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-07",
+   "x": 496.4,
+   "y": 94.6,
+   "w": 293.6,
+   "h": 322.4,
+   "transform": "translate3d(528.7px, 123.5px, 0px) rotate(0.2665rad) rotateY(4.59deg)",
+   "sheen": "41.4%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 242.52471923828125,
+    "height": 245.3456573486328
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-08",
+   "x": 522.8,
+   "y": 101.8,
+   "w": 304.1,
+   "h": 325.9,
+   "transform": "translate3d(559.7px, 129.8px, 0px) rotate(-0.3212rad) rotateY(2.6deg)",
+   "sheen": "73.4%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 249.80841064453125,
+    "height": 249.06069946289062
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-09",
+   "x": 515.6,
+   "y": 69,
+   "w": 339.3,
+   "h": 350.7,
+   "transform": "translate3d(569.1px, 110.5px, 0px) rotate(-0.5625rad) rotateY(-0.42deg)",
+   "sheen": "83.1%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 273.16400146484375,
+    "height": 273.3214416503906
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-10",
+   "x": 519,
+   "y": 102.5,
+   "w": 292.7,
+   "h": 320.2,
+   "transform": "translate3d(548.3px, 129.8px, 0px) rotate(-0.2579rad) rotateY(-3.22deg)",
+   "sheen": "60.3%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 241.990478515625,
+    "height": 243.44485473632812
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-11",
+   "x": 488.7,
+   "y": 115.9,
+   "w": 277.5,
+   "h": 304.8,
+   "transform": "translate3d(510.5px, 133.3px, 0px) rotate(0.1876rad) rotateY(-2.9deg)",
+   "sheen": "34.1%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 231.04031372070312,
+    "height": 230.04550170898438
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-12",
+   "x": 455.9,
+   "y": 92.7,
+   "w": 312,
+   "h": 332.7,
+   "transform": "translate3d(495.8px, 125px, 0px) rotate(0.3628rad) rotateY(-0.23deg)",
+   "sheen": "27.9%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 255.3509521484375,
+    "height": 255.26365661621094
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  },
+  {
+   "name": "atis-13",
+   "x": 480.6,
+   "y": 114.7,
+   "w": 276.6,
+   "h": 306.5,
+   "transform": "translate3d(503.4px, 134.5px, 0px) rotate(0.1815rad) rotateY(1.7deg)",
+   "sheen": "41.8%",
+   "foil": "",
+   "glow": "",
+   "img": "yusuf-kart.webp",
+   "imgBox": {
+    "width": 230.5506591796875,
+    "height": 231.26846313476562
+   },
+   "offset": {
+    "w": 232,
+    "h": 268
+   }
+  }
+ ]
+}

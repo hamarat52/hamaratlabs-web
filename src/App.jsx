@@ -318,7 +318,7 @@ function Breath() {
       </div>
       <Lanyard
         className="breath__lanyard"
-        image={asset('/brand/yusuf-kart.webp')}
+        image={asset('/brand/yusuf-kart-kesilmis.webp')}
         imageAlt="Yusuf Hamarat"
         label="YUSUF HAMARAT"
         serial="KURUCU · HL 001"
