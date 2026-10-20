@@ -26,7 +26,10 @@ export default function InstagramFeed() {
   const listRef = useRef(null);
 
   useEffect(() => {
-    loadEmbedScript().then(() => window.instgrm?.Embeds.process());
+    // Performans: gömme betiği (~1 MB'lık Instagram iframe/JS zinciri) liste ekrana
+    // yaklaşınca yüklenir; ilk açılışta ana sayfanın ağını ve işlemcisini meşgul etmez.
+    let t = 0;
+    let stop = 0;
     // Her gönderinin medya yüksekliğini ölçüp kırpmayı ona göre ayarla.
     const fit = () => {
       listRef.current?.querySelectorAll('.insta__crop').forEach(crop => {
@@ -35,9 +38,26 @@ export default function InstagramFeed() {
         if (h > TOP + BOTTOM + 60) crop.style.height = `${Math.min(404, h - TOP - BOTTOM)}px`;
       });
     };
-    const t = setInterval(fit, 500);
-    const stop = setTimeout(() => clearInterval(t), 120000);
+    const begin = () => {
+      loadEmbedScript().then(() => window.instgrm?.Embeds.process());
+      t = setInterval(fit, 500);
+      stop = setTimeout(() => clearInterval(t), 120000);
+    };
+    let io = null;
+    if (typeof IntersectionObserver === 'undefined' || !listRef.current) begin();
+    else {
+      io = new IntersectionObserver(
+        entries => {
+          if (!entries.some(e => e.isIntersecting)) return;
+          io.disconnect();
+          begin();
+        },
+        { rootMargin: '1000px 0px' }
+      );
+      io.observe(listRef.current);
+    }
     return () => {
+      io?.disconnect();
       clearInterval(t);
       clearTimeout(stop);
     };

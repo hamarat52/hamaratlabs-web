@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Build öncesi üretilen optimize görseller (scripts/optimize-images.mjs)
+public/ilham/opt/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

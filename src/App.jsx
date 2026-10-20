@@ -1,29 +1,34 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
 import './App.css';
 import { FEATURED, APPS, SERIES, TOOLS, INSPIRATION, LINKS, slugOf } from './data';
-import AppPage from './AppPage';
 import PrivacyPage from './PrivacyPage';
-import TiTimerPage from './TiTimerPage';
 import InstagramFeed from './InstagramFeed';
 import { NavContext, Link } from './nav';
 import { asset, stripBase } from './base';
 import BorderGlow from './components/rb/BorderGlow/BorderGlow';
 import AppIcon, { ICONS } from './AppIcon';
-import FlexCarousel from './components/rb/FlexCarousel/FlexCarousel';
 import PixelSnow from './components/rb/PixelSnow/PixelSnow';
 import TechText from './components/rb/TechText/TechText';
-import GradientASCII from './components/rb/GradientASCII/GradientASCII';
-import GhostFibers from './components/rb/GhostFibers/GhostFibers';
-import LetterGlitch from './components/rb/LetterGlitch/LetterGlitch';
 import Lanyard from './components/rb/Lanyard/Lanyard';
 import FadeContent from './components/rb/FadeContent/FadeContent';
 import DriftWall from './components/rb/DriftWall/DriftWall';
 import SiriOrb from './components/rb/SiriOrb/SiriOrb';
+import WhenNear from './components/WhenNear';
+
+// Performans: ilk açılışta (ana sayfa) gerekmeyen her şey ayrı parça (chunk) olarak yüklenir.
+// - Uygulama sayfaları (AppPage, tiTimer): motion + hugeicons yalnız bu sayfalarda gerekiyor.
+// - Footer şeridi (FlexCarousel, ogl/WebGL + 13 foto): ekrana yaklaşınca bağlanır (WhenNear).
+// - Zemin efektleri: varsayılan Kar (PixelSnow) ana pakette; diğerleri seçilince yüklenir.
+const AppPage = lazy(() => import('./AppPage'));
+const FlexCarousel = lazy(() => import('./components/rb/FlexCarousel/FlexCarousel'));
+const GradientASCII = lazy(() => import('./components/rb/GradientASCII/GradientASCII'));
+const GhostFibers = lazy(() => import('./components/rb/GhostFibers/GhostFibers'));
+const LetterGlitch = lazy(() => import('./components/rb/LetterGlitch/LetterGlitch'));
 
 // Kendi tasarım dili olan uygulamalar genel AppPage yerine özel sayfayla açılır.
-// Anahtar slugOf(ad); yol yine /uretiyorum/<slugOf(ad)>. WingWire ayrı parça olarak yüklenir.
+// Anahtar slugOf(ad); yol yine /uretiyorum/<slugOf(ad)>. Özel sayfalar ayrı parça olarak yüklenir.
 const CUSTOM_PAGES = {
-  titimer: TiTimerPage,
+  titimer: lazy(() => import('./TiTimerPage')),
   wingwire: lazy(() => import('./wingwire/WingWirePage'))
 };
 
@@ -111,13 +116,11 @@ export default function App() {
           (() => {
             // Öncelik: özel sayfa → fikir panosu (idea) → geliştirme şablonu (dev) → genel AppPage.
             const Custom = CUSTOM_PAGES[slugOf(appMatch.name)];
-            const Page = Custom || STAGE_PAGES[appMatch.stage];
-            return Page ? (
+            const Page = Custom || STAGE_PAGES[appMatch.stage] || AppPage;
+            return (
               <Suspense fallback={<div style={{ minHeight: '100vh', background: Custom ? '#0b0f14' : undefined }} />}>
                 <Page app={appMatch} />
               </Suspense>
-            ) : (
-              <AppPage app={appMatch} />
             );
           })()
         ) : page ? (
@@ -196,7 +199,7 @@ function Header({ path }) {
     <header className={`topbar${clear && !open ? ' topbar--clear' : ''}${open ? ' topbar--open' : ''}`}>
       <div className="wrap topbar__row">
         <Link to="/" aria-label="hamaratlabs ana sayfa">
-          <img src={asset('/brand/hamaratlabs-logo-main.svg')} alt="hamaratlabs" className="topbar__logo" />
+          <img src={asset('/brand/hamaratlabs-logo-main.svg')} alt="hamaratlabs" className="topbar__logo" width="1328" height="220" />
         </Link>
         <button
           type="button"
@@ -314,7 +317,9 @@ function Breath() {
   return (
     <section className="breath" aria-label="Giriş">
       <div className="breath__bg" aria-hidden="true" key={`${ground}-${tint}`}>
-        <Ground id={ground} color={color} />
+        <Suspense fallback={null}>
+          <Ground id={ground} color={color} />
+        </Suspense>
       </div>
       <Lanyard
         className="breath__lanyard"
@@ -601,13 +606,16 @@ function Footer() {
   return (
     <footer className="footer">
       <div id="ilham" className="footer__shelf">
-        <div className="footer__carousel">
-          <FlexCarousel items={INSPIRATION} autoplay interval={4} captureWheel={false} gap={16} radius={18} />
-        </div>
+        <WhenNear className="footer__carousel">
+          <Suspense fallback={null}>
+            <FlexCarousel items={INSPIRATION} autoplay interval={4} captureWheel={false} gap={16} radius={18} />
+          </Suspense>
+        </WhenNear>
       </div>
       <div className="wrap footer__row">
         <div className="footer__brand">
-          <img src={asset('/brand/hamaratlabs-logo-main.svg')} alt="hamaratlabs" />
+          {/* width/height: SVG'nin gerçek oranı; CSS yüksekliği belirler, oran önceden bilindiği için yerleşim kaymaz (CLS). */}
+          <img src={asset('/brand/hamaratlabs-logo-main.svg')} alt="hamaratlabs" width="1328" height="220" />
           <p>Üretiyorum. Paylaşıyorum. Anlatıyorum.</p>
         </div>
         <nav aria-label="Alt menü" className="footer__nav">
