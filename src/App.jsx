@@ -12,7 +12,7 @@ import TechText from './components/rb/TechText/TechText';
 import Lanyard from './components/rb/Lanyard/Lanyard';
 import FadeContent from './components/rb/FadeContent/FadeContent';
 import DriftWall from './components/rb/DriftWall/DriftWall';
-import SiriOrb from './components/rb/SiriOrb/SiriOrb';
+import CrystalizedBallButton from './components/rb/CrystalizedBall/CrystalizedBallButton';
 import WhenNear from './components/WhenNear';
 
 // Performans: ilk açılışta (ana sayfa) gerekmeyen her şey ayrı parça (chunk) olarak yüklenir.
@@ -584,7 +584,7 @@ function Teach({ page = false }) {
             {!page && <More to="/anlatiyorum" />}
           </FadeContent>
           <div className="series__ball">
-            <SiriOrb src={asset('/audio/anlatiyorum-ses.mp3')} label="Sesi oynat" />
+            <CrystalizedBallButton src={asset('/audio/anlatiyorum-ses.mp3')} label="Sesi oynat" />
           </div>
         </div>
         <FadeContent as="ul" className="lessons" delay={120} offsetY={24}>

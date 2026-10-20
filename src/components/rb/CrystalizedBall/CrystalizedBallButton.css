@@ -1,0 +1,29 @@
+.crystal-ball-btn {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.crystal-ball-btn:hover {
+  transform: scale(1.04);
+}
+
+.crystal-ball-btn:focus-visible {
+  outline: 2px solid color-mix(in srgb, #f43f3f 70%, white);
+  outline-offset: 6px;
+  border-radius: 50%;
+}
+
+.crystal-ball-btn.is-speaking {
+  animation: crystal-ball-btn-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes crystal-ball-btn-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
