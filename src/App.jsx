@@ -26,8 +26,7 @@ const LetterGlitch = lazy(() => import('./components/rb/LetterGlitch/LetterGlitc
 // Kendi tasarım dili olan uygulamalar genel AppPage yerine özel sayfayla açılır.
 // Anahtar slugOf(ad); yol yine /uretiyorum/<slugOf(ad)>. Özel sayfalar ayrı parça olarak yüklenir.
 const CUSTOM_PAGES = {
-  titimer: lazy(() => import('./TiTimerPage')),
-  wingwire: lazy(() => import('./wingwire/WingWirePage'))
+  titimer: lazy(() => import('./TiTimerPage'))
 };
 
 // Özel sayfası olmayan uygulamalar aşamalarına göre şablon alır; beta/tanımsız → AppPage.
@@ -71,9 +70,14 @@ const PAGES = {
 
 // Google OAuth onay ekranı gibi dış servislerin gerektirdiği statik, bağımsız sayfa.
 // Genel PageHead şablonunu kullanmaz; kendi başlığını PrivacyPage içinde çizer.
+// /wingwire: WingWire'ın kendi sitesi (ayrı parça). Kendi navbar'ı ve footer'ı var.
 const STATIC_PAGES = {
-  '/privacy': PrivacyPage
+  '/privacy': PrivacyPage,
+  '/wingwire': lazy(() => import('./wingwire-site/WingWireSite'))
 };
+
+// Bu yollar ana sitenin topbar'ı ve footer'ı OLMADAN, tam sayfa çizilir (ürünün kendi tasarımı).
+const STANDALONE_PAGES = new Set(['/wingwire']);
 
 function usePath() {
   const [path, setPath] = useState(() => stripBase(window.location.pathname));
@@ -104,6 +108,15 @@ export default function App() {
   const appMatch = path.startsWith('/uretiyorum/')
     ? [...FEATURED, ...APPS].find(a => `/uretiyorum/${slugOf(a.name)}` === path)
     : null;
+  if (StaticPage && STANDALONE_PAGES.has(path)) {
+    return (
+      <NavContext.Provider value={navigate}>
+        <Suspense fallback={<div style={{ minHeight: '100vh', background: '#0b0f14' }} />}>
+          <StaticPage />
+        </Suspense>
+      </NavContext.Provider>
+    );
+  }
   return (
     <NavContext.Provider value={navigate}>
       <Header path={path} />
@@ -112,9 +125,11 @@ export default function App() {
           <StaticPage />
         ) : appMatch ? (
           (() => {
-            // Öncelik: özel sayfa → fikir panosu (idea) → geliştirme şablonu (dev) → genel AppPage.
+            // Öncelik: özel sayfa → kendi sitesi olan ürün (visitUrl) → fikir panosu (idea) → geliştirme şablonu (dev) → genel AppPage.
+            // visitUrl'li ürünün mağaza sayfası, aşaması ne olursa olsun ortak AppPage'dir ("uygulama detay sayfası");
+            // ürünün kendi tasarımı visitUrl'deki sitededir.
             const Custom = CUSTOM_PAGES[slugOf(appMatch.name)];
-            const Page = Custom || STAGE_PAGES[appMatch.stage] || AppPage;
+            const Page = Custom || (appMatch.visitUrl ? AppPage : STAGE_PAGES[appMatch.stage]) || AppPage;
             return (
               <Suspense fallback={<div style={{ minHeight: '100vh', background: Custom ? '#0b0f14' : undefined }} />}>
                 <Page app={appMatch} />

@@ -38,7 +38,11 @@ export const FEATURED = [
     stage: 'dev',
     lead: "Kendi yapay zekâ ajanına Android'den bağlan: sohbet et, onay ver, gerekince ajan seni arasın.",
     points: ['Ajanınla canlı sohbet', 'Oturumlarına telefondan devam et', 'İşlemleri tek dokunuşla onayla', 'Gerekince ajan seni arar'],
-    platform: 'ANDROID'
+    platform: 'ANDROID',
+    // Ürünün kendi sitesi (/wingwire). AppPage bu alan varsa ürünün renginde ek bir CTA gösterir.
+    visitUrl: '/wingwire',
+    visitLabel: 'Ürünü ziyaret et',
+    visitAccent: 'linear-gradient(135deg, #5A86FF 0%, #1F5CFF 100%)'
   }
 ];
 

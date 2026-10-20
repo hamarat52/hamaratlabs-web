@@ -693,6 +693,31 @@ mark {
 .apppage__dl.is-off { background: #e8e3d7; color: var(--muted); }
 .apppage__platform { font-size: 14px; color: var(--muted); letter-spacing: 0.02em; }
 .apppage__dodge { flex: 1 1 260px; max-width: 420px; }
+/* Ürünün kendi sitesine CTA: rengi kayıttan (--visit-bg), indirme butonundan ayrışsın diye gradyan + parıltı. */
+.apppage__visit {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 26px 0 28px;
+  border-radius: 999px;
+  background: var(--visit-bg, var(--ink));
+  color: #fff;
+  font-family: 'Geist', var(--font);
+  font-weight: 600;
+  font-size: 17px;
+  text-decoration: none;
+  box-shadow: 0 10px 26px -10px rgba(16, 19, 23, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.apppage__visit:hover { transform: translateY(-2px); filter: brightness(1.06); box-shadow: 0 14px 30px -10px rgba(16, 19, 23, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25); }
+.apppage__visit-arrow { transition: transform 0.2s ease; }
+.apppage__visit:hover .apppage__visit-arrow { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) {
+  .apppage__visit,
+  .apppage__visit-arrow { transition: none; }
+}
 /* Sosyal eylemler: başlık bloğunun altında tek şerit, dar ekranda alt alta. */
 .apppage__extras { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 32px 48px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); font-family: 'Geist', var(--font); }
 .apppage__social { display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; }

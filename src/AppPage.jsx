@@ -18,6 +18,30 @@ const githubRepo = url => {
 // Ürün sayfasının kalıcı adresi: sitenin kökü (BASE_URL) + /uretiyorum/<slug>.
 const pageUrl = slug => new URL(`uretiyorum/${slug}`, window.location.origin + import.meta.env.BASE_URL).href;
 
+// Ürünün kendi sitesine giden CTA (yalnız app.visitUrl varsa çizilir; yoksa sayfa hiç değişmez).
+// Renk ürüne özel: app.visitAccent (renk ya da gradyan) → --visit-bg; yoksa mürekkep rengi.
+// Site içi yol (/...) SPA içinde açılır; tam URL yeni sekmede.
+function VisitCta({ app }) {
+  const style = app.visitAccent ? { '--visit-bg': app.visitAccent } : undefined;
+  const label = (
+    <>
+      {app.visitLabel || 'Ürünü ziyaret et'}
+      <span className="apppage__visit-arrow" aria-hidden="true">
+        →
+      </span>
+    </>
+  );
+  return app.visitUrl.startsWith('/') ? (
+    <Link to={app.visitUrl} className="apppage__visit" style={style}>
+      {label}
+    </Link>
+  ) : (
+    <a className="apppage__visit" href={app.visitUrl} target="_blank" rel="noopener noreferrer" style={style}>
+      {label}
+    </a>
+  );
+}
+
 // Tek bir uygulamanın sayfası: büyük ikon, ad, kısa tanım, indirme ve özellikler.
 export default function AppPage({ app }) {
   const slug = slugOf(app.name);
@@ -54,6 +78,7 @@ export default function AppPage({ app }) {
               )}
               {!isPlaceholder(app.platform) && <span className="apppage__platform">{app.platform}</span>}
             </div>
+            {app.visitUrl && <VisitCta app={app} />}
           </div>
         </div>
 
