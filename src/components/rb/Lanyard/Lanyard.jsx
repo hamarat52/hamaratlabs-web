@@ -176,6 +176,12 @@ export default function Lanyard({
       const tiltY = Math.max(-38, Math.min(38, vx * 2.4));
       card.style.transform = `translate3d(${(center.x - cw / 2).toFixed(1)}px, ${(center.y - ch / 2).toFixed(1)}px, 0) rotate(${(-angle).toFixed(4)}rad) rotateY(${tiltY.toFixed(2)}deg)`;
       if (sheenRef.current) sheenRef.current.style.setProperty('--ly-sheen', `${(50 + tiltY * 1.6 + angle * 60).toFixed(1)}%`);
+      // Holografik pul katmanı: aynı eğim/açıdan türeyen iki değişken (fiziğe dokunmaz, yalnız CSS'i besler).
+      // --ly-foil ≈ -1…1: desenin kayma yönü + renk dönüşü; --ly-foil-glow 0…1: eğim büyüdükçe parlaklık.
+      if (sheenRef.current) {
+        sheenRef.current.style.setProperty('--ly-foil', (tiltY / 38 + angle * 1.6).toFixed(3));
+        sheenRef.current.style.setProperty('--ly-foil-glow', Math.min(1, Math.abs(tiltY) / 26 + Math.abs(angle) * 1.4).toFixed(3));
+      }
     };
 
     const loop = now => {

@@ -323,13 +323,13 @@ function Breath() {
       </div>
       <Lanyard
         className="breath__lanyard"
-        image={asset('/brand/yusuf-kart.webp')}
+        image={asset('/brand/yusuf-kart-kesilmis.webp')}
         imageAlt="Yusuf Hamarat"
         label="YUSUF HAMARAT"
         serial="KURUCU · HL 001"
         color={tint === 'ink' || tint === 'grey' ? '#d0ff63' : color}
         cardWidth={232}
-        cardHeight={268}
+        cardHeight={340}
         ropeLength={0.17}
         minRope={90}
         maxRope={190}

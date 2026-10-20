@@ -1,0 +1,416 @@
+{
+  "_meta": {
+    "baslik": "Araştırıyorum — Araç Envanteri",
+    "amac": "hamaratlabs-web içinde arayüzden (nav/menü) erişilemeyen, yalnızca doğrudan URL ile açılan /arastiriyorum sayfası için veri kaynağı.",
+    "hazirlayan": "Kişisel Asistan (Hermes, personalassistant profili)",
+    "tarih": "2026-10-19",
+    "durum_etiketleri": ["kullanıyorum", "planlıyorum", "kullanmıyorum"],
+    "onemli_not": "Durum etiketleri KANITA dayalı tahmindir, Yusuf'un beyanı değildir. 'kanit' alanı her kaydın neye dayandığını söyler. Yusuf bu etiketleri serbestçe düzeltmelidir.",
+    "kanit_turleri": {
+      "kurulu": "Makinede kurulu olduğu doğrulandı (PATH veya /Applications)",
+      "oturumda_kullanildi": "Bu asistanla yapılan işlerde fiilen çalıştırıldı",
+      "arastirildi": "Araştırıldı/öğrenildi ama kurulu veya aktif kullanımda değil",
+      "skill_mevcut": "Hermes profilinde bu araç için skill tanımlı"
+    },
+    "sayim": { "toplam": 64, "kullaniyorum": 51, "planliyorum": 10, "kullanmiyorum": 3 }
+  },
+
+  "kategoriler": [
+    { "id": "ai-agent",    "ad": "Yapay Zekâ Ajanları" },
+    { "id": "ai-model",    "ad": "Yapay Zekâ Araçları" },
+    { "id": "gelistirme",  "ad": "Geliştirme" },
+    { "id": "prodüktivite","ad": "Prodüktivite ve Not" },
+    { "id": "tasarim",     "ad": "Tasarım" },
+    { "id": "medya",       "ad": "Medya ve Ses" },
+    { "id": "veri",        "ad": "Veri ve Doküman" },
+    { "id": "otomasyon",   "ad": "Otomasyon ve Entegrasyon" },
+    { "id": "sistem",      "ad": "Sistem ve Altyapı" }
+  ],
+
+  "araclar": [
+    {
+      "ad": "Hermes Agent", "kategori": "ai-agent", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://hermes-agent.nousresearch.com",
+      "ozet": "Araç çağırabilen, hafızası ve skill sistemi olan kişisel AI ajanı. Bu envanteri de o hazırladı.",
+      "kanit": ["kurulu", "oturumda_kullanildi"]
+    },
+    {
+      "ad": "Claude Code", "kategori": "ai-agent", "durum": "kullanıyorum",
+      "lisans": "Ücretli abonelik", "url": "https://claude.com/claude-code",
+      "ozet": "Terminalden çalışan Anthropic kodlama ajanı. Uzun teknik işler ve implementasyon için.",
+      "kanit": ["kurulu", "oturumda_kullanildi", "skill_mevcut"]
+    },
+    {
+      "ad": "Codex CLI", "kategori": "ai-agent", "durum": "kullanıyorum",
+      "lisans": "Ücretli abonelik (ChatGPT)", "url": "https://developers.openai.com/codex/cli",
+      "ozet": "OpenAI'ın terminal kodlama ajanı. İkinci görüş ve paralel iş yükü için.",
+      "kanit": ["kurulu", "oturumda_kullanildi", "skill_mevcut"]
+    },
+    {
+      "ad": "agy (Gemini CLI)", "kategori": "ai-agent", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz / abonelik", "url": "https://github.com/google-gemini/gemini-cli",
+      "ozet": "Derin araştırma, PDF indirip okuma ve uzun kaynak taraması için kullandığım Gemini ajanı.",
+      "kanit": ["kurulu", "oturumda_kullanildi", "skill_mevcut"]
+    },
+    {
+      "ad": "OpenCode", "kategori": "ai-agent", "durum": "planlıyorum",
+      "lisans": "Açık kaynak", "url": "https://opencode.ai",
+      "ozet": "Alternatif açık kaynak terminal kodlama ajanı.",
+      "kanit": ["arastirildi", "skill_mevcut"]
+    },
+    {
+      "ad": "ChatGPT", "kategori": "ai-model", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://chatgpt.com",
+      "ozet": "Günlük soru-cevap ve hızlı taslak üretimi.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Claude", "kategori": "ai-model", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://claude.ai",
+      "ozet": "Uzun metin, analiz ve akademik yazımda tercih ettiğim model.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Gemini", "kategori": "ai-model", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://gemini.google.com",
+      "ozet": "Görsel analiz ve geniş bağlamlı araştırma.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Ollama", "kategori": "ai-model", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://ollama.com",
+      "ozet": "Modelleri tamamen yerelde çalıştırmak için. İnternet ve kota gerektirmez.",
+      "kanit": ["kurulu", "skill_mevcut"]
+    },
+    {
+      "ad": "Whisper", "kategori": "ai-model", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://github.com/openai/whisper",
+      "ozet": "Ses ve videoyu metne çeviren konuşma tanıma modeli.",
+      "kanit": ["arastirildi"]
+    },
+    {
+      "ad": "Antigravity IDE", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz", "url": "https://antigravity.google",
+      "ozet": "Ajan odaklı kod editörü.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Visual Studio Code", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz", "url": "https://code.visualstudio.com",
+      "ozet": "Ana kod editörü. Eklenti ekosistemi en geniş olan.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Git", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (GPL-2.0)", "url": "https://git-scm.com",
+      "ozet": "Sürüm kontrolü. Her projenin ve OBS kasamın omurgası.",
+      "kanit": ["kurulu", "oturumda_kullanildi"]
+    },
+    {
+      "ad": "GitHub CLI", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://cli.github.com",
+      "ozet": "Terminalden PR, issue ve repo yönetimi.",
+      "kanit": ["kurulu", "skill_mevcut"]
+    },
+    {
+      "ad": "Node.js", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://nodejs.org",
+      "ozet": "JavaScript çalışma ortamı. Web projelerinin tamamı bunun üstünde.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Vite", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://vite.dev",
+      "ozet": "Hızlı geliştirme sunucusu ve derleyici. hamaratlabs.com bununla çalışıyor.",
+      "kanit": ["kurulu", "oturumda_kullanildi"]
+    },
+    {
+      "ad": "React", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://react.dev",
+      "ozet": "Arayüz kütüphanesi. Sitenin tamamı React 19 ile yazıldı.",
+      "kanit": ["kurulu", "oturumda_kullanildi"]
+    },
+    {
+      "ad": "Three.js", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://threejs.org",
+      "ozet": "Tarayıcıda 3B grafik. Sitedeki görsel efektlerde kullanılıyor.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "OGL", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://github.com/oframe/ogl",
+      "ozet": "Three.js'e göre çok daha hafif WebGL katmanı.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Motion", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://motion.dev",
+      "ozet": "React animasyon kütüphanesi. Sayfa geçişleri ve mikro etkileşimler.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "ESLint", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://eslint.org",
+      "ozet": "Kod kalite denetimi.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Xcode", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz", "url": "https://developer.apple.com/xcode/",
+      "ozet": "iOS uygulama geliştirme ortamı.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Android Studio", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz", "url": "https://developer.android.com/studio",
+      "ozet": "Android uygulama geliştirme ortamı.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Flutter", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (BSD-3)", "url": "https://flutter.dev",
+      "ozet": "Tek kod tabanından iOS ve Android uygulama.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Playwright", "kategori": "gelistirme", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (Apache-2.0)", "url": "https://playwright.dev",
+      "ozet": "Tarayıcı otomasyonu ve arayüz testi. Sitedeki düzeltmeleri bununla kanıtlıyoruz.",
+      "kanit": ["oturumda_kullanildi"]
+    },
+    {
+      "ad": "Obsidian", "kategori": "prodüktivite", "durum": "kullanıyorum",
+      "lisans": "Kişisel kullanım ücretsiz", "url": "https://obsidian.md",
+      "ozet": "Bütün notlarım, araştırmalarım ve kararlarım burada. Markdown dosyaları kendi diskimde.",
+      "kanit": ["kurulu", "oturumda_kullanildi", "skill_mevcut"]
+    },
+    {
+      "ad": "Telegram", "kategori": "prodüktivite", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz", "url": "https://telegram.org",
+      "ozet": "Asistanımla konuştuğum ana kanal. Bot API'si üzerinden otomasyona açık.",
+      "kanit": ["kurulu", "oturumda_kullanildi"]
+    },
+    {
+      "ad": "Apple Notes", "kategori": "prodüktivite", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz", "url": "https://www.icloud.com/notes",
+      "ozet": "Hızlı ve geçici notlar. Kalıcı bilgi Obsidian'a taşınır.",
+      "kanit": ["skill_mevcut"]
+    },
+    {
+      "ad": "Apple Reminders", "kategori": "prodüktivite", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz", "url": "https://www.icloud.com/reminders",
+      "ozet": "Hatırlatıcılar, terminalden de eklenebiliyor.",
+      "kanit": ["skill_mevcut"]
+    },
+    {
+      "ad": "Google Workspace", "kategori": "prodüktivite", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://workspace.google.com",
+      "ozet": "Gmail, Takvim ve Görevler. Asistanım bunları salt-okunur okuyup özetliyor.",
+      "kanit": ["oturumda_kullanildi", "skill_mevcut"]
+    },
+    {
+      "ad": "Moodle", "kategori": "prodüktivite", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (GPL)", "url": "https://moodle.org",
+      "ozet": "Üniversitenin LMS'i. Ders, ödev ve son teslim tarihlerini REST API ile salt-okunur çekiyorum.",
+      "kanit": ["oturumda_kullanildi", "skill_mevcut"]
+    },
+    {
+      "ad": "Notion", "kategori": "prodüktivite", "durum": "kullanmıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://notion.so",
+      "ozet": "Araştırdım ama notlarımı kendi diskimde tutmayı tercih ettiğim için Obsidian'da kaldım.",
+      "kanit": ["arastirildi", "skill_mevcut"]
+    },
+    {
+      "ad": "Airtable", "kategori": "prodüktivite", "durum": "kullanmıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://airtable.com",
+      "ozet": "Veritabanı-tablo melezi. İncelendi, şimdilik ihtiyaç doğmadı.",
+      "kanit": ["arastirildi", "skill_mevcut"]
+    },
+    {
+      "ad": "DeepL", "kategori": "prodüktivite", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://deepl.com",
+      "ozet": "Çeviri. Akademik metinlerde Google Translate'ten daha isabetli.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Figma", "kategori": "tasarim", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://figma.com",
+      "ozet": "Arayüz tasarımı ve prototip.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "CorelDRAW", "kategori": "tasarim", "durum": "kullanıyorum",
+      "lisans": "Ücretli", "url": "https://www.coreldraw.com",
+      "ozet": "Vektör çizim ve baskı işleri.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "HugeIcons", "kategori": "tasarim", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz katman mevcut", "url": "https://hugeicons.com",
+      "ozet": "Sitedeki ikon seti.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "p5.js", "kategori": "tasarim", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (LGPL)", "url": "https://p5js.org",
+      "ozet": "Üretken sanat ve video için kod tabanlı görsel üretim.",
+      "kanit": ["skill_mevcut"]
+    },
+    {
+      "ad": "Manim", "kategori": "tasarim", "durum": "planlıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://www.manim.community",
+      "ozet": "3Blue1Brown tarzı matematiksel animasyon motoru.",
+      "kanit": ["arastirildi", "skill_mevcut"]
+    },
+    {
+      "ad": "FFmpeg", "kategori": "medya", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (LGPL/GPL)", "url": "https://ffmpeg.org",
+      "ozet": "Ses ve videoda ne yapmak isterseniz. Dönüştürme, kesme, birleştirme.",
+      "kanit": ["kurulu", "oturumda_kullanildi"]
+    },
+    {
+      "ad": "ElevenLabs", "kategori": "medya", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://elevenlabs.io",
+      "ozet": "Yapay seslendirme. Video projelerinde kullanıyorum.",
+      "kanit": ["arastirildi"]
+    },
+    {
+      "ad": "OBS Studio", "kategori": "medya", "durum": "planlıyorum",
+      "lisans": "Açık kaynak (GPL-2.0)", "url": "https://obsproject.com",
+      "ozet": "Ekran kaydı ve canlı yayın.",
+      "kanit": ["arastirildi"]
+    },
+    {
+      "ad": "Audacity", "kategori": "medya", "durum": "planlıyorum",
+      "lisans": "Açık kaynak (GPL)", "url": "https://www.audacityteam.org",
+      "ozet": "Ses düzenleme.",
+      "kanit": ["arastirildi"]
+    },
+    {
+      "ad": "Spotify", "kategori": "medya", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://spotify.com",
+      "ozet": "Çalışırken açık olan şey.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Poppler (pdftotext)", "kategori": "veri", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (GPL)", "url": "https://poppler.freedesktop.org",
+      "ozet": "PDF'ten metin çıkarma. Akademik kaynak okumada ilk durak.",
+      "kanit": ["kurulu", "oturumda_kullanildi"]
+    },
+    {
+      "ad": "pypdf", "kategori": "veri", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (BSD)", "url": "https://pypdf.readthedocs.io",
+      "ozet": "pdftotext boş döndüğünde devreye giren Python PDF okuyucu. Fibabanka raporlarını bununla çıkardım.",
+      "kanit": ["oturumda_kullanildi"]
+    },
+    {
+      "ad": "jq", "kategori": "veri", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://jqlang.github.io/jq/",
+      "ozet": "Terminalde JSON işleme.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "ripgrep", "kategori": "veri", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (MIT)", "url": "https://github.com/BurntSushi/ripgrep",
+      "ozet": "Çok hızlı dosya içi arama. grep'in yerini aldı.",
+      "kanit": ["kurulu", "oturumda_kullanildi"]
+    },
+    {
+      "ad": "Python", "kategori": "veri", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (PSF)", "url": "https://python.org",
+      "ozet": "Veri çekme, API çağrıları ve küçük otomasyon script'leri.",
+      "kanit": ["kurulu", "oturumda_kullanildi"]
+    },
+    {
+      "ad": "arXiv", "kategori": "veri", "durum": "planlıyorum",
+      "lisans": "Ücretsiz", "url": "https://arxiv.org",
+      "ozet": "Akademik makale arşivi, API'den aranabiliyor.",
+      "kanit": ["skill_mevcut"]
+    },
+    {
+      "ad": "Cron", "kategori": "otomasyon", "durum": "kullanıyorum",
+      "lisans": "Sistem bileşeni", "url": "https://en.wikipedia.org/wiki/Cron",
+      "ozet": "Zamanlanmış görevler. Günlük e-posta özeti ve token kontrolleri bununla dönüyor.",
+      "kanit": ["oturumda_kullanildi", "skill_mevcut"]
+    },
+    {
+      "ad": "MCP (Model Context Protocol)", "kategori": "otomasyon", "durum": "kullanıyorum",
+      "lisans": "Açık standart", "url": "https://modelcontextprotocol.io",
+      "ozet": "AI ajanlarını dış servislere bağlayan ortak protokol.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "OAuth 2.0", "kategori": "otomasyon", "durum": "kullanıyorum",
+      "lisans": "Açık standart", "url": "https://oauth.net/2/",
+      "ozet": "Şifre paylaşmadan servis yetkilendirme. Google bağlantım bunun üstünde.",
+      "kanit": ["oturumda_kullanildi"]
+    },
+    {
+      "ad": "xurl", "kategori": "otomasyon", "durum": "planlıyorum",
+      "lisans": "Açık kaynak", "url": "https://github.com/xdevplatform/xurl",
+      "ozet": "X/Twitter API'sine terminalden erişim.",
+      "kanit": ["skill_mevcut"]
+    },
+    {
+      "ad": "Tenor API", "kategori": "otomasyon", "durum": "planlıyorum",
+      "lisans": "Ücretsiz", "url": "https://tenor.com/gifapi",
+      "ozet": "GIF arama ve indirme.",
+      "kanit": ["skill_mevcut"]
+    },
+    {
+      "ad": "OpenStreetMap / OSRM", "kategori": "otomasyon", "durum": "planlıyorum",
+      "lisans": "Açık veri (ODbL)", "url": "https://www.openstreetmap.org",
+      "ozet": "Ücretsiz harita, adres çözümleme ve rota hesaplama. Google Maps API'sine açık alternatif.",
+      "kanit": ["skill_mevcut"]
+    },
+    {
+      "ad": "Tailscale", "kategori": "sistem", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz katman mevcut", "url": "https://tailscale.com",
+      "ozet": "Cihazlarım arasında özel ağ. Port açmadan uzaktan erişim.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "Homebrew", "kategori": "sistem", "durum": "kullanıyorum",
+      "lisans": "Açık kaynak (BSD-2)", "url": "https://brew.sh",
+      "ozet": "macOS paket yöneticisi.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "GitHub Pages", "kategori": "sistem", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz", "url": "https://pages.github.com",
+      "ozet": "Statik site yayınlama.",
+      "kanit": ["arastirildi"]
+    },
+    {
+      "ad": "macOS Keychain", "kategori": "sistem", "durum": "kullanıyorum",
+      "lisans": "Sistem bileşeni", "url": "https://support.apple.com/guide/keychain-access/welcome/mac",
+      "ozet": "Token ve parolaları düz metin dosya yerine şifreli saklamak için.",
+      "kanit": ["oturumda_kullanildi"]
+    },
+    {
+      "ad": "AdGuard", "kategori": "sistem", "durum": "kullanıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://adguard.com",
+      "ozet": "Reklam ve izleyici engelleme.",
+      "kanit": ["kurulu"]
+    },
+    {
+      "ad": "WordPress", "kategori": "gelistirme", "durum": "planlıyorum",
+      "lisans": "Açık kaynak (GPL)", "url": "https://wordpress.org",
+      "ozet": "İçerik yönetim sistemi. Müşteri projelerinde karşıma çıkıyor.",
+      "kanit": ["arastirildi"]
+    },
+    {
+      "ad": "Elementor", "kategori": "gelistirme", "durum": "kullanmıyorum",
+      "lisans": "Ücretsiz + ücretli", "url": "https://elementor.com",
+      "ozet": "WordPress sayfa tasarlayıcı. Esnek ama siteyi ağırlaştırdığı için kendi işlerimde tercih etmiyorum.",
+      "kanit": ["arastirildi"]
+    },
+    {
+      "ad": "LearnPress", "kategori": "gelistirme", "durum": "planlıyorum",
+      "lisans": "Açık kaynak (GPL)", "url": "https://thimpress.com/learnpress/",
+      "ozet": "WordPress LMS eklentisi. Kurs ve quiz altyapısı.",
+      "kanit": ["arastirildi"]
+    }
+  ]
+}
