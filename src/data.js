@@ -57,7 +57,11 @@ export const APPS = [
     points: ['"500 TL" yerine "1,8 saat" yazar', 'Rakama tıklayınca orijinal fiyat geri gelir', 'Saatlik ücretini kendin girersin'],
     platform: 'CHROME · WEB',
     download: 'https://github.com/hamarat52/income-vs-desires',
-    downloadLabel: "GitHub'dan indir"
+    downloadLabel: "GitHub'dan indir",
+    // Ürünün kendi sitesi (GitHub Pages). AppPage bu alan varsa ek bir CTA gösterir.
+    visitUrl: 'https://hamarat52.github.io/income-vs-desires/',
+    visitLabel: 'Ürünü ziyaret et',
+    visitAccent: 'linear-gradient(135deg, #34D399 0%, #059669 100%)'
   },
   {
     name: 'tiTimer',
