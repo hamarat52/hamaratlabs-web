@@ -97,6 +97,19 @@ export const APPS = [
     short: '[Kısa açıklama]',
     lead: '[Bir cümlelik tanım]',
     platform: '[PLATFORM]'
+  },
+  {
+    name: 'Nostaljik Dikenler',
+    stage: 'idea',
+    short: 'Siyah-beyaz, dikenlerden kaçan ilk prototip',
+    lead: 'Tavandaki dikenlerden kaçarken yukarı çıkan platformların arasından geçmeye çalıştığın, nostaljik, tamamen siyah-beyaz bir arcade denemesi.',
+    points: ['Sol/sağ ok tuşuyla kontrol', 'Zamanla hızlanan zorluk', 'Tek ekran, tarayıcıda oynanır'],
+    platform: 'TARAYICI',
+    // Tek sayfalık statik oyun (p5.js, build gerektirmez) — public/'ten doğrudan servis edilir.
+    // Tam URL: SPA router'ı atlayıp gerçek dosyayı yeni sekmede açar.
+    visitUrl: 'https://hamaratlabs.com/oyunlar/nostaljik-dikenler/index.html',
+    visitLabel: 'Oyna',
+    visitAccent: 'linear-gradient(135deg, #111111 0%, #555555 100%)'
   }
 ];
 
