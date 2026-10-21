@@ -34,7 +34,8 @@ export const FEATURED = [
     downloadLabel: "GitHub'dan indir",
     // Ürünün kendi sitesi (/sesver). AppPage bu alan varsa ürünün renginde ek bir CTA gösterir.
     visitUrl: '/sesver',
-    visitLabel: 'Ürünü ziyaret et'
+    visitLabel: 'Ürünü ziyaret et',
+    visitAccent: 'linear-gradient(135deg, #ff5c86 0%, #ff8f1f 100%)'
   },
   {
     name: 'WingWire',
