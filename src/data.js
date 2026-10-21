@@ -61,7 +61,8 @@ export const APPS = [
     // Ürünün kendi sitesi (GitHub Pages). AppPage bu alan varsa ek bir CTA gösterir.
     visitUrl: 'https://hamarat52.github.io/income-vs-desires/',
     visitLabel: 'Ürünü ziyaret et',
-    visitAccent: 'linear-gradient(135deg, #34D399 0%, #059669 100%)'
+    // Hedef sitenin kendi kimliği: krem zemin + kiremit kırmızısı vurgu (terminal/monospace dil).
+    visitAccent: 'linear-gradient(135deg, #C2451F 0%, #962D12 100%)'
   },
   {
     name: 'tiTimer',
