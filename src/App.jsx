@@ -13,6 +13,7 @@ import Lanyard from './components/rb/Lanyard/Lanyard';
 import FadeContent from './components/rb/FadeContent/FadeContent';
 import CrystalizedBallButton from './components/rb/CrystalizedBall/CrystalizedBallButton';
 import WhenNear from './components/WhenNear';
+import DevelopmentMap from './DevelopmentMap';
 
 // Performans: ilk açılışta (ana sayfa) gerekmeyen her şey ayrı parça (chunk) olarak yüklenir.
 // - Uygulama sayfaları (AppPage, tiTimer): motion + hugeicons yalnız bu sayfalarda gerekiyor.
@@ -510,6 +511,7 @@ function Apps({ page = false }) {
       {featured.length + rest.length === 0 && (
         <div className="empty">Henüz yayında bir uygulama yok. Yayına çıkan ilk uygulama burada görünecek.</div>
       )}
+      {page && <DevelopmentMap />}
     </section>
   );
 }
