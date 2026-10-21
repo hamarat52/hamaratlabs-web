@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FEATURED, APPS } from './data';
 import './DevelopmentMap.css';
 
@@ -227,6 +227,7 @@ const LegendShape = props => (
 
 export default function DevelopmentMap() {
   const ref = useRef(null);
+  const [legendOpen, setLegendOpen] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -378,7 +379,16 @@ export default function DevelopmentMap() {
           </svg>
         </div>
 
-        <aside className="dm-legend" aria-label="Harita açıklaması">
+        <aside className={`dm-legend${legendOpen ? ' is-open' : ''}`} aria-label="Harita açıklaması">
+          <button
+            type="button"
+            className="dm-legend__toggle mono"
+            aria-expanded={legendOpen}
+            onClick={() => setLegendOpen(v => !v)}
+          >
+            {legendOpen ? '− Açıklamayı gizle' : '+ Açıklama (renkler, şekiller)'}
+          </button>
+          <div className="dm-legend__body" hidden={!legendOpen}>
           <div className="dm-legend__group">
             <h4 className="mono">Hatlar</h4>
             <ul className="dm-legend__lines">
@@ -419,6 +429,7 @@ export default function DevelopmentMap() {
             <h4 className="mono">Okuma</h4>
             <p>Canlı renk: geliştirmede / açık beta. Soluk gri halka: fikir, henüz çizilecek hat yok.</p>
             <p>Alttan üste zaman · 0 = 26 Eyl 2026. ≈ boş günler sıkıştırıldı.</p>
+          </div>
           </div>
         </aside>
       </div>
