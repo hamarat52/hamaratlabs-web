@@ -71,11 +71,13 @@ const PAGES = {
 // /wingwire: WingWire'ın kendi sitesi (ayrı parça). Kendi navbar'ı ve footer'ı var.
 const STATIC_PAGES = {
   '/privacy': PrivacyPage,
-  '/wingwire': lazy(() => import('./wingwire-site/WingWireSite'))
+  '/wingwire': lazy(() => import('./wingwire-site/WingWireSite')),
+  // /sesver: SesVer'in kendi sitesi (ayrı parça, açık/krem kimlik).
+  '/sesver': lazy(() => import('./sesver-site/SesVerSite'))
 };
 
 // Bu yollar ana sitenin topbar'ı ve footer'ı OLMADAN, tam sayfa çizilir (ürünün kendi tasarımı).
-const STANDALONE_PAGES = new Set(['/wingwire']);
+const STANDALONE_PAGES = new Set(['/wingwire', '/sesver']);
 
 function usePath() {
   const [path, setPath] = useState(() => stripBase(window.location.pathname));

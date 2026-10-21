@@ -31,7 +31,11 @@ export const FEATURED = [
     points: ['Hazır Türkçe sesler', 'Tarif ederek yeni ses tasarla', 'Kendi sesini klonla', 'Bilgisayarında çalışır, buluta gönderilmez', 'Ücretsiz ve açık kaynak'],
     platform: 'macOS · WINDOWS',
     download: 'https://github.com/hamarat52/sesver',
-    downloadLabel: "GitHub'dan indir"
+    downloadLabel: "GitHub'dan indir",
+    // Ürünün kendi sitesi (/sesver). AppPage bu alan varsa ürünün renginde ek bir CTA gösterir.
+    visitUrl: '/sesver',
+    visitLabel: 'Ürünü ziyaret et',
+    visitAccent: 'linear-gradient(135deg, #ff5c86 0%, #ff8f1f 100%)'
   },
   {
     name: 'WingWire',
