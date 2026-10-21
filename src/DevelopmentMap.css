@@ -1,0 +1,309 @@
+/* Gelişim Haritası — Mini Metro hat dili + sabit legend kutusu */
+.dm {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+
+.dm__head {
+  max-width: 640px;
+  margin-bottom: 24px;
+}
+
+.dm__head h3 {
+  margin: 6px 0 8px;
+  font-size: clamp(24px, 3.2vw, 34px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.dm__head p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.dm__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 248px;
+  gap: 24px;
+  align-items: start;
+}
+
+.dm__scroll {
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius, 16px);
+}
+
+.dm__scroll:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.dm__svg {
+  display: block;
+  width: 100%;
+  min-width: 760px;
+  height: auto;
+  font-family: var(--font);
+}
+
+/* Eksen */
+.dm-axis__grid {
+  stroke: var(--line);
+  stroke-width: 1;
+  stroke-dasharray: 2 6;
+}
+
+.dm-axis__line,
+.dm-axis__tick {
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.dm-axis__arrow {
+  fill: var(--ink);
+}
+
+.dm-axis__date {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--ink);
+}
+
+.dm-axis__day {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  fill: var(--muted);
+}
+
+.dm-axis__gap line {
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.dm-axis__gap text {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  fill: var(--muted);
+}
+
+/* Hatlar */
+.dm-rail {
+  fill: none;
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dm-cap {
+  stroke-width: 9;
+  stroke-linecap: round;
+}
+
+.dm-pill text {
+  font-size: 12px;
+  font-weight: 700;
+  fill: #fff;
+  letter-spacing: 0.01em;
+}
+
+.dm-transfer {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-dasharray: 4 5;
+  opacity: 0.55;
+}
+
+.dm-label {
+  font-size: 11.5px;
+  font-weight: 500;
+  fill: var(--ink);
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.dm-label--idea {
+  fill: var(--muted);
+  font-style: italic;
+}
+
+.dm-stop {
+  cursor: default;
+}
+
+.dm-stop:hover .dm-label {
+  font-weight: 700;
+}
+
+.dm-ideas {
+  opacity: 0.85;
+}
+
+/* Legend: Golang roadmap tarzı köşe kutusu, scroll'da yapışkan */
+.dm-legend {
+  position: sticky;
+  top: calc(var(--topbar-h, 64px) + 16px);
+  padding: 18px 18px 14px;
+  background: var(--ivory);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius, 16px);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.dm-legend__group + .dm-legend__group {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.dm-legend h4 {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dm-legend ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.dm-legend li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dm-legend__dot {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.dm-legend__dot--idea {
+  background: transparent;
+  border: 2px dashed #aaa597;
+}
+
+.dm-legend li.is-idea {
+  color: var(--muted);
+}
+
+.dm-legend__ico {
+  flex: none;
+  width: 22px;
+  height: 22px;
+}
+
+.dm-legend__notes p {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.dm__hint {
+  display: none;
+  margin: 8px 0 0;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Yalnızca ekran okuyucu için metin özeti */
+.dm-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Çizilme animasyonu (yalnızca JS + hareket izni varsa) */
+.dm--armed .dm-rail {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.65, 0, 0.35, 1) var(--d, 0s);
+}
+
+.dm--armed .dm-stop,
+.dm--armed .dm-pill,
+.dm--armed .dm-cap,
+.dm--armed .dm-transfer {
+  opacity: 0;
+  transition: opacity 0.4s ease calc(var(--d, 0s) + 0.35s + var(--i, 0) * 0.08s);
+}
+
+.dm--armed.dm--in .dm-rail {
+  stroke-dashoffset: 0;
+}
+
+.dm--armed.dm--in .dm-stop,
+.dm--armed.dm--in .dm-pill,
+.dm--armed.dm--in .dm-cap,
+.dm--armed.dm--in .dm-transfer {
+  opacity: 1;
+}
+
+.dm--armed.dm--in .dm-pill,
+.dm--armed.dm--in .dm-transfer {
+  transition-delay: calc(var(--d, 0s) + 1.4s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dm-rail,
+  .dm-stop,
+  .dm-pill,
+  .dm-cap,
+  .dm-transfer {
+    transition: none !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .dm__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dm-legend {
+    position: static;
+    order: -1;
+  }
+
+  .dm-legend__lines,
+  .dm-legend__shapes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dm__hint {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .dm {
+    margin-top: 48px;
+    padding-top: 28px;
+  }
+
+  .dm-legend__shapes {
+    grid-template-columns: 1fr;
+  }
+}
