@@ -1,10 +1,16 @@
 import { useEffect } from 'react';
 import AppIcon from '../AppIcon';
+import { asset } from '../base';
 import CrystalizedBall from '../components/rb/CrystalizedBall/CrystalizedBall';
 import { FEATURED } from '../data';
 import { Link } from '../nav';
 import './fonts.css';
 import './WingWireSite.css';
+
+// Android APK sürümü: public/downloads/'a bırakılan dosyayla senkron tutulmalı (bkz. README.md
+// o klasörde). iOS henüz yok; yalnız Android için gerçek indirme linki.
+const APK_VERSION = '0.1.0';
+const APK_URL = asset(`/downloads/wingwire-${APK_VERSION}.apk`);
 
 // WingWire'ın kendi sitesi: hamaratlabs.com/wingwire (paylaşılan topbar/footer YOK, App.jsx STATIC_PAGES).
 // Kaynak: ~/Desktop/Projeler/wingwire-web/src/App.jsx — birebir taşındı. Farklar:
@@ -103,11 +109,11 @@ function Hero() {
           <h1 className="ww__h1">{APP.name}</h1>
           <p className="ww__lead">{APP.lead}</p>
           <div className="ww__actions">
-            <span className="ww__cta is-off" aria-disabled="true">
-              Yakında
-            </span>
+            <a className="ww__cta is-live" href={APK_URL} download>
+              APK indir · v{APK_VERSION}
+            </a>
             <span className="ww__wire" aria-hidden="true">
-              telefon <b>⇄</b> ajan
+              Android · iOS yakında
             </span>
           </div>
         </div>
