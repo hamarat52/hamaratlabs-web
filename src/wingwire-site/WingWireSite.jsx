@@ -9,7 +9,7 @@ import './WingWireSite.css';
 
 // Android APK sürümü: public/downloads/'a bırakılan dosyayla senkron tutulmalı (bkz. README.md
 // o klasörde). iOS henüz yok; yalnız Android için gerçek indirme linki.
-const APK_VERSION = '0.1.0';
+const APK_VERSION = '0.1.1';
 const APK_URL = asset(`/downloads/wingwire-${APK_VERSION}.apk`);
 
 // WingWire'ın kendi sitesi: hamaratlabs.com/wingwire (paylaşılan topbar/footer YOK, App.jsx STATIC_PAGES).
