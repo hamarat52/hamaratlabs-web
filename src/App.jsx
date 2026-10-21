@@ -71,7 +71,9 @@ const PAGES = {
 // /wingwire: WingWire'ın kendi sitesi (ayrı parça). Kendi navbar'ı ve footer'ı var.
 const STATIC_PAGES = {
   '/privacy': PrivacyPage,
-  '/wingwire': lazy(() => import('./wingwire-site/WingWireSite'))
+  '/wingwire': lazy(() => import('./wingwire-site/WingWireSite')),
+  // /aktivite: zoom'a göre detay açan kod aktivite haritası (d3-force + canvas; ayrı parça).
+  '/aktivite': lazy(() => import('./AktiviteHaritasi'))
 };
 
 // Bu yollar ana sitenin topbar'ı ve footer'ı OLMADAN, tam sayfa çizilir (ürünün kendi tasarımı).
@@ -120,7 +122,9 @@ export default function App() {
       <Header path={path} />
       <main>
         {StaticPage ? (
-          <StaticPage />
+          <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+            <StaticPage />
+          </Suspense>
         ) : appMatch ? (
           (() => {
             // Öncelik: özel sayfa → kendi sitesi olan ürün (visitUrl) → fikir panosu (idea) → geliştirme şablonu (dev) → genel AppPage.
@@ -618,6 +622,7 @@ function Footer() {
             <Link to="/uretiyorum">Üretiyorum</Link>
             <Link to="/paylasiyorum">Paylaşıyorum</Link>
             <Link to="/anlatiyorum">Anlatıyorum</Link>
+            <Link to="/aktivite">Aktivite</Link>
           </div>
           <div>
             <span className="mono muted-dark">TAKİP</span>
