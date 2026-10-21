@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Renderer, Program, Mesh, Triangle, Plane, Texture, RenderTarget } from 'ogl';
 
+import FlexCarouselFallback from './FlexCarouselFallback';
 import './FlexCarousel.css';
 
 // hamaratlabs: captureWheel={false} iken sayfa kaydırmasını kesmemek için yatay
@@ -305,6 +306,8 @@ const FlexCarousel = ({
   const [active, setActive] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [focusOpen, setFocusOpen] = useState(false);
+  // hamaratlabs: WebGL2 context alınamazsa CSS yedek galeriye geçilir (sayfa asla boş kalmaz).
+  const [webglUnavailable, setWebglUnavailable] = useState(false);
 
   const base = BEND_PRESETS[preset] || BEND_PRESETS.liquid;
   const pick = (value, key) => (value === undefined || value === null ? base[key] : value);
@@ -348,20 +351,37 @@ const FlexCarousel = ({
     const container = containerRef.current;
     if (!container) return undefined;
 
-    const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio || 1, 2),
+    // hamaratlabs: ogl'in Renderer'ı context alamazsa yalnızca console.error basıp ardından
+    // `this.gl.renderer = this` satırında null'a yazarak TypeError fırlatır; hata effect'ten
+    // taşıp tüm React ağacını düşürüyordu (GPU kapalı / --disable-gpu / kısıtlı tarayıcı).
+    // Context'i önce kendimiz, aynı özniteliklerle isteriz; null ise WebGL'siz yedeğe geçeriz.
+    // Aynı canvas'a aynı türde ikinci getContext çağrısı bu context'i döndürür, ek maliyet yok.
+    const contextAttributes = {
       alpha: true,
-      premultipliedAlpha: true,
+      depth: false,
+      stencil: false,
       antialias: false,
-      depth: false
-    });
-    const gl = renderer.gl;
-    if (!renderer.isWebgl2) {
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
+      premultipliedAlpha: true,
+      preserveDrawingBuffer: false,
+      powerPreference: 'default'
+    };
+    const canvas = document.createElement('canvas');
+    let renderer = null;
+    try {
+      // Kart shader'ları WebGL2 (GLSL 300 es) ister; WebGL1'e düşmek de desteklenmiyor sayılır.
+      if (canvas.getContext('webgl2', contextAttributes)) {
+        renderer = new Renderer({ canvas, dpr: Math.min(window.devicePixelRatio || 1, 2), ...contextAttributes });
+      }
+    } catch {
+      renderer = null;
+    }
+    if (!renderer || !renderer.gl || !renderer.isWebgl2) {
+      renderer?.gl?.getExtension('WEBGL_lose_context')?.loseContext();
+      setWebglUnavailable(true);
       return undefined;
     }
+    const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
-    const canvas = gl.canvas;
     canvas.style.display = 'block';
     canvas.style.width = '100%';
     canvas.style.height = '100%';
@@ -1295,6 +1315,10 @@ const FlexCarousel = ({
 
   const current = list[active] || list[0];
   const label = current ? current.title || current.alt || `Image ${active + 1}` : '';
+
+  if (webglUnavailable) {
+    return <FlexCarouselFallback items={list} gap={gap} radius={radius} className={className} style={style} />;
+  }
 
   return (
     <div

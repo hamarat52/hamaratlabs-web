@@ -1,0 +1,62 @@
+/* WebGL'siz yedek galeri. Kutunun boyutu dışarıdan (ör. .footer__carousel) gelir;
+   yükseklik sabit olduğu için fallback'e geçiş yerleşimi kaydırmaz (CLS). */
+.flex-carousel-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.flex-carousel-fallback::-webkit-scrollbar { display: none; }
+.flex-carousel-fallback:focus-visible { outline: 2px solid currentColor; outline-offset: -4px; }
+
+.flex-carousel-fallback__track {
+  display: flex;
+  gap: var(--fcf-gap, 12px);
+  height: 62%;
+  margin: 0;
+  padding: 0 max(16px, 4vw);
+  list-style: none;
+}
+
+.flex-carousel-fallback__item {
+  flex: 0 0 auto;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+.flex-carousel-fallback__figure {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  margin: 0;
+}
+
+.flex-carousel-fallback__img {
+  display: block;
+  /* Görsel boyutu bilinmeden de yer tutsun: 3:4 kutu, fotoğraf kırpılarak sığar. */
+  height: calc(100% - 28px);
+  aspect-ratio: 3 / 4;
+  width: auto;
+  object-fit: cover;
+  border-radius: var(--fcf-radius, 0);
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  user-select: none;
+}
+
+.flex-carousel-fallback__caption {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  opacity: 0.8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
