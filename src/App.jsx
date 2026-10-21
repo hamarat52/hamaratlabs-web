@@ -25,9 +25,7 @@ const LetterGlitch = lazy(() => import('./components/rb/LetterGlitch/LetterGlitc
 
 // Kendi tasarım dili olan uygulamalar genel AppPage yerine özel sayfayla açılır.
 // Anahtar slugOf(ad); yol yine /uretiyorum/<slugOf(ad)>. Özel sayfalar ayrı parça olarak yüklenir.
-const CUSTOM_PAGES = {
-  titimer: lazy(() => import('./TiTimerPage'))
-};
+const CUSTOM_PAGES = {};
 
 // Özel sayfası olmayan uygulamalar aşamalarına göre şablon alır; beta/tanımsız → AppPage.
 // Fikir panosu (Three.js buruşturma) ve geliştirme şablonu ayrı parça olarak yüklenir.
