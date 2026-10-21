@@ -1672,5 +1672,14 @@
     "score": 59,
     "is_merge": false,
     "lines": 13
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "87fe989aaf",
+    "date": "2026-10-21T23:00:23+03:00",
+    "subject": "feat: nostaljik siyah-beyaz dikenlerden kaçma oyunu - ilk oynanabilir prototip",
+    "score": 91,
+    "is_merge": false,
+    "lines": 448
   }
 ]
