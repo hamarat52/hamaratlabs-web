@@ -1,0 +1,235 @@
+/* /aktivite — koyu zeminli kod aktivite haritası (AktiviteHaritasi.jsx) */
+.akh {
+  background: #0d1014;
+  color: var(--paper);
+  padding: clamp(24px, 4vw, 48px) 0 clamp(16px, 3vw, 32px);
+}
+.akh__head { margin-bottom: 20px; }
+.akh__back {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--muted-dark);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+.akh__back:hover,
+.akh__back:focus-visible { color: var(--lime); }
+.akh h1 {
+  margin: 0 0 10px;
+  font-size: clamp(34px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ivory);
+}
+.akh .lead { color: var(--muted-dark); font-size: clamp(16px, 2vw, 20px); }
+.akh__stats { margin: 14px 0 0; font-size: 12px; letter-spacing: 0.08em; color: var(--lime); }
+
+.akh__map {
+  position: relative;
+  height: clamp(460px, 76vh, 900px);
+  margin: 0 var(--gutter);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #0d1014;
+}
+.akh__map--empty {
+  display: grid;
+  place-items: center;
+  color: var(--muted-dark);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+.akh__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  outline: none;
+}
+.akh__canvas:focus-visible { box-shadow: inset 0 0 0 2px var(--lime); }
+
+/* Ortak koyu cam paneller */
+.akh__controls,
+.akh__level,
+.akh__legend,
+.akh__card,
+.akh__hint {
+  position: absolute;
+  background: rgba(16, 19, 23, 0.88);
+  border: 1px solid var(--ink-line);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.akh__controls {
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.akh__controls button {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--paper);
+  font: 400 22px/1 var(--font);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.akh__controls button + button { border-top: 1px solid var(--ink-line); }
+.akh__controls button:hover,
+.akh__controls button:focus-visible { background: #1d232b; color: var(--lime); outline: none; }
+
+.akh__level {
+  left: 14px;
+  top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+  pointer-events: none;
+}
+.akh__steps { display: inline-flex; gap: 3px; }
+.akh__steps i { width: 6px; height: 14px; border-radius: 2px; background: var(--ink-line); }
+.akh__steps i.on { background: var(--lime); }
+
+.akh__legend {
+  right: 14px;
+  top: 14px;
+  width: min(270px, calc(100% - 28px));
+  max-height: calc(100% - 140px);
+  overflow: auto;
+  border-radius: 16px;
+  font-size: 12px;
+}
+.akh__legend:not(.is-open) { width: auto; }
+.akh__legend-toggle {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 40px;
+  padding: 10px 14px;
+  border: 0;
+  background: transparent;
+  color: var(--paper);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.akh__legend-toggle:focus-visible { outline: 2px solid var(--lime); outline-offset: -2px; }
+.akh__legend-body { padding: 0 14px 14px; }
+.akh__key { margin: 10px 0 6px; line-height: 1.45; color: var(--paper); }
+.akh__key b { color: var(--ivory); }
+.akh__repos { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
+.akh__repos button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 28px;
+  padding: 3px 6px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--paper);
+  font: 12px/1.2 var(--mono);
+  text-align: left;
+  cursor: pointer;
+}
+.akh__repos button:hover,
+.akh__repos button:focus-visible { background: #1d232b; outline: none; }
+.akh__repos button[aria-pressed='true'] { background: #232a33; }
+.akh__repos button.is-dim { opacity: 0.42; }
+.akh__repos i,
+.akh__card-repo i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.akh__repos span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.akh__repos em { font-style: normal; color: var(--muted-dark); }
+.akh__sizes { display: flex; align-items: flex-end; gap: 14px; padding: 4px 2px; }
+.akh__sizes span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font: 10px var(--mono);
+  color: var(--muted-dark);
+}
+.akh__sizes i { border-radius: 50%; background: var(--muted-dark); }
+
+.akh__card {
+  left: 14px;
+  bottom: 14px;
+  width: min(340px, calc(100% - 86px));
+  padding: 16px 18px;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+}
+.akh__close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: var(--muted-dark);
+  font: 22px/1 var(--font);
+  cursor: pointer;
+}
+.akh__close:hover,
+.akh__close:focus-visible { color: var(--lime); outline: none; }
+.akh__card-repo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 28px 8px 0;
+  font-size: 12px;
+  color: var(--muted-dark);
+}
+.akh__card-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--ivory);
+  overflow-wrap: anywhere;
+}
+.akh__card-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; margin: 0; }
+.akh__card-meta dt {
+  font: 10px var(--mono);
+  letter-spacing: 0.08em;
+  color: var(--muted-dark);
+}
+.akh__card-meta dd { margin: 2px 0 0; font-size: 13px; color: var(--paper); }
+
+.akh__hint {
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--muted-dark);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.akh__card ~ .akh__hint { display: none; }
+
+@media (max-width: 760px) {
+  .akh__map { margin: 0; border-radius: 0; border-left: 0; border-right: 0; height: 72vh; }
+  .akh__level { font-size: 10px; max-width: calc(100% - 140px); flex-wrap: wrap; border-radius: 14px; }
+  .akh__hint { display: none; }
+  .akh__card { width: auto; right: 72px; }
+}
