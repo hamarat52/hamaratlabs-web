@@ -14,6 +14,9 @@ import FadeContent from './components/rb/FadeContent/FadeContent';
 import CrystalizedBallButton from './components/rb/CrystalizedBall/CrystalizedBallButton';
 import WhenNear from './components/WhenNear';
 import DevelopmentMap from './DevelopmentMap';
+import ErrorBoundary from './components/ErrorBoundary';
+// WebGL'siz yedek galeri ogl içermez (küçük); error boundary'nin chunk yüklenemese de gösterebilmesi için ana pakette.
+import FlexCarouselFallback from './components/rb/FlexCarousel/FlexCarouselFallback';
 
 // Performans: ilk açılışta (ana sayfa) gerekmeyen her şey ayrı parça (chunk) olarak yüklenir.
 // - Uygulama sayfaları (AppPage, tiTimer): motion + hugeicons yalnız bu sayfalarda gerekiyor.
@@ -609,9 +612,12 @@ function Footer() {
     <footer className="footer">
       <div id="ilham" className="footer__shelf">
         <WhenNear className="footer__carousel">
-          <Suspense fallback={null}>
-            <FlexCarousel items={INSPIRATION} autoplay interval={4} captureWheel={false} gap={16} radius={18} />
-          </Suspense>
+          {/* Karusel (ya da chunk'ı) çökerse yalnızca bu şerit WebGL'siz yedek galeriye döner. */}
+          <ErrorBoundary name="FlexCarousel" fallback={<FlexCarouselFallback items={INSPIRATION} gap={16} radius={18} reason="error" />}>
+            <Suspense fallback={null}>
+              <FlexCarousel items={INSPIRATION} autoplay interval={4} captureWheel={false} gap={16} radius={18} />
+            </Suspense>
+          </ErrorBoundary>
         </WhenNear>
       </div>
       <div className="wrap footer__row">
