@@ -7,7 +7,7 @@
     "predev": "node scripts/optimize-images.mjs",
     "dev": "vite",
     "prebuild": "node scripts/optimize-images.mjs",
-    "build": "vite build && node scripts/prerender-privacy.mjs && node scripts/generate-sitemap.mjs",
+    "build": "vite build && node scripts/prerender-privacy.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-og-image.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
