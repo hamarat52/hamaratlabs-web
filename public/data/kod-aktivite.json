@@ -1,5 +1,3218 @@
 [
   {
+    "repo": "letmepost-selfhost",
+    "hash": "93b9bd58a1",
+    "date": "2026-04-23T23:22:36+05:30",
+    "subject": "project scaffold && bluesky integration",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3659
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "dc0400ed9f",
+    "date": "2026-04-24T01:55:15+05:30",
+    "subject": "envelope encryption",
+    "score": 54,
+    "is_merge": false,
+    "lines": 230
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a04b21184c",
+    "date": "2026-04-24T01:58:58+05:30",
+    "subject": "drizzle schemas + repositories",
+    "score": 59,
+    "is_merge": false,
+    "lines": 941
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "69d00c7140",
+    "date": "2026-04-24T02:00:10+05:30",
+    "subject": "initial migration",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1265
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e86a9a5e27",
+    "date": "2026-04-24T02:03:43+05:30",
+    "subject": "db integration tests",
+    "score": 57,
+    "is_merge": false,
+    "lines": 588
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "005871014e",
+    "date": "2026-04-24T02:04:37+05:30",
+    "subject": "lockfile",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3878
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "caf03f4a2e",
+    "date": "2026-04-24T03:08:12+05:30",
+    "subject": "api refactor for code dedup",
+    "score": 60,
+    "is_merge": false,
+    "lines": 4166
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "01722a77d4",
+    "date": "2026-04-24T03:09:00+05:30",
+    "subject": "web app scaffold",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2491
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0e6143a5d4",
+    "date": "2026-04-24T03:23:46+05:30",
+    "subject": "landing page design and copy inconsistencies fixed",
+    "score": 50,
+    "is_merge": false,
+    "lines": 68
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "054c8951b8",
+    "date": "2026-04-24T03:29:03+05:30",
+    "subject": "update: readme",
+    "score": 56,
+    "is_merge": false,
+    "lines": 438
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "170ac81d9b",
+    "date": "2026-04-24T03:32:52+05:30",
+    "subject": "ignore .claude worktrees",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0d3685c707",
+    "date": "2026-04-24T03:33:18+05:30",
+    "subject": "merge feat/persistence",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7cff3058e4",
+    "date": "2026-04-24T15:25:28+05:30",
+    "subject": "added db, and local dev setup using docker",
+    "score": 42,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c1e7f25bad",
+    "date": "2026-04-24T16:06:16+05:30",
+    "subject": "better-auth schemas, drop phase 1 auth tables",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1534
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "64f04e06f0",
+    "date": "2026-04-24T16:06:27+05:30",
+    "subject": "platform-accounts repo, seed + tests",
+    "score": 55,
+    "is_merge": false,
+    "lines": 337
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "43bb10e6df",
+    "date": "2026-04-24T16:06:41+05:30",
+    "subject": "api key auth, /v1/api-keys, bluesky via stored accounts",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1223
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "323bc4552b",
+    "date": "2026-04-24T16:31:33+05:30",
+    "subject": "error contract: requestId, traceId, platformVersion",
+    "score": 50,
+    "is_merge": false,
+    "lines": 85
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7e588c14fd",
+    "date": "2026-04-24T16:32:02+05:30",
+    "subject": "idempotency middleware on /v1/posts and /v1/api-keys",
+    "score": 56,
+    "is_merge": false,
+    "lines": 367
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ab9afcb694",
+    "date": "2026-04-24T16:32:24+05:30",
+    "subject": "rate limit middleware on /v1/posts and /v1/api-keys",
+    "score": 55,
+    "is_merge": false,
+    "lines": 308
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "15db75779c",
+    "date": "2026-04-24T16:36:54+05:30",
+    "subject": "font change on the landing page",
+    "score": 49,
+    "is_merge": false,
+    "lines": 58
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "46b5b5b041",
+    "date": "2026-04-24T17:09:13+05:30",
+    "subject": "bluesky: media, carousels, alt text preflight",
+    "score": 59,
+    "is_merge": false,
+    "lines": 1015
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "1818861c15",
+    "date": "2026-04-24T17:11:03+05:30",
+    "subject": "webhooks: event schema + hmac sign + delivery module",
+    "score": 56,
+    "is_merge": false,
+    "lines": 479
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "cd7f999add",
+    "date": "2026-04-24T17:11:19+05:30",
+    "subject": "webhooks: endpoints crud + migration",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2089
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b1e7ce43e8",
+    "date": "2026-04-24T17:11:31+05:30",
+    "subject": "queue: bullmq scaffold + worker entrypoint",
+    "score": 57,
+    "is_merge": false,
+    "lines": 505
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d985e8cf54",
+    "date": "2026-04-24T17:13:21+05:30",
+    "subject": "bluesky: first comment reply",
+    "score": 55,
+    "is_merge": false,
+    "lines": 340
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c45470a5b0",
+    "date": "2026-04-24T17:25:07+05:30",
+    "subject": "web: add tailwind v4, migrate site styles",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1883
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "bab78fc42d",
+    "date": "2026-04-24T17:50:31+05:30",
+    "subject": "web: three landing fixes — container override, faq A marker, smaller code",
+    "score": 46,
+    "is_merge": false,
+    "lines": 26
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "6624bd048f",
+    "date": "2026-04-25T02:12:18+05:30",
+    "subject": "posts: hybrid sync + scheduled flow with lifecycle webhook events",
+    "score": 59,
+    "is_merge": false,
+    "lines": 976
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "01ad879631",
+    "date": "2026-04-25T02:15:45+05:30",
+    "subject": "gitignore apps/web/.astro generated dir",
+    "score": 54,
+    "is_merge": false,
+    "lines": 209
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "797a3aa4b9",
+    "date": "2026-04-25T02:59:52+05:30",
+    "subject": "accounts: provider framework + /v1/accounts + refresh scheduler",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1505
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e6c44bc2d8",
+    "date": "2026-04-25T03:07:26+05:30",
+    "subject": "pinterest + twitter: mvp publishers, oauth providers, preflight",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2959
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "1ba7d81f22",
+    "date": "2026-04-25T03:09:01+05:30",
+    "subject": "dashboard: shadcn scaffold, auth + org, accounts / api keys / webhooks",
+    "score": 60,
+    "is_merge": false,
+    "lines": 8633
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7adac4da4f",
+    "date": "2026-04-25T03:10:37+05:30",
+    "subject": "web: mark non-bluesky platforms as under review",
+    "score": 47,
+    "is_merge": false,
+    "lines": 27
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "cc3f47d6d3",
+    "date": "2026-04-25T03:39:36+05:30",
+    "subject": "api: dotenv loader, cors middleware, auth options handler",
+    "score": 47,
+    "is_merge": false,
+    "lines": 29
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f5acabf98f",
+    "date": "2026-04-25T03:39:44+05:30",
+    "subject": "dashboard: spacing, confirm modals, dynamic breadcrumbs, landing-matched theme",
+    "score": 57,
+    "is_merge": false,
+    "lines": 517
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "11352f4c49",
+    "date": "2026-04-25T04:00:24+05:30",
+    "subject": "plan: phase 5.5 profiles + expanded phase 7 post log",
+    "score": 51,
+    "is_merge": false,
+    "lines": 94
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "be1d0db50d",
+    "date": "2026-04-25T04:16:19+05:30",
+    "subject": "profiles: workspace primitive + api-key scope + lifecycle event payload",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2882
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "bb028d16e3",
+    "date": "2026-04-25T04:36:37+05:30",
+    "subject": "linkedin: mvp publisher + oauth provider (personal-only, w_member_social)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1383
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "bac0c74fbd",
+    "date": "2026-04-25T04:57:30+05:30",
+    "subject": "platforms: extract publishForAccount + shared media loader",
+    "score": 57,
+    "is_merge": false,
+    "lines": 546
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "12c660179d",
+    "date": "2026-04-25T04:57:36+05:30",
+    "subject": "docs: add CONTRIBUTING.md (architecture + patterns)",
+    "score": 38,
+    "is_merge": false,
+    "lines": 171
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "18d95bfc68",
+    "date": "2026-04-25T14:49:13+05:30",
+    "subject": "post-log: GET /v1/posts list (filters + cursor) and GET /v1/posts/:id detail",
+    "score": 58,
+    "is_merge": false,
+    "lines": 813
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b23e622058",
+    "date": "2026-04-25T16:50:10+05:30",
+    "subject": "posts: per-route middleware; GET accepts api-key or dashboard session",
+    "score": 52,
+    "is_merge": false,
+    "lines": 120
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "403e09a788",
+    "date": "2026-04-25T16:50:12+05:30",
+    "subject": "dashboard: post log list + detail screens",
+    "score": 58,
+    "is_merge": false,
+    "lines": 708
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "eaf61df44b",
+    "date": "2026-04-25T16:58:29+05:30",
+    "subject": "dashboard: TODO.md — backlog grouped by area + priority order",
+    "score": 54,
+    "is_merge": false,
+    "lines": 220
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ac5fabba99",
+    "date": "2026-04-25T17:27:36+05:30",
+    "subject": "dashboard: theme tokens — full shadcn palette + dark mode",
+    "score": 53,
+    "is_merge": false,
+    "lines": 161
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "413f8ed43d",
+    "date": "2026-04-25T17:27:55+05:30",
+    "subject": "dashboard: framer-motion page transitions + list staggers",
+    "score": 54,
+    "is_merge": false,
+    "lines": 236
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0cc2552fe9",
+    "date": "2026-04-25T17:28:01+05:30",
+    "subject": "dashboard: /onboarding recovery for sessions without active org",
+    "score": 54,
+    "is_merge": false,
+    "lines": 267
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e704efe2f6",
+    "date": "2026-04-25T17:28:19+05:30",
+    "subject": "dashboard: include linkedin in CONNECTABLE_PLATFORMS",
+    "score": 43,
+    "is_merge": false,
+    "lines": 9
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "65c54d1b97",
+    "date": "2026-04-25T17:28:21+05:30",
+    "subject": "dashboard: shadcn dialog for new-org instead of window.prompt",
+    "score": 53,
+    "is_merge": false,
+    "lines": 161
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "3336329208",
+    "date": "2026-04-25T17:28:23+05:30",
+    "subject": "dashboard: webhook event-type chip multi-select",
+    "score": 52,
+    "is_merge": false,
+    "lines": 118
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "50f97808f9",
+    "date": "2026-04-25T17:28:25+05:30",
+    "subject": "dashboard: api-keys form alignment + h-9 across row",
+    "score": 47,
+    "is_merge": false,
+    "lines": 31
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "68d02d404b",
+    "date": "2026-04-25T18:03:29+05:30",
+    "subject": "dashboard: blur-driven page transitions, drop display:contents flicker",
+    "score": 49,
+    "is_merge": false,
+    "lines": 63
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "bcb1f2ff55",
+    "date": "2026-04-25T18:12:13+05:30",
+    "subject": "dashboard: silent /onboarding recovery — auto-pick or auto-create org",
+    "score": 54,
+    "is_merge": false,
+    "lines": 228
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "5fbd95e829",
+    "date": "2026-04-25T18:12:15+05:30",
+    "subject": "dashboard: home checklist — accordion with blur transitions",
+    "score": 55,
+    "is_merge": false,
+    "lines": 357
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "62ee300a3b",
+    "date": "2026-04-25T18:14:21+05:30",
+    "subject": "dashboard: hide stats cards while onboarding is incomplete",
+    "score": 50,
+    "is_merge": false,
+    "lines": 71
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "4c1ba08372",
+    "date": "2026-04-25T18:18:27+05:30",
+    "subject": "dashboard: inline platform connect in onboarding + auto-advance steps",
+    "score": 56,
+    "is_merge": false,
+    "lines": 383
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "6ed16d4df7",
+    "date": "2026-04-25T18:22:53+05:30",
+    "subject": "dashboard: lock incomplete steps, real curl + live send in last step",
+    "score": 54,
+    "is_merge": false,
+    "lines": 250
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "de96686860",
+    "date": "2026-04-25T18:26:27+05:30",
+    "subject": "dashboard: api-key step shows masked key + copy when one exists",
+    "score": 49,
+    "is_merge": false,
+    "lines": 60
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "763264d598",
+    "date": "2026-04-25T18:26:32+05:30",
+    "subject": "dashboard: brand logo + svg favicon, drop next.js demo assets",
+    "score": 50,
+    "is_merge": false,
+    "lines": 85
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "2bb2c07a9f",
+    "date": "2026-04-25T22:15:41+05:30",
+    "subject": "dashboard: port the actual landing logo (circle + rotated square + serif wordmark)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 153
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "94a9e9576f",
+    "date": "2026-04-25T22:49:53+05:30",
+    "subject": "sidebar post logs to logs",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "627eff7339",
+    "date": "2026-04-27T01:42:32+05:30",
+    "subject": "api-keys: accept profileId on create, return it on list",
+    "score": 47,
+    "is_merge": false,
+    "lines": 30
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b0c12bdcf3",
+    "date": "2026-04-27T01:42:35+05:30",
+    "subject": "dashboard: profile lib + useActiveProfile hook",
+    "score": 53,
+    "is_merge": false,
+    "lines": 167
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "afe2cd1ba1",
+    "date": "2026-04-27T01:42:37+05:30",
+    "subject": "dashboard: /profiles CRUD page",
+    "score": 56,
+    "is_merge": false,
+    "lines": 406
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "08526531c7",
+    "date": "2026-04-27T01:42:41+05:30",
+    "subject": "dashboard: profile switcher + nav entry in sidebar",
+    "score": 49,
+    "is_merge": false,
+    "lines": 56
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ffd3807648",
+    "date": "2026-04-27T01:42:43+05:30",
+    "subject": "dashboard: profile picker on Connect Account flows",
+    "score": 51,
+    "is_merge": false,
+    "lines": 97
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f24c2788ba",
+    "date": "2026-04-27T01:42:46+05:30",
+    "subject": "dashboard: profile scope on api-key create + scope badge on rows",
+    "score": 49,
+    "is_merge": false,
+    "lines": 50
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "bea72f01cd",
+    "date": "2026-04-27T01:42:49+05:30",
+    "subject": "dashboard: profile filter on post log",
+    "score": 48,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "351156889e",
+    "date": "2026-04-27T01:46:05+05:30",
+    "subject": "api: pnpm seed:demo seeds testuser@gmail.com fixture data",
+    "score": 55,
+    "is_merge": false,
+    "lines": 311
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "19154f5ef7",
+    "date": "2026-04-27T01:51:27+05:30",
+    "subject": "dashboard: post detail curl polish — masked real keys, media + scheduledAt",
+    "score": 51,
+    "is_merge": false,
+    "lines": 102
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "2dff82eabc",
+    "date": "2026-04-27T01:51:27+05:30",
+    "subject": "dashboard: post log time-range + error-code filters, refresh + focus refetch",
+    "score": 56,
+    "is_merge": false,
+    "lines": 383
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "5fe69862f9",
+    "date": "2026-04-27T01:51:27+05:30",
+    "subject": "dashboard: tanstack table primitive + posts-table component",
+    "score": 55,
+    "is_merge": false,
+    "lines": 321
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "267a4a0baf",
+    "date": "2026-04-27T01:54:49+05:30",
+    "subject": "webhooks: POST /v1/webhook-endpoints/:id/test fires synthetic event sync",
+    "score": 51,
+    "is_merge": false,
+    "lines": 103
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9e31a8c432",
+    "date": "2026-04-27T01:54:52+05:30",
+    "subject": "dashboard: webhook test dialog with editable JSON + delivery result",
+    "score": 55,
+    "is_merge": false,
+    "lines": 348
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "93545ad899",
+    "date": "2026-04-27T01:58:05+05:30",
+    "subject": "plan: refresh Phase 6 + Phase 7 status to match shipped state",
+    "score": 49,
+    "is_merge": false,
+    "lines": 54
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0fda7d88a3",
+    "date": "2026-04-27T02:06:25+05:30",
+    "subject": "dashboard: home counts share list-page caches via react-query",
+    "score": 53,
+    "is_merge": false,
+    "lines": 157
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e9c13bf399",
+    "date": "2026-04-27T02:06:25+05:30",
+    "subject": "dashboard: migrate post log + detail to react-query, share api-keys cache",
+    "score": 52,
+    "is_merge": false,
+    "lines": 138
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e05023abec",
+    "date": "2026-04-27T02:06:25+05:30",
+    "subject": "dashboard: migrate accounts, api-keys, webhooks lists to react-query",
+    "score": 54,
+    "is_merge": false,
+    "lines": 233
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c0269d135c",
+    "date": "2026-04-27T02:06:25+05:30",
+    "subject": "dashboard: migrate profiles to useQuery + useMutation",
+    "score": 53,
+    "is_merge": false,
+    "lines": 199
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "66e9e4cc2f",
+    "date": "2026-04-27T02:06:25+05:30",
+    "subject": "dashboard: install tanstack-query + Providers + query keys",
+    "score": 52,
+    "is_merge": false,
+    "lines": 120
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "032da9ca16",
+    "date": "2026-04-27T11:12:14+05:30",
+    "subject": "dashboard: home — needs-attention + recent activity sections",
+    "score": 54,
+    "is_merge": false,
+    "lines": 223
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c5fc86ff4c",
+    "date": "2026-04-27T11:17:19+05:30",
+    "subject": "api: expand seed-demo to exercise every dashboard surface",
+    "score": 56,
+    "is_merge": false,
+    "lines": 422
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a590e861de",
+    "date": "2026-04-27T11:20:24+05:30",
+    "subject": "dashboard: home — health pills, quick actions, per-platform breakdown",
+    "score": 54,
+    "is_merge": false,
+    "lines": 258
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "eec85a11f8",
+    "date": "2026-04-27T11:22:50+05:30",
+    "subject": "seed-demo: repoint live sessions at the new org so refresh just works",
+    "score": 46,
+    "is_merge": false,
+    "lines": 22
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "95510331ce",
+    "date": "2026-04-27T11:26:01+05:30",
+    "subject": "dashboard: stabilize since-window queryKeys with useMemo",
+    "score": 45,
+    "is_merge": false,
+    "lines": 19
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a4374fd688",
+    "date": "2026-04-27T11:32:54+05:30",
+    "subject": "dashboard: connect-account drawer on /accounts (right slide-out)",
+    "score": 50,
+    "is_merge": false,
+    "lines": 79
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "467cda3146",
+    "date": "2026-04-27T12:19:57+05:30",
+    "subject": "dashboard: accounts row — relative expiry + reconnect CTA when <7d",
+    "score": 50,
+    "is_merge": false,
+    "lines": 84
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "dbb038e26a",
+    "date": "2026-04-27T12:19:57+05:30",
+    "subject": "dashboard: api-keys row shows last-used timestamp",
+    "score": 41,
+    "is_merge": false,
+    "lines": 5
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "673240f88e",
+    "date": "2026-04-27T12:22:24+05:30",
+    "subject": "dashboard items tiny refactor",
+    "score": 43,
+    "is_merge": false,
+    "lines": 10
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7b1dafb26f",
+    "date": "2026-04-27T12:26:25+05:30",
+    "subject": "dashboard: api-keys form — fields-only content, button moves to footer",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0a55b98d58",
+    "date": "2026-04-27T12:28:05+05:30",
+    "subject": "dashboard: api-keys form — drop h-9 override so input + select share h-8",
+    "score": 41,
+    "is_merge": false,
+    "lines": 5
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "15a5aca774",
+    "date": "2026-04-27T13:54:37+05:30",
+    "subject": "added company deets",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "328ab90b06",
+    "date": "2026-04-27T13:56:03+05:30",
+    "subject": "api: .env.example covers all platforms with portal URLs + redirect URIs + scopes",
+    "score": 52,
+    "is_merge": false,
+    "lines": 143
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "048000ef5e",
+    "date": "2026-04-27T14:01:08+05:30",
+    "subject": "auth: cross-subdomain cookies + TRUSTED_ORIGINS env for prod dashboard",
+    "score": 49,
+    "is_merge": false,
+    "lines": 51
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "6d7f318dc6",
+    "date": "2026-04-27T14:30:46+05:30",
+    "subject": "scope: swap YouTube into v1, defer TikTok to v2",
+    "score": 52,
+    "is_merge": false,
+    "lines": 127
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "68b7d75d0d",
+    "date": "2026-04-27T14:44:35+05:30",
+    "subject": "deploy: railway-ready API — Dockerfile, migrate runtime, start scripts, DEPLOY.md",
+    "score": 55,
+    "is_merge": false,
+    "lines": 330
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "6639b2b721",
+    "date": "2026-04-27T14:48:18+05:30",
+    "subject": "deploy: railway.json at repo root so Root Directory stays blank",
+    "score": 46,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "81ed03e0e5",
+    "date": "2026-04-27T14:53:58+05:30",
+    "subject": "queue: family: 0 so ioredis works on railway's IPv6-only private network",
+    "score": 43,
+    "is_merge": false,
+    "lines": 9
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "72f841e1ef",
+    "date": "2026-04-27T15:04:34+05:30",
+    "subject": "deploy: bind 0.0.0.0 + 120s healthcheck window for first-boot migrations",
+    "score": 44,
+    "is_merge": false,
+    "lines": 12
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "94f26bcf45",
+    "date": "2026-04-27T15:13:16+05:30",
+    "subject": "schemas: ship compiled dist/, fix prod boot ERR_MODULE_NOT_FOUND",
+    "score": 47,
+    "is_merge": false,
+    "lines": 27
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e349ea12cf",
+    "date": "2026-04-27T15:58:44+05:30",
+    "subject": "bluesky: empty-string pdsUrl no longer fails .url() validation",
+    "score": 47,
+    "is_merge": false,
+    "lines": 31
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "1f1a718326",
+    "date": "2026-04-27T16:15:26+05:30",
+    "subject": "posts: fix curl + Send-test-post body shape (account: { platform, id })",
+    "score": 43,
+    "is_merge": false,
+    "lines": 9
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ccb45a0496",
+    "date": "2026-04-27T16:20:11+05:30",
+    "subject": "accounts: GET endpoints accept Bearer + show id on dashboard",
+    "score": 48,
+    "is_merge": false,
+    "lines": 47
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ce9dd7af06",
+    "date": "2026-04-27T16:31:55+05:30",
+    "subject": "oauth: server-side callback handler so OAuth round-trips actually complete",
+    "score": 55,
+    "is_merge": false,
+    "lines": 328
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "8162a8a692",
+    "date": "2026-04-27T17:03:47+05:30",
+    "subject": "plan: add Phase 7.5 media service, refresh approval status + ordering",
+    "score": 51,
+    "is_merge": false,
+    "lines": 107
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7b0a7cd2b9",
+    "date": "2026-04-28T15:55:02+05:30",
+    "subject": "media: POST /v1/media multipart streaming + resolver mediaId variant",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2673
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "86133dc3bb",
+    "date": "2026-04-28T15:58:02+05:30",
+    "subject": "dropeed noise texture from landing",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f7895a4bc8",
+    "date": "2026-04-28T16:06:40+05:30",
+    "subject": "pinterest: per-post media + defaultBoardId, drop tokenMetadata carve-out",
+    "score": 58,
+    "is_merge": false,
+    "lines": 777
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c70cbc4243",
+    "date": "2026-04-28T16:13:29+05:30",
+    "subject": "pinterest: dashboard default-board picker + boards/default-board endpoints",
+    "score": 57,
+    "is_merge": false,
+    "lines": 498
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "565f4d514b",
+    "date": "2026-04-28T16:18:11+05:30",
+    "subject": "media: GET /v1/media list + dashboard upload/browse page",
+    "score": 57,
+    "is_merge": false,
+    "lines": 596
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "bdcc7a7017",
+    "date": "2026-04-28T16:31:17+05:30",
+    "subject": "accounts: surface pinterest.defaultBoard{Id,Name} on the public account view",
+    "score": 50,
+    "is_merge": false,
+    "lines": 83
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ffdfacf3e3",
+    "date": "2026-04-28T17:06:10+05:30",
+    "subject": "pinterest: boards:write scope + create-board endpoint + dashboard create dialog",
+    "score": 57,
+    "is_merge": false,
+    "lines": 515
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0d05cce167",
+    "date": "2026-04-28T17:19:20+05:30",
+    "subject": "pinterest: add user_accounts:read scope, fix media POST auth, log oauth callback errors",
+    "score": 50,
+    "is_merge": false,
+    "lines": 65
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "750020b60a",
+    "date": "2026-04-28T17:41:03+05:30",
+    "subject": "pinterest: PINTEREST_API_BASE env var to flip between prod and sandbox",
+    "score": 48,
+    "is_merge": false,
+    "lines": 36
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0e5bbe9323",
+    "date": "2026-04-28T17:41:13+05:30",
+    "subject": "accounts: equal-height cards, brand logo + accent color per platform",
+    "score": 52,
+    "is_merge": false,
+    "lines": 146
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c3d9115e22",
+    "date": "2026-04-28T18:14:20+05:30",
+    "subject": "pinterest: upsert mode on create-board + availableBoards hint on board.required",
+    "score": 54,
+    "is_merge": false,
+    "lines": 266
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "dd3525f992",
+    "date": "2026-04-28T18:29:33+05:30",
+    "subject": "remove: horizontal lines",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9d9992f6e9",
+    "date": "2026-04-28T19:06:44+05:30",
+    "subject": "home: equal heights on Recent activity / By platform row",
+    "score": 45,
+    "is_merge": false,
+    "lines": 16
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "060932af37",
+    "date": "2026-04-29T09:26:41+05:30",
+    "subject": "plan: swap phase 8/9 — Meta moves ahead of X, X waits on paid-tier signup",
+    "score": 49,
+    "is_merge": false,
+    "lines": 52
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0bc77e59f4",
+    "date": "2026-04-29T10:04:06+05:30",
+    "subject": "data-deletion: POST /data-deletion/meta callback with signed_request verify",
+    "score": 56,
+    "is_merge": false,
+    "lines": 480
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "bb8ed8c779",
+    "date": "2026-04-29T15:12:07+05:30",
+    "subject": "data-deletion: drop dishonest enum cast + .returning() column selector that broke prod build",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "6c3a31da24",
+    "date": "2026-05-04T11:04:03+05:30",
+    "subject": "bluesky: hoist shape preflight ahead of media fetch +   lmp-test: bluesky media variants",
+    "score": 50,
+    "is_merge": false,
+    "lines": 71
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b8d0d9932d",
+    "date": "2026-05-04T11:30:29+05:30",
+    "subject": "dashboard: theme picker in sidebar + full-width post log + dark-mode brand vars",
+    "score": 52,
+    "is_merge": false,
+    "lines": 134
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c01c142ddb",
+    "date": "2026-05-04T11:30:35+05:30",
+    "subject": "web: dark mode + three-state theme cycle, palette aligned with dashboard",
+    "score": 53,
+    "is_merge": false,
+    "lines": 187
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "108ae6fceb",
+    "date": "2026-05-04T11:45:42+05:30",
+    "subject": "platforms: threads + meta-trio (FBLB fan-out → facebook + instagram)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3721
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9b84ff5b42",
+    "date": "2026-05-04T16:50:01+05:30",
+    "subject": "twitter: multi-image + alt-text + reply-to + quote-tweet",
+    "score": 55,
+    "is_merge": false,
+    "lines": 336
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "cdc9b95047",
+    "date": "2026-05-05T15:33:21+05:30",
+    "subject": "video: bluesky service auth + twitter chunked upload + pinterest video pin",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1817
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "072900383a",
+    "date": "2026-05-05T15:33:58+05:30",
+    "subject": "docs: scaffold mintlify site (105 pages + openapi spec, maple theme, brand-aligned)",
+    "score": 45,
+    "is_merge": false,
+    "lines": 6443
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "739fe4f804",
+    "date": "2026-05-05T16:10:40+05:30",
+    "subject": "profiles: shared provider context + profile-scoped accounts list",
+    "score": 57,
+    "is_merge": false,
+    "lines": 570
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "612f66dc98",
+    "date": "2026-05-05T16:26:41+05:30",
+    "subject": "landing and docs update",
+    "score": 59,
+    "is_merge": false,
+    "lines": 993
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "5fa556cf81",
+    "date": "2026-05-05T16:35:24+05:30",
+    "subject": "chrome tab titles",
+    "score": 53,
+    "is_merge": false,
+    "lines": 153
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "5dad17692e",
+    "date": "2026-05-05T16:43:16+05:30",
+    "subject": "twitter: embed pkce verifier in signed state to survive redirect",
+    "score": 50,
+    "is_merge": false,
+    "lines": 82
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e1183fb500",
+    "date": "2026-05-05T17:02:25+05:30",
+    "subject": "docs update",
+    "score": 44,
+    "is_merge": false,
+    "lines": 12
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "41617c9ee0",
+    "date": "2026-05-05T17:31:24+05:30",
+    "subject": "web: nav dropdowns + per-platform/api pages + pricing",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1352
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "77fdad823a",
+    "date": "2026-05-06T21:22:58+05:30",
+    "subject": "web: seo stuff",
+    "score": 55,
+    "is_merge": false,
+    "lines": 312
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "85e5c2e3e2",
+    "date": "2026-05-06T22:28:25+05:30",
+    "subject": "web: added blogs setup",
+    "score": 59,
+    "is_merge": false,
+    "lines": 1136
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "2f4ee91a2f",
+    "date": "2026-05-08T16:03:24+05:30",
+    "subject": "web: /tools — counters, idempotency keys, youtube quota, linkedin scopes",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2784
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9b3295914c",
+    "date": "2026-05-08T17:01:08+05:30",
+    "subject": "web: more free tools/ pkce, oauth scope checker, linkedin-urn, cron expression builder",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2771
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "cad7f0f974",
+    "date": "2026-05-08T17:07:01+05:30",
+    "subject": "web: linkedin version tracker is dynamic now",
+    "score": 54,
+    "is_merge": false,
+    "lines": 257
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9d4d859e21",
+    "date": "2026-05-09T23:28:01+05:30",
+    "subject": "web fix: theme bug on landing page",
+    "score": 43,
+    "is_merge": false,
+    "lines": 8
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "3a20caae9a",
+    "date": "2026-05-09T23:36:19+05:30",
+    "subject": "web: landing cleanup, more padding, bigger texts",
+    "score": 55,
+    "is_merge": false,
+    "lines": 326
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9abed28b95",
+    "date": "2026-05-09T23:48:22+05:30",
+    "subject": "web: landing cleanup",
+    "score": 54,
+    "is_merge": false,
+    "lines": 266
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "17e7d90390",
+    "date": "2026-05-10T00:16:39+05:30",
+    "subject": "web: a bunch of small fixes' '",
+    "score": 48,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a1d5b14ea6",
+    "date": "2026-05-11T12:44:40+05:30",
+    "subject": "analytics: wire posthog across web + dashboard with typed event surface. Co-Authored-By: Claude Opus 4.7 (1M Context) <noreply@anthropic.com>",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1480
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "8e83b50b37",
+    "date": "2026-05-11T12:57:50+05:30",
+    "subject": "chore: retire seo-topics.csv from repo",
+    "score": 53,
+    "is_merge": false,
+    "lines": 162
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b537644e38",
+    "date": "2026-05-11T12:57:50+05:30",
+    "subject": "web: small fix",
+    "score": 43,
+    "is_merge": false,
+    "lines": 8
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c60141dbc7",
+    "date": "2026-05-11T13:50:54+05:30",
+    "subject": "launch-gate: review fixes — subpath de-dupe, required PublishContext.db, loud env validation",
+    "score": 56,
+    "is_merge": false,
+    "lines": 469
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "47b908eee4",
+    "date": "2026-05-11T14:00:08+05:30",
+    "subject": "api: fix platform-state ESM import (missing .js extension)",
+    "score": 44,
+    "is_merge": false,
+    "lines": 13
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f795403e1b",
+    "date": "2026-05-11T18:29:16+05:30",
+    "subject": "readme update",
+    "score": 52,
+    "is_merge": false,
+    "lines": 150
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "18109fe9ea",
+    "date": "2026-05-11T18:37:11+05:30",
+    "subject": "added: platform_state override",
+    "score": 50,
+    "is_merge": false,
+    "lines": 70
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "49f45cfc6e",
+    "date": "2026-05-11T19:58:42+05:30",
+    "subject": "api+dashboard: standalone instagram login oauth (separate from FB fan-out)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 464
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0f3bcd30e4",
+    "date": "2026-05-12T13:32:19+05:30",
+    "subject": "api: split instagram into its own oauth — FB fan-out removed",
+    "score": 52,
+    "is_merge": false,
+    "lines": 136
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ba1528ecfd",
+    "date": "2026-05-12T14:10:48+05:30",
+    "subject": "api: ig doing weird stuff test",
+    "score": 46,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "da6ec6fe5a",
+    "date": "2026-05-12T14:36:37+05:30",
+    "subject": "api: fix instagram provider to persist /me?fields=id (Content Publishing API user id) instead of token-response user_id",
+    "score": 51,
+    "is_merge": false,
+    "lines": 95
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "803e0efd43",
+    "date": "2026-05-12T22:53:11+05:30",
+    "subject": "api: fix token expires text, and invalidation on account delete",
+    "score": 52,
+    "is_merge": false,
+    "lines": 146
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "cd68357b61",
+    "date": "2026-05-12T22:59:46+05:30",
+    "subject": "web: og image update",
+    "score": 51,
+    "is_merge": false,
+    "lines": 91
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a6e8444018",
+    "date": "2026-05-15T18:24:56+05:30",
+    "subject": "web: add vercel analytics (#2)",
+    "score": 48,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "568aaf8561",
+    "date": "2026-05-16T12:09:48+05:30",
+    "subject": "schemas: introduce multi-target CreatePostRequest with docUrl/ruleUrl error envelope",
+    "score": 55,
+    "is_merge": false,
+    "lines": 276
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "931e7196c4",
+    "date": "2026-05-16T12:10:00+05:30",
+    "subject": "api: rewrite POST /v1/posts for multi-target fan-out with atomic shape preflight",
+    "score": 59,
+    "is_merge": false,
+    "lines": 922
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9b85cb33c4",
+    "date": "2026-05-16T12:10:11+05:30",
+    "subject": "api: profile-scope auto-resolution + X-RateLimit-Limit + docUrl/ruleUrl wiring",
+    "score": 52,
+    "is_merge": false,
+    "lines": 123
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "5737c3b749",
+    "date": "2026-05-16T12:10:33+05:30",
+    "subject": "docs: rewrite platform pages with quick-reference, common errors, and best-practices",
+    "score": 44,
+    "is_merge": false,
+    "lines": 1119
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e9b48dd20e",
+    "date": "2026-05-16T12:10:41+05:30",
+    "subject": "docs: add migration guides (postiz, ayrshare, buffer) + nav wiring",
+    "score": 41,
+    "is_merge": false,
+    "lines": 401
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "3731e13ccc",
+    "date": "2026-05-16T12:10:49+05:30",
+    "subject": "lmp-test: add multi-target smoke tests",
+    "score": 54,
+    "is_merge": false,
+    "lines": 253
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d5daec3a07",
+    "date": "2026-05-16T12:10:59+05:30",
+    "subject": "dashboard: support multi-target shape in compose + reproduce-curl",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b24c50eeb3",
+    "date": "2026-05-16T12:27:12+05:30",
+    "subject": "docs: restructure tabs, fix mintlify icon, lead quickstart with twitter",
+    "score": 39,
+    "is_merge": false,
+    "lines": 268
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "8639e0d597",
+    "date": "2026-05-16T12:39:29+05:30",
+    "subject": "review fixes: drop stale legacy-body docstring, rephrase concurrency comment, hide unfinished sdk/tools tabs",
+    "score": 47,
+    "is_merge": false,
+    "lines": 33
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d367d50ed3",
+    "date": "2026-05-16T12:40:49+05:30",
+    "subject": "docs: rewrite openapi spec to v1 multi-target wire shape",
+    "score": 45,
+    "is_merge": false,
+    "lines": 3293
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d32ca4ee67",
+    "date": "2026-05-16T12:43:17+05:30",
+    "subject": "docs: rewrite guides + validation_failed for multi-target targets[] shape",
+    "score": 40,
+    "is_merge": false,
+    "lines": 300
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "10903ea1c2",
+    "date": "2026-05-16T12:43:23+05:30",
+    "subject": "docs: add docUrl/ruleUrl to error envelopes, fix stale account: {} in preflight pages",
+    "score": 34,
+    "is_merge": false,
+    "lines": 62
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "bfdb7e6c90",
+    "date": "2026-05-16T12:46:21+05:30",
+    "subject": "docs: add platform_not_enabled error page + bump error-count refs to twelve",
+    "score": 34,
+    "is_merge": false,
+    "lines": 49
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "04b451bf2b",
+    "date": "2026-05-16T12:54:52+05:30",
+    "subject": "round-3: refresh lmp-test header, add v0-rejection regression, surface twitter live",
+    "score": 47,
+    "is_merge": false,
+    "lines": 32
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "3041b909a7",
+    "date": "2026-05-16T13:04:43+05:30",
+    "subject": "dashboard: surface batch status + error envelope in quickstart toast",
+    "score": 49,
+    "is_merge": false,
+    "lines": 62
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "4785a07ec0",
+    "date": "2026-05-16T13:13:31+05:30",
+    "subject": "dashboard: surface docUrl / ruleUrl on post-detail error contract",
+    "score": 50,
+    "is_merge": false,
+    "lines": 72
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0a1523cc28",
+    "date": "2026-05-16T13:33:05+05:30",
+    "subject": "web: pricing page rewrite + landing copy refresh",
+    "score": 56,
+    "is_merge": false,
+    "lines": 379
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "52c46bf8fb",
+    "date": "2026-05-16T13:33:19+05:30",
+    "subject": "dashboard: copy tweaks across pages",
+    "score": 48,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "42e3715ce5",
+    "date": "2026-05-16T14:39:44+05:30",
+    "subject": "docs: icons, logo, self-host section, README cleanup (#4)",
+    "score": 44,
+    "is_merge": false,
+    "lines": 869
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "4d83013a27",
+    "date": "2026-05-16T14:48:10+05:30",
+    "subject": "web: canonical logo svg with text baked to paths + docs points at hosted url",
+    "score": 53,
+    "is_merge": false,
+    "lines": 161
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "60f0d17c2d",
+    "date": "2026-05-16T15:05:20+05:30",
+    "subject": "docs: refresh changelog from git history, update pricing, promote both to quickstart tab",
+    "score": 37,
+    "is_merge": false,
+    "lines": 143
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "35a7312547",
+    "date": "2026-05-17T18:32:34+05:30",
+    "subject": "web: minor update",
+    "score": 51,
+    "is_merge": false,
+    "lines": 97
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a2a139dc66",
+    "date": "2026-05-18T15:56:49+05:30",
+    "subject": "feat(mcp): first version with 2 tools",
+    "score": 92,
+    "is_merge": false,
+    "lines": 549
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "23ebd70e8e",
+    "date": "2026-05-18T16:03:42+05:30",
+    "subject": "mcp: hosted at mcp.letmepost.dev",
+    "score": 54,
+    "is_merge": false,
+    "lines": 264
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "40076f60e6",
+    "date": "2026-05-18T16:10:52+05:30",
+    "subject": "mcp: docs update",
+    "score": 42,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "54ca3cf4cc",
+    "date": "2026-05-19T15:26:51+05:30",
+    "subject": "cli: scaffold @letmepost/cli with commander and oauth login",
+    "score": 59,
+    "is_merge": false,
+    "lines": 1000
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0d6022ed6a",
+    "date": "2026-05-19T15:27:05+05:30",
+    "subject": "cli: post + posts + accounts subcommands with structured error rendering",
+    "score": 56,
+    "is_merge": false,
+    "lines": 367
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "5df1680ad7",
+    "date": "2026-05-19T15:27:08+05:30",
+    "subject": "mcp: autogen tool surface from openapi spec",
+    "score": 58,
+    "is_merge": false,
+    "lines": 776
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "2ee9eaf2de",
+    "date": "2026-05-19T15:27:21+05:30",
+    "subject": "api: load autogen mcp tools at startup",
+    "score": 54,
+    "is_merge": false,
+    "lines": 265
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "492723f8b5",
+    "date": "2026-05-19T15:29:56+05:30",
+    "subject": "db: add oauth-provider schema + migration",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2906
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7ad8924833",
+    "date": "2026-05-19T15:30:03+05:30",
+    "subject": "api: add oauth-provider plugin and well-known endpoints",
+    "score": 56,
+    "is_merge": false,
+    "lines": 450
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "280a0723f9",
+    "date": "2026-05-19T15:30:08+05:30",
+    "subject": "api: oauth bearer middleware for MCP route",
+    "score": 51,
+    "is_merge": false,
+    "lines": 112
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "4bf537d65e",
+    "date": "2026-05-19T15:31:44+05:30",
+    "subject": "cli: profile-scoping support across post, posts, accounts + profiles command",
+    "score": 55,
+    "is_merge": false,
+    "lines": 273
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f43cc1948c",
+    "date": "2026-05-19T15:32:39+05:30",
+    "subject": "api: oauth provider + bearer middleware + well-known endpoints",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d37b333881",
+    "date": "2026-05-19T15:32:48+05:30",
+    "subject": "mcp: autogen tool surface from openapi spec",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9bf0250769",
+    "date": "2026-05-19T15:32:54+05:30",
+    "subject": "cli: @letmepost/cli with oauth login + profile scoping",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "6caf4323eb",
+    "date": "2026-05-19T15:40:50+05:30",
+    "subject": "api: top-level profileId on POST /v1/posts + oauth-to-api-key exchange + cli auto-mint after oauth",
+    "score": 53,
+    "is_merge": false,
+    "lines": 160
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "4ed90416fe",
+    "date": "2026-05-19T15:42:41+05:30",
+    "subject": "docs: rewrite mcp + cli pages for oauth + autogen + profile scoping",
+    "score": 40,
+    "is_merge": false,
+    "lines": 282
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "3021d0da7e",
+    "date": "2026-05-19T17:53:28+05:30",
+    "subject": "docs: move mcp + cli under /agents/ to dodge mintlify's reserved /mcp route",
+    "score": 31,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a889f23027",
+    "date": "2026-05-19T17:54:28+05:30",
+    "subject": "docs: fix internal mcp link in cli page",
+    "score": 24,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e2380dc814",
+    "date": "2026-05-19T18:04:17+05:30",
+    "subject": "docker: include apps/mcp + scripts dir + openapi spec in api build",
+    "score": 51,
+    "is_merge": false,
+    "lines": 97
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "38109b97ee",
+    "date": "2026-05-19T18:14:13+05:30",
+    "subject": "oauth: point loginPage + consentPage at dashboard, fix well-known authorization_servers",
+    "score": 53,
+    "is_merge": false,
+    "lines": 187
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f9eeee5e88",
+    "date": "2026-05-19T18:35:10+05:30",
+    "subject": "oauth: serve RFC 8414/9728 path-suffixed well-known + www-authenticate hint on /mcp",
+    "score": 50,
+    "is_merge": false,
+    "lines": 84
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "278ffd30b4",
+    "date": "2026-05-19T18:44:57+05:30",
+    "subject": "dashboard: pass signed oauth_query in consent post body",
+    "score": 45,
+    "is_merge": false,
+    "lines": 19
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "74f4dc781a",
+    "date": "2026-05-19T18:52:31+05:30",
+    "subject": "dashboard: read body.url from consent response so claude code gets the callback redirect",
+    "score": 45,
+    "is_merge": false,
+    "lines": 19
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "634616dc24",
+    "date": "2026-05-19T18:55:32+05:30",
+    "subject": "oauth: add /mcp resource audience so RFC 8707 tokens validate",
+    "score": 44,
+    "is_merge": false,
+    "lines": 12
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "3e9703934a",
+    "date": "2026-05-19T19:00:35+05:30",
+    "subject": "oauth: accept jwt on /mcp + mint per-user loopback api key",
+    "score": 52,
+    "is_merge": false,
+    "lines": 135
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "72bd8fdb30",
+    "date": "2026-05-20T13:43:39+05:30",
+    "subject": "web+docs: rewrite landing hero, lock docs pricing tiers, log mcp/cli/oauth",
+    "score": 51,
+    "is_merge": false,
+    "lines": 93
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "21fa158854",
+    "date": "2026-05-21T11:55:43+05:30",
+    "subject": "sdk: @letmepost/sdk typescript package + python/go autogen workflow",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1880
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "1912c1f4a0",
+    "date": "2026-05-21T12:35:24+05:30",
+    "subject": "ci: down-convert openapi 3.1 to 3.0 before go codegen",
+    "score": 44,
+    "is_merge": false,
+    "lines": 11
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "6d56b90656",
+    "date": "2026-05-21T12:37:14+05:30",
+    "subject": "ci: swap go codegen to openapi-generator-cli for oneOf support",
+    "score": 47,
+    "is_merge": false,
+    "lines": 35
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c1ac69d73a",
+    "date": "2026-05-22T17:20:44+05:30",
+    "subject": "platforms: pinterest + x live, flip platform_state to match",
+    "score": 43,
+    "is_merge": false,
+    "lines": 10
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "908d440e76",
+    "date": "2026-05-22T17:21:47+05:30",
+    "subject": "docs: log pinterest live in changelog + platforms overview",
+    "score": 27,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ef17ea4142",
+    "date": "2026-05-22T17:24:27+05:30",
+    "subject": "chore: gitignore .plans/ for local planning docs",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "5193f3ed36",
+    "date": "2026-05-22T21:14:16+05:30",
+    "subject": "pricing: simplify landing to free + pro + business, drop byo lines",
+    "score": 55,
+    "is_merge": false,
+    "lines": 346
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "cb9040e548",
+    "date": "2026-05-22T22:19:32+05:30",
+    "subject": "billing: lemonsqueezy integration (backend, schemas, queue, tests)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 6216
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e4836e555f",
+    "date": "2026-05-22T22:19:51+05:30",
+    "subject": "billing: dashboard ui (plan card, usage meter, upgrade flow, docs link)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1374
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "30281eec56",
+    "date": "2026-05-23T02:08:50+05:30",
+    "subject": "minor update: gitignore",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "190cb8c2c2",
+    "date": "2026-05-23T02:23:28+05:30",
+    "subject": "billing: use lemonsqueezy checkouts api instead of /buy/ url",
+    "score": 49,
+    "is_merge": false,
+    "lines": 61
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f2130c6ec0",
+    "date": "2026-05-23T02:34:21+05:30",
+    "subject": "billing: derive event id from body hash, lemonsqueezy has no X-Event-Id header",
+    "score": 45,
+    "is_merge": false,
+    "lines": 16
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "00d39bd940",
+    "date": "2026-05-23T02:36:29+05:30",
+    "subject": "billing: fail-soft on invoices fetch so dashboard always renders",
+    "score": 46,
+    "is_merge": false,
+    "lines": 23
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e63e1c7ac6",
+    "date": "2026-05-23T02:37:42+05:30",
+    "subject": "web: receipt-design redesign across marketing site (landing, pricing, blog, tools)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 5711
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d029352147",
+    "date": "2026-05-23T11:59:18+05:30",
+    "subject": "web: rich landing pages for /platforms, /api, /agents + sitewide footer + syntax highlighter",
+    "score": 60,
+    "is_merge": false,
+    "lines": 11912
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "258ceee06c",
+    "date": "2026-05-23T15:49:58+05:30",
+    "subject": "platforms: add tiktok with oauth pkce, preflight, and inbox upload",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3268
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ce78511c20",
+    "date": "2026-05-23T16:38:59+05:30",
+    "subject": "billing: harden webhook + csrf, respect ls status, fix dedupe contract",
+    "score": 56,
+    "is_merge": false,
+    "lines": 401
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "48ca0c578b",
+    "date": "2026-05-23T16:39:21+05:30",
+    "subject": "billing: align dashboard with api contract, surface period+cancel state",
+    "score": 54,
+    "is_merge": false,
+    "lines": 220
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "96d648cf15",
+    "date": "2026-05-23T16:39:30+05:30",
+    "subject": "billing: drop half-implemented enterprise tier until sales path exists",
+    "score": 46,
+    "is_merge": false,
+    "lines": 26
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e9c3729652",
+    "date": "2026-05-23T16:39:36+05:30",
+    "subject": "billing: fix threshold dispatch silently no-oping on snake_case keys",
+    "score": 50,
+    "is_merge": false,
+    "lines": 83
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "13e470c6c1",
+    "date": "2026-05-23T16:39:42+05:30",
+    "subject": "billing: strip file-header docstrings, drop dead enum codes, doc ls mode cutover",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "cc46dc0024",
+    "date": "2026-05-25T16:20:59+05:30",
+    "subject": "dashboard: move billing out of nav into account dropdown",
+    "score": 45,
+    "is_merge": false,
+    "lines": 19
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "62ef70c2e7",
+    "date": "2026-05-25T16:23:30+05:30",
+    "subject": "billing: eager write cancel+reactivate state, switch invoices to subscription_id",
+    "score": 50,
+    "is_merge": false,
+    "lines": 76
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "29d68d2487",
+    "date": "2026-05-25T16:42:00+05:30",
+    "subject": "dashboard: move account dropdown from sidebar footer to header right",
+    "score": 54,
+    "is_merge": false,
+    "lines": 259
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b1b1eb3d6b",
+    "date": "2026-05-25T16:44:34+05:30",
+    "subject": "dashboard: regroup sidebar footer with docs + billing, beef up usage meter",
+    "score": 54,
+    "is_merge": false,
+    "lines": 248
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c973f73c4f",
+    "date": "2026-05-25T16:45:03+05:30",
+    "subject": "dashboard: swap footer order, links above usage card",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "62c635d9e5",
+    "date": "2026-05-25T16:48:02+05:30",
+    "subject": "dashboard: fold account menu into org dropdown via switch-organization submenu",
+    "score": 54,
+    "is_merge": false,
+    "lines": 252
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "6cdc309283",
+    "date": "2026-05-25T16:52:01+05:30",
+    "subject": "dashboard: flatten org dropdown, move theme into a single header icon",
+    "score": 53,
+    "is_merge": false,
+    "lines": 174
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "eac0173b11",
+    "date": "2026-05-25T17:24:58+05:30",
+    "subject": "web: receipt-themed redesign of the marketing site",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1453
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f625fea214",
+    "date": "2026-05-25T17:42:47+05:30",
+    "subject": "web: close anatomy-of-a-failure section so the right rail aside lands in its slot",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7cfc84b0e6",
+    "date": "2026-05-25T18:15:12+05:30",
+    "subject": "brand: new mark + wordmark across web/dashboard/docs",
+    "score": 52,
+    "is_merge": false,
+    "lines": 151
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "cd38404e9c",
+    "date": "2026-05-26T10:14:39+05:30",
+    "subject": "minor thing",
+    "score": 43,
+    "is_merge": false,
+    "lines": 8
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "00cf2c66c0",
+    "date": "2026-05-26T10:48:12+05:30",
+    "subject": "okaish",
+    "score": 53,
+    "is_merge": false,
+    "lines": 170
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "8bfe18befb",
+    "date": "2026-05-26T17:08:48+05:30",
+    "subject": "auth: add github/google oauth, first-touch attribution, account linking",
+    "score": 60,
+    "is_merge": false,
+    "lines": 4049
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "39968f2017",
+    "date": "2026-05-26T18:14:19+05:30",
+    "subject": "web: notion-backed blog with reading-view design and daily vercel cron rebuild",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2675
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f7574d6f3b",
+    "date": "2026-05-26T18:29:14+05:30",
+    "subject": "fix: turbo env whitelist, node types for vercel cron, credential trust for account linking",
+    "score": 60,
+    "is_merge": false,
+    "lines": 75
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "89158e071b",
+    "date": "2026-05-26T18:35:30+05:30",
+    "subject": "fix: allow oauth → credential account linking without local email verification",
+    "score": 55,
+    "is_merge": false,
+    "lines": 17
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "86a524f881",
+    "date": "2026-05-26T18:41:28+05:30",
+    "subject": "auth: send oauth callback to dashboard origin, fix linking without local email verification",
+    "score": 44,
+    "is_merge": false,
+    "lines": 13
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "1e286e0694",
+    "date": "2026-05-26T19:41:19+05:30",
+    "subject": "seo: title fixes, faq+product schema, /about, /llms.txt, blog alt + breadcrumbs, self-host fonts, latest writing    strip",
+    "score": 57,
+    "is_merge": false,
+    "lines": 570
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0e52d9bb91",
+    "date": "2026-05-27T18:50:52+05:30",
+    "subject": "fix(web): posthog analytics on landing",
+    "score": 64,
+    "is_merge": false,
+    "lines": 249
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "29ea6d38c1",
+    "date": "2026-05-27T19:17:27+05:30",
+    "subject": "launch: sentry on api+worker+dashboard, founder-voice onboarding emails via resend",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1867
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "758cedd27e",
+    "date": "2026-05-27T19:32:38+05:30",
+    "subject": "launch: address review — sentry --import, list-unsubscribe, email verify gate",
+    "score": 56,
+    "is_merge": false,
+    "lines": 390
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9765dc4ba9",
+    "date": "2026-05-27T19:51:16+05:30",
+    "subject": "launch: suppression list, resend webhook, fix list-unsubscribe, dotenv in instrument.mjs",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3481
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7dd43cce5e",
+    "date": "2026-05-28T06:21:22+05:30",
+    "subject": "fix: dev script — tsx watch subcommand must precede --import flag",
+    "score": 49,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "4c399373b7",
+    "date": "2026-05-28T10:05:40+05:30",
+    "subject": "email: rewrite onboarding sequence ogilvy-style, sign as kamal",
+    "score": 51,
+    "is_merge": false,
+    "lines": 106
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "61f6a297d7",
+    "date": "2026-05-28T11:08:39+05:30",
+    "subject": "repo: mark lockfile and drizzle snapshots as generated",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f4d0925d82",
+    "date": "2026-05-28T11:43:58+05:30",
+    "subject": "api: copy instrument.mjs into prod image",
+    "score": 41,
+    "is_merge": false,
+    "lines": 5
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "1b606f08b0",
+    "date": "2026-05-28T12:00:32+05:30",
+    "subject": "api: scheduling cancel/reschedule + stable publish jobIds",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3187
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "4ccb8a4a42",
+    "date": "2026-05-28T12:11:56+05:30",
+    "subject": "dashboard: split posts/logs, add /calendar /settings /analytics shells",
+    "score": 58,
+    "is_merge": false,
+    "lines": 853
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a58cda1b4b",
+    "date": "2026-05-28T12:23:08+05:30",
+    "subject": "auth: fix 401 on email signup, auto-copy api key, oauth returnTo",
+    "score": 59,
+    "is_merge": false,
+    "lines": 948
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ceec863dcc",
+    "date": "2026-05-28T12:24:24+05:30",
+    "subject": "dashboard: /posts compose surface with grid/list views + create modal",
+    "score": 56,
+    "is_merge": false,
+    "lines": 377
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "fb918e04e8",
+    "date": "2026-05-28T12:35:49+05:30",
+    "subject": "review: worker race fix, tests, modal polish, migration idempotency",
+    "score": 56,
+    "is_merge": false,
+    "lines": 418
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f033e33845",
+    "date": "2026-05-28T12:53:35+05:30",
+    "subject": "docs: scheduling endpoints, post.canceled+rescheduled webhooks, changelog through 2026-05",
+    "score": 41,
+    "is_merge": false,
+    "lines": 368
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "f51fc1e421",
+    "date": "2026-05-29T16:24:42+05:30",
+    "subject": "dashboard: vertically center analytics coming-soon state",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d201e802b3",
+    "date": "2026-05-29T16:28:37+05:30",
+    "subject": "dashboard: center analytics callout across full right panel",
+    "score": 41,
+    "is_merge": false,
+    "lines": 5
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "3fae00420b",
+    "date": "2026-05-29T16:36:03+05:30",
+    "subject": "dashboard: posts subroutes (grid/list/calendar/new), sectioned sidebar, openapi schema fix",
+    "score": 59,
+    "is_merge": false,
+    "lines": 1113
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7dbca127a2",
+    "date": "2026-05-29T16:44:09+05:30",
+    "subject": "dashboard: collapsible posts sidebar, list truncate, grid media thumbs, drop duplicate tab row",
+    "score": 54,
+    "is_merge": false,
+    "lines": 236
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b46941626a",
+    "date": "2026-05-29T16:50:01+05:30",
+    "subject": "dashboard: compose post as right-side sheet, triggered from posts layout header",
+    "score": 56,
+    "is_merge": false,
+    "lines": 430
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c7ff2f09c6",
+    "date": "2026-05-29T16:51:53+05:30",
+    "subject": "dashboard: strip what-comments from recently-touched files",
+    "score": 49,
+    "is_merge": false,
+    "lines": 51
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "493f8bd44b",
+    "date": "2026-05-29T17:02:20+05:30",
+    "subject": "dashboard: list view max-width truncate, calendar +N more opens day sheet, dynamic per-cell capacity",
+    "score": 54,
+    "is_merge": false,
+    "lines": 245
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "fac3ff7b01",
+    "date": "2026-05-29T17:09:01+05:30",
+    "subject": "tiktok: mark as in-review across landing + docs + openapi + changelog",
+    "score": 47,
+    "is_merge": false,
+    "lines": 29
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a1a1635c82",
+    "date": "2026-05-29T17:13:49+05:30",
+    "subject": "compose: shadcn calendar + popover for scheduler input",
+    "score": 55,
+    "is_merge": false,
+    "lines": 291
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ae721d0b33",
+    "date": "2026-05-29T17:15:40+05:30",
+    "subject": "drawer: shadcn calendar for reschedule, smart posted/scheduled status, brand-aware account line",
+    "score": 52,
+    "is_merge": false,
+    "lines": 130
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "8f95be62ea",
+    "date": "2026-05-29T17:24:53+05:30",
+    "subject": "tiktok: tolerate scope_not_authorized on /user/info, fall back to token open_id",
+    "score": 46,
+    "is_merge": false,
+    "lines": 25
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "1a8bdd5c99",
+    "date": "2026-05-30T17:31:13+05:30",
+    "subject": "tools: outreach-reddit scraper + haiku scoring → notion DB",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1412
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c02afbc096",
+    "date": "2026-06-01T11:39:33+05:30",
+    "subject": "chore: drop in-repo outreach scraper, moved to standalone repo",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1412
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c1fb1a81c9",
+    "date": "2026-06-02T10:41:47+05:30",
+    "subject": "api: accept dashboard session on POST /v1/posts",
+    "score": 45,
+    "is_merge": false,
+    "lines": 15
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "5859870734",
+    "date": "2026-06-02T10:47:19+05:30",
+    "subject": "posts: scheduled posts persist media, drop dashboard text-only banner",
+    "score": 50,
+    "is_merge": false,
+    "lines": 72
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "8c52bdc3d5",
+    "date": "2026-06-03T16:05:03+05:30",
+    "subject": "docs: rewrite plan.md as status snapshot, refresh PRODUCT.md for shipped state",
+    "score": 43,
+    "is_merge": false,
+    "lines": 790
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "fcc4c2068a",
+    "date": "2026-06-08T08:37:23+05:30",
+    "subject": "auth: redirect to dashboard /onboarding after email verification",
+    "score": 45,
+    "is_merge": false,
+    "lines": 15
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "6a7762396a",
+    "date": "2026-06-08T15:52:24+05:30",
+    "subject": "mcp: add server.json, bump 0.2.1 for registry publish",
+    "score": 48,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ba0fca71a9",
+    "date": "2026-06-11T16:13:47+05:30",
+    "subject": "fix(web): /tiktok fix and fix /connect -> /accounts/new",
+    "score": 62,
+    "is_merge": false,
+    "lines": 137
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b259dbe566",
+    "date": "2026-06-11T16:21:57+05:30",
+    "subject": "accounts: fold /new into /accounts, inline platform grid on empty state",
+    "score": 56,
+    "is_merge": false,
+    "lines": 379
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "cbc03ca0ea",
+    "date": "2026-06-11T16:21:57+05:30",
+    "subject": "web: rewrite /platforms/tiktok content, fix connect CTAs to /accounts?connect=1",
+    "score": 45,
+    "is_merge": false,
+    "lines": 16
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "482dc7e7d1",
+    "date": "2026-06-11T19:36:10+05:30",
+    "subject": "seo: fix broken docs links, add missing preflight pages, demote notion h1s",
+    "score": 53,
+    "is_merge": false,
+    "lines": 201
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b4848e130d",
+    "date": "2026-06-12T11:43:06+05:30",
+    "subject": "auth: track signin.started + signin/signup.completed for social paths",
+    "score": 51,
+    "is_merge": false,
+    "lines": 96
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a9bb7213a1",
+    "date": "2026-06-12T11:43:06+05:30",
+    "subject": "web: reverse-proxy posthog through /_ph to bypass ad blockers",
+    "score": 45,
+    "is_merge": false,
+    "lines": 19
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c365f0e75d",
+    "date": "2026-06-12T16:32:01+05:30",
+    "subject": "repo: open source scaffolding for external contributors",
+    "score": 59,
+    "is_merge": false,
+    "lines": 1091
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e9fdcc98e3",
+    "date": "2026-06-12T16:32:57+05:30",
+    "subject": "labels: quote hex colors so yaml parser doesn't read 5319e7 as scientific notation",
+    "score": 49,
+    "is_merge": false,
+    "lines": 55
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "87dbf2b3a3",
+    "date": "2026-06-12T16:35:14+05:30",
+    "subject": "analytics: add signin.started to DashboardEvent union (referenced in sign-in page)",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "16969bb50a",
+    "date": "2026-06-12T16:39:10+05:30",
+    "subject": "ci: inject placeholder DATABASE_URL + BETTER_AUTH_SECRET so module imports succeed",
+    "score": 45,
+    "is_merge": false,
+    "lines": 16
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "45ab05b944",
+    "date": "2026-06-12T16:41:48+05:30",
+    "subject": "turbo: declare test-task env passthrough for DATABASE_URL + BETTER_AUTH_SECRET",
+    "score": 43,
+    "is_merge": false,
+    "lines": 10
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "22c167969b",
+    "date": "2026-06-12T16:45:55+05:30",
+    "subject": "ci: provision postgres service + run migrations so apps/api tests have a real db",
+    "score": 48,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7df51a8f90",
+    "date": "2026-06-12T16:51:44+05:30",
+    "subject": "repo: strip emojis from docs, mark ci test step non-blocking, add ci-local.sh",
+    "score": 51,
+    "is_merge": false,
+    "lines": 98
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e32b7ac253",
+    "date": "2026-06-12T17:15:47+05:30",
+    "subject": "labels: add platform:telegram, platform:discord, platform:google-business",
+    "score": 43,
+    "is_merge": false,
+    "lines": 8
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d7756d388d",
+    "date": "2026-06-13T02:49:58+05:00",
+    "subject": "dashboard: bind ctrl+shift+p shortcut to profile switcher",
+    "score": 49,
+    "is_merge": false,
+    "lines": 48
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "901c08b9dc",
+    "date": "2026-06-13T02:51:38+05:00",
+    "subject": "dashboard: normalize shortcut key check to lowercase for cross-platform safety",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "954167379f",
+    "date": "2026-06-13T11:12:02+05:30",
+    "subject": "test: migrate bluesky posts tests to batch contract",
+    "score": 50,
+    "is_merge": false,
+    "lines": 84
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "720de12b8b",
+    "date": "2026-06-13T11:12:02+05:30",
+    "subject": "api: accept api key on /v1/webhook-endpoints",
+    "score": 50,
+    "is_merge": false,
+    "lines": 70
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "97196f057f",
+    "date": "2026-06-13T12:01:55+05:00",
+    "subject": "dashboard: skip track and setActiveProfile when selecting already-active profile",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "be5322fd90",
+    "date": "2026-06-14T11:04:22+05:30",
+    "subject": "analytics: stitch posthog identity across subdomains, profile anon marketing visitors",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9f0384b7e2",
+    "date": "2026-06-14T11:13:00+05:30",
+    "subject": "chore: enable coderabbit auto-review on PRs to main",
+    "score": 42,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "beb83e2799",
+    "date": "2026-06-14T12:18:59+05:30",
+    "subject": "api: add bluesky reply threading (replyTo strong ref)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 279
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "2b5bde452a",
+    "date": "2026-06-15T11:18:09+05:30",
+    "subject": "api: reject scheduled bluesky replies (scheduledAt.no_bluesky_reply)",
+    "score": 49,
+    "is_merge": false,
+    "lines": 57
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c5d18fc22f",
+    "date": "2026-06-16T14:08:52+05:30",
+    "subject": "web: redesign marketing site to the \"Clarity\" direction",
+    "score": 60,
+    "is_merge": false,
+    "lines": 6881
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "195ffcc304",
+    "date": "2026-06-16T14:22:53+05:30",
+    "subject": "dashboard + docs: extend the Clarity redesign to the app and docs theme",
+    "score": 54,
+    "is_merge": false,
+    "lines": 237
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "8cfaa50fe9",
+    "date": "2026-06-16T14:34:42+05:30",
+    "subject": "web: address CodeRabbit review + harden mobile responsiveness",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0ed26b1118",
+    "date": "2026-06-16T14:40:21+05:30",
+    "subject": "dashboard: quote Georgia font name (stylelint value-keyword-case)",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "960c52ef72",
+    "date": "2026-06-16T14:56:23+05:30",
+    "subject": "dashboard + docs: apply the Clarity design system",
+    "score": 52,
+    "is_merge": false,
+    "lines": 126
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "76b666fd76",
+    "date": "2026-06-16T15:00:18+05:30",
+    "subject": "dashboard: remove the funnel icon from the logs filter bar",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "4cbd852663",
+    "date": "2026-06-16T15:11:25+05:30",
+    "subject": "web: dark-mode final CTA fix + cycling-agents fan-out figure on /agents",
+    "score": 53,
+    "is_merge": false,
+    "lines": 155
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d90e740d9d",
+    "date": "2026-06-16T15:20:43+05:30",
+    "subject": "sdk: bump to 0.2.0 and document bluesky reply threading",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "47b06cfa22",
+    "date": "2026-06-16T15:29:23+05:30",
+    "subject": "ci: add @letmepost/sdk npm release workflow",
+    "score": 51,
+    "is_merge": false,
+    "lines": 86
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "2fcb2e5569",
+    "date": "2026-06-16T15:36:43+05:30",
+    "subject": "sdk: sync User-Agent version to 0.2.0",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d28bf71a26",
+    "date": "2026-06-16T15:43:59+05:30",
+    "subject": "dashboard: round every surface, cool the sidebar, fix invalidation gaps",
+    "score": 50,
+    "is_merge": false,
+    "lines": 81
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a6d4483338",
+    "date": "2026-06-17T09:55:25+05:30",
+    "subject": "web: increase hero section padding",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9421cb1150",
+    "date": "2026-06-17T09:55:25+05:30",
+    "subject": "docs: add 2026-06 changelog entry for bluesky reply threading",
+    "score": 28,
+    "is_merge": false,
+    "lines": 9
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "bdebf62a67",
+    "date": "2026-06-17T10:00:38+05:30",
+    "subject": "docs: changelog — scheduled-post media + webhook-endpoints api key",
+    "score": 28,
+    "is_merge": false,
+    "lines": 9
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "3847f11956",
+    "date": "2026-06-17T10:22:27+05:30",
+    "subject": "docs: drop em dashes from changelog",
+    "score": 36,
+    "is_merge": false,
+    "lines": 112
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "32e943ecc5",
+    "date": "2026-06-17T10:32:37+05:30",
+    "subject": "web: incremental notion blog loader + SKIP_NOTION_BLOG dev flag",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c6a93c2d5f",
+    "date": "2026-06-17T10:45:29+05:30",
+    "subject": "web: delete stale cache entry when a notion post body is empty",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "dff8ac965e",
+    "date": "2026-06-17T14:23:03+05:30",
+    "subject": "platforms: mark linkedin live (personal posting, w_member_social)",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "62b58a4795",
+    "date": "2026-06-17T14:24:07+05:30",
+    "subject": "dashboard: round the Post to account cards",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c9bedd4a21",
+    "date": "2026-06-17T14:33:35+05:30",
+    "subject": "fix: bump linkedin api version 202504 -> 202605 (202504 sunset)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 8
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "808ff7f2de",
+    "date": "2026-06-17T17:32:37+05:30",
+    "subject": "dashboard,api: post log free-text search + shareable filter URLs (#79)",
+    "score": 54,
+    "is_merge": false,
+    "lines": 242
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e571c87ec6",
+    "date": "2026-06-18T10:48:32+05:30",
+    "subject": "feat: add live preflight demo to homepage",
+    "score": 91,
+    "is_merge": false,
+    "lines": 412
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "de9bd6c218",
+    "date": "2026-06-18T10:51:57+05:30",
+    "subject": "web: match preflight demo to clarity design tokens and polish",
+    "score": 55,
+    "is_merge": false,
+    "lines": 298
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "9df772b7e5",
+    "date": "2026-06-18T11:01:02+05:30",
+    "subject": "web: fix preflight demo json syntax highlighting scope",
+    "score": 44,
+    "is_merge": false,
+    "lines": 12
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "296d616310",
+    "date": "2026-06-18T14:09:59+05:30",
+    "subject": "web: proxy posthog ingestion paths with trailing slashes through /_ph",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "8496748f9f",
+    "date": "2026-06-18T14:15:17+05:30",
+    "subject": "web: force posthog through first-party proxy in production",
+    "score": 45,
+    "is_merge": false,
+    "lines": 17
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a22bb51269",
+    "date": "2026-06-20T18:44:10+05:30",
+    "subject": "api: correct webhook-endpoints auth in OpenAPI spec",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "69d9412aee",
+    "date": "2026-06-22T13:03:58+05:30",
+    "subject": "chore: ignore major-version dependabot bumps",
+    "score": 47,
+    "is_merge": false,
+    "lines": 34
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "4f8960bd16",
+    "date": "2026-06-27T11:26:50-03:00",
+    "subject": "fix: set skeleton heights to match real dashboard card heights",
+    "score": 60,
+    "is_merge": false,
+    "lines": 66
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "a3226386b7",
+    "date": "2026-06-29T14:24:41+05:30",
+    "subject": "schemas: mark facebook, instagram, threads live; tiktok stays pending (#131)",
+    "score": 43,
+    "is_merge": false,
+    "lines": 8
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c0ac4b8f80",
+    "date": "2026-07-06T08:58:18+05:30",
+    "subject": "security: block webhook-delivery SSRF + session-auth CSRF on mutations",
+    "score": 56,
+    "is_merge": false,
+    "lines": 399
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7b5a534e46",
+    "date": "2026-07-06T08:58:18+05:30",
+    "subject": "fix: retry transient publish failures instead of dropping scheduled posts",
+    "score": 70,
+    "is_merge": false,
+    "lines": 1219
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "628fb793ea",
+    "date": "2026-07-06T08:58:18+05:30",
+    "subject": "security: enforce authz scopes (profile/key/MCP) + fix Meta data-deletion no-op",
+    "score": 59,
+    "is_merge": false,
+    "lines": 1059
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "781aba1904",
+    "date": "2026-07-06T08:58:18+05:30",
+    "subject": "fix: OpenAPI/docs contract drift + stored-XSS in the Notion blog",
+    "score": 66,
+    "is_merge": false,
+    "lines": 391
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "13d994966f",
+    "date": "2026-07-06T08:58:18+05:30",
+    "subject": "fix: close data-loss/double-charge bugs (retention, cursor precision, idempotency race)",
+    "score": 68,
+    "is_merge": false,
+    "lines": 668
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "efbe81f4b8",
+    "date": "2026-07-06T08:58:18+05:30",
+    "subject": "security: bind OAuth connect callback to the initiating session (account-linking CSRF)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 184
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "663564ddf2",
+    "date": "2026-07-06T08:58:18+05:30",
+    "subject": "security: block SSRF via user-supplied media URLs",
+    "score": 55,
+    "is_merge": false,
+    "lines": 309
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "cebe9d6f89",
+    "date": "2026-07-06T08:58:18+05:30",
+    "subject": "ci: enforce test gate; migrate 60 stale tests to targets[]; add Redis CI service",
+    "score": 58,
+    "is_merge": false,
+    "lines": 755
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b4e1127df0",
+    "date": "2026-07-07T11:23:25+05:30",
+    "subject": "fix: billing correctness — entitlement, event durability, quota accounting",
+    "score": 68,
+    "is_merge": false,
+    "lines": 842
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ca78ac9bf5",
+    "date": "2026-07-07T11:32:02+05:30",
+    "subject": "fix: platform integration correctness (refresh, account ids, chunking, LTF)",
+    "score": 67,
+    "is_merge": false,
+    "lines": 613
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "16ccc7f72b",
+    "date": "2026-07-07T11:51:15+05:30",
+    "subject": "fix: queue durability, account-delete data loss, TikTok publish reconciliation",
+    "score": 70,
+    "is_merge": false,
+    "lines": 4290
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "591129cbaf",
+    "date": "2026-07-07T12:00:45+05:30",
+    "subject": "fix: client-surface + preflight correctness (dashboard, CLI, SDK, Twitter count)",
+    "score": 65,
+    "is_merge": false,
+    "lines": 277
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c31ec8d501",
+    "date": "2026-07-07T20:29:28+05:30",
+    "subject": "Migrate marketing site (apps/web) from Astro to Next.js (#143)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 19157
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "3bb56d3d47",
+    "date": "2026-08-17T04:58:43-04:00",
+    "subject": "fix: API keys are minted with no scopes and cannot publish (#175)",
+    "score": 59,
+    "is_merge": false,
+    "lines": 63
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "01774a9587",
+    "date": "2026-08-17T13:20:38+05:30",
+    "subject": "fix: scheduled publishing was down — BullMQ job id, plus 6 compounding defects (#178)",
+    "score": 70,
+    "is_merge": false,
+    "lines": 2218
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "48a13860f2",
+    "date": "2026-08-17T13:27:04+05:30",
+    "subject": "docs: changelog entry for the 2026-08 publishing fixes (#179)",
+    "score": 35,
+    "is_merge": false,
+    "lines": 80
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "28aa149abc",
+    "date": "2026-08-17T21:33:39+05:30",
+    "subject": "chore: railway config for the worker service (#182)",
+    "score": 44,
+    "is_merge": false,
+    "lines": 13
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "def7816efd",
+    "date": "2026-08-17T22:01:45+05:30",
+    "subject": "fix: stop Disconnect silently destroying the scheduled queue (#181)",
+    "score": 58,
+    "is_merge": false,
+    "lines": 36
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "cb01227ad4",
+    "date": "2026-08-17T22:05:25+05:30",
+    "subject": "fix: migrate X media upload to the v2 API (#183)",
+    "score": 70,
+    "is_merge": false,
+    "lines": 3840
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "180dd9d4cc",
+    "date": "2026-08-17T22:05:36+05:30",
+    "subject": "feat: Reconnect button on account cards (#184)",
+    "score": 81,
+    "is_merge": false,
+    "lines": 25
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e755db155c",
+    "date": "2026-08-17T22:14:44+05:30",
+    "subject": "feat: POST /v1/posts/:id/retry (#185)",
+    "score": 89,
+    "is_merge": false,
+    "lines": 236
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "491b1f13cb",
+    "date": "2026-08-17T22:17:47+05:30",
+    "subject": "feat: Reconnect goes straight to the account's platform (#186)",
+    "score": 83,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "2338eeb45b",
+    "date": "2026-08-19T09:48:25+05:30",
+    "subject": "feat: shrink oversized images to fit each platform (#193)",
+    "score": 91,
+    "is_merge": false,
+    "lines": 396
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0abf197520",
+    "date": "2026-08-19T09:49:27+05:30",
+    "subject": "feat: real sandbox mode for lmp_test_ API keys (#190)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 3944
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d55cdf8eae",
+    "date": "2026-08-19T09:49:35+05:30",
+    "subject": "docs: correct false sandbox guarantee on lmp_test_ API keys (#189)",
+    "score": 33,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7d33ce557e",
+    "date": "2026-08-19T09:49:43+05:30",
+    "subject": "chore: guard pinned upstream API versions against silent sunsets (#188)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 331
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "c893928629",
+    "date": "2026-08-30T14:46:27+05:30",
+    "subject": "chore: disable scheduled dependabot version updates (#121)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 121
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "55d46a7a16",
+    "date": "2026-09-25T19:35:38+05:30",
+    "subject": "chore: go closed source (#205)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2218
+  },
+  {
     "repo": "titimer",
     "hash": "e8f981ca97",
     "date": "2026-09-26T10:52:09+03:00",
@@ -9,6 +3222,33 @@
     "lines": 362115
   },
   {
+    "repo": "letmepost-selfhost",
+    "hash": "9f9069ad2a",
+    "date": "2026-09-27T11:33:11+05:30",
+    "subject": "Revert \"chore: go closed source (#205)\" (#206)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2218
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "b3fb894fb9",
+    "date": "2026-09-27T11:57:18+05:30",
+    "subject": "feat: serve a service index at the API root (#207)",
+    "score": 89,
+    "is_merge": false,
+    "lines": 208
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "ab3b97014c",
+    "date": "2026-09-27T12:08:52+05:30",
+    "subject": "fix: advertise https in the API root index behind the proxy (#208)",
+    "score": 63,
+    "is_merge": false,
+    "lines": 160
+  },
+  {
     "repo": "income-vs-desires",
     "hash": "040b69c4e2",
     "date": "2026-09-28T18:45:42+03:00",
@@ -16,6 +3256,24 @@
     "score": 60,
     "is_merge": false,
     "lines": 6235
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "182d627989",
+    "date": "2026-10-02T11:53:42+05:30",
+    "subject": "feat: TikTok live on the upload track (#209)",
+    "score": 90,
+    "is_merge": false,
+    "lines": 344
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "4c9d605267",
+    "date": "2026-10-02T12:44:50+05:30",
+    "subject": "fix: sync platform-status copy to PLATFORM_STATE (#210)",
+    "score": 63,
+    "is_merge": false,
+    "lines": 161
   },
   {
     "repo": "wingwire-android",
@@ -1681,5 +4939,194 @@
     "score": 91,
     "is_merge": false,
     "lines": 448
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "5b77e3af32",
+    "date": "2026-10-22T09:37:49+03:00",
+    "subject": "fix(faz1): ilk kare anında düşme + platform tünelleme hatası (GameDev)",
+    "score": 61,
+    "is_merge": false,
+    "lines": 104
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "e54ba686f4",
+    "date": "2026-10-22T09:50:56+03:00",
+    "subject": "feat(faz2): hitbox adilliği (küçük hurtbox, diken ucu/gövde ayrımı, itme) + momentum çarpanı (GameDev)",
+    "score": 89,
+    "is_merge": false,
+    "lines": 210
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "27b61d55e9",
+    "date": "2026-10-22T10:13:58+03:00",
+    "subject": "feat(faz3): 1-bit dither arkaplan (Bayer) + gerçek 1-bit katılık",
+    "score": 86,
+    "is_merge": false,
+    "lines": 106
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "e818409982",
+    "date": "2026-10-22T11:07:32+03:00",
+    "subject": "feat(faz4): juice paketi (hitstop, shake, invert flash, debris, ghosting, squash, HUD büyümesi)",
+    "score": 90,
+    "is_merge": false,
+    "lines": 301
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "fcb194eca6",
+    "date": "2026-10-22T11:37:09+03:00",
+    "subject": "feat(faz5): ses - Web Audio API, NES-tarzı 4 kanal (pulse x2, triangle, noise)",
+    "score": 91,
+    "is_merge": false,
+    "lines": 422
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "5bdebe9a70",
+    "date": "2026-10-22T12:48:26+03:00",
+    "subject": "Faz 6: renk paleti (ramp tekniği) + ilerleyen mekanik aşama sistemi",
+    "score": 58,
+    "is_merge": false,
+    "lines": 770
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "1be5d0986b",
+    "date": "2026-10-22T14:39:42+03:00",
+    "subject": "Faz 7: Platform Atlama (Skip Bonus) - airtimeTracker, kademeli odul/ceza-yok tasarimi",
+    "score": 56,
+    "is_merge": false,
+    "lines": 395
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "340eaa091f",
+    "date": "2026-10-22T14:39:47+03:00",
+    "subject": "docs: Faz 7/8/9 ileri mekanik arastirma raporu (Jesse Schell/Swink/Spelunky/Downwell/Celeste/Mario Kart kaynakli)",
+    "score": 43,
+    "is_merge": false,
+    "lines": 685
+  },
+  {
+    "repo": "wingwire-galeri-web",
+    "hash": "0954d73fda",
+    "date": "2026-10-22T15:16:45+03:00",
+    "subject": "WingWire Galeri web: Hermes dashboard dosya API'si üzerinde statik galeri SPA'sı",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1898
+  },
+  {
+    "repo": "sesver",
+    "hash": "eecf07992f",
+    "date": "2026-10-22T15:44:53+03:00",
+    "subject": "Arayüze 10 dil (i18n): en, es, zh, hi, ar, fr, pt, ru, de, ja + Türkçe varsayılan",
+    "score": 60,
+    "is_merge": false,
+    "lines": 4791
+  },
+  {
+    "repo": "sesver",
+    "hash": "3c5c4611dc",
+    "date": "2026-10-22T15:46:07+03:00",
+    "subject": "Merge branch 'feature/sesver-i18n-10dil'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "sesver",
+    "hash": "f73b32b7dd",
+    "date": "2026-10-22T15:46:07+03:00",
+    "subject": "chore: icerik/ klasörünü gitignore'a ekle",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "844a398827",
+    "date": "2026-10-22T19:02:48+03:00",
+    "subject": "feat(faz8): çoklu şerit mimarisi - 4 desen (tekli/çatal/ikiz/kenar), 0.75*X_reach geçilebilirlik garantisi",
+    "score": 90,
+    "is_merge": false,
+    "lines": 295
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "5f84ed3991",
+    "date": "2026-10-22T19:10:04+03:00",
+    "subject": "feat(mobil): sol/sağ yarı dokunmatik kontrol, 3 sn piksel ipucu, mobil viewport",
+    "score": 87,
+    "is_merge": false,
+    "lines": 119
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "6e40dd7a25",
+    "date": "2026-10-22T20:19:07+03:00",
+    "subject": "feat(faz9): iki yönlü eşyalar - Aegis Kalkanı (buff) + Nitro Boost (buff/debuff), rubber-banding doğum oranları, Pac-Man telegraph uyarısı",
+    "score": 92,
+    "is_merge": false,
+    "lines": 516
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "1ce3b910da",
+    "date": "2026-10-22T22:17:36+03:00",
+    "subject": "chore: iç görev brief'lerini ve tasarım kanıt klasörünü repodan çıkar",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1687
+  },
+  {
+    "repo": "sesver",
+    "hash": "a17c894321",
+    "date": "2026-10-22T22:18:07+03:00",
+    "subject": "chore: ikon QA kanıt klasörünü repodan çıkar (kanit/ - 8.8MB test screenshot + duplicate dosyalar)",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "titimer",
+    "hash": "d6662f6e4c",
+    "date": "2026-10-22T22:18:21+03:00",
+    "subject": "chore: node_modules'u repodan çıkar (179 dosya, hiç commit edilmemeliydi)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 353009
+  },
+  {
+    "repo": "kitabe",
+    "hash": "c49cde1362",
+    "date": "2026-10-22T22:19:35+03:00",
+    "subject": "chore: hiçbir yerde referans edilmeyen eski mockup ekran görüntülerini repodan çıkar",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "9924e8ee6f",
+    "date": "2026-10-22T23:00:12+03:00",
+    "subject": "chore: oyun ismi 'Düşen Top' olarak belirlendi (çalışma adı kalkıyor)",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "73e3dbf25c",
+    "date": "2026-10-22T23:43:45+03:00",
+    "subject": "feat(faz10): lav damlasi (gorsel, Asama 3+), guclendirilmis inis sesi (duyulur bant +~7dB), skor bazli tema (her 1000 puanda crossfade, stage-gate'ten bagimsiz)",
+    "score": 91,
+    "is_merge": false,
+    "lines": 425
   }
 ]
