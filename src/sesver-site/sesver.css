@@ -558,35 +558,309 @@
 
 /* ---------- neden yerel ---------- */
 .sv-local {
+  position: relative;
   padding: 80px clamp(20px, 6vw, 80px);
+  background:
+    radial-gradient(55% 45% at 85% 20%, rgba(255, 143, 31, 0.12), transparent 70%),
+    radial-gradient(45% 40% at 10% 80%, rgba(255, 92, 134, 0.08), transparent 70%);
 }
 
-.sv-local__grid {
+/* Asimetrik ızgara: model kartı solda iki satır boyunca, diğer ikisi sağda üst üste. */
+.sv-local .sv-local__grid {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  grid-auto-flow: dense;
+  gap: 16px;
   margin-top: 12px;
 }
 
-.sv-license {
-  margin-top: 16px;
-  padding: clamp(22px, 3.5vw, 36px);
-  border-color: rgba(255, 143, 31, 0.35);
+.sv-local__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 28px;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.sv-license h3 {
-  margin: 0 0 12px;
+.sv-local__card::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--sv-grad);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sv-local__card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 143, 31, 0.35);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 30px 60px -30px rgba(255, 92, 134, 0.35);
+}
+
+.sv-local__card:hover::after {
+  opacity: 1;
+}
+
+.sv-local__card h3 {
+  margin: 4px 0 0;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.sv-local__card p {
+  margin: 0;
+  color: var(--sv-ink-2);
+  font-size: 15.5px;
+}
+
+.sv-glyph {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sv-local__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-radius: 16px;
+  background: var(--sv-grad);
+  color: #fff;
+  box-shadow: 0 12px 24px -12px rgba(255, 92, 134, 0.7);
+}
+
+/* Model kartı: koyu, sıcak parıltılı, istatistik görünümlü. */
+.sv-local__card--model {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: clamp(26px, 3.6vw, 40px);
+  border-color: rgba(255, 143, 31, 0.25);
+  background:
+    radial-gradient(80% 70% at 100% 0%, rgba(255, 143, 31, 0.38), transparent 60%),
+    radial-gradient(70% 60% at 0% 100%, rgba(255, 92, 134, 0.28), transparent 65%),
+    #231a14;
+  color: #fff7ee;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 34px 70px -34px rgba(120, 40, 10, 0.6);
+}
+
+.sv-local__card--model::after {
+  height: 4px;
+  opacity: 1;
+}
+
+.sv-local__card--model .sv-local__icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: auto;
+  padding: 13px;
+  border-radius: 18px;
+}
+
+.sv-local__card--model h3 {
+  margin-top: 28px;
+  font-size: clamp(26px, 3vw, 34px);
+}
+
+.sv-local__card--model p {
+  max-width: 46ch;
+  color: rgba(255, 247, 238, 0.74);
+}
+
+.sv-local__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sv-local__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 14px 12px;
+  border: 1px solid rgba(255, 247, 238, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 247, 238, 0.06);
+}
+
+.sv-local__num {
+  font-family: var(--sv-mono);
+  font-size: clamp(32px, 4.4vw, 48px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  background: var(--sv-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sv-local__num small {
+  margin-left: 2px;
+  font-size: 0.42em;
+  letter-spacing: 0;
+}
+
+.sv-local__label {
+  font-family: var(--sv-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 247, 238, 0.6);
+}
+
+/* Lisans: varsayılan kapalı akordeon. */
+.sv-license {
+  margin-top: 16px;
+  padding: 0;
+  overflow: hidden;
+  border-color: rgba(255, 143, 31, 0.35);
+  background: linear-gradient(180deg, #fff8ef 0%, var(--sv-card) 100%);
+}
+
+.sv-license__title {
+  margin: 0;
+  font-size: inherit;
+}
+
+.sv-license__toggle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 48px;
+  padding: 20px clamp(20px, 3vw, 28px);
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sv-license__toggle:focus-visible {
+  outline: 3px solid var(--sv-orange);
+  outline-offset: -3px;
+  border-radius: 28px;
+}
+
+.sv-license__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+  border-radius: 14px;
+  background: #fff1e2;
+  color: #c2410c;
+}
+
+.sv-license__head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sv-license__name {
   font-size: 20px;
   font-weight: 800;
 }
 
-.sv-license ul {
-  margin: 0;
-  padding-left: 20px;
-  display: grid;
-  gap: 8px;
-  color: var(--sv-ink-2);
+.sv-license__tag {
+  color: #b4530a;
+  font-size: 12px;
 }
 
-.sv-license strong {
+.sv-license__chev {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(35, 26, 20, 0.05);
+  color: var(--sv-ink-2);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.sv-license__toggle:hover .sv-license__chev {
+  background: #fff1e2;
+  color: #c2410c;
+}
+
+.sv-license.is-open .sv-license__chev {
+  transform: rotate(180deg);
+}
+
+.sv-license__body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 4px clamp(20px, 3vw, 28px) clamp(20px, 3vw, 28px);
+  list-style: none;
+}
+
+.sv-license__body[hidden] {
+  display: none;
+}
+
+.sv-license__body li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--sv-line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.sv-license__body p {
+  margin: 0;
+  color: var(--sv-ink-2);
+  font-size: 15px;
+}
+
+.sv-license__body strong {
   color: var(--sv-ink);
+}
+
+.sv-license__dot {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.sv-license__dot--ok {
+  background: #e6f6ec;
+  color: #15803d;
+}
+
+.sv-license__dot--no {
+  background: #fde8ec;
+  color: #be123c;
+}
+
+.sv-license__dot--src {
+  background: #fff1e2;
+  color: #c2410c;
+}
+
+.sv-license__dot--dep {
+  background: #f1eafe;
+  color: var(--sv-violet);
 }
 
 /* ---------- kurulum / CTA ---------- */
@@ -680,6 +954,27 @@
   .sv-tts__foot {
     flex-wrap: wrap;
   }
+
+  .sv-local .sv-local__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sv-local__card--model {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .sv-local__card--model h3 {
+    margin-top: 18px;
+  }
+
+  .sv-local__stat {
+    padding: 12px 10px 10px;
+  }
+
+  .sv-license__body {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- hareket azaltma ---------- */
@@ -694,6 +989,16 @@
   }
 
   .sv-btn:hover {
+    transform: none;
+  }
+
+  .sv-local__card,
+  .sv-local__card::after,
+  .sv-license__chev {
+    transition: none;
+  }
+
+  .sv-local__card:hover {
     transform: none;
   }
 }

@@ -309,6 +309,96 @@ const LOCAL = [
   { k: 'Güçlü model', v: 'OpenBMB VoxCPM2: 2 milyar parametre, Türkçe dahil 30 dil, 48 kHz çıktı. GPU zorunlu değil; donanımına göre bekleyebilirsin.' }
 ];
 
+// "Neden yerel" sunumu: metinler LOCAL'da kalır; burada yalnız ikon ve vurgu eşlemesi var.
+const LOCAL_ICON = { 'Bulut yok': 'cloudOff', 'Hesap ve ücret yok': 'key', 'Güçlü model': 'chip' };
+// LOCAL'daki model cümlesinden türetilmiş görsel sayılar (paragraf zaten aynısını söylüyor; ekran okuyucudan gizli).
+const MODEL_STATS = [
+  { n: '2', u: 'B', l: 'parametre' },
+  { n: '30', l: 'dil' },
+  { n: '48', u: 'kHz', l: 'çıktı' }
+];
+
+// Basit çizgi ikonlar (24×24, stroke = currentColor).
+const LOCAL_GLYPHS = {
+  cloudOff: ['M7.5 18.5h9.25a4.25 4.25 0 0 0 .6-8.46A6 6 0 0 0 6.1 11a3.75 3.75 0 0 0 1.4 7.5Z', 'M4 4l16 16'],
+  key: ['M12.8 11.2 20 4', 'M17.5 6.5l2 2', 'M15 9l1.8 1.8', 'M8 21a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Z'],
+  chip: ['M8 5h8a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z', 'M9.5 9.5h5v5h-5z', 'M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3'],
+  doc: ['M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z', 'M14 3v5h5', 'M9 13h6M9 17h4'],
+  check: ['M5 12.5l4.5 4.5L19 7'],
+  cross: ['M7 7l10 10M17 7 7 17'],
+  eye: ['M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z', 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z'],
+  box: ['M12 3 3.5 7.5v9L12 21l8.5-4.5v-9L12 3Z', 'M3.5 7.5 12 12l8.5-4.5', 'M12 12v9'],
+  chevron: ['M6 9l6 6 6-6']
+};
+
+function LocalGlyph({ name }) {
+  return (
+    <svg className="sv-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+      {LOCAL_GLYPHS[name].map((d) => (
+        <path key={d} d={d} />
+      ))}
+    </svg>
+  );
+}
+
+// "Lisans, açıkça": varsayılan kapalı, tıkla-aç (DevelopmentMap legend deseni: aria-expanded + hidden).
+function LocalLicense({ reduce }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <Rise reduce={reduce} className={`sv-card sv-license${open ? ' is-open' : ''}`}>
+      {/* WAI accordion deseni: başlık > düğme (h3 düğmenin içine konamaz). */}
+      <h3 className="sv-license__title">
+        <button type="button" className="sv-license__toggle" aria-expanded={open} aria-controls="sv-license-body" onClick={() => setOpen((v) => !v)}>
+          <span className="sv-license__icon">
+            <LocalGlyph name="doc" />
+          </span>
+          <span className="sv-license__head">
+            <span className="sv-license__name">Lisans, açıkça</span>
+            <span className="sv-mono sv-license__tag">PolyForm Noncommercial 1.0.0</span>
+          </span>
+          <span className="sv-license__chev">
+            <LocalGlyph name="chevron" />
+          </span>
+        </button>
+      </h3>
+      <ul id="sv-license-body" className="sv-license__body" hidden={!open}>
+        <li>
+          <span className="sv-license__dot sv-license__dot--ok">
+            <LocalGlyph name="check" />
+          </span>
+          <p>
+            <strong>SesVer'in kodu</strong> <span className="sv-mono">PolyForm Noncommercial 1.0.0</span> lisanslıdır. Kişisel
+            kullanım, inceleme, eğitim, araştırma ve değiştirme serbesttir.
+          </p>
+        </li>
+        <li>
+          <span className="sv-license__dot sv-license__dot--no">
+            <LocalGlyph name="cross" />
+          </span>
+          <p>
+            <strong>Ticari kullanım ve yeniden satış izinli değildir.</strong> Ticari bir ürüne ya da servise dahil etmek için
+            HamaratLabs'ten ayrıca izin gerekir.
+          </p>
+        </li>
+        <li>
+          <span className="sv-license__dot sv-license__dot--src">
+            <LocalGlyph name="eye" />
+          </span>
+          <p>Kaynak kodu açık ve incelenebilir; ancak bu lisans OSI tanımlı bir “open source” lisansı değildir.</p>
+        </li>
+        <li>
+          <span className="sv-license__dot sv-license__dot--dep">
+            <LocalGlyph name="box" />
+          </span>
+          <p>
+            <strong>VoxCPM2 modeli</strong> ve OpenBMB/VoxCPM kodu ayrı bir bağımlılıktır ve kendi Apache-2.0 lisansı altındadır.
+          </p>
+        </li>
+      </ul>
+    </Rise>
+  );
+}
+
 export default function SesVerSite() {
   const reduce = useReducedMotion();
 
@@ -362,32 +452,38 @@ export default function SesVerSite() {
             <h2 className="sv-h2">Sesin, bilgisayarından çıkmaz.</h2>
           </Rise>
           <div className="sv-local__grid">
-            {LOCAL.map((f, i) => (
-              <Rise key={f.k} reduce={reduce} delay={i * 0.08} className="sv-card sv-feature">
-                <h3>{f.k}</h3>
-                <p>{f.v}</p>
-              </Rise>
-            ))}
+            {LOCAL.map((f, i) => {
+              const isModel = f.k === 'Güçlü model';
+              return (
+                <Rise
+                  key={f.k}
+                  reduce={reduce}
+                  delay={i * 0.08}
+                  className={`sv-card sv-local__card${isModel ? ' sv-local__card--model' : ''}`}
+                >
+                  <span className="sv-local__icon">
+                    <LocalGlyph name={LOCAL_ICON[f.k]} />
+                  </span>
+                  <h3>{f.k}</h3>
+                  <p>{f.v}</p>
+                  {isModel && (
+                    <div className="sv-local__stats" aria-hidden="true">
+                      {MODEL_STATS.map((s) => (
+                        <div key={s.l} className="sv-local__stat">
+                          <span className="sv-local__num">
+                            {s.n}
+                            {s.u && <small>{s.u}</small>}
+                          </span>
+                          <span className="sv-local__label">{s.l}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </Rise>
+              );
+            })}
           </div>
-          <Rise reduce={reduce} className="sv-card sv-license">
-            <h3>Lisans, açıkça</h3>
-            <ul>
-              <li>
-                <strong>SesVer'in kodu</strong> <span className="sv-mono">PolyForm Noncommercial 1.0.0</span> lisanslıdır. Kişisel
-                kullanım, inceleme, eğitim, araştırma ve değiştirme serbesttir.
-              </li>
-              <li>
-                <strong>Ticari kullanım ve yeniden satış izinli değildir.</strong> Ticari bir ürüne ya da servise dahil etmek için
-                HamaratLabs'ten ayrıca izin gerekir.
-              </li>
-              <li>
-                Kaynak kodu açık ve incelenebilir; ancak bu lisans OSI tanımlı bir “open source” lisansı değildir.
-              </li>
-              <li>
-                <strong>VoxCPM2 modeli</strong> ve OpenBMB/VoxCPM kodu ayrı bir bağımlılıktır ve kendi Apache-2.0 lisansı altındadır.
-              </li>
-            </ul>
-          </Rise>
+          <LocalLicense reduce={reduce} />
         </section>
 
         <section id="kur" className="sv-cta">
