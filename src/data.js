@@ -99,10 +99,10 @@ export const APPS = [
     platform: '[PLATFORM]'
   },
   {
-    name: 'Nostaljik Dikenler',
-    stage: 'idea',
-    short: 'Siyah-beyaz, dikenlerden kaçan ilk prototip',
-    lead: 'Tavandaki dikenlerden kaçarken yukarı çıkan platformların arasından geçmeye çalıştığın, nostaljik, tamamen siyah-beyaz bir arcade denemesi.',
+    name: 'Düşen Top',
+    stage: 'beta',
+    short: 'Siyah-beyaz, dikenlerden kaçan nostaljik arcade oyunu',
+    lead: 'Tavandaki dikenlerden kaçarken yukarı çıkan platformların arasından geçmeye çalıştığın, nostaljik, tamamen siyah-beyaz bir arcade oyunu.',
     points: ['Sol/sağ ok tuşuyla kontrol', 'Zamanla hızlanan zorluk', 'Tek ekran, tarayıcıda oynanır'],
     platform: 'TARAYICI',
     // Tek sayfalık statik oyun (p5.js, build gerektirmez) — public/'ten doğrudan servis edilir.
