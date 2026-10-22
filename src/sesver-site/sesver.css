@@ -648,8 +648,15 @@
 }
 
 .sv-foot__maker {
-  font-family: var(--sv-mono);
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
+}
+
+.sv-foot__maker img {
+  height: 18px;
+  width: auto;
+  display: block;
 }
 
 /* ---------- mobil (390×844) ---------- */

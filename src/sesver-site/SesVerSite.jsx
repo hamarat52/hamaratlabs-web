@@ -424,7 +424,9 @@ export default function SesVerSite() {
 
       <footer className="sv-foot">
         <span>SesVer · © HamaratLabs</span>
-        <Link to="/" className="sv-foot__maker">hamaratlabs</Link>
+        <Link to="/" className="sv-foot__maker">
+          <img src={asset('/brand/hamaratlabs-logo-main.svg')} alt="hamaratlabs" width="1328" height="220" />
+        </Link>
       </footer>
     </div>
   );
