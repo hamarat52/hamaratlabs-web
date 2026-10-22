@@ -117,7 +117,8 @@ const JUICE = {
   squash: true,      // her platform teması: 1 karelik yaylanma (karar #1)
   hudGrow: true,     // momentum çarpanı skor yazısını büyütür/kalınlaştırır (karar #3)
   stageUp: true,     // Faz 6: aşama girişi - sönen açık ton flaşı (ölüm invert flaşından ayrı)
-  skipBonus: true    // Faz 7: altın ghost izi + skip flaşı/sarsıntısı/hitstop'u (puan/çarpan bundan bağımsız)
+  skipBonus: true,   // Faz 7: altın ghost izi + skip flaşı/sarsıntısı/hitstop'u (puan/çarpan bundan bağımsız)
+  buffFx: true       // Faz 9: eşya toplama patlaması + Aegis halkası + Nitro alev izi (etkiler bundan bağımsız)
 };
 // Donma kare sınırında biter: gerçek süre = HITSTOP_MS'i ilk aşan kare toplamı.
 // 40ms -> 60Hz'de 3 kare (~50ms), 120Hz'de 5 kare (~42ms), 144Hz'de 6 kare (~42ms):
@@ -163,6 +164,7 @@ const SOUND = {
   stageUp: true,     // Faz 6: aşama girişi chime (triangle)
   spikeWarn: true,   // Faz 6: inen diken telegraph ratchet (noise)
   skip: true,        // Faz 7: whoosh (triangle) + dolgun iniş (triangle) + skip cue (pulse1)
+  pickup: true,      // Faz 9: toplama arpeji (pulse1) + bitiş tik'i (pulse1) + kalkan kırılması (triangle)
   mute: false,
   masterVolume: 0.5,
   debugLog: false    // true: her ses olayı konsola da yazılır (soundLog dizisi her zaman dolar)
@@ -269,6 +271,44 @@ const EDGE_INSET = 4;              // Kenar Trampleni: ekran kenarından x≈4
 const EDGE_W_MIN = 45;
 const EDGE_W_MAX = 60;
 
+// --- Faz 9: iki yönlü eşyalar (rapor §3, TASARIM.md §10.3 — YALNIZ 2 eşya: Aegis + Nitro) ---
+// Doğma şansı Mario Kart rubber-banding'i: çarpan <= PICKUP_RUBBER_LOW_MULT ise chanceLow,
+// >= PICKUP_RUBBER_HIGH_MULT ise chanceHigh, arada chanceBase. Satır başına TEK zar (bkz.
+// rollPickupType): tipler PICKUP_ORDER sırasıyla birikimli aralıklara bölünür -> her tipin
+// gözlenen oranı kendi şansına eşit. Yeni tip (Chrono/Gülle/Nano) = buraya bir giriş + etki kancası.
+const PICKUP_DEFS = {
+  aegis: { minStage: 1, chanceBase: 0.15, chanceLow: 0.25, chanceHigh: 0.08, durationS: 12 },
+  nitro: { minStage: 2, chanceBase: 0.25, chanceLow: 0.15, chanceHigh: 0.35, durationS: 4.5 }
+};
+const PICKUP_ORDER = ['aegis', 'nitro'];
+const PICKUP_RUBBER_LOW_MULT = 2;   // çarpan <= 2: "zorlanan" oyuncu
+const PICKUP_RUBBER_HIGH_MULT = 4;  // çarpan >= 4: "zirvedeki" oyuncu
+const PICKUP_SIZE = 16;             // dünyadaki eşyanın kare hitbox'ı = görselin sınır kutusu (px; top çapı 24)
+const PICKUP_GAP_PX = 3;            // eşya alt kenarı ile platform üstü arası boşluk (10px'te de 3px idi)
+const PICKUP_FLOAT_PX = PICKUP_SIZE / 2 + PICKUP_GAP_PX; // merkez platform üstünden yukarıda (16px -> 11; eski 10px -> 8)
+const PICKUP_BOB_PX = 2;            // ±2px dikey salınım (yalnız görsel, hitbox sabit)
+const PICKUP_BOB_PERIOD_S = 1.2;
+const PICKUP_SPIKE_CLEAR_Y = SPIKE_STRIP_H + PULSE_DROP_PX; // eşya bu y'nin üstüne çıkınca kaybolur (diken bölgesi)
+const AEGIS_PUSH_VY = 250;          // diken kurtarması: güvenli aşağı itme (px/sn, rapor §3.4)
+const AEGIS_FELL_VY = 550;          // düşüş kurtarması: yukarı sekme; tepe = 550²/(2*1500) ≈ 101px ≈ 1 satır
+                                    // (rapordaki 250 px/sn yalnız ~21px yükseltir -> ekrandan geri düşerdi)
+const AEGIS_GRACE_S = 1.0;          // kırılma sonrası dokunulmazlık (ölüm yerine tekrar kurtarma)
+const AEGIS_RING_R = BALL_R + 4;    // topun etrafındaki halka yarıçapı
+const NITRO_SPEED_MULT = 1.6;       // buff: yatay hız 230 -> 368 px/sn (MOVE_SPEED sabiti değişmez)
+const NITRO_SCORE_FACTOR = 0.5;     // debuff: puan kazanımı (mesafe skoru + skip bonusu) x0.5
+const NITRO_TRAIL_EVERY_S = 0.02;   // alev izi parçacık aralığı (mevcut debris dizisi; 50 parçacık/sn)
+const NITRO_TRAIL_SIZE = 4;         // iz parçacığı kenarı (px; normal debris 2px)
+const NITRO_TRAIL_LIFE_S = DEBRIS_LIFE_S; // 0.25sn ömür -> ekranda ~12 parçacık
+const BUFF_WARN_S = 1.5;            // Pac-Man telegraph: bitişe 1.5sn kala
+const BUFF_WARN_HZ = 8;             // 8Hz flaş (periyot 0.125sn: 1/16sn açık + 1/16sn kapalı)
+const BUFF_TICK_HZ = 4;             // uyarı sesi: 4Hz tik (1.5sn'de 6 vuruş, sonuncusu pes "tak")
+const BUFF_TICK_MIDI = 84;          // C6 kısa kare dalga tik (pulse1)
+const BUFF_TOCK_MIDI = 72;          // C5 son vuruş "tak"
+const BUFF_TICK_S = 0.02;
+const PICKUP_ARP_MIDI = { aegis: [72, 76, 79], nitro: [79, 83, 86] }; // C5 E5 G5 / G5 B5 D6 (rapor §3.5)
+const PICKUP_ARP_NOTE_S = 0.025;
+const PICKUP_LOG_MAX = 200;
+
 // --- Faz 4 juice durumu (resetJuice() ile sıfırlanır; çekirdek durumdan bağımsız) ---
 let hitstopMs = 0;        // kalan donma süresi (ms)
 let shakeAmp = 0;         // başlangıç genliği (px); 0 = sarsıntı yok
@@ -332,6 +372,15 @@ let skipLog = [];          // skipRow / skipLanding olay günlüğü (test/debug
 let skipDebugLog = false;  // true: skipLog olayları konsola da yazılır
 // Faz 8: desen sayaçları (resetGame() -> resetRowPatternStats(); test/debug)
 let rowPatternStats = null; // { requested: [_,1..4], actual: [_,1..4], fallbacks }
+// Faz 9: eşya durumu (resetGame() -> resetPickups() ile sıfırlanır)
+let activeBuff = null;    // null | { type: 'aegis'|'nitro', t, durationS, warn, flashOn, lastTick }
+let pickup = null;        // ekrandaki TEK eşya: null | { id, type, x, y, plat, t }
+let nextPickupId = 1;     // eşyalara ayrı sayaç (nextPlatformId ile PAYLAŞILMAZ)
+let aegisGraceS = 0;      // kalkan kırıldıktan sonra kalan dokunulmazlık (sn)
+let nitroTrailT = 0;
+let pickupStats = null;   // { rolls, spawned, collected, missed, expired, aegisAbsorbs, graceSaves }
+let pickupLog = [];       // eşya olay günlüğü (test/debug, koşular arası korunur)
+let pickupDebugLog = false; // true: pickupLog olayları konsola da yazılır
 // Mobil dokunmatik: ekranın sol yarısı = sola, sağ yarısı = sağa (basılı tuttukça).
 // Çoklu dokunuş: EN SON basılan ve hâlâ basılı olan parmak kazanır (sağa geçerken
 // sol parmak henüz kalkmamış olsa bile top durmaz; o parmak kalkınca öncekine döner).
@@ -381,6 +430,7 @@ function resetGame() {
   resetJuice();
   resetStages(); // Faz 6: her koşu aşama 0'dan başlar (kalıcı değil)
   resetAirtimeTracker(); // Faz 7
+  resetPickups(); // Faz 9: activeBuff + ekrandaki eşya + dokunulmazlık
   lastSkipResult = null;
   resetRowPatternStats(); // Faz 8
   touchHintMs = IS_TOUCH_DEVICE ? TOUCH_HINT_MS : 0; // mobil: her koşu başında kısa ipucu
@@ -1111,7 +1161,8 @@ function applyInvertFlash() {
 }
 
 // --- Piksel debris ---
-function spawnDebris(cx, cy) {
+// Faz 9: col (isteğe bağlı) -> parçacık rengi (yoksa drawDebris varsayılanı PAL.ballLight).
+function spawnDebris(cx, cy, col) {
   const n = DEBRIS_MIN + Math.floor(Math.random() * (DEBRIS_MAX - DEBRIS_MIN + 1));
   for (let i = 0; i < n; i++) {
     const side = i % 2 === 0 ? -1 : 1; // yarısı sola, yarısı sağa
@@ -1120,7 +1171,8 @@ function spawnDebris(cx, cy) {
       y: cy - DEBRIS_SIZE,
       vx: side * (40 + Math.random() * 100),
       vy: -(60 + Math.random() * 100),
-      life: DEBRIS_LIFE_S
+      life: DEBRIS_LIFE_S,
+      col: col
     });
   }
 }
@@ -1131,7 +1183,8 @@ function drawDebris() {
   // Faz 6: iniş tozu top parlak tonunda; kırık platform/pulse tozu kendi rengini taşır (d.col).
   for (const d of debris) {
     fill(d.col || PAL.ballLight);
-    rect(Math.round(d.x), Math.round(d.y), DEBRIS_SIZE, DEBRIS_SIZE);
+    const s = d.size || DEBRIS_SIZE; // Faz 9: nitro izi daha büyük parçacık taşır
+    rect(Math.round(d.x - (s - DEBRIS_SIZE) / 2), Math.round(d.y - (s - DEBRIS_SIZE) / 2), s, s);
   }
 }
 
@@ -1672,6 +1725,66 @@ function sfxSkipCue(tier) {
   playSfx('skipCue', 'pulse1', (ctx, dest, t) => buildSkipCue(ctx, dest, t, tier));
 }
 
+// Faz 9 (ayrı olay adları: 'pickup' / 'buffTick' / 'aegisBreak'; yeni kanal yok).
+// Toplama: square 3 nota yükselen arpej (Aegis C5 E5 G5, Nitro G5 B5 D6), nota başı 25ms.
+function buildPickupArp(ctx, dest, t, type) {
+  const midis = PICKUP_ARP_MIDI[type];
+  const osc = ctx.createOscillator();
+  osc.type = 'square';
+  const env = ctx.createGain();
+  env.gain.setValueAtTime(0, t);
+  const freqs = [];
+  for (let i = 0; i < midis.length; i++) {
+    const ns = t + i * PICKUP_ARP_NOTE_S;
+    const f = midiToHz(midis[i]);
+    freqs.push(+f.toFixed(2));
+    osc.frequency.setValueAtTime(f, ns);
+    env.gain.setValueAtTime(0, ns);
+    env.gain.linearRampToValueAtTime(0.8, ns + 0.002);
+    env.gain.setValueAtTime(0.8, ns + PICKUP_ARP_NOTE_S - 0.004);
+    env.gain.linearRampToValueAtTime(0, ns + PICKUP_ARP_NOTE_S);
+  }
+  const end = t + midis.length * PICKUP_ARP_NOTE_S;
+  osc.connect(env).connect(dest);
+  osc.start(t);
+  osc.stop(end + 0.01);
+  cleanupOnEnded(osc, [osc, env]);
+  return { node: osc, type: osc.type, item: type, freqs: freqs, gainStart: t, gainEnd: end, stopAt: end + 0.01 };
+}
+
+// Telegraph tik'i: square 20ms tek nota (C6), son vuruş pes (C5) "tak".
+function buildBuffTick(ctx, dest, t, last) {
+  const osc = ctx.createOscillator();
+  osc.type = 'square';
+  const f = midiToHz(last ? BUFF_TOCK_MIDI : BUFF_TICK_MIDI);
+  osc.frequency.setValueAtTime(f, t);
+  const env = ctx.createGain();
+  env.gain.setValueAtTime(0, t);
+  env.gain.linearRampToValueAtTime(0.7, t + 0.002);
+  env.gain.linearRampToValueAtTime(0, t + BUFF_TICK_S);
+  osc.connect(env).connect(dest);
+  osc.start(t);
+  osc.stop(t + BUFF_TICK_S + 0.01);
+  cleanupOnEnded(osc, [osc, env]);
+  return { node: osc, type: osc.type, freq: +f.toFixed(2), last: !!last, gainStart: t, gainEnd: t + BUFF_TICK_S };
+}
+
+function sfxPickup(type) {
+  if (!SOUND.pickup) return;
+  playSfx('pickup', 'pulse1', (ctx, dest, t) => buildPickupArp(ctx, dest, t, type));
+}
+
+function sfxBuffTick(last) {
+  if (!SOUND.pickup) return;
+  playSfx('buffTick', 'pulse1', (ctx, dest, t) => buildBuffTick(ctx, dest, t, last));
+}
+
+// Kalkan kırılması: Faz 7'nin dolgun iniş gövdesi (triangle, tanh distorsiyon) yeniden kullanılır.
+function sfxAegisBreak() {
+  if (!SOUND.pickup) return;
+  playSfx('aegisBreak', 'triangle', buildSkipThud);
+}
+
 function cutMusicNow(t) {
   const stopped = musicVoices.length;
   for (const v of musicVoices) {
@@ -1752,14 +1865,18 @@ function updateGame() {
     speedTimer = 0;
   }
   updateStage(); // Faz 6: eşik geçildiyse tek seferlik stageUp cue
+  updateActiveBuff(dt); // Faz 9: süre/telegraph/dokunulmazlık (hız ve skor faktörü bundan okunur)
   // --- Skor: dünyanın toplam yukarı kaydırma mesafesi x momentum çarpanı ---
-  score += scrollSpeed * dt * multiplier;
+  // Faz 9: Nitro aktifken getScoreFactor() = NITRO_SCORE_FACTOR (debuff), aksi halde tam 1.
+  score += scrollSpeed * dt * multiplier * getScoreFactor();
 
   // --- Yatay kontrol (SADECE sol/sağ, dikey tamamen otomatik) ---
+  // Faz 9: MOVE_SPEED sabit kalır; Nitro geçici çarpanı getMoveSpeedMult() ile uygulanır.
+  const moveSpeed = MOVE_SPEED * getMoveSpeedMult();
   let vx = 0;
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) vx -= MOVE_SPEED;  // A
-  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) vx += MOVE_SPEED; // D
-  if (vx === 0) vx = touchDir * MOVE_SPEED; // mobil dokunmatik (klavyeye ek)
+  if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) vx -= moveSpeed;  // A
+  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) vx += moveSpeed; // D
+  if (vx === 0) vx = touchDir * moveSpeed; // mobil dokunmatik (klavyeye ek)
   ball.vx = vx;
   // Diken gövdesinden gelen itme darbesi kısa sürede söner.
   ball.x += (ball.vx + ball.pushVx) * dt;
@@ -1836,8 +1953,12 @@ function updateGame() {
     }
     while (lastSpawnY < CANVAS_H + ROW_GAP_BASE) {
       last = spawnRow(last.baseX, last.w, false, last);
+      maybeSpawnPickup(last); // Faz 9: satır ÜRETİLDİKTEN sonra zar (spawnRow'un random() dizisine girmez)
     }
   }
+
+  // --- Faz 9: ekrandaki eşya (platformu takip, toplama, kaybolma) — ölüm kontrollerinden ÖNCE ---
+  updatePickup(dt);
 
   // --- Faz 6 aşama 3: inen diken pulse (pulse yapan uçların konumu hitbox'a da yansır) ---
   updatePulse(dt);
@@ -1858,6 +1979,8 @@ function updateGame() {
 }
 
 function triggerGameOver(cause) {
+  // Faz 9: Aegis kalkanı (ya da kırılma sonrası dokunulmazlık) ölümü emer -> oyun sürer.
+  if (tryAegisAbsorb(cause)) return;
   deathCause = cause || null;
   gameState = 'gameover';
   juiceOnDeath(); // Faz 4: kozmetik
@@ -2106,7 +2229,8 @@ function applySkipBonus(skips) {
   if (tier === 2) multiplier = Math.min(multiplier + 1, MAX_MULTIPLIER);
   else if (tier === 3) multiplier = MAX_MULTIPLIER;
   // tier 1: çarpan KORUNUR (düşürülmez)
-  const bonus = SKIP_BONUS_BASE[tier] * multiplier;
+  // Faz 9: Nitro debuff'ı yalnız PUANI yarılar (getScoreFactor); çarpan kuralları aynen.
+  const bonus = SKIP_BONUS_BASE[tier] * multiplier * getScoreFactor();
   score += bonus;
   lastSkipResult = { skips: skips, tier: tier, bonus: bonus, multBefore: multBefore, multiplier: multiplier };
   logSkip('skipLanding', lastSkipResult);
@@ -2123,14 +2247,319 @@ function juiceOnSkipLanding(tier) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Faz 9: iki yönlü eşyalar — TASARIM.md §10.3, rapor §3 (YALNIZ Aegis + Nitro)
+// - Ekranda en fazla 1 eşya (`pickup`), en fazla 1 etkin güç (`activeBuff`). Biri etkinken yeni
+//   eşya doğmaz; ekrandaki eşya varken yeni zar atılmaz. (Yeni tipler: PICKUP_DEFS + etki kancası.)
+// - Zar satır ÜRETİLDİKTEN sonra (updateGame döngüsü, spawnRow'un DIŞINDA) Math.random() ile
+//   atılır: p5 random() dizisi (desen/geometri) bu fazdan etkilenmez, randomSeed'li üretim birebir.
+// - Süreler oyun saatiyle (updateGame dt'si): hitstop/game over sırasında akmaz.
+// ---------------------------------------------------------------------------
+function resetPickups() {
+  activeBuff = null;
+  pickup = null;
+  aegisGraceS = 0;
+  nitroTrailT = 0;
+  pickupStats = { rolls: 0, spawned: { aegis: 0, nitro: 0 }, onRisk: 0, collected: { aegis: 0, nitro: 0 },
+                  missed: 0, expired: { aegis: 0, nitro: 0 }, aegisAbsorbs: 0, graceSaves: 0 };
+}
+
+function logPickup(event, data) {
+  const entry = Object.assign({ event: event, stage: getStage(), elapsedS: +getDifficultyElapsedS().toFixed(3) }, data);
+  pickupLog.push(entry);
+  if (pickupLog.length > PICKUP_LOG_MAX) pickupLog.shift();
+  if (pickupDebugLog) console.log('[eşya]', JSON.stringify(entry));
+}
+
+// Rubber-banding: çarpan düşükse/yüksekse sabit şans kademeleri (ara değer yok, test edilebilir).
+function getPickupChance(type, mult) {
+  const d = PICKUP_DEFS[type];
+  if (mult <= PICKUP_RUBBER_LOW_MULT) return d.chanceLow;
+  if (mult >= PICKUP_RUBBER_HIGH_MULT) return d.chanceHigh;
+  return d.chanceBase;
+}
+
+// Tek zar r ∈ [0,1): aşamaya açık tipler birikimli aralıklara bölünür. Saf fonksiyon (test için).
+// Örn. aşama 2, çarpan 5: [0, 0.08) aegis, [0.08, 0.43) nitro, kalan boş.
+function rollPickupType(stageNow, mult, r) {
+  let cum = 0;
+  for (const type of PICKUP_ORDER) {
+    if (stageNow < PICKUP_DEFS[type].minStage) continue;
+    cum += getPickupChance(type, mult);
+    if (r < cum) return type;
+  }
+  return null;
+}
+
+function pickupsUnlocked(stageNow) {
+  return PICKUP_ORDER.some(type => stageNow >= PICKUP_DEFS[type].minStage);
+}
+
+// Yeni üretilen satır için doğma zarı. Yer: satırda Risk Adası (isRiskSpot) varsa onun üstü,
+// yoksa anchor'ın üstü (anchor her zaman 0.75*X_reach içinde -> eşya daima ulaşılabilir).
+function maybeSpawnPickup(anchor) {
+  if (!anchor || pickup || activeBuff || !pickupStats || gameState !== 'playing') return null;
+  const st = getStage();
+  if (!pickupsUnlocked(st)) return null;
+  pickupStats.rolls++;
+  const type = rollPickupType(st, multiplier, Math.random());
+  if (!type) return null;
+  const risk = platforms.find(p => p.isRiskSpot && p.y === anchor.y && !p.broken);
+  const plat = risk || anchor;
+  pickup = { id: nextPickupId++, type: type, plat: plat, onRisk: !!risk,
+             x: plat.x + plat.w / 2, y: plat.y - PICKUP_FLOAT_PX, t: 0 };
+  pickupStats.spawned[type]++;
+  if (risk) pickupStats.onRisk++;
+  logPickup('spawn', { id: pickup.id, type: type, onRisk: !!risk, platformId: plat.id, mult: multiplier,
+                       chance: getPickupChance(type, multiplier), x: +pickup.x.toFixed(1), y: +pickup.y.toFixed(1) });
+  return pickup;
+}
+
+function pickupRect(pk) {
+  return { x: pk.x - PICKUP_SIZE / 2, y: pk.y - PICKUP_SIZE / 2, w: PICKUP_SIZE, h: PICKUP_SIZE };
+}
+
+// updateGame: platformlar kaydırılıp yeni satırlar üretildikten sonra, ölüm kontrollerinden önce.
+function updatePickup(dt) {
+  if (!pickup) return;
+  const pk = pickup;
+  pk.t += dt;
+  if (pk.plat && !pk.plat.broken) {
+    pk.x = pk.plat.x + pk.plat.w / 2; // hareketli platformu takip eder
+    pk.y = pk.plat.y - PICKUP_FLOAT_PX;
+  } else {
+    pk.plat = null;                   // platform kırıldı: eşya havada dünya ile kayar
+    pk.y -= scrollSpeed * dt;
+  }
+  if (circleTouchesRect(ball.x, ball.y, BALL_R, pickupRect(pk))) {
+    collectPickup();
+    return;
+  }
+  // Top dünyada asla yukarı çıkmaz: eşya topun üstünde kaldıysa artık ulaşılamaz. Diken bölgesine
+  // giren eşya da (dikenle çakışmasın) kaybolur. İkisinde de bir sonraki uygun satırda yeni zar.
+  if (pk.y - PICKUP_SIZE / 2 < PICKUP_SPIKE_CLEAR_Y) despawnPickup('spikeZone');
+  else if (pk.y + PICKUP_SIZE / 2 < ball.y - BALL_R) despawnPickup('passed');
+}
+
+function despawnPickup(reason) {
+  if (!pickup) return;
+  pickupStats.missed++;
+  logPickup('despawn', { id: pickup.id, type: pickup.type, reason: reason });
+  pickup = null;
+}
+
+function collectPickup() {
+  const pk = pickup;
+  if (!pk || activeBuff) return false; // tek etkin güç kuralı (ileride çoklu tip için tek kapı)
+  pickup = null;
+  pickupStats.collected[pk.type]++;
+  startBuff(pk.type);
+  logPickup('collect', { id: pk.id, type: pk.type, mult: multiplier, durationS: activeBuff.durationS });
+  juiceOnPickup(pk);
+  return true;
+}
+
+function startBuff(type) {
+  activeBuff = { type: type, t: 0, durationS: PICKUP_DEFS[type].durationS,
+                 warn: false, flashOn: true, lastTick: -1, ticks: 0 };
+  nitroTrailT = 0;
+}
+
+function endActiveBuff(reason) {
+  const b = activeBuff;
+  if (!b) return;
+  if (reason === 'expired') pickupStats.expired[b.type]++;
+  logPickup('buffEnd', { type: b.type, reason: reason, t: +b.t.toFixed(3), ticks: b.ticks });
+  activeBuff = null;
+  nitroTrailT = 0;
+}
+
+// updateGame başında (skor ve yatay hızdan önce) her kare.
+function updateActiveBuff(dt) {
+  if (aegisGraceS > 0) aegisGraceS = Math.max(0, aegisGraceS - dt);
+  const b = activeBuff;
+  if (!b) return;
+  b.t += dt;
+  const timeLeft = b.durationS - b.t;
+  if (timeLeft <= 0) {
+    endActiveBuff('expired');
+    return;
+  }
+  tickDownWarning(timeLeft, b);
+  if (b.type === 'nitro') updateNitroTrail(dt, b);
+}
+
+// Pac-Man "Telegraphing Expiration" (Aegis + Nitro ortak): son BUFF_WARN_S'de halka/iz 8Hz
+// yanıp söner (flashOn) ve 4Hz tik çalar; son vuruş pes "tak". Durum buff nesnesine yazılır.
+function tickDownWarning(timeLeft, buff) {
+  const warn = timeLeft <= BUFF_WARN_S;
+  if (!warn) {
+    buff.flashOn = true;
+    return { warn: false, flashOn: true };
+  }
+  const intoWarn = BUFF_WARN_S - timeLeft;
+  if (!buff.warn) {
+    buff.warn = true;
+    logPickup('buffWarn', { type: buff.type, timeLeft: +timeLeft.toFixed(3) });
+  }
+  buff.flashOn = Math.floor(intoWarn * BUFF_WARN_HZ * 2) % 2 === 0;
+  const tickIdx = Math.floor(intoWarn * BUFF_TICK_HZ);
+  if (tickIdx > buff.lastTick) {
+    buff.lastTick = tickIdx;
+    buff.ticks++;
+    sfxBuffTick(tickIdx >= Math.ceil(BUFF_WARN_S * BUFF_TICK_HZ) - 1); // son vuruş: "tak"
+  }
+  return { warn: true, flashOn: buff.flashOn };
+}
+
+// Nitro buff: yatay hız çarpanı. Debuff: puan faktörü. İkisi aynı state'ten (activeBuff) okunur,
+// süre bitince ikisi birlikte 1'e döner.
+function getMoveSpeedMult() {
+  return activeBuff && activeBuff.type === 'nitro' ? NITRO_SPEED_MULT : 1;
+}
+
+function getScoreFactor() {
+  return activeBuff && activeBuff.type === 'nitro' ? NITRO_SCORE_FACTOR : 1;
+}
+
+// Kalkan: ölüm anında kalkan kırılır, top güvenli yöne itilir, AEGIS_GRACE_S dokunulmazlık.
+// Dokunulmazlıkta gelen ölüm tetikleri de (kalkan harcamadan) aynı kurtarmayla emilir.
+function tryAegisAbsorb(cause) {
+  if (gameState !== 'playing' || !pickupStats) return false;
+  if (aegisGraceS > 0) {
+    pickupStats.graceSaves++;
+    logPickup('graceSave', { cause: cause, graceLeft: +aegisGraceS.toFixed(3) });
+    rescueBall(cause);
+    return true;
+  }
+  if (!activeBuff || activeBuff.type !== 'aegis') return false;
+  pickupStats.aegisAbsorbs++;
+  logPickup('aegisBreak', { cause: cause, timeLeft: +(activeBuff.durationS - activeBuff.t).toFixed(3) });
+  endActiveBuff('absorbed');
+  aegisGraceS = AEGIS_GRACE_S;
+  rescueBall(cause);
+  juiceOnAegisBreak();
+  return true;
+}
+
+// 'fell': ekran altından AEGIS_FELL_VY ile yukarı sektir (~1 satır aralığı yükselir, platform
+// alanına geri döner). Diken: topu üstünde durduğu platformun ALTINA ve diken bölgesinin altına
+// al, AEGIS_PUSH_VY ile aşağı it. İki durumda da havalanma takibi sıfırlanır: kurtarılan
+// düşüş/temas skip bonusu ya da kıl payı saymaz (airtimeTracker'ın kendi reset'i kullanılır).
+function rescueBall(cause) {
+  const plat = ball.grounded ? ball.currentPlatform : null;
+  ball.grounded = false;
+  ball.currentPlatform = null;
+  ball.pushVx = 0;
+  if (cause === 'fell') {
+    ball.y = CANVAS_H - BALL_R;
+    ball.vy = -AEGIS_FELL_VY;
+  } else {
+    let y = Math.max(ball.y, PICKUP_SPIKE_CLEAR_Y + SPIKE_KILL_DIST + 2);
+    if (plat) y = Math.max(y, plat.y + plat.h + BALL_R + 1);
+    ball.y = y;
+    ball.vy = AEGIS_PUSH_VY;
+  }
+  resetAirtimeTracker();
+  spikePasses.clear();
+}
+
+function juiceOnPickup(pk) {
+  sfxPickup(pk.type);
+  if (!JUICE.buffFx) return;
+  if (JUICE.debris) spawnDebris(pk.x, pk.y + PICKUP_SIZE / 2, pk.type === 'aegis' ? PAL.ballLight : PAL.spikeTip);
+  if (JUICE.hitstop) hitstopFramesLeft = Math.max(hitstopFramesLeft, 1); // rapor §3.5: 1 kare
+}
+
+function juiceOnAegisBreak() {
+  sfxAegisBreak();
+  if (!JUICE.buffFx) return;
+  if (JUICE.debris) spawnDebris(ball.x, ball.y, PAL.ballLight);
+  if (JUICE.shake) startShake(SHAKE_LANDING_PX * 2, 'vertical');
+}
+
+// Nitro alev izi: mevcut debris dizisine turuncu/kırmızı parçacık (yeni parçacık sistemi yok).
+function updateNitroTrail(dt, b) {
+  if (!JUICE.buffFx || !JUICE.debris) return;
+  nitroTrailT += dt;
+  while (nitroTrailT >= NITRO_TRAIL_EVERY_S) {
+    nitroTrailT -= NITRO_TRAIL_EVERY_S;
+    if (!b.flashOn) continue; // telegraph: iz de 8Hz ile kesilir
+    const dir = Math.sign(ball.vx);
+    debris.push({ x: ball.x - dir * BALL_R * 0.8 + (Math.random() - 0.5) * 4,
+                  y: ball.y + (dir === 0 ? BALL_R * 0.6 : (Math.random() - 0.5) * BALL_R),
+                  vx: -dir * (30 + Math.random() * 40), vy: -(10 + Math.random() * 30),
+                  life: NITRO_TRAIL_LIFE_S, size: NITRO_TRAIL_SIZE,
+                  col: Math.random() < 0.5 ? PAL.spikeTip : PAL.spikeMain });
+  }
+}
+
+// Dünyadaki eşya: Aegis = altın elmas (ballMain + ballLight çekirdek), Nitro = turuncu alev üçgeni
+// (spikeTip + ballMain çekirdek). Palette yeni renk yok (rapor §3.5). ±2px / 1.2sn salınım.
+function drawPickup() {
+  if (!pickup) return;
+  const pk = pickup;
+  const bob = Math.round(PICKUP_BOB_PX * Math.sin((2 * Math.PI * pk.t) / PICKUP_BOB_PERIOD_S));
+  const cx = Math.round(pk.x), cy = Math.round(pk.y) + bob;
+  const h = PICKUP_SIZE / 2;
+  noStroke();
+  fill(PAL.platShadow); // 1px gölge: platform üst kenarında (salınımdan bağımsız)
+  rect(cx - 5, Math.round(pk.y) + PICKUP_FLOAT_PX - 1, 10, 1);
+  if (pk.type === 'aegis') {
+    fill(PAL.ballMain);
+    quad(cx, cy - h, cx + h, cy, cx, cy + h, cx - h, cy);
+    fill(PAL.ballLight);
+    rect(cx - 2, cy - 2, 4, 4);
+  } else {
+    const flick = Math.floor(pk.t * 12) % 2; // alev titreşimi: uç 1px oynar
+    fill(PAL.spikeTip);
+    triangle(cx - h, cy + h, cx + h, cy + h, cx + (flick ? 1 : -1), cy - h);
+    fill(PAL.ballMain);
+    rect(cx - 2, cy + 1, 4, 5);
+  }
+}
+
+// Topun üstüne (drawBall'dan SONRA) güç göstergesi. Telegraph'ta flashOn=false kareleri çizilmez.
+function drawBuffFx() {
+  const b = activeBuff;
+  if (b && b.flashOn) {
+    const col = b.type === 'aegis' ? PAL.ballLight : PAL.spikeTip;
+    noFill();
+    stroke(col);
+    strokeWeight(1);
+    circle(ball.x, ball.y, AEGIS_RING_R * 2);
+    noStroke();
+    if (b.type === 'aegis') {
+      // rapor §3.4: topun etrafında dönen 2 adet 2x2 altın yörünge pikseli (1 tur/sn)
+      fill(PAL.ballLight);
+      const a = b.t * Math.PI * 2;
+      for (const off of [0, Math.PI]) {
+        rect(Math.round(ball.x + Math.cos(a + off) * AEGIS_RING_R) - 1,
+             Math.round(ball.y + Math.sin(a + off) * AEGIS_RING_R) - 1, 2, 2);
+      }
+    }
+  }
+  if (aegisGraceS > 0 && (frameCount >> 2) % 2 === 0) {
+    // kırılma sonrası dokunulmazlık: kesik halka göz kırpar (top gizlenmez: okunabilirlik)
+    fill(PAL.ballLight);
+    noStroke();
+    for (let k = 0; k < 8; k++) {
+      const a = (k / 8) * Math.PI * 2;
+      rect(Math.round(ball.x + Math.cos(a) * AEGIS_RING_R) - 1, Math.round(ball.y + Math.sin(a) * AEGIS_RING_R) - 1, 2, 2);
+    }
+  }
+}
+
 function drawWorld() {
   noStroke();
 
   // Platformlar (Faz 6 ramp: gövde ana, üst kenar parlak, alt kenar gölge)
   for (const p of platforms) drawPlatform(p);
+  drawPickup(); // Faz 9: dünyadaki eşya (platform üstünde)
 
   // Top (Faz 4: squash/stretch drawBall içinde)
   drawBall();
+  drawBuffFx(); // Faz 9: Aegis halkası / Nitro halkası + telegraph flaşı (drawBall'a dokunmadan üstüne)
 
   // Üstteki sabit diken şeridi - tepe noktası aşağı bakan üçgenler dizisi.
   drawPulseTelegraph();
