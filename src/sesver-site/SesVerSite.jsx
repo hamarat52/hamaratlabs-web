@@ -230,7 +230,7 @@ function TtsDemo({ reduce }) {
           <div className="sv-tts__foot">
             {/* key: ses değişince düğme yeniden kurulur; çalan kayıt durur, durum sıfırlanır. */}
             <AudioDemo key={voice.id} src={asset(voice.src)} label="Bu cümleyi dinle" />
-            <span className="sv-mono">WAV · 48 kHz</span>
+            <span className="sv-mono">MP3 · 48 kHz</span>
           </div>
         </div>
         <p className="sv-note">Gerçek SesVer çıktısı: üç hazır ses aynı cümleyi okuyor. Dalga ve kelime vurgusu görseldir.</p>
