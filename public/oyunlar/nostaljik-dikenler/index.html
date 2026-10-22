@@ -2,6 +2,8 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
+  <!-- Mobil: cihaz genişliği, pinch-zoom kapalı (oyun alanı tüm dokunuşları kullanır) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <title>Nostaljik Dikenler</title>
   <style>
     /* Sade siyah sayfa - canvas ortalanmış, nostaljik/sade his */
@@ -10,13 +12,34 @@
       padding: 0;
       background: #000;
       height: 100%;
+      overflow: hidden;
+      /* Mobil: kaydırma/pinch/çift dokunuş zoom/pull-to-refresh oyunla çakışmasın */
+      touch-action: none;
+      overscroll-behavior: none;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      height: 100dvh; /* mobilde adres çubuğu açık/kapalı gerçek görünür yükseklik */
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
     canvas {
       display: block;
+      touch-action: none;
+      /* Dar ekranda (ör. 390x844) 400x600 canvas taşmasın: oranı koruyarak küçül,
+         geniş ekranda doğal 400x600 boyutunda kal (p5'in inline px boyutunu ezer). */
+      width: auto !important;
+      height: auto !important;
+      max-width: 100vw;
+      max-height: 100vh;
+      max-height: 100dvh;
+      /* Faz 3: 1-bit dither ölçeklenirken griye bulanmasın (retina vb.) */
+      image-rendering: crisp-edges;
+      image-rendering: pixelated;
     }
   </style>
 </head>
