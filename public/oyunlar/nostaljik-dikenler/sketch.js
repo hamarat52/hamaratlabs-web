@@ -52,25 +52,62 @@ const BAY = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
 const DITHER_LV_MIN = 0.25; // başlangıç arkaplan yoğunluğu (açık ton #251c42 piksel oranı)
 const DITHER_LV_MAX = 0.50; // zorluk tavanındaki yoğunluk
 // Faz 6: enforceOneBit() eşikleme pası kaldırıldı (renkli palet); noSmooth() kalıyor.
-let ditherCache = new Map(); // Math.ceil(lv*16) -> önceden üretilmiş tam ekran p5.Image
-let patternCache = new Map(); // 'lv|hex' -> şeffaf zeminli Bayer desen (telegraph gölgesi)
+// Faz 10: anahtarlar renkleri de içerir ('lv|bgLo|bgHi' / 'lv|hex'); tema geçişinde her kare
+// yeni renk çıkabildiği için ikisi de LRU ile sınırlıdır (bkz. cacheSetLRU).
+let ditherCache = new Map(); // 'ceil(lv*16)|bgLo|bgHi' -> tam ekran p5.Image (opak)
+let patternCache = new Map(); // 'ceil(lv*16)|hex' -> şeffaf zeminli Bayer desen (telegraph/ghost)
+const DITHER_CACHE_MAX = 6;
+const PATTERN_CACHE_MAX = 12;
 
 // --- Sabitler (Faz 6: renk paleti, TASARIM.md §9.1 — hex değerleri BİREBİR) ---
 // Ramp: gölge maviye/mora, parlak sarıya/turuncuya kayar. Toplam 12 renk.
-const PAL = {
-  bgLo: '#140f24',        // arkaplan dither biti 0 (gölge)
-  bgHi: '#251c42',        // arkaplan dither biti 1 (orta)
-  ballShadow: '#8a6a1f',  // top gölge
-  ballMain: '#f2c14e',    // top ana
-  ballLight: '#fff3c4',   // top parlak
-  platShadow: '#2b3350',  // platform gölge
-  platMain: '#4e5b82',    // platform ana
-  platLight: '#8fa1c7',   // platform parlak
-  spikeShadow: '#4a0e0e', // diken gövdesi gölge
-  spikeMain: '#c81d25',   // diken gövdesi ana
-  spikeTip: '#ff6a3d',    // diken UCU (ölümcül, en parlak/en sıcak)
-  hud: '#f2ead1'          // HUD/skor metni
-};
+// Faz 10 (TASARIM.md §11.3): skor bazlı tema. 4 sabit palet (ham, hiç mutasyona uğramaz);
+// tema 0 = Faz 6 PAL'ı BİREBİR. ballShadow/ballMain/ballLight, spikeTip, hud TÜM temalarda
+// aynı (okunabilirlik ilkesi §9.1). Tema indeksi = min(floor(score/1000), 3) — YALNIZ görsel;
+// zaman bazlı stage-gate (§9.2) ve mekanik zorlukla hiçbir bağı yok.
+const THEME_PALETTES = [
+  { // 0 - Gece (0-999, mevcut PAL ile BİREBİR aynı)
+    bgLo:'#140f24', bgHi:'#251c42',
+    ballShadow:'#8a6a1f', ballMain:'#f2c14e', ballLight:'#fff3c4',
+    platShadow:'#2b3350', platMain:'#4e5b82', platLight:'#8fa1c7',
+    spikeShadow:'#4a0e0e', spikeMain:'#c81d25', spikeTip:'#ff6a3d',
+    hud:'#f2ead1'
+  },
+  { // 1 - Alacakaranlık (1000-1999)
+    bgLo:'#1f0f28', bgHi:'#3a1c42',
+    ballShadow:'#8a6a1f', ballMain:'#f2c14e', ballLight:'#fff3c4',
+    platShadow:'#332f50', platMain:'#584e82', platLight:'#9a8fc7',
+    spikeShadow:'#550e14', spikeMain:'#d4222a', spikeTip:'#ff6a3d',
+    hud:'#f2ead1'
+  },
+  { // 2 - Kor (2000-2999)
+    bgLo:'#240a12', bgHi:'#431522',
+    ballShadow:'#8a6a1f', ballMain:'#f2c14e', ballLight:'#fff3c4',
+    platShadow:'#3a3350', platMain:'#63548f', platLight:'#a799d6',
+    spikeShadow:'#610b10', spikeMain:'#e22a28', spikeTip:'#ff6a3d',
+    hud:'#f2ead1'
+  },
+  { // 3 - Volkanik (3000+, tavan)
+    bgLo:'#150608', bgHi:'#381012',
+    ballShadow:'#8a6a1f', ballMain:'#f2c14e', ballLight:'#fff3c4',
+    platShadow:'#2c2a4a', platMain:'#4f4a86', platLight:'#8f87c9',
+    spikeShadow:'#6e0d0d', spikeMain:'#f2351f', spikeTip:'#ff6a3d',
+    hud:'#f2ead1'
+  }
+];
+THEME_PALETTES.forEach(Object.freeze);
+Object.freeze(THEME_PALETTES);
+const THEME_SCORE_STEP = 1000;   // her 1000 puanda bir tema
+const THEME_MAX_INDEX = 3;       // 3000+ sabit (tavan)
+const THEME_BLEND_S = 2.0;       // tema geçişi: themeBlendT 0 -> 1 doğrusal, ~2.0sn (ani sıçrama yok)
+
+// AKTİF palet: tüm çizim kodu PAL.xxx okur (değişmeden). Bağlama const, alanları
+// updateActiveTheme() tarafından her kare yazılır (o karenin ara renkleri).
+const PAL = Object.assign({}, THEME_PALETTES[0]);
+let themeIndex = 0;          // hedef tema (skordan)
+let themeFromPal = THEME_PALETTES[0]; // geçişin başladığı renkler (önceki tema / yarım geçişin anlık hali)
+let themeBlendT = 0;         // geçiş ilerlemesi 0..1 (themeBlending false iken anlamsız)
+let themeBlending = false;   // şu an bir tema geçişi sürüyor mu
 // Diken ucu: tepe noktasının hemen üstünde 3x3 px blok (Faz 2 ölümcül bölgesi:
 // tepe noktasına <= SPIKE_TIP_LETHAL_R px). Gövdenin ana kırmızısı uçtan
 // SPIKE_NECK_PX önce biter; arada gölge (#4a0e0e) "boyun" kalır -> uç, kendisinden
@@ -132,6 +169,13 @@ const DEBRIS_MIN = 4;             // 4-8 parçacık
 const DEBRIS_MAX = 8;
 const DEBRIS_SIZE = 2;            // px, kare
 const DEBRIS_LIFE_S = 0.25;
+// Faz 10 (TASARIM.md §11.1): lav damlası — SADECE GÖRSEL. Hiçbir çarpışma/ölüm kontrolüne girmez.
+const LAVA_START_STAGE = 3;            // getStage() >= 3 iken (130sn+) doğar
+const LAVA_SPAWN_CHANCE = 0.004;       // drawSpike(i) karesi başına (60 FPS: diken başına ~4.2sn'de 1;
+                                       // brief'teki "~2.5sn" ~%0.67'ye denk; brief'in %0.4 değeri esas alındı)
+const LAVA_GRAVITY = GRAVITY * 0.5 * 0.4; // debris ivmesi (GRAVITY*0.5 = 750) x 0.4 = 300 px/sn^2
+const LAVA_SIZE = 2;                   // px, kare (noSmooth, tam sayı konum)
+const LAVA_FALL_MAX_PX = 200;          // doğduğu noktadan bu kadar düşünce silinir
 const GHOST_COUNT = 2;            // önceki 2 pozisyon
 const GHOST_DITHER_LV = 0.5;      // %50 Bayer
 const GHOST_NEAR_MISS_MS = 150;   // kıl payından sonra iz süresi (shake decay ile aynı)
@@ -175,7 +219,23 @@ const THUD_F0 = 60;
 const THUD_F1 = 30;
 const THUD_DROP_S = 0.12;
 const THUD_ATTACK_S = 0.004;
-const THUD_DECAY_S = 0.16;
+const THUD_DECAY_S = 0.12;         // Faz 10: 0.16 -> 0.12 (enerji 30-60Hz kuyruktan duyulur banda kaydı)
+// Faz 10 (TASARIM.md §11.2): thud "daha dolgun/belirgin" — ölçüme dayalı tasarım (OfflineAudioContext,
+// 0.3sn, 44.1kHz, ham build çıkışı):
+//  * Eski thud ham peak 0.986; brief'teki tepe 1.4/1.5/1.6 aynı yapıda peak 1.38/1.48/1.58 = CLIPPING.
+//  * §11.2: thud ile skipThud arasındaki RMS/peak farkı DARALMAMALI. skipThud RMS 0.193 > thud 0.113;
+//    thud'ın tam bant RMS'ini artırmak farkı doğrudan daraltır. Bu yüzden tam bant RMS ve peak ÖNCE
+//    değerlerinin ALTINDA tutuldu; yükseklik, enerjinin küçük hoparlörde (telefon/laptop, ~150Hz altı
+//    neredeyse sessiz) duyulmayan 30-60Hz triangle kuyruğundan, duyulan banda (220->110Hz sine body)
+//    kaydırılmasıyla kazanıldı: HP150 bandı RMS 0.027 -> 0.061 (~+7 dB).
+//  * skipThud'dan ayrışma: waveshaper YOK, body frekansı skip'in (45->20Hz) ~5 katı, süre kısa.
+const THUD_PEAK = 0.6;             // triangle zarf tepesi (eski 1; body ile toplam peak 0.88)
+const THUD_HOLD_S = 0.01;          // tepe tutma (dolgunluk)
+const THUD_BODY_F0 = 220;          // sine body: küçük hoparlörde duyulan alt-orta "tok" katman
+const THUD_BODY_F1 = 110;
+const THUD_BODY_PEAK = 0.7;
+const THUD_BODY_ATTACK_S = 0.002;
+const THUD_BODY_DECAY_S = 0.09;
 // Kıl payı "whiz" (square, yüksek frekansa hızlı yukarı süpürme)
 const WHIZ_F0 = 1400;
 const WHIZ_F1 = 2800;
@@ -318,6 +378,7 @@ let shakeDir = 1;         // dikey sarsıntıda kareden kareye işaret değişim
 let shakeOffset = { x: 0, y: 0 }; // bu karede uygulanan tam sayı ofset (test/debug için okunur)
 let flashFramesLeft = 0;
 let debris = [];          // {x, y, vx, vy, life}
+let lavaDrops = [];       // Faz 10: {x, y, y0, vy} — debris'ten AYRI, yalnız görsel (çarpışma yok)
 let ghostHist = [];       // [şimdiki, önceki, önceki-önceki] top merkezleri
 let ghostNearMissMs = 0;
 let squashFramesLeft = 0;
@@ -427,7 +488,8 @@ function resetGame() {
   resetSound(); // Faz 5: ölümde kesilen müzik kanalını geri aç
   spikePasses = new Map();
   deathCause = null;
-  resetJuice();
+  resetJuice();      // Faz 10: lav damlası dizisi de burada boşalır
+  resetTheme();      // Faz 10: themeIndex = 0, themeBlendT = 0, PAL = tema 0
   resetStages(); // Faz 6: her koşu aşama 0'dan başlar (kalıcı değil)
   resetAirtimeTracker(); // Faz 7
   resetPickups(); // Faz 9: activeBuff + ekrandaki eşya + dokunulmazlık
@@ -999,6 +1061,7 @@ function draw() {
   if (!frozen) {
     updateWorldJuice();
   }
+  updateActiveTheme(Math.min(deltaTime, 50) / 1000); // Faz 10: skor teması (yalnız PAL renkleri)
   updateAudio(); // Faz 5: master volume + müzik (BPM zorluktan, audioCtx.currentTime lookahead)
 
   // Katman sırası (Faz 4, Faz 6'da renklendi):
@@ -1016,6 +1079,7 @@ function draw() {
   drawGhosts();
   drawWorld();
   drawDebris();
+  drawLavaDrops(); // Faz 10: yalnız görsel lav damlaları (stage >= 3)
   pop();
   drawScore();
   drawTouchHint();
@@ -1042,6 +1106,7 @@ function resetJuice() {
   shakeOffset = { x: 0, y: 0 };
   flashFramesLeft = 0;
   debris = [];
+  lavaDrops = []; // Faz 10
   ghostHist = [];
   ghostNearMissMs = 0;
   squashFramesLeft = 0;
@@ -1252,6 +1317,7 @@ function updateWorldJuice() {
     d.life -= dt;
   }
   debris = debris.filter(d => d.life > 0);
+  updateLavaDrops(dt); // Faz 10: debris'ten ayrı dizi/fizik
 
   if (gameState === 'playing') {
     ghostHist.unshift({ x: ball.x, y: ball.y });
@@ -1295,9 +1361,22 @@ function hexToRgb(hex) {
 // %25..%50 aralığında en fazla 5 farklı desen var. Her biri bir kez bay() ile
 // üretilip önbelleğe alınır, her kare tek bir image() çağrısıyla basılır.
 // Faz 6: bit 1 -> PAL.bgHi, bit 0 -> PAL.bgLo (yalnız renk eşlemesi değişti).
+// Faz 10: anahtar renkleri de içerir (tema geçişinde PAL.bgLo/bgHi değişir -> eski önbellek
+// yanlış renk basmasın). Geçiş sırasında ara renk sayısı sınırlı (kanal farkı kadar) ama
+// birikmesin diye LRU ile DITHER_CACHE_MAX / PATTERN_CACHE_MAX'ta kesilir.
+function cacheGetLRU(map, key) {
+  const v = map.get(key);
+  if (v !== undefined) { map.delete(key); map.set(key, v); } // en yeni sona
+  return v;
+}
+function cacheSetLRU(map, key, v, max) {
+  map.set(key, v);
+  while (map.size > max) map.delete(map.keys().next().value); // en eskiyi at
+}
+
 function getDitherImage(lv) {
-  const key = Math.ceil(lv * 16);
-  let img = ditherCache.get(key);
+  const key = Math.ceil(lv * 16) + '|' + PAL.bgLo + '|' + PAL.bgHi;
+  let img = cacheGetLRU(ditherCache, key);
   if (!img) {
     const hi = hexToRgb(PAL.bgHi), lo = hexToRgb(PAL.bgLo);
     img = createImage(CANVAS_W, CANVAS_H);
@@ -1311,7 +1390,7 @@ function getDitherImage(lv) {
       }
     }
     img.updatePixels();
-    ditherCache.set(key, img);
+    cacheSetLRU(ditherCache, key, img, DITHER_CACHE_MAX);
   }
   return img;
 }
@@ -1319,7 +1398,7 @@ function getDitherImage(lv) {
 // Aynı bay() formülüyle şeffaf zeminli tek renk desen (ghost izi vb. için).
 function getPatternImage(lv, hex) {
   const key = Math.ceil(lv * 16) + '|' + hex;
-  let img = patternCache.get(key);
+  let img = cacheGetLRU(patternCache, key);
   if (!img) {
     const c = hexToRgb(hex);
     img = createImage(CANVAS_W, CANVAS_H);
@@ -1333,13 +1412,103 @@ function getPatternImage(lv, hex) {
       }
     }
     img.updatePixels();
-    patternCache.set(key, img);
+    cacheSetLRU(patternCache, key, img, PATTERN_CACHE_MAX);
   }
   return img;
 }
 
 function drawDitherBackground(lv) {
   image(getDitherImage(lv), 0, 0);
+}
+
+// ---------------------------------------------------------------------------
+// Faz 10 (TASARIM.md §11.3): skor bazlı tema — YALNIZ GÖRSEL katman.
+// Okur: score. Yazar: PAL alanları, themeIndex/themeFromPal/themeBlendT/themeBlending.
+// Stage-gate (§9.2), hız, spawn, çarpışma bu fonksiyonlardan hiçbirini okumaz.
+// ---------------------------------------------------------------------------
+function getThemeIndexForScore(s) {
+  return Math.min(Math.floor((s || 0) / THEME_SCORE_STEP), THEME_MAX_INDEX);
+}
+
+function rgbToHex(r, g, b) {
+  return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
+}
+
+// RGB doğrusal interpolasyon (p5 lerpColor'ın RGB modundaki karşılığı), hex string döner:
+// PAL değerleri hexToRgb()/önbellek anahtarlarında string olarak kullanılıyor.
+function lerpHexColor(a, b, t) {
+  t = Math.min(Math.max(t, 0), 1);
+  const ca = hexToRgb(a), cb = hexToRgb(b);
+  return rgbToHex(Math.round(ca[0] + (cb[0] - ca[0]) * t),
+                  Math.round(ca[1] + (cb[1] - ca[1]) * t),
+                  Math.round(ca[2] + (cb[2] - ca[2]) * t));
+}
+
+// Her kare draw() başında çağrılır. dt saniye. Hedef tema değişirse geçiş, o anki
+// (gerekirse yarım kalmış) renklerden başlar -> hiçbir durumda ani sıçrama olmaz.
+function updateActiveTheme(dt) {
+  const target = getThemeIndexForScore(score);
+  if (target !== themeIndex) {
+    themeFromPal = Object.assign({}, PAL);
+    themeIndex = target;
+    themeBlendT = 0;
+    themeBlending = true;
+  }
+  const to = THEME_PALETTES[themeIndex];
+  if (themeBlending) {
+    themeBlendT = Math.min(1, themeBlendT + dt / THEME_BLEND_S);
+    for (const k in to) PAL[k] = lerpHexColor(themeFromPal[k], to[k], themeBlendT);
+    if (themeBlendT >= 1) themeBlending = false;
+  } else {
+    for (const k in to) PAL[k] = to[k];
+  }
+}
+
+// resetGame(): yeni koşu tema 0'dan, geçiş yok (yarım geçiş sızmaz).
+function resetTheme() {
+  themeIndex = 0;
+  themeBlendT = 0;
+  themeBlending = false;
+  themeFromPal = THEME_PALETTES[0];
+  Object.assign(PAL, THEME_PALETTES[0]);
+}
+
+// ---------------------------------------------------------------------------
+// Faz 10 (TASARIM.md §11.1): lav damlası — YALNIZ GÖRSEL. lavaDrops dizisini yalnız
+// maybeSpawnLavaDrop / updateLavaDrops / drawLavaDrops / resetJuice okur-yazar;
+// circleTouchesRect, diken/platform çarpışması ve ölüm kontrolleri bu diziye BAKMAZ.
+// ---------------------------------------------------------------------------
+function lavaActive() {
+  return gameState === 'playing' && hitstopMs <= 0 && getStage() >= LAVA_START_STAGE;
+}
+
+// drawSpike(i) içinden: diken başına kare başına LAVA_SPAWN_CHANCE.
+function maybeSpawnLavaDrop(i) {
+  if (!lavaActive() || Math.random() >= LAVA_SPAWN_CHANCE) return;
+  const x = spikeTipX(i), y = spikeTipY(i);
+  lavaDrops.push({ x: x, y: y, y0: y, vy: 0 });
+}
+
+// updateWorldJuice() içinden (hitstop'ta donar). Diken şeridi ekrana sabit -> scroll yok.
+function updateLavaDrops(dt) {
+  for (const d of lavaDrops) {
+    d.vy += LAVA_GRAVITY * dt;
+    d.y += d.vy * dt;
+  }
+  lavaDrops = lavaDrops.filter(d => d.y - d.y0 < LAVA_FALL_MAX_PX && d.y < CANVAS_H);
+}
+
+// Renk: spikeTip -> spikeShadow, düşülen mesafeye göre doğrusal (soğuyan lav).
+function lavaDropColor(d) {
+  return lerpHexColor(PAL.spikeTip, PAL.spikeShadow, (d.y - d.y0) / LAVA_FALL_MAX_PX);
+}
+
+function drawLavaDrops() {
+  noStroke();
+  for (const d of lavaDrops) {
+    fill(lavaDropColor(d));
+    rect(Math.round(d.x) - LAVA_SIZE / 2, Math.round(d.y), LAVA_SIZE, LAVA_SIZE);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -1443,19 +1612,41 @@ function cleanupOnEnded(src, nodes) {
 }
 
 // İniş "thud": triangle, 60Hz -> 30Hz üstel pitch drop.
+// Faz 10: triangle zarfı attack -> HOLD -> üstel decay (tepe THUD_PEAK) + paralel sine body
+// katmanı (220 -> 110Hz, kısa AD). Waveshaper yok (skipThud'ın karakteri değil).
 function buildThud(ctx, dest, t) {
   const osc = ctx.createOscillator();
   osc.type = 'triangle';
   osc.frequency.setValueAtTime(THUD_F0, t);
   osc.frequency.exponentialRampToValueAtTime(THUD_F1, t + THUD_DROP_S);
   const env = ctx.createGain();
-  const end = envelopeAD(env.gain, t, 1, THUD_ATTACK_S, THUD_DECAY_S);
+  const peakAt = t + THUD_ATTACK_S;
+  env.gain.setValueAtTime(0, t);
+  env.gain.linearRampToValueAtTime(THUD_PEAK, peakAt);
+  env.gain.setValueAtTime(THUD_PEAK, peakAt + THUD_HOLD_S);
+  const end = peakAt + THUD_HOLD_S + THUD_DECAY_S;
+  env.gain.exponentialRampToValueAtTime(0.0001, end);
   osc.connect(env).connect(dest);
   osc.start(t);
   osc.stop(end + 0.01);
   cleanupOnEnded(osc, [osc, env]);
+
+  const body = ctx.createOscillator();
+  body.type = 'sine';
+  body.frequency.setValueAtTime(THUD_BODY_F0, t);
+  body.frequency.exponentialRampToValueAtTime(THUD_BODY_F1, t + THUD_BODY_DECAY_S);
+  const bodyEnv = ctx.createGain();
+  const bodyEnd = envelopeAD(bodyEnv.gain, t, THUD_BODY_PEAK, THUD_BODY_ATTACK_S, THUD_BODY_DECAY_S);
+  body.connect(bodyEnv).connect(dest);
+  body.start(t);
+  body.stop(bodyEnd + 0.01);
+  cleanupOnEnded(body, [body, bodyEnv]);
+
   return { node: osc, type: osc.type, freqStart: THUD_F0, freqEnd: THUD_F1, rampEnd: t + THUD_DROP_S,
-           gainStart: t, gainPeakAt: t + THUD_ATTACK_S, gainEnd: end, stopAt: end + 0.01 };
+           gainStart: t, gainPeakAt: peakAt, gainPeak: THUD_PEAK, holdEnd: peakAt + THUD_HOLD_S,
+           gainEnd: end, stopAt: end + 0.01,
+           bodyType: body.type, bodyFreqStart: THUD_BODY_F0, bodyFreqEnd: THUD_BODY_F1,
+           bodyPeak: THUD_BODY_PEAK, bodyEnd: bodyEnd };
 }
 
 // Kıl payı "whiz": square, 1400Hz -> 2800Hz hızlı yukarı süpürme.
@@ -2580,6 +2771,7 @@ function drawSpike(i) {
   triangle(x0 + SPIKE_MAIN_INSET, 0, x0 + SPIKE_W - SPIKE_MAIN_INSET, 0, tx, ty - SPIKE_NECK_PX);
   fill(PAL.spikeTip);
   rect(Math.floor(tx) - 1, Math.round(ty) - SPIKE_TIP_PX, SPIKE_TIP_PX, SPIKE_TIP_PX);
+  maybeSpawnLavaDrop(i); // Faz 10: yalnız görsel; stage >= 3 değilse hiçbir şey yapmaz
 }
 
 // Pulse telegraph'ı: inecek bölümün altına (iniş mesafesi kadar) %25 Bayer kırmızı gölge.
