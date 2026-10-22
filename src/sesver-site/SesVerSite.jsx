@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { motion as Motion, useReducedMotion, useScroll, useSpring, useTransform } from 'motion/react';
 import AppIcon from '../AppIcon';
 import { Link } from '../nav';
+import { asset } from '../base';
 import './sesver.css';
 
 // SesVer'in kendi sitesi (/sesver). Ana sitenin topbar/footer'ı olmadan tam sayfa çizilir (App.jsx → STANDALONE_PAGES).
 // Kimlik WingWire'ın tersi: krem zemin, koyu metin, turuncu vurgu, klon için mor; hareket yaylanan/organik.
 //  - Tüm hareket yalnız transform/opacity; scroll değerleri MotionValue olarak kalır, React state'ine yazılmaz.
 //  - prefers-reduced-motion: reduce → scroll bağlı hareketler kapanır, CSS dalga animasyonları durur.
-//  - Ses örnekleri henüz yok: <AudioDemo src={null} /> devre dışı düğme çizer; src verilince gerçek oynatıcı olur.
+//  - Ses örnekleri: VideoGen üretti (22 Ekim), Yusuf dinleyip onayladı. public/audio/sesver/*.mp3.
 
 const TITLE = 'SesVer — Yazdığın, kendi bilgisayarında sese dönüşsün';
 const BG = '#fbf6ee';
@@ -195,7 +196,7 @@ function TtsDemo({ reduce }) {
             <Motion.span className="sv-tts__playhead" style={{ scaleX: reduce ? 1 : playhead }} aria-hidden="true" />
           </div>
           <div className="sv-tts__foot">
-            <AudioDemo src={null} label="Bu cümleyi dinle" />
+            <AudioDemo src={asset('/audio/sesver/tts-demo.mp3')} label="Bu cümleyi dinle" />
             <span className="sv-mono">WAV · 48 kHz</span>
           </div>
         </div>
@@ -255,9 +256,9 @@ function CloneDemo({ reduce }) {
               <span className="sv-dot sv-dot--source" />
               <div>
                 <strong>Kaynak ses</strong>
-                <span>Senin 10 saniyelik kaydın</span>
+                <span>Senin kısa bir kaydın</span>
               </div>
-              <AudioDemo src={null} label="Dinle" tone="source" />
+              <AudioDemo src={asset('/audio/sesver/kaynak-ses.mp3')} label="Dinle" tone="source" />
             </div>
             <div className="sv-clone__sim">
               <span className="sv-mono">benzerlik</span>
@@ -269,7 +270,7 @@ function CloneDemo({ reduce }) {
                 <strong>Klon</strong>
                 <span>Aynı ses, yepyeni bir metin</span>
               </div>
-              <AudioDemo src={null} label="Dinle" tone="clone" />
+              <AudioDemo src={asset('/audio/sesver/klon-demo.mp3')} label="Dinle" tone="clone" />
             </div>
           </div>
         </div>
