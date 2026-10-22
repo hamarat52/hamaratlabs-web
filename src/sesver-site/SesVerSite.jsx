@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion as Motion, useReducedMotion, useScroll, useSpring, useTransform } from 'motion/react';
 import AppIcon from '../AppIcon';
 import { Link } from '../nav';
 import { asset } from '../base';
+import { DEFAULT_LANG, LANGS, LangContext, initialLang, isRtl, loadDict, makeT, saveLang, useI18n } from './i18n';
 import './sesver.css';
 
 // SesVer'in kendi sitesi (/sesver). Ana sitenin topbar/footer'ı olmadan tam sayfa çizilir (App.jsx → STANDALONE_PAGES).
@@ -77,7 +78,9 @@ function Bars({ heights, className = '' }) {
 }
 
 // Ses örneği düğmesi: src verilince <audio> ile oynat/duraklat; src yoksa "yakında" rozetiyle devre dışı.
+// label Türkçe kaynak metindir (sözlük anahtarı); seçili arayüz diline burada çevrilir.
 export function AudioDemo({ src = null, label = 'Dinle', tone = 'source' }) {
+  const { t } = useI18n();
   const ref = useRef(null);
   const [playing, setPlaying] = useState(false);
 
@@ -89,10 +92,10 @@ export function AudioDemo({ src = null, label = 'Dinle', tone = 'source' }) {
 
   if (!src) {
     return (
-      <button type="button" className={`sv-audio sv-audio--${tone}`} disabled aria-disabled="true" title="Ses örneği yakında eklenecek">
+      <button type="button" className={`sv-audio sv-audio--${tone}`} disabled aria-disabled="true" title={t('Ses örneği yakında eklenecek')}>
         <span className="sv-audio__icon" aria-hidden="true">▶</span>
-        {label}
-        <span className="sv-audio__soon">yakında</span>
+        {t(label)}
+        <span className="sv-audio__soon">{t('yakında')}</span>
       </button>
     );
   }
@@ -108,31 +111,55 @@ export function AudioDemo({ src = null, label = 'Dinle', tone = 'source' }) {
     <>
       <button type="button" className={`sv-audio sv-audio--${tone}`} onClick={toggle} aria-pressed={playing}>
         <span className="sv-audio__icon" aria-hidden="true">{playing ? '❚❚' : '▶'}</span>
-        {label}
+        {t(label)}
       </button>
       <audio ref={ref} src={src} preload="none" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} />
     </>
   );
 }
 
+// Sözlükteki sabit HTML'li metni (<strong>, <em>, <a>, <span class>) işler. Kaynak yalnız bu repodaki
+// locales/*.json ve Türkçe anahtarlardır; kullanıcı girdisi buraya hiç gelmez.
+function Rich({ as = 'p', html, ...rest }) {
+  const Tag = as;
+  return <Tag {...rest} dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
+// Arayüz dili seçici (masaüstündeki "Arayüz dili" ayarının karşılığı). Seçenek adları her dilin kendi adıdır.
+function LangSelect() {
+  const { selected, setLang, t } = useI18n();
+  return (
+    <select className="sv-nav__lang" value={selected} onChange={(e) => setLang(e.target.value)} aria-label={t('Arayüz dili')}>
+      {LANGS.map((l) => (
+        <option key={l.code} value={l.code} lang={l.code}>
+          {l.name}
+        </option>
+      ))}
+    </select>
+  );
+}
+
 function Nav() {
+  const { t } = useI18n();
   return (
     <header className="sv-nav">
       <a href="#ust" className="sv-nav__brand">
         <AppIcon name="SesVer" size={30} />
         <span>SesVer</span>
       </a>
-      <nav className="sv-nav__links" aria-label="Sayfa bölümleri">
-        <a href="#nasil">Nasıl çalışır</a>
-        <a href="#klon">Klonlama</a>
-        <a href="#yerel">Neden yerel</a>
+      <nav className="sv-nav__links" aria-label={t('Sayfa bölümleri')}>
+        <a href="#nasil">{t('Nasıl çalışır')}</a>
+        <a href="#klon">{t('Klonlama')}</a>
+        <a href="#yerel">{t('Neden yerel')}</a>
       </nav>
-      <a href="#kur" className="sv-nav__cta">Ücretsiz indir</a>
+      <LangSelect />
+      <a href="#kur" className="sv-nav__cta">{t('Ücretsiz indir')}</a>
     </header>
   );
 }
 
 function Hero({ reduce }) {
+  const { t } = useI18n();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const p = useSpring(scrollYProgress, SPRING);
@@ -144,21 +171,20 @@ function Hero({ reduce }) {
   return (
     <section id="ust" ref={ref} className="sv-hero">
       <Motion.div className="sv-hero__copy" style={reduce ? undefined : { y, opacity: fade }}>
-        <p className="sv-eyebrow">Türkçe ses üretimi · ses klonlama · beta</p>
+        <p className="sv-eyebrow">{t('Türkçe ses üretimi · ses klonlama · beta')}</p>
         <h1 className="sv-hero__title">
-          Yazdığın,
+          {t('Yazdığın,')}
           <br />
-          <span className="sv-grad">sese dönüşsün.</span>
+          <span className="sv-grad">{t('sese dönüşsün.')}</span>
         </h1>
         <p className="sv-hero__lead">
-          SesVer metnini kendi bilgisayarında doğal Türkçe sese çevirir. Hazır seslerden seç, tarif ederek yeni bir ses tasarla
-          ya da kendi sesini klonla. Hesap yok, API anahtarı yok, bulut yok.
+          {t('SesVer metnini kendi bilgisayarında doğal Türkçe sese çevirir. Hazır seslerden seç, tarif ederek yeni bir ses tasarla ya da kendi sesini klonla. Hesap yok, API anahtarı yok, bulut yok.')}
         </p>
         <div className="sv-hero__actions">
-          <a className="sv-btn sv-btn--primary" href="#kur">Ücretsiz indir</a>
-          <a className="sv-btn sv-btn--ghost" href={GITHUB} target="_blank" rel="noopener noreferrer">GitHub'da incele</a>
+          <a className="sv-btn sv-btn--primary" href="#kur">{t('Ücretsiz indir')}</a>
+          <a className="sv-btn sv-btn--ghost" href={GITHUB} target="_blank" rel="noopener noreferrer">{t("GitHub'da incele")}</a>
         </div>
-        <p className="sv-hero__meta">macOS · Windows · ticari olmayan kullanım için ücretsiz</p>
+        <p className="sv-hero__meta">{t('macOS · Windows · ticari olmayan kullanım için ücretsiz')}</p>
       </Motion.div>
       <Motion.div className="sv-hero__wave" style={reduce ? undefined : { scaleY: waveScale, y: waveY }}>
         <Bars heights={HERO_BARS} className="sv-bars--hero" />
@@ -185,6 +211,7 @@ function Word({ progress, index, total, children }) {
 }
 
 function TtsDemo({ reduce }) {
+  const { lang, t } = useI18n();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
   const p = useSpring(scrollYProgress, SPRING);
@@ -199,11 +226,11 @@ function TtsDemo({ reduce }) {
   return (
     <section id="nasil" ref={ref} className={`sv-tts ${reduce ? 'is-static' : ''}`}>
       <div className="sv-tts__sticky">
-        <p className="sv-eyebrow">Metinden sese</p>
-        <h2 className="sv-h2">Yaz, Üret'e bas, dinle.</h2>
+        <p className="sv-eyebrow">{t('Metinden sese')}</p>
+        <h2 className="sv-h2">{t("Yaz, Üret'e bas, dinle.")}</h2>
         <div className="sv-card sv-tts__card">
           <div className="sv-tts__bar">
-            <div className="sv-tts__voices" role="group" aria-label="Ses seç">
+            <div className="sv-tts__voices" role="group" aria-label={t('Ses seç')}>
               {TTS_VOICES.map((v) => (
                 <button
                   key={v.id}
@@ -212,17 +239,23 @@ function TtsDemo({ reduce }) {
                   aria-pressed={v.id === voice.id}
                   onClick={() => setVoiceId(v.id)}
                 >
-                  {v.name}
+                  {t(v.name)}
                 </button>
               ))}
             </div>
-            <span className="sv-chip sv-chip--soft">Kalite: Dengeli</span>
+            <span className="sv-chip sv-chip--soft">{t('Kalite')}: {t('Dengeli')}</span>
           </div>
-          <p className="sv-tts__text">
+          {/* Kayıtların okuduğu cümle: ses Türkçe olduğu için metin de her dilde Türkçe kalır. */}
+          <p className="sv-tts__text" lang="tr" dir="ltr">
             {words.map((w, i) => (
               <Word key={i} progress={reduce ? full : read} index={i} total={words.length}>{w}</Word>
             ))}
           </p>
+          {lang !== DEFAULT_LANG && (
+            <p className="sv-tts__gloss">
+              <q>{t(TTS_TEXT)}</q>
+            </p>
+          )}
           <div className="sv-tts__wave">
             <Bars heights={TTS_BARS} className="sv-bars--tts" />
             <Motion.span className="sv-tts__playhead" style={{ scaleX: reduce ? 1 : playhead }} aria-hidden="true" />
@@ -233,36 +266,42 @@ function TtsDemo({ reduce }) {
             <span className="sv-mono">MP3 · 48 kHz</span>
           </div>
         </div>
-        <p className="sv-note">Gerçek SesVer çıktısı: üç hazır ses aynı cümleyi okuyor. Dalga ve kelime vurgusu görseldir.</p>
+        <p className="sv-note">{t('Gerçek SesVer çıktısı: üç hazır ses aynı cümleyi okuyor. Dalga ve kelime vurgusu görseldir.')}</p>
+        {/* Arayüz dili ≠ ses üretim dili (masaüstündeki "Ses üretim dili ayrıdır" notuyla aynı ilke). */}
+        {lang !== DEFAULT_LANG && (
+          <Rich className="sv-note sv-note--lang" html={t('<strong>Ses örnekleri şu an Türkçe.</strong> Arayüz dili ses üretim dilini değiştirmez: VoxCPM2 metni yazıldığı dilde okur (Türkçe dahil 30 dil).')} />
+        )}
       </div>
     </section>
   );
 }
 
 function CloneDemo({ reduce }) {
+  const { t } = useI18n();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
   const p = useSpring(scrollYProgress, SPRING);
-  const t = useTransform(p, [0.1, 0.75], [0, 1]);
+  const t01 = useTransform(p, [0.1, 0.75], [0, 1]);
   // Mor klon dalgası aşağıdan kaynağa doğru yaklaşır; ham hâli söner, benzeşen hâli belirir.
-  const cloneY = useTransform(t, [0, 1], [150, 0]);
-  const rawOpacity = useTransform(t, [0, 0.8], [1, 0]);
-  const matchOpacity = useTransform(t, [0.2, 1], [0, 1]);
-  const sim = useTransform(t, [0, 1], [18, 96]);
-  const simText = useTransform(sim, (v) => `%${Math.round(v)}`);
+  const cloneY = useTransform(t01, [0, 1], [150, 0]);
+  const rawOpacity = useTransform(t01, [0, 0.8], [1, 0]);
+  const matchOpacity = useTransform(t01, [0.2, 1], [0, 1]);
+  const sim = useTransform(t01, [0, 1], [18, 96]);
+  const simNum = useTransform(sim, (v) => Math.round(v));
+  // Yüzde işaretinin yeri dile göre değişir (tr "%96", en "96%"); sayı MotionValue olarak kalır.
+  const [simPre, simPost = ''] = t('%{n}').split('{n}');
 
   return (
     <section id="klon" ref={ref} className={`sv-clone ${reduce ? 'is-static' : ''}`}>
       <div className="sv-clone__sticky">
-        <p className="sv-eyebrow sv-eyebrow--violet">Ses klonlama</p>
+        <p className="sv-eyebrow sv-eyebrow--violet">{t('Ses klonlama')}</p>
         <h2 className="sv-h2">
-          Birkaç saniyelik kayıt.
+          {t('Birkaç saniyelik kayıt.')}
           <br />
-          <span className="sv-grad sv-grad--violet">Senin sesin, yeni cümleler.</span>
+          <span className="sv-grad sv-grad--violet">{t('Senin sesin, yeni cümleler.')}</span>
         </h2>
         <p className="sv-lead">
-          Tek kişinin konuştuğu, müziksiz, temiz 3–15 saniyelik bir kayıt yükle. Kaydın metnini de girersen klon belirgin
-          biçimde benzer; SesVer bunu otomatik yazıya da dökebilir.
+          {t('Tek kişinin konuştuğu, müziksiz, temiz 3–15 saniyelik bir kayıt yükle. Kaydın metnini de girersen klon belirgin biçimde benzer; SesVer bunu otomatik yazıya da dökebilir.')}
         </p>
         <div className="sv-card sv-clone__card">
           <svg className="sv-clone__svg" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
@@ -288,26 +327,30 @@ function CloneDemo({ reduce }) {
             <div className="sv-clone__item">
               <span className="sv-dot sv-dot--source" />
               <div>
-                <strong>Kaynak ses</strong>
-                <span>Senin kısa bir kaydın</span>
+                <strong>{t('Kaynak ses')}</strong>
+                <span>{t('Senin kısa bir kaydın')}</span>
               </div>
               <AudioDemo src={asset('/audio/sesver/kaynak-ses.mp3')} label="Dinle" tone="source" />
             </div>
             <div className="sv-clone__sim">
-              <span className="sv-mono">benzerlik</span>
-              {reduce ? <span className="sv-clone__num">%96</span> : <Motion.span className="sv-clone__num">{simText}</Motion.span>}
+              <span className="sv-mono">{t('benzerlik')}</span>
+              <span className="sv-clone__num" dir="ltr">
+                {simPre}
+                {reduce ? 96 : <Motion.span>{simNum}</Motion.span>}
+                {simPost}
+              </span>
             </div>
             <div className="sv-clone__item">
               <span className="sv-dot sv-dot--clone" />
               <div>
-                <strong>Klon</strong>
-                <span>Aynı ses, yepyeni bir metin</span>
+                <strong>{t('Klon')}</strong>
+                <span>{t('Aynı ses, yepyeni bir metin')}</span>
               </div>
               <AudioDemo src={asset('/audio/sesver/klon-demo.mp3')} label="Dinle" tone="clone" />
             </div>
           </div>
         </div>
-        <p className="sv-note">Görsel temsilidir; benzerlik değeri bir ölçüm değil, kayda ve donanıma göre değişir.</p>
+        <p className="sv-note">{t('Görsel temsilidir; benzerlik değeri bir ölçüm değil, kayda ve donanıma göre değişir.')}</p>
       </div>
     </section>
   );
@@ -376,6 +419,7 @@ function LocalGlyph({ name }) {
 
 // "Lisans, açıkça": varsayılan kapalı, tıkla-aç (DevelopmentMap legend deseni: aria-expanded + hidden).
 function LocalLicense({ reduce }) {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
   return (
     <Rise reduce={reduce} className={`sv-card sv-license${open ? ' is-open' : ''}`}>
@@ -386,7 +430,7 @@ function LocalLicense({ reduce }) {
             <LocalGlyph name="doc" />
           </span>
           <span className="sv-license__head">
-            <span className="sv-license__name">Lisans, açıkça</span>
+            <span className="sv-license__name">{t('Lisans, açıkça')}</span>
             <span className="sv-mono sv-license__tag">PolyForm Noncommercial 1.0.0</span>
           </span>
           <span className="sv-license__chev">
@@ -399,58 +443,97 @@ function LocalLicense({ reduce }) {
           <span className="sv-license__dot sv-license__dot--ok">
             <LocalGlyph name="check" />
           </span>
-          <p>
-            <strong>SesVer'in kodu</strong> <span className="sv-mono">PolyForm Noncommercial 1.0.0</span> lisanslıdır. Kişisel
-            kullanım, inceleme, eğitim, araştırma ve değiştirme serbesttir.
-          </p>
+          <Rich html={t('<strong>SesVer\'in kodu</strong> <span class="sv-mono">PolyForm Noncommercial 1.0.0</span> lisanslıdır. Kişisel kullanım, inceleme, eğitim, araştırma ve değiştirme serbesttir.')} />
         </li>
         <li>
           <span className="sv-license__dot sv-license__dot--no">
             <LocalGlyph name="cross" />
           </span>
-          <p>
-            <strong>Ticari kullanım ve yeniden satış izinli değildir.</strong> Ticari bir ürüne ya da servise dahil etmek için
-            HamaratLabs'ten ayrıca izin gerekir.
-          </p>
+          <Rich html={t("<strong>Ticari kullanım ve yeniden satış izinli değildir.</strong> Ticari bir ürüne ya da servise dahil etmek için HamaratLabs'ten ayrıca izin gerekir.")} />
         </li>
         <li>
           <span className="sv-license__dot sv-license__dot--src">
             <LocalGlyph name="eye" />
           </span>
-          <p>Kaynak kodu açık ve incelenebilir; ancak bu lisans OSI tanımlı bir “open source” lisansı değildir.</p>
+          <p>{t('Kaynak kodu açık ve incelenebilir; ancak bu lisans OSI tanımlı bir “open source” lisansı değildir.')}</p>
         </li>
         <li>
           <span className="sv-license__dot sv-license__dot--dep">
             <LocalGlyph name="box" />
           </span>
-          <p>
-            <strong>VoxCPM2 modeli</strong> ve OpenBMB/VoxCPM kodu ayrı bir bağımlılıktır ve kendi Apache-2.0 lisansı altındadır.
-          </p>
+          <Rich html={t('<strong>VoxCPM2 modeli</strong> ve OpenBMB/VoxCPM kodu ayrı bir bağımlılıktır ve kendi Apache-2.0 lisansı altındadır.')} />
         </li>
       </ul>
     </Rise>
   );
 }
 
+// Dil durumu: seçili kod + yüklenmiş sözlük. Sözlük gelene kadar önceki dil gösterilir (yarım çeviri/yön karışması olmaz).
+function useLangState() {
+  const [lang, setLangState] = useState(initialLang);
+  const [loaded, setLoaded] = useState({ lang: DEFAULT_LANG, dict: null });
+
+  useEffect(() => {
+    if (lang === DEFAULT_LANG) return undefined;
+    let live = true;
+    loadDict(lang).then((dict) => {
+      if (live) setLoaded({ lang, dict });
+    });
+    return () => {
+      live = false;
+    };
+  }, [lang]);
+
+  const setLang = useCallback((code) => {
+    setLangState(code);
+    saveLang(code);
+    // Paylaşılabilir bağlantı: ?lang=<kod> (Türkçe varsayılan, parametresiz). Yol değişmez; yönlendirme etkilenmez.
+    const url = new URL(window.location.href);
+    if (code === DEFAULT_LANG) url.searchParams.delete('lang');
+    else url.searchParams.set('lang', code);
+    window.history.replaceState(window.history.state, '', url);
+  }, []);
+
+  const shown = lang === DEFAULT_LANG ? DEFAULT_LANG : loaded.lang;
+  const dict = shown === DEFAULT_LANG ? null : loaded.dict;
+  return useMemo(() => ({ lang: shown, selected: lang, setLang, t: makeT(dict) }), [shown, lang, setLang, dict]);
+}
+
 export default function SesVerSite() {
   const reduce = useReducedMotion();
+  const i18n = useLangState();
+  const { lang, t } = i18n;
+  const dir = isRtl(lang) ? 'rtl' : 'ltr';
 
   // Ana sitenin html arka planı farklı olabilir; bu sayfadayken başlık ve kaydırma taşması krem olsun, çıkınca geri dönsün.
   useEffect(() => {
     const root = document.documentElement;
-    const prev = { title: document.title, bg: root.style.background, scheme: root.style.colorScheme };
-    document.title = TITLE;
+    const prev = { bg: root.style.background, scheme: root.style.colorScheme };
     root.style.background = BG;
     root.style.colorScheme = 'light';
     return () => {
-      document.title = prev.title;
       root.style.background = prev.bg;
       root.style.colorScheme = prev.scheme;
     };
   }, []);
 
+  // Başlık ve <html lang/dir> seçili arayüz dilini izler; sayfadan çıkınca eski hâline döner.
+  useEffect(() => {
+    const root = document.documentElement;
+    const prev = { title: document.title, lang: root.lang, dir: root.dir };
+    document.title = t(TITLE);
+    root.lang = lang;
+    root.dir = dir;
+    return () => {
+      document.title = prev.title;
+      root.lang = prev.lang;
+      root.dir = prev.dir;
+    };
+  }, [t, lang, dir]);
+
   return (
-    <div className="sv">
+    <LangContext.Provider value={i18n}>
+    <div className="sv" lang={lang} dir={dir}>
       <Nav />
       <main>
         <Hero reduce={reduce} />
@@ -458,8 +541,8 @@ export default function SesVerSite() {
         <section className="sv-features">
           {FEATURES.map((f, i) => (
             <Rise key={f.k} reduce={reduce} delay={i * 0.06} className="sv-card sv-feature">
-              <h3>{f.k}</h3>
-              <p>{f.v}</p>
+              <h3>{t(f.k)}</h3>
+              <p>{t(f.v)}</p>
             </Rise>
           ))}
         </section>
@@ -469,20 +552,16 @@ export default function SesVerSite() {
 
         <section className="sv-ethics">
           <Rise reduce={reduce} className="sv-ethics__box">
-            <p className="sv-eyebrow sv-eyebrow--violet">Rıza önce gelir</p>
-            <h2 className="sv-h3">Sadece kendi sesini veya açık izin aldığın bir sesi klonla.</h2>
-            <p>
-              Kayıttan kalıcı ses oluştururken izin kutucuğu işaretlenmeden kaydedilemez. Kimliğe bürünme, dolandırıcılık veya
-              yanıltıcı içerik için kullanma. Üretilen içeriği paylaşırken <strong>“AI ile üretildi”</strong> diye açıkça etiketle;
-              uygulama sese otomatik filigran eklemez. Üretilen içerikten ve kullanımdan kullanıcı sorumludur.
-            </p>
+            <p className="sv-eyebrow sv-eyebrow--violet">{t('Rıza önce gelir')}</p>
+            <h2 className="sv-h3">{t('Sadece kendi sesini veya açık izin aldığın bir sesi klonla.')}</h2>
+            <Rich html={t('Kayıttan kalıcı ses oluştururken izin kutucuğu işaretlenmeden kaydedilemez. Kimliğe bürünme, dolandırıcılık veya yanıltıcı içerik için kullanma. Üretilen içeriği paylaşırken <strong>“AI ile üretildi”</strong> diye açıkça etiketle; uygulama sese otomatik filigran eklemez. Üretilen içerikten ve kullanımdan kullanıcı sorumludur.')} />
           </Rise>
         </section>
 
         <section id="yerel" className="sv-local">
           <Rise reduce={reduce}>
-            <p className="sv-eyebrow">Neden yerel</p>
-            <h2 className="sv-h2">Sesin, bilgisayarından çıkmaz.</h2>
+            <p className="sv-eyebrow">{t('Neden yerel')}</p>
+            <h2 className="sv-h2">{t('Sesin, bilgisayarından çıkmaz.')}</h2>
           </Rise>
           <div className="sv-local__grid">
             {LOCAL.map((f, i) => {
@@ -497,17 +576,17 @@ export default function SesVerSite() {
                   <span className="sv-local__icon">
                     <LocalGlyph name={LOCAL_ICON[f.k]} />
                   </span>
-                  <h3>{f.k}</h3>
-                  <p>{f.v}</p>
+                  <h3>{t(f.k)}</h3>
+                  <p>{t(f.v)}</p>
                   {isModel && (
                     <div className="sv-local__stats" aria-hidden="true">
                       {MODEL_STATS.map((s) => (
                         <div key={s.l} className="sv-local__stat">
-                          <span className="sv-local__num">
+                          <span className="sv-local__num" dir="ltr">
                             {s.n}
                             {s.u && <small>{s.u}</small>}
                           </span>
-                          <span className="sv-local__label">{s.l}</span>
+                          <span className="sv-local__label">{t(s.l)}</span>
                         </div>
                       ))}
                     </div>
@@ -522,31 +601,31 @@ export default function SesVerSite() {
         <section id="kur" className="sv-cta">
           <Rise reduce={reduce} className="sv-cta__head">
             <h2 className="sv-h2">
-              Birkaç tıkla <span className="sv-grad">kur.</span>
+              {t('Birkaç tıkla')} <span className="sv-grad">{t('kur.')}</span>
             </h2>
-            <p className="sv-lead">İlk çalıştırmada gereken her şey (Python dahil) otomatik iner. En az 20 GB boş alan ve internet gerekir; model yaklaşık 5 GB.</p>
+            <p className="sv-lead">{t('İlk çalıştırmada gereken her şey (Python dahil) otomatik iner. En az 20 GB boş alan ve internet gerekir; model yaklaşık 5 GB.')}</p>
           </Rise>
           <div className="sv-cta__grid">
             <Rise reduce={reduce} className="sv-card sv-step">
               <span className="sv-mono">Windows</span>
               <ol>
-                <li><a href={WIN_EXE}>SesVer-Kurulum-Windows.exe</a> dosyasını indir.</li>
-                <li>Çift tıkla; “Windows bilgisayarınızı korudu” derse <em>Ek bilgi → Yine de çalıştır</em>.</li>
-                <li>Lisansı kabul et → <em>İleri → İleri → Kur</em>. Başlat menüsündeki SesVer simgesiyle aç.</li>
+                <Rich as="li" html={t('{dosya} dosyasını indir.', { dosya: `<a href="${WIN_EXE}">SesVer-Kurulum-Windows.exe</a>` })} />
+                <Rich as="li" html={t('Çift tıkla; “Windows bilgisayarınızı korudu” derse <em>Ek bilgi → Yine de çalıştır</em>.')} />
+                <Rich as="li" html={t('Lisansı kabul et → <em>İleri → İleri → Kur</em>. Başlat menüsündeki SesVer simgesiyle aç.')} />
               </ol>
             </Rise>
             <Rise reduce={reduce} delay={0.08} className="sv-card sv-step">
               <span className="sv-mono">macOS</span>
               <ol>
-                <li>GitHub sayfasında <em>Code → Download ZIP</em>, sonra ZIP'e çift tıkla.</li>
-                <li>Klasördeki <span className="sv-mono">MACOS_BASLAT.command</span> dosyasına çift tıkla (uyarı çıkarsa sağ tık → Aç).</li>
-                <li>Terminal “Running on local URL” yazınca tarayıcıda <span className="sv-mono">127.0.0.1:7860</span> adresini aç.</li>
+                <Rich as="li" html={t("GitHub sayfasında <em>Code → Download ZIP</em>, sonra ZIP'e çift tıkla.")} />
+                <Rich as="li" html={t('Klasördeki <span class="sv-mono">MACOS_BASLAT.command</span> dosyasına çift tıkla (uyarı çıkarsa sağ tık → Aç).')} />
+                <Rich as="li" html={t('Terminal “Running on local URL” yazınca tarayıcıda <span class="sv-mono">127.0.0.1:7860</span> adresini aç.')} />
               </ol>
             </Rise>
           </div>
           <Rise reduce={reduce} className="sv-cta__actions">
-            <a className="sv-btn sv-btn--primary" href={GITHUB} target="_blank" rel="noopener noreferrer">GitHub'dan indir</a>
-            <span className="sv-note">8 GB RAM'li cihazlarda kullanım önerilmez. Ayrıntılı kurulum ve sorun giderme README'de.</span>
+            <a className="sv-btn sv-btn--primary" href={GITHUB} target="_blank" rel="noopener noreferrer">{t("GitHub'dan indir")}</a>
+            <span className="sv-note">{t("8 GB RAM'li cihazlarda kullanım önerilmez. Ayrıntılı kurulum ve sorun giderme README'de.")}</span>
           </Rise>
         </section>
       </main>
@@ -558,5 +637,6 @@ export default function SesVerSite() {
         </Link>
       </footer>
     </div>
+    </LangContext.Provider>
   );
 }
