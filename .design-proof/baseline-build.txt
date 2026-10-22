@@ -1,4 +1,0 @@
-BASELINE (ccc9119 + yerel lock değişikliği)
-dist/assets/index.js   415.56 kB gzip 133.32 kB
-dist/assets/index.css   32.67 kB gzip   6.97 kB
-dist toplam 2520 KB

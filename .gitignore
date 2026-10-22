@@ -25,3 +25,9 @@ public/ilham/opt/
 *.njsproj
 *.sln
 *.sw?
+
+# İç görev brief'leri / tasarım kanıt klasörleri — GitHub'a gitmesin
+.imageartist-task-*.md
+.webdev-task-*.md
+.MOBIL-DENETIM-RAPORU.md
+.design-proof/
