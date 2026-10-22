@@ -53,6 +53,14 @@ const RAW_CLONE_PATH = wavePath(5.7, 0.55);
 
 const TTS_TEXT = 'Merhaba, ben SesVer. Yazdığın her cümleyi kendi bilgisayarında, internete göndermeden Türkçe sese çeviriyorum.';
 
+// TtsDemo'daki seçilebilir hazır sesler. Üç kayıt da TTS_TEXT cümlesini okur (public/audio/sesver/demo-*.mp3).
+// Etiketler yalnız sesin adı; ölçülmemiş niteleme (derin, tok vb.) eklenmez.
+const TTS_VOICES = [
+  { id: 'belgesel', name: 'Belgesel Anlatıcı', src: '/audio/sesver/demo-belgesel.mp3' },
+  { id: 'heyecanli', name: 'Heyecanlı Sunucu', src: '/audio/sesver/demo-heyecanli.mp3' },
+  { id: 'masalci', name: 'Yaşlı Masalcı', src: '/audio/sesver/demo-masalci.mp3' }
+];
+
 // Bir ses dalgası çubuğu dizisi. Hareket CSS keyframe ile (transform: scaleY); JS döngüsü yok.
 function Bars({ heights, className = '' }) {
   return (
@@ -68,10 +76,16 @@ function Bars({ heights, className = '' }) {
   );
 }
 
-// Ses örneği düğmesi. src yokken devre dışıdır; ileride gerçek dosya yolu verilince oynatır.
+// Ses örneği düğmesi: src verilince <audio> ile oynat/duraklat; src yoksa "yakında" rozetiyle devre dışı.
 export function AudioDemo({ src = null, label = 'Dinle', tone = 'source' }) {
   const ref = useRef(null);
   const [playing, setPlaying] = useState(false);
+
+  // Bileşen kalkarken (ör. TtsDemo'da ses değişince) çalan kayıt susar.
+  useEffect(() => {
+    const el = ref.current;
+    return () => el?.pause();
+  }, []);
 
   if (!src) {
     return (
@@ -86,7 +100,7 @@ export function AudioDemo({ src = null, label = 'Dinle', tone = 'source' }) {
   const toggle = () => {
     const el = ref.current;
     if (!el) return;
-    if (el.paused) el.play();
+    if (el.paused) el.play().catch(() => setPlaying(false));
     else el.pause();
   };
 
@@ -158,11 +172,15 @@ function Word({ progress, index, total, children }) {
   const start = index / total;
   const end = Math.min(1, start + 1.4 / total);
   const opacity = useTransform(progress, [start, end], [0, 1]);
+  // Boşluk inline-block .sv-word'ün DIŞINDA: içeride kalınca tarayıcı sondaki boşluğu yutuyor
+  // ve kelimeler bitişik görünüyordu ("benSesVer").
   return (
-    <span className="sv-word">
-      <span className="sv-word__base">{children}</span>
-      <Motion.span className="sv-word__on" style={{ opacity }} aria-hidden="true">{children}</Motion.span>{' '}
-    </span>
+    <>
+      <span className="sv-word">
+        <span className="sv-word__base">{children}</span>
+        <Motion.span className="sv-word__on" style={{ opacity }} aria-hidden="true">{children}</Motion.span>
+      </span>{' '}
+    </>
   );
 }
 
@@ -175,6 +193,8 @@ function TtsDemo({ reduce }) {
   const playhead = useTransform(read, [0, 1], [0, 1]);
   const words = TTS_TEXT.split(' ');
   const full = useTransform(p, [0, 1], [1, 1]);
+  const [voiceId, setVoiceId] = useState(TTS_VOICES[0].id);
+  const voice = TTS_VOICES.find((v) => v.id === voiceId) ?? TTS_VOICES[0];
 
   return (
     <section id="nasil" ref={ref} className={`sv-tts ${reduce ? 'is-static' : ''}`}>
@@ -183,7 +203,19 @@ function TtsDemo({ reduce }) {
         <h2 className="sv-h2">Yaz, Üret'e bas, dinle.</h2>
         <div className="sv-card sv-tts__card">
           <div className="sv-tts__bar">
-            <span className="sv-chip">Belgesel Anlatıcı</span>
+            <div className="sv-tts__voices" role="group" aria-label="Ses seç">
+              {TTS_VOICES.map((v) => (
+                <button
+                  key={v.id}
+                  type="button"
+                  className={`sv-chip sv-voice ${v.id === voice.id ? 'is-active' : ''}`}
+                  aria-pressed={v.id === voice.id}
+                  onClick={() => setVoiceId(v.id)}
+                >
+                  {v.name}
+                </button>
+              ))}
+            </div>
             <span className="sv-chip sv-chip--soft">Kalite: Dengeli</span>
           </div>
           <p className="sv-tts__text">
@@ -196,11 +228,12 @@ function TtsDemo({ reduce }) {
             <Motion.span className="sv-tts__playhead" style={{ scaleX: reduce ? 1 : playhead }} aria-hidden="true" />
           </div>
           <div className="sv-tts__foot">
-            <AudioDemo src={asset('/audio/sesver/tts-demo.mp3')} label="Bu cümleyi dinle" />
+            {/* key: ses değişince düğme yeniden kurulur; çalan kayıt durur, durum sıfırlanır. */}
+            <AudioDemo key={voice.id} src={asset(voice.src)} label="Bu cümleyi dinle" />
             <span className="sv-mono">WAV · 48 kHz</span>
           </div>
         </div>
-        <p className="sv-note">Görsel temsilidir; gerçek ses örnekleri yakında eklenecek.</p>
+        <p className="sv-note">Gerçek SesVer çıktısı: üç hazır ses aynı cümleyi okuyor. Dalga ve kelime vurgusu görseldir.</p>
       </div>
     </section>
   );

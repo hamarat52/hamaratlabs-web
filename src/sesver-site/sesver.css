@@ -158,6 +158,42 @@
   color: var(--sv-ink-2);
 }
 
+/* TtsDemo ses seçici: sv-chip görünümünde düğmeler; seçili olan turuncu, diğerleri sakin. */
+.sv-tts__voices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sv-voice {
+  min-height: 36px;
+  align-items: center;
+  border: 1.5px solid var(--sv-line);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--sv-ink-2);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.sv-voice:hover {
+  border-color: #f3c99c;
+  color: #b4530a;
+}
+
+.sv-voice.is-active {
+  border-color: transparent;
+  background: #fff1e2;
+  color: #b4530a;
+}
+
+.sv-voice:focus-visible {
+  outline: 3px solid var(--sv-orange);
+  outline-offset: 3px;
+}
+
 /* ---------- nav ---------- */
 .sv-nav {
   position: sticky;
