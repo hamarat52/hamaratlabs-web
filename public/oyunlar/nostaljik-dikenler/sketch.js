@@ -379,6 +379,8 @@ let shakeOffset = { x: 0, y: 0 }; // bu karede uygulanan tam sayı ofset (test/d
 let flashFramesLeft = 0;
 let debris = [];          // {x, y, vx, vy, life}
 let lavaDrops = [];       // Faz 10: {x, y, y0, vy} — debris'ten AYRI, yalnız görsel (çarpışma yok)
+let skipMarks = [];       // Faz 11: {x, y, w, tier, t, life} — atlanan platform üstü altın şerit (yalnız görsel)
+let scorePops = [];       // Faz 11: {text, tier, t, life} — HUD skorunun sağında "+N" punch metni (yalnız görsel)
 let ghostHist = [];       // [şimdiki, önceki, önceki-önceki] top merkezleri
 let ghostNearMissMs = 0;
 let squashFramesLeft = 0;
@@ -494,6 +496,8 @@ function resetGame() {
   resetAirtimeTracker(); // Faz 7
   resetPickups(); // Faz 9: activeBuff + ekrandaki eşya + dokunulmazlık
   lastSkipResult = null;
+  skipMarks = []; // Faz 11: yeni koşuya görsel sızıntı olmasın
+  scorePops = [];
   resetRowPatternStats(); // Faz 8
   touchHintMs = IS_TOUCH_DEVICE ? TOUCH_HINT_MS : 0; // mobil: her koşu başında kısa ipucu
 
@@ -1078,10 +1082,12 @@ function draw() {
   drawDitherBackground(getDitherLevel());
   drawGhosts();
   drawWorld();
+  drawSkipMarks(); // Faz 11: platformlardan SONRA, debris'ten ÖNCE
   drawDebris();
   drawLavaDrops(); // Faz 10: yalnız görsel lav damlaları (stage >= 3)
   pop();
   drawScore();
+  drawScorePop(); // Faz 11: aynı HUD katmanı, skor metninin sağında
   drawTouchHint();
 
   // Ölüm hitstop'u boyunca kare donuk kalsın; GAME OVER yazısı donma bitince gelir.
@@ -1253,6 +1259,84 @@ function drawDebris() {
   }
 }
 
+// --- Faz 11 (§12.1): platform-üstü skip işareti ---
+// Debris/lav ile aynı oyun dt'si (hitstop'ta donar). Platformla birlikte kayar (debris deseni),
+// üstüne kendi yukarı kayması (-tier*6 px) eklenir -> şerit platformdan yukarı "kalkar".
+function updateSkipMarks(dt) {
+  for (const m of skipMarks) {
+    m.t += dt;
+    if (gameState === 'playing') m.y -= scrollSpeed * dt;
+  }
+  skipMarks = skipMarks.filter(m => m.t < m.life);
+}
+
+// Düz renk piksel şerit: iki yatay çizgi (tam genişlik) + ortada dolu parlak blok. Gradient/glow yok.
+// Renk PAL.ballLight — tüm temalarda #fff3c4 (tema-bağımsız sabit, §12.0).
+function drawSkipMarks() {
+  noStroke();
+  const c = color(PAL.ballLight);
+  for (const m of skipMarks) {
+    const pr = Math.min(1, m.t / m.life);
+    const yOff = -m.tier * 6 * pr;
+    c.setAlpha(255 * (1 - pr));
+    fill(c);
+    const gap = 2 + m.tier;                    // kademe büyüdükçe şerit kalınlaşır
+    const x0 = Math.round(m.x - m.w / 2);
+    const yBot = Math.round(m.y + yOff) - 2;   // platformun hemen üstü
+    const yTop = yBot - gap - 1;
+    rect(x0, yBot, Math.round(m.w), 1);        // alt çizgi
+    rect(x0, yTop, Math.round(m.w), 1);        // üst çizgi
+    const cw = Math.max(4, Math.round(m.w * 0.3));
+    rect(Math.round(m.x - cw / 2), yTop, cw, gap + 2); // orta parlaklık (çizgiler arası dolu)
+  }
+}
+
+// --- Faz 11 (§12.2): HUD "+N" puan pop'u ---
+function updateScorePops(dt) {
+  for (const s of scorePops) s.t += dt;
+  scorePops = scorePops.filter(s => s.t < s.life);
+}
+
+// Punch eğrisi: 0-0.12s 0→1.3 (ease-out), 0.12-0.2s 1.3→1.0, sonra 1.0.
+function scorePopScale(t) {
+  if (t < 0.12) { const u = t / 0.12; return 1.3 * (1 - (1 - u) * (1 - u)); }
+  if (t < 0.2) return 1.3 - 0.3 * ((t - 0.12) / 0.08);
+  return 1.0;
+}
+
+function drawScorePop() {
+  if (scorePops.length === 0) return;
+  // drawScore() ile aynı metin/boyut -> skor metninin bittiği x'i ölç.
+  textSize(getHudStyle().size);
+  const scoreW = textWidth(Math.floor(score) + '  x' + multiplier);
+  const x = 10 + scoreW + 8;
+  const c = color(PAL.ballLight);
+  textAlign(LEFT, TOP);
+  for (let i = 0; i < scorePops.length; i++) {
+    const s = scorePops[i];
+    const sc = scorePopScale(s.t);
+    if (sc <= 0) continue;
+    const fadeStart = s.life * 0.7;
+    const a = s.t < fadeStart ? 255 : 255 * (1 - (s.t - fadeStart) / (s.life - fadeStart));
+    c.setAlpha(a);
+    push();
+    translate(x, SPIKE_STRIP_H + 4 + i * 14);
+    scale(sc);
+    fill(c);
+    if (s.tier >= 3) {
+      // getHudStyle() dili: kontur kalınlaşır (1 tier ≈ 1 çarpan adımı -> tier 3 = 2 adım)
+      stroke(c);
+      strokeWeight((s.tier - 1) * HUD_STROKE_PER_STEP);
+    } else {
+      noStroke();
+    }
+    textSize(HUD_BASE_SIZE + (s.tier - 1) * 4); // tier 1 = taban, tier 3 = +8px (§12.2)
+    text(s.text, 0, 0);
+    pop();
+  }
+  noStroke();
+}
+
 // --- Dither ghosting ---
 function ghostingActive() {
   if (!JUICE.ghosting || gameState !== 'playing') return false;
@@ -1318,6 +1402,8 @@ function updateWorldJuice() {
   }
   debris = debris.filter(d => d.life > 0);
   updateLavaDrops(dt); // Faz 10: debris'ten ayrı dizi/fizik
+  updateSkipMarks(dt); // Faz 11: debris/lav ile aynı oyun dt'si (hitstop'ta donar)
+  updateScorePops(dt);
 
   if (gameState === 'playing') {
     ghostHist.unshift({ x: ball.x, y: ball.y });
@@ -2328,6 +2414,11 @@ function onLanding() {
   resetAirtimeTracker();
   juiceOnLanding(skips); // Faz 4: kozmetik (Faz 7: pas varsa dolgun darbe sesi)
   if (skips > 0) juiceOnSkipLanding(lastSkipResult.tier);
+  // Faz 11 (§12.2): yalnız görsel "+N" pop'u — applySkipBonus'un hesapladığı değeri OKUR, değiştirmez.
+  if (skips > 0 && lastSkipResult.bonus > 0) {
+    scorePops.push({ text: '+' + Math.round(lastSkipResult.bonus), tier: lastSkipResult.tier,
+                     t: 0, life: 0.45 + 0.15 * lastSkipResult.tier });
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -2409,6 +2500,18 @@ function onSkipRow(count, p) {
       debris.push({ x: ball.x + (Math.random() - 0.5) * BALL_R * 2, y: ball.y + (Math.random() - 0.5) * BALL_R,
                     vx: (Math.random() - 0.5) * 60, vy: -(80 + Math.random() * 80),
                     life: DEBRIS_LIFE_S, col: PAL.hud });
+    }
+  }
+  // Faz 11 (§12.1): atlanan platformun ÜSTÜNDE altın şerit (her platform ayrı). Yalnız görsel;
+  // Math.random kullanır (p5 random() dizisine dokunmaz -> desen üretimi birebir).
+  const tier = getSkipTier(count);
+  skipMarks.push({ x: p.x + p.w / 2, y: p.y, w: p.w, tier: tier, t: 0, life: 0.3 + 0.1 * tier });
+  if (JUICE.skipBonus && JUICE.debris && tier >= 2) {
+    const n = 3 + Math.floor(Math.random() * 2); // 3-4 altın parçacık, platform üstünden yukarı
+    for (let k = 0; k < n; k++) {
+      debris.push({ x: p.x + p.w / 2 + (Math.random() - 0.5) * p.w * 0.6, y: p.y - DEBRIS_SIZE,
+                    vx: (Math.random() - 0.5) * 60, vy: -(80 + Math.random() * 80),
+                    life: DEBRIS_LIFE_S, col: PAL.ballLight });
     }
   }
 }
