@@ -1,0 +1,166 @@
+/* ---------- Öğretici / Nasıl Yaptık ----------
+   Site dili: Ivory zemin, Ink metin, Lime vurgu, Geist gövde, JetBrains Mono etiket.
+   Başlık bloğu uygulama sayfasıyla (apppage__hero) aynı ritimde. */
+
+.ogr__hero {
+  padding-top: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: 'Geist', var(--font);
+}
+.ogr__hero .apppage__back { margin-bottom: 24px; }
+.ogr__hero h1 {
+  margin: 0;
+  max-width: 18em;
+  font-family: 'Geist', var(--font);
+  font-weight: 600;
+  font-size: clamp(36px, 5.4vw, 72px);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+.ogr__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 18px; }
+
+.ogr__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  font-family: 'Geist', var(--font);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.ogr__btn:hover { transform: translateY(-1px); }
+.ogr__btn--ink { background: var(--ink); color: var(--ivory); }
+.ogr__btn--line { background: transparent; color: var(--ink); }
+.ogr__btn--lime { background: var(--lime); border-color: var(--lime); color: var(--ink); }
+.ogr__btn--ghost { background: transparent; border-color: var(--ink-line); color: var(--ivory); }
+.ogr__btn--ghost:hover { border-color: var(--lime); color: var(--lime); }
+.ogr__btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+.ogr__btn.is-pending { cursor: default; }
+.ogr__btn.is-pending:hover { transform: none; }
+
+/* Gövde: okunur sütun; görseller daha geniş taşar. */
+.ogr__body {
+  padding-top: 56px;
+  padding-bottom: 112px;
+  font-family: 'Geist', var(--font);
+  font-size: 19px;
+  line-height: 1.65;
+  color: #24282e;
+}
+.ogr__body > * { max-width: 720px; margin-left: auto; margin-right: auto; }
+.ogr__body > .ogr__fig--wide { max-width: 1040px; }
+.ogr__body p { margin-top: 0; margin-bottom: 22px; }
+.ogr__body strong { color: var(--ink); font-weight: 650; }
+.ogr__body code { font-family: var(--mono); font-size: 0.85em; padding: 1px 6px; border-radius: 6px; background: var(--paper); }
+.ogr__body h2 {
+  margin-top: 64px;
+  margin-bottom: 20px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  font-family: 'Geist', var(--font);
+  font-weight: 600;
+  font-size: clamp(26px, 3vw, 36px);
+  letter-spacing: -0.03em;
+}
+.ogr__body ol,
+.ogr__body ul { margin-top: 0; margin-bottom: 28px; padding-left: 0; list-style: none; }
+.ogr__body li { position: relative; padding: 14px 0 14px 44px; border-top: 1px solid var(--line); }
+.ogr__body li:last-child { border-bottom: 1px solid var(--line); }
+.ogr__body ol { counter-reset: ogr; }
+.ogr__body ol > li { counter-increment: ogr; }
+.ogr__body ol > li::before {
+  content: counter(ogr, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 18px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.ogr__body ul > li::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 27px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 1.5px var(--ink);
+}
+.ogr__body hr { border: 0; border-top: 1px solid var(--line); margin: 48px auto; }
+
+/* Görseller */
+.ogr__fig { margin-top: 40px; margin-bottom: 48px; }
+.ogr__fig img { width: 100%; height: auto; border-radius: var(--radius); background: var(--paper); }
+.ogr__fig figcaption { margin-top: 12px; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--muted); }
+.ogr__zoom { display: block; border-radius: var(--radius); }
+.ogr__zoom:hover img { filter: brightness(1.03); }
+.ogr__compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 760px; margin: 0 auto; }
+.ogr__fig--wide:has(.ogr__compare) figcaption { max-width: 760px; margin-left: auto; margin-right: auto; }
+.ogr__compare-item { display: flex; flex-direction: column; gap: 10px; }
+.ogr__compare-item img { border-radius: 18px; }
+.ogr__strip { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.ogr__strip-scroll { overflow-x: auto; border-radius: 14px; overscroll-behavior-x: contain; }
+.ogr__strip-scroll img { border-radius: 14px; min-width: 900px; }
+
+/* Kopyalanabilir agent prompt'u: koyu kod kutusu */
+.ogr__prompt { margin-top: 56px; border-radius: var(--radius); background: var(--ink); color: var(--ivory); overflow: hidden; }
+.ogr__prompt-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding: 18px 20px 18px 24px;
+  border-bottom: 1px solid var(--ink-line);
+}
+.ogr__prompt-head .mono { color: var(--muted-dark); overflow-wrap: anywhere; }
+.ogr__prompt-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.ogr__prompt .ogr__btn { min-height: 42px; padding: 0 18px; font-size: 14px; }
+.ogr__code {
+  margin: 0;
+  max-height: 560px;
+  overflow: auto;
+  padding: 24px;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #e9e6dd;
+}
+.ogr__code code { background: none; padding: 0; font-size: inherit; }
+.ogr__code:focus-visible { outline-offset: -3px; }
+
+.ogr__missing { padding-top: 32px; }
+#agent-prompt { scroll-margin-top: 88px; }
+
+@media (max-width: 620px) {
+  .ogr__hero { padding-top: 32px; padding-bottom: 40px; }
+  .ogr__hero .apppage__back { margin-bottom: 12px; }
+  .ogr__body { padding-top: 36px; font-size: 17.5px; }
+  .ogr__body li { padding-left: 36px; }
+  .ogr__compare { gap: 10px; }
+  .ogr__fig img { border-radius: 16px; }
+  .ogr__prompt { margin-left: calc(var(--gutter) * -1) !important; margin-right: calc(var(--gutter) * -1) !important; border-radius: 0; }
+  .ogr__code { font-size: 12.5px; padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ogr__btn { transition: none; }
+}

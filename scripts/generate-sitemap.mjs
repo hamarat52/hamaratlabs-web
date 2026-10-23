@@ -35,7 +35,13 @@ const today = new Date().toISOString().slice(0, 10);
 const staticUrls = ['/', '/uretiyorum', '/paylasiyorum', '/anlatiyorum', '/oneriyorum'];
 const appUrls = allApps.map(a => `/uretiyorum/${slugOf(a.name)}`);
 
-const urls = [...new Set([...staticUrls, ...appUrls, ...standaloneUrls])];
+// Öğretici yazıları: src/ogretici/posts.js içindeki `slug: '...'` satırları (ham metinden, aynı nedenle).
+const postsSrc = readFileSync(path.join(__dirname, '..', 'src', 'ogretici', 'posts.js'), 'utf8');
+const postUrls = ['/ogretici'];
+const slugRe = /^\s*slug:\s*'([^']+)'/gm;
+while ((m = slugRe.exec(postsSrc))) postUrls.push(`/ogretici/${m[1]}`);
+
+const urls = [...new Set([...staticUrls, ...appUrls, ...standaloneUrls, ...postUrls])];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -17,6 +17,7 @@ import DevelopmentMap from './DevelopmentMap';
 import ErrorBoundary from './components/ErrorBoundary';
 // WebGL'siz yedek galeri ogl içermez (küçük); error boundary'nin chunk yüklenemese de gösterebilmesi için ana pakette.
 import FlexCarouselFallback from './components/rb/FlexCarousel/FlexCarouselFallback';
+import { POSTS } from './ogretici/posts';
 
 // Performans: ilk açılışta (ana sayfa) gerekmeyen her şey ayrı parça (chunk) olarak yüklenir.
 // - Uygulama sayfaları (AppPage, tiTimer): motion + hugeicons yalnız bu sayfalarda gerekiyor.
@@ -26,6 +27,8 @@ const AppPage = lazy(() => import('./AppPage'));
 const FlexCarousel = lazy(() => import('./components/rb/FlexCarousel/FlexCarousel'));
 const GradientASCII = lazy(() => import('./components/rb/GradientASCII/GradientASCII'));
 const LetterGlitch = lazy(() => import('./components/rb/LetterGlitch/LetterGlitch'));
+// Öğretici / Nasıl Yaptık: liste (/ogretici) ve yazılar (/ogretici/<slug>). Yazı listesi src/ogretici/posts.js.
+const OgreticiPage = lazy(() => import('./ogretici/OgreticiPage'));
 
 // Kendi tasarım dili olan uygulamalar genel AppPage yerine özel sayfayla açılır.
 // Anahtar slugOf(ad); yol yine /uretiyorum/<slugOf(ad)>. Özel sayfalar ayrı parça olarak yüklenir.
@@ -114,6 +117,9 @@ export default function App() {
   const appMatch = path.startsWith('/uretiyorum/')
     ? [...FEATURED, ...APPS].find(a => `/uretiyorum/${slugOf(a.name)}` === path)
     : null;
+  // /ogretici → liste (slug null), /ogretici/<slug> → yazı. Sondaki eğik çizgi yok sayılır.
+  const ogretici =
+    path === '/ogretici' || path.startsWith('/ogretici/') ? { slug: path.slice('/ogretici/'.length).replace(/\/$/, '') || null } : null;
   if (StaticPage && STANDALONE_PAGES.has(path)) {
     return (
       <NavContext.Provider value={navigate}>
@@ -130,6 +136,10 @@ export default function App() {
         {StaticPage ? (
           <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
             <StaticPage />
+          </Suspense>
+        ) : ogretici ? (
+          <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+            <OgreticiPage key={ogretici.slug || 'liste'} slug={ogretici.slug} />
           </Suspense>
         ) : appMatch ? (
           (() => {
@@ -236,7 +246,7 @@ function Header({ path }) {
         </button>
         <nav id="ana-menu" aria-label="Ana menü" className="topbar__nav" onClick={e => e.target.closest('a') && setOpen(false)}>
           {tabs.map(([to, label]) => (
-            <Link key={to} to={to} aria-current={path === to || path.startsWith(`${to}/`) ? 'page' : undefined}>
+            <Link key={to} to={to} aria-current={path === to || path.startsWith(`${to}/`) || (to === '/anlatiyorum' && path.startsWith('/ogretici')) ? 'page' : undefined}>
               {label}
             </Link>
           ))}
@@ -602,6 +612,30 @@ function Teach({ page = false }) {
             </li>
           ))}
         </FadeContent>
+        {POSTS.length > 0 && (
+          <div className="howto">
+            <div className="howto__head">
+              <span className="mono muted">NASIL YAPTIK</span>
+              <More to="/ogretici" />
+            </div>
+            <ul className="lessons">
+              {POSTS.slice(0, 3).map(p => (
+                <li key={p.slug}>
+                  <Link to={`/ogretici/${p.slug}`} className="lesson">
+                    <span className="lesson__title">{p.title}</span>
+                    <span className="lesson__sub">{p.sub}</span>
+                    <span className="lesson__meta">
+                      {p.kind} · {p.date}
+                    </span>
+                    <span className="lesson__arrow" aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -632,6 +666,7 @@ function Footer() {
             <Link to="/uretiyorum">Üretiyorum</Link>
             <Link to="/paylasiyorum">Paylaşıyorum</Link>
             <Link to="/anlatiyorum">Anlatıyorum</Link>
+            <Link to="/ogretici">Öğretici</Link>
             <Link to="/aktivite">Aktivite</Link>
           </div>
           <div>

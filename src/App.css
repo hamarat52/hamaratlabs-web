@@ -670,6 +670,11 @@ mark {
 .card__body { text-decoration: none; color: inherit; cursor: pointer; }
 .card__body:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; border-radius: 24px; }
 
+/* Anlatıyorum altında "Nasıl Yaptık" yazı listesi (yazılar: src/ogretici/posts.js) */
+.howto { margin-top: 56px; }
+.howto__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: 16px; }
+.howto__head .more { margin-top: 0; }
+
 /* ---------- Uygulama sayfası ---------- */
 .apppage__hero { padding-top: 48px; padding-bottom: 72px; border-bottom: 1px solid var(--line); }
 .apppage__back { display: inline-block; margin-bottom: 40px; font-family: 'Geist', var(--font); font-size: 15px; color: var(--muted); text-decoration: none; }
