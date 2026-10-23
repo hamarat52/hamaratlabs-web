@@ -155,6 +155,8 @@ const JUICE = {
   hudGrow: true,     // momentum çarpanı skor yazısını büyütür/kalınlaştırır (karar #3)
   stageUp: true,     // Faz 6: aşama girişi - sönen açık ton flaşı (ölüm invert flaşından ayrı)
   skipBonus: true,   // Faz 7: altın ghost izi + skip flaşı/sarsıntısı/hitstop'u (puan/çarpan bundan bağımsız)
+  shatter: true,     // Faz 12: atlanan platform piksel parçalarına ayrılıp fizikle saçılır (yalnız görsel)
+  skipMarks: false,  // Faz 13 — kullanıcı geri bildirimiyle devre dışı, Faz 12'nin patlama efekti yerine geçti
   buffFx: true       // Faz 9: eşya toplama patlaması + Aegis halkası + Nitro alev izi (etkiler bundan bağımsız)
 };
 // Donma kare sınırında biter: gerçek süre = HITSTOP_MS'i ilk aşan kare toplamı.
@@ -236,6 +238,11 @@ const THUD_BODY_F1 = 110;
 const THUD_BODY_PEAK = 0.7;
 const THUD_BODY_ATTACK_S = 0.002;
 const THUD_BODY_DECAY_S = 0.09;
+// Faz 13 (TASARIM.md §14.2-14.3): iniş "vurma" transienti — bant geçiren gürültü click (buildRatchet deseni)
+const LANDING_CLICK_HZ = 1200;
+const LANDING_CLICK_Q = 1.1;
+const LANDING_CLICK_S = 0.01;
+const LANDING_CLICK_PEAK = [0.5, 0.5, 0.68, 0.88]; // index: 0=normal iniş, 1/2/3=skip tier
 // Kıl payı "whiz" (square, yüksek frekansa hızlı yukarı süpürme)
 const WHIZ_F0 = 1400;
 const WHIZ_F1 = 2800;
@@ -302,6 +309,11 @@ const SKIP_CUE_MIDI = [79, 84, 88, 91]; // G5 C6 E6 G6
 const SKIP_CUE_NOTE_S = 0.035;
 const SKIP_CUE_STEP_S = 0.05;
 const SKIP_LOG_MAX = 200;
+// Faz 12 (TASARIM.md §13): atlanan platform piksel parçalanması — sabit boyutlu nesne havuzu.
+const SHARD_POOL_SIZE = 96;                    // tier3 (16 parça) x ~6 eşzamanlı patlama; havuz asla büyümez
+const SHARD_COUNT_BY_TIER = [0, 6, 10, 16];    // kademe -> parça sayısı
+const SHARD_LIFE_BY_TIER = [0, 0.6, 0.8, 1.0]; // kademe -> ömür (sn)
+const SHARD_GRAVITY = GRAVITY * 0.6;           // 900 px/sn^2 (debris'in GRAVITY*0.5'inden biraz ağır)
 
 // --- Faz 8: çoklu şerit desenleri (rapor §2.3/§2.4, TASARIM.md §10.2) ---
 // Bölgeler = platform MERKEZİ aralıkları (CANVAS_W oranı); ayrıca platform hep ekran içinde kalır.
@@ -381,6 +393,7 @@ let debris = [];          // {x, y, vx, vy, life}
 let lavaDrops = [];       // Faz 10: {x, y, y0, vy} — debris'ten AYRI, yalnız görsel (çarpışma yok)
 let skipMarks = [];       // Faz 11: {x, y, w, tier, t, life} — atlanan platform üstü altın şerit (yalnız görsel)
 let scorePops = [];       // Faz 11: {text, tier, t, life} — HUD skorunun sağında "+N" punch metni (yalnız görsel)
+let platformShards = [];  // Faz 12: SHARD_POOL_SIZE sabit havuz (initShardPool, setup'ta bir kez) — yalnız görsel
 let ghostHist = [];       // [şimdiki, önceki, önceki-önceki] top merkezleri
 let ghostNearMissMs = 0;
 let squashFramesLeft = 0;
@@ -466,6 +479,7 @@ function setup() {
   // (enforceOneBit) kaldırıldı; şekiller kendi ramp renginde dolu/kenarsız çizilir.
   noSmooth();
   textFont('monospace');
+  initShardPool(); // Faz 12: parça havuzu bir kez tahsis edilir (resetGame yalnız deaktive eder)
   resetGame();
 }
 
@@ -498,6 +512,7 @@ function resetGame() {
   lastSkipResult = null;
   skipMarks = []; // Faz 11: yeni koşuya görsel sızıntı olmasın
   scorePops = [];
+  for (const s of platformShards) s.active = false; // Faz 12: havuz yeniden tahsis edilmez, yalnız deaktive
   resetRowPatternStats(); // Faz 8
   touchHintMs = IS_TOUCH_DEVICE ? TOUCH_HINT_MS : 0; // mobil: her koşu başında kısa ipucu
 
@@ -1084,6 +1099,7 @@ function draw() {
   drawWorld();
   drawSkipMarks(); // Faz 11: platformlardan SONRA, debris'ten ÖNCE
   drawDebris();
+  drawShards(); // Faz 12: platform parçalanma havuzu (aynı world-transform bloğu)
   drawLavaDrops(); // Faz 10: yalnız görsel lav damlaları (stage >= 3)
   pop();
   drawScore();
@@ -1128,7 +1144,7 @@ function juiceOnLanding(skips) {
   if (JUICE.shake) startShake(SHAKE_LANDING_PX, 'vertical');
   if (JUICE.debris) spawnDebris(cx, cy);
   if (JUICE.squash) squashFramesLeft = SQUASH_FRAMES;
-  if (skips > 0 && SOUND.skip) sfxSkipLanding(); // Faz 7: dolgun triangle darbe
+  if (skips > 0 && SOUND.skip) sfxSkipLanding(getSkipTier(skips)); // Faz 7: dolgun triangle darbe
   else sfxLanding(); // Faz 5: triangle thud
 }
 
@@ -1390,6 +1406,84 @@ function drawBall() {
   ellipse(cx - rx * 0.4, cy - ry * 0.4, rx * 0.55, ry * 0.55);
 }
 
+// --- Faz 12 (TASARIM.md §13): platform parçalanma — sabit boyutlu nesne havuzu ---
+// Havuz setup()'ta BİR KEZ doldurulur; spawn index ataması yapar (push yok), update tüm
+// slotlarda sabit döngü (filter yok) -> kare başına yeni dizi tahsisi yok.
+function initShardPool() {
+  platformShards = [];
+  for (let i = 0; i < SHARD_POOL_SIZE; i++) {
+    platformShards.push({ active: false, x: 0, y: 0, w: 0, h: 0, vx: 0, vy: 0,
+                          rot: 0, rotV: 0, life: 0, maxLife: 0, col: null });
+  }
+}
+
+// Önce boş slotlar; yetmezse kalan ömrü EN DÜŞÜK aktif slotlar gaspedilir (havuz büyümez).
+// Math.random kullanır (p5 random() dizisine dokunmaz -> desen üretimi birebir).
+function spawnPlatformShatter(p, tier) {
+  if (!JUICE.shatter || tier <= 0) return;
+  const n = SHARD_COUNT_BY_TIER[tier];
+  const life = SHARD_LIFE_BY_TIER[tier];
+  let free = 0;
+  for (const s of platformShards) if (!s.active) free++;
+  // Gasp adayları yazmadan ÖNCE belirlenir (yeni yazılan parça tekrar seçilmesin).
+  // Bu sıralama yalnız havuz yetmediğinde (nadir) geçici dizi tahsis eder.
+  const steal = free < n
+    ? platformShards.filter(s => s.active).sort((a, b) => a.life - b.life).slice(0, n - free)
+    : null;
+  const write = (s) => {
+    const shardRelX = Math.random();
+    s.x = p.x + shardRelX * p.w;
+    s.y = p.y + Math.random() * p.h;
+    s.w = 3 + tier + Math.random() * 2;
+    s.h = 3 + tier + Math.random() * 2;
+    s.vx = (shardRelX - 0.5) * (120 + tier * 60) + (Math.random() - 0.5) * 60;
+    s.vy = -(100 + tier * 70) - Math.random() * 80;
+    s.rot = 0;
+    s.rotV = (Math.random() - 0.5) * 720; // derece/sn, -360..360
+    s.life = life;
+    s.maxLife = life;
+    s.col = Math.random() < 0.5 ? PAL.platMain : PAL.platShadow;
+    s.active = true;
+  };
+  let used = 0;
+  for (const s of platformShards) {
+    if (used >= n) break;
+    if (!s.active) { write(s); used++; }
+  }
+  if (steal) for (const s of steal) write(s);
+}
+
+function updateShards(dt) {
+  for (const s of platformShards) {
+    if (!s.active) continue;
+    s.vy += SHARD_GRAVITY * dt;
+    s.x += s.vx * dt;
+    s.y += s.vy * dt;
+    s.rot += s.rotV * dt;
+    s.life -= dt;
+    if (gameState === 'playing') s.y -= scrollSpeed * dt; // platformla birlikte kayar
+    if (s.life <= 0) s.active = false;
+  }
+}
+
+// Son %50 ömürde alfa söner. rectMode(CENTER) yalnız burada; sonunda CORNER'a döner (yan etkisiz).
+function drawShards() {
+  rectMode(CENTER);
+  for (const s of platformShards) {
+    if (!s.active) continue;
+    const c = typeof s.col === 'string' ? color(s.col) : s.col; // PAL alanları string (hex/rgb) olabilir
+    const a = Math.min(255, 255 * (s.life / s.maxLife) * 2);
+    push();
+    translate(s.x, s.y);
+    rotate(radians(s.rot));
+    noStroke();
+    fill(red(c), green(c), blue(c), a);
+    rect(0, 0, s.w, s.h);
+    pop();
+  }
+  rectMode(CORNER);
+}
+
 // Hitstop'ta DONAN dünya-içi juice: debris hareketi, ghost geçmişi, ghost süresi.
 function updateWorldJuice() {
   const dt = Math.min(deltaTime, 50) / 1000;
@@ -1403,6 +1497,7 @@ function updateWorldJuice() {
   debris = debris.filter(d => d.life > 0);
   updateLavaDrops(dt); // Faz 10: debris'ten ayrı dizi/fizik
   updateSkipMarks(dt); // Faz 11: debris/lav ile aynı oyun dt'si (hitstop'ta donar)
+  updateShards(dt); // Faz 12: aynı dt, hitstop'ta donar
   updateScorePops(dt);
 
   if (gameState === 'playing') {
@@ -1728,6 +1823,22 @@ function buildThud(ctx, dest, t) {
   body.stop(bodyEnd + 0.01);
   cleanupOnEnded(body, [body, bodyEnv]);
 
+  // Faz 13 (§14.2): kısa bant geçiren gürültü "click" — tonal katmanlara vurma transienti
+  const tierIndex = 0;
+  const clickSrc = ctx.createBufferSource();
+  clickSrc.buffer = noiseBuffer;
+  const clickBp = ctx.createBiquadFilter();
+  clickBp.type = 'bandpass';
+  clickBp.frequency.setValueAtTime(LANDING_CLICK_HZ, t);
+  clickBp.Q.setValueAtTime(LANDING_CLICK_Q, t);
+  const clickEnv = ctx.createGain();
+  clickEnv.gain.setValueAtTime(LANDING_CLICK_PEAK[tierIndex], t);
+  clickEnv.gain.exponentialRampToValueAtTime(0.0001, t + LANDING_CLICK_S);
+  clickSrc.connect(clickBp).connect(clickEnv).connect(dest);
+  clickSrc.start(t);
+  clickSrc.stop(t + LANDING_CLICK_S + 0.005);
+  cleanupOnEnded(clickSrc, [clickSrc, clickBp, clickEnv]);
+
   return { node: osc, type: osc.type, freqStart: THUD_F0, freqEnd: THUD_F1, rampEnd: t + THUD_DROP_S,
            gainStart: t, gainPeakAt: peakAt, gainPeak: THUD_PEAK, holdEnd: peakAt + THUD_HOLD_S,
            gainEnd: end, stopAt: end + 0.01,
@@ -1862,7 +1973,9 @@ function buildWhoosh(ctx, dest, t) {
 
 // Faz 7 pas'lı iniş: normal thud'tan (60->30Hz, 0.16sn) daha dolgun/tok -> 45->20Hz, 0.26sn sönüm,
 // waveshaper (tanh) ile hafif bas distorsiyonu (üst harmonikler: küçük hoparlörde de duyulur).
-function buildSkipThud(ctx, dest, t) {
+// Faz 13 (§14.3): tier (1/2/3) verilirse LANDING_CLICK_PEAK[tier] şiddetinde click eklenir; tier'sız
+// çağrı (sfxAegisBreak) eski sesi aynen üretir.
+function buildSkipThud(ctx, dest, t, tier) {
   const osc = ctx.createOscillator();
   osc.type = 'triangle';
   osc.frequency.setValueAtTime(SKIP_THUD_F0, t);
@@ -1880,6 +1993,21 @@ function buildSkipThud(ctx, dest, t) {
   osc.start(t);
   osc.stop(end + 0.01);
   cleanupOnEnded(osc, [osc, shaper, env]);
+  if (tier >= 1 && tier <= 3) {
+    const clickSrc = ctx.createBufferSource();
+    clickSrc.buffer = noiseBuffer;
+    const clickBp = ctx.createBiquadFilter();
+    clickBp.type = 'bandpass';
+    clickBp.frequency.setValueAtTime(LANDING_CLICK_HZ, t);
+    clickBp.Q.setValueAtTime(LANDING_CLICK_Q, t);
+    const clickEnv = ctx.createGain();
+    clickEnv.gain.setValueAtTime(LANDING_CLICK_PEAK[tier], t);
+    clickEnv.gain.exponentialRampToValueAtTime(0.0001, t + LANDING_CLICK_S);
+    clickSrc.connect(clickBp).connect(clickEnv).connect(dest);
+    clickSrc.start(t);
+    clickSrc.stop(t + LANDING_CLICK_S + 0.005);
+    cleanupOnEnded(clickSrc, [clickSrc, clickBp, clickEnv]);
+  }
   return { node: osc, type: osc.type, freqStart: SKIP_THUD_F0, freqEnd: SKIP_THUD_F1,
            rampEnd: t + SKIP_THUD_DROP_S, drive: SKIP_THUD_DRIVE, gainStart: t, gainEnd: end, stopAt: end + 0.01 };
 }
@@ -1992,9 +2120,9 @@ function sfxSkipWhoosh() {
   playSfx('skipWhoosh', 'triangle', buildWhoosh);
 }
 
-function sfxSkipLanding() {
+function sfxSkipLanding(tier) {
   if (!SOUND.skip) return;
-  playSfx('skipLanding', 'triangle', buildSkipThud);
+  playSfx('skipLanding', 'triangle', (ctx, dest, t) => buildSkipThud(ctx, dest, t, tier));
 }
 
 function sfxSkipCue(tier) {
@@ -2505,7 +2633,8 @@ function onSkipRow(count, p) {
   // Faz 11 (§12.1): atlanan platformun ÜSTÜNDE altın şerit (her platform ayrı). Yalnız görsel;
   // Math.random kullanır (p5 random() dizisine dokunmaz -> desen üretimi birebir).
   const tier = getSkipTier(count);
-  skipMarks.push({ x: p.x + p.w / 2, y: p.y, w: p.w, tier: tier, t: 0, life: 0.3 + 0.1 * tier });
+  if (JUICE.skipMarks) { skipMarks.push({ x: p.x + p.w / 2, y: p.y, w: p.w, tier: tier, t: 0, life: 0.3 + 0.1 * tier }); }
+  spawnPlatformShatter(p, getSkipTier(count)); // Faz 12 (§13): platform piksel parçalarına ayrılır
   if (JUICE.skipBonus && JUICE.debris && tier >= 2) {
     const n = 3 + Math.floor(Math.random() * 2); // 3-4 altın parçacık, platform üstünden yukarı
     for (let k = 0; k < n; k++) {
