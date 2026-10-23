@@ -61,44 +61,61 @@ const PATTERN_CACHE_MAX = 12;
 
 // --- Sabitler (Faz 6: renk paleti, TASARIM.md §9.1 — hex değerleri BİREBİR) ---
 // Ramp: gölge maviye/mora, parlak sarıya/turuncuya kayar. Toplam 12 renk.
-// Faz 10 (TASARIM.md §11.3): skor bazlı tema. 4 sabit palet (ham, hiç mutasyona uğramaz);
-// tema 0 = Faz 6 PAL'ı BİREBİR. ballShadow/ballMain/ballLight, spikeTip, hud TÜM temalarda
-// aynı (okunabilirlik ilkesi §9.1). Tema indeksi = min(floor(score/1000), 3) — YALNIZ görsel;
-// zaman bazlı stage-gate (§9.2) ve mekanik zorlukla hiçbir bağı yok.
+// Faz 10 (TASARIM.md §11.3) -> Faz 14 Görev 2 (§15.2): skor bazlı tema. 5 sabit palet (ham,
+// hiç mutasyona uğramaz), değerler §15.2'den BİREBİR. ball*/spike*/hud TÜM temalarda aynı
+// (okunabilirlik ilkesi §9.1) — TEK bilinçli istisna: tema 1 (Gündüz) hud KOYU. HUD çizimi
+// (drawScore/drawScorePop/drawGameOver/drawTouchHint) zaten PAL.hud okur -> ek kod gerekmez.
+// atmo: 'stars'|'clouds'|'none' = drawAtmo tipi (geçişte ANINDA değişir, crossfade yok);
+// atmoCol: atmosfer rengi (lerpHexColor ile yumuşar; null = atmosfer yok).
+// Tema indeksi = min(floor(score/1000), 4) — YALNIZ görsel; zaman bazlı stage-gate (§9.2)
+// ve mekanik zorlukla hiçbir bağı yok.
 const THEME_PALETTES = [
-  { // 0 - Gece (0-999, mevcut PAL ile BİREBİR aynı)
-    bgLo:'#140f24', bgHi:'#251c42',
-    ballShadow:'#8a6a1f', ballMain:'#f2c14e', ballLight:'#fff3c4',
-    platShadow:'#2b3350', platMain:'#4e5b82', platLight:'#8fa1c7',
+  { // 0 - Karanlık (0-999): neredeyse SAF SİYAH, yalnız silüetler okunur ("gece/boşluk")
+    bgLo:'#030305', bgHi:'#0c0c14',
+    ballShadow:'#8a6a1f', ballMain:'#f2c14e', ballLight:'#fff3c4', // §9.1: ball/spike/hud SABİT
+    platShadow:'#15151f', platMain:'#2a2a3a', platLight:'#4a4a5e',
     spikeShadow:'#4a0e0e', spikeMain:'#c81d25', spikeTip:'#ff6a3d',
-    hud:'#f2ead1'
+    hud:'#f2ead1', atmo:'stars', atmoCol:'#3a3a55'
   },
-  { // 1 - Alacakaranlık (1000-1999)
-    bgLo:'#1f0f28', bgHi:'#3a1c42',
+  { // 1 - Gündüz (1000-1999): parlak gökyüzü, en büyük kontrast sıçraması (karar: burada
+    // "siyahtan gündüze" geçişin KENDİSİ hissedilsin istiyoruz, THEME_BLEND_S ile smooth)
+    bgLo:'#8fd3f4', bgHi:'#c9f0ff',
     ballShadow:'#8a6a1f', ballMain:'#f2c14e', ballLight:'#fff3c4',
-    platShadow:'#332f50', platMain:'#584e82', platLight:'#9a8fc7',
-    spikeShadow:'#550e14', spikeMain:'#d4222a', spikeTip:'#ff6a3d',
-    hud:'#f2ead1'
+    platShadow:'#4a3a2a', platMain:'#8a6a4a', platLight:'#c9a878', // toprak/ahşap tonu, açık
+    spikeShadow:'#4a0e0e', spikeMain:'#c81d25', spikeTip:'#ff6a3d',
+    hud:'#2a2a3a', atmo:'clouds', atmoCol:'#ffffff' // HUD burada KOYU (açık bg üstünde okunur
+    // kalsın diye) — ÖZEL İSTİSNA, §9.1'in "hud tüm temalarda aynı" kuralına BİLİNÇLİ
+    // sapma, gerekçe: beyaz HUD açık gökyüzünde OKUNMAZ, okunabilirlik ilkesi hud rengini
+    // değil hud'ın HER ZAMAN okunur olmasını önceliklendirir
   },
-  { // 2 - Kor (2000-2999)
-    bgLo:'#240a12', bgHi:'#431522',
+  { // 2 - Gece (yıldızlı) (2000-2999): lacivert, yıldız noktaları
+    bgLo:'#0a0e2a', bgHi:'#161c44',
     ballShadow:'#8a6a1f', ballMain:'#f2c14e', ballLight:'#fff3c4',
-    platShadow:'#3a3350', platMain:'#63548f', platLight:'#a799d6',
-    spikeShadow:'#610b10', spikeMain:'#e22a28', spikeTip:'#ff6a3d',
-    hud:'#f2ead1'
+    platShadow:'#1f2550', platMain:'#3a4282', platLight:'#6a74c7',
+    spikeShadow:'#4a0e0e', spikeMain:'#c81d25', spikeTip:'#ff6a3d',
+    hud:'#f2ead1', atmo:'stars', atmoCol:'#c9d4ff'
   },
-  { // 3 - Volkanik (3000+, tavan)
+  { // 3 - Volkanik (3000-3999): mevcut tema aynen korunur (zaten ayırt edici)
     bgLo:'#150608', bgHi:'#381012',
     ballShadow:'#8a6a1f', ballMain:'#f2c14e', ballLight:'#fff3c4',
     platShadow:'#2c2a4a', platMain:'#4f4a86', platLight:'#8f87c9',
     spikeShadow:'#6e0d0d', spikeMain:'#f2351f', spikeTip:'#ff6a3d',
-    hud:'#f2ead1'
+    hud:'#f2ead1', atmo:'none', atmoCol:null // kendi lav damlası sistemi var (§11.1)
+  },
+  { // 4 - Buz/Kış (4000+, tavan): soğuk açık mavi-beyaz
+    bgLo:'#1a2a3a', bgHi:'#3a5468',
+    ballShadow:'#8a6a1f', ballMain:'#f2c14e', ballLight:'#fff3c4',
+    platShadow:'#2a4452', platMain:'#5a8698', platLight:'#a8d4e0',
+    spikeShadow:'#4a0e0e', spikeMain:'#c81d25', spikeTip:'#ff6a3d',
+    hud:'#f2ead1', atmo:'stars', atmoCol:'#d8f0ff' // kar tanesi yerine basitlik için aynı
+    // 'stars' tipi yeniden kullanılır (ayrı bir 'snow' implementasyonu gerekmiyor, aynı
+    // nokta-çizim koduyla renk farkı yeterli ayırt edicilik sağlıyor)
   }
 ];
 THEME_PALETTES.forEach(Object.freeze);
 Object.freeze(THEME_PALETTES);
 const THEME_SCORE_STEP = 1000;   // her 1000 puanda bir tema
-const THEME_MAX_INDEX = 3;       // 3000+ sabit (tavan)
+const THEME_MAX_INDEX = 4;       // 4000+ sabit (tavan) — Faz 14: 3 -> 4
 const THEME_BLEND_S = 2.0;       // tema geçişi: themeBlendT 0 -> 1 doğrusal, ~2.0sn (ani sıçrama yok)
 
 // AKTİF palet: tüm çizim kodu PAL.xxx okur (değişmeden). Bağlama const, alanları
@@ -178,6 +195,12 @@ const LAVA_SPAWN_CHANCE = 0.004;       // drawSpike(i) karesi başına (60 FPS: 
 const LAVA_GRAVITY = GRAVITY * 0.5 * 0.4; // debris ivmesi (GRAVITY*0.5 = 750) x 0.4 = 300 px/sn^2
 const LAVA_SIZE = 2;                   // px, kare (noSmooth, tam sayı konum)
 const LAVA_FALL_MAX_PX = 200;          // doğduğu noktadan bu kadar düşünce silinir
+// Faz 14 Görev 2 (TASARIM.md §15.2): tema atmosferi (yıldız/bulut) — SADECE GÖRSEL.
+const ATMO_COUNT = 18;          // sabit dizi boyutu (push/filter YOK)
+const ATMO_PARALLAX = 0.3;      // ana scroll'un %30'u: arkaplan hissi
+const ATMO_CLOUD_UNIT = 4;      // px: bulut birimi x size (1-2) -> 28x12 / 56x24 px siluet
+const ATMO_CLOUD_ALPHA = 120;   // bulut dolgusu yarı saydam (§15.2: setAlpha(120))
+const ATMO_WRAP_PAD = 3 * ATMO_CLOUD_UNIT * 2; // en yüksek bulut (24px) üstten TAMAMEN çıkınca sar (pop yok)
 const GHOST_COUNT = 2;            // önceki 2 pozisyon
 const GHOST_DITHER_LV = 0.5;      // %50 Bayer
 const GHOST_NEAR_MISS_MS = 150;   // kıl payından sonra iz süresi (shake decay ile aynı)
@@ -314,6 +337,10 @@ const SHARD_POOL_SIZE = 96;                    // tier3 (16 parça) x ~6 eşzama
 const SHARD_COUNT_BY_TIER = [0, 6, 10, 16];    // kademe -> parça sayısı
 const SHARD_LIFE_BY_TIER = [0, 0.6, 0.8, 1.0]; // kademe -> ömür (sn)
 const SHARD_GRAVITY = GRAVITY * 0.6;           // 900 px/sn^2 (debris'in GRAVITY*0.5'inden biraz ağır)
+// Faz 14 (TASARIM.md §15.1): atlanan platformun gövdesi bu sürede alpha 1 -> 0 söner (~7 kare @60fps).
+const SHATTER_FADE_S = 0.12;
+// Faz 14 (TASARIM.md §15.3): platform başına en fazla bu kadar iniş izi (en eskisi silinir).
+const LANDING_MARK_MAX = 3;
 
 // --- Faz 8: çoklu şerit desenleri (rapor §2.3/§2.4, TASARIM.md §10.2) ---
 // Bölgeler = platform MERKEZİ aralıkları (CANVAS_W oranı); ayrıca platform hep ekran içinde kalır.
@@ -393,6 +420,7 @@ let debris = [];          // {x, y, vx, vy, life}
 let lavaDrops = [];       // Faz 10: {x, y, y0, vy} — debris'ten AYRI, yalnız görsel (çarpışma yok)
 let skipMarks = [];       // Faz 11: {x, y, w, tier, t, life} — atlanan platform üstü altın şerit (yalnız görsel)
 let scorePops = [];       // Faz 11: {text, tier, t, life} — HUD skorunun sağında "+N" punch metni (yalnız görsel)
+let atmoEls = [];         // Faz 14: ATMO_COUNT sabit {x, y, size} (initAtmoElements) — yalnız görsel
 let platformShards = [];  // Faz 12: SHARD_POOL_SIZE sabit havuz (initShardPool, setup'ta bir kez) — yalnız görsel
 let ghostHist = [];       // [şimdiki, önceki, önceki-önceki] top merkezleri
 let ghostNearMissMs = 0;
@@ -506,6 +534,7 @@ function resetGame() {
   deathCause = null;
   resetJuice();      // Faz 10: lav damlası dizisi de burada boşalır
   resetTheme();      // Faz 10: themeIndex = 0, themeBlendT = 0, PAL = tema 0
+  initAtmoElements(); // Faz 14: setup() de resetGame() üzerinden çağırır -> setup'ta + her restart'ta bir kez
   resetStages(); // Faz 6: her koşu aşama 0'dan başlar (kalıcı değil)
   resetAirtimeTracker(); // Faz 7
   resetPickups(); // Faz 9: activeBuff + ekrandaki eşya + dokunulmazlık
@@ -545,7 +574,9 @@ function resetGame() {
 function makePlatform(x, y, w, kind, motion) {
   // Faz 7: id yalnızca airtimeTracker için (sayaç, random() çağrısı yok -> üretim dizisi aynı).
   const p = { id: nextPlatformId++, x: x, y: y, w: w, h: PLATFORM_H, kind: kind, baseX: x,
-              amp: 0, period: 0, phase: 0, t: 0, crackT: null, broken: false };
+              amp: 0, period: 0, phase: 0, t: 0, crackT: null, broken: false,
+              shatterT: null, // Faz 14 (§15.1): atlandıktan sonra geçen süre (render fade)
+              lands: [] };    // Faz 14 (§15.3): iniş izleri (platforma göre relX), platformla birlikte silinir
   if (kind === 'moving' && motion) {
     p.amp = motion.amp; p.period = motion.period; p.phase = motion.phase;
     p.x = movingPlatformX(p);
@@ -1095,6 +1126,7 @@ function draw() {
   push();
   translate(shakeOffset.x, shakeOffset.y);
   drawDitherBackground(getDitherLevel());
+  drawAtmo(); // Faz 14 (§15.2): dither'dan HEMEN SONRA, top/platform/dikenden ÖNCE
   drawGhosts();
   drawWorld();
   drawSkipMarks(); // Faz 11: platformlardan SONRA, debris'ten ÖNCE
@@ -1499,6 +1531,7 @@ function updateWorldJuice() {
   updateSkipMarks(dt); // Faz 11: debris/lav ile aynı oyun dt'si (hitstop'ta donar)
   updateShards(dt); // Faz 12: aynı dt, hitstop'ta donar
   updateScorePops(dt);
+  updateAtmo(dt); // Faz 14: tema atmosferi parallax (hitstop'ta donar)
 
   if (gameState === 'playing') {
     ghostHist.unshift({ x: ball.x, y: ball.y });
@@ -1617,7 +1650,10 @@ function rgbToHex(r, g, b) {
 
 // RGB doğrusal interpolasyon (p5 lerpColor'ın RGB modundaki karşılığı), hex string döner:
 // PAL değerleri hexToRgb()/önbellek anahtarlarında string olarak kullanılıyor.
+// Faz 14 (§15.2): renk olmayan alanlar (atmo string'i) ve atmoCol:null güvenli — hedef değer
+// ANINDA alınır (crossfade yok, crash yok).
 function lerpHexColor(a, b, t) {
+  if (typeof a !== 'string' || typeof b !== 'string' || a[0] !== '#' || b[0] !== '#') return b;
   t = Math.min(Math.max(t, 0), 1);
   const ca = hexToRgb(a), cb = hexToRgb(b);
   return rgbToHex(Math.round(ca[0] + (cb[0] - ca[0]) * t),
@@ -1652,6 +1688,54 @@ function resetTheme() {
   themeBlending = false;
   themeFromPal = THEME_PALETTES[0];
   Object.assign(PAL, THEME_PALETTES[0]);
+}
+
+// ---------------------------------------------------------------------------
+// Faz 14 Görev 2 (TASARIM.md §15.2): tema atmosferi — YALNIZ GÖRSEL. Sabit ATMO_COUNT
+// elemanlı dizi; Math.random() (p5 random() dizisine dokunmaz). Tip PAL.atmo (anında
+// değişir), renk PAL.atmoCol (updateActiveTheme ile yumuşar; null -> çizim yok).
+// ---------------------------------------------------------------------------
+function initAtmoElements() {
+  atmoEls = new Array(ATMO_COUNT);
+  for (let i = 0; i < ATMO_COUNT; i++) {
+    atmoEls[i] = {
+      x: Math.random() * CANVAS_W,
+      y: Math.random() * (CANVAS_H + ATMO_WRAP_PAD) - ATMO_WRAP_PAD,
+      size: Math.random() < 0.5 ? 1 : 2
+    };
+  }
+}
+
+// Ana scroll'un ATMO_PARALLAX katı yukarı kayar; üstten tamamen çıkan eleman alttan
+// yeniden girer (y -= scrollSpeed*... yukarı taşıdığı için sarma üst kenarda yapılır).
+function updateAtmo(dt) {
+  if (gameState !== 'playing') return;
+  const dy = scrollSpeed * ATMO_PARALLAX * dt;
+  for (const a of atmoEls) {
+    a.y -= dy;
+    if (a.y < -ATMO_WRAP_PAD) a.y += CANVAS_H + ATMO_WRAP_PAD;
+  }
+}
+
+function drawAtmo() {
+  const type = PAL.atmo;
+  if (!PAL.atmoCol || type === 'none') return;
+  noStroke();
+  if (type === 'stars') {
+    fill(PAL.atmoCol);
+    for (const a of atmoEls) rect(Math.round(a.x), Math.round(a.y), a.size, a.size);
+  } else if (type === 'clouds') {
+    const c = color(PAL.atmoCol);
+    c.setAlpha(ATMO_CLOUD_ALPHA);
+    fill(c);
+    for (const a of atmoEls) {
+      const u = ATMO_CLOUD_UNIT * a.size;
+      const x = Math.round(a.x), y = Math.round(a.y);
+      rect(x, y + u, 7 * u, 2 * u);   // gövde
+      rect(x + u, y, 2 * u, u);       // sol tümsek (gövdeye bitişik)
+      rect(x + 4 * u, y, 2 * u, u);   // sağ tümsek
+    }
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -2296,6 +2380,7 @@ function updateGame() {
   for (const p of platforms) {
     p.y -= scrollSpeed * dt;
     if (p.kind === 'moving') updateMovingPlatform(p, dt); // Faz 6: yatay salınım (+ üstündeki top)
+    if (p.shatterT !== null) p.shatterT += dt; // Faz 14 (§15.1): shatter fade sayacı
   }
   lastSpawnY -= scrollSpeed * dt;
 
@@ -2335,7 +2420,7 @@ function updateGame() {
           ball.grounded = true;
           ball.currentPlatform = p;
           onPlatformContact(p); // Faz 6: kırılgan platform sayacı
-          onLanding();
+          onLanding(p);
           break;
         }
       }
@@ -2528,7 +2613,11 @@ function onNearMiss(spikeIndex, minDist) {
 // Platforma iniş: son inişten beri kıl payı yoksa "rahat iniş" -> çarpan 1x.
 // Faz 7: havadayken satır atlandıysa (skippedCount >= 1) bu sıfırlama YERİNE skip bonusu.
 // skippedCount === 0 yolu Faz 2 ile birebir aynı.
-function onLanding() {
+function onLanding(p) {
+  // Faz 14 (§15.3): iniş izi platformun kendisinde tutulur (solmaz; platform silinince gider).
+  const relX = constrain(ball.x - p.x, 4, p.w - 4); // platform sınırı içinde kalsın
+  p.lands.push(relX);
+  if (p.lands.length > LANDING_MARK_MAX) p.lands.shift(); // en eski iz silinir
   const skips = airtimeTracker.skippedCount;
   if (skips > 0) {
     applySkipBonus(skips);
@@ -2635,6 +2724,7 @@ function onSkipRow(count, p) {
   const tier = getSkipTier(count);
   if (JUICE.skipMarks) { skipMarks.push({ x: p.x + p.w / 2, y: p.y, w: p.w, tier: tier, t: 0, life: 0.3 + 0.1 * tier }); }
   spawnPlatformShatter(p, getSkipTier(count)); // Faz 12 (§13): platform piksel parçalarına ayrılır
+  if (tier >= 1) p.shatterT = 0; // Faz 14 (§15.1): gövde render'ı söner (platform dizide kalır)
   if (JUICE.skipBonus && JUICE.debris && tier >= 2) {
     const n = 3 + Math.floor(Math.random() * 2); // 3-4 altın parçacık, platform üstünden yukarı
     for (let k = 0; k < n; k++) {
@@ -3020,6 +3110,16 @@ function drawPulseTelegraph() {
 }
 
 function drawPlatform(p) {
+  // Faz 14 (§15.1): atlanan platformun gövdesi SHATTER_FADE_S içinde söner. globalAlpha her
+  // çizim yolunda ayarlanıp çıkıştan önce geri yüklenir (normalde 1). save/restore KULLANILMAZ:
+  // p5 1.9 fill() önbelleği (_cachedFillStyle) restore'dan habersiz kalır -> sonraki fill atlanır.
+  let shatterAlpha = 1;
+  if (p.shatterT !== null) {
+    shatterAlpha = Math.max(0, 1 - p.shatterT / SHATTER_FADE_S);
+    if (shatterAlpha <= 0) return; // tamamen soldu, hiç çizme
+  }
+  const prevAlpha = drawingContext.globalAlpha;
+  drawingContext.globalAlpha = prevAlpha * shatterAlpha;
   const x = Math.round(p.x), y = Math.round(p.y), w = Math.round(p.w), h = p.h;
   if (p.kind === 'fragile') {
     // Ayırt edici gölgeleme: gövde GÖLGE tonu (sağlamlar ana ton), üst kenar ana ton,
@@ -3029,6 +3129,12 @@ function drawPlatform(p) {
     rect(x + jx, y, w, h);
     fill(PAL.platMain);
     rect(x + jx, y, w, 2);
+    if (p.lands.length) { // Faz 14 (§15.3): iniş izleri (globalAlpha fade altında)
+      fill(PAL.platShadow);
+      for (const rx of p.lands) {
+        rect(x + Math.round(rx) - 3, y + 2, 6, 2);
+      }
+    }
     fill(PAL.bgLo);
     const grow = p.crackT !== null ? Math.min(1, p.crackT / FRAGILE_BREAK_S) : 0;
     for (const cx of p.cracks) {
@@ -3036,12 +3142,19 @@ function drawPlatform(p) {
       rect(x + jx + cx, y, 1, len);
       rect(x + jx + cx + 1, y + Math.min(h - 1, len - 1), 2, 1);
     }
+    drawingContext.globalAlpha = prevAlpha;
     return;
   }
   fill(PAL.platMain);
   rect(x, y, w, h);
   fill(PAL.platLight);
   rect(x, y, w, 2);
+  if (p.lands.length) { // Faz 14 (§15.3): iniş izleri (globalAlpha fade altında)
+    fill(PAL.platShadow);
+    for (const rx of p.lands) {
+      rect(x + Math.round(rx) - 3, y + 2, 6, 2);
+    }
+  }
   fill(PAL.platShadow);
   rect(x, y + h - 2, w, 2);
   if (p.kind === 'moving') {
@@ -3050,6 +3163,7 @@ function drawPlatform(p) {
     rect(x + 3, y + 4, 2, 4);
     rect(x + w - 5, y + 4, 2, 4);
   }
+  drawingContext.globalAlpha = prevAlpha;
 }
 
 // Faz 4 (karar #3, §8.1.2): çarpan büyüdükçe yazı büyür + kontur kalınlaşır
