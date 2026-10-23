@@ -5128,5 +5128,185 @@
     "score": 91,
     "is_merge": false,
     "lines": 425
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "97a75e95dd",
+    "date": "2026-10-23T07:42:46+03:00",
+    "subject": "feat(faz11): atlanan platformda altin paritli serit + kademeli punch puan pop efekti (skip bonus netligi)",
+    "score": 89,
+    "is_merge": false,
+    "lines": 227
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "d72d482393",
+    "date": "2026-10-23T08:22:42+03:00",
+    "subject": "feat(faz12): atlanan platform piksel parcalarina ayrilip fizik tabanli sacilma (sabit havuz, tier bazli siddet)",
+    "score": 89,
+    "is_merge": false,
+    "lines": 219
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "434ba6b854",
+    "date": "2026-10-23T08:40:40+03:00",
+    "subject": "feat(faz13): geri bildirim - skipMarks devre disi (shatter yerine gecti) + inis sesine tier bazli vurma transienti",
+    "score": 88,
+    "is_merge": false,
+    "lines": 170
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "dd2bb99922",
+    "date": "2026-10-23T11:19:34+03:00",
+    "subject": "feat(faz14): gorev1 - atlanan platform govdesi render-fade ile yok oluyor (shatterT)",
+    "score": 89,
+    "is_merge": false,
+    "lines": 237
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "725ac25be0",
+    "date": "2026-10-23T11:20:18+03:00",
+    "subject": "docs(faz14): gorev4 - ImageArtist pixel-mcp/pixel-plugin plani TASARIM.md SS16'ya islendi (plan, uygulama degil)",
+    "score": 35,
+    "is_merge": false,
+    "lines": 83
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "cb63beb720",
+    "date": "2026-10-23T11:32:07+03:00",
+    "subject": "feat(faz14): gorev2 - 5 gercek tema (Karanlik/Gunduz/Gece/Volkanik/Buz) + atmosfer katmani (yildiz/bulut)",
+    "score": 88,
+    "is_merge": false,
+    "lines": 153
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "94fee9dc61",
+    "date": "2026-10-23T11:39:22+03:00",
+    "subject": "feat(faz14): gorev3 - topun degdigi yerde kalici iz (platform-lokal, maks 3, FIFO)",
+    "score": 84,
+    "is_merge": false,
+    "lines": 58
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "e5e81ae564",
+    "date": "2026-10-23T11:51:09+03:00",
+    "subject": "feat(faz15): gorev1 pilot - gercek top sprite'i (pixel-mcp/Aseprite), pipeline dogrulandi",
+    "score": 84,
+    "is_merge": false,
+    "lines": 53
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "e6564ac6f2",
+    "date": "2026-10-23T12:00:19+03:00",
+    "subject": "feat(faz15): gorev2 - platform sprite tile (statik/solid, 5 tema, seamless 8x12)",
+    "score": 82,
+    "is_merge": false,
+    "lines": 35
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "6f9f68b930",
+    "date": "2026-10-23T13:55:40+03:00",
+    "subject": "docs(faz15): gorev3 debris kesif sonucu - procedural kalsin dogrulandi",
+    "score": 31,
+    "is_merge": false,
+    "lines": 26
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "4e0129d9ae",
+    "date": "2026-10-23T14:10:15+03:00",
+    "subject": "Kur API adresi: api.frankfurter.app (301) yerine doğrudan api.frankfurter.dev/v1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "f0210f5e3c",
+    "date": "2026-10-23T14:11:57+03:00",
+    "subject": "Safari Web Extension dönüşümü (yerel geliştirici modu, ilk doğrulama)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1202
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "5bb7c1176c",
+    "date": "2026-10-23T15:05:39+03:00",
+    "subject": "feat(faz16): gorev1 pilot KABUL - hue-shift/dithering/AO top sprite",
+    "score": 85,
+    "is_merge": false,
+    "lines": 72
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "55db9cbbd0",
+    "date": "2026-10-23T15:28:10+03:00",
+    "subject": "feat(faz16): gorev2 - 5 tema platform karosu hue-shift/AO/dithering ile yeniden - Faz16 TAMAMEN KAPANDI",
+    "score": 83,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "c35b4a0569",
+    "date": "2026-10-23T16:21:19+03:00",
+    "subject": "feat(faz17): coklu muzik parcasi (5 tema) + tempo-patlamasi -> hiz senkronu",
+    "score": 90,
+    "is_merge": false,
+    "lines": 281
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "3d4e849984",
+    "date": "2026-10-23T16:30:16+03:00",
+    "subject": "fix(faz17): tempo-burst hiz carpani 1.15 -> 1.4 (hissedilmiyordu)",
+    "score": 57,
+    "is_merge": false,
+    "lines": 32
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "91c800da54",
+    "date": "2026-10-23T19:02:47+03:00",
+    "subject": "feat(faz18): pixel sprite'larini oyuna bagla (ball + 5 tema platform tile)",
+    "score": 88,
+    "is_merge": false,
+    "lines": 157
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "3c201dcb58",
+    "date": "2026-10-23T19:18:14+03:00",
+    "subject": "fix(tema0): platform sprite govde dolgusu yanlis hue uretmisti (bug)",
+    "score": 58,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "4b9fb92746",
+    "date": "2026-10-23T21:48:27+03:00",
+    "subject": "Faz 19 (1,2): genislikle orantili platform patlamasi + vurucu puan metni",
+    "score": 53,
+    "is_merge": false,
+    "lines": 202
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "f829297f55",
+    "date": "2026-10-23T22:11:18+03:00",
+    "subject": "Faz 19 (3): karo varyantlari + rastgele secim + kenar vurgusu (karo tekrari teshisi)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 124
   }
 ]
