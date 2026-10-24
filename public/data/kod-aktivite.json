@@ -5308,5 +5308,14 @@
     "score": 52,
     "is_merge": false,
     "lines": 124
+  },
+  {
+    "repo": "kitabe",
+    "hash": "f3109e97c5",
+    "date": "2026-10-24T06:24:51+03:00",
+    "subject": "fix(android): release APK siyah ekranı — shared_preferences_android 2.5.0 -> 2.5.3",
+    "score": 51,
+    "is_merge": false,
+    "lines": 4
   }
 ]
