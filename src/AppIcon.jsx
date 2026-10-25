@@ -185,18 +185,30 @@ export const ICONS = {
     // Nostaljik, siyah-beyaz dikenlerden kaçma oyunu: diğer ikonlar sıcak/doygun
     // renklerden kurulu — burada bilinçli olarak soğuk, metalik bir çift seçildi
     // (eski arcade kabini çeliği), sade top+diken siluetiyle eşleşsin diye.
+    // NOT: üst+alt simetrik diken sırası + ortada top canavar yüzü/ağzı gibi
+    // okunuyordu (pareidolia) — terk edildi. Yerine tek taraflı, asimetrik bir
+    // diken duvarı + yanından kayarak düşen top: hiçbir ikili simetri yok,
+    // bu yüzden yüz/göz çifti olarak okunamıyor; 3-4 varyasyon gerçek tarayıcı
+    // render'ıyla karşılaştırılıp bu seçildi (bkz. commit mesajı).
     colors: ['#b7c3d6', '#333b4a'],
     glyph: () => (
       <>
-        {/* tavandaki dikenler, aşağı sarkıyor */}
-        <path d="M2 2H46V8L40 18 35 8 30 18 25 8 20 18 15 8 10 18 4 8V2Z" />
-        {/* zeminden yukarı uzanan dikenler */}
-        <path d="M2 46H46V40L40 30 35 40 30 30 25 40 20 30 15 40 10 30 4 40V46Z" />
-        {/* aralarından düşen top */}
-        <circle cx="24" cy="24" r="6" />
+        {/* tek sıra, köşeli diken duvarı — yalnızca sol kenarda */}
+        <path
+          d="M9 2 3 9 9 16 3 23 9 30 3 37 9 44"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="4.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        {/* duvarın yanından kayarak düşen top */}
+        <circle cx="31" cy="26" r="8" />
+        {/* hız çizgileri: düşüş yönünü ima eder, tek taraflı */}
+        <path d="M40 6V11M45 9V13" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
       </>
     ),
-    inset: () => <circle cx="21.6" cy="21.6" r="2" />
+    inset: () => <circle cx="28.3" cy="23.3" r="2.2" />
   }
 };
 
