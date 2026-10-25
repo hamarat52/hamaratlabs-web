@@ -668,8 +668,16 @@ function makePlatform(x, y, w, kind, motion) {
   // kural spawnPlatformShatter'daki gibi). Platform oluşturulduğunda BİR KEZ atanır, draw
   // sırasında sabit kalır (titreşim/flicker yok).
   const segCount = Math.max(1, Math.ceil(w / TILE_W));
+  // Faz 20 (§22): anti-clumping — v1/v2 (belirgin derz/çukur) art arda gelmez; v0 tekrarı
+  // serbest (sakin plaka). Kural: v !== 0 && v === prevV -> v = (v + 1) % 3.
   const tileVariants = new Array(segCount);
-  for (let i = 0; i < segCount; i++) tileVariants[i] = Math.floor(Math.random() * TILE_VARIANT_COUNT);
+  let prevV = -1;
+  for (let i = 0; i < segCount; i++) {
+    let v = Math.floor(Math.random() * TILE_VARIANT_COUNT);
+    if (v !== 0 && v === prevV) v = (v + 1) % TILE_VARIANT_COUNT;
+    tileVariants[i] = v;
+    prevV = v;
+  }
   const p = { id: nextPlatformId++, x: x, y: y, w: w, h: PLATFORM_H, kind: kind, baseX: x,
               amp: 0, period: 0, phase: 0, t: 0, crackT: null, broken: false,
               shatterT: null, // Faz 14 (§15.1): atlandıktan sonra geçen süre (render fade)
