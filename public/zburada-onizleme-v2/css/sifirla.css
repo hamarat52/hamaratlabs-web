@@ -1,0 +1,35 @@
+/* ======== Temel sıfırlama ve tipografi iskeleti ======== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:90px;overflow-x:clip}
+body{margin:0;background:var(--krem);color:var(--murekkep);font-family:var(--f-govde);font-size:1.0625rem;line-height:1.6;
+  background-image:radial-gradient(rgba(17,17,17,.075) 1px,transparent 1.3px);background-size:22px 22px;overflow-x:clip}
+main{overflow-x:clip}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,textarea,select{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--f-baslik);line-height:1;margin:0;letter-spacing:-.025em;font-weight:800}
+p{margin:0}
+h1,h2,h3{text-wrap:balance}
+ul,ol{margin:0}
+.kap{width:var(--kap);margin-inline:auto}
+.gizli{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--mavi);outline-offset:3px;border-radius:8px}
+.atla{position:fixed;left:1rem;top:-80px;z-index:200;background:var(--murekkep);color:var(--krem);padding:.75rem 1rem;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}
+.atla:focus{top:1rem}
+
+.bolum{padding-block:clamp(4rem,9vw,7.5rem)}
+.bolum--dar{padding-block:clamp(2.5rem,6vw,4.5rem)}
+.bolum-bas{display:grid;gap:1rem;margin-bottom:clamp(2rem,5vw,3.25rem);max-width:760px}
+.bolum-bas h1,.bolum-bas h2{font-size:clamp(2.3rem,6.4vw,4.4rem);font-variation-settings:"wdth" 88}
+.bolum-bas p{color:var(--gri);font-size:1.12rem;max-width:58ch}
+.etiket{font:700 .78rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.ikon{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.gorun{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s var(--yay)}
+.gorun.gorundu{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .gorun{opacity:1;transform:none}
+}

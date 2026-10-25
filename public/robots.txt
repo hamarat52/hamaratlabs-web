@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /zburada-onizleme/
+Disallow: /zburada-onizleme-v2/
