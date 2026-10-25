@@ -180,6 +180,23 @@ export const ICONS = {
         <path d="M16 45C16 31 22 26 31 26S46 31 46 45Z" />
       </>
     )
+  },
+  'Düşen Top': {
+    // Nostaljik, siyah-beyaz dikenlerden kaçma oyunu: diğer ikonlar sıcak/doygun
+    // renklerden kurulu — burada bilinçli olarak soğuk, metalik bir çift seçildi
+    // (eski arcade kabini çeliği), sade top+diken siluetiyle eşleşsin diye.
+    colors: ['#b7c3d6', '#333b4a'],
+    glyph: () => (
+      <>
+        {/* tavandaki dikenler, aşağı sarkıyor */}
+        <path d="M2 2H46V8L40 18 35 8 30 18 25 8 20 18 15 8 10 18 4 8V2Z" />
+        {/* zeminden yukarı uzanan dikenler */}
+        <path d="M2 46H46V40L40 30 35 40 30 30 25 40 20 30 15 40 10 30 4 40V46Z" />
+        {/* aralarından düşen top */}
+        <circle cx="24" cy="24" r="6" />
+      </>
+    ),
+    inset: () => <circle cx="21.6" cy="21.6" r="2" />
   }
 };
 
