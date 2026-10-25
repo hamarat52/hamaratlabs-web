@@ -1,0 +1,68 @@
+/* =========================================================================
+   zBurada V2 — "Saha Defteri" editoryal/dergi tema
+   Bu dosya tasarim-tokenlari.css + bilesenler.css'in UZERINE yuklenir;
+   mevcut siniflari yeniden derler, HTML yapisini bozmaz.
+   Renk paleti V1 ile ayni marka tokenlari kullanir (#06028f, #ffc700,
+   #004aad, #87bba3) — kiremit/kirmizi vurgu yerine lacivert (#06028f)
+   ve sari (#ffc700) agirlikli, sade/az renkli editoryal uygulama.
+   ========================================================================= */
+:root{
+  --v2-krem:#F5EAD9;
+  --v2-krem-koyu:#EDE0C9;
+  --v2-murekkep:#1A1410;
+  --v2-lacivert:#06028f;
+  --v2-sari:#ffc700;
+  --v2-mavi:#004aad;
+  --v2-yesil:#87bba3;
+  --v2-vurgu:#06028f;      /* kiremit yerine: lacivert vurgu (bolum no, etiket, link) */
+  --v2-cizgi:#D8C9AC;
+  --f-serif:"Source Serif 4","Georgia",serif;
+}
+
+body{ background:var(--v2-krem); color:var(--v2-murekkep); }
+
+/* Dergi masthead şeridi */
+.v2-masthead{
+  background:var(--v2-krem);
+  border-bottom:1px solid var(--v2-cizgi);
+  font-family:var(--f-govde);
+  font-size:.72rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--v2-murekkep);
+}
+.v2-masthead .kap{ display:flex; justify-content:space-between; align-items:center; padding:.5rem 0; gap:1rem; flex-wrap:wrap; }
+.v2-masthead b{ font-weight:700; }
+.v2-masthead span:nth-child(2){ opacity:.75; }
+
+/* Header reskin */
+header.ust{ background:var(--v2-krem) !important; border-bottom:1px solid var(--v2-cizgi); box-shadow:none !important; }
+header.ust .logo{ color:var(--v2-murekkep) !important; font-family:var(--f-serif); font-style:italic; font-weight:700; }
+header.ust .nav a{ color:var(--v2-murekkep); font-family:var(--f-govde); }
+header.ust .nav a[aria-current="page"]{ color:var(--v2-vurgu); }
+.btn.btn--mavi{ background:var(--v2-mavi) !important; border-color:var(--v2-mavi) !important; color:#fff !important; border-radius:999px !important; box-shadow:none !important; }
+.btn{ border-radius:999px !important; box-shadow:none !important; }
+
+/* Tipografi: editoryal serif başlıklar */
+h1, h2, .v2-serif{ font-family:var(--f-serif) !important; font-weight:700; letter-spacing:-0.01em; }
+.vurgu, em.vurgu, .v2-italik{ font-family:var(--f-serif) !important; font-style:italic; color:var(--v2-vurgu); }
+mark, .v2-highlight{ background:var(--v2-sari); padding:0 .15em; color:var(--v2-murekkep); }
+
+/* Bölüm etiketleri / sayı rozetleri (kiremit yerine lacivert) */
+.etiket, .seviye__no, .v2-bolum-no{ color:var(--v2-vurgu) !important; font-family:var(--f-serif); font-style:italic; }
+
+/* Çizgili ayıraçlar */
+.bolum-bas, .v2-ayrac{ border-top:1px solid var(--v2-cizgi); padding-top:1.5rem; }
+
+/* Kartlar / polaroid çerçeveler */
+.polaroid{
+  background:#fff; border:1px solid var(--v2-cizgi); padding:.6rem .6rem 1.4rem; box-shadow:0 6px 16px rgba(26,20,16,.08);
+  transform:rotate(-2deg); display:inline-block;
+}
+.polaroid:nth-child(2n){ transform:rotate(2deg); }
+.polaroid figcaption{ font-family:"Caveat","Comic Sans MS",cursive; font-size:1rem; text-align:center; margin-top:.4rem; }
+
+/* El yazısı notlar */
+.v2-el-yazisi{ font-family:"Caveat","Comic Sans MS",cursive; color:var(--v2-mavi); font-size:1.15rem; }
+
+footer.alt{ background:var(--v2-krem-koyu) !important; border-top:1px solid var(--v2-cizgi); }

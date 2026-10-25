@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>zBurada Saha Defteri — Geleceğini sahada tanı, kâğıtta değil</title>
+<meta name="description" content="zBurada meslek testleri ve simülasyonlarıyla hukuktan mühendisliğe meslekleri içeriden tanı. Saha Defteri: editoryal V2 tasarım konsepti.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#F5EAD9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%23ffc700'/%3E%3Cpath d='M18 17h29v7L28 41h20v7H17v-7l19-17H18z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Caveat:wght@500;700&family=Plus+Jakarta+Sans:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tasarim-tokenlari.css">
+<link rel="stylesheet" href="css/sifirla.css">
+<link rel="stylesheet" href="css/bilesenler.css">
+<link rel="stylesheet" href="css/editoryal-tema.css">
+<style>
+body{background:var(--v2-krem);}
+.v2-wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem;}
+.v2-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:4rem 0 3rem;border-bottom:1px solid var(--v2-cizgi);}
+@media (max-width:900px){.v2-hero{grid-template-columns:1fr;}}
+.v2-eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--v2-murekkep);opacity:.65;border-top:1px solid var(--v2-cizgi);display:inline-block;padding-top:.5rem;margin-bottom:1.2rem;}
+.v2-h1{font-size:clamp(2.4rem,5vw,4rem);line-height:1.04;margin:0 0 1.2rem;}
+.v2-h1 .v2-mark{background:var(--v2-sari);padding:0 .1em;}
+.v2-h1 em{font-style:italic;color:var(--v2-vurgu);}
+.v2-lead{font-family:var(--f-govde);font-size:1.05rem;line-height:1.6;max-width:46ch;margin-bottom:1.6rem;}
+.v2-cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1rem;}
+.v2-meta{font-family:var(--f-govde);font-size:.85rem;opacity:.7;}
+.v2-polaroids{position:relative;min-height:420px;}
+.v2-polaroid{position:absolute;background:#fff;border:1px solid var(--v2-cizgi);padding:.6rem .6rem 1.3rem;box-shadow:0 10px 22px rgba(26,20,16,.1);width:230px;}
+.v2-polaroid img,.v2-polaroid svg{width:100%;height:150px;display:block;background:#F0E6D6;}
+.v2-polaroid figcaption{font-family:var(--f-govde);font-weight:700;font-size:.82rem;text-align:center;margin-top:.5rem;}
+.p1{top:0;left:40px;transform:rotate(-4deg);z-index:2;}
+.p2{top:40px;right:0;transform:rotate(5deg);z-index:1;}
+.p3{bottom:0;left:110px;transform:rotate(-2deg);z-index:3;}
+.v2-note{position:absolute;font-family:"Caveat",cursive;color:var(--v2-mavi);font-size:1.2rem;line-height:1.1;}
+.n1{top:300px;right:-10px;}
+.v2-stamp{position:absolute;top:120px;right:-30px;width:90px;height:90px;border:2px dashed var(--v2-vurgu);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:.62rem;font-weight:700;color:var(--v2-vurgu);transform:rotate(8deg);font-family:var(--f-govde);line-height:1.2;}
+
+.v2-bolum{padding:3.5rem 0;border-bottom:1px solid var(--v2-cizgi);}
+.v2-bolum-head{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:2.2rem;}
+.v2-bolum-no{font-family:var(--f-govde);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--v2-vurgu);border-top:1px solid var(--v2-vurgu);display:block;padding-top:.4rem;margin-bottom:.8rem;}
+.v2-bolum h2{font-size:clamp(1.8rem,3vw,2.6rem);max-width:16ch;margin:0;}
+.v2-bolum h2 em{font-style:italic;color:var(--v2-vurgu);}
+.v2-bolum-sag{font-family:var(--f-govde);max-width:34ch;font-size:.95rem;opacity:.85;align-self:end;}
+.v2-adimlar{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+@media (max-width:800px){.v2-adimlar{grid-template-columns:1fr;}}
+.v2-adim .no{font-family:var(--f-serif);font-style:italic;font-size:2.4rem;color:var(--v2-vurgu);display:block;margin-bottom:.3rem;}
+.v2-adim h3{font-family:var(--f-govde);font-size:1.2rem;margin-bottom:.5rem;}
+.v2-adim p{font-family:var(--f-govde);font-size:.9rem;opacity:.85;margin-bottom:.6rem;}
+.v2-adim a{font-family:"Caveat",cursive;color:var(--v2-mavi);font-size:1.1rem;text-decoration:none;}
+
+.v2-testler{border-top:1px solid var(--v2-cizgi);}
+.v2-test-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.3rem 0;border-bottom:1px solid var(--v2-cizgi);text-decoration:none;color:inherit;}
+.v2-test-row:hover{background:rgba(6,2,143,.03);}
+.v2-test-row .roman{font-family:var(--f-serif);font-style:italic;color:var(--v2-vurgu);width:2.2rem;flex-shrink:0;}
+.v2-test-row h3{font-size:1.3rem;margin:0 0 .3rem;}
+.v2-test-row .meta{font-family:var(--f-govde);font-size:.78rem;opacity:.7;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;}
+.v2-test-row .meta .tag{background:var(--v2-sari);padding:.1rem .5rem;border-radius:999px;font-weight:700;color:var(--v2-murekkep);}
+.v2-test-row .ok{width:40px;height:40px;border-radius:50%;background:var(--v2-mavi);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+</style>
+</head>
+<body>
+<a class="atla" href="#icerik">İçeriğe geç</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-logo" viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#ffc700"/><path d="M18 17h29v7L28 41h20v7H17v-7l19-17H18z" fill="#fff"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+
+<div class="v2-masthead"><div class="kap v2-wrap"><b>ZBURADA SAHA DEFTERİ</b><span>MESLEKLERİ ANLATMIYORUZ, YAŞATIYORUZ</span><span>SAYI 07 · EKİM 2026</span></div></div>
+
+<header class="ust" id="ust">
+  <div class="kap v2-wrap ust__ic">
+    <a class="logo" href="index.html" aria-label="zBurada ana sayfa"><svg aria-hidden="true"><use href="#i-logo"/></svg>zBurada</a>
+    <nav class="nav" aria-label="Ana menü">
+      <ul>
+        <li><a href="meslek-testleri.html">Testler</a></li>
+        <li><a href="simulasyonlar.html">Simülasyonlar</a></li>
+        <li><a href="blog.html">Saha notları</a></li>
+        <li><a href="etkinlikler.html">Etkinlikler</a></li>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--mavi btn--kucuk ust__cta" href="kariyer-haritalama.html">Kariyer Haritası <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
+    <button class="menu-dugme" type="button" aria-expanded="false" aria-controls="mobil-menu" aria-label="Menüyü aç">
+      <svg class="ikon" aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+  <div class="mobil-menu" id="mobil-menu" hidden>
+    <div class="kap">
+      <ul>
+        <li><a href="meslek-testleri.html">Testler</a></li>
+        <li><a href="simulasyonlar.html">Simülasyonlar</a></li>
+        <li><a href="blog.html">Saha notları</a></li>
+        <li><a href="etkinlikler.html">Etkinlikler</a></li>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="kariyer-haritalama.html">Kariyer Haritası</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main id="icerik">
+  <section class="v2-wrap v2-hero">
+    <div>
+      <span class="v2-eyebrow">— Lise öğrencileri için kariyer keşfi</span>
+      <h1 class="v2-h1">Geleceğini <span class="v2-mark">sahada</span> tanı,<br><em>kâğıtta değil.</em></h1>
+      <p class="v2-lead">zBurada'da meslekleri anlatılanlardan değil, bizzat yaşadıklarından öğrenirsin. Kısa bir testle başla, bir simülasyonda cübbeyi giy, kararını deneyimle ver.</p>
+      <div class="v2-cta-row">
+        <a class="btn btn--mavi" href="kariyer-haritalama.html">Kariyer Haritanı çıkar <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
+        <a class="btn" href="blog.html">Saha notlarını oku</a>
+      </div>
+      <p class="v2-meta">10–15 dk · 40 madde · doğru ya da yanlış cevap yok</p>
+    </div>
+    <div class="v2-polaroids">
+      <figure class="v2-polaroid p1"><svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="150" fill="#F0E6D6"/><rect x="30" y="80" width="140" height="14" fill="#06028f"/><circle cx="100" cy="55" r="16" fill="#1A1410"/><rect x="85" y="75" width="30" height="8" fill="#1A1410"/><rect x="50" y="95" width="26" height="30" fill="#004aad"/><rect x="124" y="95" width="26" height="30" fill="#B3261E"/></svg><figcaption>Hukuk · kürsü bizde</figcaption></figure>
+      <figure class="v2-polaroid p2"><svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="150" fill="#E7DCC7"/><rect x="20" y="90" width="160" height="10" fill="#1A1410"/><circle cx="60" cy="90" r="6" fill="#ffc700"/><circle cx="110" cy="90" r="6" fill="#ffc700"/><rect x="140" y="55" width="30" height="30" fill="#87bba3"/><path d="M60 40l8 8-8 8-8-8z" fill="#06028f"/></svg><figcaption>Endüstri Müh. · vardiya</figcaption></figure>
+      <figure class="v2-polaroid p3"><svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="150" fill="#EFE3CD"/><rect x="30" y="100" width="40" height="40" fill="#004aad"/><rect x="130" y="100" width="40" height="40" fill="#B3261E"/><rect x="90" y="40" width="40" height="30" fill="#fff" stroke="#1A1410"/><path d="M95 60l10-10 10 6 10-14" stroke="#06028f" fill="none" stroke-width="2"/></svg><figcaption>Psikoloji · dinlemek de iş</figcaption></figure>
+      <div class="v2-note n1">yanında alanın<br>profesyoneli →</div>
+      <div class="v2-stamp">MEMNUNİYET<br>4,4/5<br>ESENLER</div>
+    </div>
+  </section>
+
+  <section class="v2-wrap v2-bolum">
+    <div class="v2-bolum-head">
+      <div>
+        <span class="v2-bolum-no">Bölüm 01 · Yöntem</span>
+        <h2>Üç adımda <em>"bu bana göre mi?"</em> sorusunun cevabı</h2>
+      </div>
+      <p class="v2-bolum-sag">Biz "şunu seç" diyen bir rehber değiliz. Sana alan açıyor, denemeni sağlıyor ve kararı sana bırakıyoruz.</p>
+    </div>
+    <div class="v2-adimlar">
+      <div class="v2-adim">
+        <span class="no">01</span>
+        <h3>Keşfet</h3>
+        <p>Kariyer Haritası ile 40 etkinliği ne kadar sevdiğini ve ne kadar becerikli hissettiğini puanla; ilgi ve yeterlik haritanı gör.</p>
+        <a href="kariyer-haritalama.html">→ kendini tanı</a>
+      </div>
+      <div class="v2-adim">
+        <span class="no">02</span>
+        <h3>Deneyimle</h3>
+        <p>Bir meslekte bir günü kısa senaryo testleriyle yaşa: hukukta bir avukat, mühendislikte deneyimli bir mühendis yanında.</p>
+        <a href="meslek-testleri.html">→ mesleği yaşa</a>
+      </div>
+      <div class="v2-adim">
+        <span class="no">03</span>
+        <h3>Yön bul</h3>
+        <p>Simülasyon öncesi ve sonrası kısa testler, geri bildirim ve üniversiteli mentörlerle tercihini bilinçle ver.</p>
+        <a href="simulasyonlar.html">→ kararını sahiplen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="v2-wrap v2-bolum v2-testler">
+    <div class="v2-bolum-head">
+      <div>
+        <span class="v2-bolum-no">Bölüm 02 · İçindekiler</span>
+        <h2>Bu sayıdaki <span style="background:var(--v2-sari)">testler</span></h2>
+      </div>
+      <p class="v2-bolum-sag">Her test birkaç dakika sürer. Sonucunu hemen görürsün; ayrıntılı raporu istersen e-postana göndeririz.</p>
+    </div>
+
+    <a class="v2-test-row" href="kariyer-haritalama.html">
+      <span class="roman">i.</span>
+      <div style="flex:1"><h3>Kariyer Haritası</h3><div class="meta"><span>Envanter</span><span>40 madde</span><span>10–15 dk</span><span class="tag">BURADAN BAŞLA</span></div></div>
+      <span class="ok"><svg class="ikon" aria-hidden="true" style="width:18px;height:18px"><use href="#i-ok"/></svg></span>
+    </a>
+    <a class="v2-test-row" href="test-hukuk.html">
+      <span class="roman">ii.</span>
+      <div style="flex:1"><h3>Hukuk: hangi rol sana yakın?</h3><div class="meta"><span>Senaryo testi</span><span>6 soru</span><span>~4 dk</span></div></div>
+      <span class="ok"><svg class="ikon" aria-hidden="true" style="width:18px;height:18px"><use href="#i-ok"/></svg></span>
+    </a>
+    <a class="v2-test-row" href="test-tip.html">
+      <span class="roman">iii.</span>
+      <div style="flex:1"><h3>Tıp: baskı altında karar</h3><div class="meta"><span>Senaryo testi</span><span>6 soru</span><span>~4 dk</span></div></div>
+      <span class="ok"><svg class="ikon" aria-hidden="true" style="width:18px;height:18px"><use href="#i-ok"/></svg></span>
+    </a>
+    <a class="v2-test-row" href="test-bilgisayar-muhendisligi.html">
+      <span class="roman">iv.</span>
+      <div style="flex:1"><h3>Bilgisayar Mühendisliği: problem çözme tarzın</h3><div class="meta"><span>Senaryo testi</span><span>6 soru</span><span>~4 dk</span></div></div>
+      <span class="ok"><svg class="ikon" aria-hidden="true" style="width:18px;height:18px"><use href="#i-ok"/></svg></span>
+    </a>
+    <a class="v2-test-row" href="meslek-testleri.html">
+      <span class="roman">v.</span>
+      <div style="flex:1"><h3>Tüm testleri gör</h3><div class="meta"><span>Endüstri Mühendisliği, Psikoloji ve devamı</span></div></div>
+      <span class="ok"><svg class="ikon" aria-hidden="true" style="width:18px;height:18px"><use href="#i-ok"/></svg></span>
+    </a>
+  </section>
+
+  <section class="v2-wrap v2-bolum" style="border-bottom:none">
+    <div class="v2-bolum-head">
+      <div>
+        <span class="v2-bolum-no">Bölüm 03 · Devam Edin</span>
+        <h2>Simülasyonlar, saha notları ve kariyer haritası</h2>
+      </div>
+      <p class="v2-bolum-sag">V1 tasarımındaki tüm gerçek içerik (12 saha notu/blog yazısı, etkinlikler, SSS, hakkımızda) bu sayıda da yerinde.</p>
+    </div>
+    <div class="v2-cta-row">
+      <a class="btn btn--mavi" href="simulasyonlar.html">Simülasyonlara bak <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
+      <a class="btn" href="blog.html">Saha notları</a>
+      <a class="btn" href="etkinlikler.html">Etkinlikler</a>
+      <a class="btn" href="sss.html">SSS</a>
+      <a class="btn" href="hakkimizda.html">Hakkımızda</a>
+      <a class="btn" href="iletisim.html">İletişim</a>
+    </div>
+  </section>
+</main>
+
+<footer class="alt" id="alt">
+  <div class="kap v2-wrap">
+    <div class="alt__izgara">
+      <div>
+        <a class="logo" href="index.html"><svg aria-hidden="true" style="width:44px;height:44px"><use href="#i-logo"/></svg>zBurada</a>
+        <p>Lise öğrencilerinin meslekleri anlatılanlarla değil, bizzat deneyimleyerek keşfetmesi için kurulmuş bir gençlik platformu. buradayıZ!</p>
+      </div>
+      <div>
+        <h4>Keşfet</h4>
+        <ul><li><a href="meslek-testleri.html">Meslek Testleri</a></li><li><a href="kariyer-haritalama.html">Kariyer Haritası</a></li><li><a href="simulasyonlar.html">Simülasyonlar</a></li><li><a href="etkinlikler.html">Etkinlikler</a></li></ul>
+      </div>
+      <div>
+        <h4>zBurada</h4>
+        <ul><li><a href="hakkimizda.html">Hakkımızda</a></li><li><a href="blog.html">Blog / Saha notları</a></li><li><a href="sss.html">SSS</a></li><li><a href="iletisim.html">İletişim</a></li></ul>
+      </div>
+      <div>
+        <h4>Diğer sürüm</h4>
+        <ul><li><a href="../zburada-onizleme/">V1 — Yön 2 "Seviye Atla"</a></li></ul>
+      </div>
+    </div>
+    <div class="alt__son"><span>© 2026 zBurada</span><span>Tasarım: V2 "Saha Defteri" · editoryal konsept · üretim öncesi prototip, noindex</span></div>
+  </div>
+</footer>
+
+<script src="js/ortak.js" defer></script>
+</body>
+</html>

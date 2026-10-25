@@ -1,0 +1,40 @@
+/* =========================================================================
+   zBurada — Tasarım Yönü 2 "Seviye Atla" — TASARIM TOKEN'LARI
+   WordPress'e aktarımda: bu dosyadaki --değişkenler doğrudan tema.json /
+   Elementor "Global Renkler-Tipografi" karşılıklarına eşlenir. Bkz.
+   /site/WORDPRESS-AKTARIM.md
+   ========================================================================= */
+:root{
+  /* Renkler — zBurada marka paleti (19/10, 22/10 geri bildirimi: sarı+mavi
+     baskın, lacivert+yeşil az kullanılan destek rengi) */
+  --krem:#FFF7E8;
+  --krem-2:#FFEFD2;
+  --murekkep:#111111;
+  --gri:#4A4A4A;
+  --beyaz:#FFFFFF;
+  --mavi:#004aad;      /* baskın — marka mavisi */
+  --limon:#ffc700;      /* baskın — marka sarısı (eski adı korundu, kullanım yeri aynı) */
+  --lila:color-mix(in srgb, #06028f 18%, white); /* destek/accent — lacivert (büyük kart zeminlerinde okunurluk için açık ton; tam ton --lacivert-vurgu'da) */
+  --lacivert-vurgu:#06028f; /* lacivert'in tam/koyu tonu — küçük vurgular, kenarlık, metin için */
+  --mercan:#87bba3;     /* destek/accent — yeşil */
+  --gok:#87bba3;        /* destek/accent — yeşil (gok ile birleştirildi, renk sayısı azaltıldı) */
+  --nane:#87bba3;       /* destek/accent — yeşil (kontrast için açık ton korundu, koyu laciverte çevrilmedi) */
+  --kirmizi:#B3261E;
+
+  /* Şekil / çizgi dili */
+  --cizgi:2.5px;
+  --r-s:12px;
+  --r:18px;
+  --r-l:28px;
+  --golge:4px 4px 0 var(--murekkep);
+  --golge-l:7px 7px 0 var(--murekkep);
+
+  /* Tipografi */
+  --f-baslik:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
+  --f-govde:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",monospace;
+
+  /* Hareket / düzen */
+  --yay:cubic-bezier(.34,1.56,.64,1);
+  --kap:min(1200px, 100% - 2.5rem);
+}
