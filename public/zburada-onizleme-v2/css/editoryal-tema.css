@@ -66,3 +66,17 @@ mark, .v2-highlight{ background:var(--v2-sari); padding:0 .15em; color:var(--v2-
 .v2-el-yazisi{ font-family:"Caveat","Comic Sans MS",cursive; color:var(--v2-mavi); font-size:1.15rem; }
 
 footer.alt{ background:var(--v2-krem-koyu) !important; border-top:1px solid var(--v2-cizgi); }
+
+/* ---------- Dergi vurgu: test/simülasyon kart şeridi + bölüm ayıracı ---------- */
+.izgara .tkart:nth-child(4n+1) .tkart__bas,
+.sim-izgara .sim-kart:nth-child(4n+1) .sim-kart__ust{ border-top:6px solid var(--v2-sari); }
+.izgara .tkart:nth-child(4n+2) .tkart__bas,
+.sim-izgara .sim-kart:nth-child(4n+2) .sim-kart__ust{ border-top:6px solid var(--v2-lacivert); }
+.izgara .tkart:nth-child(4n+3) .tkart__bas,
+.sim-izgara .sim-kart:nth-child(4n+3) .sim-kart__ust{ border-top:6px solid var(--v2-mavi); }
+.izgara .tkart:nth-child(4n+4) .tkart__bas,
+.sim-izgara .sim-kart:nth-child(4n+4) .sim-kart__ust{ border-top:6px solid var(--v2-yesil); }
+.tkart__bas, .sim-kart__ust{ position:relative; }
+.v2-sayi{ font-family:var(--f-serif); font-style:italic; font-weight:700; font-size:2.4rem; color:rgba(26,20,16,.16);
+  position:absolute; right:1rem; top:.4rem; line-height:1; pointer-events:none; user-select:none; }
+.v2-ayrac-bolum{ border-top:1px solid var(--v2-cizgi); padding-top:clamp(2rem,5vw,3rem); }
