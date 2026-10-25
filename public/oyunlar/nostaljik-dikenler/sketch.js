@@ -211,6 +211,14 @@ const SQUASH_Y = 0.75;            // dikey basılma (alt kenar platformda kalır
 const HUD_BASE_SIZE = 20;         // x1 (Faz 1-3 ile aynı)
 const HUD_SIZE_PER_STEP = 3;      // her çarpan adımı +3px -> x5 = 32px
 const HUD_STROKE_PER_STEP = 0.5;  // her adım +0.5px kontur -> x5 = 2px ("parlama": daha çok beyaz piksel)
+// Faz 19 (§21.2): "+N" skor pop'u daha vurucu — büyük overshoot + her zaman okunur koyu
+// kontur halka + çarpan arttığında/maksimumdayken ayrı, daha büyük "×N" rozeti (beyaz->altın flaş).
+const SCORE_POP_BASE_SIZE = HUD_BASE_SIZE + 6;  // 26px (önceki tabanı 20px'ti)
+const SCORE_POP_OVERSHOOT = 1.7;                // önceki 1.3 -> daha sert zıplama
+const SCORE_POP_OUTLINE_W = 1.4;                // siyah kontur kalınlığı (tema-bağımsız okunurluk)
+const COMBO_POP_EXTRA_SCALE = 1.35;             // "×N" rozeti ana sayıdan %35 daha büyük zıplar
+const COMBO_POP_DELAY_S = 0.05;                 // rozet ana sayıdan hafif gecikmeli patlar
+const COMBO_FLASH_S = 0.18;                     // rozetin beyazdan altına geçiş süresi
 
 // --- Sabitler (Faz 5: ses, TASARIM.md §8.2 Faz 5 tablosu / rapor §6.3, NES-tarzı 4 kanal) ---
 // Web Audio API doğrudan (p5.sound yok, ses dosyası yok; her şey sentez).
@@ -234,6 +242,7 @@ const SOUND = {
   spikeWarn: true,   // Faz 6: inen diken telegraph ratchet (noise)
   skip: true,        // Faz 7: whoosh (triangle) + dolgun iniş (triangle) + skip cue (pulse1)
   pickup: true,      // Faz 9: toplama arpeji (pulse1) + bitiş tik'i (pulse1) + kalkan kırılması (triangle)
+  tempoBurst: true,  // Faz 17: tempo-patlaması telegraph sesi (pulse1)
   mute: false,
   masterVolume: 0.5,
   debugLog: false    // true: her ses olayı konsola da yazılır (soundLog dizisi her zaman dolar)
@@ -287,9 +296,40 @@ const MUSIC_BPM_STEP = 5;
 const MUSIC_BPM_STEP_S = 30;   // her 30sn +5 BPM
 const MUSIC_BPM_MAX = 145;
 const MUSIC_BPM_STEPS = (MUSIC_BPM_MAX - MUSIC_BPM_START) / MUSIC_BPM_STEP; // 7
-const MUSIC_PATTERN_MIDI = [45, 52, 57, 52, 48, 55, 60, 55]; // A2 E3 A3 E3 C3 G3 C4 G3 (sekizlik)
+// Faz 17: tema başına bir pattern (index = themeIndex). Format/uzunluk eskisiyle aynı (8 sekizlik);
+// stepS, MUSIC_NOTE_FRAC, square/pulse2 değişmez. Tema 2 = Faz 5-16'nın tek pattern'i (birebir).
+// Geçiş: themeIndex değişince pattern bir sonraki 8'lik döngü başında (musicStep % 8 === 0) değişir.
+const MUSIC_PATTERNS_BY_THEME = [
+  [45, 48, 52, 48, 45, 50, 52, 50], // 0 Karanlık: A2 C3 E3 C3 A2 D3 E3 D3 (dar, düşük, minör)
+  [48, 52, 55, 52, 57, 55, 52, 50], // 1 Gündüz:   C3 E3 G3 E3 A3 G3 E3 D3 (majör, parlak)
+  [45, 52, 57, 52, 48, 55, 60, 55], // 2 Gece:     A2 E3 A3 E3 C3 G3 C4 G3 (MEVCUT pattern)
+  [45, 46, 52, 46, 45, 51, 52, 51], // 3 Lav:      A2 Bb2 E3 Bb2 A2 Eb3 E3 Eb3 (m2 + tritone)
+  [45, 52, 59, 52, 45, 50, 59, 50]  // 4 Buz:      A2 E3 B3 E3 A2 D3 B3 D3 (geniş atlama)
+];
+const MUSIC_PATTERN_LEN = 8;
 const MUSIC_NOTE_FRAC = 0.55;  // nota uzunluğu = adımın %55'i (8-bit staccato)
 const MUSIC_LOOKAHEAD_S = 0.12;
+// Faz 17: tempo-patlaması -> hız-patlaması. Zamanlama getDifficultyElapsedS()'ten (ayrı zamanlayıcı
+// YOK, deterministik): ilk patlama zorluk-zamanı 20sn, sonra her 30sn (20, 50, 80, ...).
+// Patlamadan TEMPO_BURST_TELEGRAPH_S önce uyarı (ses + HUD). BPM çarpanı yalnız updateAudio()'da,
+// hız çarpanı yalnız getEffectiveScrollSpeed()'de uygulanır; getMusicBpm() ve kalıcı scrollSpeed
+// state'i patlamadan ETKİLENMEZ.
+const TEMPO_BURST_FIRST_S = 20;
+const TEMPO_BURST_INTERVAL_S = 30;
+const TEMPO_BURST_TELEGRAPH_S = 1.2;   // patlamadan ÖNCE uyarı penceresi
+const TEMPO_BURST_DURATION_S = 4.0;    // patlama süresi
+const TEMPO_BURST_BPM_MULT = 1.35;     // BPM x1.35
+const TEMPO_BURST_SPEED_MULT = 1.4;    // scrollSpeed x1.4 (geçici) — 1.15 hissedilmiyordu (Yusuf geri bildirimi)
+const TEMPO_BURST_RAMP_S = 0.3;        // hız çarpanı bu sürede yumuşak (smoothstep) girer/çıkar
+const TEMPO_BURST_LOG_MAX = 32;
+// Telegraph sesi (pulse1): sawtooth, 3 nota, her nota kendi içinde +2 yarım ton yukarı kayar ve
+// aralar kısalır (0.14 -> 0.10sn) -> "hızlanma geliyor". Ratchet (noise tıkırtı) ve square
+// arpejlerden (skipCue/pickup/çarpan) dalga + glide + hızlanan ritimle ayrışır. Toplam ~0.31sn.
+const TEMPO_TELE_MIDI = [64, 67, 71];        // E4 G4 B4
+const TEMPO_TELE_ONSETS_S = [0, 0.14, 0.24]; // hızlanan aralıklar
+const TEMPO_TELE_NOTE_S = 0.07;
+const TEMPO_TELE_GLIDE_ST = 2;               // nota içi yukarı kayma (yarım ton)
+const TEMPO_TELE_PEAK = 0.6;
 // Faz 6 stageUp chime (triangle): A4 C#5 E5 majör üçlü, yükselen. Çarpan arpejinden farkı:
 // dalga (triangle vs square), nota uzunluğu (0.12sn vs 0.04sn staccato), uzun çınlama kuyruğu.
 const STAGEUP_MIDI = [69, 73, 76];
@@ -333,9 +373,19 @@ const SKIP_CUE_NOTE_S = 0.035;
 const SKIP_CUE_STEP_S = 0.05;
 const SKIP_LOG_MAX = 200;
 // Faz 12 (TASARIM.md §13): atlanan platform piksel parçalanması — sabit boyutlu nesne havuzu.
-const SHARD_POOL_SIZE = 96;                    // tier3 (16 parça) x ~6 eşzamanlı patlama; havuz asla büyümez
-const SHARD_COUNT_BY_TIER = [0, 6, 10, 16];    // kademe -> parça sayısı
-const SHARD_LIFE_BY_TIER = [0, 0.6, 0.8, 1.0]; // kademe -> ömür (sn)
+// Faz 19 (§21.1): parça sayısı artık platform GENİŞLİĞİNDEN türetilir (sabit tier sayısı
+// değil) — PLATFORM_W_MIN..MAX = 60..110px arası, SHARD_UNIT_PX'e bölünerek genişlikle
+// ORANTILI parça sayısı elde edilir ("platform ne kadar genişse o kadar parça").
+const SHARD_UNIT_PX = 5;                       // bir parçanın temsil ettiği yaklaşık piksel genişliği
+const SHARD_COUNT_MIN = 8;                     // en dar platformda bile görünür bir patlama
+const SHARD_POOL_SIZE = 176;                   // en geniş platform (~22 parça) x 8 eşzamanlı patlama
+const SHARD_LIFE_BY_TIER = [0, 0.6, 0.8, 1.0]; // kademe -> ömür (sn, boyut/hız tier'dan gelir)
+
+// Platform genişliğinden parça sayısı: round(w / SHARD_UNIT_PX), en az SHARD_COUNT_MIN.
+// w=60 -> 12, w=85 -> 17, w=110 -> 22 parça (önceki sabit tier1-3: 6/10/16 idi).
+function computeShardCount(w) {
+  return Math.max(SHARD_COUNT_MIN, Math.round(w / SHARD_UNIT_PX));
+}
 const SHARD_GRAVITY = GRAVITY * 0.6;           // 900 px/sn^2 (debris'in GRAVITY*0.5'inden biraz ağır)
 // Faz 14 (TASARIM.md §15.1): atlanan platformun gövdesi bu sürede alpha 1 -> 0 söner (~7 kare @60fps).
 const SHATTER_FADE_S = 0.12;
@@ -441,6 +491,14 @@ let musicStep = 0;
 let musicVoices = [];       // planlanmış/çalan müzik osilatörleri (ölümde anında durdurulur)
 let soundLog = [];          // ses olay günlüğü (test/debug)
 let musicLog = [];          // müzik notası günlüğü (test/debug)
+let musicThemeIndex = 0;    // Faz 17: ŞU AN çalan pattern'in teması
+let pendingThemeIndex = 0;  // Faz 17: bekleyen tema (döngü başında musicThemeIndex'e geçer)
+let musicPatternLog = [];   // Faz 17: pattern geçiş günlüğü (test/debug, koşular arası korunur)
+// Faz 17 tempo-patlaması (resetGame() -> resetTempoBurst() ile sıfırlanır)
+let tempoBurst = { phase: 'normal', cycle: -1, local: null, bpmMult: 1, speedFactor: 1 };
+let tempoBurstProgress = { cycle: -1, stage: 2 }; // stage: 0=telegraph, 1=burst_start, 2=burst_end loglandı
+let tempoBurstLog = [];     // { t, type: 'telegraph'|'burst_start'|'burst_end', bpmMult, speedMult, ... }
+let tempoBurstDebugLog = false; // true: tempoBurstLog olayları konsola da yazılır
 let lastSoundNodes = {};    // olay -> son oluşturulan kaynak node (test/debug)
 
 // --- Oyun durumu (resetGame() içinde dolduruluyor) ---
@@ -496,6 +554,37 @@ const TOUCH_HINT_FADE_MS = 1000; // son 1 sn'de söner
 const IS_TOUCH_DEVICE = typeof window !== 'undefined' &&
   ('ontouchstart' in window || (navigator.maxTouchPoints || 0) > 0);
 
+// --- Faz 18: piksel sprite'ları (yalnız görsel katman; mekanik bunları okumaz) ---
+// ball.png 24x24 (= BALL_R*2), platform_tile_themeN.png 8x12 (= PLATFORM_H), sol sütun = sağ sütun.
+// Yüklenemeyen sprite null kalır -> ilgili çizim Faz 6 procedural yoluna düşer (oyun kırılmaz).
+const SPRITE_DIR = 'assets/sprites/';
+const TILE_W = 8;
+const THEME_COUNT_SPRITES = 5;
+// Faz 19 (§21.3): her temada 3 karo VARYANTI (v0=ana dosya, v1/v2=dither fazı farklı +
+// aynı kenar-vurgusu). Tek karonun birebir yan yana tekrarından doğan "mekanik desen"
+// sorununu çözer (bkz. Celeste GDC/BostonFIG konuşması: aynı karo yan yana = tekrarlı/
+// hoş olmayan desen; çözüm = karo varyantı + rastgele yerleşim + kenar vurgusu).
+const TILE_VARIANT_COUNT = 3;
+const SPRITES = { ball: null, tiles: [] }; // tiles[themeIndex] = [v0Img, v1Img, v2Img]
+let tileFromTheme = 0, tileToTheme = 0; // tema geçişinde tile çapraz solması (render tarafı state)
+
+function loadSprite(file, onOk) {
+  loadImage(SPRITE_DIR + file,
+    img => { onOk(img); console.log(`[Faz18] sprite yüklendi: ${file} (${img.width}x${img.height})`); },
+    err => console.error(`[Faz18] sprite YÜKLENEMEDİ: ${file} -> procedural çizim kullanılacak`, err));
+}
+
+function preload() {
+  loadSprite('ball.png', img => { SPRITES.ball = img; });
+  for (let t = 0; t < THEME_COUNT_SPRITES; t++) {
+    SPRITES.tiles[t] = new Array(TILE_VARIANT_COUNT).fill(null);
+    for (let v = 0; v < TILE_VARIANT_COUNT; v++) {
+      const suffix = v === 0 ? '' : `_v${v}`;
+      loadSprite(`platform_tile_theme${t}${suffix}.png`, img => { SPRITES.tiles[t][v] = img; });
+    }
+  }
+}
+
 function setup() {
   // 1 canvas pikseli = 1 dither hücresi (retina'da da). Ekrana büyütmeyi CSS
   // image-rendering: pixelated (index.html) keskin yapar.
@@ -530,6 +619,7 @@ function resetGame() {
   nearMissSinceLanding = false;
   nearMissCount = 0;
   resetSound(); // Faz 5: ölümde kesilen müzik kanalını geri aç
+  resetTempoBurst(); // Faz 17: hız çarpanı 1, faz 'normal'
   spikePasses = new Map();
   deathCause = null;
   resetJuice();      // Faz 10: lav damlası dizisi de burada boşalır
@@ -573,10 +663,18 @@ function resetGame() {
 // baseX = salınım merkezi (static/fragile için x ile aynı, hiç değişmez).
 function makePlatform(x, y, w, kind, motion) {
   // Faz 7: id yalnızca airtimeTracker için (sayaç, random() çağrısı yok -> üretim dizisi aynı).
+  // Faz 19 (§21.3): tileVariants = segment başına (8px) seçilmiş karo varyantı (0..2),
+  // Math.random() kullanır (p5 random() dizisine dokunmaz -> üretim dizisi birebir, aynı
+  // kural spawnPlatformShatter'daki gibi). Platform oluşturulduğunda BİR KEZ atanır, draw
+  // sırasında sabit kalır (titreşim/flicker yok).
+  const segCount = Math.max(1, Math.ceil(w / TILE_W));
+  const tileVariants = new Array(segCount);
+  for (let i = 0; i < segCount; i++) tileVariants[i] = Math.floor(Math.random() * TILE_VARIANT_COUNT);
   const p = { id: nextPlatformId++, x: x, y: y, w: w, h: PLATFORM_H, kind: kind, baseX: x,
               amp: 0, period: 0, phase: 0, t: 0, crackT: null, broken: false,
               shatterT: null, // Faz 14 (§15.1): atlandıktan sonra geçen süre (render fade)
-              lands: [] };    // Faz 14 (§15.3): iniş izleri (platforma göre relX), platformla birlikte silinir
+              lands: [],      // Faz 14 (§15.3): iniş izleri (platforma göre relX), platformla birlikte silinir
+              tileVariants: tileVariants };
   if (kind === 'moving' && motion) {
     p.amp = motion.amp; p.period = motion.period; p.phase = motion.phase;
     p.x = movingPlatformX(p);
@@ -1136,6 +1234,7 @@ function draw() {
   pop();
   drawScore();
   drawScorePop(); // Faz 11: aynı HUD katmanı, skor metninin sağında
+  drawTempoBurstHint(); // Faz 17: patlama telegraph'ı (sağ üst köşe, küçük)
   drawTouchHint();
 
   // Ölüm hitstop'u boyunca kare donuk kalsın; GAME OVER yazısı donma bitince gelir.
@@ -1313,7 +1412,7 @@ function drawDebris() {
 function updateSkipMarks(dt) {
   for (const m of skipMarks) {
     m.t += dt;
-    if (gameState === 'playing') m.y -= scrollSpeed * dt;
+    if (gameState === 'playing') m.y -= getEffectiveScrollSpeed() * dt;
   }
   skipMarks = skipMarks.filter(m => m.t < m.life);
 }
@@ -1345,11 +1444,33 @@ function updateScorePops(dt) {
   scorePops = scorePops.filter(s => s.t < s.life);
 }
 
-// Punch eğrisi: 0-0.12s 0→1.3 (ease-out), 0.12-0.2s 1.3→1.0, sonra 1.0.
+// Punch eğrisi: 0-0.12s 0→SCORE_POP_OVERSHOOT (ease-out), 0.12-0.22s geri 1.0'a yerleşir, sonra 1.0.
+// Faz 19 (§21.2): overshoot 1.3 -> 1.7, yerleşme penceresi 0.08s -> 0.10s (daha sert ama okunur).
 function scorePopScale(t) {
-  if (t < 0.12) { const u = t / 0.12; return 1.3 * (1 - (1 - u) * (1 - u)); }
-  if (t < 0.2) return 1.3 - 0.3 * ((t - 0.12) / 0.08);
+  if (t < 0.12) { const u = t / 0.12; return SCORE_POP_OVERSHOOT * (1 - (1 - u) * (1 - u)); }
+  if (t < 0.22) return SCORE_POP_OVERSHOOT - (SCORE_POP_OVERSHOOT - 1.0) * ((t - 0.12) / 0.10);
   return 1.0;
+}
+
+// Faz 19 (§21.2): "×N" çarpan rozeti — ana sayının eğrisini COMBO_POP_DELAY_S kadar geciktirip
+// COMBO_POP_EXTRA_SCALE ile büyüterek ayrı/daha dramatik bir patlama hissi verir.
+function comboPopScale(t) {
+  const ct = t - COMBO_POP_DELAY_S;
+  if (ct <= 0) return 0;
+  return scorePopScale(ct) * COMBO_POP_EXTRA_SCALE;
+}
+
+// Pixel-art tarzı okunurluk konturu: metni 8 yönde 1 birim kayık olarak outlineCol ile basar,
+// böylece asıl renk (sonra üstüne çizilecek) hangi tema arka planında olursa olsun ayırt edilir.
+function drawOutlinedText(str, x, y, outlineCol, weight) {
+  noStroke();
+  fill(outlineCol);
+  for (let ox = -1; ox <= 1; ox++) {
+    for (let oy = -1; oy <= 1; oy++) {
+      if (ox === 0 && oy === 0) continue;
+      text(str, x + ox * weight, y + oy * weight);
+    }
+  }
 }
 
 function drawScorePop() {
@@ -1358,29 +1479,55 @@ function drawScorePop() {
   textSize(getHudStyle().size);
   const scoreW = textWidth(Math.floor(score) + '  x' + multiplier);
   const x = 10 + scoreW + 8;
-  const c = color(PAL.ballLight);
+  const mainCol = color(PAL.ballLight);
+  const comboCol = color(PAL.ballMain);
+  const outlineCol = color(0, 0, 0);
   textAlign(LEFT, TOP);
   for (let i = 0; i < scorePops.length; i++) {
     const s = scorePops[i];
     const sc = scorePopScale(s.t);
-    if (sc <= 0) continue;
     const fadeStart = s.life * 0.7;
     const a = s.t < fadeStart ? 255 : 255 * (1 - (s.t - fadeStart) / (s.life - fadeStart));
-    c.setAlpha(a);
-    push();
-    translate(x, SPIKE_STRIP_H + 4 + i * 14);
-    scale(sc);
-    fill(c);
-    if (s.tier >= 3) {
-      // getHudStyle() dili: kontur kalınlaşır (1 tier ≈ 1 çarpan adımı -> tier 3 = 2 adım)
-      stroke(c);
-      strokeWeight((s.tier - 1) * HUD_STROKE_PER_STEP);
-    } else {
+    const y = SPIKE_STRIP_H + 4 + i * 16;
+    const fsize = SCORE_POP_BASE_SIZE + (s.tier - 1) * 4; // tier1=26, tier2=30, tier3=34
+    // --- Ana sayı ("+N"): her zaman koyu kontur + ballLight dolgu, büyük overshoot ---
+    if (sc > 0) {
+      push();
+      translate(x, y);
+      scale(sc);
       noStroke();
+      textSize(fsize);
+      outlineCol.setAlpha(a);
+      drawOutlinedText(s.text, 0, 0, outlineCol, SCORE_POP_OUTLINE_W);
+      mainCol.setAlpha(a);
+      fill(mainCol);
+      text(s.text, 0, 0);
+      pop();
     }
-    textSize(HUD_BASE_SIZE + (s.tier - 1) * 4); // tier 1 = taban, tier 3 = +8px (§12.2)
-    text(s.text, 0, 0);
-    pop();
+    // --- Çarpan rozeti ("×N"): yalnız tier>=2 (bu inişte çarpan arttı/maksimuma ulaştı) ---
+    if (s.tier >= 2) {
+      const csc = comboPopScale(s.t);
+      if (csc > 0) {
+        textSize(fsize);
+        const numW = textWidth(s.text) * Math.max(sc, 1);
+        push();
+        translate(x + numW + 6, y - 2); // rozet ana sayının biraz üstünde/sağında, ayrı okunur
+        scale(csc);
+        noStroke();
+        const comboText = '×' + s.multiplier;
+        const comboSize = fsize * 1.15;
+        textSize(comboSize);
+        outlineCol.setAlpha(a);
+        drawOutlinedText(comboText, 0, 0, outlineCol, SCORE_POP_OUTLINE_W);
+        // Beyaz -> altın (ballMain) flaş: ilk COMBO_FLASH_S'de "ping" hissi verir.
+        const flashT = Math.min(1, Math.max(0, (s.t - COMBO_POP_DELAY_S) / COMBO_FLASH_S));
+        const flashCol = lerpColor(color(255, 255, 255), comboCol, flashT);
+        flashCol.setAlpha(a);
+        fill(flashCol);
+        text(comboText, 0, 0);
+        pop();
+      }
+    }
   }
   noStroke();
 }
@@ -1429,6 +1576,13 @@ function drawBall() {
     rx = BALL_R * SQUASH_X;
     cy = ball.y + BALL_R - ry;
   }
+  // Faz 18: ball.png aynı elips sınır kutusuna çizilir (squash -> 30x18, normal -> 24x24, 1:1).
+  // Sol-üst köşe tam sayıya yuvarlanır: nearest-neighbor + tam sayı konum = kayan/titrek piksel yok.
+  // imageMode global CORNER kalır (pattern/telegraph image(..., 0, 0) çağrıları buna dayanıyor).
+  if (SPRITES.ball) {
+    image(SPRITES.ball, Math.round(cx - rx), Math.round(cy - ry), Math.round(rx * 2), Math.round(ry * 2));
+    return;
+  }
   noStroke();
   fill(PAL.ballShadow);
   ellipse(cx, cy, rx * 2, ry * 2);
@@ -1451,9 +1605,11 @@ function initShardPool() {
 
 // Önce boş slotlar; yetmezse kalan ömrü EN DÜŞÜK aktif slotlar gaspedilir (havuz büyümez).
 // Math.random kullanır (p5 random() dizisine dokunmaz -> desen üretimi birebir).
+// Faz 19 (§21.1): parça SAYISI artık platform genişliğinden (computeShardCount), BOYUT/HIZ/ÖMÜR
+// hâlâ tier'dan gelir — "geçilen platform geniş olduğu kadar çok parçaya ayrılır" hissi.
 function spawnPlatformShatter(p, tier) {
   if (!JUICE.shatter || tier <= 0) return;
-  const n = SHARD_COUNT_BY_TIER[tier];
+  const n = computeShardCount(p.w);
   const life = SHARD_LIFE_BY_TIER[tier];
   let free = 0;
   for (const s of platformShards) if (!s.active) free++;
@@ -1462,8 +1618,10 @@ function spawnPlatformShatter(p, tier) {
   const steal = free < n
     ? platformShards.filter(s => s.active).sort((a, b) => a.life - b.life).slice(0, n - free)
     : null;
-  const write = (s) => {
-    const shardRelX = Math.random();
+  // i parametresi: stratified örnekleme (i+random())/n) ile parçalar TÜM genişliğe yayılır,
+  // saf Math.random() gibi kümelenip bir ucu boş bırakmaz -> "bütün platform dağılıyor" hissi.
+  const write = (s, i) => {
+    const shardRelX = (i + Math.random()) / n;
     s.x = p.x + shardRelX * p.w;
     s.y = p.y + Math.random() * p.h;
     s.w = 3 + tier + Math.random() * 2;
@@ -1480,9 +1638,9 @@ function spawnPlatformShatter(p, tier) {
   let used = 0;
   for (const s of platformShards) {
     if (used >= n) break;
-    if (!s.active) { write(s); used++; }
+    if (!s.active) { write(s, used); used++; }
   }
-  if (steal) for (const s of steal) write(s);
+  if (steal) for (let k = 0; k < steal.length; k++) write(steal[k], used + k);
 }
 
 function updateShards(dt) {
@@ -1493,7 +1651,7 @@ function updateShards(dt) {
     s.y += s.vy * dt;
     s.rot += s.rotV * dt;
     s.life -= dt;
-    if (gameState === 'playing') s.y -= scrollSpeed * dt; // platformla birlikte kayar
+    if (gameState === 'playing') s.y -= getEffectiveScrollSpeed() * dt; // platformla birlikte kayar
     if (s.life <= 0) s.active = false;
   }
 }
@@ -1523,7 +1681,7 @@ function updateWorldJuice() {
     d.vy += GRAVITY * 0.5 * dt;
     d.x += d.vx * dt;
     d.y += d.vy * dt;
-    if (gameState === 'playing' && !d.noScroll) d.y -= scrollSpeed * dt; // platformla birlikte kayar
+    if (gameState === 'playing' && !d.noScroll) d.y -= getEffectiveScrollSpeed() * dt; // platformla birlikte kayar
     d.life -= dt;
   }
   debris = debris.filter(d => d.life > 0);
@@ -1710,7 +1868,7 @@ function initAtmoElements() {
 // yeniden girer (y -= scrollSpeed*... yukarı taşıdığı için sarma üst kenarda yapılır).
 function updateAtmo(dt) {
   if (gameState !== 'playing') return;
-  const dy = scrollSpeed * ATMO_PARALLAX * dt;
+  const dy = getEffectiveScrollSpeed() * ATMO_PARALLAX * dt;
   for (const a of atmoEls) {
     a.y -= dy;
     if (a.y < -ATMO_WRAP_PAD) a.y += CANVAS_H + ATMO_WRAP_PAD;
@@ -2274,6 +2432,40 @@ function sfxAegisBreak() {
   playSfx('aegisBreak', 'triangle', buildSkipThud);
 }
 
+// Faz 17 tempo-patlaması telegraph'ı: sawtooth, 3 nota (E4 G4 B4), her nota TEMPO_TELE_NOTE_S
+// boyunca +TEMPO_TELE_GLIDE_ST yarım ton yukarı kayar, nota aralıkları kısalır (hızlanan ritim).
+function buildTempoTelegraph(ctx, dest, t) {
+  const osc = ctx.createOscillator();
+  osc.type = 'sawtooth';
+  const env = ctx.createGain();
+  env.gain.setValueAtTime(0, t);
+  const freqs = [];
+  const glide = Math.pow(2, TEMPO_TELE_GLIDE_ST / 12);
+  for (let i = 0; i < TEMPO_TELE_MIDI.length; i++) {
+    const ns = t + TEMPO_TELE_ONSETS_S[i];
+    const f = midiToHz(TEMPO_TELE_MIDI[i]);
+    freqs.push(+f.toFixed(2));
+    osc.frequency.setValueAtTime(f, ns);
+    osc.frequency.exponentialRampToValueAtTime(f * glide, ns + TEMPO_TELE_NOTE_S);
+    env.gain.setValueAtTime(0, ns);
+    env.gain.linearRampToValueAtTime(TEMPO_TELE_PEAK, ns + 0.003);
+    env.gain.setValueAtTime(TEMPO_TELE_PEAK, ns + TEMPO_TELE_NOTE_S - 0.012);
+    env.gain.linearRampToValueAtTime(0, ns + TEMPO_TELE_NOTE_S);
+  }
+  const end = t + TEMPO_TELE_ONSETS_S[TEMPO_TELE_ONSETS_S.length - 1] + TEMPO_TELE_NOTE_S;
+  osc.connect(env).connect(dest);
+  osc.start(t);
+  osc.stop(end + 0.01);
+  cleanupOnEnded(osc, [osc, env]);
+  return { node: osc, type: osc.type, notes: TEMPO_TELE_MIDI.length, freqs: freqs,
+           glideSemitones: TEMPO_TELE_GLIDE_ST, gainStart: t, gainEnd: end, stopAt: end + 0.01 };
+}
+
+function sfxTempoTelegraph() {
+  if (!SOUND.tempoBurst) return;
+  playSfx('tempoTelegraph', 'pulse1', buildTempoTelegraph);
+}
+
 function cutMusicNow(t) {
   const stopped = musicVoices.length;
   for (const v of musicVoices) {
@@ -2290,6 +2482,8 @@ function cutMusicNow(t) {
 function resetSound() {
   musicNextTime = 0;
   musicStep = 0;
+  musicThemeIndex = 0;   // Faz 17: yeni koşu tema 0 pattern'iyle başlar
+  pendingThemeIndex = 0;
   if (!audioCtx) return;
   const t = audioCtx.currentTime;
   chan.pulse2.gain.cancelScheduledValues(t);
@@ -2313,6 +2507,88 @@ function getMusicBpm() {
   return MUSIC_BPM_START + steps * MUSIC_BPM_STEP;
 }
 
+// ---------------------------------------------------------------------------
+// Faz 17: tempo-patlaması -> hız-patlaması. SAF fonksiyon: zorluk-zamanı (sn) -> faz.
+// t = e - TEMPO_BURST_FIRST_S; döngü k = floor((t + TELEGRAPH) / INTERVAL), local = t - k*INTERVAL
+// (aralık [-TELEGRAPH, INTERVAL - TELEGRAPH)):
+//   local < 0                   -> 'telegraph' (uyarı; çarpanlar 1)
+//   0 <= local < DURATION       -> 'burst'     (BPM x BPM_MULT; hız çarpanı RAMP_S'de 1 -> SPEED_MULT)
+//   DURATION <= local < +RAMP_S -> 'release'   (BPM normal; hız çarpanı RAMP_S'de SPEED_MULT -> 1)
+//   aksi                        -> 'normal'
+// Rastgelelik yok: aynı zorluk-zamanı her zaman aynı fazı verir.
+// ---------------------------------------------------------------------------
+function smoothstep01(x) {
+  x = Math.min(Math.max(x, 0), 1);
+  return x * x * (3 - 2 * x);
+}
+
+function getTempoBurstState(e) {
+  // Tam sayı mikro-saniye aritmetiği: 28.8 + 1.2 = 29.999… gibi kayan nokta sınır hatalarını önler.
+  const US = 1e6;
+  const tUs = Math.round((e - TEMPO_BURST_FIRST_S) * US);
+  const teleUs = Math.round(TEMPO_BURST_TELEGRAPH_S * US);
+  if (tUs < -teleUs) return { phase: 'normal', cycle: -1, local: null, bpmMult: 1, speedFactor: 1 };
+  const cycle = Math.floor((tUs + teleUs) / Math.round(TEMPO_BURST_INTERVAL_S * US));
+  const local = (tUs - cycle * Math.round(TEMPO_BURST_INTERVAL_S * US)) / US;
+  let phase, ramp;
+  if (local < 0) {
+    phase = 'telegraph'; ramp = 0;
+  } else if (local < TEMPO_BURST_DURATION_S) {
+    phase = 'burst'; ramp = smoothstep01(local / TEMPO_BURST_RAMP_S);
+  } else {
+    phase = local < TEMPO_BURST_DURATION_S + TEMPO_BURST_RAMP_S ? 'release' : 'normal';
+    ramp = 1 - smoothstep01((local - TEMPO_BURST_DURATION_S) / TEMPO_BURST_RAMP_S);
+  }
+  return { phase: phase, cycle: cycle, local: local,
+           bpmMult: phase === 'burst' ? TEMPO_BURST_BPM_MULT : 1,
+           speedFactor: 1 + (TEMPO_BURST_SPEED_MULT - 1) * ramp };
+}
+
+// Fiziksel dünya kayması bunu kullanır. Kalıcı scrollSpeed (zorluk eğrisi) DEĞİŞMEZ.
+function getEffectiveScrollSpeed() {
+  return scrollSpeed * tempoBurst.speedFactor;
+}
+
+function resetTempoBurst() {
+  tempoBurst = { phase: 'normal', cycle: -1, local: null, bpmMult: 1, speedFactor: 1 };
+  tempoBurstProgress = { cycle: -1, stage: 2 };
+}
+
+function logTempoBurst(type, e, st, late) {
+  const baseBpm = getMusicBpm();
+  const mult = type === 'burst_start' ? [TEMPO_BURST_BPM_MULT, TEMPO_BURST_SPEED_MULT] : [1, 1];
+  const entry = { t: +e.toFixed(3), type: type, cycle: st.cycle, bpmMult: mult[0], speedMult: mult[1],
+                  phaseNow: st.phase, speedFactorNow: +st.speedFactor.toFixed(4),
+                  baseBpm: baseBpm, bpm: +(baseBpm * st.bpmMult).toFixed(2),
+                  scrollSpeed: +scrollSpeed.toFixed(2), effScrollSpeed: +(scrollSpeed * st.speedFactor).toFixed(2),
+                  audioT: audioCtx ? +audioCtx.currentTime.toFixed(4) : null };
+  if (late) entry.late = true; // kare atlaması (ör. sekme dönüşü) nedeniyle geç loglandı
+  tempoBurstLog.push(entry);
+  if (tempoBurstLog.length > TEMPO_BURST_LOG_MAX) tempoBurstLog.shift();
+  if (tempoBurstDebugLog) console.log('[tempo]', JSON.stringify(entry));
+}
+
+// updateGame() her karede zorluk eğrisi güncellendikten SONRA, fizikten ÖNCE çağırır.
+// Faz geçişlerini (telegraph / burst_start / burst_end) döngü başına bir kez loglar.
+function updateTempoBurst() {
+  const e = getDifficultyElapsedS();
+  const st = getTempoBurstState(e);
+  tempoBurst = st;
+  if (st.cycle < 0) return;
+  const target = st.phase === 'telegraph' ? 0 : st.phase === 'burst' ? 1 : 2;
+  if (st.cycle !== tempoBurstProgress.cycle) {
+    // Yeni döngü. Patlama penceresi tamamen geçilmişse (ör. test/sekme sıçraması) sessizce atla.
+    tempoBurstProgress = { cycle: st.cycle, stage: st.phase === 'normal' ? 2 : -1 };
+  }
+  const TYPES = ['telegraph', 'burst_start', 'burst_end'];
+  while (tempoBurstProgress.stage < target) {
+    tempoBurstProgress.stage++;
+    const s = tempoBurstProgress.stage;
+    logTempoBurst(TYPES[s], e, st, s !== target);
+    if (s === 0 && target === 0) sfxTempoTelegraph(); // ses yalnız gerçekten telegraph fazındayken
+  }
+}
+
 // draw() her karede çağırır: master volume + müzik notalarını audioCtx.currentTime ile
 // MUSIC_LOOKAHEAD_S önden planlar (kare hızından bağımsız, kesintisiz ritim).
 function updateAudio() {
@@ -2325,18 +2601,29 @@ function updateAudio() {
   }
   const now = audioCtx.currentTime;
   if (musicNextTime < now) musicNextTime = now + 0.05; // ilk başlangıç / sekme dönüşü hizalaması
-  const bpm = getMusicBpm();
+  pendingThemeIndex = themeIndex; // Faz 17: tema değişikliği bekler, döngü başında uygulanır
+  // Faz 17: patlama BPM çarpanı SADECE burada; getMusicBpm() (zorluk eğrisi) değişmez.
+  const baseBpm = getMusicBpm();
+  const bpm = baseBpm * tempoBurst.bpmMult;
   const stepS = 60 / bpm / 2; // sekizlik nota
   while (musicNextTime < now + MUSIC_LOOKAHEAD_S) {
-    const midi = MUSIC_PATTERN_MIDI[musicStep % MUSIC_PATTERN_MIDI.length];
+    if (musicStep % MUSIC_PATTERN_LEN === 0 && pendingThemeIndex !== musicThemeIndex) {
+      musicPatternLog.push({ t: +musicNextTime.toFixed(4), step: musicStep,
+                             from: musicThemeIndex, to: pendingThemeIndex, score: Math.floor(score) });
+      if (musicPatternLog.length > MUSIC_LOG_MAX) musicPatternLog.shift();
+      musicThemeIndex = pendingThemeIndex;
+    }
+    const pattern = MUSIC_PATTERNS_BY_THEME[musicThemeIndex];
+    const midi = pattern[musicStep % MUSIC_PATTERN_LEN];
     const osc = buildMusicNote(audioCtx, chan.pulse2, musicNextTime, midiToHz(midi), stepS * MUSIC_NOTE_FRAC);
     musicVoices.push(osc);
     osc.addEventListener('ended', () => {
       const i = musicVoices.indexOf(osc);
       if (i >= 0) musicVoices.splice(i, 1);
     });
-    musicLog.push({ t: +musicNextTime.toFixed(4), bpm: bpm, step: musicStep, midi: midi,
-                    scrollSpeed: +scrollSpeed.toFixed(2) });
+    musicLog.push({ t: +musicNextTime.toFixed(4), bpm: +bpm.toFixed(2), baseBpm: baseBpm, step: musicStep,
+                    midi: midi, theme: musicThemeIndex, burst: tempoBurst.phase === 'burst',
+                    scrollSpeed: +scrollSpeed.toFixed(2), effScrollSpeed: +getEffectiveScrollSpeed().toFixed(2) });
     if (musicLog.length > MUSIC_LOG_MAX) musicLog.shift();
     musicNextTime += stepS;
     musicStep++;
@@ -2353,6 +2640,9 @@ function updateGame() {
     scrollSpeed = Math.min(scrollSpeed * SPEED_INCREASE_FACTOR, MAX_SCROLL_SPEED);
     speedTimer = 0;
   }
+  // Faz 17: tempo-patlaması fazı + GEÇİCİ hız çarpanı (kalıcı scrollSpeed'e dokunmaz).
+  updateTempoBurst();
+  const worldSpeed = getEffectiveScrollSpeed(); // fiziksel dünya kayması (patlama dışında = scrollSpeed)
   updateStage(); // Faz 6: eşik geçildiyse tek seferlik stageUp cue
   updateActiveBuff(dt); // Faz 9: süre/telegraph/dokunulmazlık (hız ve skor faktörü bundan okunur)
   // --- Skor: dünyanın toplam yukarı kaydırma mesafesi x momentum çarpanı ---
@@ -2378,16 +2668,16 @@ function updateGame() {
 
   // --- Tüm platformları yukarı kaydır (dünya kayması) ---
   for (const p of platforms) {
-    p.y -= scrollSpeed * dt;
+    p.y -= worldSpeed * dt;
     if (p.kind === 'moving') updateMovingPlatform(p, dt); // Faz 6: yatay salınım (+ üstündeki top)
     if (p.shatterT !== null) p.shatterT += dt; // Faz 14 (§15.1): shatter fade sayacı
   }
-  lastSpawnY -= scrollSpeed * dt;
+  lastSpawnY -= worldSpeed * dt;
 
   // --- Dikey hareket: yerçekimi + platform teması ---
   if (ball.grounded) {
     // Platformla birlikte yukarı taşın (dünya ile aynı hızda).
-    ball.y -= scrollSpeed * dt;
+    ball.y -= worldSpeed * dt;
     ball.vy = 0;
 
     // Hâlâ platformun üzerinde mi? (yatayda kaymış olabilir)
@@ -2411,7 +2701,7 @@ function updateGame() {
         const prevBallBottom = ballBottom - ball.vy * dt;
         // Platformlar bu karede zaten yukarı kaydırıldı; önceki karedeki tepe
         // konumuyla karşılaştır, yoksa top platformun içinden geçebilir (tünelleme).
-        const prevPlatformTop = p.y + scrollSpeed * dt;
+        const prevPlatformTop = p.y + worldSpeed * dt;
         const withinX = ball.x + BALL_R > p.x && ball.x - BALL_R < p.x + p.w;
         const crossingTop = prevBallBottom <= prevPlatformTop && ballBottom >= p.y;
         if (withinX && crossingTop) {
@@ -2634,6 +2924,7 @@ function onLanding(p) {
   // Faz 11 (§12.2): yalnız görsel "+N" pop'u — applySkipBonus'un hesapladığı değeri OKUR, değiştirmez.
   if (skips > 0 && lastSkipResult.bonus > 0) {
     scorePops.push({ text: '+' + Math.round(lastSkipResult.bonus), tier: lastSkipResult.tier,
+                     multiplier: lastSkipResult.multiplier, // Faz 19 (§21.2): "×N" rozeti için
                      t: 0, life: 0.45 + 0.15 * lastSkipResult.tier });
   }
 }
@@ -2842,7 +3133,7 @@ function updatePickup(dt) {
     pk.y = pk.plat.y - PICKUP_FLOAT_PX;
   } else {
     pk.plat = null;                   // platform kırıldı: eşya havada dünya ile kayar
-    pk.y -= scrollSpeed * dt;
+    pk.y -= getEffectiveScrollSpeed() * dt;
   }
   if (circleTouchesRect(ball.x, ball.y, BALL_R, pickupRect(pk))) {
     collectPickup();
@@ -3067,6 +3358,7 @@ function drawWorld() {
   noStroke();
 
   // Platformlar (Faz 6 ramp: gövde ana, üst kenar parlak, alt kenar gölge)
+  updateTileThemes(); // Faz 18: hangi tema tile'ı (ve geçişte hangisinden) çizileceği
   for (const p of platforms) drawPlatform(p);
   drawPickup(); // Faz 9: dünyadaki eşya (platform üstünde)
 
@@ -3121,6 +3413,11 @@ function drawPlatform(p) {
   const prevAlpha = drawingContext.globalAlpha;
   drawingContext.globalAlpha = prevAlpha * shatterAlpha;
   const x = Math.round(p.x), y = Math.round(p.y), w = Math.round(p.w), h = p.h;
+  if (SPRITES.tiles[tileToTheme] && SPRITES.tiles[tileToTheme][0]) { // Faz 18: sprite gövde (en az v0 yüklenmiş olmalı); kind ayrımı/izler/çatlaklar üstüne
+    drawPlatformSprite(p, x, y, w, h, prevAlpha);
+    drawingContext.globalAlpha = prevAlpha;
+    return;
+  }
   if (p.kind === 'fragile') {
     // Ayırt edici gölgeleme: gövde GÖLGE tonu (sağlamlar ana ton), üst kenar ana ton,
     // koyu çatlak çizgileri. Temastan sonra 1px titrer ve çatlaklar uzar.
@@ -3166,6 +3463,72 @@ function drawPlatform(p) {
   drawingContext.globalAlpha = prevAlpha;
 }
 
+// --- Faz 18: platform sprite render (yalnız çizim) ---
+// Tema tile takibi: themeIndex değişince eski tile "from" olur, yeni tile themeBlendT ile
+// üstüne solar (renk paleti geçişiyle aynı ~2sn eğri; ani tile sıçraması yok). drawWorld başında.
+function updateTileThemes() {
+  if (themeIndex !== tileToTheme) {
+    tileFromTheme = tileToTheme;
+    tileToTheme = themeIndex;
+  }
+}
+
+// 8px tile'ı [x, x+w) boyunca yatay tekrarlar; segment başına p.tileVariants ile seçilen
+// KARO VARYANTI (Faz 19 §21.3) kullanılır -> aynı karonun birebir tekrarı yerine hafif
+// dither-fazı farklı 3 varyant rastgele dağılır (mekanik tekrar hissi kırılır).
+// Son tile sağ kenarda kaynak/hedef dikdörtgeniyle kırpılır (taşma yok). Dikeyde h'ye
+// ölçeklenir (PLATFORM_H = 12 = tile yüksekliği -> 1:1). Konumlar tam sayı (çağıran
+// yuvarlar) -> nearest-neighbor ile dikiş/yarı-piksel yok.
+function drawTiledRow(imgSet, variants, x, y, w, h) {
+  let seg = 0;
+  for (let tx = 0; tx < w; tx += TILE_W, seg++) {
+    const dw = Math.min(TILE_W, w - tx);
+    const vIdx = variants ? (variants[seg] || 0) : 0;
+    const img = imgSet[vIdx] || imgSet[0];
+    image(img, x + tx, y, dw, h, 0, 0, dw, img.height);
+  }
+}
+
+// a = shatter fade dahil o anki globalAlpha; prevAlpha = çağrı öncesi (dış) alpha.
+function drawPlatformSprite(p, x, y, w, h, prevAlpha) {
+  const a = drawingContext.globalAlpha;
+  const jx = p.kind === 'fragile' && p.crackT !== null ? (Math.floor(p.crackT * 30) % 2 ? 1 : -1) : 0;
+  const bx = x + jx;
+  const toImg = SPRITES.tiles[tileToTheme];
+  const fromImg = SPRITES.tiles[tileFromTheme];
+  if (themeBlending && themeBlendT < 1 && fromImg && fromImg[0] && fromImg !== toImg) {
+    drawTiledRow(fromImg, p.tileVariants, bx, y, w, h);
+    drawingContext.globalAlpha = a * themeBlendT;
+  }
+  drawTiledRow(toImg, p.tileVariants, bx, y, w, h);
+  drawingContext.globalAlpha = a;
+  if (p.kind === 'fragile') {
+    // Ayırt edici: tile üstüne %50 gölge tonu (sağlamlardan koyu okunur) + koyu çatlaklar.
+    drawingContext.globalAlpha = a * 0.5;
+    fill(PAL.platShadow);
+    rect(bx, y, w, h);
+    drawingContext.globalAlpha = a;
+  }
+  if (p.lands.length) { // Faz 14 (§15.3): iniş izleri (globalAlpha fade altında)
+    fill(PAL.platShadow);
+    for (const rx of p.lands) rect(bx + Math.round(rx) - 3, y + 2, 6, 2);
+  }
+  if (p.kind === 'fragile') {
+    fill(PAL.bgLo);
+    const grow = p.crackT !== null ? Math.min(1, p.crackT / FRAGILE_BREAK_S) : 0;
+    for (const cx of p.cracks) {
+      const len = Math.round(5 + grow * (h - 5));
+      rect(bx + cx, y, 1, len);
+      rect(bx + cx + 1, y + Math.min(h - 1, len - 1), 2, 1);
+    }
+  } else if (p.kind === 'moving') {
+    // Hareketli: iki uçta parlak "ray" işaretleri (Faz 6 ile aynı konum).
+    fill(PAL.platLight);
+    rect(x + 3, y + 4, 2, 4);
+    rect(x + w - 5, y + 4, 2, 4);
+  }
+}
+
 // Faz 4 (karar #3, §8.1.2): çarpan büyüdükçe yazı büyür + kontur kalınlaşır
 // ("parlama" = daha fazla dolu piksel). x1'de Faz 1-3 ile birebir aynı. Faz 6: #f2ead1.
 function getHudStyle() {
@@ -3190,6 +3553,33 @@ function drawScore() {
   // Sayaç diken şeridinin hemen altında, ekranın üst köşesinde.
   text(Math.floor(score) + '  x' + multiplier, 10, SPIKE_STRIP_H + 6);
   noStroke();
+}
+
+// Faz 17 telegraph HUD ipucu: sağ üst köşede (skorun karşısı, diken şeridinin hemen altı) 3 küçük
+// piksel ok ">>>". Telegraph süresince soldan sağa birer birer yanar (geri sayım), yanan oklar
+// ~6Hz basamaklı nabız atar; yanmayanlar soluk görünür. Toplam ~26x10px, yalnız HUD katmanı
+// (shake'ten etkilenmez); telegraph bitince (patlama başında) kaybolur.
+const TEMPO_HINT_CHEVRONS = 3;
+const TEMPO_HINT_GAP = 9;     // ok başlangıçları arası (px)
+const TEMPO_HINT_H = 10;      // ok yüksekliği (px)
+function drawTempoBurstHint() {
+  if (gameState !== 'playing' || tempoBurst.phase !== 'telegraph') return;
+  const progress = (tempoBurst.local + TEMPO_BURST_TELEGRAPH_S) / TEMPO_BURST_TELEGRAPH_S; // 0 -> 1
+  const lit = Math.min(TEMPO_HINT_CHEVRONS, 1 + Math.floor(progress * TEMPO_HINT_CHEVRONS));
+  const pulseOn = Math.floor(progress * TEMPO_BURST_TELEGRAPH_S * 6) % 2 === 0;
+  const x0 = CANVAS_W - 10 - TEMPO_HINT_CHEVRONS * TEMPO_HINT_GAP;
+  const y0 = SPIKE_STRIP_H + 8;
+  const c = color(PAL.hud); // skor sayacıyla aynı renk: 5 temada da zemine kontrast >= 6.6:1 (ballLight gündüzde ~1.1:1)
+  noStroke();
+  for (let i = 0; i < TEMPO_HINT_CHEVRONS; i++) {
+    c.setAlpha(i < lit ? (pulseOn ? 255 : 150) : 55);
+    fill(c);
+    // ">" : 2px sütunlar, uca doğru kısalır (drawTouchHint ok dili)
+    for (let k = 0; k < 3; k++) {
+      const h = TEMPO_HINT_H - k * 4;
+      rect(x0 + i * TEMPO_HINT_GAP + k * 2, y0 + (TEMPO_HINT_H - h) / 2, 2, h);
+    }
+  }
 }
 
 function drawGameOver() {
