@@ -48,7 +48,7 @@
 .serit{background:var(--murekkep);color:var(--limon);border-block:var(--cizgi) solid var(--murekkep);overflow:hidden;transform:rotate(-1.2deg);margin-inline:-2vw}
 .serit__ic{display:flex;width:max-content;background:var(--murekkep);animation:kay 34s linear infinite}
 .serit span{font:800 clamp(1.25rem,3.4vw,1.9rem)/1 var(--f-baslik);font-variation-settings:"wdth" 80;letter-spacing:-.01em;padding:1rem 1.2rem;white-space:nowrap}
-.serit span::after{content:"✦";margin-left:2.4rem;color:var(--lila)}
+.serit span::after{content:"✦";margin-left:2.4rem;color:var(--limon)}
 @keyframes kay{to{transform:translateX(-50%)}}
 
 /* ---------- Sayfa başlık (hero iskeleti, tüm iç sayfalarda) ---------- */

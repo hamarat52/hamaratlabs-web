@@ -5,18 +5,20 @@
    /site/WORDPRESS-AKTARIM.md
    ========================================================================= */
 :root{
-  /* Renkler */
+  /* Renkler — zBurada marka paleti (19/10, 22/10 geri bildirimi: sarı+mavi
+     baskın, lacivert+yeşil az kullanılan destek rengi) */
   --krem:#FFF7E8;
   --krem-2:#FFEFD2;
   --murekkep:#111111;
   --gri:#4A4A4A;
   --beyaz:#FFFFFF;
-  --mavi:#2F56FF;
-  --limon:#D8FF3E;
-  --lila:#C2B2FF;
-  --mercan:#FF7051;
-  --gok:#8FD8FF;
-  --nane:#8EF0BE;
+  --mavi:#004aad;      /* baskın — marka mavisi */
+  --limon:#ffc700;      /* baskın — marka sarısı (eski adı korundu, kullanım yeri aynı) */
+  --lila:color-mix(in srgb, #06028f 18%, white); /* destek/accent — lacivert (büyük kart zeminlerinde okunurluk için açık ton; tam ton --lacivert-vurgu'da) */
+  --lacivert-vurgu:#06028f; /* lacivert'in tam/koyu tonu — küçük vurgular, kenarlık, metin için */
+  --mercan:#87bba3;     /* destek/accent — yeşil */
+  --gok:#87bba3;        /* destek/accent — yeşil (gok ile birleştirildi, renk sayısı azaltıldı) */
+  --nane:#87bba3;       /* destek/accent — yeşil (kontrast için açık ton korundu, koyu laciverte çevrilmedi) */
   --kirmizi:#B3261E;
 
   /* Şekil / çizgi dili */
