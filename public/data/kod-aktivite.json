@@ -5317,5 +5317,149 @@
     "score": 51,
     "is_merge": false,
     "lines": 4
+  },
+  {
+    "repo": "sesver",
+    "hash": "989f6f3d48",
+    "date": "2026-10-24T23:57:18+03:00",
+    "subject": "feat: Ayarlar sekmesinden NVIDIA/AMD ekran kartı hızlandırma",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1454
+  },
+  {
+    "repo": "kitabe",
+    "hash": "94f271d76b",
+    "date": "2026-10-25T00:31:31+03:00",
+    "subject": "feat(icon): hamaratlabs uygulama ikonu (açık kitap, bronz/kahve gradyan)",
+    "score": 88,
+    "is_merge": false,
+    "lines": 200
+  },
+  {
+    "repo": "kitabe",
+    "hash": "7a182b7267",
+    "date": "2026-10-25T00:32:40+03:00",
+    "subject": "feat: macOS + web platformları ve web'e uygun responsive UX",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2633
+  },
+  {
+    "repo": "kitabe",
+    "hash": "0ca68f06bb",
+    "date": "2026-10-25T00:43:53+03:00",
+    "subject": "fix(icon): köşe şeffaflığını kaldır, ikon kareyi uçtan uca doldursun",
+    "score": 51,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "kitabe",
+    "hash": "a9518c2bdd",
+    "date": "2026-10-25T04:38:13+03:00",
+    "subject": "feat(map): OSM tabanlı gerçek harita, konum, öncelik filtresi ve kümeleme",
+    "score": 95,
+    "is_merge": false,
+    "lines": 6017
+  },
+  {
+    "repo": "kitabe",
+    "hash": "1c806ff729",
+    "date": "2026-10-25T04:39:00+03:00",
+    "subject": "fix(icon): macOS ve web ikonlarını da güncelle",
+    "score": 45,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "kitabe",
+    "hash": "a3c03c5d13",
+    "date": "2026-10-25T08:27:43+03:00",
+    "subject": "fix(icon): gerçek adaptive icon (arka plan+ön plan) — beyaz dairesel tabla sorunu çözüldü",
+    "score": 54,
+    "is_merge": false,
+    "lines": 13
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "6e6c790d4e",
+    "date": "2026-10-25T12:51:38+03:00",
+    "subject": "zburada-onizleme: marka renk paleti (sarı/mavi baskın) + orijinal Z logosu",
+    "score": 50,
+    "is_merge": false,
+    "lines": 69
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "2b844113a7",
+    "date": "2026-10-25T16:48:25+03:00",
+    "subject": "zBurada V2 'Saha Defteri' editoryal tema ekle (public/zburada-onizleme-v2)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 5398
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "635bdc4da8",
+    "date": "2026-10-25T17:33:17+03:00",
+    "subject": "zBurada V2: test/simülasyon sayfalarını editoryal dergi diline uyarla",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "d50ca703fd",
+    "date": "2026-10-25T17:33:44+03:00",
+    "subject": "Revert \"zBurada V2: test/simülasyon sayfalarını editoryal dergi diline uyarla\"",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "7eb775b3b8",
+    "date": "2026-10-25T17:45:16+03:00",
+    "subject": "zburada V2: mobil kenar bosluk, footer kontrast, orijinal logo duzeltmesi",
+    "score": 51,
+    "is_merge": false,
+    "lines": 114
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "d620dacd7f",
+    "date": "2026-10-25T21:29:51+03:00",
+    "subject": "fix(platform-tiles): gercek piksel kontrasti - tema0 rampa + anatomi + anti-clumping",
+    "score": 65,
+    "is_merge": false,
+    "lines": 274
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "2488907e9c",
+    "date": "2026-10-25T22:13:58+03:00",
+    "subject": "Müzik motoruna bas+davul+armoni katmanları ve 32 adımlık form ekle",
+    "score": 57,
+    "is_merge": false,
+    "lines": 616
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "c810069739",
+    "date": "2026-10-25T22:46:59+03:00",
+    "subject": "fix(muzik): mix/EQ dengesi + dinamik aranjman (vertical layering)",
+    "score": 69,
+    "is_merge": false,
+    "lines": 1072
+  },
+  {
+    "repo": "nostaljik-dikenler",
+    "hash": "d6c71b384f",
+    "date": "2026-10-25T23:17:03+03:00",
+    "subject": "fix(muzik): YOGUN-BURST asiri tizlik duzeltmesi (kullanici: v2 cok tize cikiyo)",
+    "score": 61,
+    "is_merge": false,
+    "lines": 107
   }
 ]
