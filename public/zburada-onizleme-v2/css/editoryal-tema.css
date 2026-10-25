@@ -65,7 +65,15 @@ mark, .v2-highlight{ background:var(--v2-sari); padding:0 .15em; color:var(--v2-
 /* El yazısı notlar */
 .v2-el-yazisi{ font-family:"Caveat","Comic Sans MS",cursive; color:var(--v2-mavi); font-size:1.15rem; }
 
-footer.alt{ background:var(--v2-krem-koyu) !important; border-top:1px solid var(--v2-cizgi); }
+footer.alt{ background:var(--murekkep) !important; border-top:1px solid #3A3A3A; }
+
+/* Mobil kenar boşluğu: .kap/.v2-wrap içeriği bazı bölüm kuralları (örn.
+   .v2-hero / .v2-bolum padding:Xrem 0) yatay padding'i sıfırlıyordu ve
+   içerik ekran kenarına yapışıyordu. Tek merkezi kural, !important ile,
+   sayfa içi <style> bloklarındaki üstyazımları ezer. */
+@media (max-width:768px){
+  .kap, .v2-wrap{ padding-left:20px !important; padding-right:20px !important; }
+}
 
 /* ---------- Dergi vurgu: test/simülasyon kart şeridi + bölüm ayıracı ---------- */
 .izgara .tkart:nth-child(4n+1) .tkart__bas,
