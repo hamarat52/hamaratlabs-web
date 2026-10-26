@@ -262,6 +262,31 @@
   text-align: center;
 }
 
+/* Gerçek ekran görüntüsü galerisi: tel kafes yerine, yatay kaydırmalı gerçek fotoğraflar. */
+.devpage__sketch--real { padding: 24px 16px 18px; }
+.devpage__screens {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: 4px;
+}
+.devpage__device--real {
+  flex: 0 0 auto;
+  width: 220px;
+  padding: 22px 8px 8px;
+  border-radius: 30px;
+  scroll-snap-align: start;
+}
+.devpage__sketch--browser .devpage__device--real { width: 320px; padding: 8px; border-radius: 12px; }
+.devpage__screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+.devpage__sketch--browser .devpage__screenshot { border-radius: 8px; }
+
 /* Planlanan yetenekler */
 .devpage__plan { padding-top: 72px; padding-bottom: 72px; }
 .devpage__plan-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 32px; margin-bottom: 20px; }

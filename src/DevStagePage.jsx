@@ -99,12 +99,33 @@ function Sketch({ app, points, frame }) {
   );
 }
 
+// Gerçek ekran görüntüsü varsa (app.screenshots), tel kafes çizim yerine BUNU göster —
+// "henüz çıkmamış ama gerçekten çalışıyor" izlenimi daha dürüst: konsept değil, gerçek ekran.
+function Screens({ app, images, frame }) {
+  return (
+    <figure className={`devpage__sketch devpage__sketch--${frame} devpage__sketch--real`}>
+      <div className="devpage__screens">
+        {images.map(shot => (
+          <div key={shot.src} className="devpage__device devpage__device--real" aria-hidden={images.length > 1}>
+            {frame === 'phone' ? <span className="devpage__notch" /> : null}
+            <img className="devpage__screenshot" src={shot.src} alt={shot.alt || `${app.name} ekran görüntüsü`} loading="lazy" />
+          </div>
+        ))}
+      </div>
+      <figcaption>
+        <span className="devpage__label">Gerçek ekran görüntüsü</span> Test sürümünden; son hâli değişebilir.
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function DevStagePage({ app }) {
   const points = (app.points || []).filter(p => !isPlaceholder(p));
   const steps = Array.isArray(app.devSteps) && app.devSteps.length > 1 ? app.devSteps : DEFAULT_STEPS;
   const current = Math.min(Math.max(Number(app.devStep) || 3, 1), steps.length);
   const frame = frameOf(app.platform);
   const hasPlatform = !isPlaceholder(app.platform);
+  const screenshots = Array.isArray(app.screenshots) ? app.screenshots.filter(s => s && s.src) : [];
 
   return (
     <article className="devpage">
@@ -155,7 +176,11 @@ export default function DevStagePage({ app }) {
             )}
           </div>
 
-          <Sketch app={app} points={points} frame={frame} />
+          {screenshots.length > 0 ? (
+            <Screens app={app} images={screenshots} frame={frame} />
+          ) : (
+            <Sketch app={app} points={points} frame={frame} />
+          )}
         </div>
       </div>
 

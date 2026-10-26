@@ -84,7 +84,13 @@ export const APPS = [
     points: ['Kitabeler', 'Mekânlar', 'Tarihi metinler'],
     platform: 'ANDROID · iOS',
     devStep: 4,
-    devNote: "Android ve iOS için imzalı build'ler hazır, gerçek cihazda test edildi. Mağaza çıkışı hazırlanıyor."
+    devNote: "Android ve iOS için imzalı build'ler hazır, gerçek cihazda test edildi. Mağaza çıkışı hazırlanıyor.",
+    // Test sürümünden gerçek ekran görüntüleri (docs/screenshots/ içindeki QA setinden).
+    screenshots: [
+      { src: asset('/kitabe-screens/home.webp'), alt: 'Kitabe ana sayfa: Günün Eseri ve Öne Çıkanlar' },
+      { src: asset('/kitabe-screens/map.webp'), alt: 'Kitabe harita: İstanbul genelinde 228 kitabe kaydı' },
+      { src: asset('/kitabe-screens/detail.webp'), alt: 'Kitabe detay sayfası: III. Ahmed Çeşmesi' }
+    ]
   },
   {
     name: 'Pomodoro Restoran',
