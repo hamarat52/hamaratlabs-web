@@ -59,7 +59,7 @@ export const APPS = [
     short: 'Fiyatı çalışma saatine çevir',
     lead: 'Gezinirken gördüğün fiyatları, maaşına göre kaç saat çalışman gerektiğine çevirir.',
     points: ['"500 TL" yerine "1,8 saat" yazar', 'Rakama tıklayınca orijinal fiyat geri gelir', 'Saatlik ücretini kendin girersin'],
-    platform: 'CHROME · WEB',
+    platform: 'CHROME · SAFARI · WEB',
     download: 'https://github.com/hamarat52/income-vs-desires',
     downloadLabel: "GitHub'dan indir",
     // Ürünün kendi sitesi (GitHub Pages). AppPage bu alan varsa ek bir CTA gösterir.
@@ -78,11 +78,13 @@ export const APPS = [
   },
   {
     name: 'Kitabe',
-    stage: 'idea',
+    stage: 'dev',
     short: "İstanbul'u okuyarak gez",
     lead: 'Kitabeleri, mekânları ve tarihi metinleri bir araya getirip şehri okuyarak gezdiren bir rehber.',
     points: ['Kitabeler', 'Mekânlar', 'Tarihi metinler'],
-    platform: 'ANDROID · iOS'
+    platform: 'ANDROID · iOS',
+    devStep: 4,
+    devNote: "Android ve iOS için imzalı build'ler hazır, gerçek cihazda test edildi. Mağaza çıkışı hazırlanıyor."
   },
   {
     name: 'Pomodoro Restoran',
@@ -115,12 +117,16 @@ export const APPS = [
 
 export const LOG = [
   {
+    tag: 'KİTABE',
+    text: "Android ve iOS için imzalı build'ler hazır, gerçek cihazda test edildi; sayfa 'geliştirmede' aşamasına geçti."
+  },
+  {
     tag: 'EKİM 2026 · MARKA',
     text: 'Marka kitabı v1.0 tamamlandı. Logo sürümleri, renkler ve profil ikonu netleşti.'
   },
   {
     tag: 'INCOME VS DESIRES',
-    text: 'Eklentinin kodu çalışıyor, iki test dosyası da geçiyor. Mağazaya yüklemek için görseller ve alan adı eksik.'
+    text: "Safari (macOS) sürümü gerçek Apple Developer imzasıyla derleniyor, ikonlar tamam. Alan adı ve mağaza ekran görüntüleri hâlâ eksik."
   },
   {
     tag: 'KANALLAR',
