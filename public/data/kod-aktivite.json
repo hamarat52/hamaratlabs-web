@@ -3258,6 +3258,15 @@
     "lines": 6235
   },
   {
+    "repo": "income-vs-desires-pr1",
+    "hash": "040b69c4e2",
+    "date": "2026-09-28T18:45:42+03:00",
+    "subject": "IncomeVsDesires: eklenti + tanıtım sitesi",
+    "score": 60,
+    "is_merge": false,
+    "lines": 6235
+  },
+  {
     "repo": "letmepost-selfhost",
     "hash": "182d627989",
     "date": "2026-10-02T11:53:42+05:30",
@@ -3870,6 +3879,15 @@
     "lines": 6234
   },
   {
+    "repo": "kitabe-wt-eser-kitabeleri",
+    "hash": "3e12537365",
+    "date": "2026-10-18T11:59:49+03:00",
+    "subject": "Kitabe Flutter MVP: 5 ekran, 2 yapı/3 kitabe kaydı (kaynaklı), testler ve gerçek emülatör kanıtı (gpt-6-astra/MobileDev)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 6234
+  },
+  {
     "repo": "sesver-elevenlabs",
     "hash": "8148b0a69d",
     "date": "2026-10-18T12:01:42+03:00",
@@ -4212,7 +4230,25 @@
     "lines": 3357
   },
   {
+    "repo": "kitabe-wt-eser-kitabeleri",
+    "hash": "d8cd20ba79",
+    "date": "2026-10-19T03:21:28+03:00",
+    "subject": "Kitabe: 3->7 kaynaklı kayıt (Taymaz 2022 tezi), 2 detay-ekranı mockup alternatifi (A-Levha/B-Satır) emülatör kanıtlı",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3357
+  },
+  {
     "repo": "income-vs-desires",
+    "hash": "9a39c98800",
+    "date": "2026-10-19T03:28:44+03:00",
+    "subject": "Kur tazeleme hatası düzeltildi: alarm/önbellek fazı ayrıydı, gerçek tazeleme ~18 saate kayıyordu",
+    "score": 50,
+    "is_merge": false,
+    "lines": 71
+  },
+  {
+    "repo": "income-vs-desires-pr1",
     "hash": "9a39c98800",
     "date": "2026-10-19T03:28:44+03:00",
     "subject": "Kur tazeleme hatası düzeltildi: alarm/önbellek fazı ayrıydı, gerçek tazeleme ~18 saate kayıyordu",
@@ -4572,6 +4608,15 @@
     "lines": 303
   },
   {
+    "repo": "income-vs-desires-pr1",
+    "hash": "ef54c0e8b3",
+    "date": "2026-10-19T15:16:28+03:00",
+    "subject": "Site GitHub Pages proje yoluna hazırlandı",
+    "score": 55,
+    "is_merge": false,
+    "lines": 303
+  },
+  {
     "repo": "hamaratlabs-web",
     "hash": "1a024ad004",
     "date": "2026-10-19T15:20:36+03:00",
@@ -4752,6 +4797,15 @@
     "lines": 61
   },
   {
+    "repo": "income-vs-desires-pr1",
+    "hash": "0b17bfdcfc",
+    "date": "2026-10-20T15:18:50+03:00",
+    "subject": "QA: Tailscale test URL kurulumu raporu",
+    "score": 29,
+    "is_merge": false,
+    "lines": 61
+  },
+  {
     "repo": "income-vs-desires",
     "hash": "874bfd32b3",
     "date": "2026-10-20T15:21:34+03:00",
@@ -4761,7 +4815,25 @@
     "lines": 43
   },
   {
+    "repo": "income-vs-desires-pr1",
+    "hash": "874bfd32b3",
+    "date": "2026-10-20T15:21:34+03:00",
+    "subject": "Alan adı: ind.hamaratlabs.com (build.js ile tüm canonical/sitemap/robots yeniden üretildi, CNAME eklendi)",
+    "score": 48,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
     "repo": "income-vs-desires",
+    "hash": "7ddf013e17",
+    "date": "2026-10-20T15:22:58+03:00",
+    "subject": "Alan adı düzeltmesi: ind → ivd (Income vs Desires'a daha sadık)",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
+    "repo": "income-vs-desires-pr1",
     "hash": "7ddf013e17",
     "date": "2026-10-20T15:22:58+03:00",
     "subject": "Alan adı düzeltmesi: ind → ivd (Income vs Desires'a daha sadık)",
@@ -4789,6 +4861,15 @@
   },
   {
     "repo": "income-vs-desires",
+    "hash": "696a632b5a",
+    "date": "2026-10-20T17:16:27+03:00",
+    "subject": "Geri al: ivd.hamaratlabs.com yerine zaten çalışan hamarat52.github.io/income-vs-desires adresinde kal",
+    "score": 48,
+    "is_merge": false,
+    "lines": 37
+  },
+  {
+    "repo": "income-vs-desires-pr1",
     "hash": "696a632b5a",
     "date": "2026-10-20T17:16:27+03:00",
     "subject": "Geri al: ivd.hamaratlabs.com yerine zaten çalışan hamarat52.github.io/income-vs-desires adresinde kal",
@@ -5112,6 +5193,15 @@
     "lines": 3
   },
   {
+    "repo": "kitabe-wt-eser-kitabeleri",
+    "hash": "c49cde1362",
+    "date": "2026-10-22T22:19:35+03:00",
+    "subject": "chore: hiçbir yerde referans edilmeyen eski mockup ekran görüntülerini repodan çıkar",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
     "repo": "nostaljik-dikenler",
     "hash": "9924e8ee6f",
     "date": "2026-10-22T23:00:12+03:00",
@@ -5229,7 +5319,25 @@
     "lines": 21
   },
   {
+    "repo": "income-vs-desires-pr1",
+    "hash": "4e0129d9ae",
+    "date": "2026-10-23T14:10:15+03:00",
+    "subject": "Kur API adresi: api.frankfurter.app (301) yerine doğrudan api.frankfurter.dev/v1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
     "repo": "income-vs-desires",
+    "hash": "f0210f5e3c",
+    "date": "2026-10-23T14:11:57+03:00",
+    "subject": "Safari Web Extension dönüşümü (yerel geliştirici modu, ilk doğrulama)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1202
+  },
+  {
+    "repo": "income-vs-desires-pr1",
     "hash": "f0210f5e3c",
     "date": "2026-10-23T14:11:57+03:00",
     "subject": "Safari Web Extension dönüşümü (yerel geliştirici modu, ilk doğrulama)",
@@ -5319,6 +5427,15 @@
     "lines": 4
   },
   {
+    "repo": "kitabe-wt-eser-kitabeleri",
+    "hash": "f3109e97c5",
+    "date": "2026-10-24T06:24:51+03:00",
+    "subject": "fix(android): release APK siyah ekranı — shared_preferences_android 2.5.0 -> 2.5.3",
+    "score": 51,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
     "repo": "sesver",
     "hash": "989f6f3d48",
     "date": "2026-10-24T23:57:18+03:00",
@@ -5337,7 +5454,25 @@
     "lines": 200
   },
   {
+    "repo": "kitabe-wt-eser-kitabeleri",
+    "hash": "94f271d76b",
+    "date": "2026-10-25T00:31:31+03:00",
+    "subject": "feat(icon): hamaratlabs uygulama ikonu (açık kitap, bronz/kahve gradyan)",
+    "score": 88,
+    "is_merge": false,
+    "lines": 200
+  },
+  {
     "repo": "kitabe",
+    "hash": "7a182b7267",
+    "date": "2026-10-25T00:32:40+03:00",
+    "subject": "feat: macOS + web platformları ve web'e uygun responsive UX",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2633
+  },
+  {
+    "repo": "kitabe-wt-eser-kitabeleri",
     "hash": "7a182b7267",
     "date": "2026-10-25T00:32:40+03:00",
     "subject": "feat: macOS + web platformları ve web'e uygun responsive UX",
@@ -5355,7 +5490,25 @@
     "lines": 4
   },
   {
+    "repo": "kitabe-wt-eser-kitabeleri",
+    "hash": "0ca68f06bb",
+    "date": "2026-10-25T00:43:53+03:00",
+    "subject": "fix(icon): köşe şeffaflığını kaldır, ikon kareyi uçtan uca doldursun",
+    "score": 51,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
     "repo": "kitabe",
+    "hash": "a9518c2bdd",
+    "date": "2026-10-25T04:38:13+03:00",
+    "subject": "feat(map): OSM tabanlı gerçek harita, konum, öncelik filtresi ve kümeleme",
+    "score": 95,
+    "is_merge": false,
+    "lines": 6017
+  },
+  {
+    "repo": "kitabe-wt-eser-kitabeleri",
     "hash": "a9518c2bdd",
     "date": "2026-10-25T04:38:13+03:00",
     "subject": "feat(map): OSM tabanlı gerçek harita, konum, öncelik filtresi ve kümeleme",
@@ -5373,7 +5526,25 @@
     "lines": 0
   },
   {
+    "repo": "kitabe-wt-eser-kitabeleri",
+    "hash": "1c806ff729",
+    "date": "2026-10-25T04:39:00+03:00",
+    "subject": "fix(icon): macOS ve web ikonlarını da güncelle",
+    "score": 45,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
     "repo": "kitabe",
+    "hash": "a3c03c5d13",
+    "date": "2026-10-25T08:27:43+03:00",
+    "subject": "fix(icon): gerçek adaptive icon (arka plan+ön plan) — beyaz dairesel tabla sorunu çözüldü",
+    "score": 54,
+    "is_merge": false,
+    "lines": 13
+  },
+  {
+    "repo": "kitabe-wt-eser-kitabeleri",
     "hash": "a3c03c5d13",
     "date": "2026-10-25T08:27:43+03:00",
     "subject": "fix(icon): gerçek adaptive icon (arka plan+ön plan) — beyaz dairesel tabla sorunu çözüldü",
@@ -5389,6 +5560,15 @@
     "score": 50,
     "is_merge": false,
     "lines": 69
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "1f9c0f29bd",
+    "date": "2026-10-25T14:51:02+03:00",
+    "subject": "Hata düzeltmeleri, yedek kur kaynakları, dövizli giderler ve gösterim seçenekleri",
+    "score": 59,
+    "is_merge": false,
+    "lines": 967
   },
   {
     "repo": "hamaratlabs-web",
@@ -5461,5 +5641,77 @@
     "score": 61,
     "is_merge": false,
     "lines": 107
+  },
+  {
+    "repo": "kitabe",
+    "hash": "70163f81f1",
+    "date": "2026-10-25T23:50:45+03:00",
+    "subject": "fix(icon): Kitabe launcher ikonunu web'deki gerçek liquid-glass tasarımla değiştir",
+    "score": 45,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "sesver",
+    "hash": "e4eb0f30e4",
+    "date": "2026-10-26T09:28:23+03:00",
+    "subject": "License: switch to MIT for OSI open-source compliance",
+    "score": 53,
+    "is_merge": false,
+    "lines": 162
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "6922b54b6a",
+    "date": "2026-10-26T10:01:19+03:00",
+    "subject": "MIT lisansı ekle ve README'ye Lisans bölümü",
+    "score": 46,
+    "is_merge": false,
+    "lines": 26
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "ea1f97db47",
+    "date": "2026-10-26T10:01:19+03:00",
+    "subject": "test: yedek kur zinciri — üçü de düşerse sıra, bayat önbellek ve storage korunur",
+    "score": 45,
+    "is_merge": false,
+    "lines": 18
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "06774e8627",
+    "date": "2026-10-26T10:04:27+03:00",
+    "subject": "Lisans telif sahibi: Muhammed Yusuf Hamarat",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "aad678693e",
+    "date": "2026-10-26T13:57:42+03:00",
+    "subject": "feat(safari+ikon): gerçek Apple imzası + hamaratlabs-web marka ikonu",
+    "score": 83,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "kitabe",
+    "hash": "a5e7c32de4",
+    "date": "2026-10-26T15:37:19+03:00",
+    "subject": "feat(release): Android release imzalama + iOS Team ID kurulumu",
+    "score": 82,
+    "is_merge": false,
+    "lines": 32
+  },
+  {
+    "repo": "kitabe-wt-eser-kitabeleri",
+    "hash": "2b3511f445",
+    "date": "2026-10-26T18:50:06+03:00",
+    "subject": "feat(map): eser seç → bağlı kitabeler paneli",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1292
   }
 ]
