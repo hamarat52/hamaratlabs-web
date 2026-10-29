@@ -22,6 +22,10 @@ export const MENU = [
   { id: 'anlatiyorum', label: 'Anlatıyorum', hint: 'EĞİTİCİ İÇERİKLER' }
 ];
 
+// Aşama etiketleri (kartlar, ürün sayfası, tiTimer sayfası ortak kullanır).
+// internal: yalnız iç kullanım için geliştirilen, indirilemeyen ve kaynağı yayımlanmayacak araç.
+export const STAGE_LABELS = { beta: 'Açık beta', dev: 'Geliştirmede', idea: 'Fikir', live: 'Yayında', internal: 'İç kullanım' };
+
 // Öne çıkanlar: şu an en önde olan uygulamalar.
 export const FEATURED = [
   {
@@ -53,6 +57,16 @@ export const FEATURED = [
 // İsteğe bağlı alan: `audience` (hedef kitle, düz metin). Fikir panosundaki künye notu okur;
 // yazılmamışsa satır "doldurulacak" olarak boş kalır.
 export const APPS = [
+  {
+    // İç kullanım aracı (özel repo): indirme/ziyaret linki bilerek yok; download/visitUrl eklenmez.
+    name: 'WingWire Web',
+    stage: 'internal',
+    internal: true,
+    short: 'Ajan ekibini tarayıcıdan yönet',
+    lead: "Hermes ajanlarımı tarayıcıdan yöneten panel: kendi Mac'imde çalışır, yalnız özel ağım (tailnet) üzerinden erişilir.",
+    points: ['Ajanlarla sohbet ve gruplar', 'İş ve görev takibi, cron takvimi', 'Galeri: video, foto ve ses üretimleri', 'Projeler, paylaşımlar ve sağlık paneli'],
+    platform: 'WEB · İÇ KULLANIM'
+  },
   {
     name: 'Income vs Desires',
     stage: 'beta',

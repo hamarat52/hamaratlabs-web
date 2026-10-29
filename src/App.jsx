@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
 import './App.css';
-import { FEATURED, APPS, SERIES, TOOLS, INSPIRATION, LINKS, slugOf } from './data';
+import { FEATURED, APPS, SERIES, TOOLS, INSPIRATION, LINKS, STAGE_LABELS as STAGE, slugOf } from './data';
 import PrivacyPage from './PrivacyPage';
 import InstagramFeed from './InstagramFeed';
 import { NavContext, Link } from './nav';
@@ -436,7 +436,6 @@ function Breath() {
   );
 }
 
-const STAGE = { beta: 'Açık beta', dev: 'Geliştirmede', idea: 'Fikir', live: 'Yayında' };
 const isPlaceholder = v => !v || v.startsWith('[');
 
 // Uygulama kartı: tek sakin yüzey, büyük logo, kısa bilgi. Kenarında imleci izleyen ışık (Border Glow).
@@ -462,7 +461,12 @@ function AppCard({ app, big = false }) {
           {!isPlaceholder(app.lead) && <p>{app.lead}</p>}
           <div className="card__foot">
             {!isPlaceholder(app.platform) && <span className="card__platform">{app.platform}</span>}
-            <span className={available ? 'card__get' : 'card__soon'}>{available ? (app.stage === 'beta' ? 'Açık betada →' : 'İndir →') : 'Yakında'}</span>
+            {app.internal ? (
+              // İç kullanım aracı: indirme vaadi yok, yalnız "Özel" rozeti.
+              <span className="card__private">Özel</span>
+            ) : (
+              <span className={available ? 'card__get' : 'card__soon'}>{available ? (app.stage === 'beta' ? 'Açık betada →' : 'İndir →') : 'Yakında'}</span>
+            )}
           </div>
         </div>
       </Link>
@@ -479,7 +483,8 @@ function Apps({ page = false }) {
     ['dev', 'Geliştirmede', count('dev')],
     ['idea', 'Fikir', count('idea')],
     ['beta', 'Açık beta', count('beta')],
-    ['live', 'Yayında', count('live')]
+    ['live', 'Yayında', count('live')],
+    ['internal', STAGE.internal, count('internal')]
   ];
   const show = a => filter === 'all' || a.stage === filter;
   const featured = FEATURED.filter(show);
