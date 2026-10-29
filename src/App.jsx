@@ -79,7 +79,9 @@ const STATIC_PAGES = {
   // /sesver: SesVer'in kendi sitesi (ayrı parça, açık/krem kimlik).
   '/sesver': lazy(() => import('./sesver-site/SesVerSite')),
   // /aktivite: zoom'a göre detay açan kod aktivite haritası (d3-force + canvas; ayrı parça).
-  '/aktivite': lazy(() => import('./AktiviteHaritasi'))
+  '/aktivite': lazy(() => import('./AktiviteHaritasi')),
+  // /skills: araç kataloğu (541 kayıt, src/data/skills.json; ayrı parça). Menüde yok, sitemap'te var.
+  '/skills': lazy(() => import('./SkillsPage'))
 };
 
 // Bu yollar ana sitenin topbar'ı ve footer'ı OLMADAN, tam sayfa çizilir (ürünün kendi tasarımı).

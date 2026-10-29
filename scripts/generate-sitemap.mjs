@@ -30,16 +30,24 @@ while ((m = visitRe.exec(dataSrc))) standaloneUrls.push(m[1]);
 
 const today = new Date().toISOString().slice(0, 10);
 
+// /skills kataloğu: lastmod = katalog verisinin oluşturulma tarihi (src/data/skills.json → meta.olusturma).
+// Aynı ilke: modül olarak import etme, ham metinden regex ile oku. Dosya yoksa /skills eklenmez.
+const skillsPath = path.join(__dirname, '..', 'src', 'data', 'skills.json');
+const skillsLastmod = existsSync(skillsPath)
+  ? (/"olusturma"\s*:\s*"(\d{4}-\d{2}-\d{2})"/.exec(readFileSync(skillsPath, 'utf8').slice(0, 2000)) || [])[1] || today
+  : null;
+const lastmodOf = { '/skills': skillsLastmod };
+
 // Sabit sayfalar + ürün detay sayfaları (/uretiyorum/<slug>, sadece gerçek ürünler
 // — 'idea' aşamasındaki placeholder'lar [Kısa açıklama] gibi dolgu metin taşıyorsa atla).
-const staticUrls = ['/', '/uretiyorum', '/paylasiyorum', '/anlatiyorum', '/oneriyorum'];
+const staticUrls = ['/', '/uretiyorum', '/paylasiyorum', '/anlatiyorum', '/oneriyorum', ...(skillsLastmod ? ['/skills'] : [])];
 const appUrls = allApps.map(a => `/uretiyorum/${slugOf(a.name)}`);
 
 const urls = [...new Set([...staticUrls, ...appUrls, ...standaloneUrls])];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `  <url>\n    <loc>${SITE}${u}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`).join('\n')}
+${urls.map(u => `  <url>\n    <loc>${SITE}${u}</loc>\n    <lastmod>${lastmodOf[u] || today}</lastmod>\n  </url>`).join('\n')}
 </urlset>
 `;
 
