@@ -94,11 +94,11 @@ export const APPS = [
     name: 'Kitabe',
     stage: 'dev',
     short: "İstanbul'u okuyarak gez",
-    lead: 'Kitabeleri, mekânları ve tarihi metinleri bir araya getirip şehri okuyarak gezdiren bir rehber.',
-    points: ['Kitabeler', 'Mekânlar', 'Tarihi metinler'],
+    lead: "İstanbul'daki çeşme, cami ve sebillerin kitabelerini kaynağıyla birlikte okutan, şehri okuyarak gezdiren bir rehber.",
+    points: ['1.957 kitabe kaydı', '839 tarihî yapı', "8.900'ü aşkın fotoğraf, internetsiz"],
     platform: 'ANDROID · iOS',
     devStep: 4,
-    devNote: "Android ve iOS için imzalı build'ler hazır, gerçek cihazda test edildi. Mağaza çıkışı hazırlanıyor.",
+    devNote: "Google Play'de kapalı test başladı (sürüm 0.1.0), iOS sürümü TestFlight'ta. 14 günlük testin ardından mağazaya çıkış.",
     // Test sürümünden gerçek ekran görüntüleri (docs/screenshots/ içindeki QA setinden).
     screenshots: [
       { src: asset('/kitabe-screens/home.webp'), alt: 'Kitabe ana sayfa: Günün Eseri ve Öne Çıkanlar' },
@@ -137,8 +137,12 @@ export const APPS = [
 
 export const LOG = [
   {
-    tag: 'KİTABE',
-    text: "Android ve iOS için imzalı build'ler hazır, gerçek cihazda test edildi; sayfa 'geliştirmede' aşamasına geçti."
+    tag: 'EKİM 2026 · KİTABE',
+    text: "Google Play'de kapalı test başladı, iOS sürümü TestFlight'ta. Gizlilik ve destek sayfaları yayında."
+  },
+  {
+    tag: 'SESVER',
+    text: 'Mağaza paketi hazırlanıyor: Türkçe ve İngilizce 6 tanıtım videosu, Mac ve Microsoft Store ekranları hazır.'
   },
   {
     tag: 'EKİM 2026 · MARKA',
@@ -146,7 +150,7 @@ export const LOG = [
   },
   {
     tag: 'INCOME VS DESIRES',
-    text: "Safari (macOS) sürümü gerçek Apple Developer imzasıyla derleniyor, ikonlar tamam. Alan adı ve mağaza ekran görüntüleri hâlâ eksik."
+    text: "App Store için iPhone ve iPad ekran görüntüleri gerçek Safari'den çekildi; tanıtım videoları hazırlanıyor."
   },
   {
     tag: 'KANALLAR',
