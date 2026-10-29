@@ -1,12 +1,11 @@
 import AppIcon from './AppIcon';
 import { Link } from './nav';
 import Comments from './Comments';
-import { slugOf } from './data';
+import { STAGE_LABELS as STAGE, slugOf } from './data';
 import PulseHeart from './components/rb/PulseHeart/PulseHeart';
 import ShareSling from './components/rb/ShareSling/ShareSling';
 import DodgeField from './components/rb/DodgeField/DodgeField';
 
-const STAGE = { beta: 'Açık beta', dev: 'Geliştirmede', idea: 'Fikir', live: 'Yayında' };
 const isPlaceholder = v => !v || v.startsWith('[');
 
 // İndirme linki herkese açık bir GitHub reposuysa sahibi/adı oradan çıkar (PulseHeart için).
@@ -61,7 +60,7 @@ export default function AppPage({ app }) {
             <h1>{app.name}</h1>
             {!isPlaceholder(app.lead) && <p>{app.lead}</p>}
             <div className="apppage__actions">
-              {available ? (
+              {app.internal ? null : available ? (
                 <a className="apppage__dl" href={app.download} target="_blank" rel="noopener noreferrer">
                   {app.downloadLabel || 'İndir'}
                 </a>
@@ -78,7 +77,11 @@ export default function AppPage({ app }) {
               )}
               {!isPlaceholder(app.platform) && <span className="apppage__platform">{app.platform}</span>}
             </div>
-            {app.visitUrl && <VisitCta app={app} />}
+            {app.visitUrl && !app.internal && <VisitCta app={app} />}
+            {app.internal && (
+              // İç kullanım aracı: CTA yok, yalnız açıklayıcı not.
+              <p className="apppage__internal">{app.name} iç kullanım için geliştirilen özel bir araçtır; kaynak kodu yayımlanmayacak.</p>
+            )}
           </div>
         </div>
 

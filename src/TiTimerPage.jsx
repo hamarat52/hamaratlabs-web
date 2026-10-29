@@ -3,13 +3,13 @@ import AppIcon from './AppIcon';
 import { Link } from './nav';
 import Comments from './Comments';
 import DodgeField from './components/rb/DodgeField/DodgeField';
+import { STAGE_LABELS as STAGE } from './data';
 import './TiTimerPage.css';
 
 // tiTimer'ın kendi tanıtım sayfası. Metinler src/data.js'teki kayıttan gelir;
 // sunum tiTimer'ın Figma'daki diline dayanır (TITIMER_FIGMA_TOKENS.md):
 // beyaz zeminde teal halka, coral vurgu, odak modunda tamamen siyah ekran.
 
-const STAGE = { beta: 'Açık beta', dev: 'Geliştirmede', idea: 'Fikir', live: 'Yayında' };
 const isPlaceholder = v => !v || v.startsWith('[');
 
 // Figma aileleri → Google Fonts karşılıkları:

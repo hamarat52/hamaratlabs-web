@@ -84,6 +84,20 @@ export const ICONS = {
       </>
     )
   },
+  // WingWire'ın web paneli: aynı mavi aile; cam gövde bir tarayıcı penceresi, içine oyulmuş
+  // sekme noktaları ve WingWire'ın kâğıt uçağı (aynı path, pencereye sığacak ölçekte).
+  'WingWire Web': {
+    colors: ['#5ad2ff', '#1f5cff'],
+    glyph: () => <rect x="3" y="7" width="42" height="35" rx="7" />,
+    inset: () => (
+      <>
+        <circle cx="9.5" cy="13" r="1.7" />
+        <circle cx="15" cy="13" r="1.7" />
+        <circle cx="20.5" cy="13" r="1.7" />
+        <path d="M43 6 5 20.5 20 25 26 43Z" transform="translate(12.4 16.6) scale(0.52)" />
+      </>
+    )
+  },
   'Income vs Desires': {
     colors: ['#43e08c', '#0c9a6c'],
     glyph: () => (
