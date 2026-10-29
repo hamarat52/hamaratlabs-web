@@ -2,7 +2,7 @@
  "meta": {
   "olusturma": "2026-10-29",
   "arac_sayisi": 541,
-  "not": "Haberci kataloğu. Yıldız/son güncelleme GitHub API ölçüm tarihindeki değerdir."
+  "not": "HamaratLabs araç kataloğu. Yıldız/son güncelleme GitHub API ölçüm tarihindeki değerdir."
  },
  "araclar": [
   {
@@ -49,7 +49,7 @@
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "qwen2.5-coder:7b ile yerel kodlama önerisi. Kurulumu doğrulanmadı (agy araştırması).",
+   "karar_notu": "qwen2.5-coder:7b ile yerel kodlama önerisi. Kurulumu doğrulanmadı (yalnız araştırma).",
    "github": {
     "yildiz": 49815,
     "fork": 5111,
@@ -74,7 +74,7 @@
    "lisans": "GPL-3.0-or-later",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Yusuf'un Android ajan istemcisi (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi.",
+   "karar_notu": "Android ajan istemcimiz (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi.",
    "github": {
     "yildiz": 171,
     "fork": 46,
@@ -274,7 +274,7 @@
    "lisans": "GPL-3.0",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Yusuf'un Android ajan istemcisi (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi.",
+   "karar_notu": "Android ajan istemcimiz (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi.",
    "github": {
     "yildiz": 2389,
     "fork": 265,
@@ -324,7 +324,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz (açık kaynak çatı ücretsiz; bulut platformu freemium)",
    "durum": "degerlendirildi",
-   "karar_notu": "M1 16 GB'da bağlam şişmesi riski nedeniyle önerilmedi. Kurulumu doğrulanmadı (agy araştırması).",
+   "karar_notu": "M1 16 GB'da bağlam şişmesi riski nedeniyle önerilmedi. Kurulumu doğrulanmadı (yalnız araştırma).",
    "github": {
     "yildiz": 60249,
     "fork": 8949,
@@ -462,7 +462,7 @@
    "lisans": "Llama 3.1 Community License",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Ajan odaklı alternatif model. Kurulumu doğrulanmadı (agy araştırması).",
+   "karar_notu": "Ajan odaklı alternatif model. Kurulumu doğrulanmadı (yalnız araştırma).",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -479,7 +479,7 @@
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Yusuf'un Android ajan istemcisi (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi.",
+   "karar_notu": "Android ajan istemcimiz (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi.",
    "github": {
     "yildiz": 35,
     "fork": 6,
@@ -577,7 +577,7 @@
    "lisans": "PolyForm-Noncommercial-1.0.0",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Yusuf'un Android ajan istemcisi (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi.",
+   "karar_notu": "Android ajan istemcimiz (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi.",
    "github": {
     "yildiz": 628,
     "fork": 141,
@@ -602,7 +602,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Küçük yerel modeller için önerildi. Kurulumu doğrulanmadı (agy araştırması).",
+   "karar_notu": "Küçük yerel modeller için önerildi. Kurulumu doğrulanmadı (yalnız araştırma).",
    "github": {
     "yildiz": 44098,
     "fork": 7582,
@@ -627,7 +627,7 @@
    "lisans": "Llama 3.1 Community License",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Referans model. Kurulumu doğrulanmadı (agy araştırması).",
+   "karar_notu": "Referans model. Kurulumu doğrulanmadı (yalnız araştırma).",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -850,7 +850,7 @@
    "lisans": "BSD-3-Clause (marka koruma ek şartlı)",
    "fiyat": "freemium (50 kullanıcıya kadar ve markayı koruyarak ücretsiz; kurumsal/white-label lisans ücretli)",
    "durum": "degerlendirildi",
-   "karar_notu": "Yerel ajan arayüzü ve Conduit rakip araştırmasında anıldı. Kurulumu doğrulanmadı (agy araştırması).",
+   "karar_notu": "Yerel ajan arayüzü ve Conduit rakip araştırmasında anıldı. Kurulumu doğrulanmadı (yalnız araştırma).",
    "github": {
     "yildiz": 157137,
     "fork": 22866,
@@ -875,7 +875,7 @@
    "lisans": "GPL-3.0",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Yusuf'un Android ajan istemcisi (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi.",
+   "karar_notu": "Android ajan istemcimiz (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi.",
    "github": {
     "yildiz": 159,
     "fork": 14,
@@ -1026,7 +1026,7 @@
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Ollama ile ilk kurulacak model önerisi. Kurulumu doğrulanmadı (agy araştırması).",
+   "karar_notu": "Ollama ile ilk kurulacak model önerisi. Kurulumu doğrulanmadı (yalnız araştırma).",
    "github": {
     "yildiz": 27694,
     "fork": 2084,
@@ -1200,7 +1200,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Yusuf'un Android ajan istemcisi (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi. Wingwire'ın doğrudan örnek aldığı birincil referans.",
+   "karar_notu": "Android ajan istemcimiz (Conduit/Wingwire) için rakip/ilham olarak incelendi; denenmedi. Wingwire'ın doğrudan örnek aldığı birincil referans.",
    "github": {
     "yildiz": 481,
     "fork": 64,
@@ -1257,7 +1257,7 @@
    "lisans": "Sustainable Use License (fair-code, OSI değil)",
    "fiyat": "ücretsiz (self-host); bulut ücretli",
    "durum": "degerlendirildi",
-   "karar_notu": "Yorum otomasyonu için en sürdürülebilir yol önerildi (YouTube resmî API + AI taslak + Telegram onayı). Kurulmadı.",
+   "karar_notu": "Yorum otomasyonu için en sürdürülebilir yol önerildi (YouTube resmî API + AI taslak + mesajla onay). Kurulmadı.",
    "github": {
     "yildiz": 208992,
     "fork": 61300,
@@ -1282,7 +1282,7 @@
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "M1 16 GB için önerilen çatı. Kurulumu doğrulanmadı (agy araştırması).",
+   "karar_notu": "M1 16 GB için önerilen çatı. Kurulumu doğrulanmadı (yalnız araştırma).",
    "github": {
     "yildiz": 30135,
     "fork": 3166,
@@ -1339,7 +1339,7 @@
    "lisans": "ticari",
    "fiyat": "Google AI Pro'ya dahil",
    "durum": "kullaniyoruz",
-   "karar_notu": "Tüm derin araştırmalar agy üzerinden yapılıyor; iddialar Haberci tarafından resmi kaynaktan kontrol ediliyor (uydurma link riski).",
+   "karar_notu": "Derin araştırmalarımız bununla yapılıyor; iddialar ayrıca resmi kaynaktan kontrol ediliyor (uydurma link riski).",
    "github": null,
    "kaynaklar": [
     {
@@ -1791,7 +1791,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz (anahtarsız 200 istek/gün ve 20 istek/dk; ücretsiz kayıtlı API anahtarıyla 10.000 istek/gün)",
    "durum": "denendi",
-   "karar_notu": "VideoGen ses kaynakları sırasına eklendi (Kenney → Openverse cc0 → ElevenLabs SFX). 'Hepsi telifsiz' değil: yalnız cc0/pdm filtresiyle alınmalı.",
+   "karar_notu": "Video üretim hattımızın ses kaynakları sırasına eklendi (Kenney → Openverse cc0 → ElevenLabs SFX). 'Hepsi telifsiz' değil: yalnız cc0/pdm filtresiyle alınmalı.",
    "github": {
     "yildiz": 440,
     "fork": 309,
@@ -2315,7 +2315,7 @@
    "lisans": "Unlicense",
    "fiyat": "ücretsiz",
    "durum": "kullaniyoruz",
-   "karar_notu": "Reel analizi ve yerel meme/klip kütüphanesi için kullanılıyor; telif riski olan kesitlerde önce Yusuf'a sorulur.",
+   "karar_notu": "Reel analizi ve yerel meme/klip kütüphanesi için kullanılıyor; telif riski olan kesitlerde önce onay alınır.",
    "github": {
     "yildiz": 203634,
     "fork": 17869,
@@ -2446,7 +2446,7 @@
    "lisans": "ticari/kapalı",
    "fiyat": "ücretsiz program (uygunluk koşullu)",
    "durum": "belirsiz",
-   "karar_notu": "$1K API kredisi ve Team yılı için kapasite aşıldı uyarısı var; Yusuf zaten Team'de olduğu için Team yılı muhtemelen geçerli değil.",
+   "karar_notu": "$1K API kredisi ve Team yılı için kapasite aşıldı uyarısı var; zaten Team planında olduğumuz için Team yılı muhtemelen geçerli değil.",
    "github": null,
    "kaynaklar": [
     {
@@ -3320,7 +3320,7 @@
    "lisans": "GPL-3.0-only",
    "fiyat": "ücretsiz",
    "durum": "belirsiz",
-   "karar_notu": "Yusuf Android'e indirdi; denemenin sonucu ('Yok bişe olmuyo') belirsiz kaldı.",
+   "karar_notu": "Android'e indirildi; deneme sonucu belirsiz kaldı.",
    "github": {
     "yildiz": 56,
     "fork": 8,
@@ -3420,7 +3420,7 @@
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "OpenUI'nin Kotlin SDK'sı olmadığı için Wingwire (Android) için alternatif olarak anıldı; Yusuf testleri yalnız web'e çekince gündemden düştü.",
+   "karar_notu": "OpenUI'nin Kotlin SDK'sı olmadığı için Wingwire (Android) için alternatif olarak anıldı; testler yalnız web'e çekilince gündemden düştü.",
    "github": {
     "yildiz": 16873,
     "fork": 1352,
@@ -3862,7 +3862,7 @@
    "ad": "Git",
    "tur": "cli",
    "kategori": "gelistirme",
-   "ozet": "Sürüm kontrolü. Her projenin ve OBS kasamın omurgası.",
+   "ozet": "Sürüm kontrolü. Her projenin ve bilgi kasamızın omurgası.",
    "resmi_url": "https://git-scm.com",
    "repo_url": "https://github.com/git/git",
    "lisans": "GPL-2.0-only",
@@ -4008,7 +4008,7 @@
    "lisans": "ticari",
    "fiyat": "freemium (kart gerekli)",
    "durum": "degerlendirildi",
-   "karar_notu": "Kart gerekmesi ve deneme sonrası silinme riski nedeniyle Garage seçildi; Yusuf 300$ krediyi gerçekten gerektiğinde almak üzere not ettirdi.",
+   "karar_notu": "Kart gerekmesi ve deneme sonrası silinme riski nedeniyle Garage seçildi; 300$ kredi gerçekten gerektiğinde kullanılacak.",
    "github": null,
    "kaynaklar": [
     {
@@ -4315,7 +4315,7 @@
    "lisans": "Apache-2.0 (çekirdek) / ticari (bulut)",
    "fiyat": "freemium (Free: 100 CU-saat/ay, 1 GB)",
    "durum": "reddedildi",
-   "karar_notu": "letmepost için bir süre seçildi, sonra Yusuf'un isteğiyle native yerel Postgres'e geçildi.",
+   "karar_notu": "letmepost için bir süre seçildi, sonra native yerel Postgres'e geçildi.",
    "github": {
     "yildiz": 23277,
     "fork": 1132,
@@ -4408,7 +4408,7 @@
    ],
    "deneme": {
     "tarih": "2026-10-22",
-    "input": "WebDev ile ayrı openui-test projesinde aynı görevler: düz LLM / OpenUI / OpenUI+LAYA, 6 senaryo, 54 ölçüm (API usage alanından token)",
+    "input": "Ayrı bir openui-test projesinde aynı görevler: düz LLM / OpenUI / OpenUI+LAYA, 6 senaryo, 54 ölçüm (API usage alanından token)",
     "output": "OpenUI toplam token +%226 (çıktı -%31, girdi ~9.600 token/istek); LAYA katmanı toplam -%18 token ama akış %11 daha yavaş ve grafik senaryosunda %96,6 güvenle yanlış karar",
     "sonuc": "Çalışıyor ama iddialar doğrulanmadı; entegrasyon önerilmedi",
     "kanit_dosyasi_mevcut": false
@@ -4420,13 +4420,13 @@
    "ad": "Playwright",
    "tur": "kutuphane",
    "kategori": "gelistirme",
-   "ozet": "Tarayıcı otomasyonu kütüphanesi; VideoGen kareleri Chromium ile kare kare kaydetmede kullanıyor.",
+   "ozet": "Tarayıcı otomasyonu kütüphanesi; video ajanımız kareleri Chromium ile kare kare kaydetmede kullanıyor.",
    "resmi_url": "https://playwright.dev",
    "repo_url": "https://github.com/microsoft/playwright",
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz",
    "durum": "kullaniyoruz",
-   "karar_notu": "VideoGen render hattının parçası.",
+   "karar_notu": "Video render hattımızın parçası.",
    "github": {
     "yildiz": 98803,
     "fork": 6733,
@@ -4518,7 +4518,7 @@
    "lisans": "MIT + Commons Clause",
    "fiyat": "freemium (temel kütüphane ücretsiz; Pro paketler $79/yıl veya $129 tek seferlikten başlıyor)",
    "durum": "kullaniyoruz",
-   "karar_notu": "hamaratlabs profil kartı için referans; Yusuf kütüphanenin kullanılmasını istemedi, kendi sallanan kart kütüphanesi kullanıldı. Yusuf mesajı yanlışlıkla Haberci'ye attığını söyledi.",
+   "karar_notu": "hamaratlabs profil kartı için referans; kütüphane kullanılmadı, kendi sallanan kart kütüphanemiz kullanıldı.",
    "github": {
     "yildiz": 50605,
     "fork": 2515,
@@ -4544,9 +4544,9 @@
    ],
    "deneme": {
     "tarih": "2026-10-15",
-    "input": "27 bileşenin sahte saatle kare kare iki kez render'ı; ardından 16 sn 150 BPM showreel brief'i",
+    "input": "27 bileşenin sahte saatle kare kare iki kez render'ı; ardından 16 sn 150 BPM showreel denemesi",
     "output": "26/27 bileşen bayt bayt aynı; 16 sn, 33 kesmeli showreel (vuruşa ±3 ms), 9:16 ve 4:5",
-    "sonuc": "İşe yaradı; Yusuf 'web kokuyor' geri bildirimiyle video diline çevrildi.",
+    "sonuc": "İşe yaradı; 'web kokuyor' geri bildirimiyle video diline çevrildi.",
     "kanit_dosyasi_mevcut": true
    },
    "dogrulandi": true,
@@ -4579,7 +4579,7 @@
    "lisans": "ticari (Apple)",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Yusuf'un 'Safari'nin developer sürümü' sorusuna yanıt; kurulmadı.",
+   "karar_notu": "'Safari'nin developer sürümü' sorusuna yanıt olarak bulundu; kurulmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -4621,7 +4621,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "belirsiz",
-   "karar_notu": "Yusuf reel'in şablonuyla 'crawl agent için' Türkçe video istedi; Haberci turu iki kez gateway kapanmasıyla kesildi, analiz yapılmadı. Araç kimliği bu taramada og:description + GitHub API ile doğrulandı.",
+   "karar_notu": "Reel'in şablonuyla 'crawl agent için' Türkçe video istendi; analiz turu iki kez gateway kapanmasıyla kesildi, analiz yapılmadı. Araç kimliği og:description + GitHub API ile doğrulandı.",
    "github": {
     "yildiz": 308078,
     "fork": 27400,
@@ -4828,7 +4828,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "kullaniyoruz",
-   "karar_notu": "VideoGen \"Token nedir / strawberry\" videosunda brief'teki token rakamlarını bununla düzeltti.",
+   "karar_notu": "Video ajanımız \"Token nedir / strawberry\" videosunda metindeki token rakamlarını bununla düzeltti.",
    "github": {
     "yildiz": 19549,
     "fork": 1664,
@@ -4925,7 +4925,7 @@
    "lisans": "ticari/kapalı",
    "fiyat": "ücretli (Adobe Illustrator aboneliği gerekir)",
    "durum": "reddedildi",
-   "karar_notu": "Yusuf Adobe aboneliği almayacak, denenmeyecek (2026-10-10).",
+   "karar_notu": "Adobe aboneliği alınmayacağı için denenmeyecek (2026-10-10).",
    "github": null,
    "kaynaklar": [
     {
@@ -5004,7 +5004,7 @@
    "lisans": "ticari/kapalı",
    "fiyat": "ücretsiz",
    "durum": "denendi",
-   "karar_notu": "Alfa 3D parça işi için 1. öneri (cetvelle 40–60 foto). Proje Yusuf tarafından kapatıldı (ödev teslim).",
+   "karar_notu": "Alfa 3D parça işi için 1. öneri (cetvelle 40–60 foto). Proje kapatıldı (ödev teslim).",
    "github": null,
    "kaynaklar": [],
    "deneme": {
@@ -5128,7 +5128,7 @@
    "lisans": "ticari",
    "fiyat": "Figma planı + kredi",
    "durum": "degerlendirildi",
-   "karar_notu": "Make'e prompt göndermek MCP ile mümkün değil; MCP yalnız okuma (Make) ve Design/FigJam'e yazma. Öneri: Claude planı ayrı repoya/issue'ya yazar, Yusuf Make'e tek satır verir. Yusuf: Figma yalnız örnekti.",
+   "karar_notu": "Make'e prompt göndermek MCP ile mümkün değil; MCP yalnız okuma (Make) ve Design/FigJam'e yazma. Öneri: Claude planı ayrı repoya/issue'ya yazar, kullanıcı Make'e tek satır verir. Figma yalnız örnekti.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -5607,13 +5607,13 @@
    "ad": "Napkin AI",
    "tur": "web-servis",
    "kategori": "gorsel-tasarim",
-   "ozet": "Metinden diyagram/görsel üreten araç (eski Sabah Araç Keşfi cron çıktısında öneri).",
+   "ozet": "Metinden diyagram/görsel üreten araç (eski otomatik araç keşfi taramasında öneri).",
    "resmi_url": "https://www.napkin.ai",
    "repo_url": null,
    "lisans": "ticari/kapalı",
    "fiyat": "freemium (Free 500 kredi/hafta; Plus $12/ay, Pro $30/ay)",
    "durum": "belirsiz",
-   "karar_notu": "Duraklatılmış cron'un son çıktısında öneri olarak geçti; ayrıntı kaydı yok.",
+   "karar_notu": "Duraklatılmış otomatik taramanın son çıktısında öneri olarak geçti; ayrıntı kaydı yok.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -5722,7 +5722,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz (AI için kendi API anahtarı)",
    "durum": "degerlendirildi",
-   "karar_notu": "Ajanlar için en ilginç aday; Yusuf'un kastettiği araç olabilir ama doğrulanmadı.",
+   "karar_notu": "Ajanlar için en ilginç aday; aranan araç olabilir ama doğrulanmadı.",
    "github": {
     "yildiz": 9430,
     "fork": 987,
@@ -5879,7 +5879,7 @@
    "ad": "Pixel Snapper (Sprite Fusion)",
    "tur": "cli",
    "kategori": "gorsel-tasarim",
-   "ozet": "Bozuk piksel art'ı ızgaraya oturtan araç (Rust); Haberci Python'a port etti.",
+   "ozet": "Bozuk piksel art'ı ızgaraya oturtan araç (Rust); Python'a port ettik.",
    "resmi_url": "https://spritefusion.com/pixel-snapper",
    "repo_url": "https://github.com/Hugo-Dz/spritefusion-pixel-snapper",
    "lisans": "MIT",
@@ -5916,7 +5916,7 @@
    "lisans": "ticari/kapalı",
    "fiyat": "freemium (ücretsiz deneme mevcut; Apprentice $12/ay, Artisan $24/ay, Architect $50/ay + kullandıkça öde API)",
    "durum": "degerlendirildi",
-   "karar_notu": "Gerçek piksel üretiyor (resmi sayfa doğrulandı). Yusuf'un hesabı belirsiz; Pomodoro Restoran piksel olmayacağı için ertelendi.",
+   "karar_notu": "Gerçek piksel üretiyor (resmi sayfa doğrulandı). Hesap durumu belirsiz; Pomodoro Restoran piksel olmayacağı için ertelendi.",
    "github": {
     "yildiz": 46,
     "fork": 4,
@@ -6190,7 +6190,7 @@
    "ad": "Stage (getstage.co)",
    "tur": "uygulama",
    "kategori": "gorsel-tasarim",
-   "ozet": "Adrien Ninet'in macOS uygulaması: AI ile ürün araştırması, strateji, akış/wireframe çıkarıp Cursor/Claude Code/Codex için Markdown brief'e dönüştürür; skill ve bileşen kütüphanesi (shadcn/ui, Magic UI vb.) seçtirir.",
+   "ozet": "Adrien Ninet'in macOS uygulaması: AI ile ürün araştırması, strateji, akış/wireframe çıkarıp Cursor/Claude Code/Codex için Markdown belgesine dönüştürür; skill ve bileşen kütüphanesi (shadcn/ui, Magic UI vb.) seçtirir.",
    "resmi_url": "https://getstage.co",
    "repo_url": null,
    "lisans": "ticari/kapalı",
@@ -6615,7 +6615,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "pixel-art-yerel-hat ile karşılaştırma önerildi, Yusuf yanıt vermedi; kurulmadı. Paylaşılan repo crsolver/claude-pxl'in fork'u.",
+   "karar_notu": "Kendi yerel piksel art hattımızla karşılaştırma önerildi, karar verilmedi; kurulmadı. Paylaşılan repo crsolver/claude-pxl'in fork'u.",
    "github": {
     "yildiz": 496,
     "fork": 59,
@@ -6654,8 +6654,8 @@
    "deneme": {
     "tarih": "2026-10-29",
     "input": "Kitabe test çağrısı Reels'inden gülümseyen gerçek kare",
-    "output": "kapak_v2_1/2/3.jpg + karsilastirma.jpg (sticker kontur, üretken arka plan, PIL başlık)",
-    "sonuc": "Yusuf \"Beğendim bu tarzı\" dedi; onaylı kapak stili",
+    "output": "3 kapak varyantı + karşılaştırma görseli (sticker kontur, üretken arka plan, PIL başlık)",
+    "sonuc": "Beğenildi; onaylı kapak stili.",
     "kanit_dosyasi_mevcut": true
    },
    "dogrulandi": true,
@@ -6847,8 +6847,8 @@
    ],
    "deneme": {
     "tarih": "2026-10-18/19",
-    "input": "Yusuf'un SesVer reposu (WebDev çalıştırdı, rapor repo dışına)",
-    "output": "2 confirmed, 6 needs_validation, 8 rejected bulgu; özet Organizer'a iletildi (oturum 20261019_005118_745f60)",
+    "input": "SesVer reposu (rapor repo dışına yazıldı)",
+    "output": "2 confirmed, 6 needs_validation, 8 rejected bulgu",
     "sonuc": "İşe yaradı; düzeltilecek açık listesi çıktı.",
     "kanit_dosyasi_mevcut": true
    },
@@ -6994,7 +6994,7 @@
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: Yalnız 4070 (6,0 GB VRAM): BF16 RTF 0,360",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında aday; M1 uyumu: Yalnız 4070 (6,0 GB VRAM): BF16 RTF 0,360",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -7011,7 +7011,7 @@
    "lisans": "ticari",
    "fiyat": "ücretli (Standard $4, Neural $16, Generative $30, Long-Form $100 / 1M karakter; ücretsiz katman var)",
    "durum": "reddedildi",
-   "karar_notu": "Yusuf'un paylaştığı TTS sıralamasında; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' sorusuna uymadı.",
+   "karar_notu": "Paylaşılan bir TTS sıralamasında yer aldı; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' arayışına uymadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -7065,7 +7065,7 @@
    "kaynaklar": [],
    "deneme": {
     "tarih": "2026-10-18",
-    "input": "WebDev tts-benchmark: 8 model, 260 üretim; masalcı/belgesel/Yusuf 2/Birmingham sesleri, sayı/kısaltma/soru cümleleri, 60 sn paragraf",
+    "input": "tts-benchmark: 8 model, 260 üretim; masalcı/belgesel/kişisel klon/Birmingham sesleri, sayı/kısaltma/soru cümleleri, 60 sn paragraf",
     "output": "En az hata, sayıları kusursuz okuma, referansa en yüksek benzerlik; hız VoxCPM2 kadar yavaş",
     "sonuc": "Kalitede işe yaradı, lisans engeli.",
     "kanit_dosyasi_mevcut": false
@@ -7083,13 +7083,13 @@
    "lisans": "Apache-2.0 (kod + ağırlık)",
    "fiyat": "ücretsiz (yerel)",
    "durum": "denendi",
-   "karar_notu": "Taslak/hızlı önizleme için uygun; klon/duygu/tarif yok. WebDev SesVer'e adaptör ekledi (230 test geçti), varsayılan motor değişmedi.",
+   "karar_notu": "Taslak/hızlı önizleme için uygun; klon/duygu/tarif yok. SesVer'e adaptör eklendi (230 test geçti), varsayılan motor değişmedi.",
    "github": null,
    "kaynaklar": [],
    "deneme": {
     "tarih": "2026-10-21",
     "input": "Python 3.11 ortamına kurulum + örnek Türkçe cümle",
-    "output": "6,66 sn ses 0,98 sn'de (≈6,8x gerçek zaman, CPU), model yükleme 0,31 sn; ornek_antalia.wav, karsilastirma_antalia.wav",
+    "output": "6,66 sn ses 0,98 sn'de (≈6,8x gerçek zaman, CPU), model yükleme 0,31 sn; örnek ve karşılaştırma kayıtları üretildi",
     "sonuc": "Kurulum ve üretim başarılı",
     "kanit_dosyasi_mevcut": false
    },
@@ -7148,7 +7148,7 @@
    "lisans": "ticari",
    "fiyat": "ücretli (15$/1M karakter — paylaşılan sıralama ekran görüntüsü)",
    "durum": "reddedildi",
-   "karar_notu": "Yusuf'un paylaştığı TTS sıralamasında; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' sorusuna uymadı.",
+   "karar_notu": "Paylaşılan bir TTS sıralamasında yer aldı; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' arayışına uymadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -7165,7 +7165,7 @@
    "lisans": "ticari",
    "fiyat": "ücretli (39$/1M karakter — paylaşılan sıralama ekran görüntüsü)",
    "durum": "reddedildi",
-   "karar_notu": "Yusuf'un paylaştığı TTS sıralamasında; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' sorusuna uymadı.",
+   "karar_notu": "Paylaşılan bir TTS sıralamasında yer aldı; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' arayışına uymadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -7182,7 +7182,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz (yerel)",
    "durum": "denendi",
-   "karar_notu": "VoxCPM2 ile karşılaştırma: ikisinde de WER 0; Chatterbox 3–11 kat hızlı, benzerlikte VoxCPM2 hafif önde; Yusuf'un kulak kararı bekleniyor.",
+   "karar_notu": "VoxCPM2 ile karşılaştırma: ikisinde de WER 0; Chatterbox 3–11 kat hızlı, benzerlikte VoxCPM2 hafif önde; kulak testiyle son karar bekleniyor.",
    "github": {
     "yildiz": 27405,
     "fork": 3683,
@@ -7238,7 +7238,7 @@
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz (yerel)",
    "durum": "kullaniyoruz",
-   "karar_notu": "VoxCPM2'nin ~65 katı hızlı (66 sn ses 7–8 sn'de), ~291 MB RAM; ama tek ses, klon/duygu yok, Yusuf sesi 'boğuk' bulup reddetti → yalnız taslak/önizleme.",
+   "karar_notu": "VoxCPM2'nin ~65 katı hızlı (66 sn ses 7–8 sn'de), ~291 MB RAM; ama tek ses, klon/duygu yok, ses 'boğuk' bulunup reddedildi → yalnız taslak/önizleme.",
    "github": {
     "yildiz": 285,
     "fork": 34,
@@ -7269,7 +7269,7 @@
    "lisans": "LGPL-3.0 (srt_composer.py MIT)",
    "fiyat": "ücretsiz",
    "durum": "denendi",
-   "karar_notu": "Lightshot araştırma pilotunda Türkçe seslendirme için kullanıldı; sonra iş VideoGen ve yerel TTS'e devredildi.",
+   "karar_notu": "Lightshot araştırma pilotunda Türkçe seslendirme için kullanıldı; sonra video ajanımıza ve yerel TTS'e geçildi.",
    "github": {
     "yildiz": 12413,
     "fork": 1167,
@@ -7284,7 +7284,7 @@
     "tarih": "2026-10-08",
     "input": "Lightshot araştırmasının Türkçe özet metni",
     "output": "~59 sn Türkçe ses (ogg) + aynı sesle 720p slayt videosu",
-    "sonuc": "Teknik olarak çalıştı; kalite onaylanmadı, akış yanlış ajandan yapıldığı için eleştirildi.",
+    "sonuc": "Teknik olarak çalıştı; kalite onaylanmadı.",
     "kanit_dosyasi_mevcut": true
    },
    "dogrulandi": true,
@@ -7300,7 +7300,7 @@
    "lisans": "ticari",
    "fiyat": "freemium (Free $0; ticari lisans Starter ve üstü ücretli planlarda)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Program kredisiyle VideoGen'de ses efekti ve TTS için kullanılabilir; ticari kullanım ücretli plana bağlı — planın tipi netleşmeli.",
+   "karar_notu": "Program kredisiyle video üretim hattımızda ses efekti ve TTS için kullanılabilir; ticari kullanım ücretli plana bağlı — planın tipi netleşmeli.",
    "github": null,
    "kaynaklar": [
     {
@@ -7313,7 +7313,7 @@
    "deneme": {
     "tarih": "2026-10-21",
     "input": "Aynı karşılaştırma metni, Sarah sesi, multilingual_v2",
-    "output": "karsilastirma_elevenlabs.mp3",
+    "output": "Karşılaştırma ses dosyası (mp3) üretildi",
     "sonuc": "Çalıştı",
     "kanit_dosyasi_mevcut": false
    },
@@ -7330,7 +7330,7 @@
    "lisans": "MIT (eklenti); üretilen seslerin ticari kullanımı yalnız ElevenLabs ücretli planda",
    "fiyat": "ElevenLabs kredisi harcar",
    "durum": "kullaniyoruz",
-   "karar_notu": "VideoGen profiline kuruldu (v1.2.0); anahtarı Yusuf terminalde ekledi. Ücretsiz planda yalnız kişisel kullanım + atıf; ayrı ses paketi olarak dağıtılamaz.",
+   "karar_notu": "Video ajanımıza kuruldu (v1.2.0); API anahtarı güvenli biçimde eklendi. Ücretsiz planda yalnız kişisel kullanım + atıf; ayrı ses paketi olarak dağıtılamaz.",
    "github": {
     "yildiz": 530,
     "fork": 94,
@@ -7350,8 +7350,8 @@
    ],
    "deneme": {
     "tarih": "2026-10-27",
-    "input": "VideoGen'e 2 sn'lik 'soft UI button click' efekti ürettirme",
-    "output": "soft-ui-button-click.mp3 (33 KB) üretildi, Haberci dosyayı kontrol etti",
+    "input": "Video ajanımıza 2 sn'lik 'soft UI button click' efekti ürettirme",
+    "output": "33 KB mp3 efekt dosyası üretildi ve kontrol edildi",
     "sonuc": "Eklenti kurulu ve çalışıyor",
     "kanit_dosyasi_mevcut": true
    },
@@ -7368,7 +7368,7 @@
    "lisans": "API ticari; açık ağırlık 'Fish Audio Research License' (ticari kullanım ayrı ücretli lisans)",
    "fiyat": "freemium (API: s2.1-pro-free $0, s2.1-pro $15/1M UTF-8 byte)",
    "durum": "degerlendirildi",
-   "karar_notu": "Ücretsiz API ile Türkçe kalite testi önerildi; Yusuf'un hesap açıp anahtarı kendisinin girmesi bekleniyor. Ücretsiz katmanda istekler model eğitimi için kullanılabilir; '5 kat ucuz' iddiası doğrulanmadı.",
+   "karar_notu": "Ücretsiz API ile Türkçe kalite testi önerildi; hesap açılıp anahtarın girilmesi bekleniyor. Ücretsiz katmanda istekler model eğitimi için kullanılabilir; '5 kat ucuz' iddiası doğrulanmadı.",
    "github": {
     "yildiz": 33473,
     "fork": 2910,
@@ -7482,7 +7482,7 @@
    "lisans": "ticari",
    "fiyat": "ücretli (18,3$/1M karakter (3.1 Flash), 9,2$/1M (2.5 Flash Lite) — paylaşılan sıralama ekran görüntüsü)",
    "durum": "denendi",
-   "karar_notu": "Yusuf'un paylaştığı TTS sıralamasında; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' sorusuna uymadı.",
+   "karar_notu": "Paylaşılan bir TTS sıralamasında yer aldı; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' arayışına uymadı.",
    "github": null,
    "kaynaklar": [
     {
@@ -7561,7 +7561,7 @@
    "lisans": "ticari",
    "fiyat": "ücretli (resmi sayfa: TTS-2 $25/1M karakter, TTS-2 Flash $15/1M; $0 kullandıkça öde başlangıç)",
    "durum": "reddedildi",
-   "karar_notu": "Yusuf'un paylaştığı TTS sıralamasında; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' sorusuna uymadı.",
+   "karar_notu": "Paylaşılan bir TTS sıralamasında yer aldı; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' arayışına uymadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -7578,7 +7578,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: M1 & 4070 Uygun: Standart F5-TTS hızı",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında aday; M1 uyumu: M1 & 4070 Uygun: Standart F5-TTS hızı",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -7725,7 +7725,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Kendi tek sesli Türkçe modeli için seçenek; Piper ince ayarı önerilen yol (agy).",
+   "karar_notu": "Kendi tek sesli Türkçe modelimiz için seçenek; Piper ince ayarı önerilen yol.",
    "github": {
     "yildiz": 1371,
     "fork": 218,
@@ -7750,7 +7750,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Kendi tek sesli Türkçe modeli için seçenek; Piper ince ayarı önerilen yol (agy).",
+   "karar_notu": "Kendi tek sesli Türkçe modelimiz için seçenek; Piper ince ayarı önerilen yol.",
    "github": {
     "yildiz": 7688,
     "fork": 1076,
@@ -7775,7 +7775,7 @@
    "lisans": "ticari",
    "fiyat": "ücretli (100$/1M (HD), 60$/1M (Turbo) — paylaşılan sıralama ekran görüntüsü)",
    "durum": "reddedildi",
-   "karar_notu": "Yusuf'un paylaştığı TTS sıralamasında; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' sorusuna uymadı.",
+   "karar_notu": "Paylaşılan bir TTS sıralamasında yer aldı; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' arayışına uymadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -7847,7 +7847,7 @@
    "lisans": "ticari",
    "fiyat": "ücretli (15$/1M karakter — paylaşılan sıralama ekran görüntüsü)",
    "durum": "reddedildi",
-   "karar_notu": "Yusuf'un paylaştığı TTS sıralamasında; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' sorusuna uymadı.",
+   "karar_notu": "Paylaşılan bir TTS sıralamasında yer aldı; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' arayışına uymadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -7877,8 +7877,8 @@
    "kaynaklar": [],
    "deneme": {
     "tarih": "2026-10-09",
-    "input": "Yusuf'un 3:49 dk Türkçe ses kaydı (OGG) ve 6,1 sn test kaydı",
-    "output": "Her iki kayıt doğru Türkçe transkripte döndü; tam transkript OBS video notuna eklendi",
+    "input": "~4 dakikalık Türkçe ses kaydı (OGG) ve 6,1 sn test kaydı",
+    "output": "Her iki kayıt doğru Türkçe transkripte döndü",
     "sonuc": "İşe yaradı; sorunun kaynağı dil zorlaması eksikliğiydi.",
     "kanit_dosyasi_mevcut": true
    },
@@ -7950,7 +7950,7 @@
    "kaynaklar": [],
    "deneme": {
     "tarih": "2026-10-18",
-    "input": "WebDev tts-benchmark: 8 model, 260 üretim; masalcı/belgesel/Yusuf 2/Birmingham sesleri, sayı/kısaltma/soru cümleleri, 60 sn paragraf",
+    "input": "tts-benchmark: 8 model, 260 üretim; masalcı/belgesel/kişisel klon/Birmingham sesleri, sayı/kısaltma/soru cümleleri, 60 sn paragraf",
     "output": "~4× gerçek zamandan hızlı, klon 0,5 sn; klon benzerliği kaliteli modellerin yarısı (10-21 testinde 0,39); 24L sürümü cümle atlıyor, rakam okumuyor",
     "sonuc": "Hız iyi, kalite yetersiz.",
     "kanit_dosyasi_mevcut": false
@@ -7973,7 +7973,7 @@
    "kaynaklar": [],
    "deneme": {
     "tarih": "2026-10-18",
-    "input": "WebDev tts-benchmark: 8 model, 260 üretim; masalcı/belgesel/Yusuf 2/Birmingham sesleri, sayı/kısaltma/soru cümleleri, 60 sn paragraf",
+    "input": "TTS karşılaştırma testimiz: 8 model, 260 üretim; masalcı/belgesel/kendi kayıtlı sesimiz/Birmingham sesleri, sayı/kısaltma/soru cümleleri, 60 sn paragraf",
     "output": "Gerçek zamandan yavaş",
     "sonuc": "Elendi.",
     "kanit_dosyasi_mevcut": false
@@ -8033,7 +8033,7 @@
    "lisans": "ticari",
    "fiyat": "freemium (aylık 500K karakter ücretsiz; TTS $6/1M karakterden başlar)",
    "durum": "reddedildi",
-   "karar_notu": "Yusuf'un paylaştığı TTS sıralamasında; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' sorusuna uymadı.",
+   "karar_notu": "Paylaşılan bir TTS sıralamasında yer aldı; yalnız bulut API, ağırlık indirilemez → 'yerelde çalışan, denemediğimiz model' ölçütüne uymadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8067,7 +8067,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Kendi tek sesli Türkçe modeli için seçenek; Piper ince ayarı önerilen yol (agy).",
+   "karar_notu": "Kendi tek sesli Türkçe modeli için seçenek; Piper ince ayarı önerilen yol.",
    "github": {
     "yildiz": 6376,
     "fork": 712,
@@ -8113,7 +8113,7 @@
    "deneme": {
     "tarih": "2026-10-14",
     "input": "VoiceStudio testi içinde Türkçe/İngilizce örnekler",
-    "output": "Örnekler üretildi (ölçümler samples_index.md'de)",
+    "output": "Örnekler üretildi ve ölçüldü",
     "sonuc": "Vitrine alınmadı (yalnız VoxCPM2 girdi).",
     "kanit_dosyasi_mevcut": true
    },
@@ -8147,7 +8147,7 @@
    "lisans": "MIT (HF kartı); taban openbmb/VoxCPM2 Apache-2.0",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: Yalnız 4070 (~6 GB VRAM): 4090 RTF 0,360; L4 RTF 0,962. M1'de VoxCPM2 ile aynı yavaşlıkta; MLX portu (emrekoc/trendyol-tts-mlx) klon desteklemiyor",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmamızda aday; M1 uyumu: Yalnız 4070 (~6 GB VRAM): 4090 RTF 0,360; L4 RTF 0,962. M1'de VoxCPM2 ile aynı yavaşlıkta; MLX portu (emrekoc/trendyol-tts-mlx) klon desteklemiyor",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8164,7 +8164,7 @@
    "lisans": "VITS: MIT; MMS-TTS: CC-BY-NC 4.0 (ticari kullanılamaz)",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Kendi tek sesli Türkçe modeli için seçenek; Piper ince ayarı önerilen yol (agy).",
+   "karar_notu": "Kendi tek sesli Türkçe modeli için seçenek; Piper ince ayarı önerilen yol.",
    "github": {
     "yildiz": 7901,
     "fork": 1371,
@@ -8251,7 +8251,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "denendi",
-   "karar_notu": "Chatterbox Multilingual testi bu uygulama üzerinden yapıldı (voicebox-test).",
+   "karar_notu": "Chatterbox Multilingual testi bu uygulama üzerinden yapıldı.",
    "github": {
     "yildiz": 58978,
     "fork": 7407,
@@ -8264,8 +8264,8 @@
    "kaynaklar": [],
    "deneme": {
     "tarih": "2026-10-15",
-    "input": "Yusuf ve Akif kayıtlarıyla klon; 'Opus yalan söylüyor' metni, 2 parça × 3 deneme; VoxCPM2 sonuçlarıyla aynı ölçütler",
-    "output": "Okunuş hatası 0; benzerlik Yusuf 0,85 (VoxCPM2 0,89), Akif 0,85 (0,86); cümle sonu tonlaması 4/4 (VoxCPM2 2/4); 3–11 kat hızlı; kurulum 4,8 GB / 1,5 dk",
+    "input": "İki farklı konuşmacının kayıtlarıyla klon; 'Opus yalan söylüyor' metni, 2 parça × 3 deneme; VoxCPM2 sonuçlarıyla aynı ölçütler",
+    "output": "Okunuş hatası 0; benzerlik 1. konuşmacı 0,85 (VoxCPM2 0,89), 2. konuşmacı 0,85 (0,86); cümle sonu tonlaması 4/4 (VoxCPM2 2/4); 3–11 kat hızlı; kurulum 4,8 GB / 1,5 dk",
     "sonuc": "İşe yaradı; nihai karar kulakla dinlemeye bırakıldı.",
     "kanit_dosyasi_mevcut": false
    },
@@ -8302,8 +8302,8 @@
    ],
    "deneme": {
     "tarih": "2026-10-21",
-    "input": "4 motor karşılaştırması için aynı Türkçe metin, 'belgesel' karakter sesi (VideoGen)",
-    "output": "karsilastirma_voxcpm2.wav; üretim ~94 sn",
+    "input": "4 motor karşılaştırması için aynı Türkçe metin, 'belgesel' karakter sesi",
+    "output": "Karşılaştırma ses dosyası üretildi; üretim ~94 sn",
     "sonuc": "Çalıştı; kalite/esneklikte önde, hızda en yavaş",
     "kanit_dosyasi_mevcut": false
    },
@@ -8345,7 +8345,7 @@
    "lisans": "Bilibili Model License (HF kartı: other/bilibili-model-license)",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: 4070 Uygun (~6 GB VRAM): RTX 5070 Ti BF16 RTF 0,83",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmamızda aday; M1 uyumu: 4070 Uygun (~6 GB VRAM): RTX 5070 Ti BF16 RTF 0,83",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8362,7 +8362,7 @@
    "lisans": "Boson Higgs TTS 3 Research and Non-Commercial License + Creator Use Grant (içerik üretimi ve monetizasyon serbest; hosted API/ürüne gömme ayrı ticari lisans)",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: 8 GB VRAM'i Aşar: BF16 16–24 GB VRAM ister; H100 RTF 0,147",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmamızda aday; M1 uyumu: 8 GB VRAM'i Aşar: BF16 16–24 GB VRAM ister; H100 RTF 0,147",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8379,7 +8379,7 @@
    "lisans": "Coqui Public Model License (CPML, ticari olmayan)",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: Yalnız 4070: 4090 RTF 0,140, L4 RTF 0,455 (~3–4 GB VRAM). M1 mps çöker, CPU yavaş",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmamızda aday; M1 uyumu: Yalnız 4070: 4090 RTF 0,140, L4 RTF 0,455 (~3–4 GB VRAM). M1 mps çöker, CPU yavaş",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8396,7 +8396,7 @@
    "lisans": "HF kartında model lisansı belirtilmemiş; veri seti CC-BY-SA-3.0",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: M1 & 4070 Çok Hızlı: 82M ONNX CPU/GPU",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmamızda aday; M1 uyumu: M1 & 4070 Çok Hızlı: 82M ONNX CPU/GPU",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8413,7 +8413,7 @@
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: 4070 Uygun: L4 GPU 2,18 GB VRAM, RTF 2,19",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmamızda aday; M1 uyumu: 4070 Uygun: L4 GPU 2,18 GB VRAM, RTF 2,19",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8430,7 +8430,7 @@
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: M1 & 4070 Uygun: Apple M5 CPU RTF < 1,0 (<4 GB RAM); L4 GPU 0,84 GB VRAM, RTF 1,08",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmamızda aday; M1 uyumu: M1 & 4070 Uygun: Apple M5 CPU RTF < 1,0 (<4 GB RAM); L4 GPU 0,84 GB VRAM, RTF 1,08",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8472,7 +8472,7 @@
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: M1 & 4070 Çok Hızlı: M3 CPU RTF 0,70 (Core ML ~0,12); 4090 RTF 0,10 (1,5 GB VRAM)",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmamızda aday; M1 uyumu: M1 & 4070 Çok Hızlı: M3 CPU RTF 0,70 (Core ML ~0,12); 4090 RTF 0,10 (1,5 GB VRAM)",
    "github": {
     "yildiz": 185,
     "fork": 13,
@@ -8497,7 +8497,7 @@
    "lisans": "Unlicense",
    "fiyat": "ücretsiz",
    "durum": "belirsiz",
-   "karar_notu": "Gemini önerisi; doğrulanmadı. VideoGen pratikte SFX'i numpy ile kodla sentezliyor.",
+   "karar_notu": "Gemini önerisi; doğrulanmadı. Video hattımızda SFX pratikte numpy ile kodla sentezleniyor.",
    "github": {
     "yildiz": 460,
     "fork": 55,
@@ -8522,7 +8522,7 @@
    "lisans": "CC-BY-NC-4.0 (HF kartı)",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: M1 (mps/cpu) & 4070 Uygun: RTX 4090 RTF 0,160; L4 RTF 0,322",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmamızda aday; M1 uyumu: M1 (mps/cpu) & 4070 Uygun: RTX 4090 RTF 0,160; L4 RTF 0,322",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8589,7 +8589,7 @@
    "lisans": "CC-BY-4.0 (HF kartı); taban marduk-ra/F5-TTS-Turkish",
    "fiyat": "ücretsiz (açık ağırlık)",
    "durum": "degerlendirildi",
-   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmasında (agy) aday; M1 uyumu: M1 CPU / Windows CPU-GPU: ONNX Runtime ile hafif çalışır",
+   "karar_notu": "Türkçe klon/hızlı yerel TTS araştırmamızda aday; M1 uyumu: M1 CPU / Windows CPU-GPU: ONNX Runtime ile hafif çalışır",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8640,7 +8640,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8674,7 +8674,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8776,7 +8776,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8844,7 +8844,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8912,7 +8912,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8953,7 +8953,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -8987,7 +8987,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -9038,7 +9038,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -9079,7 +9079,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -9227,7 +9227,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -9278,7 +9278,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -9465,7 +9465,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -9533,7 +9533,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -9567,7 +9567,7 @@
    "lisans": "ticari",
    "fiyat": "bilinmiyor (listede ücretli/ücretsiz notu var, doğrulanmadı)",
    "durum": "kullaniyoruz",
-   "karar_notu": "Haberci günlük keşifte aday kaynağı olarak tarıyor (discovery_sources.py / ajan tarayıcısı). Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
+   "karar_notu": "Günlük araç keşfimizde aday kaynağı olarak taranıyor. Lansman zamanı için listeye kaydedildi; platform kuralları/fiyatı tek tek doğrulanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -9601,7 +9601,7 @@
    "lisans": "ticari",
    "fiyat": "ücretli (Core $29,99/ay – 60 gönderi/ay; 3 gün ücretsiz deneme, kart deneme sonunda çekilir)",
    "durum": "reddedildi",
-   "karar_notu": "LinkedIn ve Instagram otomatik paylaşım yok; Yusuf ücretli olduğu için vazgeçti.",
+   "karar_notu": "LinkedIn ve Instagram otomatik paylaşım yok; ücretli olduğu için vazgeçtik.",
    "github": null,
    "kaynaklar": [
     {
@@ -9743,7 +9743,7 @@
    ],
    "deneme": {
     "tarih": "2026-10-22",
-    "input": "Self-host kurulumu: repo klonu, bağımlılıklar, .env şablonu (Organizer/WebDev devriyle)",
+    "input": "Self-host kurulumu: repo klonu, bağımlılıklar, .env şablonu",
     "output": null,
     "sonuc": "Tamamlanmadı: uçtan uca paylaşım testi kanıtı yok; medya için yerel Garage kararı verildi",
     "kanit_dosyasi_mevcut": true
@@ -9848,9 +9848,9 @@
    ],
    "deneme": {
     "tarih": "2026-10-19",
-    "input": "youtubelab profiline 11 yt-* skill kopyalandı; ilk görev: konsept + brief + yükleme paketi",
-    "output": "4 konsept, 10 Shorts brief'i ve yükleme paketleri; 10 üretim klasörü (01-krakatoa-1883 … 10-ada-lovelace)",
-    "sonuc": "İşe yaradı: Yusuf ilk üç Shorts'u beğendi; yükleme/OAuth kısmı kullanılmadı",
+    "input": "11 yt-* skill ayrı bir ajan profiline kopyalandı; ilk görev: konsept + Shorts planı + yükleme paketi",
+    "output": "4 konsept, 10 Shorts planı ve yükleme paketleri; 10 üretim klasörü (01-krakatoa-1883 … 10-ada-lovelace)",
+    "sonuc": "İşe yaradı: ilk üç Shorts beğenildi; yükleme/OAuth kısmı kullanılmadı",
     "kanit_dosyasi_mevcut": true
    },
    "dogrulandi": true,
@@ -9866,7 +9866,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Kurulumu basit; yeni Google Cloud projesinde denetim bitene kadar yüklemeler 'private' kalır, yayınlama tuşuna Yusuf basar. Kurulmadı.",
+   "karar_notu": "Kurulumu basit; yeni Google Cloud projesinde denetim bitene kadar yüklemeler 'private' kalır, yayınlama elle yapılır. Kurulmadı.",
    "github": {
     "yildiz": 0,
     "fork": 0,
@@ -10065,7 +10065,7 @@
    "lisans": "ticari",
    "fiyat": "tüm planlarda ücretsiz (günlük işlem sınırı: Free 100)",
    "durum": "degerlendirildi",
-   "karar_notu": "Hermes'in hazır bağlantılarında var; bağlanmadı, hangi ajanın kullanacağı Yusuf'un kararı.",
+   "karar_notu": "Ajan altyapımızın hazır bağlantılarında var; bağlanmadı, hangi ajanın kullanacağı henüz kararlaştırılmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -10076,13 +10076,13 @@
    "ad": "ClickUp MCP sunucusu",
    "tur": "mcp",
    "kategori": "verimlilik",
-   "ozet": "ClickUp'ın resmi, yalnız OAuth ile bağlanan MCP sunucusu (görevler, dokümanlar, çalışma alanları); Hermes'te hazır bağlayıcı ve MCP kataloğunda var.",
+   "ozet": "ClickUp'ın resmi, yalnız OAuth ile bağlanan MCP sunucusu (görevler, dokümanlar, çalışma alanları); ajan altyapımızda hazır bağlayıcı ve MCP kataloğunda var.",
    "resmi_url": "https://mcp.clickup.com/mcp",
    "repo_url": null,
    "lisans": "ticari",
    "fiyat": "tüm planlarda dahil; Everything AI eklentisi yoksa 24 saatlik çağrı limiti: Free 100, Unlimited 300, Business 1.000, Business Plus 2.500, Enterprise 5.000; eklentiyle API'nin dakikalık limiti (Enterprise 10.000/dk)",
    "durum": "degerlendirildi",
-   "karar_notu": "Bağlanabilir; kimlik bağlama Yusuf onayıyla yapılacak, bağlanmadı.",
+   "karar_notu": "Bağlanabilir; kimlik bağlama onayla yapılacak, bağlanmadı.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -10547,7 +10547,7 @@
    "lisans": "ticari (kapalı kaynak, ücretsiz)",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Adobe Acrobat yerine ana öneri; Yusuf'un yerel/ücretsiz tercihine uyuyor.",
+   "karar_notu": "Adobe Acrobat yerine ana öneri; yerel/ücretsiz araç tercihimize uyuyor.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -10639,13 +10639,13 @@
    "ad": "Tally",
    "tur": "web-servis",
    "kategori": "verimlilik",
-   "ozet": "Ücretsiz katmanı geniş (sınırsız form/yanıt), kod gerektirmeyen form oluşturucu; eski Sabah Araç Keşfi cron çıktısında önerilmişti.",
+   "ozet": "Ücretsiz katmanı geniş (sınırsız form/yanıt), kod gerektirmeyen form oluşturucu; eski sabah araç keşfi çıktısında önerilmişti.",
    "resmi_url": "https://tally.so",
    "repo_url": null,
    "lisans": "ticari",
    "fiyat": "freemium (sınırsız form/yanıt ücretsiz; Pro $24/ay, Business $74/ay)",
    "durum": "belirsiz",
-   "karar_notu": "Duraklatılmış cron'un son çıktısında öneri olarak geçti; ayrıntı kaydı yok.",
+   "karar_notu": "Durdurulan otomatik keşfin son çıktısında öneri olarak geçti; ayrıntı kaydı yok.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -10745,7 +10745,7 @@
    "lisans": "ticari",
    "fiyat": "freemium (web günlük limitli; Desktop Tools 48$/yıl)",
    "durum": "reddedildi",
-   "karar_notu": "Dosyalar sunucuya gittiği ve yerel araçlar ücretli olduğu için Yusuf istemedi; iHatePDF/PDFgear tercih edildi.",
+   "karar_notu": "Dosyalar sunucuya gittiği ve yerel araçlar ücretli olduğu için tercih edilmedi; iHatePDF/PDFgear seçildi.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -10762,7 +10762,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Haberci'nin 3 aday listesinde (storyboard + stil seçimi). Kurulmadı.",
+   "karar_notu": "3 adaylık kısa listemizde (storyboard + stil seçimi). Kurulmadı.",
    "github": {
     "yildiz": 1067,
     "fork": 148,
@@ -10839,9 +10839,9 @@
    "kaynaklar": [],
    "deneme": {
     "tarih": "2026-10-14",
-    "input": "VideoGen'e Anime.js, PixiJS ve Lottie ile 30–45 sn 'Tools worth your time' vitrin videosu brief'i",
+    "input": "Anime.js, PixiJS ve Lottie ile 30–45 sn 'Tools worth your time' vitrin videosu görevi (video ajanımıza)",
     "output": "35 sn vitrin: Anime.js 4.5.0 harf harf yay animasyonu, PixiJS 8.22.0 16.400 parçacıklı sürü, Lottie 5.13.0 23 KB kanat çırpan karga; ses v02'de yeniden mikslendi",
-    "sonuc": "Çalıştı; PixiJS bölümü en etkileyici. VideoGen entegrasyon notlarını kaydetti.",
+    "sonuc": "Çalıştı; PixiJS bölümü en etkileyici. Entegrasyon notları üretim hattımıza eklendi.",
     "kanit_dosyasi_mevcut": false
    },
    "dogrulandi": true,
@@ -10955,7 +10955,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Kurulmadı. agy'ye göre ana şablon Remotion kullanıyor → 4+ kişilik şirkette Remotion şirket lisansı gerekir.",
+   "karar_notu": "Kurulmadı. Araştırmamıza göre ana şablon Remotion kullanıyor → 4+ kişilik şirkette Remotion şirket lisansı gerekir.",
    "github": {
     "yildiz": 718,
     "fork": 91,
@@ -11031,13 +11031,13 @@
    "ad": "Claude Opus 5.5",
    "tur": "model",
    "kategori": "video-motion",
-   "ozet": "Anthropic'in modeli; VideoGen hattında HTML/Canvas kodu yazdırılıp kare kare render edilerek motion graphics/video üretiminde kullanılıyor.",
+   "ozet": "Anthropic'in modeli; video hattımızda HTML/Canvas kodu yazdırılıp kare kare render edilerek motion graphics/video üretiminde kullanılıyor.",
    "resmi_url": "https://www.anthropic.com/claude-opus-5-5",
    "repo_url": null,
    "lisans": "ticari",
    "fiyat": "ücretli (Claude aboneliği/API)",
    "durum": "kullaniyoruz",
-   "karar_notu": "VideoGen \"Opus video üretmez, web sitesi yazar, ekran görüntülerini birleştirir\" hattının modeli; reel'lerdeki \"Claude made every frame\" iddiaları yöntem olarak doğru, belirli videoların üretimi doğrulanmadı.",
+   "karar_notu": "\"Opus video üretmez, web sitesi yazar, ekran görüntülerini birleştirir\" yaklaşımlı video hattımızın modeli; reel'lerdeki \"Claude made every frame\" iddiaları yöntem olarak doğru, belirli videoların üretimi doğrulanmadı.",
    "github": null,
    "kaynaklar": [
     {
@@ -11182,7 +11182,7 @@
    "lisans": "LGPL-2.1-or-later (GPL bileşenleriyle derlenirse GPL-2.0-or-later)",
    "fiyat": "ücretsiz",
    "durum": "kullaniyoruz",
-   "karar_notu": "Araç envanterinde \"kullanıyorum\" olarak listeli. VideoGen render, kurgu, ölçüm (loudnorm, silencedetect, scene) hattının çekirdeği.",
+   "karar_notu": "Araç envanterinde \"kullanıyorum\" olarak listeli. Video hattımızda render, kurgu, ölçüm (loudnorm, silencedetect, scene) işlerinin çekirdeği.",
    "github": {
     "yildiz": 66029,
     "fork": 14456,
@@ -11296,7 +11296,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "VideoGen GSAP kütüphanesini zaten kullanıyor; bu skill paketinin kurulu olduğu doğrulanmadı.",
+   "karar_notu": "Video hattımız GSAP kütüphanesini zaten kullanıyor; bu skill paketinin kurulu olduğu doğrulanmadı.",
    "github": {
     "yildiz": 17452,
     "fork": 1077,
@@ -11328,7 +11328,7 @@
    "lisans": "ticari (Google)",
    "fiyat": "Google AI aboneliğiyle (one.google.com/ai); kredi/süre limiti okunmadı",
    "durum": "denendi",
-   "karar_notu": "Tek çekimden çok açılı kurgu için 'Dene'. Haberci kendi prompt betiğini (omni_multicam_prompt.py) yazıp reel'in sesiyle denedi (12 kesim); Omni'yi Yusuf'un Gemini uygulamasında çalıştırması gerekiyor. Reel'de bölge için VPN gerektiği söyleniyor.",
+   "karar_notu": "Tek çekimden çok açılı kurgu için 'Dene'. Kendi prompt betiğimizi yazıp reel'in sesiyle denedik (12 kesim); Omni'nin Gemini uygulamasında elle çalıştırılması gerekiyor. Reel'de bölge için VPN gerektiği söyleniyor.",
    "github": null,
    "kaynaklar": [
     {
@@ -11358,7 +11358,7 @@
    "lisans": "ticari",
    "fiyat": "Google AI Pro'ya dahil (kredi tüketir)",
    "durum": "degerlendirildi",
-   "karar_notu": "Resmi API'si yok; Stickman klipleri için düşünüldü, Yusuf 'Flow'u boş verelim' dedi.",
+   "karar_notu": "Resmi API'si yok; Stickman klipleri için düşünüldü, sonra vazgeçildi.",
    "github": null,
    "kaynaklar": [
     {
@@ -11413,7 +11413,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz (Nate'in kullandığı ElevenLabs Scribe / Kie.ai isteğe bağlı, kendi anahtarınla ücretli; OpenAI/yerel Whisper alternatif)",
    "durum": "degerlendirildi",
-   "karar_notu": "Sessizlik kesme VideoGen'de zaten var; kurulmadı.",
+   "karar_notu": "Sessizlik kesme video hattımızda zaten var; kurulmadı.",
    "github": {
     "yildiz": 2368,
     "fork": 583,
@@ -11462,7 +11462,7 @@
    "lisans": "Apache-2.0",
    "fiyat": "ücretsiz",
    "durum": "denendi",
-   "karar_notu": "VideoGen'de skill olarak kurulu; 27 Ekim'de bir kez kullanıldı. Son videolar VideoGen'in kendi Python/canvas + ffmpeg hattıyla üretiliyor.",
+   "karar_notu": "Video ajanımızda skill olarak kurulu; 27 Ekim'de bir kez kullanıldı. Son videolar kendi Python/canvas + ffmpeg hattımızla üretiliyor.",
    "github": {
     "yildiz": 75240,
     "fork": 6844,
@@ -11482,7 +11482,7 @@
    ],
    "deneme": {
     "tarih": "2026-10-12",
-    "input": "Aynı 15 sn yatay sahne ('Kırık parça → Tara · Modelle · Bas'): VideoGen mevcut yöntemi vs HyperFrames",
+    "input": "Aynı 15 sn yatay sahne ('Kırık parça → Tara · Modelle · Bas'): mevcut yöntemimiz vs HyperFrames",
     "output": "İki video 1920×1080/30 fps/15 sn, görüntü birebir; render 45–49 sn (mevcut) vs 18–20 sn (HyperFrames), mevcut yöntem JPEG kareyle 28–32 sn; kurulum 4 düzeltme turu",
     "sonuc": "Kısmen: hız farkı çoğunlukla JPEG kareden; kontrast kontrolü yararlı yan bulgu.",
     "kanit_dosyasi_mevcut": true
@@ -11544,7 +11544,7 @@
    ],
    "deneme": {
     "tarih": "2026-10-25",
-    "input": "VideoGen'e 5 farklı aksiyon için Lots of Sounds API'sinden CC0 ses arama ve motion videoda kare hassasiyetinde yerleştirme görevi",
+    "input": "Video ajanımıza 5 farklı aksiyon için Lots of Sounds API'sinden CC0 ses arama ve motion videoda kare hassasiyetinde yerleştirme görevi",
     "output": "17 sn test videosu, 0 decode hatası; 14 yerleşimde hedef kareden ortalama 0,002 ms sapma; sonuçlar rastgele sıralı, filtre çalışmıyor, 12 sonuç sınırı, ses seviyeleri değişken",
     "sonuc": "Teknik olarak çalıştı, ama standart kaynağa eklenmeye değer bulunmadı",
     "kanit_dosyasi_mevcut": false
@@ -11562,7 +11562,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "denendi",
-   "karar_notu": "Repo Eylül 2025'ten beri yavaşlamış; animasyonu VideoGen kendi üretti, telifli Lottie kullanılmadı.",
+   "karar_notu": "Repo Eylül 2025'ten beri yavaşlamış; animasyonu video ajanımız kendi üretti, telifli Lottie kullanılmadı.",
    "github": {
     "yildiz": 32291,
     "fork": 2953,
@@ -11575,9 +11575,9 @@
    "kaynaklar": [],
    "deneme": {
     "tarih": "2026-10-14",
-    "input": "VideoGen'e Anime.js, PixiJS ve Lottie ile 30–45 sn 'Tools worth your time' vitrin videosu brief'i",
+    "input": "Anime.js, PixiJS ve Lottie ile 30–45 sn 'Tools worth your time' vitrin videosu görevi (video ajanımıza)",
     "output": "35 sn vitrin: Anime.js 4.5.0 harf harf yay animasyonu, PixiJS 8.22.0 16.400 parçacıklı sürü, Lottie 5.13.0 23 KB kanat çırpan karga; ses v02'de yeniden mikslendi",
-    "sonuc": "Çalıştı; PixiJS bölümü en etkileyici. VideoGen entegrasyon notlarını kaydetti.",
+    "sonuc": "Çalıştı; PixiJS bölümü en etkileyici. Entegrasyon notları üretim hattımıza eklendi.",
     "kanit_dosyasi_mevcut": false
    },
    "dogrulandi": true,
@@ -11593,7 +11593,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Haberci'nin 3 aday listesinde: 'çok abartı/çok sıkışık' kurgu sorununa çözüm adayı. Kurulmadı.",
+   "karar_notu": "3 adaylık kısa listemizde: 'çok abartı/çok sıkışık' kurgu sorununa çözüm adayı. Kurulmadı.",
    "github": {
     "yildiz": 2601,
     "fork": 177,
@@ -11650,7 +11650,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "kullaniyoruz",
-   "karar_notu": "VideoGen'de hazır manim-video skill'i var; stil denemesinde 3Blue1Brown tarzı onunla yapıldı.",
+   "karar_notu": "Video ajanımızda hazır manim-video skill'i var; stil denemesinde 3Blue1Brown tarzı onunla yapıldı.",
    "github": {
     "yildiz": 95841,
     "fork": 7861,
@@ -11675,7 +11675,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Arka plan silme VideoGen'de (rembg/RVM) zaten var; kurulmadı.",
+   "karar_notu": "Arka plan silme video hattımızda (rembg/RVM) zaten var; kurulmadı.",
    "github": {
     "yildiz": 927,
     "fork": 137,
@@ -11707,7 +11707,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Kurulmadı; VideoGen'in mevcut HyperFrames hattıyla örtüşüyor.",
+   "karar_notu": "Kurulmadı; mevcut HyperFrames hattımızla örtüşüyor.",
    "github": {
     "yildiz": 476,
     "fork": 64,
@@ -11788,7 +11788,7 @@
    "lisans": "AGPL-3.0",
    "fiyat": "ücretsiz",
    "durum": "kullaniyoruz",
-   "karar_notu": "En yararlı 2 repodan biri: kurulum yerine bilgi dosyalarını okuyup VideoGen'e ders çıkarma önerildi; klonlama Yusuf onayına bırakıldı.",
+   "karar_notu": "En yararlı 2 repodan biri: kurulum yerine bilgi dosyalarını okuyup video hattımıza ders çıkarma önerildi; klonlama onaya bırakıldı.",
    "github": {
     "yildiz": 72908,
     "fork": 9525,
@@ -11845,7 +11845,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "denendi",
-   "karar_notu": "Çok öğeli sahnelerde render'ı hızlandırabilir; sürü sesi Yusuf'a kötü geldi, yeniden mikslendi.",
+   "karar_notu": "Çok öğeli sahnelerde render'ı hızlandırabilir; sürü sesi kötü bulundu, yeniden mikslendi.",
    "github": {
     "yildiz": 48591,
     "fork": 5125,
@@ -11858,9 +11858,9 @@
    "kaynaklar": [],
    "deneme": {
     "tarih": "2026-10-14",
-    "input": "VideoGen'e Anime.js, PixiJS ve Lottie ile 30–45 sn 'Tools worth your time' vitrin videosu brief'i",
+    "input": "Anime.js, PixiJS ve Lottie ile 30–45 sn 'Tools worth your time' vitrin videosu görevi (video ajanımıza)",
     "output": "35 sn vitrin: Anime.js 4.5.0 harf harf yay animasyonu, PixiJS 8.22.0 16.400 parçacıklı sürü, Lottie 5.13.0 23 KB kanat çırpan karga; ses v02'de yeniden mikslendi",
-    "sonuc": "Çalıştı; PixiJS bölümü en etkileyici. VideoGen entegrasyon notlarını kaydetti.",
+    "sonuc": "Çalıştı; PixiJS bölümü en etkileyici. Entegrasyon notları üretim hattımıza eklendi.",
     "kanit_dosyasi_mevcut": false
    },
    "dogrulandi": true,
@@ -11893,7 +11893,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Haberci'nin 3 aday listesinde (Kitabe/SesVer tanıtımları için). Remotion kullanmıyor; kurulmadı.",
+   "karar_notu": "3 adaylık kısa listemizde (Kitabe/SesVer tanıtımları için). Remotion kullanmıyor; kurulmadı.",
    "github": {
     "yildiz": 392,
     "fork": 52,
@@ -11975,7 +11975,7 @@
    "lisans": "Remotion License (özel; birey ve küçük şirket ticari dahil ücretsiz, büyük şirkete şirket lisansı)",
    "fiyat": "freemium (şirket lisansı ücretli)",
    "durum": "kullaniyoruz",
-   "karar_notu": "2026-10-29'da VideoGen'e kuruldu (remotion 4.0.539, ortak 9:16 + 16:9 şablon, resmi skill). Bireysel/≤3 kişi ticari kullanım ücretsiz; 4+ kişilik şirkette Company License gerekir.",
+   "karar_notu": "2026-10-29'da video hattımıza kuruldu (remotion 4.0.539, ortak 9:16 + 16:9 şablon, resmi skill). Bireysel/≤3 kişi ticari kullanım ücretsiz; 4+ kişilik şirkette Company License gerekir.",
    "github": {
     "yildiz": 68813,
     "fork": 5625,
@@ -12057,7 +12057,7 @@
    "lisans": "GPL-3.0 (yalnız kod; üretilen videoyu kısıtlamıyor)",
    "fiyat": "ücretsiz",
    "durum": "kullaniyoruz",
-   "karar_notu": "Konuşan kafa videolarında arka plan kesme hattının (remove_bg.sh --mode person) insan modeli.",
+   "karar_notu": "Konuşan kafa videolarında arka plan kesme hattımızın (kişi modu) insan modeli.",
    "github": {
     "yildiz": 9576,
     "fork": 1193,
@@ -12070,7 +12070,7 @@
    "kaynaklar": [],
    "deneme": {
     "tarih": "2026-10-14",
-    "input": "Telifsiz test videosu, ardından Yusuf'un iPhone videosu (yusuf.mp4)",
+    "input": "Telifsiz test videosu, ardından iPhone ile çekilmiş bir video",
     "output": "M1'de video saniyesi başına ~6 sn işlem; şeffaf .mov/.webm, yeşil perde, adaçayı arka planlı video",
     "sonuc": "İşe yaradı; önünde eşya varsa (laptop) kenar kesilebiliyor.",
     "kanit_dosyasi_mevcut": false
@@ -12113,7 +12113,7 @@
    "lisans": "ticari site; prompt'lar ücretsiz kopyalanabilir",
    "fiyat": "freemium (galeri ücretsiz; Premium $9.99/ay, $79/yıl, $169 tek sefer)",
    "durum": "kullaniyoruz",
-   "karar_notu": "VideoGen prompt/stil kaynağı olarak kullanıldı: \"Opus showreel yorumu\" videosu Skillry galerisini tanıttı ve altın şablon oldu.",
+   "karar_notu": "Video hattımızda prompt/stil kaynağı olarak kullanıldı: \"Opus showreel yorumu\" videosu Skillry galerisini tanıttı ve altın şablon oldu.",
    "github": null,
    "kaynaklar": [
     {
@@ -12143,7 +12143,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "denendi",
-   "karar_notu": "Vialess pilotu için prompt paketi üretildi; klipler Flow'da üretilmedi (Yusuf Flow'u istemedi). Sonunda stickman videosu VideoGen'de kodla çizildi. Türkçe desteği yok.",
+   "karar_notu": "Vialess pilotu için prompt paketi üretildi; klipler Flow'da üretilmedi (Flow'dan vazgeçildi). Sonunda stickman videosu video hattımızda kodla çizildi. Türkçe desteği yok.",
    "github": {
     "yildiz": 3290,
     "fork": 494,
@@ -12170,7 +12170,7 @@
    "deneme": {
     "tarih": "2026-10-10",
     "input": "Vialess kartvizit hikâyesi, 60 sn dikey",
-    "output": "6 adet 10 sn'lik Omni Flash promptu (prompts-novo) + 6 karelik görsel plan; tahmini ~90 Flow kredisi",
+    "output": "6 adet 10 sn'lik Omni Flash promptu + 6 karelik görsel plan; tahmini ~90 Flow kredisi",
     "sonuc": "Paket üretildi; video üretim adımı yapılmadı.",
     "kanit_dosyasi_mevcut": false
    },
@@ -12212,7 +12212,7 @@
    "lisans": "ticari",
    "fiyat": "ücretli (19,9 $/ay; deneme kart istiyor)",
    "durum": "degerlendirildi",
-   "karar_notu": "'Sonra bak'; Claude Motion/HyperFrames/VideoGen ile aynı fikir, karşılaştırma videosu fikri.",
+   "karar_notu": "'Sonra bak'; Claude Motion/HyperFrames/kendi video hattımızla aynı fikir, karşılaştırma videosu fikri.",
    "github": null,
    "kaynaklar": [],
    "deneme": null,
@@ -12229,7 +12229,7 @@
    "lisans": "bilinmiyor",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Kit/DM gerekmeden eşdeğeri Haberci tarafından yazıldı (omni_multicam_prompt.py); skill'in kendisi kurulmadı.",
+   "karar_notu": "Kit/DM gerekmeden eşdeğer bir prompt betiğini kendimiz yazdık; skill'in kendisi kurulmadı.",
    "github": null,
    "kaynaklar": [
     {
@@ -12465,7 +12465,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "reddedildi",
-   "karar_notu": "VideoGen ffmpeg'i zaten doğrudan kullanıyor; ek katman gereksiz.",
+   "karar_notu": "Video hattımız ffmpeg'i zaten doğrudan kullanıyor; ek katman gereksiz.",
    "github": {
     "yildiz": 153,
     "fork": 26,
@@ -12522,7 +12522,7 @@
    "lisans": "MIT",
    "fiyat": "ücretsiz",
    "durum": "degerlendirildi",
-   "karar_notu": "Teknik parametreler OBS notuna alındı; kurulmadı.",
+   "karar_notu": "Teknik parametreler not edildi; kurulmadı.",
    "github": {
     "yildiz": 17,
     "fork": 5,
@@ -12571,7 +12571,7 @@
    "lisans": "LGPL-2.1",
    "fiyat": "ücretsiz",
    "durum": "belirsiz",
-   "karar_notu": "Araç envanterinde \"kullanıyorum\" olarak listeli. VideoGen'in p5.js tabanlı kısa video akışı (AGENTS.md).",
+   "karar_notu": "Araç envanterinde \"kullanıyorum\" olarak listeli. 9:16 kısa video üretim hattımızın temeli.",
    "github": {
     "yildiz": 24266,
     "fork": 3885,
