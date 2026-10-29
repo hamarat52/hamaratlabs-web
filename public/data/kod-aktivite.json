@@ -1,0 +1,1676 @@
+[
+  {
+    "repo": "titimer",
+    "hash": "e8f981ca97",
+    "date": "2026-09-26T10:52:09+03:00",
+    "subject": "checkpoint: Sayaç ekranı video-dili migrasyonu öncesi durum",
+    "score": 60,
+    "is_merge": false,
+    "lines": 362115
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "040b69c4e2",
+    "date": "2026-09-28T18:45:42+03:00",
+    "subject": "IncomeVsDesires: eklenti + tanıtım sitesi",
+    "score": 60,
+    "is_merge": false,
+    "lines": 6235
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "4b9048df0a",
+    "date": "2026-10-12T11:34:25+03:00",
+    "subject": "repo brief: conduit-android sistem testi",
+    "score": 46,
+    "is_merge": false,
+    "lines": 23
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "9105941128",
+    "date": "2026-10-12T11:58:54+03:00",
+    "subject": "website: static landing page for Conduit Android (internal build, not on Google Play)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 437
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "6a1ae1d931",
+    "date": "2026-10-12T12:33:12+03:00",
+    "subject": "Sprint 1: Gradle/Compose scaffold, Design Direction theme, icon, fonts, dashboard auth + WS JSON-RPC client",
+    "score": 59,
+    "is_merge": false,
+    "lines": 1097
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "680823f5c2",
+    "date": "2026-10-12T12:43:37+03:00",
+    "subject": "F1/F2 UI + session repository, F10 core-telecom call spike, unit tests (17)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1924
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "e848f2670e",
+    "date": "2026-10-12T12:46:50+03:00",
+    "subject": "Never send session.close (shared live sessions); compact tool-call rows; light system-bar icons; ignore QA evidence",
+    "score": 48,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "9388dd7d97",
+    "date": "2026-10-12T12:48:33+03:00",
+    "subject": "Session list follows new head after refresh (top-inserted sessions were off-screen)",
+    "score": 43,
+    "is_merge": false,
+    "lines": 9
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "49e839be79",
+    "date": "2026-10-12T12:53:27+03:00",
+    "subject": "Call spike: survive CallStyle rejection on Android 14, never leave a dangling Telecom call; QA findings",
+    "score": 50,
+    "is_merge": false,
+    "lines": 71
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "e87fa919e7",
+    "date": "2026-10-12T13:20:09+03:00",
+    "subject": "docs: never send session.close (shared live sessions with desktop)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 12
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "3bd5b12ce9",
+    "date": "2026-10-12T13:47:30+03:00",
+    "subject": "docs: Sprint 2 protocol notes from tui_gateway source",
+    "score": 31,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "afffcae255",
+    "date": "2026-10-12T13:50:11+03:00",
+    "subject": "docs: reconnect/replay protocol notes",
+    "score": 28,
+    "is_merge": false,
+    "lines": 10
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f0c3b0efb5",
+    "date": "2026-10-12T14:11:34+03:00",
+    "subject": "F3/F4/F5 core: streaming turn reducer, server-request cards, seq-based reconnect catch-up, markdown parser",
+    "score": 59,
+    "is_merge": false,
+    "lines": 993
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "6ada86be42",
+    "date": "2026-10-12T14:20:41+03:00",
+    "subject": "F3/F4/F5 UI + LinkService: live turns with markdown, mono tool lines, Stop, approval/clarify cards, foreground link service, real turn-finished call trigger",
+    "score": 56,
+    "is_merge": false,
+    "lines": 438
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "ba9d4ed437",
+    "date": "2026-10-12T15:02:20+03:00",
+    "subject": "Composer: never disable the focused input (readOnly while running)",
+    "score": 43,
+    "is_merge": false,
+    "lines": 10
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "e67226d5a9",
+    "date": "2026-10-12T15:35:10+03:00",
+    "subject": "Fix: denied approval shows blocked (⊘) tool row; live N-msg counter during turns",
+    "score": 61,
+    "is_merge": false,
+    "lines": 94
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "79259c5f80",
+    "date": "2026-10-12T18:34:17+03:00",
+    "subject": "Sprint 3 WIP: F6 push-to-talk/TTS, F7 notifications, F8 steer + model/profile picker (builds, unit tests green; live verification pending)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1183
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "8679d558ae",
+    "date": "2026-10-12T18:40:07+03:00",
+    "subject": "Expose testTags inside AlertDialogs (separate window) for uiautomator/QA",
+    "score": 44,
+    "is_merge": false,
+    "lines": 11
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "ad27e707d7",
+    "date": "2026-10-12T20:17:12+03:00",
+    "subject": "F9: read-only cron list + runs screen (cron.list / cron.runs via dashboard REST)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 359
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "dacb506869",
+    "date": "2026-10-12T20:19:47+03:00",
+    "subject": "F9: correct run status + completed-state label",
+    "score": 44,
+    "is_merge": false,
+    "lines": 13
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "ae360e74c7",
+    "date": "2026-10-12T20:23:26+03:00",
+    "subject": "F10 Answer -> F6 talk mode + clarify ring (AK-CL): call carries its session, answer opens it with mic armed, replies read aloud on call",
+    "score": 51,
+    "is_merge": false,
+    "lines": 87
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f6aeaf2f61",
+    "date": "2026-10-12T20:32:20+03:00",
+    "subject": "F10->F6: on answer read the finished reply first, then arm PTT (no TTS-into-STT); no double TTS while ringing",
+    "score": 46,
+    "is_merge": false,
+    "lines": 26
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "582e7d753b",
+    "date": "2026-10-12T22:04:17+03:00",
+    "subject": "F1: bounded exponential auto-reconnect (7 attempts, 1-30s) + Reconnect button",
+    "score": 54,
+    "is_merge": false,
+    "lines": 208
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "43bbb88366",
+    "date": "2026-10-13T11:52:10+03:00",
+    "subject": "Sprint 6: detect dashboard auth via /api/status JSON (auth-on / 302s to /login, breaking PASSWORD_TICKET); shell scrape only for loopback token",
+    "score": 53,
+    "is_merge": false,
+    "lines": 198
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "3507a218fa",
+    "date": "2026-10-14T00:26:01+03:00",
+    "subject": "website: update for Sprint 2-6 (F6-F9 cards, real screenshots, Tailscale status, known limitations)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 115
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "09397c2909",
+    "date": "2026-10-14T00:44:41+03:00",
+    "subject": "Sprint 7 P0-1: honest voice-reply copy (VOICE REPLY, End), wing follows real TTS/STT, no IME in voice mode, clarify call reads the question first",
+    "score": 51,
+    "is_merge": false,
+    "lines": 104
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "0d4fcb324d",
+    "date": "2026-10-14T00:49:09+03:00",
+    "subject": "Sprint 7 P0-2/P0-4/P1-5/P1-6/P1-9 + STT locale + read-aloud scope: pinned cards, composer answer mode -> clarify.respond (text+voice), approval-locked composer, Allow-always confirm, tap mic model, device-locale STT/TTS w/ en-US fallback, voice-only read-aloud, reason text, snackbar errors",
+    "score": 56,
+    "is_merge": false,
+    "lines": 481
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "ee3b0e261f",
+    "date": "2026-10-14T00:52:50+03:00",
+    "subject": "Sprint 7 P0-3: release-safe Connect (empty URL, tailnet placeholder+helper, debug-only emulator hint/footer), amber 'Sign in required', stay on Connect with spinner until gateway.ready, 'Can't reach dashboard' before first connect, single amber 'Try again'",
+    "score": 52,
+    "is_merge": false,
+    "lines": 148
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "7a7b928e7b",
+    "date": "2026-10-14T01:01:08+03:00",
+    "subject": "Sprint 7 P1-1/P1-2/P1-3: resumed tool rows render as live ToolLines; Call spike card -> Settings sheet (ring toggle + background caveat, debug-only Test call); empty session-list copy",
+    "score": 53,
+    "is_merge": false,
+    "lines": 170
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "67f05e87af",
+    "date": "2026-10-14T01:01:08+03:00",
+    "subject": "Sprint 7 P1-8: paused/completed cron jobs show 'next —' instead of a stale date",
+    "score": 44,
+    "is_merge": false,
+    "lines": 14
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f38d29fbfd",
+    "date": "2026-10-14T01:13:41+03:00",
+    "subject": "Debug-only ConduitRpc trace (method + param keys) for routing QA",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "ab9181f763",
+    "date": "2026-10-14T01:14:10+03:00",
+    "subject": "Sprint 7 QA screenshots",
+    "score": 35,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "d60be610b1",
+    "date": "2026-10-14T01:18:25+03:00",
+    "subject": "Sprint 7 QA: release-build Connect screenshots",
+    "score": 35,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "7a17b88bf2",
+    "date": "2026-10-14T01:19:19+03:00",
+    "subject": "Speaker doc: device locale + voice-mode-only scope",
+    "score": 41,
+    "is_merge": false,
+    "lines": 5
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "4e7ecdffd8",
+    "date": "2026-10-14T01:25:00+03:00",
+    "subject": "Sprint 7 QA: live amber 'Sign in required' screenshot",
+    "score": 35,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "e613399044",
+    "date": "2026-10-14T07:17:02+03:00",
+    "subject": "Sprint 8: haptic feedback on mic/send/approve/reject/allow-always/call + Finishing pulse",
+    "score": 53,
+    "is_merge": false,
+    "lines": 188
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "685b9c7515",
+    "date": "2026-10-14T07:21:18+03:00",
+    "subject": "Sprint 8: debug-only DEBUG_FINISHING hook + Finishing indicator QA screenshots",
+    "score": 45,
+    "is_merge": false,
+    "lines": 15
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "ef07135d92",
+    "date": "2026-10-14T07:51:01+03:00",
+    "subject": "Sprint 8 QA: debug-only local approval card (DEBUG_APPROVAL) + approval/call haptic screenshots",
+    "score": 46,
+    "is_merge": false,
+    "lines": 26
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "23535eccba",
+    "date": "2026-10-14T07:57:45+03:00",
+    "subject": "Setup prompt: in-app guide for non-technical Hermes self-hosting",
+    "score": 56,
+    "is_merge": false,
+    "lines": 401
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "182c7ffeca",
+    "date": "2026-10-14T08:07:39+03:00",
+    "subject": "New session: open chat immediately, drop upfront title prompt",
+    "score": 51,
+    "is_merge": false,
+    "lines": 102
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "186945e9d5",
+    "date": "2026-10-14T08:08:59+03:00",
+    "subject": "Setup prompt: drop H1, fix 'already served by' error text; QA screenshots + report",
+    "score": 52,
+    "is_merge": false,
+    "lines": 150
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "8893531d3b",
+    "date": "2026-10-14T08:11:40+03:00",
+    "subject": "Release: enable R8 minify + resource shrink, add kotlinx.serialization/OkHttp keep rules",
+    "score": 82,
+    "is_merge": false,
+    "lines": 34
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "60362b9065",
+    "date": "2026-10-14T20:59:46+03:00",
+    "subject": "Talk Mode: voice-first screen on answered call + switch to chat; TTS picks best-quality voice for locale",
+    "score": 57,
+    "is_merge": false,
+    "lines": 520
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "7ca4f836a9",
+    "date": "2026-10-16T12:29:06+03:00",
+    "subject": "Sprint 11: Gate 1 root cause + Gate 4 Insights (A2/A6/A7), approval notification actions",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1491
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "bc25a76383",
+    "date": "2026-10-16T19:22:31+03:00",
+    "subject": "docs(qa): Sprint 11 Gate 2 + B4 real-device-emulator evidence (srq-4a39ae331c6e, srq-186570a78670)",
+    "score": 30,
+    "is_merge": false,
+    "lines": 64
+  },
+  {
+    "repo": "sesver",
+    "hash": "2cd08628df",
+    "date": "2026-10-17T11:18:33+03:00",
+    "subject": "Initial commit",
+    "score": 53,
+    "is_merge": false,
+    "lines": 201
+  },
+  {
+    "repo": "sesver",
+    "hash": "5c3f010cc9",
+    "date": "2026-10-17T11:44:24+03:00",
+    "subject": "feat: add local Turkish VoxCPM2 speech and cloning UI",
+    "score": 90,
+    "is_merge": false,
+    "lines": 353
+  },
+  {
+    "repo": "sesver",
+    "hash": "d7b08675ff",
+    "date": "2026-10-17T17:43:43+03:00",
+    "subject": "License: switch to PolyForm Noncommercial (no resale, AS-IS); add one-click launcher scripts",
+    "score": 56,
+    "is_merge": false,
+    "lines": 414
+  },
+  {
+    "repo": "sesver",
+    "hash": "6d1fc4e92f",
+    "date": "2026-10-17T17:56:22+03:00",
+    "subject": "Windows: Inno Setup installer wizard (untested on Mac, needs Windows compile+test)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 124
+  },
+  {
+    "repo": "sesver",
+    "hash": "8b88131c3f",
+    "date": "2026-10-17T17:57:22+03:00",
+    "subject": "Rename project: SesKlon -> SesVer",
+    "score": 49,
+    "is_merge": false,
+    "lines": 60
+  },
+  {
+    "repo": "sesver",
+    "hash": "dc9370f6ff",
+    "date": "2026-10-17T19:02:09+03:00",
+    "subject": "Arayüz yenilendi: duygu/ton seçici, net indirme butonu, Dribbble tasarımı, minimal bağımlılık kurulumu",
+    "score": 55,
+    "is_merge": false,
+    "lines": 276
+  },
+  {
+    "repo": "sesver",
+    "hash": "faa9b378b9",
+    "date": "2026-10-17T19:03:48+03:00",
+    "subject": "Durum mesajı: gerçek bekleme süresini dürüst göster, kapatma uyarısı ekle",
+    "score": 44,
+    "is_merge": false,
+    "lines": 12
+  },
+  {
+    "repo": "sesver",
+    "hash": "78603df8cf",
+    "date": "2026-10-17T19:19:54+03:00",
+    "subject": "Klonlamada gerçek devam kipi: referans metni + otomatik yazıya dökme (Whisper)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 121
+  },
+  {
+    "repo": "sesver",
+    "hash": "fa8a8333bc",
+    "date": "2026-10-17T19:47:22+03:00",
+    "subject": "Arayüz Claude Opus 5.5 ile sıfırdan yeniden tasarlandı",
+    "score": 57,
+    "is_merge": false,
+    "lines": 640
+  },
+  {
+    "repo": "sesver",
+    "hash": "c5b8bf4a16",
+    "date": "2026-10-17T21:21:46+03:00",
+    "subject": "UI'dan M1'e özel referans kaldırıldı, donanım-bağımsız ifade kullanıldı",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "sesver",
+    "hash": "a5cd502c2e",
+    "date": "2026-10-17T21:45:28+03:00",
+    "subject": "İlerleme animasyonu: tahmini çubuk eklendi, ham tqdm metni temizlendi",
+    "score": 49,
+    "is_merge": false,
+    "lines": 63
+  },
+  {
+    "repo": "sesver",
+    "hash": "0b9fded0d0",
+    "date": "2026-10-17T23:37:20+03:00",
+    "subject": "Ses Kütüphanesi + Seçimlerle Ses Tasarımcısı (WebDev/claude-opus-5-5 ile uygulandı)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2656
+  },
+  {
+    "repo": "sesver",
+    "hash": "b8e1fba981",
+    "date": "2026-10-17T23:55:10+03:00",
+    "subject": "Kalan kabul testleri tamamlandı: 3, 4, seed-tekrarlanabilirlik (WebDev ile)",
+    "score": 51,
+    "is_merge": false,
+    "lines": 86
+  },
+  {
+    "repo": "sesver",
+    "hash": "057ab96b28",
+    "date": "2026-10-18T09:37:01+03:00",
+    "subject": "HamaratLabs şemsiye marka imzası: üst başlıkta 'by HamaratLabs', altbilgi ve README satırı (WebDev)",
+    "score": 49,
+    "is_merge": false,
+    "lines": 53
+  },
+  {
+    "repo": "sesver",
+    "hash": "15c6c0bfb0",
+    "date": "2026-10-18T10:05:13+03:00",
+    "subject": "Açılış animasyonu: noktalı arka plan merkezden dışa belirip yerine oturur (WebDev)",
+    "score": 47,
+    "is_merge": false,
+    "lines": 29
+  },
+  {
+    "repo": "hamaratlabs-logo-lab",
+    "hash": "8dcebe1493",
+    "date": "2026-10-18T10:48:34+03:00",
+    "subject": "Logo Lab: Vite+React+Tailwind iskeleti, TechText (React Bits) HamaratLabs wordmark, Sora",
+    "score": 60,
+    "is_merge": false,
+    "lines": 4021
+  },
+  {
+    "repo": "hamaratlabs-logo-lab",
+    "hash": "98eb1ae2aa",
+    "date": "2026-10-18T11:02:26+03:00",
+    "subject": "Logo Lab: ImageArtist konsept-1/2/3 statik slotları (lockup + sembol + 120x24 imza, koyu/açık zemin)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 4285
+  },
+  {
+    "repo": "sesver-elevenlabs",
+    "hash": "a193eb3015",
+    "date": "2026-10-18T11:21:51+03:00",
+    "subject": "ElevenLabs altyapısı: motor soyutlaması, VoxCPM2 ince sarmalayıcı, ElevenLabs adaptörü (kota koruyucu, 429 backoff, önbellek, izin, anahtar maskeleme), Türkçe normalizer, SESVER_ENGINE seçimi ve mock testler — arayüz yok (WebDev)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1623
+  },
+  {
+    "repo": "sesver-elevenlabs",
+    "hash": "60d540fad9",
+    "date": "2026-10-18T11:27:20+03:00",
+    "subject": "ElevenLabs: resmî dokümana göre model/hata eşlemesi düzeltildi (En İyi=eleven_v3, v4 Faz 2'de), Faz 2 duman testi betiği ve PLAN-ELEVENLABS.md (WebDev)",
+    "score": 57,
+    "is_merge": false,
+    "lines": 508
+  },
+  {
+    "repo": "hamaratlabs-logo-lab",
+    "hash": "e259cef233",
+    "date": "2026-10-18T11:32:35+03:00",
+    "subject": "Logo Lab: Konsept-4 Lime Labs slotu (hamaratlabs-brand-kit-v1; logo + ikon, imza yok)",
+    "score": 50,
+    "is_merge": false,
+    "lines": 66
+  },
+  {
+    "repo": "sesver-elevenlabs",
+    "hash": "240dcef0b6",
+    "date": "2026-10-18T11:57:57+03:00",
+    "subject": "EMA Lightning (Hızlı Mod) altyapısı: yerel Türkçe motor adaptörü, ema_status/ema_install/ema_uninstall (ilerleme, iptal, SHA-256 doğrulama, yarım dosya ve paket geri alma), kelime zamanlarından SRT, SESVER_ENGINE=ema ve mock testler — arayüz yok, kurulum çalıştırılmadı (WebDev)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1571
+  },
+  {
+    "repo": "hamaratlabs-logo-lab",
+    "hash": "3ac7acc28c",
+    "date": "2026-10-18T11:58:08+03:00",
+    "subject": "TechText: görünmez kartta ayar değişince tek kare senkron çiz (mobil açık zeminde eski bitmap kalması düzeltildi)",
+    "score": 47,
+    "is_merge": false,
+    "lines": 35
+  },
+  {
+    "repo": "kitabe",
+    "hash": "3e12537365",
+    "date": "2026-10-18T11:59:49+03:00",
+    "subject": "Kitabe Flutter MVP: 5 ekran, 2 yapı/3 kitabe kaydı (kaynaklı), testler ve gerçek emülatör kanıtı (gpt-6-astra/MobileDev)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 6234
+  },
+  {
+    "repo": "sesver-elevenlabs",
+    "hash": "8148b0a69d",
+    "date": "2026-10-18T12:01:42+03:00",
+    "subject": "Motorlar planı (PLAN-MOTORLAR.md): VoxCPM2/ElevenLabs/EMA karşılaştırması, kurulum yeri gerekçesi, '⚡ Hızlı Mod' sekmesinin yalnız metin tasarımı ve ad çakışması önerisi; EMA: seed belirlenimci bayrağı, nötr 'ema' çıktı adı, --only-binary kurulum (WebDev)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 372
+  },
+  {
+    "repo": "sesver",
+    "hash": "6d0c60995a",
+    "date": "2026-10-18T12:02:20+03:00",
+    "subject": "Ses tasarımı: örnek süresi varsayılanı 14 sn, alt sınır 10 sn; kısa örnek (<8 sn) ve Nefesli/Pürüzlü doku için engellemeyen uyarı (WebDev)",
+    "score": 50,
+    "is_merge": false,
+    "lines": 69
+  },
+  {
+    "repo": "sesver-elevenlabs",
+    "hash": "05a50cbdfb",
+    "date": "2026-10-18T12:38:42+03:00",
+    "subject": "EMA Faz 2: gerçek kurulum (ema_install, 5,1 sn, 35,7 MB, SHA doğrulamalı) ve ölçüm — soğuk başlatma 1,9 sn/291 MB, ~9x gerçek zaman, sayılar WER 0, seed süreçler arası birebir, ECAPA ≥0,90, hız ±%2,5, SRT hizası medyan 70 ms; FAZ2-EMA-RAPOR.md ve ölçüm betikleri; ağırlık/ses dosyaları gitignore, arayüz yok (WebDev)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 5221
+  },
+  {
+    "repo": "sesver",
+    "hash": "10072c06fb",
+    "date": "2026-10-18T14:14:11+03:00",
+    "subject": "baslat.bat sağlamlaştırma: py -3.11 → py → python sırasıyla Python arama, her kurulum adımında errorlevel kontrolü + pause, blok içi ')' sözdizimi hatası giderildi, açılış satırı; .gitattributes ile *.bat CRLF; README'ye py yoksa python notu (WebDev)",
+    "score": 50,
+    "is_merge": false,
+    "lines": 85
+  },
+  {
+    "repo": "sesver",
+    "hash": "950482c57b",
+    "date": "2026-10-18T14:52:33+03:00",
+    "subject": "Başlatıcılar yeniden adlandırıldı: baslat.bat → WINDOWS_BASLAT.bat, baslat.command → MACOS_BASLAT.command; macOS başlatıcısı git'te 100755 (çalıştırılabilir), yarım kalan kurulum kaldığı yerden devam eder (.venv/sesver_kurulum_tamam.txt) ve hata adımını gösterir; app.py portu GRADIO_SERVER_PORT ile değiştirilebilir (varsayılan 7860); README, requirements, windows/ referansları güncellendi (WebDev)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 121
+  },
+  {
+    "repo": "sesver",
+    "hash": "ab8cca4c89",
+    "date": "2026-10-18T17:56:57+03:00",
+    "subject": "README yeniden yapılandırıldı: en üstte teknik olmayan kullanıcı için Hızlı Kurulum (5 adım + gerçek uygulama ekran görüntüsü), İçindekiler, Sorun giderme; elle kurulum/donanım/test/gizlilik 'Teknik Detaylar' altında en sona taşındı. Yeni AI_KURULUM.md: yapay zeka asistanına yapıştırılacak bağımsız, adım adım Windows/Mac kurulum rehberi ve bilinen hatalar listesi. docs/screenshots/kurulum-basarili.png eklendi (WebDev)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 381
+  },
+  {
+    "repo": "sesver",
+    "hash": "b8522fd902",
+    "date": "2026-10-18T17:58:31+03:00",
+    "subject": "README ve AI_KURULUM.md: AI kurulum metnini repoyu indirmeden GitHub dosya sayfasındaki kopyala simgesiyle alma talimatı ve bağlantısı eklendi (depo özel, giriş gerekir hatırlatması) (WebDev)",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "sesver-docs",
+    "hash": "e71c3d2dd6",
+    "date": "2026-10-18T18:13:59+03:00",
+    "subject": "KURULUM.md: yapay zekâ asistanına yapıştırılacak adım adım kurulum rehberi (Windows/macOS/Linux, sorun giderme, kullanım, kaldırma); README başına KURULUM.md satırı (WebDev)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 382
+  },
+  {
+    "repo": "sesver",
+    "hash": "fc9855b9ea",
+    "date": "2026-10-18T19:00:53+03:00",
+    "subject": "README ve AI_KURULUM.md: depo artık herkese açık (public); 'depo özel, giriş yapman gerekir' ifadeleri kaldırıldı, 404 hata maddesinin sebebi güncellendi (WebDev)",
+    "score": 45,
+    "is_merge": false,
+    "lines": 16
+  },
+  {
+    "repo": "sesver",
+    "hash": "77016a5888",
+    "date": "2026-10-18T19:11:42+03:00",
+    "subject": "README yeniden yapılandırıldı: en başta Windows / Mac / Yapay Zeka Destekli Kurulum blokları ve ortak 'Kurulum başarılı mı?' ekran görüntüsü; Kullanım yerine teknik olmayan Özellikler bölümü; Sorun giderme ve Lisans korundu; model, parametre ve ayrıntılı özellik bilgileri 'Teknik Detaylar (ileri seviye)' altına taşındı, İçindekiler tek satıra indirildi (WebDev)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 125
+  },
+  {
+    "repo": "sesver",
+    "hash": "df684dddda",
+    "date": "2026-10-18T19:19:00+03:00",
+    "subject": "Adaylar durum kartı: Gradio ilerleme göstergesi (zamanlayıcı/spinner/metin) kartın içinde kendi satırında; kenar çizgisine binme ve ilerleme satırına binen nokta giderildi (WebDev)",
+    "score": 45,
+    "is_merge": false,
+    "lines": 18
+  },
+  {
+    "repo": "sesver",
+    "hash": "6b9c9cda7e",
+    "date": "2026-10-18T19:41:36+03:00",
+    "subject": "WINDOWS_BASLAT.bat: Python artik otomatik indiriliyor (python-build-standalone 3.11, python-embed klasoru, SHA256 dogrulamali); curl/PowerShell indirme yedegi, eski .venv ve sistem py/python yedek yollari korundu; parantezsiz goto akisi (WebDev)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 203
+  },
+  {
+    "repo": "sesver",
+    "hash": "79ba6b7c54",
+    "date": "2026-10-18T19:44:09+03:00",
+    "subject": "MACOS_BASLAT.command: Python artık ayrıca kurulmuyor; ilk çalıştırmada python-build-standalone (CPython 3.11, arm64/x86_64) python-embed/ içine indirilir (latest-release.json + SHA256SUMS, SHA-256 doğrulamalı, sabit 3.11.17 yedeği), paketler doğrudan oraya kurulur; indirme başarısızsa eski sistem python + .venv yöntemine geri döner; tamamlanmış eski .venv kurulumları korunur (WebDev)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 162
+  },
+  {
+    "repo": "sesver",
+    "hash": "f81f424c3a",
+    "date": "2026-10-18T19:57:17+03:00",
+    "subject": "README + AI_KURULUM: Python kurulum adımı kaldırıldı (başlatıcılar Python'u kendisi indiriyor); AI_KURULUM adımları W1-W5 / M1-M5 olarak yeniden numaralandı; Python hatası maddeleri yalnız otomatik indirme başarısızlığı için python.org'a yönlendiriyor; başlatıcı açıklaması ve NVIDIA pip yolu python-embed'e göre güncellendi (WebDev)",
+    "score": 50,
+    "is_merge": false,
+    "lines": 69
+  },
+  {
+    "repo": "sesver",
+    "hash": "c74af0c069",
+    "date": "2026-10-18T20:14:32+03:00",
+    "subject": "desktop.py: arayüz tarayıcı sekmesi yerine pywebview ile yerel 'SesVer' penceresinde açılıyor (Gradio arka plan thread'inde, HTTP 200 polling, pencere kapanınca süreç biter); pywebview/WebView2 yoksa tarayıcıya geri dönüş; requirements'a pywebview + darwin işaretli pyobjc; başlatıcılar son satırda desktop.py çalıştırıyor, python app.py aynen çalışıyor (WebDev)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 195
+  },
+  {
+    "repo": "sesver",
+    "hash": "266940014e",
+    "date": "2026-10-18T20:19:14+03:00",
+    "subject": "Denetim düzeltmeleri (O1,O2,O3,O4,O5,D4 kısmi): .gitignore'a python-embed/, python-embed.indiriliyor/, pbs_*, .webdev-task-*.md; kullanılmayan windows/ Inno Setup taslağı kaldırıldı; 'açık kaynak' yerine 'kaynağı görünür, ticari olmayan kullanımda ücretsiz', telif sahibi HamaratLabs, ticari izin için GitHub issue yönlendirmesi; README örnek süre 10–20 sn (varsayılan 14); macOS başlatıcıya PYTHONNOUSERSITE/PYTHONHOME/PYTHONPATH izolasyonu; başlatıcı son mesajı pencere davranışına göre güncellendi (Windows GRADIO_SERVER_PORT'u da dikkate alıyor); README'de kişisel ad kaldırıldı (WebDev)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 156
+  },
+  {
+    "repo": "sesver",
+    "hash": "f42f70f4ac",
+    "date": "2026-10-18T20:41:40+03:00",
+    "subject": "Windows: SesVer konsolsuz pythonw.exe ile açılıyor, kurulum penceresi pencere açılınca kendiliğinden kapanıyor; desktop.py tüm çıktıyı sesver_log.txt'ye de yazıyor (Tee), SESVER_DURUM_DOSYASI ile başlatıcıya acildi/pencere_yok/hata bildiriyor; pywebview yoksa veya pythonw.exe yoksa eski konsollu yönteme dönülüyor; hata sayfası log yolunu gösteriyor; .gitignore'a sesver_log.txt ve sesver_durum.tmp*; README/AI_KURULUM notu (WebDev)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 188
+  },
+  {
+    "repo": "sesver",
+    "hash": "2c64a95f3f",
+    "date": "2026-10-18T20:43:38+03:00",
+    "subject": "README: Windows 5. adım 'pencere açılmazsa tarayıcıda deneyin' yedek notuna çevrildi; kapatma talimatı Windows (SesVer penceresini kapat) / Mac (Terminal'de Ctrl+C) olarak ayrıldı (WebDev)",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "sesver",
+    "hash": "32090ddf2b",
+    "date": "2026-10-18T20:44:42+03:00",
+    "subject": "README: kalan 3 eski satır güncellendi — sonraki kullanımda pencere otomatik açılır; ilk üretim ilerlemesi SesVer durum mesajından izlenir (Windows kurulum penceresi kapanmış olabilir); 7860 port sorununda kapatma Windows/Mac ayrımı (WebDev)",
+    "score": 42,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "sesver",
+    "hash": "8761c05d5b",
+    "date": "2026-10-18T21:40:06+03:00",
+    "subject": "macOS: SesVer.app paketi (Terminal'siz, Dock'a sabitlenebilir; Platypus tarzı bash sarmalayıcı, Python dondurulmaz); kurulum/başlatma mantığı macos_ortak.sh'a taşındı, MACOS_BASLAT.command ve SesVer.app aynı dosyayı kullanıyor; .app modunda hatalar osascript display dialog ile gösteriliyor (WebDev)",
+    "score": 57,
+    "is_merge": false,
+    "lines": 511
+  },
+  {
+    "repo": "sesver",
+    "hash": "89f6a6c814",
+    "date": "2026-10-18T21:46:59+03:00",
+    "subject": "macOS: SesVer.app penceresi LaunchServices/Dock'ta 'Python' yerine SesVer (com.hamaratlabs.sesver) olarak kaydoluyor — python CFProcessPath=<paket ikilisi> ile başlatılıyor; izole klonda lsappinfo ile doğrulandı (WebDev)",
+    "score": 42,
+    "is_merge": false,
+    "lines": 7
+  },
+  {
+    "repo": "sesver",
+    "hash": "32c9954036",
+    "date": "2026-10-19T00:26:46+03:00",
+    "subject": "Windows Akıllı Uygulama Denetimi (SAC): NumPy 2.2.6 sabitlendi; scipy 1.16.3'e çekildi (1.15.3 macOS 27'de import edilemiyordu; Python 3.10 yedek yolunda marker ile 1.15.3); hata_rehberi.py eklendi ve desktop.py (excepthook, pencere hata ekranı, tarayıcı yedeği) ile macos_ortak.sh'a bağlandı; AI_KURULUM.md 13. madde (DLL engeli adım adım çözüm)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 143
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "e5e3a96bb6",
+    "date": "2026-10-19T01:20:42+03:00",
+    "subject": "hamaratlabs.com ilk sürüm",
+    "score": 60,
+    "is_merge": false,
+    "lines": 18220
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "591c6a6054",
+    "date": "2026-10-19T01:35:14+03:00",
+    "subject": "Yayını yeniden tetikle",
+    "score": 35,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "9810b50a4b",
+    "date": "2026-10-19T01:42:27+03:00",
+    "subject": "Pages açıldı, yayını başlat",
+    "score": 35,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "sesver",
+    "hash": "8174c07cfe",
+    "date": "2026-10-19T01:55:45+03:00",
+    "subject": "Gradio 'Paylaş' butonu kapatıldı (gizlilik + hata düzeltmesi)",
+    "score": 46,
+    "is_merge": false,
+    "lines": 23
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "7d54ef9d1b",
+    "date": "2026-10-19T01:56:40+03:00",
+    "subject": "Uygulama sayfalarına Giscus yorumlarını bağla",
+    "score": 42,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "c085c504cb",
+    "date": "2026-10-19T02:03:31+03:00",
+    "subject": "Alan adı gelene kadar github.io alt klasöründe çalışsın",
+    "score": 47,
+    "is_merge": false,
+    "lines": 31
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "9326724b0d",
+    "date": "2026-10-19T02:06:44+03:00",
+    "subject": "Yorum alanına site temasını uygula",
+    "score": 52,
+    "is_merge": false,
+    "lines": 127
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "38162390fc",
+    "date": "2026-10-19T02:17:28+03:00",
+    "subject": "SesVer açık betada: GitHub bağlantısı",
+    "score": 47,
+    "is_merge": false,
+    "lines": 29
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "d0d1e50e32",
+    "date": "2026-10-19T02:20:45+03:00",
+    "subject": "Paylaşıyorum: Instagram reels gömüldü",
+    "score": 50,
+    "is_merge": false,
+    "lines": 75
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "eae7c79619",
+    "date": "2026-10-19T02:23:50+03:00",
+    "subject": "Instagram gömmelerini site diline uydur: yalnız video, kendi çerçeve ve alt satır",
+    "score": 51,
+    "is_merge": false,
+    "lines": 102
+  },
+  {
+    "repo": "sesver",
+    "hash": "aa3f67316b",
+    "date": "2026-10-19T02:49:29+03:00",
+    "subject": "SesVer uygulama ikonu: 4 konsept üretildi, icns/ico'ya dönüştürüldü, Konsept-3 (konuşma balonu+ses dalgası) Mac bundle ve Windows installer'a uygulandı",
+    "score": 58,
+    "is_merge": false,
+    "lines": 735
+  },
+  {
+    "repo": "sesver",
+    "hash": "d94d96bc10",
+    "date": "2026-10-19T02:56:13+03:00",
+    "subject": "Windows installer CI: Inno Setup derleme + sessiz kurulum/kaldırma duman testi (windows-latest, choco innosetup, artifact). windows/SesVer.iss aa3f673'te; 4 CI koşusu yeşil (WebDev)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 150
+  },
+  {
+    "repo": "sesver",
+    "hash": "d57042fd1a",
+    "date": "2026-10-19T02:58:32+03:00",
+    "subject": "Windows installer: ilk kurulum sonrası pythonw'ye çevrilen kısayollarda SesVer.ico korunuyor (CI 39178648121 yeşil) (WebDev)",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "titimer",
+    "hash": "0a18db7e8c",
+    "date": "2026-10-19T03:06:40+03:00",
+    "subject": "feat(reports): haftalık başlık dökümü yardımcıları, 6 test ve emülatör QA görüntüleri",
+    "score": 89,
+    "is_merge": false,
+    "lines": 207
+  },
+  {
+    "repo": "titimer",
+    "hash": "f894643d85",
+    "date": "2026-10-19T03:06:40+03:00",
+    "subject": "restore: yerel arşivden Sayaç video-dili migrasyonunu geri yükle",
+    "score": 60,
+    "is_merge": false,
+    "lines": 4865
+  },
+  {
+    "repo": "kitabe",
+    "hash": "d8cd20ba79",
+    "date": "2026-10-19T03:21:28+03:00",
+    "subject": "Kitabe: 3->7 kaynaklı kayıt (Taymaz 2022 tezi), 2 detay-ekranı mockup alternatifi (A-Levha/B-Satır) emülatör kanıtlı",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3357
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "9a39c98800",
+    "date": "2026-10-19T03:28:44+03:00",
+    "subject": "Kur tazeleme hatası düzeltildi: alarm/önbellek fazı ayrıydı, gerçek tazeleme ~18 saate kayıyordu",
+    "score": 50,
+    "is_merge": false,
+    "lines": 71
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "ccc9119b83",
+    "date": "2026-10-19T12:21:42+03:00",
+    "subject": "hamaratlabs.com bağlandı: BASE_PATH kökte yayın için boşaltıldı",
+    "score": 41,
+    "is_merge": false,
+    "lines": 5
+  },
+  {
+    "repo": "sesver-logo-wt",
+    "hash": "f0d4a9c81c",
+    "date": "2026-10-19T12:23:36+03:00",
+    "subject": "Marka: lansman filmindeki 5 renkli ses çubuğu logosuna geçiş",
+    "score": 52,
+    "is_merge": false,
+    "lines": 120
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "2c52f1247a",
+    "date": "2026-10-19T13:15:40+03:00",
+    "subject": "tiTimer'a kendi tanıtım sayfası: kağıt/teal/mercan dili, canlı telefon taslağı",
+    "score": 57,
+    "is_merge": false,
+    "lines": 546
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "5cdcaf6e3b",
+    "date": "2026-10-19T13:20:19+03:00",
+    "subject": "WingWire: kendi tasarım diliyle özel tanıtım sayfası (amber/cyan, Jakarta+Mono, canlı onay önizlemesi)",
+    "score": 57,
+    "is_merge": false,
+    "lines": 618
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "ee4ae7f034",
+    "date": "2026-10-19T13:40:39+03:00",
+    "subject": "tiTimer sayfası gerçek Figma diliyle yeniden: teal halka sayaçlar, siyah odak modu, doğrulanmış token ve fontlar",
+    "score": 58,
+    "is_merge": false,
+    "lines": 767
+  },
+  {
+    "repo": "wingwire-ios",
+    "hash": "1659c6bb67",
+    "date": "2026-10-19T14:40:56+03:00",
+    "subject": "feat(ios): initial native SwiftUI WingWire client (Connect, Session/Chat with instant PendingOpen, Agents list)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 7753
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "c67bfc27db",
+    "date": "2026-10-19T14:43:24+03:00",
+    "subject": "ShareSling: SlingButton üstüne sapan tarzı paylaş düğmesi (Çek → ikon halkası → nişan al → platformda paylaş)",
+    "score": 58,
+    "is_merge": false,
+    "lines": 652
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "d515542b03",
+    "date": "2026-10-19T14:43:25+03:00",
+    "subject": "DodgeField: bitmemiş ürünler için kaçan indir butonu (henüz değil)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 365
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "21a2ac706f",
+    "date": "2026-10-19T14:46:19+03:00",
+    "subject": "LetterGlitch arkaplanı: Canvas 2D karakter ızgarası (izole)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 449
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "e71b362259",
+    "date": "2026-10-19T14:47:20+03:00",
+    "subject": "LetterGlitch: izole demo sahnesi ve rapor notu",
+    "score": 48,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "8c78a24da1",
+    "date": "2026-10-19T14:49:29+03:00",
+    "subject": "Animasyonlar: Lanyard (açılış), Strands bağlandı, CrystalizedBall, FadeContent, DriftWall",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1180
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "5f6145aaa6",
+    "date": "2026-10-19T14:49:33+03:00",
+    "subject": "Fikir panosu v2+v3: sadeleştirme, gerçek sürükle-bırak, buruştur-at, çöp kutusu",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2613
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "6d3aaf4592",
+    "date": "2026-10-19T14:49:33+03:00",
+    "subject": "Geliştirme aşaması şablonu",
+    "score": 58,
+    "is_merge": false,
+    "lines": 651
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "79fe99f13d",
+    "date": "2026-10-19T14:49:34+03:00",
+    "subject": "7 uygulama ikonu: Liquid Glass + HamaratLabs marka dili",
+    "score": 56,
+    "is_merge": false,
+    "lines": 365
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "3d275fe63c",
+    "date": "2026-10-19T14:49:34+03:00",
+    "subject": "ProductRating: ziyaretçinin kendi yıldız puanı (localStorage)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 400
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "d77ec98556",
+    "date": "2026-10-19T14:49:34+03:00",
+    "subject": "PulseHeart: gerçek GitHub yıldız sayısı + yönlendirme",
+    "score": 57,
+    "is_merge": false,
+    "lines": 577
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "1156b5e4f6",
+    "date": "2026-10-19T14:49:42+03:00",
+    "subject": "Merge branch 'tasarim-asama-fikir'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "d6b273265d",
+    "date": "2026-10-19T14:49:43+03:00",
+    "subject": "Merge branch 'tasarim-asama-gelistirme'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "aba459e72b",
+    "date": "2026-10-19T14:49:44+03:00",
+    "subject": "Merge branch 'paylas-sapan'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "47057203b6",
+    "date": "2026-10-19T14:49:44+03:00",
+    "subject": "Merge branch 'kalp-begeni'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "f699cd8827",
+    "date": "2026-10-19T14:49:45+03:00",
+    "subject": "Merge branch 'glitch-arkaplan'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "b00fc42b91",
+    "date": "2026-10-19T14:49:45+03:00",
+    "subject": "Merge branch 'yildiz-puanlama'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "6ded58eb1b",
+    "date": "2026-10-19T14:50:04+03:00",
+    "subject": "Önceki turlar: ikon yeniden tasarım (round 1+2 + Kitabe düzeltme), mobil denetim+düzeltme, scroll-fix",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1813
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "0c2ae5056b",
+    "date": "2026-10-19T14:50:15+03:00",
+    "subject": "Merge branch 'liquid-glass-ikon' (AppIcon.jsx: liquid-glass versiyonu alındı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "2bab259f42",
+    "date": "2026-10-19T14:50:19+03:00",
+    "subject": "Merge branch 'tasarim-titimer'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "d6fe7436df",
+    "date": "2026-10-19T14:51:53+03:00",
+    "subject": "Merge branch 'tasarim-wingwire' (App.jsx: CUSTOM_PAGES birleştirildi, slug-tabanlı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "fcccbe24eb",
+    "date": "2026-10-19T14:52:51+03:00",
+    "subject": "Merge branch 'animasyonlar' (Lanyard hero, Strands footer, CrystalizedBall anlatıyorum, FadeContent, DriftWall)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "3fffd7ff14",
+    "date": "2026-10-19T14:57:58+03:00",
+    "subject": "Rota: aşamaya göre şablon (idea → IdeaBoardPage, dev → DevStagePage), özel sayfalar öncelikli",
+    "score": 44,
+    "is_merge": false,
+    "lines": 13
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "5e73924caa",
+    "date": "2026-10-19T14:59:58+03:00",
+    "subject": "Lanyard: uyku modu + box-shadow/transform optimizasyonu (45→14 FPS düşüşü için), FadeContent/DriftWall/CrystalizedBall ince ayar",
+    "score": 49,
+    "is_merge": false,
+    "lines": 59
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "3e2970987c",
+    "date": "2026-10-19T15:00:22+03:00",
+    "subject": "Fikir panosu v3: buruştur-at (PaperCrumple+Worker ön-hesaplama), çöp kutusu, geri al, ✕ düğmesi",
+    "score": 58,
+    "is_merge": false,
+    "lines": 768
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "d58f76f55d",
+    "date": "2026-10-19T15:01:19+03:00",
+    "subject": "AppPage: ProductRating, PulseHeart (GitHub repolu ürünler), ShareSling ve indirilemeyenler için DodgeField",
+    "score": 49,
+    "is_merge": false,
+    "lines": 49
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "94e7d9934b",
+    "date": "2026-10-19T15:02:35+03:00",
+    "subject": "TiTimer: 'Yakında' yerine kaçan DodgeField (henüz değil)",
+    "score": 44,
+    "is_merge": false,
+    "lines": 11
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "cd2aa30077",
+    "date": "2026-10-19T15:03:03+03:00",
+    "subject": "Hero zemini: LetterGlitch 'Glitch' seçeneği",
+    "score": 43,
+    "is_merge": false,
+    "lines": 9
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "dbc3416fb1",
+    "date": "2026-10-19T15:04:01+03:00",
+    "subject": "Merge branch 'main' into animasyonlar",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "fa4f354e13",
+    "date": "2026-10-19T15:04:13+03:00",
+    "subject": "Merge branch 'main' into tasarim-asama-fikir",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-logo-lab",
+    "hash": "193d592d12",
+    "date": "2026-10-19T15:08:04+03:00",
+    "subject": "Logo Lab: renk arayışı (yalnız SesVer + WingWire) — 4 strateji × koyu/açık, karşılaştırma, rapor, QA görüntüleri",
+    "score": 58,
+    "is_merge": false,
+    "lines": 792
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "4292069ff4",
+    "date": "2026-10-19T15:10:43+03:00",
+    "subject": "İkon: hamaratlabs imzası kaldırıldı, gerçek Apple continuous-corner squircle (r=26.1, macOS maskesine ölçüldü)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 151
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "20197964d2",
+    "date": "2026-10-19T15:11:24+03:00",
+    "subject": "DevStage şablonu: 'Henüz indirilemez' yerine kaçan DodgeField",
+    "score": 46,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "ef54c0e8b3",
+    "date": "2026-10-19T15:16:28+03:00",
+    "subject": "Site GitHub Pages proje yoluna hazırlandı",
+    "score": 55,
+    "is_merge": false,
+    "lines": 303
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "1a024ad004",
+    "date": "2026-10-19T15:20:36+03:00",
+    "subject": "Anlatıyorum: CrystalizedBall yerine tıklanınca ses çalan SiriOrb (CSS); footer Strands kaldırıldı",
+    "score": 56,
+    "is_merge": false,
+    "lines": 377
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "fbd5be1d8a",
+    "date": "2026-10-19T15:22:43+03:00",
+    "subject": "Fikir panosu v4: tam sayfa kağıt zemin, gerçekçi ofis çöp kutusu",
+    "score": 55,
+    "is_merge": false,
+    "lines": 335
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "0bcd60609a",
+    "date": "2026-10-19T15:23:51+03:00",
+    "subject": "Merge branch 'animasyonlar'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "d94d5626c8",
+    "date": "2026-10-19T15:23:51+03:00",
+    "subject": "Son entegrasyon: kanıt dosyaları ve rapor",
+    "score": 55,
+    "is_merge": false,
+    "lines": 280
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "c3938201f4",
+    "date": "2026-10-19T15:23:59+03:00",
+    "subject": "Merge branch 'tasarim-asama-fikir'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "5bf4404a51",
+    "date": "2026-10-19T15:23:59+03:00",
+    "subject": "Merge branch 'ikon-squircle-fix'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "87c9aa575e",
+    "date": "2026-10-19T15:37:50+03:00",
+    "subject": "Ürün sayfası: yıldız/paylaş/kalp metinlerini sadeleştir, ipuçlarını etkileşime bağla",
+    "score": 57,
+    "is_merge": false,
+    "lines": 580
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "801310f8eb",
+    "date": "2026-10-19T16:08:51+03:00",
+    "subject": "Öneriyorum sekmesi: LabWall kaldırıldı, ücretsiz/açık kaynak araç listesi (taslak)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 179
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "b8183f6dba",
+    "date": "2026-10-19T16:43:09+03:00",
+    "subject": "AppPage: ProductRating kaldırıldı; ShareSling portal tabanlı, ekran kenarında taşmıyor",
+    "score": 55,
+    "is_merge": false,
+    "lines": 322
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "71530f11ff",
+    "date": "2026-10-20T12:24:49+03:00",
+    "subject": "Gizlilik politikası sayfası ekle (/privacy) — Google OAuth onayı için",
+    "score": 50,
+    "is_merge": false,
+    "lines": 85
+  },
+  {
+    "repo": "sesver",
+    "hash": "92b869c41c",
+    "date": "2026-10-20T12:39:29+03:00",
+    "subject": "macOS: SesVer.app Finder'dan açılınca anında kapanıyordu — kök neden TCC; paket artık yerel Mach-O başlatıcıyla açılıyor (Fixer)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 351
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "43c4a7a88e",
+    "date": "2026-10-20T12:53:27+03:00",
+    "subject": "build: /privacy için prerender edilmiş statik index.html üret (gerçek HTTP 200)",
+    "score": 50,
+    "is_merge": false,
+    "lines": 80
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "18b0a917ab",
+    "date": "2026-10-20T14:24:27+03:00",
+    "subject": "Hero kartı: hamaratlabs logo kartı yerine Yusuf'un kişisel rozeti (vapur fotoğrafı, YUSUF HAMARAT / KURUCU · HL 001)",
+    "score": 42,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "f966c0cc4a",
+    "date": "2026-10-20T14:39:57+03:00",
+    "subject": "Performans: mobil Lighthouse 53→86 (yerel) — kod bölme, görsel/font optimizasyonu, Instagram/footer tembel yükleme",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1374
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "8776b75e77",
+    "date": "2026-10-20T14:50:09+03:00",
+    "subject": "Merge branch 'feature/perf-optimizasyon'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "950158ca03",
+    "date": "2026-10-20T14:55:55+03:00",
+    "subject": "Lanyard kişisel kart: arka planı kesilmiş fotoğraf + eğime tepki veren holografik pul katmanı",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1316
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "8f4979c56e",
+    "date": "2026-10-20T14:57:20+03:00",
+    "subject": "Acil düzeltme: Lanyard kart fotoğrafı taşıp YUSUF HAMARAT/KURUCU yazısını gizliyordu (height:auto → height:100%+object-fit:contain)",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "51077b311c",
+    "date": "2026-10-20T15:01:52+03:00",
+    "subject": "Kişisel kart: yükseklik 268→340 (kare değil, uzun kart hissi)",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "9230954628",
+    "date": "2026-10-20T15:02:53+03:00",
+    "subject": "Merge branch 'feature/kisisel-kart-holografik': arka plan kesimi + holografik pul efekti + daha uzun kart",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "0b17bfdcfc",
+    "date": "2026-10-20T15:18:50+03:00",
+    "subject": "QA: Tailscale test URL kurulumu raporu",
+    "score": 29,
+    "is_merge": false,
+    "lines": 61
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "874bfd32b3",
+    "date": "2026-10-20T15:21:34+03:00",
+    "subject": "Alan adı: ind.hamaratlabs.com (build.js ile tüm canonical/sitemap/robots yeniden üretildi, CNAME eklendi)",
+    "score": 48,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "7ddf013e17",
+    "date": "2026-10-20T15:22:58+03:00",
+    "subject": "Alan adı düzeltmesi: ind → ivd (Income vs Desires'a daha sadık)",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
+    "repo": "sesver",
+    "hash": "7b5b71b906",
+    "date": "2026-10-20T15:26:39+03:00",
+    "subject": "Windows installer: v* tag ile GitHub Release yayını (SesVer-Kurulum-<sürüm>.exe + sabit SesVer-Kurulum-Windows.exe, SHA256 notları), güçlendirilmiş duman testi (kısayol/Kaldır-Ekle/kısayoldan açılış), README Windows kurulumu, RAPOR.md (CI 39422295245 yeşil) (WebDev)",
+    "score": 57,
+    "is_merge": false,
+    "lines": 497
+  },
+  {
+    "repo": "sesver",
+    "hash": "d684cbb38e",
+    "date": "2026-10-20T15:38:28+03:00",
+    "subject": "Merge remote-tracking branch 'origin/ci/windows-installer-release'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "income-vs-desires",
+    "hash": "696a632b5a",
+    "date": "2026-10-20T17:16:27+03:00",
+    "subject": "Geri al: ivd.hamaratlabs.com yerine zaten çalışan hamarat52.github.io/income-vs-desires adresinde kal",
+    "score": 48,
+    "is_merge": false,
+    "lines": 37
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "3334eb4ee1",
+    "date": "2026-10-20T17:23:05+03:00",
+    "subject": "WIP: beta/tester build varyantı (gece görevi) — güvenceye alındı, henüz WingWire'a çevrilmedi",
+    "score": 55,
+    "is_merge": false,
+    "lines": 290
+  },
+  {
+    "repo": "wingwire-ios",
+    "hash": "f384c606a0",
+    "date": "2026-10-20T17:59:28+03:00",
+    "subject": "feat(ios): Insights, Cron, Gallery, Talk Mode parity + simulator QA",
+    "score": 95,
+    "is_merge": false,
+    "lines": 9549
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "bc4fbf5639",
+    "date": "2026-10-20T22:01:24+03:00",
+    "subject": "Ana sayfa 'Sesi oynat' küresi: SiriOrb yerine kırmızı CrystalizedBall (tıkla-çal davranışı korunarak)",
+    "score": 51,
+    "is_merge": false,
+    "lines": 113
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "31fcafebf3",
+    "date": "2026-10-20T22:05:38+03:00",
+    "subject": "Ana sayfa: 'Lifler' zemin animasyonu kaldırıldı; Öneriyorum: dekoratif DriftWall kart duvarı kaldırıldı (işlevsel kart ızgarası aynen duruyor)",
+    "score": 46,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
+    "repo": "wingwire-web",
+    "hash": "bdbbebcdd4",
+    "date": "2026-10-20T22:21:27+03:00",
+    "subject": "WingWire bağımsız landing page: kendi navbar/footer, mavi marka paleti, CrystalizedBall, GitHub Pages yayını (wingwire.hamaratlabs.com)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 4368
+  },
+  {
+    "repo": "wingwire-web",
+    "hash": "f0c8d12aa2",
+    "date": "2026-10-20T22:29:56+03:00",
+    "subject": "QA: wingwire bağımsız site raporu",
+    "score": 28,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "c69b70ec07",
+    "date": "2026-10-20T23:27:27+03:00",
+    "subject": "IdeaBoard: kâğıt zemin + künye kartı + ideation notları",
+    "score": 57,
+    "is_merge": false,
+    "lines": 536
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "2c98543ff6",
+    "date": "2026-10-20T23:34:26+03:00",
+    "subject": "WingWire 3 katman: /uretiyorum/wingwire ortak AppPage + mavi 'Ürünü ziyaret et'; /wingwire kendi sitesi (wingwire-web'den taşındı, kendi navbar/footer, kırmızı CrystalizedBall); eski WingWirePage kaldırıldı",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1575
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "ca5fa325fa",
+    "date": "2026-10-21T02:30:57+03:00",
+    "subject": "Merge branch 'feature/ideaboard-kagit'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "f0b45e24b1",
+    "date": "2026-10-21T07:03:06+03:00",
+    "subject": "Income vs Desires: AppPage'e 'Ürünü ziyaret et' butonu eklendi (kendi GitHub Pages sitesine gidiyor)",
+    "score": 42,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "fdf9a0d133",
+    "date": "2026-10-21T07:06:02+03:00",
+    "subject": "tiTimer: özel sayfa yerine standart IdeaBoard (fikir panosu) şablonu kullanılıyor",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "cdbb81c172",
+    "date": "2026-10-21T07:08:43+03:00",
+    "subject": "Income vs Desires: 'Ürünü ziyaret et' butonu hedef sitenin gerçek kimliğine (kiremit kırmızısı) uyarlandı",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "2099cadede",
+    "date": "2026-10-21T07:43:34+03:00",
+    "subject": "zBurada önizleme: public/zburada-onizleme altında listelenmeyen statik yayın + robots.txt Disallow",
+    "score": 60,
+    "is_merge": false,
+    "lines": 5302
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "edc5162301",
+    "date": "2026-10-21T16:09:43+03:00",
+    "subject": "QA arşivi: wingwire bağımsız site raporu (feature/wingwire-yonlendirme dalından kurtarıldı)",
+    "score": 48,
+    "is_merge": false,
+    "lines": 45
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "3cc386e98b",
+    "date": "2026-10-21T17:14:49+03:00",
+    "subject": "perf(ideaboard): kâğıt kabartma SVG filtresini WebP'ye pişir",
+    "score": 59,
+    "is_merge": false,
+    "lines": 13
+  }
+]
