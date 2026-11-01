@@ -32,7 +32,7 @@ export const FEATURED = [
     name: 'SesVer',
     stage: 'beta',
     lead: 'Ücretsiz, yerel ve açık kaynak Türkçe ses üretimi ve klonlama. Yazdığını kendi bilgisayarında sese çevirir.',
-    points: ['Hazır Türkçe sesler', 'Tarif ederek yeni ses tasarla', 'Kendi sesini klonla', 'Bilgisayarında çalışır, buluta gönderilmez', 'Ücretsiz ve açık kaynak'],
+    points: ['Hazır Türkçe sesler', 'Tarif ederek yeni ses tasarla', 'Kendi sesini klonla', 'Bilgisayarında çalışır, buluta gönderilmez', 'NVIDIA ve AMD ekran kartıyla hızlanır', 'Ücretsiz ve açık kaynak'],
     platform: 'macOS · WINDOWS',
     download: 'https://github.com/hamarat52/sesver',
     downloadLabel: "GitHub'dan indir",
@@ -72,8 +72,14 @@ export const APPS = [
     stage: 'beta',
     short: 'Fiyatı çalışma saatine çevir',
     lead: 'Gezinirken gördüğün fiyatları, maaşına göre kaç saat çalışman gerektiğine çevirir.',
-    points: ['"500 TL" yerine "1,8 saat" yazar', 'Rakama tıklayınca orijinal fiyat geri gelir', 'Saatlik ücretini kendin girersin'],
+    points: ['"500 TL" yerine "1,8 saat" yazar', 'Rakama tıklayınca orijinal fiyat geri gelir', 'Saatlik ücretini kendin girersin', 'Giderleri TL, dolar, euro veya sterlin olarak gir', 'İstersen fiyatı, giderlerden sonra kalan maaşına göre hesaplar'],
     platform: 'CHROME · SAFARI · WEB',
+    // Chrome Web Store taslağı için çekilen gerçek ekranlar (income-vs-desires repo, store-assets/).
+    screenshots: [
+      { src: asset('/ivd-screens/trendyol.webp'), alt: "Trendyol'da ayakkabı fiyatları gün olarak: 2 gün, 2,6 gün" },
+      { src: asset('/ivd-screens/giderler.webp'), alt: 'Giderler sayfası: kira ayın 12 gününü alıyor, halka grafik' },
+      { src: asset('/ivd-screens/ayarlar.webp'), alt: 'Eklenti paneli: maaş, para birimi, çalışma düzeni ve gösterim seçenekleri' }
+    ],
     download: 'https://github.com/hamarat52/income-vs-desires',
     downloadLabel: "GitHub'dan indir",
     // Ürünün kendi sitesi (GitHub Pages). AppPage bu alan varsa ek bir CTA gösterir.
@@ -141,8 +147,12 @@ export const LOG = [
     text: "Google Play'de kapalı test başladı, iOS sürümü TestFlight'ta. Gizlilik ve destek sayfaları yayında."
   },
   {
-    tag: 'SESVER',
-    text: 'Mağaza paketi hazırlanıyor: Türkçe ve İngilizce 6 tanıtım videosu, Mac ve Microsoft Store ekranları hazır.'
+    tag: 'EKİM 2026 · SESVER',
+    text: 'SesVer 1.1.0 yayında: Windows kurulum dosyası ve NVIDIA/AMD ekran kartı hızlandırma. Mağaza paketi için 6 tanıtım videosu hazır.'
+  },
+  {
+    tag: 'EKİM 2026 · INCOME VS DESIRES',
+    text: 'Giderler artık TL, dolar, euro ya da sterlinle girilebiliyor; kur servisine ulaşılamazsa iki yedek kaynak deneniyor. Chrome Web Store ekranları hazır.'
   },
   {
     tag: 'EKİM 2026 · MARKA',

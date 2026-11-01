@@ -47,6 +47,8 @@ export default function AppPage({ app }) {
   const available = (app.stage === 'live' || app.stage === 'beta') && app.download;
   const points = (app.points || []).filter(p => !isPlaceholder(p));
   const repo = githubRepo(app.download);
+  // Gerçek ekran görüntüleri (app.screenshots) varsa "Neler yapar"ın altında gösterilir.
+  const shots = Array.isArray(app.screenshots) ? app.screenshots.filter(s => s && s.src) : [];
   return (
     <article className="apppage">
       <div className="wrap apppage__hero">
@@ -107,6 +109,17 @@ export default function AppPage({ app }) {
               <li key={p}>{p}</li>
             ))}
           </ul>
+        </section>
+      )}
+
+      {shots.length > 0 && (
+        <section className="wrap apppage__shots" aria-label="Ekran görüntüleri">
+          <h2>Ekran görüntüleri</h2>
+          <div className="apppage__shots-row">
+            {shots.map(shot => (
+              <img key={shot.src} src={shot.src} alt={shot.alt || `${app.name} ekran görüntüsü`} loading="lazy" />
+            ))}
+          </div>
         </section>
       )}
 
