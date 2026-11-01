@@ -13312,11 +13312,1343 @@
   },
   {
     "repo": "wingwire-app-web",
+    "hash": "6956f971bd",
+    "date": "2026-10-29T20:19:35+03:00",
+    "subject": "feat(sohbet): mesaj modu seçici üç çip yerine açılır menü — ölçerin sağında kompakt «ikon + ad + ▾» düğme (28 px, sığmazsa alt satır); ortak ContextMenu ile düğmenin üstünde açılır (side: above), menuitemradio + aria-checked, gri açıklama, kısayol (⌥↵/—/⌘↵), seçilide ✓, odak seçiliye; ↑↓ Enter Esc, dışarı tık kapatır; tercih aynı (Ayarlar › Sohbet senkron); birim + e2e 1440/390 (menü açık, taşma 0)",
+    "score": 90,
+    "is_merge": false,
+    "lines": 331
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "77a9e5584b",
+    "date": "2026-10-29T20:20:16+03:00",
+    "subject": "merge: test-modsec → test (TR: mesaj modu açılır menü)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "6cb16d2d15",
+    "date": "2026-10-29T20:37:41+03:00",
+    "subject": "feat(video-olustur): POST /ww/videogen/parse — metinden doldurma 2. katman (hızlı LLM)",
+    "score": 93,
+    "is_merge": false,
+    "lines": 705
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "c8f146855b",
+    "date": "2026-10-29T20:38:02+03:00",
+    "subject": "feat(video-olustur): ✨ Doldur akıllı doldurma + görünür sonuç satırı; yerel çözümleyici düzeltmeleri",
+    "score": 92,
+    "is_merge": false,
+    "lines": 625
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "0aa988fbb4",
+    "date": "2026-10-29T20:41:13+03:00",
+    "subject": "merge: test-doldur → test (TS: akıllı Doldur + sonuç satırı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "efaffa3ca6",
+    "date": "2026-10-29T20:51:05+03:00",
+    "subject": "feat(sohbet): ses/video ekleri + 20 MB üstü dosyalar WingWire parçalı yüklemesiyle — ataç/bırak/yapıştır audio/*, video/* (+mp4 mov m4v webm mkv mp3 m4a wav ogg opus aac flac); ≤20 MB mevcut ek yolu (data_url); >20 MB video/ses/görsel: init → 8 MB parça → complete{preset} → iş → vd register (proje genel, --by yusuf), çipte % + MB/MB + kalan süre, ✕ iptal (DELETE), ağ kopunca yeniden dene → Duraklatıldı + Devam et (çevrimiçi/görünür olunca kendiliğinden), video için Özgün/1080p/720p/480p menüsü + tahmini boyut, çoklu büyük dosya sırayla; gönder düğmesi «Yükleniyor %NN»; bitince kayıtlı vd dosyasının mutlak yolu Hermes'e yol olarak eklenir (yedek: @file:<mutlak yol>) + «(Galeri: başlık, boyut, süre · vd id)»; balonda küçük oynatıcı + Galeri'de aç; grup: 15 MB sınırı + açık mesaj; sunucu: genel proje kabul, sonuçta path/bytes/durationSec, opus uzantısı",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1359
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "4c4ffaadc4",
+    "date": "2026-10-29T20:57:15+03:00",
+    "subject": "test(sohbet): büyük dosya e2e 1440/390 — gerçek ffmpeg testsrc videosu (~25 MB) → gerçek /ww parçalı yükleme (geçici vd) → 720p menüsü → Galeri (genel) → balonda oynatıcı + Galeri’de aç → kayıtlı varlık; ağ kopması → Duraklatıldı + Devam et (parça 0 yeniden gönderilmez); ✕ → DELETE; taşma 0",
+    "score": 52,
+    "is_merge": false,
+    "lines": 144
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a0e972cef8",
+    "date": "2026-10-29T21:00:56+03:00",
+    "subject": "fix(sohbet): büyük yükleme iş yoklaması ilk 4 denemede 250 ms — özgün kayıt ~0,3 sn sürerken çip 1 sn beklemesin (kabul: 59,7 MB → Galeri’de 0,8–0,9 sn)",
+    "score": 51,
+    "is_merge": false,
+    "lines": 5
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f5cc1f51c2",
+    "date": "2026-10-29T21:03:30+03:00",
+    "subject": "merge: test-buyukdosya → test (TT: sohbette ses/video + 20 MB üstü parçalı yükleme)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
     "hash": "97d2830446",
     "date": "2026-10-29T22:31:43+03:00",
     "subject": "feat(bağlantılar): letmepost API anahtarını güvenle değiştir — Sosyal hesaplar kartında durum (lmp_live_/lmp_test_ + son 4) + maskeli giriş; PUT /ww/social/letmepost/key (X-WW-Client + Origin + confirm) → KEY_RE → letmepost'ta salt okuma sınaması (GET /v1/accounts, 10 sn) → atomik yazım (secrets 0700, .bak-<ts> 0600 yedek, tmp 0600 + rename, sembolik bağ reddi); yanıt yalnız {kind,last4,accounts}; GET status keyKind/keyLast4",
     "score": 93,
     "is_merge": false,
     "lines": 855
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "1bf94885b2",
+    "date": "2026-10-29T22:31:43+03:00",
+    "subject": "feat(bağlantılar): letmepost API anahtarını güvenle değiştir — Sosyal hesaplar kartında durum (lmp_live_/lmp_test_ + son 4) + maskeli giriş; PUT /ww/social/letmepost/key (X-WW-Client + Origin + confirm) → KEY_RE → letmepost'ta salt okuma sınaması (GET /v1/accounts, 10 sn) → atomik yazım (secrets 0700, .bak-<ts> 0600 yedek, tmp 0600 + rename, sembolik bağ reddi); yanıt yalnız {kind,last4,accounts}; GET status keyKind/keyLast4",
+    "score": 93,
+    "is_merge": false,
+    "lines": 855
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "e8b825ec5a",
+    "date": "2026-10-29T22:32:56+03:00",
+    "subject": "merge: test-lmpkey → test (TU: letmepost API anahtarı girişi)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "177933c5bd",
+    "date": "2026-10-29T23:10:00+03:00",
+    "subject": "feat(bağlantılar): letmepost platform uygulama kimlikleri sunucusu — GET /ww/social/letmepost/platforms (durum + son 4 + redirect URI; değer yok), PUT …/platform/:platform {id?,secret?,confirm} (X-WW-Client + Origin + WW_ALLOW_LMP_CONFIG=1; izinli platform→ad tablosu; 8–512, boşluk/denetim/dotenv özel karakteri yok) → .env atomik yazım (yalnız o satırlar, yedek .env.bak-<ts> 0600 WW veri klasöründe, tmp 0600 + rename, sembolik bağ/yok dosya reddi), PUT …/public-url → yalnız PUBLIC_API_BASE_URL (letmepost tüm redirect'leri buradan kurar; BETTER_AUTH_URL'e dokunulmaz), POST …/restart (süren yayın → 409, force; lmp.sh down→up→/health); WW_LMP_ENV_PATH, e2e'de gerçek .env yok",
+    "score": 94,
+    "is_merge": false,
+    "lines": 1017
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "6552927f34",
+    "date": "2026-10-29T23:18:53+03:00",
+    "subject": "feat(bağlantılar): Platform uygulamaları (letmepost) kartı — Sosyal hesaplar altında; her platform: ikon + ad, durum (ayarlı · son 4 / yarım / ayarlı değil), Redirect URI + Kopyala (dış adresten), Geliştirici portalını aç, izinler, kısa adım ipucu; Düzenle → iki maskeli kontrolsüz alan (password, autocomplete=off) → PUT; Dış adres (https) — tailnet önerisi, PUBLIC_API_BASE_URL; Uygula — letmepost'u yeniden başlat (süren yayın uyarısı → force) + sağlık sonucu; kapı kapalıyken salt okunur. jsdom (StrictMode dahil) + e2e 1440/390",
+    "score": 94,
+    "is_merge": false,
+    "lines": 929
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "bf457654ef",
+    "date": "2026-10-29T23:24:36+03:00",
+    "subject": "merge: test-platform → test (TV: letmepost platform uygulama anahtarları)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ec16367a22",
+    "date": "2026-10-29T23:49:13+03:00",
+    "subject": "fix(test): voice-ui Kayıt sayfası kararsızlığı — findByText('Nefes sesi') <textarea> içeriğiyle eşleşip POST bitmeden çözülüyordu ('açık' yok); onTitle pasif efektte (findByTestId commit'te çözülür) ve Yeniden üret düğmesi ayrı ses isteği gelene dek kapalı → not listesi satırı (listitem) + waitFor(onTitle) + etkin düğme beklemesi; sabit uyku yok, yük payı 8 sn. Yük kanıtı: 12×3 paralel önce 2/36 kırmızı, sonra 36/36 + 2×8 16/16 yeşil",
+    "score": 58,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7de9ee64be",
+    "date": "2026-10-29T23:52:08+03:00",
+    "subject": "fix(sohbet): 390'da «/ komutları» ipucu mod düğmesiyle aynı satırda «/ ko…» diye kesiliyordu — ≤640px ve ajan çalışırken (mod satırı) yalnız «/» (tam metin title'da, strings.ts slashHintShort); masaüstü/boşta değişmez. e2e 1440+390: kesilme yok, çakışma yok, aynı satır, yatay taşma 0",
+    "score": 59,
+    "is_merge": false,
+    "lines": 55
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "45fade999d",
+    "date": "2026-10-29T23:52:10+03:00",
+    "subject": "feat(schemas): add youtube platform, target options and limits",
+    "score": 87,
+    "is_merge": false,
+    "lines": 146
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7d7b46c82f",
+    "date": "2026-10-29T23:52:28+03:00",
+    "subject": "fix(video-oluştur): «Hepsini karşılaştır» diyaloğu odak tuzağı — elle ilk düğmeye odak/geri dönüş yerine useDialogFocus (Tab/Shift+Tab içeride döner, dışarı kaçan odağı geri alır, belge düzeyi Esc, kapanınca tetikleyiciye); diyalog içi Esc yayılımı yine durdurulur (tek kapanış). Testler: Tab/Shift+Tab döngüsü, Esc, odak dönüşü (tabanda kırmızı)",
+    "score": 59,
+    "is_merge": false,
+    "lines": 48
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "d6f0d485d4",
+    "date": "2026-10-29T23:52:30+03:00",
+    "subject": "feat(dashboard): YouTube tile, channel card and compose options",
+    "score": 90,
+    "is_merge": false,
+    "lines": 275
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e9602107ba",
+    "date": "2026-10-29T23:52:30+03:00",
+    "subject": "feat(api): persist per-target options; poll YouTube processing",
+    "score": 95,
+    "is_merge": false,
+    "lines": 4064
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "bba75f9a72",
+    "date": "2026-10-29T23:52:30+03:00",
+    "subject": "feat(api): YouTube provider + resumable publisher",
+    "score": 95,
+    "is_merge": false,
+    "lines": 3365
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "58bef406dd",
+    "date": "2026-10-29T23:52:31+03:00",
+    "subject": "docs: YouTube platform page, credentials, env",
+    "score": 39,
+    "is_merge": false,
+    "lines": 243
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "0087c99b41",
+    "date": "2026-10-29T23:53:10+03:00",
+    "subject": "fix(video-brief): projesiz (genel) brief'te CTA boşsa «(yok — nötr kapanış, proje logosu yok)»; projeli brief «kapanışta yalnız proje adı/logo» olarak kalır. Test: iki durum + dolu CTA",
+    "score": 55,
+    "is_merge": false,
+    "lines": 18
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "df770d01b6",
+    "date": "2026-10-29T23:58:42+03:00",
+    "subject": "fix(yükleme): sıkıştırma kaynaktan büyükse özgün — tahmin (crf boyutu korumaz; gürültülü 25,6 → 29,2 MB) kaynaktan küçük değilse estimate noGain + dürüst boyut; sohbet (TT) menüsünde «küçültmez — Özgün öner» (varsayılan zaten Özgün), Galeri › Yükle'de satır etiketi «küçültmez — Orijinal öner» ve varsayılan Orijinal; sunucu ffmpeg sonrası çıktı ≥ kaynak ise out.mp4'ü yalnız yükleme klasörü içinde siler (removeUploadFile), özgünü kaydeder → result.keptOriginal → çipte/diyalogda «sıkıştırma boyutu küçültmedi, özgün kaydedildi». Testler: tahmin, varsayılan, menü/etiket, sahte ffmpeg (büyük/küçük çıktı), silme sınırı",
+    "score": 64,
+    "is_merge": false,
+    "lines": 263
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ea80dae419",
+    "date": "2026-10-30T00:00:38+03:00",
+    "subject": "fix(sohbet-ek): 1 GB üstü kayıtlı dosyada Hermes yol eklemesi (oturum klasörüne ikinci kopya) yapılmaz — HERMES_COPY_MAX_BYTES = 1 GiB (shouldAttachToHermes, sunucu boyutu yoksa dosya boyutu); ajana yalnız metin: @file:<mutlak yol> + «(Galeri: başlık, boyut, süre · vd id — dosya yerinde, kopyalanmadı)». ≤ 1 GB davranış aynı. Testler: eşik sınırı, başvuru metni, ChatController (attachPath çağrılmaz, gönderilen metin)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 83
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "fb8fc4bc89",
+    "date": "2026-10-30T00:14:15+03:00",
+    "subject": "fix(video-doldur): Akıllı Doldur mobilde LLM'in değiştirdiği ana mesaja kaydırmıyordu — iki kök neden: (1) LLM adımı yerel adım herhangi bir alanı uyguladıysa hiç kaydırmıyordu (Run.scrolled), (2) yalnız en üstteki değişen alana bakılıyor, o görünürse (ör. Tarz) ekran dışındaki ana mesaj atlanıyordu. Kural: değişen alanlar ekrandaki sıraya göre, kaydırma kabında görünmeyen İLK alana kaydır (firstOffscreen/isVisibleIn; 8px şerit görünür sayılmaz); LLM adımı da uygular. jsdom (saf + entegrasyon) + e2e 1440/390 (eski kodda kırmızı)",
+    "score": 62,
+    "is_merge": false,
+    "lines": 115
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "288d34de1c",
+    "date": "2026-10-30T00:16:47+03:00",
+    "subject": "feat(ajanlar): görünen ad için dar izin WW_ALLOW_DISPLAY_NAME=1 — YALNIZ PUT /ww/agents/:name/display-name açılır (displayNameWriteState: writeState açıksa açık, değilse dar izin); GET /ww/agents/display-names writeEnabled buna göre; İzinler sekmesi (config.yaml, apply 423) writeState'te kalır; PROFILE_WRITE=1 görünen adı da açar (geriye uyum). Kilit metni iki değişkeni de söyler; istemci 403 eşlemesi ikisini tanır; e2e config değişkeni düşürür; README + izinler-tech. Testler: dört kombinasyon matrisi (ad PUT/GET + İzinler GET/apply), config ayrıştırma",
+    "score": 86,
+    "is_merge": false,
+    "lines": 95
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "dbfc513fdf",
+    "date": "2026-10-30T00:20:46+03:00",
+    "subject": "merge: test-kucuk → test (TW: küçük düzeltmeler paketi — 8 madde)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f57e29c178",
+    "date": "2026-10-30T00:24:57+03:00",
+    "subject": "merge: test → main (Yusuf onayı, 30 Eki gece) — mesaj modu açılır menü (TR), akıllı Doldur (TS), sohbette ses/video + 20 MB üstü parçalı yükleme (TT), letmepost API anahtarı (TU) + platform uygulama anahtarları (TV), küçük düzeltmeler paketi (TW: 8 madde, WW_ALLOW_DISPLAY_NAME)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "0714cf4902",
+    "date": "2026-10-30T01:47:37+03:00",
+    "subject": "fix(saglik): gateway platform durumu İngilizce kalıyordu («connected») — Hermes ham platform_state (connected/connecting/disconnected/retrying/fatal/disabled/paused) Türkçe etikete eşlenir (sisTr.health.platformState), bilinmeyen değer olduğu gibi. Test: sistem-ui #panel/health «Bağlı», «connected» yok (eski kodda kırmızı)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 15
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "075c8d13d3",
+    "date": "2026-10-30T02:08:14+03:00",
+    "subject": "fix(baglantilar): bölünmez uzun metin (letmepost .env yolu, WW_ALLOW_LMP_CONFIG iletisi) Ayarlar sayfasını 390'da yatay taşırıyordu (+151 px; worktree/klasör adına bağlı, e2e baglantilar mobilde kırmızı) — kök neden: .cnx-stack ızgara sütunu auto → kartın min-content'i sütunu şişiriyordu. Sütun minmax(0,1fr), kart min-width:0, .cnx-sub.mono/.cnx-msg overflow-wrap:anywhere. Test: e2e/qa-tarama.spec.ts (yeni keşif taraması + bu madde; eski kodda 390 kırmızı)",
+    "score": 65,
+    "is_merge": false,
+    "lines": 286
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f5b9c0c28f",
+    "date": "2026-10-30T02:08:14+03:00",
+    "subject": "fix(ayarlar): #settings/<bölüm> derin bağlantısı yanlış yerde açılıyordu (mobilde Görünüm/Sohbet/Bildirimler/Çıkış → letmepost kartları; Görünüm başlığı 1100+ px aşağıda) — kök neden: bölüme bir kez yumuşak kaydırılıyor, üstteki Bağlantılar kartları (Drive/letmepost) sonra yüklenip uzayınca hedef aşağı kayıyordu. useSectionScroll: ilk açılış anında, hedefin ÜSTÜNDEKİ grupların yüksekliği değişince 8 sn boyunca yeniden hizala; kullanıcı kaydırır/dokunur/tuşlarsa bırakır; açıkken bölüm değişimi yumuşak. Test: settings-section-scroll (jsdom, eski kodda 3 kırmızı) + e2e qa-tarama derin bağlantı (1440/390, eski kodda kırmızı)",
+    "score": 63,
+    "is_merge": false,
+    "lines": 161
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "c8c1039e63",
+    "date": "2026-10-30T02:15:34+03:00",
+    "subject": "fix(galeri-diyalog): Yükle / Galeriden seç / Kütüphaneye ekle pencerelerinde içeride boş alana tıklayınca Esc hiçbir şey yapmıyordu ve Tab odağı bulanık arka plana kaçırıyordu — kök neden: Esc dinleyicisi kaplamanın onKeyDown'ındaydı (odak gövdeye düşünce olay ulaşmaz), odak tuzağı yoktu. Üçü de ortak useDialogFocus'a geçti (belge düzeyi Esc, Tab döngüsü, odak dönüşü); yükleme/ekleme sürerken Esc yine kapatmaz. Test: galeri-modal-odak (jsdom, eski kodda 6/6 kırmızı) + e2e qa-tarama Yükle penceresi (1440/390, eski kodda kırmızı)",
+    "score": 62,
+    "is_merge": false,
+    "lines": 135
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "64092a48a0",
+    "date": "2026-10-30T02:29:47+03:00",
+    "subject": "fix(sohbet): «/» komut önerileri Esc ile kapanmıyordu (liste mesajların üstünde kalıyor, kapatmak için «/» silinmeliydi) — kök neden: önerilerde yalnız ok/Tab/Enter ele alınıyordu. Esc öneriyi metin değişene dek gizler (metin silinmez; yazmaya devam edince yeniden açılır). Test: composer-slash-esc (jsdom, eski kodda kırmızı)",
+    "score": 58,
+    "is_merge": false,
+    "lines": 36
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "fd542b99ef",
+    "date": "2026-10-30T02:46:48+03:00",
+    "subject": "fix(e2e): her koşuda kırmızı iki dosya — panel-cihaz (fixture Hermes kökünde state.db yok → token halkası + boş iletisi birlikte, profil satırı yok) ve perm-fixture dosyalar 1440 (önizleme geniş ekranda files-tab dışında, sağ panelde). playwright.config: geçici fixture kopyasına sqlite3 CLI ile şimdiye tarihli küçük state.db'ler (kök + ww-test-a; session_model_usage); perm-fixture önizlemeyi sayfada arar. Yalnız test/yapılandırma",
+    "score": 57,
+    "is_merge": false,
+    "lines": 33
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "261ff99b6a",
+    "date": "2026-10-30T02:46:48+03:00",
+    "subject": "fix(e2e): tam koşuda sıra bağımlı kırmızılar (durum ×4, baglantilar mobil, indir mobil) — kök neden: arsiv.spec ortak fixture'da video2'yi arşivliyor ve vd config Drive uzağını değiştirip geri almıyordu (durum: «Arşivdeki medyanın durumu değiştirilemez» 409; baglantilar: «Bağlı değil»), video-edit.spec masaüstünde v3 ekleyince indir.spec mobilde sabit «v2» bekliyordu. arsiv afterAll: vd unarchive + uzağı geri yaz (anahtar yoksa sil); baglantilar beforeEach: Drive'ı zorla denetle, gerçek durum (Uyarı) gelene dek bekle (vd paths 30 sn önbelleği); indir son sürümü sunucudan okur. Yalnız test",
+    "score": 59,
+    "is_merge": false,
+    "lines": 60
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "28912b861c",
+    "date": "2026-10-30T02:54:06+03:00",
+    "subject": "test(qa): qa-tarama.spec etkileşim duman testi — sohbet (gönder, «/» + Esc, mod menüsü + Esc, ek düğmesi), Galeri (proje → kart → oynatıcı, video yüklenir/hatasız), Video oluştur (Doldur → Oluştur → onay → Vazgeç); her adımda yatay taşma + konsol hatası denetimi. 1440/390",
+    "score": 49,
+    "is_merge": false,
+    "lines": 51
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8f851b8290",
+    "date": "2026-10-30T03:19:19+03:00",
+    "subject": "fix(sohbet-mod): ajan çalışırken açılan «Sıraya al / Araya gir / Akışı böl» menüsü ~1–3 sn içinde kendiliğinden kapanıyordu (yeni çıktı gelince) — kök neden: ContextMenu her kaydırma olayında kapanıyor, sohbet akışı (.chat__scroll) ajan çıktısıyla kendi kendine aşağı kayınca da. Menü artık bağlı öğeyi (tetikleyici / sağ tıklanan hedef) İÇEREN kabın ya da belgenin kaydırmasında kapanır; dışındaki kapların kayması kapatmaz. e2e sohbet-kuyruk TH mobil kararsızlığının (tabanda 2/3 kırmızı) kökü buydu. Test: context-menu (jsdom, eski kodda kırmızı) + qa-tarama etkileşim (menü 3 sn açık kalır); TH 3/3 yeşil",
+    "score": 59,
+    "is_merge": false,
+    "lines": 51
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "702e60409c",
+    "date": "2026-10-30T03:37:25+03:00",
+    "subject": "merge: test-qa → test (TX: keşif testi — 6 hata düzeltmesi + e2e altyapısı + qa-tarama)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "783291aa84",
+    "date": "2026-10-30T07:19:32+03:00",
+    "subject": "merge: test → main (Yusuf onayı, 30 Eki sabah) — TX keşif testi: 6 hata düzeltmesi (sohbet mod menüsü kapanması, «/» Esc, Galeri pencereleri Esc/Tab, Ayarlar derin bağlantı kayması, Bağlantılar 390 taşma, Sağlık TR) + e2e altyapısı + qa-tarama",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "9840bd7c71",
+    "date": "2026-10-30T07:49:38+03:00",
+    "subject": "test(canli): TY canlı test betikleri — playwright.canli.config.ts (webServer yok, 5210) + e2e/canli-gezinme (tüm sekmeler/Ayarlar/Panel/Galeri oynatma/S6, salt okuma; /api/auth/me 401 ayrı tür) + e2e/canli-sohbet (S2–S5: yeni oturum, modlar+kuyruk, ekler, sistem satırı; Hermes girişi yoksa atlanır, WW_CANLI_STORAGE; WW_CANLI_FAKE=1 kuru koşu). qa-tarama denetim yardımcıları e2e/qa-denetim.ts'e taşındı (davranış aynı; masaüstü tarama yeşil). Yalnız test",
+    "score": 59,
+    "is_merge": false,
+    "lines": 934
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "158514799b",
+    "date": "2026-10-30T07:51:52+03:00",
+    "subject": "Merge branch 'test' into test-qa",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "3db9a2cee0",
+    "date": "2026-10-30T07:56:11+03:00",
+    "subject": "fix(galeri-kapak): görsel/video olmayan sürümde kapak 500 dönüyordu (canlı HATA-1: foto kaydında versions/v2.json → ffmpeg «Invalid data») — kök neden: /ww/media/thumb ve /probe dosya türüne bakmadan ffmpeg/ffprobe koşuyor, her FfError 500'e dönüyordu; istemci de her ziyarette yeniden istiyordu. shared/media-ext (thumbable/probeable, uzantı beyaz listesi): uygun değilse ffmpeg hiç koşmaz → 415 unsupported-media + Cache-Control max-age=600; ffmpeg dosyayı işleyemezse (çıkış≠0) 415 ve sonuç sunucuda 10 dk hatırlanır (araç yok/zaman aşımı → 500, önbelleğe girmez). AssetSummary.thumb=false → kart/proje kapağı/galeriden seç kapak istemez («kapak yok»), süre probe'u atlanır → konsola hata düşmez. vd kaydına dokunulmadı. Test: ww-media-thumb-unsupported (eski kodda 5 kırmızı) + ww-son-cila HATA-1 (eski kodda kırmızı)",
+    "score": 65,
+    "is_merge": false,
+    "lines": 295
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "e86eafc74b",
+    "date": "2026-10-30T07:59:48+03:00",
+    "subject": "fix(paylasimlar): satırdaki platform rozetleri sağ kenarda kesiliyordu (canlı GÖZLEM-2) — kök neden: .social-row__meta nowrap + overflow:hidden, rozetler flex:none; sığmayan rozet için hiçbir gösterge yoktu. PlatformBadgeRow: ilk çizimde (boyamadan önce) rozet genişlikleri ölçülür, fitCount (saf) «+N» payını ayırarak kaç rozetin sığdığını hesaplar; sığmayanlar yerine «+N» (title/aria-label: «Diğer platformlar: …»), ResizeObserver ile genişlik değişince yeniden hesap; DOM'da kopya rozet yok. Metinler strings.ts. Test: social-badges (jsdom, ölçüm taklidi) + e2e/social-cip (1440/390: hiçbir çip/rozet satır dışına taşmaz, +N + görünen = toplam; eski kodda 2/2 kırmızı)",
+    "score": 64,
+    "is_merge": false,
+    "lines": 236
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2c88a8263b",
+    "date": "2026-10-30T08:01:40+03:00",
+    "subject": "fix(ajan-diyalog): Skill, izin farkı (DiffModal) ve grubu yeniden adlandır pencerelerinde Tab odağı arka plana kaçıyordu; Diff/Yeniden adlandır kapanınca odak açan düğmeye dönmüyordu — kök neden: üçünde yalnız window Esc dinleyicisi vardı, odak tuzağı yoktu (TX'te galeri pencereleri için çözülen desen). Üçü de ortak useDialogFocus'a geçti (belge düzeyi Esc, Tab/Shift+Tab döngüsü, odak dönüşü); izinler uygulanırken Esc yine kapatmaz; yeniden adlandırda ilk odak ad alanı (metin seçili). Test: ajan-modal-odak (jsdom, eski kodda 7/10 kırmızı); ajanfb Skill Esc testi belge düzeyine alındı",
+    "score": 62,
+    "is_merge": false,
+    "lines": 152
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "024003346a",
+    "date": "2026-10-30T08:12:11+03:00",
+    "subject": "test(canli): canlı koşu ajan Chrome'u üzerinden — WW_CANLI_CDP=http://127.0.0.1:9333 verilirse e2e/canli-tarayici.ts Playwright'ın kendi tarayıcısını açmaz, chromium.connectOverCDP ile bağlanır, varsayılan bağlamda KENDİ yeni sekmesini açar, 1440/390 görünümünü (metrik, dokunma, UA) yalnız o sekmeye CDP Emulation ile verir, bitince yalnız kendi sekmesini kapatıp bağlantıyı bırakır (Chrome ve diğer sekmeler açık kalır; çerez okunmaz/dışarı aktarılmaz, storageState yok sayılır). Hermes giriş denetimi sayfanın kendi fetch'iyle (request fikstürü tarayıcı oturumunu taşımazdı). S4 25 MB parçalı yükleme (Galeri'ye kalıcı test videosu) varsayılan ATLANIR, WW_CANLI_BUYUK=1 ile koşar (video da yalnız o zaman üretilir). Yeni e2e/canli-cdp.spec (salt okuma bağlantı dumanı: sekme gerçekten CDP tarayıcısında + görünüm; eski yolda 2/2 kırmızı). README e2e › Canlı koşu komutları. Kuru koşu: ajan Chrome'unda WW_CANLI_FAKE=1 (?backend=fake, kendi 5241 sunucusu) 4/4 yeşil, sekme sayısı 5 → 5. Canlıya karşı ÇALIŞTIRILMADI. Yalnız test",
+    "score": 52,
+    "is_merge": false,
+    "lines": 138
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "1168adbfea",
+    "date": "2026-10-30T08:35:56+03:00",
+    "subject": "fix(e2e): ana playwright.config canlı betikleri (e2e/canli-*.spec.ts) de topluyordu — tam e2e'de canli-gezinme «tüm sekmeler» 1440/390 her koşuda 30 sn zaman aşımıyla kırmızı (TY 9840bd7'den beri; taban kopyada da kırmızı) ve canli-sohbet fixture sunucusunun 9231 vekili üzerinden Hermes'e yazmaya kalkabilirdi (girişsiz olduğu için atlanıyordu). testIgnore: canli-*.spec.ts — bunlar yalnız playwright.canli.config.ts ile koşar. Liste 252 → 240 test. Yalnız yapılandırma",
+    "score": 51,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "cf62ae27bc",
+    "date": "2026-10-30T08:38:09+03:00",
+    "subject": "merge: test-qa → test (TZ: canlı testte bulunanlar — Galeri kapak 415, Paylaşımlar +N rozet, Skill/Diff/Yeniden adlandır odak tuzağı; canlı koşu ajan Chrome'u üzerinden)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "1d872343ac",
+    "date": "2026-10-30T09:11:52+03:00",
+    "subject": "merge: test → main (Yusuf onayı, 30 Eki) — TZ: Galeri kapak 415 (500 yerine), Paylaşımlar +N rozet, Skill/Diff/Yeniden adlandır odak tuzağı; canlı test betikleri (ajan Chrome'u, yalnız test)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "79000b7aab",
+    "date": "2026-10-30T09:39:49+03:00",
+    "subject": "feat(cron): çoklu seçim ve toplu işlem saf mantığı — aralık (çapa…tıklanan, yalnız görünür satırlar, grup sınırını aşar; çapa sabit, tekrar Shift yeniden hesaplar), Cmd/Ctrl ekle-çıkar (çapa o satır), Shift+↑/↓ adımı, tümü, gizlenenleri budama; toplu Duraklat/Sürdür/Sil uygunluğu (bağlam menüsüyle aynı kural), sıralı yürütücü (kısmi hata diğerlerini durdurmaz), sonuç metni («3 iş silindi» / «2 iş duraklatıldı, 1 hata: Ad — neden»), silme onayı (ilk 5 ad + «ve N tane daha», geri alınamaz, sayıyı yazarak onay). Metinler strings.ts › bulk. Test: cron-selection (17)",
+    "score": 91,
+    "is_merge": false,
+    "lines": 375
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "bebca425ed",
+    "date": "2026-10-30T09:44:05+03:00",
+    "subject": "feat(cron): listede Finder gibi çoklu seçim + toplu işlem çubuğu (Yusuf: «Shift'e basılı tutunca iki tıklanan arasındakiler toplu seçilsin») — düz tıklama tek seçim + ayrıntı (çapa); Shift+tıklama çapa…tıklanan arası tüm GÖRÜNÜR satırlar (grup sınırını aşar, kapalı grup / aramayla gizlenen girmez; ayrıntı değişmez); Cmd/Ctrl+tıklama ekle/çıkar; Shift+↑/↓, Esc, Cmd/Ctrl+A (odak listedeyken). 2+ seçimde yapışkan çubuk «N seçili · Seçimi kaldır · Duraklat · Sürdür · Sil» (uygun olmayan devre dışı); işlemler sırayla mevcut cron çağrılarıyla, sonuç «3 iş silindi» / «2 iş duraklatıldı, 1 hata: Ad — neden» (hatalı sonuç kapatılana dek kalır); Sil ortak ConfirmDialog (adlar ilk 5 + «ve N tane daha», geri alınamaz, sayıyı yazarak onay), silinen açık iş için App takvime döner. Dokunmatik: uzun basma menü yerine seçim kipini açar (menü ⋯ ile), kipte dokunma ekler/çıkarır, çubukta «Bitti»; fare/sağ tık davranışı aynı. Seçili satırlar açık ton + sol şerit (ayrıntıda açık satır dolu kalır); Shift/Cmd basışında metin seçimi yok (mousedown engeli + user-select). listbox aria-multiselectable, satırlar option + aria-selected. Test: cron-multiselect-ui (jsdom, eski kodda 11/12 kırmızı) + e2e/cron-secim (1440: aralık grup sınırını aşar, Cmd toggle, toplu Sil fake backend'de yalnız seçilileri siler; 390: uzun basma kipi + toplu Duraklat)",
+    "score": 93,
+    "is_merge": false,
+    "lines": 860
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "0461e13761",
+    "date": "2026-10-30T09:47:32+03:00",
+    "subject": "merge: test-cron-secim → test (TCS: Cron listesinde Finder gibi çoklu seçim — Shift aralık, Cmd/Ctrl ekle-çıkar, toplu Duraklat/Sürdür/Sil, mobil uzun basma kipi)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "12ae22ed05",
+    "date": "2026-10-30T10:07:49+03:00",
+    "subject": "chore(lansman): Haberci platform verisinin salt-okunur kopyası (199 platform, sha256 21b63feb…, kaynak ~/.hermes/profiles/haberci/reports/lansman-kaynaklari/, 2026-10-30)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 4555
+  },
+  {
+    "repo": "veri-duzeni",
+    "hash": "eb75177fe0",
+    "date": "2026-10-30T10:15:29+03:00",
+    "subject": "feat(project): proje turu category (yt/branding/product) + youtube kanal bilgisi — sema: istege bagli category (enum, null=yok→okuyanlar product sayar) ve youtube {handle, channel_id, google_account} (additionalProperties:false); vd project add --category; vd project set izinli alanlara category (gecersiz deger reddedilir, null siler) ve youtube (tam degistirme, @ atilir, null siler); vd project show category'yi her zaman doner (yoksa null, dosyaya yazilmaz); vd project list --details [{slug, display_name, status, category}] (duz liste geriye uyumlu); repo'suz proje gecerli; README; 12 test (eskide 9 kirmizi)",
+    "score": 90,
+    "is_merge": false,
+    "lines": 286
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b2f47e0d1c",
+    "date": "2026-10-30T10:18:30+03:00",
+    "subject": "feat(projeler): proje türü (category: yt / branding / product) + YouTube kanal bilgisi sunucuda — shared/ww.ts ProjectCategory, PROJECT_CATEGORY_ORDER (Branding · YT · Product), projectCategory() (alan yok/bilinmiyor → product), projectYoutube() (snake→camel, @ atılır, geçersiz alan null), youtubeChannelUrl(); galeri AssetList.projects ve /ww/projects ProjectSummary category + youtube taşır (vdStore projects_root JSON'undan, registry vd project show'dan); düzenleme ucu category kabul eder (yalnız yt/branding/product → vd project set {category}, mevcut önizleme + confirm kapısı). Test: projects-category (7; eski kodda kırmızı), ww-vdstore beklentisi güncellendi",
+    "score": 90,
+    "is_merge": false,
+    "lines": 276
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "692cab98ad",
+    "date": "2026-10-30T10:20:11+03:00",
+    "subject": "feat(lansman): ortak şema + saf filtre/sıralama/rozet modeli + kural tabanlı takvim çıkarımı (veri ve takvim testleri)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1212
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "6732465a6a",
+    "date": "2026-10-30T10:22:03+03:00",
+    "subject": "feat(lansman): /ww/lansman uçları — salt okunur platform listesi (WW_LANSMAN_PLATFORMS, mtime yenileme), ürün başına takip/kit kaydı (atomik 700/600, sıralı yazma, X-WW-Client+Origin+confirm)",
+    "score": 92,
+    "is_merge": false,
+    "lines": 544
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "efe2d28b6b",
+    "date": "2026-10-30T10:23:42+03:00",
+    "subject": "feat(projeler): Galeri sol proje listesi ve Projeler sekmesi türe göre gruplu (Yusuf: «YT → proje direkt bir YouTube kanalı · Branding → ben ve hamaratlabs · Product → kalan çoğu şey») — Tümü en üstte, sonra BRANDING · YT · PRODUCT küçük sayılı başlıklar (Cron «TAMAMLANAN 11» stili, .group-label; boş grup yok, grup içi sıra korunur, alanı olmayan/genel → Product); YT satırında küçük ▶YT rozeti; Projeler ana ızgarası da gruplu. Proje sayfası: başlıkta tür rozeti + «Türü değiştir»; YT'de «YouTube kanalı» kartı (https://www.youtube.com/@handle, Google hesabı, kanal kimliği); Repo/GitHub/sürüm notları YT'de ve repo'suz projede gizli (github_remote varsa GitHub kalır), YT'de boş pazar yeri kartı yok. Düzenle penceresi tür kipi: «Tür: YT / Branding / Product» radyo seçimi → mevcut önizleme (apply:false) → açık onay (apply:true + confirm:true) → vd project set {category}. Metinler strings.ts (Branding / YT / Product çevrilmez). Test: projects-category-ui (8; eski kodda kırmızı)",
+    "score": 93,
+    "is_merge": false,
+    "lines": 663
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ef3b0c1b61",
+    "date": "2026-10-30T10:26:29+03:00",
+    "subject": "test(projeler): e2e/icerik/kategori — fixture siciline vd project add --category ile YT + Branding projesi (sonra silinir); 1440 + 390: Galeri › Video sol liste ve Projeler listesi/ızgarası BRANDING · YT · PRODUCT gruplu, YT rozeti, Tümü en üstte, yatay taşma yok; YT proje sayfası kanal linki https://www.youtube.com/@… + Google hesabı, Repo/GitHub/sürüm/boş pazar yeri kartı yok; düzenle penceresinde tür seçimi → fark → Uygula → fixture sicilinde category yazıldı, Vazgeç yazmaz. Eski vd'de atlanır (WW_VD_BIN). Ekran görüntüleri WW_TPK_SHOTS ile. Ayrıca: tür seçenekleri tek satır ızgara, YT/repo'suz sayfada «push / PR» salt-gösterim notu gizli",
+    "score": 53,
+    "is_merge": false,
+    "lines": 155
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "89eb56d09b",
+    "date": "2026-10-30T10:29:48+03:00",
+    "subject": "test(projeler): kategori e2e — galeri vdStore 5 sn anlık görüntüsü için beforeAll'da bekle (önceki spec'ten sonra koşunca yeni projeler görünsün)",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "0582f6c1ff",
+    "date": "2026-10-30T10:33:00+03:00",
+    "subject": "merge: test-proje-kategori → test (TPK: proje türü YT / Branding / Product — Galeri ve Projeler gruplu, YT kanal kartı, Türü değiştir; vd feat/proje-kategori ile)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a0945fd734",
+    "date": "2026-10-30T10:33:03+03:00",
+    "subject": "feat(lansman): Projeler › Lansman sekmesi — ürün paneli + ilerleme halkası, Platformlar (filtre/sıralama/rozet/takip), Metin kiti (sayaç + kopyala + galeriden görsel), Takvim (kural tabanlı pencereler); rota #projects/lansman/<urun>[/kit|/takvim]",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2391
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "cf3f77c73f",
+    "date": "2026-10-30T10:37:59+03:00",
+    "subject": "test(lansman): içerik e2e (1440 + 390: 162 platform, Gönderildi → yenile → kalıcı, halka 1/162, dış istek yok) + docs/qa/lansman ekran görüntüleri",
+    "score": 52,
+    "is_merge": false,
+    "lines": 132
+  },
+  {
+    "repo": "veri-duzeni",
+    "hash": "e30bc6e2ad",
+    "date": "2026-10-30T10:39:47+03:00",
+    "subject": "feat(move): vd move <asset_id> --project <slug> [--dry-run] — asset klasoru medya/<proje>/<kind>/<id> yeni projeye os.rename ile tasinir (ayni disk; hedef varsa hata; manifest yazimi basarisizsa klasor geri alinir; silme yok; adopted dosyalar yerinde), manifest project atomik (kilit + sema), project_history {at,from,to} son 50, index yenilenir, arsiv kaydina op: move satiri (archive-index semasi move satirini kabul eder); arsivdeki asset (archived/trashed) ve sicilde olmayan slug hata ('genel' istisna); JSON cikti; README; 11 test",
+    "score": 91,
+    "is_merge": false,
+    "lines": 429
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "6b957d9eaf",
+    "date": "2026-10-30T10:40:09+03:00",
+    "subject": "fix(lansman): medya seçici türü ve link yer tutucusu strings.ts'ten",
+    "score": 52,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "c647dd0712",
+    "date": "2026-10-30T10:41:38+03:00",
+    "subject": "docs(lansman): ekran raporu — PM kararları, takvim çıkarım tablosu, rozetler, test çıktıları, açık sorular",
+    "score": 37,
+    "is_merge": false,
+    "lines": 151
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "453e22f6a7",
+    "date": "2026-10-30T10:44:43+03:00",
+    "subject": "refactor(seçim): çoklu seçim mantığı ortak yere — src/ui/cron/selection.ts → src/ui/selection/listSelection.ts (ListSelection), dokunmatik uzun basma → seçim kipi sarmalayıcısı src/ui/selection/useLongPressSelect.ts; CronList ikisini kullanır (davranış aynı; cron vitest 113 yeşil)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 150
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "9c0f895315",
+    "date": "2026-10-30T10:44:43+03:00",
+    "subject": "feat(medya): POST /ww/media/assets/:id/move {project} → vd move — durum etiketiyle aynı kural (X-WW-Client + Origin + confirm:true, WW_ALLOW kapısı yok: vd silmez, klasörü medya/ altında os.rename ile taşır); slug deseni + proje listesinde olmalı (genel her zaman) 400, arşivdeki/Çöp'teki medya 409 «Arşivdeki medya başka projeye taşınamaz (önce geri getir).», aynı proje vd çağırmaz; vd hataları: arşiv/çakışma 409, sicil 400, diğer 500, eski vd 501; başarıda store tümden tazelenir (manifest yolu değişti); istemci moveAsset; Asset.project_history; 6 test",
+    "score": 89,
+    "is_merge": false,
+    "lines": 206
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "4fd70b7f87",
+    "date": "2026-10-30T10:46:55+03:00",
+    "subject": "fix(lansman): Önerilen sıralamada «Kaçın» rozetli kayıtlar (Wikipedia) puandan bağımsız sona (gizlilerden önce) — PM kararı; isFree açıklaması veriyle uyumlu (ücretsiz katmanlılar dahil)",
+    "score": 54,
+    "is_merge": false,
+    "lines": 13
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "28f8d4f97f",
+    "date": "2026-10-30T10:47:00+03:00",
+    "subject": "merge: feat/lansman → test (Projeler › Lansman: 199 platform salt-okunur liste, ürün başına takip + ilerleme halkası, filtre/sıralama/Kaçın-Kural rozetleri, metin kiti şablonu, kural tabanlı takvim; /ww/lansman uçları X-WW-Client+Origin+confirm, WW_DATA_DIR/lansman/<urun>.json; WW_LANSMAN_PLATFORMS)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2a3f9b1fea",
+    "date": "2026-10-30T10:47:00+03:00",
+    "subject": "merge: main → test (senkron: TZ/TX/TY… main birleşmeleri; lansman öncesi)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "64100e33da",
+    "date": "2026-10-30T11:00:10+03:00",
+    "subject": "docs(lansman): PM doğrulaması — birleşik test dalında tsc/build/tam vitest (2564 ✓) + içerik e2e; ekran görüntüleri birleşik daldan yeniden; Yusuf'un yapacakları",
+    "score": 30,
+    "is_merge": false,
+    "lines": 19
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2c15da1b41",
+    "date": "2026-10-30T11:03:43+03:00",
+    "subject": "feat(galeri): Projeye taşı (tekli + toplu) — sağ tık / kart ⋯ / görüntüleyici ⋯ «Projeye taşı…» → proje seçici (BRANDING · YT · PRODUCT gruplu, tr aksan-duyarsız arama, şu anki pasif, Enter tek eşleşmeyi seçer) → vd move; sonuç «‹Başlık› → Haritada Tarih'e taşındı» (Türkçe yönelme eki), ızgara + sol liste sayıları tazelenir (writePollCache), görüntüleyici alt başlığı proje adı + bildirim. Çoklu seçim (ortak src/ui/selection): Cmd/Ctrl ekle-çıkar, Shift aralık, Cmd+A, Esc, seçim varken düz tıklama ekler, dokunmatik uzun basma seçim kipi (+ Bitti); çubuk «N seçili · Projeye taşı… · Seçimi kaldır»; sırayla taşı, kısmi hata raporu (arşivdeki istek atmadan anlaşılır hata; başarısızlar seçili kalır); seçili kartta sağ tık seçimin tümünü taşır. Arşivdeki öğede menü öğeleri pasif + neden. Metinler move/strings.ts; 10 test",
+    "score": 94,
+    "is_merge": false,
+    "lines": 1145
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "30079c7db3",
+    "date": "2026-10-30T11:10:01+03:00",
+    "subject": "merge: test → main (Yusuf onayı 30 Eki: TPK proje türü YT/Branding/Product + YT kanal kartı, TCS cron çoklu seçim, Lansman ekranı; vd main eb75177 ile birlikte)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "29083e58e9",
+    "date": "2026-10-30T11:10:02+03:00",
+    "subject": "test(galeri): e2e/proje-tasi — fixture siciline Diğer (product) + Haritada Tarih (yt), koşu başına 5 video (1 tekli, 3 toplu, 1 arşivde); 1440 + 390: tekli (sağ tık / ⋯ → seçici gruplu + arama + şu anki pasif → 200, sonuç metni, sol sayılar −1/+1, manifest diskte project + project_history, klasör medya/haritada-tarih), toplu 3 video (Cmd-tıklama / dokunmatik uzun basma → çubuk → hepsi taşındı), arşivdeki medya (menü pasif, toplu taşımada anlaşılır hata, API 409 + manifest değişmez, X-WW-Client'sız 403); eklenenler afterAll'da fixture kökünden kaldırılır; eski vd'de atlanır (WW_VD_BIN). Ayrıca: çubuk şeridi sayfa zemini, kartlarda uzun basma metin seçmez / iOS menüsü açmaz",
+    "score": 54,
+    "is_merge": false,
+    "lines": 242
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5734a6c17c",
+    "date": "2026-10-30T11:11:36+03:00",
+    "subject": "feat(anahtarlar): API anahtarları macOS Anahtar Zinciri'nde — /ww/anahtarlar sunucusu + Hermes köprüsü",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2006
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "579096f30a",
+    "date": "2026-10-30T11:16:01+03:00",
+    "subject": "merge: test-proje-tasi → test (TPT: Galeri Projeye taşı tekli + toplu çoklu seçim; vd feat/proje-tasi ile)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "3c76a27176",
+    "date": "2026-10-30T11:17:32+03:00",
+    "subject": "feat(anahtarlar): Ayarlar › Anahtarlar sayfası (#settings/keys) — liste, ekle/değiştir, Test et, içe aktar, sil",
+    "score": 94,
+    "is_merge": false,
+    "lines": 1150
+  },
+  {
+    "repo": "veri-duzeni",
+    "hash": "3910202ffc",
+    "date": "2026-10-30T11:20:15+03:00",
+    "subject": "feat(delete): vd delete <asset_id> [--dry-run] — kayit (manifest + index) kalkar, varliga ait dosyalar (versions/ + source/ + work/ww-thumbs/ + adopt orijinalleri + ARSIVDE.txt, en son manifest) tek tek archive.move_to_trash ile macOS Cop'e (kalici silme yok, klasor silinmez); /Volumes yolu (harici disk/arsiv kopyasi) asla tasinmaz → file_kept_reason 'harici disk'; sembolik baglanti izlenmez, baska asset'in kullandigi dosya / yasakli alan korunur; kilitli asset'te hata (hicbir sey degismez); registry op:delete {files: path, role, trash|kept}; 8 test",
+    "score": 92,
+    "is_merge": false,
+    "lines": 527
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "9169893020",
+    "date": "2026-10-30T11:20:35+03:00",
+    "subject": "feat(depolama): Masaüstü kök grubu — ~/Desktop üst düzey klasörleri dinamik kök + «Masaüstündeki dosyalar»; Yusuf/Süeda (NFC/NFD) ve Secret/Kişisel - Girme/do_not_read/kişisel yedek-sağlık adları taranmaz, listelenmez (yalnız «atlandı» sayısı); Projeler benimsenir (çift sayım yok); bu köklerde temizlik önerisi kapalı; WW_STORAGE_DESKTOP (test)",
+    "score": 91,
+    "is_merge": false,
+    "lines": 411
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a5c0a37dab",
+    "date": "2026-10-30T11:23:35+03:00",
+    "subject": "fix(galeri): görüntüleyiciden dönüşte proje, durum filtresi, kaydırma ve odak korunur (‹ · tarayıcı/Android geri · Esc)",
+    "score": 67,
+    "is_merge": false,
+    "lines": 493
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a18e5eb466",
+    "date": "2026-10-30T11:23:48+03:00",
+    "subject": "feat(depolama): «Masaüstü» kart grubu (boyuta göre, gevşek dosyalar sonda, Projeler tek kart) + «Diğer konumlar»; Ağaç'ta açık «Masaüstü» düğümü; Kullanım halkasında grup tek dilim",
+    "score": 90,
+    "is_merge": false,
+    "lines": 323
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "e7d2993861",
+    "date": "2026-10-30T11:23:51+03:00",
+    "subject": "test(anahtarlar): e2e (1440 + 390) sahte security ile — gerçek Chrome'da uygulama koduyla yazma",
+    "score": 54,
+    "is_merge": false,
+    "lines": 215
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "23952d40ab",
+    "date": "2026-10-30T11:24:16+03:00",
+    "subject": "fix(galeri): useGridReturn içe aktarımı birleşmede «Projeye taşı» içe aktarımlarıyla çakışmasın diye ayrı satıra",
+    "score": 49,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "e834677617",
+    "date": "2026-10-30T11:24:51+03:00",
+    "subject": "feat(medya): POST /ww/media/assets/:id/delete → vd delete — medya yazma deseni (confirm:true + X-WW-Client + Origin; WW_ALLOW kapısı yok: kalıcı silme yok, dosyalar Çöp Kutusu'na, /Volumes'a dokunulmaz); bu asset için kuyruktaki/çalışan iş (Job.assetId: arşiv, geri getirme, önizleme, işleme, VideoGen) varken 409 «Bu medya için çalışan bir iş var: «…»»; vd kilidi 409, bulunamadı 404, eski vd 501, diğer 500; başarıda store tümden tazelenir; yanıt AssetDeleteResult {trashed, kept[{path,reason}], fileKeptReason, leftInPlace}; JobQueue.activeFor; 6 test",
+    "score": 90,
+    "is_merge": false,
+    "lines": 298
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "cc094ed747",
+    "date": "2026-10-30T11:26:34+03:00",
+    "subject": "feat(galeri): tür filtresi — sol listede «Tümü»nün üstünde YT · Product · Branding simge düğmeleri (yazısız; aria-label + title «YT · 2 video», sayı rozeti, aria-pressed, ≥44px, seçili mavi dolgu). Tek seçim, seçiliye tekrar tık → hepsi. Video/Foto: sol liste yalnız o türün projeleri + «Tümü» tür toplamı, ızgara «Tümü · YT» yalnız o türün varlıkları (durum sayıları da), türde varlık yoksa «Tüm türler» boş durumu; seçili proje başka türdeyse Tümü'ne geçer. Ses ve Arşiv listeleri/kataloğu da süzülür (proje → tür: vd sicili; sicil dışı/projesiz → product). Durum filtresiyle aynı yerde kalıcı (prefs ww.gallery.category): sekmeler arası + yenilemede korunur. Simgeler satır içi SVG (src/ui/gallery/category); 15 test",
+    "score": 93,
+    "is_merge": false,
+    "lines": 673
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "92a3cc2f1f",
+    "date": "2026-10-30T11:27:14+03:00",
+    "subject": "docs(uretim): Oluştur akışı analizi — bugünkü PhotoGen/VideoGen yolculuğu ve sürtünmeler; ElevenLabs Image & Video (API var: POST/GET /v1/flows/image|video, Pro+ plan, alt küme model, kredi tahmini ucu yok); ses uçları; yol karşılaştırması; revize tasarım",
+    "score": 38,
+    "is_merge": false,
+    "lines": 167
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "453fd85485",
+    "date": "2026-10-30T11:29:22+03:00",
+    "subject": "fix(bildirim): kapatılan bildirim/iş kartı kalıcı — yenileme, sunucu yeniden başlatma ve başka sekmede geri gelmez",
+    "score": 70,
+    "is_merge": false,
+    "lines": 1216
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7032753c2e",
+    "date": "2026-10-30T11:31:11+03:00",
+    "subject": "docs(anahtarlar): tasarım + Hermes'e bağlama adımları; köprü süre testi sh sahtesiyle",
+    "score": 36,
+    "is_merge": false,
+    "lines": 86
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "3181925a78",
+    "date": "2026-10-30T11:32:32+03:00",
+    "subject": "test(depolama): Masaüstü e2e — sahte Desktop (WW_STORAGE_DESKTOP) ile playwright.masaustu.config.ts: yasaklı adlar API/ekranda yok, kart+ağaç sırası, atlandı sayısı, öneri yok; mobilde sıkı kök kartı; not metni",
+    "score": 52,
+    "is_merge": false,
+    "lines": 146
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "4f883e5a39",
+    "date": "2026-10-30T11:34:10+03:00",
+    "subject": "feat(galeri): Sil — görüntüleyici ⋯ ve kart ⋯ menüsünde kırmızı «Sil» (Arşivle'nin yanında), sağ tık / uzun basma menüsünde «Sil» (arşivdekinde de), Arşiv ayrıntısında Geri getir | Sil; tek onay «‹Başlık› silinsin mi? Dosya Çöp Kutusu'na taşınır.» [İptal] [Sil] (ad yazma yok; arşivdekinde «Harici diskteki arşiv kopyasına dokunulmaz.»); sonra «Silindi · Geri al (Çöp Kutusu'ndan)» + Finder yolu (harici diskte kaldıysa söylenir), hata kalıcı bildirim; ızgara + sol liste sayıları anında düşer (önbellek), sunucudan tazelenir; görüntüleyiciden silince ‹ ile aynı yoldan ızgaraya dönülür. Eylem tek yerde (delete/model.deleteAssets — toplu sile hazır); metinler delete/strings.ts; 8 test (+ durum testi menü beklentisi)",
+    "score": 93,
+    "is_merge": false,
+    "lines": 695
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "6277b0d8e8",
+    "date": "2026-10-30T11:36:17+03:00",
+    "subject": "test(galeri): e2e/tur-filtre — fixture siciline TKF Kanal (yt) + TKF Marka (branding), koşu başına 2 video + 1 foto; 1440 + 390: yerleşim (sekmeler → tür düğmeleri → hemen altında Tümü), sıra YT · Product · Branding, aria-label, ≥44px; YT seç → sol liste yalnız yt + Tümü = YT toplamı + ızgara «Tümü · YT · N video» yalnız YT videoları; tekrar tık → hepsi; Foto sekmesine geç → korunur (foto ızgarası da yalnız YT); Arşiv/Ses'te basılı; yenile → korunur; başka türde seçili proje → Tümü'ne geçer; üç seçim + koyu tema ekran görüntüleri (WW_TKF_SHOTS); kayıtlar afterAll'da kaldırılır",
+    "score": 54,
+    "is_merge": false,
+    "lines": 232
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b23ebc7509",
+    "date": "2026-10-30T11:37:43+03:00",
+    "subject": "feat(bildirim): «Tümünü gör» bildirim merkezi — sağdan çekmece (mobilde tam ekran)",
+    "score": 91,
+    "is_merge": false,
+    "lines": 471
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "704bd9d4cd",
+    "date": "2026-10-30T11:40:29+03:00",
+    "subject": "fix(depolama): eski (grupsuz) kayıtlı raporda kök ad/grup güncel köklerden — yeniden taramadan Projeler «Masaüstü» grubunda",
+    "score": 57,
+    "is_merge": false,
+    "lines": 33
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b14910974e",
+    "date": "2026-10-30T11:40:49+03:00",
+    "subject": "feat(uretim): ElevenLabs Image & Video sunucu uçları — /ww/eleven/status|sessions|files|save; anahtar yalnız sunucu env'i (ELEVENLABS_API_KEY; yanıt/oturum/iş günlüğünde yok, içerik indirmesi anahtarsız); kredi tahmini (shared/eleven.ts, WW_ELEVEN_PRICES ile ezilir) + onaylanan tahmin < sunucu tahmini → 409; günlük üst sınır WW_ELEVEN_DAILY_CREDIT_LIMIT (varsayılan 20.000, defter + başarısız varyant iadesi); 'eleven' işi (gönder → yokla → indir); Galeri'ye kaydet (vd inbox → vd register --by elevenlabs); sahte ElevenLabs sunucusu (e2e/fixtures/fake-eleven.mjs); 16 test",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1553
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8da87aa49d",
+    "date": "2026-10-30T11:41:01+03:00",
+    "subject": "merge: test-anahtarlar → test (TAN: Ayarlar › Anahtarlar — macOS Anahtar Zinciri, içe aktar, Test et, Hermes köprüsü betiği)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "83eead85a5",
+    "date": "2026-10-30T11:42:45+03:00",
+    "subject": "refactor(galeri): tür filtresi ızgara başlığı ayrı satırda (allTitle), içe aktarımlar status/strings sonrasına — paralel Sil (test-galeri-sil) dalıyla birleşmede bitişik satır çakışması olmasın; davranış aynı",
+    "score": 44,
+    "is_merge": false,
+    "lines": 11
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "4a54051d9d",
+    "date": "2026-10-30T11:44:53+03:00",
+    "subject": "test(galeri): e2e/galeri-sil — fixture vd Çöp'ü fixture içi klasöre (trash_method=move; Finder'a gidilmez), koşu başına 3 video; 1440 + 390: kart ⋯ «Sil» (kırmızı = --deny, Arşivle ile aynı satır) / görüntüleyici ⋯ «Sil» (‹ yolu: masaüstü ızgara, mobil liste → sol sayı düştü) / sağ tık · dokunmatik uzun basma «Sil»; her biri tek onay (başlık, «Dosya Çöp Kutusu'na taşınır.», ad kutusu yok, [İptal][Sil]) → kart kalkar, Tümü + başlık (+ masaüstü sol liste) sayısı −1, bildirim, diskte index'te yok + versions/v1 ve manifest fixture Çöp'ünde; API X-WW-Client'sız 403, confirm'siz 400, olmayan 404; eski vd'de atlanır. Vitest: Arşiv ayrıntısı Geri getir | Sil",
+    "score": 54,
+    "is_merge": false,
+    "lines": 230
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "65cfb03ce0",
+    "date": "2026-10-30T11:45:30+03:00",
+    "subject": "fix(galeri): görüntüleyici Esc'si tuştan hemen sonra gelen etki yeniden bağlamasında (StrictMode, yük altında) yutulmasın — dinleyici layout etkisinde, zamanlayıcı temizlikte iptal edilmez (kök bağlı değilse çağrı yok); e2e Esc 1440+390 ×3 tekrar yeşil",
+    "score": 54,
+    "is_merge": false,
+    "lines": 12
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "e076d4d5ac",
+    "date": "2026-10-30T11:47:15+03:00",
+    "subject": "merge: test-tur-filtre → test (TKF: Galeri tür filtresi YT · Product · Branding simgeleri)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "cb68dcdc10",
+    "date": "2026-10-30T11:51:21+03:00",
+    "subject": "test(bildirim): e2e — kapatılan ses kartı yenileme + sunucu yeniden başlatma sonrası geri gelmez; «Tümünü gör» liste/okundu/filtre",
+    "score": 54,
+    "is_merge": false,
+    "lines": 254
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8aa34d33c4",
+    "date": "2026-10-30T11:55:00+03:00",
+    "subject": "feat(ses): Ses Stüdyosu sunucusu — motorlar (yerel EMA · SesVer/VoxCPM2 · ElevenLabs), maliyet koruması, taslak/Galeri'ye kaydet",
+    "score": 95,
+    "is_merge": false,
+    "lines": 3010
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "1d7bac6d54",
+    "date": "2026-10-30T11:56:00+03:00",
+    "subject": "fix(bildirim): eşitleme başlamadan belleğe giren geçmiş olayları ilk okumadan sonra sunucuya yazılır",
+    "score": 55,
+    "is_merge": false,
+    "lines": 17
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a9abbee8e6",
+    "date": "2026-10-30T11:59:53+03:00",
+    "subject": "merge: test-depolama-masaustu → test (TDM: Depolama › Masaüstü klasörleri, Yusuf/Süeda ve gizli alanlar hariç)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "561d658166",
+    "date": "2026-10-30T12:02:59+03:00",
+    "subject": "merge: test → test-galeri-sil (TPT taşı + çoklu seçim, TAN, TKF, TDM ile birleşme)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "veri-duzeni",
+    "hash": "150230c01d",
+    "date": "2026-10-30T12:06:23+03:00",
+    "subject": "merge: feat/proje-tasi → feat/varlik-sil (vd move + vd delete birlikte)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "974c074dbb",
+    "date": "2026-10-30T12:06:28+03:00",
+    "subject": "feat(uretim): tek «✦ Oluştur» (#create/hub) — tür (Görsel · Video · Video + seslendirme), brief + kanal şablonları (Haritada Tarih, Duygu Atölyesi, Karga Faber, YZ Arşivi, Crow Faber), format 9:16/16:9/1:1/4:5, proje; motor kartları (yerel PhotoGen/VideoGen ↔ ElevenLabs) güçlü yan + süre + kredi, saf öneri (harita/grafik → yerel, gerçekçi/karakter/diyalog → ElevenLabs); ElevenLabs ayarları (model, çözünürlük, süre, ses, varyant, kaçınılacaklar, Galeri referansı); özet: canlı tahmin + bugün/kalan + abonelik; onay penceresi (tahmin, bugün sonrası) → oturum (#create/hub/s/<id>): varyant ızgarası, Yeniden üret (yeni onay), Düzenle, Seç → Galeri'ye kaydet (proje + başlık). Anahtar yoksa «Anahtar gerekli → Ayarlar › Bağlantılar» + yarı otomatik yol (ElevenLabs'te aç + İçe aktar). Yerel motor istem/oran/süre/proje/ses ile PhotoGen ve VideoGen'e devreder (VideoGen'de tohum: tarz önerileri ezilmez). Ayarlar › Bağlantılar'da salt okunur ElevenLabs kartı. Galeri «✦ Oluştur» girişleri buraya açılır; eski #create ve #create/video rotaları korunur. Metinler uretim/strings.ts + connStrings; 14 UI testi + rota testi; video e2e'leri hub üzerinden",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1891
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "d63a4e1680",
+    "date": "2026-10-30T12:06:33+03:00",
+    "subject": "test(uretim): e2e/uretim-akisi + playwright.uretim.config.ts — sahte ElevenLabs (5254) + fixture vd, Hermes kapalı; 1440 + 390: şablon → ElevenLabs önerili → tahmin ~1.700 → onay (onaydan önce istek yok) → 2 varyant → Galeri'ye kaydet (vd'de başlık), içerik indirmesi anahtarsız, yanıt/sayfada anahtar yok; motor seçimi (harita → VideoGen, Veo 1:1 pasif, süreyle tahmin); günlük sınır (UI kapalı + API 429, ElevenLabs'e istek yok); yarı otomatik bağlantı + içe aktar",
+    "score": 54,
+    "is_merge": false,
+    "lines": 210
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "898273a2b7",
+    "date": "2026-10-30T12:07:00+03:00",
+    "subject": "merge: test-galeri-geri → test (TGG: görüntüleyiciden dönüşte proje, filtreler, kaydırma ve odak korunur)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "veri-duzeni",
+    "hash": "01142525a9",
+    "date": "2026-10-30T12:08:40+03:00",
+    "subject": "feat(delete): silinen asset'in work/ ara urunleri de Cop'e (Yusuf karari) — yalniz bu asset'in kendi work/ klasoru, dosya dosya (role: work; kapaklar thumbnail); baska asset'in surumuyle paylasilan dosya (ayni realpath ya da sabit baglanti: aygit+inode) korunur 'başka kayıtta kullanılıyor', sembolik baglanti izlenmez; klasor silinmez; README; +1 test (125 passed)",
+    "score": 86,
+    "is_merge": false,
+    "lines": 86
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "aa84f239ce",
+    "date": "2026-10-30T12:09:25+03:00",
+    "subject": "feat(ses): Ses Stüdyosu arayüzü — Seslendirme · Diyalog · Ses efekti · Müzik",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2809
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "bdaa7278c2",
+    "date": "2026-10-30T12:09:32+03:00",
+    "subject": "merge: test → test-galeri-sil (TGG ızgaraya dönüş; çakışmasız)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "05533fd060",
+    "date": "2026-10-30T12:12:30+03:00",
+    "subject": "merge: test → test-bildirim-gecmis (TPT/TAN/TKF/TDM ile birleşme; çakışmalar iki taraf korunarak: MODULES'a notifications + anahtarlar, PREF_KEYS galleryCategory + notifyCenter, ui-pure beyaz liste iki save, playwright testIgnore kalici/** + depolama-masaustu.spec.ts)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ede60392d8",
+    "date": "2026-10-30T12:16:11+03:00",
+    "subject": "docs(uretim): uygulama notları — env tablosu (ELEVENLABS_API_KEY, WW_ELEVEN_DAILY_CREDIT_LIMIT=20000, WW_ELEVEN_PRICES, BASE_URL, POLL_MS), defter/oturum yolları, 409/429, sonra-* ekran görüntüleri, doğrulama komutları; ses seçici entegrasyon noktası",
+    "score": 30,
+    "is_merge": false,
+    "lines": 19
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "59c52faafb",
+    "date": "2026-10-30T12:16:38+03:00",
+    "subject": "feat(galeri): Sil çoklu seçimde + görüntüleyiciden silince sonraki varlık (Yusuf kararları 1–2)",
+    "score": 91,
+    "is_merge": false,
+    "lines": 473
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "0c7dcd1cd8",
+    "date": "2026-10-30T12:24:10+03:00",
+    "subject": "merge: test → test-bildirim-gecmis (TGG galeri dönüş durumu; çakışmasız)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "e82fcc5de9",
+    "date": "2026-10-30T12:29:12+03:00",
+    "subject": "test(ses): Ses Stüdyosu e2e (sahte ElevenLabs) + analiz belgesi; mobil/erişilebilirlik düzeltmeleri",
+    "score": 56,
+    "is_merge": false,
+    "lines": 485
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "6015afb8f7",
+    "date": "2026-10-30T12:32:02+03:00",
+    "subject": "merge: test-ses-studyo → test-eleven-entegre (TSS Ses Stüdyosu)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "440b214386",
+    "date": "2026-10-30T12:32:44+03:00",
+    "subject": "merge: test-uretim-akisi → test-eleven-entegre (TUA tek Oluştur)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "473a3550be",
+    "date": "2026-10-30T13:26:27+03:00",
+    "subject": "feat(eleven): tek ElevenLabs katmanı — ortak istemci/abonelik/kredi defteri, anahtar env > Anahtar Zinciri, ortak bütçe; Oluştur «Video + seslendirme» ortak ses kataloğu",
+    "score": 95,
+    "is_merge": false,
+    "lines": 3518
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ef60c79e20",
+    "date": "2026-10-30T13:28:59+03:00",
+    "subject": "merge: test-eleven-entegre → test (TSS Ses Stüdyosu + TUA tek Oluştur akışı + tek ElevenLabs katmanı, anahtar Anahtar Zinciri'nden, ortak kredi bütçesi)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "484dcfa571",
+    "date": "2026-10-30T13:33:02+03:00",
+    "subject": "test(galeri): e2e/galeri-sil — toplu Sil + görüntüleyiciden sonraki varlık + work/ Çöp; fix(galeri): mobilde silme bildirimi seçim çubuğunu kapatmasın",
+    "score": 54,
+    "is_merge": false,
+    "lines": 248
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "64ca941782",
+    "date": "2026-10-30T13:33:16+03:00",
+    "subject": "merge: test → test-galeri-sil (TSS/TUA/ElevenLabs; çakışmasız)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "387ad2ce2c",
+    "date": "2026-10-30T13:46:01+03:00",
+    "subject": "test(galeri): e2e/galeri-sil — mobil uzun basma touchStart → seçim kipi görünene dek basılı → touchCancel (sabit süre yük altında ya dokunuşa dönüyor ya da çubuk içeriği itince bırakış filtre çipine tıklıyordu); seçimden sonra filtre «Tümü» kalır denetimi",
+    "score": 44,
+    "is_merge": false,
+    "lines": 14
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "c68518078f",
+    "date": "2026-10-30T13:47:32+03:00",
+    "subject": "merge: test-galeri-sil → test (TGS: Galeri gerçek Sil — tekli/toplu, Çöp Kutusu, work/ ara ürünleri; vd feat/varlik-sil ile)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "1b1150f35d",
+    "date": "2026-10-30T13:49:58+03:00",
+    "subject": "merge: test → test-bildirim-gecmis (TEE Ses Stüdyosu + Oluştur + tek ElevenLabs katmanı ile birleşme; çakışmalar iki taraf korunarak: MODULES'a notifications + eleven, PREF_KEYS notifyCenter + voiceFavorites, ui-pure beyaz liste saveNotifyCenter + saveVoiceFavorites)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b4082db826",
+    "date": "2026-10-30T14:04:12+03:00",
+    "subject": "merge: test → test-bildirim-gecmis (TGS Galeri Sil; çakışmasız)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "46a539dc73",
+    "date": "2026-10-30T14:10:00+03:00",
+    "subject": "test(galeri): e2e/proje-tasi — mobil uzun basma galeri-sil ile aynı: kart görünür → touchStart → seçim kipi görünene dek basılı → touchCancel (TGS «Sil» çubuğu 2 satıra çıkarınca sabit 750 ms + touchEnd bırakışı «Taslak» filtre çipine düşüp seçimi 0'lıyordu)",
+    "score": 43,
+    "is_merge": false,
+    "lines": 8
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ffa8b0aff0",
+    "date": "2026-10-30T14:10:40+03:00",
+    "subject": "merge: test-bildirim-gecmis → test (TBG: bildirim merkezi «Tümünü gör» + kalıcı kapatma; mobil uzun basma e2e düzeltmesi)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7e68c14bf5",
+    "date": "2026-10-30T14:12:45+03:00",
+    "subject": "merge: test → main (Yusuf onayı 30 Eki: Projeye taşı, gerçek Sil, Bildirim merkezi, Anahtarlar, tür filtresi, Masaüstü depolama, geri düğmesi, Ses Stüdyosu, tek Oluştur + ElevenLabs; vd main ile birlikte)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f1b197e60f",
+    "date": "2026-10-30T17:06:21+03:00",
+    "subject": "feat(mobil): telefon eşleştirme + cihaz anahtarı (Bearer) + kapı tablosu (TME faz 1: salt okuma)",
+    "score": 94,
+    "is_merge": false,
+    "lines": 1021
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "fddd13fb21",
+    "date": "2026-10-30T17:13:50+03:00",
+    "subject": "feat(ayarlar): Bağlı istemciler › Telefonlar — Telefon ekle (kod + QR, 10 dk), liste, İptal (TME)",
+    "score": 93,
+    "is_merge": false,
+    "lines": 803
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "836771dd4e",
+    "date": "2026-10-30T17:20:48+03:00",
+    "subject": "test(mobil): e2e Telefon ekle → eşleştir → anahtarla salt okuma (200/206/403) → İptal (401), 1440 + 390 (TME)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 160
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "4a2d8bfc6a",
+    "date": "2026-10-30T17:23:35+03:00",
+    "subject": "fix(mobil): cihaz anahtarı /ww dışına iletilmez — /api, /auth (Hermes vekili) isteklerinde Bearer wwm_ → 403 (TME)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 15
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "518d8ef66b",
+    "date": "2026-10-30T17:25:34+03:00",
+    "subject": "docs(mobil): mobil API sözleşmesi (faz 1) + Mobil–Web eşitlik matrisi (TME)",
+    "score": 41,
+    "is_merge": false,
+    "lines": 423
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "596a37bc9c",
+    "date": "2026-10-31T07:31:19+03:00",
+    "subject": "merge: test-mobil-erisim → test (TME: telefon eşleştirme + bearer salt okuma kapısı, mobil API sözleşmesi, eşitlik matrisi)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5b89ca2bac",
+    "date": "2026-11-01T13:44:30+03:00",
+    "subject": "feat(lansman): Hesaplar sunucusu — Haberci iki JSONL birleştirme (son satır, en yeni zaman), durum grupları, platform eşleme, maskeleme, güvenli kanıt ucu, mtime yenileme; mobil kapı faz 1 salt okuma (TLH)",
+    "score": 94,
+    "is_merge": false,
+    "lines": 1091
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "845cdf1455",
+    "date": "2026-11-01T13:44:34+03:00",
+    "subject": "feat(lansman): Hesaplar görünümü (#projects/lansman/hesaplar) — özet sayaçlar/çipler, tablo (masaüstü) + kart (mobil), Bize kalan neden + Kayda git, Ad sorunu uyarısı, filtre/arama/sıralama, dürüst boş/eksik dosya durumu (TLH)",
+    "score": 94,
+    "is_merge": false,
+    "lines": 1114
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "029311c7c8",
+    "date": "2026-11-01T13:49:39+03:00",
+    "subject": "docs(mobil): GET /ww/lansman/accounts faz 1 salt okuma (§4.10) + eşitlik matrisi satırı — mobil ekran PM kararında (TLH)",
+    "score": 33,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b940749d34",
+    "date": "2026-11-01T13:49:39+03:00",
+    "subject": "test(lansman): Hesaplar e2e 1440 + 390 koyu tema — fixture klasörü (WW_LANSMAN_ACCOUNTS_DIR), yalnız iki dosya, kanıt ucu, maskeleme, filtre, sekmeler, taşma (TLH)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 185
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "bc22234799",
+    "date": "2026-11-01T13:49:39+03:00",
+    "subject": "fix(lansman): Hesaplar görsel QA — site/kullanıcı adı sözcük içinden kırılmasın, kategori/giriş sütun genişliği, kartta boş kullanıcı adı gizli (TLH)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 15
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "76855781bb",
+    "date": "2026-11-01T13:52:18+03:00",
+    "subject": "merge: test-lansman-hesaplar → test (TLH: Projeler › Lansman › Hesaplar — hangi sitede hesabımız var)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8e446681db",
+    "date": "2026-11-01T19:00:48+03:00",
+    "subject": "merge: test → main (Yusuf onayı 1 Kas: telefon eşleştirme + mobil API faz 1, Lansman › Hesaplar)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "titimer",
+    "hash": "23f7339060",
+    "date": "2026-11-01T19:51:49+03:00",
+    "subject": "test(magaza): emülatörsüz mağaza ham ekranları (Play 1080x2400, iPhone 6.9 1320x2868)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 359
+  },
+  {
+    "repo": "titimer",
+    "hash": "2746960f5d",
+    "date": "2026-11-01T19:51:49+03:00",
+    "subject": "fix(fonts): Kalam ve Nunito'yu uygulamaya göm, çalışma anında indirmeyi kapat; arayüzdeki em dash'leri kaldır",
+    "score": 64,
+    "is_merge": false,
+    "lines": 209
+  },
+  {
+    "repo": "titimer",
+    "hash": "39fda6e74b",
+    "date": "2026-11-01T19:55:28+03:00",
+    "subject": "release: kimlik com.hamaratlabs.titimer, sürüm 0.1.0+1, release imza yapılandırması",
+    "score": 85,
+    "is_merge": false,
+    "lines": 81
+  },
+  {
+    "repo": "titimer",
+    "hash": "25047e3465",
+    "date": "2026-11-01T19:59:01+03:00",
+    "subject": "feat(ikon): Flutter varsayılan ikonu yerine marka işareti (karşılama logosu)",
+    "score": 88,
+    "is_merge": false,
+    "lines": 178
+  },
+  {
+    "repo": "titimer",
+    "hash": "924c9033c3",
+    "date": "2026-11-01T20:05:54+03:00",
+    "subject": "store: TR/EN mağaza paketi (metinler, form cevapları, gizlilik metni, pazarlama görselleri, öne çıkan görsel) ve iOS ExportOptions",
+    "score": 57,
+    "is_merge": false,
+    "lines": 496
   }
 ]
