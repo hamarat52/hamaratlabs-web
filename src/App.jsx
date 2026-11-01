@@ -78,17 +78,26 @@ const STATIC_PAGES = {
   '/wingwire': lazy(() => import('./wingwire-site/WingWireSite')),
   // /sesver: SesVer'in kendi sitesi (ayrı parça, açık/krem kimlik).
   '/sesver': lazy(() => import('./sesver-site/SesVerSite')),
+  // /titimer: tiTimer'ın kendi sitesi (ayrı parça; kâğıt zemin, Kalam/Nunito, maskot Titi).
+  '/titimer': lazy(() => import('./titimer-site/TiTimerSite')),
   // /aktivite: zoom'a göre detay açan kod aktivite haritası (d3-force + canvas; ayrı parça).
   '/aktivite': lazy(() => import('./AktiviteHaritasi'))
 };
 
 // Bu yollar ana sitenin topbar'ı ve footer'ı OLMADAN, tam sayfa çizilir (ürünün kendi tasarımı).
-const STANDALONE_PAGES = new Set(['/wingwire', '/sesver']);
+const STANDALONE_PAGES = new Set(['/wingwire', '/sesver', '/titimer']);
+
+// Sondaki eğik çizgiyi at: /titimer/ ile /titimer aynı sayfa. public/titimer/ (gizlilik, destek) klasörü
+// olduğu için GitHub Pages /titimer'ı /titimer/'a yönlendirebilir; 404.html → SPA yine doğru sayfayı bulsun.
+const currentPath = () => {
+  const p = stripBase(window.location.pathname);
+  return p.length > 1 ? p.replace(/\/+$/, '') || '/' : p;
+};
 
 function usePath() {
-  const [path, setPath] = useState(() => stripBase(window.location.pathname));
+  const [path, setPath] = useState(currentPath);
   useEffect(() => {
-    const onPop = () => setPath(stripBase(window.location.pathname));
+    const onPop = () => setPath(currentPath());
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, []);
@@ -137,7 +146,10 @@ export default function App() {
             // visitUrl'li ürünün mağaza sayfası, aşaması ne olursa olsun ortak AppPage'dir ("uygulama detay sayfası");
             // ürünün kendi tasarımı visitUrl'deki sitededir.
             const Custom = CUSTOM_PAGES[slugOf(appMatch.name)];
-            const Page = Custom || (appMatch.visitUrl ? AppPage : STAGE_PAGES[appMatch.stage]) || AppPage;
+            // stageTemplate: true → kendi sitesi olsa da aşama şablonunu kullan (ör. tiTimer: Kitabe gibi geliştirme sayfası,
+            // DevStagePage visitUrl'e ayrıca bağlantı verir).
+            const Page =
+              Custom || (appMatch.visitUrl && !appMatch.stageTemplate ? AppPage : STAGE_PAGES[appMatch.stage]) || AppPage;
             return (
               <Suspense fallback={<div style={{ minHeight: '100vh', background: Custom ? '#0b0f14' : undefined }} />}>
                 <Page app={appMatch} />

@@ -14,6 +14,7 @@ import './DevStagePage.css';
 //   devStep  : şu anki adımın sırası (1'den başlar), varsayılan 3
 //   devSteps : adım adları dizisi, varsayılan DEFAULT_STEPS
 //   devNote  : "şu an ne üzerinde çalışılıyor" cümlesi
+//   visitUrl : ürünün kendi tanıtım sayfası (yalnız stageTemplate: true ile bu şablona düşer); visitLabel düğme metni
 
 const DEFAULT_STEPS = ['Fikir', 'Tasarım', 'Yapım', 'İç deneme', 'Açık beta', 'Yayın'];
 const isPlaceholder = v => !v || v.startsWith('[');
@@ -165,6 +166,16 @@ export default function DevStagePage({ app }) {
                 className="devpage__dodge"
                 ariaLabel={`${app.name} henüz indirilemez`}
               />
+              {app.visitUrl &&
+                (app.visitUrl.startsWith('/') ? (
+                  <Link to={app.visitUrl} className="devpage__visit" style={app.visitAccent ? { '--dp-visit': app.visitAccent } : undefined}>
+                    {app.visitLabel || 'Tanıtım sayfası'} →
+                  </Link>
+                ) : (
+                  <a className="devpage__visit" style={app.visitAccent ? { '--dp-visit': app.visitAccent } : undefined} href={app.visitUrl} target="_blank" rel="noopener noreferrer">
+                    {app.visitLabel || 'Tanıtım sayfası'} →
+                  </a>
+                ))}
               <a className="devpage__follow" href={LINKS.contact} target="_blank" rel="noopener noreferrer">
                 Erken denemek istersen yaz →
               </a>

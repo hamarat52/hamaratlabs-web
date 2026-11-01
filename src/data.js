@@ -89,12 +89,33 @@ export const APPS = [
     visitAccent: 'linear-gradient(135deg, #C2451F 0%, #962D12 100%)'
   },
   {
+    // Durum ve özellikler pm-titimer'dan (2026-11-01): sürüm 0.1.0+1, release yapılandırması hazır, henüz test kanalı yok.
+    // "Aynı anda birden çok sayaç" ve ayrı "ters sayaç" iddiaları yanlıştı (README: aynı anda tek sayaç); kaldırıldı.
     name: 'tiTimer',
-    stage: 'idea',
-    short: 'Çoklu sayaç ve çalışma raporu',
-    lead: 'Çoklu sayaç, ters sayaç ve çalışma raporlarını bir araya getiren sade bir odak uygulaması.',
-    points: ['Aynı anda birden çok sayaç', 'Ters sayaç', 'Çalışma raporları'],
-    platform: 'iOS · ANDROID'
+    stage: 'dev',
+    short: 'Odak ve mola sayacı',
+    lead: 'Neye ne kadar zaman ayırdığını sakin biçimde gösteren, tamamen telefonunda çalışan odak ve mola sayacı.',
+    points: [
+      'Kendi başlıklarını aç, süreni onlara göre tut',
+      'Tek sayaç, geri sayımlı Pomodoro akışı',
+      'Plansız molalar ayrı kaydedilir',
+      'Unuttuğun süreyi tarihiyle elle ekle',
+      'Günlük rapor ve haftalık başlık dağılımı'
+    ],
+    platform: 'ANDROID · iOS',
+    devStep: 3,
+    devNote: 'Geliştirme sürüyor; ilk sürüm (0.1.0) mağaza hazırlığında. Henüz test kanalı açılmadı.',
+    // Gerçek uygulama ağacından üretilen mağaza ekranları (titimer repo: store/ortak/ekran, Android 1080x2400).
+    screenshots: [
+      { src: asset('/titimer-screens/ana-sayfa.webp'), alt: 'tiTimer ana sayfa: Odak alanların halkaları' },
+      { src: asset('/titimer-screens/odak-modu.webp'), alt: 'tiTimer Sayaç: Odaklanıyor · Blok 1, 17:37 kaldı' },
+      { src: asset('/titimer-screens/raporlar.webp'), alt: 'tiTimer Raporlar: odak süresi, plansız mola, haftalık dağılım' }
+    ],
+    // Kendi tanıtım sayfası. stageTemplate: mağaza sayfası yine Kitabe gibi geliştirme şablonunda (DevStagePage) kalır.
+    visitUrl: '/titimer',
+    visitLabel: 'Tanıtım sayfası',
+    visitAccent: '#2F6D7C',
+    stageTemplate: true
   },
   {
     name: 'Kitabe',
