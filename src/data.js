@@ -125,7 +125,7 @@ export const APPS = [
     points: ['1.957 kitabe kaydı', '839 tarihî yapı', "8.900'ü aşkın fotoğraf, internetsiz"],
     platform: 'ANDROID · iOS',
     devStep: 4,
-    devNote: "Google Play'de kapalı test başladı (sürüm 0.1.0), iOS sürümü TestFlight'ta. 14 günlük testin ardından mağazaya çıkış.",
+    devNote: "Sürüm 0.1.0 için mağaza paketi hazır: Türkçe ve İngilizce ekran görüntüleri ve açıklamalar tamam. Google Play'e ilk yükleme sırada.",
     // Test sürümünden gerçek ekran görüntüleri (docs/screenshots/ içindeki QA setinden).
     screenshots: [
       { src: asset('/kitabe-screens/home.webp'), alt: 'Kitabe ana sayfa: Günün Eseri ve Öne Çıkanlar' },
@@ -169,7 +169,7 @@ export const LOG = [
   },
   {
     tag: 'EKİM 2026 · KİTABE',
-    text: "Google Play'de kapalı test başladı, iOS sürümü TestFlight'ta. Gizlilik ve destek sayfaları yayında."
+    text: "Mağaza paketi hazır, Google Play'e ilk yükleme sırada. Gizlilik ve destek sayfaları yayında."
   },
   {
     tag: 'EKİM 2026 · SESVER',
