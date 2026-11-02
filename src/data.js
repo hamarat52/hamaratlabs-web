@@ -32,7 +32,7 @@ export const FEATURED = [
     name: 'SesVer',
     stage: 'beta',
     lead: 'Ücretsiz, yerel ve açık kaynak Türkçe ses üretimi ve klonlama. Yazdığını kendi bilgisayarında sese çevirir.',
-    points: ['Hazır Türkçe sesler', 'Tarif ederek yeni ses tasarla', 'Kendi sesini klonla', 'Bilgisayarında çalışır, buluta gönderilmez', 'NVIDIA ve AMD ekran kartıyla hızlanır', 'Ücretsiz ve açık kaynak'],
+    points: ['Hazır Türkçe sesler', 'Tarif ederek yeni ses tasarla', 'Kendi sesini klonla', 'Bilgisayarında çalışır, buluta gönderilmez', 'NVIDIA ve AMD ekran kartıyla hızlanır', 'Arayüz Türkçe dahil 11 dilde', 'Ücretsiz ve açık kaynak'],
     platform: 'macOS · WINDOWS',
     download: 'https://github.com/hamarat52/sesver',
     downloadLabel: "GitHub'dan indir",
@@ -64,7 +64,7 @@ export const APPS = [
     internal: true,
     short: 'Ajan ekibini tarayıcıdan yönet',
     lead: "Hermes ajanlarımı tarayıcıdan yöneten panel: kendi Mac'imde çalışır, yalnız özel ağım (tailnet) üzerinden erişilir.",
-    points: ['Ajanlarla sohbet ve gruplar', 'İş ve görev takibi, cron takvimi', 'Galeri: video, foto ve ses üretimleri', 'Projeler, paylaşımlar ve sağlık paneli'],
+    points: ['Ajanlarla sohbet ve gruplar', 'İş ve görev takibi, cron takvimi', 'Tek «Oluştur» ekranından görsel, video ve seslendirmeli video', 'Ses Stüdyosu: seslendirme, diyalog, ses efekti, müzik', 'Telefonu QR kodla eşle (telefon paneli şimdilik yalnız okur)', 'Projeler, paylaşımlar ve sağlık paneli'],
     platform: 'WEB · İÇ KULLANIM'
   },
   {
@@ -125,7 +125,7 @@ export const APPS = [
     points: ['1.957 kitabe kaydı', '839 tarihî yapı', "8.900'ü aşkın fotoğraf, internetsiz"],
     platform: 'ANDROID · iOS',
     devStep: 4,
-    devNote: "Google Play'de kapalı test başladı (sürüm 0.1.0), iOS sürümü TestFlight'ta. 14 günlük testin ardından mağazaya çıkış.",
+    devNote: "Sürüm 0.1.0 için mağaza paketi hazır: Türkçe ve İngilizce ekran görüntüleri ve açıklamalar tamam. Google Play'e ilk yükleme sırada.",
     // Test sürümünden gerçek ekran görüntüleri (docs/screenshots/ içindeki QA setinden).
     screenshots: [
       { src: asset('/kitabe-screens/home.webp'), alt: 'Kitabe ana sayfa: Günün Eseri ve Öne Çıkanlar' },
@@ -164,12 +164,16 @@ export const APPS = [
 
 export const LOG = [
   {
+    tag: 'KASIM 2026 · WINGWIRE WEB',
+    text: 'Görsel, video ve seslendirmeli video artık tek bir Oluştur ekranından üretiliyor; Ses Stüdyosu eklendi. Telefon QR kodla eşlenebiliyor, telefon paneli şimdilik yalnız okuyor.'
+  },
+  {
     tag: 'EKİM 2026 · KİTABE',
-    text: "Google Play'de kapalı test başladı, iOS sürümü TestFlight'ta. Gizlilik ve destek sayfaları yayında."
+    text: "Mağaza paketi hazır, Google Play'e ilk yükleme sırada. Gizlilik ve destek sayfaları yayında."
   },
   {
     tag: 'EKİM 2026 · SESVER',
-    text: 'SesVer 1.1.0 yayında: Windows kurulum dosyası ve NVIDIA/AMD ekran kartı hızlandırma. Mağaza paketi için 6 tanıtım videosu hazır.'
+    text: 'SesVer 1.1.0 yayında: Windows kurulum dosyası, NVIDIA/AMD ekran kartı hızlandırma ve Türkçe dahil 11 dilde arayüz. Mağaza paketi için 6 tanıtım videosu hazır.'
   },
   {
     tag: 'EKİM 2026 · INCOME VS DESIRES',
