@@ -36,14 +36,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: hamarat52/ricambio-landing
-          ref: beccba47f87718d381ca760930ae10f2f14ddc12
+          ref: b7a7904eac935e579802733bfccddeac51551cff
           path: _ricambio/landing
           persist-credentials: false
       - name: RICAMBIO platformunu al
         uses: actions/checkout@v4
         with:
           repository: hamarat52/ricambio-platform
-          ref: b7f5025db3d5f8b788f1bf6739c8034f464e4c67
+          ref: 5ece55181a5c543d2db9eb2d58f3610f3068be0a
           path: _ricambio/platform
           persist-credentials: false
       - run: npm ci && npm run build
