@@ -33,7 +33,7 @@ jobs:
       # 404.html görmezse SPA kipine geçer, /uretiyorum/sesver gibi derin rotalar soğuk açılışta 200 döner.
       # (_redirects içindeki "/* /index.html 200" kuralını Pages sonsuz döngü sayıp yok sayıyor, denendi.)
       - name: Cloudflare Pages'e yayınla
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3.15.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
