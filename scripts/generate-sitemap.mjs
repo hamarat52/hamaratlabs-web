@@ -48,6 +48,8 @@ if (existsSync(schoolDir)) {
     if (d.isDirectory() && existsSync(path.join(schoolDir, d.name, 'index.html'))) staticUrls.push(`/okul-projeleri/${d.name}/`);
   }
 }
+// CI'da dist'e başka repolardan kopyalanan Okul Projeleri sayfaları (bkz. .github/workflows/deploy.yml).
+staticUrls.push('/okul-projeleri/ricambio/');
 const appUrls = allApps.map(a => `/uretiyorum/${slugOf(a.name)}`);
 
 // Öğretici yazıları: src/ogretici/posts.js içindeki `slug: '...'` satırları (ham metinden, aynı nedenle).

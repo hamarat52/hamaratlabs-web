@@ -250,6 +250,15 @@ export const SCHOOL_PROJECTS = [
       { label: 'Tanıtım', url: '/okul-projeleri/akce/' },
       { label: 'Uygulamayı dene', url: 'https://akce.hamaratlabs.com/giris', note: 'Erişim kodu gerekir' }
     ]
+  },
+  {
+    name: 'RICAMBIO',
+    lead: 'Artık üretilmeyen klasik araç plastik parçaları için doğrulanmış 3D dosya kütüphanesi ve baskı servisi (okul projesi, prototip).',
+    image: { src: asset('/okul-projeleri-screens/ricambio-720.webp'), srcSet: `${asset('/okul-projeleri-screens/ricambio-720.webp')} 720w, ${asset('/okul-projeleri-screens/ricambio-1200.webp')} 1200w`, width: 1200, height: 750, alt: 'RICAMBIO tanıtım sayfasının açılışı: rozetsiz kırmızı bir hatchback ve "Twenty years on the road" başlığı' },
+    links: [
+      { label: 'Tanıtım', url: '/okul-projeleri/ricambio/' },
+      { label: 'Uygulamayı dene', url: '/okul-projeleri/ricambio/app/', note: 'Demo verisiyle, giriş gerekmez' }
+    ]
   }
 ];
 

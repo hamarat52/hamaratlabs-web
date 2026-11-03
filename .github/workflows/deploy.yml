@@ -27,6 +27,28 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: /
+      # RICAMBIO (Okul Projeleri): landing ve platform kendi public repolarından derlenip
+      # dist/okul-projeleri/ricambio/ ve .../ricambio/app/ altına kopyalanır.
+      # Bu repolar değişince siteyi yenilemek için: Actions > Yayınla > Run workflow.
+      - name: RICAMBIO landing'i al
+        uses: actions/checkout@v4
+        with:
+          repository: hamarat52/ricambio-landing
+          path: _ricambio/landing
+      - name: RICAMBIO platformunu al
+        uses: actions/checkout@v4
+        with:
+          repository: hamarat52/ricambio-platform
+          path: _ricambio/platform
+      - run: npm ci && npm run build
+        working-directory: _ricambio/landing
+      - run: npm ci && npm run build:site
+        working-directory: _ricambio/platform
+      - name: RICAMBIO'yu siteye ekle
+        run: |
+          mkdir -p dist/okul-projeleri/ricambio/app
+          cp -r _ricambio/landing/dist/. dist/okul-projeleri/ricambio/
+          cp -r _ricambio/platform/dist-site/. dist/okul-projeleri/ricambio/app/
       # dist/404.html KOYMA: Cloudflare Pages kökte 404.html görmezse SPA kipine geçer,
       # /uretiyorum/sesver gibi derin rotalar soğuk açılışta 200 döner. Statik dosyalar önceliklidir.
       - name: Cloudflare Pages'e yayınla
