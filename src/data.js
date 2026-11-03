@@ -242,13 +242,13 @@ export const INSPIRATION = [
 // note: düğmenin altındaki küçük not. image: public/okul-projeleri-screens/ altındaki gerçek ekran görüntüsü.
 export const SCHOOL_PROJECTS = [
   {
-    name: 'Akçe',
+    name: 'Fibi',
     lead: 'Yapay zekâ asistanlı kişisel finans ve birikim uygulaması (okul projesi, konsept).',
-    image: { src: asset('/okul-projeleri-screens/akce-pano-720.webp'), srcSet: `${asset('/okul-projeleri-screens/akce-pano-720.webp')} 720w, ${asset('/okul-projeleri-screens/akce-pano-1200.webp')} 1200w`, width: 1200, height: 750, alt: 'Akçe uygulamasının ana panosu: harcama dağılımı, gelir ve gider, hedefler (örnek verilerle)' },
+    image: { src: asset('/okul-projeleri-screens/fibi-pano-720.webp'), srcSet: `${asset('/okul-projeleri-screens/fibi-pano-720.webp')} 720w, ${asset('/okul-projeleri-screens/fibi-pano-1200.webp')} 1200w`, width: 1200, height: 750, alt: 'Fibi uygulamasının ana panosu: asistan önerisi, birikim hesabı, kampanyalar (örnek verilerle)' },
     links: [
-      // Statik tanıtım: public/okul-projeleri/akce/ (Akçe repo'sundaki dist-tanitim kopyası). '/' ile başladığı için düz <a>, aynı sekmede tam yükleme.
-      { label: 'Tanıtım', url: '/okul-projeleri/akce/' },
-      { label: 'Uygulamayı dene', url: 'https://akce.hamaratlabs.com/giris', note: 'Erişim kodu gerekir' }
+      // Statik tanıtım: public/okul-projeleri/fibi/ (proje repo'sundaki dist-tanitim-fibi kopyası). Eski /okul-projeleri/akce/ yolu public/_redirects ile 301.
+      { label: 'Tanıtım', url: '/okul-projeleri/fibi/' },
+      { label: 'Uygulamayı dene', url: 'https://fibi.hamaratlabs.com', note: 'Erişim kodu gerekir' }
     ]
   },
   {

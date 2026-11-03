@@ -1,0 +1,4 @@
+# Cloudflare Pages yönlendirmeleri
+# Akçe okul projesinin adı Fibi oldu (2026-11-03): eski tanıtım yolları kalıcı olarak yeni yola gider.
+/okul-projeleri/akce /okul-projeleri/fibi/ 301
+/okul-projeleri/akce/* /okul-projeleri/fibi/:splat 301
