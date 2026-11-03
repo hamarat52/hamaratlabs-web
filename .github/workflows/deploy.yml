@@ -29,17 +29,23 @@ jobs:
           BASE_PATH: /
       # RICAMBIO (Okul Projeleri): landing ve platform kendi public repolarından derlenip
       # dist/okul-projeleri/ricambio/ ve .../ricambio/app/ altına kopyalanır.
-      # Bu repolar değişince siteyi yenilemek için: Actions > Yayınla > Run workflow.
+      # İki repo güvenlik kontrolünden geçmiş commit'e sabit (siberguvenlik 2026-11-03, Z1).
+      # Repolar değişince: aşağıdaki iki ref'i yeni SHA ile güncelle, siberguvenlik kontrolü al,
+      # main'e push et (ya da Actions > Yayınla > Run workflow). SHA değişmeden Run workflow aynı sürümü derler.
       - name: RICAMBIO landing'i al
         uses: actions/checkout@v4
         with:
           repository: hamarat52/ricambio-landing
+          ref: beccba47f87718d381ca760930ae10f2f14ddc12
           path: _ricambio/landing
+          persist-credentials: false
       - name: RICAMBIO platformunu al
         uses: actions/checkout@v4
         with:
           repository: hamarat52/ricambio-platform
+          ref: b7f5025db3d5f8b788f1bf6739c8034f464e4c67
           path: _ricambio/platform
+          persist-credentials: false
       - run: npm ci && npm run build
         working-directory: _ricambio/landing
       - run: npm ci && npm run build:site
