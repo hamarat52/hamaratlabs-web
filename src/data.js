@@ -246,8 +246,8 @@ export const SCHOOL_PROJECTS = [
     lead: 'Yapay zekâ asistanlı kişisel finans ve birikim uygulaması (okul projesi, konsept).',
     image: { src: asset('/okul-projeleri-screens/akce-pano-720.webp'), srcSet: `${asset('/okul-projeleri-screens/akce-pano-720.webp')} 720w, ${asset('/okul-projeleri-screens/akce-pano-1200.webp')} 1200w`, width: 1200, height: 750, alt: 'Akçe uygulamasının ana panosu: harcama dağılımı, gelir ve gider, hedefler (örnek verilerle)' },
     links: [
-      // Statik tanıtım sayfası hamaratlabs'e gelince: '/okul-projeleri/akce/'
-      { label: 'Tanıtım', url: 'https://akce.hamaratlabs.com/tanitim' },
+      // Statik tanıtım: public/okul-projeleri/akce/ (Akçe repo'sundaki dist-tanitim kopyası). '/' ile başladığı için düz <a>, aynı sekmede tam yükleme.
+      { label: 'Tanıtım', url: '/okul-projeleri/akce/' },
       { label: 'Uygulamayı dene', url: 'https://akce.hamaratlabs.com/giris', note: 'Erişim kodu gerekir' }
     ]
   }
