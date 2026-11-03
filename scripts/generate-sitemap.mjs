@@ -2,7 +2,7 @@
 // Google'ın siteyi keşfetmesini hızlandırmak için (domain yeni, sitemap hiç yoktu).
 // Ürün listesi src/data.js'ten (FEATURED + APPS) otomatik okunur, elle güncelleme
 // gerekmez — yeni ürün eklendikçe sitemap kendiliğinden büyür.
-import { mkdirSync, readFileSync, writeFileSync, appendFileSync, existsSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync, appendFileSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -40,7 +40,14 @@ const lastmodOf = { '/skills': skillsLastmod };
 
 // Sabit sayfalar + ürün detay sayfaları (/uretiyorum/<slug>, sadece gerçek ürünler
 // — 'idea' aşamasındaki placeholder'lar [Kısa açıklama] gibi dolgu metin taşıyorsa atla).
-const staticUrls = ['/', '/uretiyorum', '/paylasiyorum', '/anlatiyorum', '/oneriyorum', ...(skillsLastmod ? ['/skills'] : [])];
+const staticUrls = ['/', '/uretiyorum', '/paylasiyorum', '/anlatiyorum', '/oneriyorum', '/okul-projeleri', ...(skillsLastmod ? ['/skills'] : [])];
+// Okul Projeleri altındaki statik tanıtım sayfaları (public/okul-projeleri/<ad>/index.html) varsa kendiliğinden eklenir.
+const schoolDir = path.join(__dirname, '..', 'public', 'okul-projeleri');
+if (existsSync(schoolDir)) {
+  for (const d of readdirSync(schoolDir, { withFileTypes: true })) {
+    if (d.isDirectory() && existsSync(path.join(schoolDir, d.name, 'index.html'))) staticUrls.push(`/okul-projeleri/${d.name}/`);
+  }
+}
 const appUrls = allApps.map(a => `/uretiyorum/${slugOf(a.name)}`);
 
 // Öğretici yazıları: src/ogretici/posts.js içindeki `slug: '...'` satırları (ham metinden, aynı nedenle).

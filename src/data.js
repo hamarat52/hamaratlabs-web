@@ -237,6 +237,22 @@ export const INSPIRATION = [
   'Kız Kulesi, gece'
 ].map((title, i) => ({ ...ilham(String(i + 1).padStart(2, '0')), alt: title, title }));
 
+// Okul Projeleri (/okul-projeleri): okul ve ders kapsamında yapılan projeler. Yeni proje = bu listeye bir kayıt.
+// links: '/' ile başlayan adres sitedeki statik sayfadır (aynı sekmede tam yükleme), https:// dış adrestir (yeni sekme).
+// note: düğmenin altındaki küçük not. image: public/okul-projeleri-screens/ altındaki gerçek ekran görüntüsü.
+export const SCHOOL_PROJECTS = [
+  {
+    name: 'Akçe',
+    lead: 'Yapay zekâ asistanlı kişisel finans ve birikim uygulaması (okul projesi, konsept).',
+    image: { src: asset('/okul-projeleri-screens/akce-pano-720.webp'), srcSet: `${asset('/okul-projeleri-screens/akce-pano-720.webp')} 720w, ${asset('/okul-projeleri-screens/akce-pano-1200.webp')} 1200w`, width: 1200, height: 750, alt: 'Akçe uygulamasının ana panosu: harcama dağılımı, gelir ve gider, hedefler (örnek verilerle)' },
+    links: [
+      // Statik tanıtım sayfası hamaratlabs'e gelince: '/okul-projeleri/akce/'
+      { label: 'Tanıtım', url: 'https://akce.hamaratlabs.com/tanitim' },
+      { label: 'Uygulamayı dene', url: 'https://akce.hamaratlabs.com/giris', note: 'Erişim kodu gerekir' }
+    ]
+  }
+];
+
 export const slugOf = name =>
   name
     .toLowerCase()

@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
 import './App.css';
-import { FEATURED, APPS, SERIES, TOOLS, INSPIRATION, LINKS, STAGE_LABELS as STAGE, slugOf } from './data';
+import { FEATURED, APPS, SERIES, TOOLS, INSPIRATION, LINKS, SCHOOL_PROJECTS, STAGE_LABELS as STAGE, slugOf } from './data';
 import PrivacyPage from './PrivacyPage';
 import InstagramFeed from './InstagramFeed';
 import { NavContext, Link } from './nav';
@@ -70,7 +70,8 @@ const PAGES = {
   '/uretiyorum': { title: 'Üretiyorum', lead: 'Uygulamalarımın mağazası.' },
   '/paylasiyorum': { title: 'Paylaşıyorum', lead: 'Sosyal medyada paylaştıklarım.' },
   '/anlatiyorum': { title: 'Anlatıyorum', lead: 'Yapay zekâ ve araçlar üzerine eğitici içerikler.' },
-  '/oneriyorum': { title: 'Öneriyorum', lead: 'Kullandığım, ücretsiz veya açık kaynak araçlar.' }
+  '/oneriyorum': { title: 'Öneriyorum', lead: 'Kullandığım, ücretsiz veya açık kaynak araçlar.' },
+  '/okul-projeleri': { title: 'Okul Projeleri', lead: 'Okul ve ders kapsamında yaptığım projeler.' }
 };
 
 // Google OAuth onay ekranı gibi dış servislerin gerektirdiği statik, bağımsız sayfa.
@@ -175,6 +176,7 @@ export default function App() {
             {path === '/paylasiyorum' && <Share page />}
             {path === '/anlatiyorum' && <Teach page />}
             {path === '/oneriyorum' && <Tools />}
+            {path === '/okul-projeleri' && <SchoolProjects />}
           </>
         ) : (
           <>
@@ -215,7 +217,8 @@ function Header({ path }) {
     ['/uretiyorum', 'Üretiyorum'],
     ['/paylasiyorum', 'Paylaşıyorum'],
     ['/anlatiyorum', 'Anlatıyorum'],
-    ['/oneriyorum', 'Öneriyorum']
+    ['/oneriyorum', 'Öneriyorum'],
+    ['/okul-projeleri', 'Okul Projeleri']
   ];
   // Ana sayfanın en üstünde bar şeffaf durur; efekt ekranın tepesine kadar uzanır. Kaydırınca bar belirir.
   const [clear, setClear] = useState(false);
@@ -578,6 +581,54 @@ function Tools() {
   );
 }
 
+// Okul Projeleri: data.js → SCHOOL_PROJECTS. Kart = gerçek ekran görüntüsü + ad + tek cümle + bağlantı düğmeleri.
+// Düğmeler düz <a>: dış adres yeni sekmede; '/' ile başlayan adres sitedeki statik sayfa, aynı sekmede tam yükleme
+// (SPA yönlendiricisi bu klasörleri tanımaz, Link kullanılmaz).
+function SchoolProjects() {
+  return (
+    <section className="wrap section">
+      <ul className="schoolgrid">
+        {SCHOOL_PROJECTS.map(p => (
+          <li key={p.name} className="school">
+            <div className="school__shot">
+              <img
+                src={p.image.src}
+                srcSet={p.image.srcSet}
+                sizes="(max-width: 620px) 92vw, 560px"
+                width={p.image.width}
+                height={p.image.height}
+                alt={p.image.alt}
+                decoding="async"
+              />
+            </div>
+            <div className="school__body">
+              <h2 className="school__name">{p.name}</h2>
+              <p className="school__lead">{p.lead}</p>
+              <div className="school__actions">
+                {p.links.map((l, i) => {
+                  const external = /^https?:/.test(l.url);
+                  return (
+                    <div key={l.label} className="school__action">
+                      <a
+                        href={external ? l.url : asset(l.url)}
+                        className={`school__btn${i === 0 ? ' school__btn--main' : ''}`}
+                        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      >
+                        {l.label} <span aria-hidden="true">{external ? '↗' : '→'}</span>
+                      </a>
+                      {l.note && <span className="school__note">{l.note}</span>}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 function Share({ page = false }) {
   return (
     <section id="paylasiyorum" className="wrap section">
@@ -686,6 +737,7 @@ function Footer() {
             <Link to="/paylasiyorum">Paylaşıyorum</Link>
             <Link to="/anlatiyorum">Anlatıyorum</Link>
             <Link to="/ogretici">Öğretici</Link>
+            <Link to="/okul-projeleri">Okul Projeleri</Link>
             <Link to="/aktivite">Aktivite</Link>
           </div>
           <div>

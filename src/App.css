@@ -758,7 +758,9 @@ mark {
   justify-content: center;
   cursor: pointer;
 }
-@media (max-width: 620px) {
+/* Eşik: 5 sekme + İletişim logoyla tek satıra ~980 px'ten sonra sığıyor; altında menü düğmesi (yoksa nav ikinci satıra taşar). */
+@media (max-width: 1023px) {
+  .topbar__nav { display: none; }
   .topbar__menu { display: inline-flex; }
   .topbar--open .topbar__nav {
     position: absolute;
@@ -892,4 +894,48 @@ mark {
 /* Anlatıyorum başlığının yanında Siri tarzı ses küresi (SiriOrb) */
 .section__head > .series__ball { flex: 0 0 auto; width: clamp(120px, 14vw, 180px); height: clamp(120px, 14vw, 180px); align-self: center; }
 @media (max-width: 620px) { .section__head > .series__ball { width: 112px; height: 112px; align-self: flex-start; } }
+
+/* ---------- Okul Projeleri (/okul-projeleri) ---------- */
+.schoolgrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+  gap: 24px;
+}
+.school {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+  background: #f4f1e9;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.school__shot { aspect-ratio: 16 / 10; background: var(--paper); border-bottom: 1px solid var(--line); }
+.school__shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.school__body { display: flex; flex-direction: column; gap: 10px; padding: 22px 24px 24px; flex: 1; }
+.school__name { margin: 0; font-family: 'Geist', var(--font); font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
+.school__lead { margin: 0; font-size: 16px; line-height: 1.5; opacity: 0.82; }
+.school__actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 14px; margin-top: auto; padding-top: 8px; }
+.school__action { display: flex; flex-direction: column; gap: 6px; }
+.school__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.school__btn:hover, .school__btn:focus-visible { transform: translateY(-2px); }
+.school__btn--main { background: var(--ink); color: var(--ivory); }
+.school__btn:not(.school__btn--main):hover { background: var(--lime); }
+.school__note { font-family: var(--mono); font-size: 11.5px; color: var(--muted); padding-left: 4px; }
+@media (prefers-reduced-motion: reduce) { .school__btn { transition: none; } .school__btn:hover { transform: none; } }
 
