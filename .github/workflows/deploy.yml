@@ -29,18 +29,20 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: /
-      # Uygulama sayfaları (/uretiyorum/sesver gibi) doğrudan açılınca da site yüklensin.
-      - run: cp dist/index.html dist/404.html
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-      # Cloudflare Pages'e de yayınlar (göç denemesi — GitHub Pages hâlâ birincil kalıyor).
+      # Cloudflare Pages'e yayınlar. 404.html bu adımdan SONRA eklenir: Cloudflare Pages kökte
+      # 404.html görmezse SPA kipine geçer, /uretiyorum/sesver gibi derin rotalar soğuk açılışta 200 döner.
+      # (_redirects içindeki "/* /index.html 200" kuralını Pages sonsuz döngü sayıp yok sayıyor, denendi.)
       - name: Cloudflare Pages'e yayınla
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=hamaratlabs-web --branch=main
+      # GitHub Pages (DNS geçişine kadar köken): derin rotalar 404.html + JS ile açılır.
+      - run: cp dist/index.html dist/404.html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
   deploy:
     needs: build
