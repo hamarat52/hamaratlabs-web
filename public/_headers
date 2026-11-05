@@ -1,0 +1,5 @@
+# Cloudflare Pages başlık kuralları
+# Oyunlar sık güncelleniyor: tarayıcı her açılışta sunucuya sorsun, değişmediyse 304 ile hızlı döner.
+# (Alan adındaki 4 saatlik Browser Cache TTL eski sketch.js'in telefonda kalmasına yol açıyordu, 2026-11-05.)
+/oyunlar/*
+  Cache-Control: no-cache
