@@ -156,6 +156,27 @@ const PULSE_DROP_PX = 30;             // uç bu kadar aşağı uzar (şerit 30px
 const PULSE_SEG_MIN = 2;              // şeridin pulse yapan kısa bölümü (diken sayısı)
 const PULSE_SEG_MAX = 3;
 const PULSE_DUST_EVERY_S = 0.05;      // telegraph tozu üretim aralığı
+// --- Faz 21 (§23.3): inen diken grubu "Sarkıt" (pulse'tan ayrı, daha derin ve seyrek olay) ---
+const SARKIT_START_S = 105;            // aşama 2 (85sn) + 20sn: kırılgan platform rampası (100sn) bittikten sonra
+const SARKIT_FIRST_MIN_S = 2;          // açılıştan sonra ilk sarkıt 2-5sn içinde
+const SARKIT_FIRST_MAX_S = 5;
+const SARKIT_INTERVAL_MIN_S = 12;      // sonraki sarkıtlar 12-18sn arayla
+const SARKIT_INTERVAL_MAX_S = 18;
+const SARKIT_LEN_MIN = 3;              // bitişik diken sayısı (75-125px)
+const SARKIT_LEN_MAX = 5;
+const SARKIT_TARGET_CHANCE = 0.5;      // %50 topun sütununa ortalı
+const SARKIT_TELEGRAPH_S = 0.9;        // uyarı (istenen alt sınır 0.6)
+const SARKIT_DROP_S = 0.35;            // hızlanan (u^2) iniş
+const SARKIT_HOLD_S = 0.7;
+const SARKIT_RETRACT_S = 0.6;
+const SARKIT_DEPTH_PX = 110;           // uçlar y=30 -> y=140
+const SARKIT_BLINK_HZ = 6;             // uyarı gölgesi + "!" yanıp sönme
+const SARKIT_EXCLUSION_GAP_S = 1.0;    // pulse ile sarkıt arasında en az boşluk (üst üste binmez)
+const SARKIT_BEEP_TIMES_S = [0, 0.3, 0.6];
+const SARKIT_BEEP_MIDI = [76, 74, 72]; // E5 D5 C5: inen sayım
+const SARKIT_BEEP_S = 0.05;
+const SARKIT_CRASH_LP_HZ = 900;        // iniş anı: alçak geçiren gürültü "çarpma"
+const SARKIT_CRASH_S = 0.16;
 const STAGEUP_FLASH_FRAMES = 12;      // ~200ms @60Hz, sönen açık ton (ölüm: 2 kare tam invert)
 const STAGEUP_FLASH_ALPHA = 0.35;
 const MECH_LOG_MAX = 400;
@@ -562,11 +583,32 @@ const EDGE_W_MAX = 60;
 // >= PICKUP_RUBBER_HIGH_MULT ise chanceHigh, arada chanceBase. Satır başına TEK zar (bkz.
 // rollPickupType): tipler PICKUP_ORDER sırasıyla birikimli aralıklara bölünür -> her tipin
 // gözlenen oranı kendi şansına eşit. Yeni tip (Chrono/Gülle/Nano) = buraya bir giriş + etki kancası.
+// Faz 21 (§23.1): kalan 3 eşya. Rapor §3.4 şansları (Chrono %15, Gülle %20, Nano %25) Aegis/Nitro
+// ile toplanınca %100'ü aşar (her satır eşya) -> rapor sırası (Nano > Gülle > Chrono) korunarak
+// ölçeklendi; satır başı toplam şans her aşama/çarpan kademesinde <= %70. Aegis/Nitro değerleri ve
+// PICKUP_ORDER'daki ilk iki aralık DEĞİŞMEDİ (regresyon yok). Aşama kapıları rapor §5 takvimi:
+// Nano aşama 1 (dostane buff), Gülle aşama 2 (lanetli kumar), Chrono aşama 3 (nadir can simidi).
+// Rubber-banding yönü türün doğasından: buff'lar (Nano/Chrono) zorlanana, kumar (Gülle) zirvedekine.
 const PICKUP_DEFS = {
-  aegis: { minStage: 1, chanceBase: 0.15, chanceLow: 0.25, chanceHigh: 0.08, durationS: 12 },
-  nitro: { minStage: 2, chanceBase: 0.25, chanceLow: 0.15, chanceHigh: 0.35, durationS: 4.5 }
+  aegis:  { minStage: 1, chanceBase: 0.15, chanceLow: 0.25, chanceHigh: 0.08, durationS: 12 },
+  nitro:  { minStage: 2, chanceBase: 0.25, chanceLow: 0.15, chanceHigh: 0.35, durationS: 4.5 },
+  nano:   { minStage: 1, chanceBase: 0.12, chanceLow: 0.15, chanceHigh: 0.08, durationS: 6.0 },
+  gulle:  { minStage: 2, chanceBase: 0.10, chanceLow: 0.06, chanceHigh: 0.14, durationS: 5.0 },
+  chrono: { minStage: 3, chanceBase: 0.05, chanceLow: 0.08, chanceHigh: 0.03, durationS: 4.0 }
 };
-const PICKUP_ORDER = ['aegis', 'nitro'];
+const PICKUP_ORDER = ['aegis', 'nitro', 'nano', 'gulle', 'chrono'];
+// Chrono Sisi (rapor §3.4 Eşya 3): dünya kayması + yerçekimi %45 yavaş, yatay kontrol %100.
+const CHRONO_TIME_SCALE = 0.55;
+const CHRONO_RAMP_S = 0.25;         // giriş/çıkışta zaman ölçeği bu sürede yumuşak geçer (ani sarsılma yok)
+// Demir Gülle (Eşya 4): g 1500 -> 3200, düşüş tavanı 900 -> 1300. Ödül: skip bonusu x3, kırılgan
+// platforma basınca beklemeden kırıp içinden geçer.
+const GULLE_GRAVITY = 3200;
+const GULLE_MAX_FALL = 1300;
+const GULLE_SKIP_MULT = 3;
+const GULLE_LAND_SHAKE_PX = 5;      // ağır iniş: normal 2px yerine 5px dikey (ölüm 6px'in altında)
+// Nano Çekirdek (Eşya 5): top yarıçapı 12 -> 6, hurtbox 8 -> 4 (kıl payı penceresi de daralır).
+const NANO_BALL_R = 6;
+const NANO_HURT_R = NANO_BALL_R * (8 / 12); // = 4, Faz 2 oranı korunur
 const PICKUP_RUBBER_LOW_MULT = 2;   // çarpan <= 2: "zorlanan" oyuncu
 const PICKUP_RUBBER_HIGH_MULT = 4;  // çarpan >= 4: "zirvedeki" oyuncu
 const PICKUP_SIZE = 16;             // dünyadaki eşyanın kare hitbox'ı = görselin sınır kutusu (px; top çapı 24)
@@ -591,9 +633,29 @@ const BUFF_TICK_HZ = 4;             // uyarı sesi: 4Hz tik (1.5sn'de 6 vuruş, 
 const BUFF_TICK_MIDI = 84;          // C6 kısa kare dalga tik (pulse1)
 const BUFF_TOCK_MIDI = 72;          // C5 son vuruş "tak"
 const BUFF_TICK_S = 0.02;
-const PICKUP_ARP_MIDI = { aegis: [72, 76, 79], nitro: [79, 83, 86] }; // C5 E5 G5 / G5 B5 D6 (rapor §3.5)
+const PICKUP_ARP_MIDI = { aegis: [72, 76, 79], nitro: [79, 83, 86], // C5 E5 G5 / G5 B5 D6 (rapor §3.5)
+                         nano: [91, 96, 100],    // G6 C7 E7: küçük/tiz
+                         gulle: [55, 50, 43],    // G3 D3 G2: alçalan, ağır
+                         chrono: [84, 79, 72] }; // C6 G5 C5: alçalan, "yavaşlama"
+// Faz 21: toplama arpejinin yanına türe özgü ikinci katman (triangle/pulse1, ayrı olay adı 'pickupFx').
+const CHRONO_FX_F0 = 700, CHRONO_FX_F1 = 140, CHRONO_FX_S = 0.35; // triangle aşağı süzülme
+const NANO_FX_F0 = 1200, NANO_FX_F1 = 3600, NANO_FX_S = 0.06;     // kısa yukarı cıvıltı
 const PICKUP_ARP_NOTE_S = 0.025;
 const PICKUP_LOG_MAX = 200;
+
+// --- Faz 21 (§23.2): en yüksek skor (localStorage) ---
+// Anahtar sürümlü: v2 yeni bir oyun olarak ayrı anahtar kullanabilir, v1 rekoru karışmaz.
+const BEST_SCORE_KEY = 'dusenTop.v1.bestScore';
+const RECORD_BANNER_S = 1.6;     // koşu içi "YENİ REKOR!" vurgusu süresi
+const RECORD_BANNER_SIZE = 22;
+const RECORD_HUD_SIZE = 12;      // HUD'daki "EN İYİ" satırı (skorun altında, küçük)
+const RECORD_ARP_MIDI = [84, 88, 91, 96]; // C6 E6 G6 C7: çarpan/eşya arpejlerinden yüksek, 4 nota
+const RECORD_ARP_NOTE_S = 0.06;
+let bestScore = 0;          // kalıcı en iyi skor (setup'ta localStorage'dan)
+let bestAtRunStart = 0;     // bu koşu başladığında geçerli rekor (koşu içi karşılaştırma bununla)
+let newRecordThisRun = false;
+let recordBannerT = -1;     // >= 0: vurgu başladığından beri geçen süre (sn); -1 = yok
+let bestStorageOk = true;   // localStorage erişilemezse (gizli mod vb.) oyun yine çalışır, rekor yalnız oturumluk
 
 // --- Faz 4 juice durumu (resetJuice() ile sıfırlanır; çekirdek durumdan bağımsız) ---
 let hitstopMs = 0;        // kalan donma süresi (ms)
@@ -655,6 +717,7 @@ let deathCause;           // 'spike_tip' | 'spike_crush' | 'fell' | null
 // Faz 6 aşama durumu (resetGame() -> resetStages() ile sıfırlanır)
 let stage;                // 0..3, son cue verilen aşama
 let pulse;                // { phase: 'idle'|'telegraph'|'drop'|'hold'|'retract', t, start, len, nextInS, dustT }
+let sarkit;               // Faz 21: { phase, t, start, len, nextInS, targeted, idleS, pulseIdleS }
 let mechStats;            // bu koşudaki spawn sayaçları { static, moving, fragile, breaks, pulses }
 let mechLog = [];         // aşama/platform/pulse olay günlüğü (test/debug, koşular arası korunur)
 let mechDebugLog = false; // true: mechLog olayları konsola da yazılır
@@ -735,6 +798,7 @@ function setup() {
   noSmooth();
   textFont('monospace');
   initShardPool(); // Faz 12: parça havuzu bir kez tahsis edilir (resetGame yalnız deaktive eder)
+  bestScore = loadBestScore(); // Faz 21: kalıcı rekor
   resetGame();
 }
 
@@ -746,7 +810,8 @@ function resetGame() {
     vx: 0,
     vy: 0,
     pushVx: 0, // diken gövdesinden gelen, sönen yatay itme
-    grounded: true
+    grounded: true,
+    r: BALL_R  // Faz 21: anlık yarıçap (Nano'da NANO_BALL_R); syncBallRadius() günceller
   };
   platforms = [];
   scrollSpeed = BASE_SCROLL_SPEED;
@@ -766,6 +831,7 @@ function resetGame() {
   resetStages(); // Faz 6: her koşu aşama 0'dan başlar (kalıcı değil)
   resetAirtimeTracker(); // Faz 7
   resetPickups(); // Faz 9: activeBuff + ekrandaki eşya + dokunulmazlık
+  resetRecordRun(); // Faz 21: bu koşunun rekor karşılaştırma tabanı
   lastSkipResult = null;
   skipMarks = []; // Faz 11: yeni koşuya görsel sızıntı olmasın
   scorePops = [];
@@ -1161,7 +1227,9 @@ function resetStages() {
   stage = 0;
   stageFlashFramesLeft = 0;
   pulse = { phase: 'idle', t: 0, start: 0, len: 0, nextInS: null, dustT: 0 };
-  mechStats = { static: 0, moving: 0, fragile: 0, breaks: 0, pulses: 0 };
+  sarkit = { phase: 'idle', t: 0, start: 0, len: 0, nextInS: null, targeted: false,
+             idleS: SARKIT_EXCLUSION_GAP_S, pulseIdleS: SARKIT_EXCLUSION_GAP_S };
+  mechStats = { static: 0, moving: 0, fragile: 0, breaks: 0, pulses: 0, sarkits: 0, sarkitDeferred: 0 };
   logMech('reset', { stage: 0 });
 }
 
@@ -1283,7 +1351,11 @@ function updatePulse(dt) {
   if (pulse.phase === 'idle') {
     if (pulse.nextInS === null) pulse.nextInS = random(PULSE_INTERVAL_MIN_S, PULSE_INTERVAL_MAX_S);
     pulse.nextInS -= dt;
-    if (pulse.nextInS <= 0) startPulse();
+    if (pulse.nextInS <= 0) {
+      // Faz 21 (§23.3): sarkıt sürerken ya da yeni bittiyse bekle (iki diken olayı üst üste binmez).
+      if (sarkit && (sarkit.phase !== 'idle' || sarkit.idleS < SARKIT_EXCLUSION_GAP_S)) return;
+      startPulse();
+    }
     return;
   }
   pulse.t += dt;
@@ -1326,6 +1398,12 @@ function pulseCovers(i) {
 
 // Dikenin ucunun sabit şeride göre ek inişi (px). Pulse dışı: 0 -> Faz 2 geometrisi birebir.
 function spikeDrop(i) {
+  // Faz 21: sarkıt kapsıyorsa onun inişi (pulse ile asla eşzamanlı değil; yine de en derini alınır).
+  if (sarkitCovers(i)) return Math.max(sarkitDrop(i), pulseDropOnly(i));
+  return pulseDropOnly(i);
+}
+
+function pulseDropOnly(i) {
   if (!pulseCovers(i)) return 0;
   switch (pulse.phase) {
     case 'telegraph': return -PULSE_TELEGRAPH_RETRACT_PX;
@@ -1343,6 +1421,162 @@ function spawnPulseDust() {
                   vx: (Math.random() - 0.5) * 30, vy: 20 + Math.random() * 40,
                   life: 0.3, col: Math.random() < 0.5 ? PAL.spikeMain : PAL.spikeShadow, noScroll: true });
   }
+}
+
+// ---------------------------------------------------------------------------
+// Faz 21 (§23.3): inen diken grubu "Sarkıt". idle -> telegraph (0.9sn) -> drop (0.35sn, u^2) ->
+// hold (0.7sn) -> retract (0.6sn) -> idle. Uç derinliği spikeDrop() üzerinden çarpışmaya girer
+// (Faz 2 ölümcül uç + iten gövde kuralları aynen). Zamanlama Math.random (p5 dizisine dokunmaz).
+// ---------------------------------------------------------------------------
+function randRange(a, b) {
+  return a + Math.random() * (b - a);
+}
+
+function updateSarkit(dt) {
+  if (!sarkit) return;
+  // karşılıklı dışlama sayaçları (pulse için de kullanılır)
+  sarkit.pulseIdleS = pulse && pulse.phase !== 'idle' ? 0 : sarkit.pulseIdleS + dt;
+  if (sarkit.phase === 'idle') {
+    sarkit.idleS += dt;
+    if (getDifficultyElapsedS() < SARKIT_START_S) return;
+    if (sarkit.nextInS === null) sarkit.nextInS = randRange(SARKIT_FIRST_MIN_S, SARKIT_FIRST_MAX_S);
+    // tam ekran desen üretimi (~20-40ms) uyarı anına değil, sakin ana düşsün (tema değişince yeniden)
+    if (sarkit.warmTheme !== themeIndex && sarkit.nextInS > 0.5) { prewarmSarkitPatterns(); sarkit.warmTheme = themeIndex; }
+    sarkit.nextInS -= dt;
+    if (sarkit.nextInS <= 0) {
+      if (sarkit.pulseIdleS < SARKIT_EXCLUSION_GAP_S) { // pulse sürüyor/yeni bitti: ertele
+        if (sarkit.nextInS > -dt * 1.5) mechStats.sarkitDeferred++;
+        return;
+      }
+      startSarkit();
+    }
+    return;
+  }
+  sarkit.t += dt;
+  if (sarkit.phase === 'telegraph') {
+    if (sarkit.t >= SARKIT_TELEGRAPH_S) { setSarkitPhase('drop'); sfxSarkitCrash(); }
+  } else if (sarkit.phase === 'drop') {
+    if (sarkit.t >= SARKIT_DROP_S) setSarkitPhase('hold');
+  } else if (sarkit.phase === 'hold') {
+    if (sarkit.t >= SARKIT_HOLD_S) setSarkitPhase('retract');
+  } else if (sarkit.phase === 'retract') {
+    if (sarkit.t >= SARKIT_RETRACT_S) {
+      setSarkitPhase('idle');
+      sarkit.idleS = 0;
+      sarkit.nextInS = randRange(SARKIT_INTERVAL_MIN_S, SARKIT_INTERVAL_MAX_S);
+    }
+  }
+}
+
+// Grup her zaman TAMAMEN ekranda (son tam görünen diken indeksi SPIKE_COUNT-2 = 15).
+function pickSarkitSpan(ballX, targeted, rLen, rOff, rStart) {
+  const len = SARKIT_LEN_MIN + Math.floor(rLen * (SARKIT_LEN_MAX - SARKIT_LEN_MIN + 1));
+  const maxStart = SPIKE_COUNT - 1 - len;
+  let start;
+  if (targeted) {
+    const col = Math.floor(constrain(ballX, 0, CANVAS_W - 1) / SPIKE_W);
+    start = col - Math.floor(rOff * len);
+  } else {
+    start = Math.floor(rStart * (maxStart + 1));
+  }
+  return { start: constrain(start, 0, maxStart), len: len };
+}
+
+function startSarkit() {
+  const targeted = Math.random() < SARKIT_TARGET_CHANCE;
+  const span = pickSarkitSpan(ball.x, targeted, Math.random(), Math.random(), Math.random());
+  sarkit.start = span.start;
+  sarkit.len = span.len;
+  sarkit.targeted = targeted;
+  mechStats.sarkits++;
+  setSarkitPhase('telegraph');
+  sfxSarkitWarn();
+}
+
+function setSarkitPhase(phase) {
+  const prev = sarkit.phase;
+  sarkit.phase = phase;
+  sarkit.t = 0;
+  logMech('sarkit:' + phase, { from: prev, start: sarkit.start, len: sarkit.len, targeted: sarkit.targeted,
+                               ballX: +ball.x.toFixed(1), ballY: +ball.y.toFixed(1) });
+}
+
+function sarkitCovers(i) {
+  return !!sarkit && sarkit.phase !== 'idle' && i >= sarkit.start && i < sarkit.start + sarkit.len;
+}
+
+function sarkitDrop(i) {
+  if (!sarkitCovers(i)) return 0;
+  switch (sarkit.phase) {
+    case 'drop': { const u = Math.min(1, sarkit.t / SARKIT_DROP_S); return SARKIT_DEPTH_PX * u * u; }
+    case 'hold': return SARKIT_DEPTH_PX;
+    case 'retract': return SARKIT_DEPTH_PX * Math.max(0, 1 - sarkit.t / SARKIT_RETRACT_S);
+  }
+  return 0; // telegraph: uç yerinde (yalnız görsel titreşim)
+}
+
+// Test/bot ve ölçüm için: tehlikeli yatay aralık [a, b] px (hurtbox dahil) ya da null.
+function sarkitDangerSpan() {
+  if (!sarkit || sarkit.phase === 'idle') return null;
+  const hr = getHurtR();
+  return [sarkit.start * SPIKE_W - hr, (sarkit.start + sarkit.len) * SPIKE_W + hr];
+}
+
+function sarkitJitter(i) {
+  if (!sarkit || sarkit.phase !== 'telegraph' || !sarkitCovers(i)) return 0;
+  return (Math.floor(sarkit.t * 30) + i) % 2 ? 1 : -1;
+}
+
+// Hedef temanın sabit rengi: tema geçişinde PAL her kare yeni hex üretir, desen önbelleği her kare
+// 400x600 görüntü üretirdi (ölçülen tek seferlik maliyet ~39ms).
+function sarkitPatternColor() {
+  return THEME_PALETTES[themeIndex].spikeShadow;
+}
+
+function prewarmSarkitPatterns() {
+  if (typeof createImage !== 'function') return;
+  getPatternImage(DITHER_LV_MIN, sarkitPatternColor());
+  getPatternImage(DITHER_LV_MAX, sarkitPatternColor());
+}
+
+function sarkitBlinkOn() {
+  return Math.floor(sarkit.t * SARKIT_BLINK_HZ * 2) % 2 === 0;
+}
+
+// Uyarı: inecek sütunun tamamı (şerit altı -> son uç derinliği) %25/%50 Bayer arasında 6Hz.
+function drawSarkitTelegraph() {
+  if (!sarkit || sarkit.phase !== 'telegraph') return;
+  const x = sarkit.start * SPIKE_W, w = sarkit.len * SPIKE_W;
+  const lv = sarkitBlinkOn() ? DITHER_LV_MAX : DITHER_LV_MIN;
+  drawingContext.save();
+  drawingContext.beginPath();
+  drawingContext.rect(x, SPIKE_STRIP_H, w, SARKIT_DEPTH_PX);
+  drawingContext.clip();
+  image(getPatternImage(lv, sarkitPatternColor()), 0, 0);
+  drawingContext.restore();
+}
+
+// "!" işareti: sütunun dibinde, spikeTip rengi + koyu kontur; uyarıda yanıp söner.
+function drawSarkitMarker() {
+  if (!sarkit || sarkit.phase !== 'telegraph' || !sarkitBlinkOn()) return;
+  const cx = Math.round((sarkit.start + sarkit.len / 2) * SPIKE_W);
+  const y = SPIKE_STRIP_H + SARKIT_DEPTH_PX - 24;
+  noStroke();
+  fill(PAL.spikeShadow);
+  rect(cx - 4, y - 1, 8, 15);
+  rect(cx - 4, y + 15, 8, 7);
+  fill(PAL.spikeTip);
+  rect(cx - 3, y, 6, 13);
+  rect(cx - 3, y + 16, 6, 5);
+}
+
+// Aegis kurtarması: x'e yakın dikenlerin en derin ucu (sarkıt inikken top onun altına itilir).
+function deepestTipYNear(x) {
+  let y = SPIKE_STRIP_H;
+  for (let i = 0; i < SPIKE_COUNT; i++) {
+    if (Math.abs(spikeTipX(i) - x) < SPIKE_W) y = Math.max(y, spikeTipY(i));
+  }
+  return y;
 }
 
 function draw() {
@@ -1378,6 +1612,7 @@ function draw() {
   drawShards(); // Faz 12: platform parçalanma havuzu (aynı world-transform bloğu)
   drawLavaDrops(); // Faz 10: yalnız görsel lav damlaları (stage >= 3)
   pop();
+  drawChronoFrame(); // Faz 21: Chrono bullet-time çerçevesi (sarsılmaz, HUD'dan önce)
   drawScore();
   drawScorePop(); // Faz 11: aynı HUD katmanı, skor metninin sağında
   drawTempoBurstHint(); // Faz 17: patlama telegraph'ı (sağ üst köşe, küçük)
@@ -1417,8 +1652,10 @@ function resetJuice() {
 
 // Faz 7: skips > 0 ise normal thud yerine dolgun sub-bass iniş (görsel iniş juice'u aynı).
 function juiceOnLanding(skips) {
-  const cx = ball.x, cy = ball.y + BALL_R; // temas noktası: topun alt ucu = platform üstü
-  if (JUICE.shake) startShake(SHAKE_LANDING_PX, 'vertical');
+  const cx = ball.x, cy = ball.y + getBallR(); // temas noktası: topun alt ucu = platform üstü
+  const heavy = buffIs('gulle'); // Faz 21: Gülle inişi 5px sarsıntı + dolgun darbe
+  if (JUICE.shake) startShake(heavy ? GULLE_LAND_SHAKE_PX : SHAKE_LANDING_PX, 'vertical');
+  if (heavy) sfxGulleLand();
   if (JUICE.debris) spawnDebris(cx, cy);
   if (JUICE.squash) squashFramesLeft = SQUASH_FRAMES;
   if (skips > 0 && SOUND.skip) sfxSkipLanding(getSkipTier(skips)); // Faz 7: dolgun triangle darbe
@@ -1701,10 +1938,11 @@ function drawGhosts() {
     // Desen 1px kaydırılır: %50 arkaplanda bile faz farkıyla seçilebilir kalır.
     noStroke();
     fill(PAL.bgLo);
-    circle(g.x, g.y, BALL_R * 2);
+    const gr = getBallR(); // Faz 21: Nano'da iz de küçük
+    circle(g.x, g.y, gr * 2);
     drawingContext.save();
     drawingContext.beginPath();
-    drawingContext.arc(g.x, g.y, BALL_R, 0, Math.PI * 2);
+    drawingContext.arc(g.x, g.y, gr, 0, Math.PI * 2);
     drawingContext.clip();
     image(getPatternImage(GHOST_DITHER_LV, gCol), 1, 0);
     drawingContext.restore();
@@ -1715,12 +1953,13 @@ function drawGhosts() {
 // Faz 6 ramp: gölge (tam disk) -> ana (sol-üste kaydırılmış küçük disk) -> parlak (küçük nokta).
 // Tüm katmanlar aynı squash dönüşümünü kullanır; dış silüet Faz 4 ile birebir.
 function drawBall() {
-  let cx = ball.x, cy = ball.y, rx = BALL_R, ry = BALL_R;
+  const R = getBallR(); // Faz 21: Nano'da 6 -> sprite 12x12 (nearest-neighbor, tam sayı kutu)
+  let cx = ball.x, cy = ball.y, rx = R, ry = R;
   if (JUICE.squash && squashFramesLeft > 0) {
     // Alt kenar sabit (platform yüzeyi), top yatayda yayılır, dikeyde basılır.
-    ry = BALL_R * SQUASH_Y;
-    rx = BALL_R * SQUASH_X;
-    cy = ball.y + BALL_R - ry;
+    ry = R * SQUASH_Y;
+    rx = R * SQUASH_X;
+    cy = ball.y + R - ry;
   }
   // Faz 18: ball.png aynı elips sınır kutusuna çizilir (squash -> 30x18, normal -> 24x24, 1:1).
   // Sol-üst köşe tam sayıya yuvarlanır: nearest-neighbor + tam sayı konum = kayan/titrek piksel yok.
@@ -3120,6 +3359,58 @@ function sfxSpikeWarn() {
   playSfx('spikeWarn', 'noise', (c, dest, t) => buildRatchet(c, dest, t, noiseBuffer));
 }
 
+// Faz 21 (§23.3): sarkıt uyarısı = 3 inen kare dalga bip (sayım, pulse1) + mevcut ratchet (noise);
+// iniş anı = alçak geçiren gürültü "çarpma" (noise). Ayrı olay adları: sarkitWarn / sarkitCrash.
+function buildSarkitBeeps(ctx, dest, t) {
+  const osc = ctx.createOscillator();
+  osc.type = 'square';
+  const env = ctx.createGain();
+  env.gain.setValueAtTime(0, t);
+  const freqs = [];
+  for (let k = 0; k < SARKIT_BEEP_TIMES_S.length; k++) {
+    const ns = t + SARKIT_BEEP_TIMES_S[k];
+    const f = midiToHz(SARKIT_BEEP_MIDI[k]);
+    freqs.push(+f.toFixed(2));
+    osc.frequency.setValueAtTime(f, ns);
+    env.gain.setValueAtTime(0, ns);
+    env.gain.linearRampToValueAtTime(0.75, ns + 0.003);
+    env.gain.setValueAtTime(0.75, ns + SARKIT_BEEP_S - 0.008);
+    env.gain.linearRampToValueAtTime(0, ns + SARKIT_BEEP_S);
+  }
+  const end = t + SARKIT_BEEP_TIMES_S[SARKIT_BEEP_TIMES_S.length - 1] + SARKIT_BEEP_S;
+  osc.connect(env).connect(dest);
+  osc.start(t);
+  osc.stop(end + 0.01);
+  cleanupOnEnded(osc, [osc, env]);
+  return { node: osc, type: osc.type, freqs: freqs, beeps: SARKIT_BEEP_TIMES_S.length, gainStart: t, gainEnd: end, stopAt: end + 0.01 };
+}
+
+function buildSarkitCrash(ctx, dest, t, buffer) {
+  const src = ctx.createBufferSource();
+  src.buffer = buffer;
+  const lp = ctx.createBiquadFilter();
+  lp.type = 'lowpass';
+  lp.frequency.setValueAtTime(SARKIT_CRASH_LP_HZ, t);
+  const env = ctx.createGain();
+  const end = envelopeAD(env.gain, t, 1, 0.003, SARKIT_CRASH_S);
+  src.connect(lp).connect(env).connect(dest);
+  src.start(t);
+  src.stop(end + 0.01);
+  cleanupOnEnded(src, [src, lp, env]);
+  return { node: src, type: 'noise-lowpass', lpHz: SARKIT_CRASH_LP_HZ, gainStart: t, gainEnd: end, stopAt: end + 0.01 };
+}
+
+function sfxSarkitWarn() {
+  if (!SOUND.spikeWarn) return;
+  playSfx('sarkitWarn', 'pulse1', buildSarkitBeeps);
+  playSfx('sarkitRatchet', 'noise', (c, dest, t) => buildRatchet(c, dest, t, noiseBuffer));
+}
+
+function sfxSarkitCrash() {
+  if (!SOUND.spikeWarn) return;
+  playSfx('sarkitCrash', 'noise', (c, dest, t) => buildSarkitCrash(c, dest, t, noiseBuffer));
+}
+
 // Faz 7 (ayrı olay adları: 'skipWhoosh' / 'skipLanding' / 'skipCue').
 function sfxSkipWhoosh() {
   if (!SOUND.skip) return;
@@ -3183,6 +3474,43 @@ function buildBuffTick(ctx, dest, t, last) {
 function sfxPickup(type) {
   if (!SOUND.pickup) return;
   playSfx('pickup', 'pulse1', (ctx, dest, t) => buildPickupArp(ctx, dest, t, type));
+}
+
+// Faz 21: türe özgü ikinci toplama katmanı (ayrı olay adı 'pickupFx'). Aegis/Nitro'da çalmaz
+// (Faz 9 ses imzası birebir kalır).
+function buildGlide(ctx, dest, t, type, f0, f1, durS, peak) {
+  const osc = ctx.createOscillator();
+  osc.type = type;
+  osc.frequency.setValueAtTime(f0, t);
+  osc.frequency.exponentialRampToValueAtTime(f1, t + durS);
+  const env = ctx.createGain();
+  env.gain.setValueAtTime(0, t);
+  env.gain.linearRampToValueAtTime(peak, t + 0.005);
+  env.gain.linearRampToValueAtTime(0, t + durS);
+  osc.connect(env).connect(dest);
+  osc.start(t);
+  osc.stop(t + durS + 0.01);
+  cleanupOnEnded(osc, [osc, env]);
+  return { node: osc, type: type, f0: f0, f1: f1, gainStart: t, gainEnd: t + durS, stopAt: t + durS + 0.01 };
+}
+
+function sfxPickupFx(type) {
+  if (!SOUND.pickup) return;
+  if (type === 'chrono') {
+    playSfx('pickupFx', 'triangle', (ctx, dest, t) =>
+      Object.assign(buildGlide(ctx, dest, t, 'triangle', CHRONO_FX_F0, CHRONO_FX_F1, CHRONO_FX_S, 0.6), { item: type }));
+  } else if (type === 'gulle') {
+    playSfx('pickupFx', 'triangle', (ctx, dest, t) => Object.assign(buildSkipThud(ctx, dest, t, 3), { item: type }));
+  } else if (type === 'nano') {
+    playSfx('pickupFx', 'pulse1', (ctx, dest, t) =>
+      Object.assign(buildGlide(ctx, dest, t, 'square', NANO_FX_F0, NANO_FX_F1, NANO_FX_S, 0.5), { item: type }));
+  }
+}
+
+// Gülle ağır iniş / kırılgan platform kırma: Faz 7 dolgun sub-bass (tanh distorsiyon) yeniden kullanılır.
+function sfxGulleLand() {
+  if (!SOUND.pickup) return;
+  playSfx('gulleLand', 'triangle', (ctx, dest, t) => buildSkipThud(ctx, dest, t, 2));
 }
 
 function sfxBuffTick(last) {
@@ -3320,7 +3648,7 @@ function getTempoBurstState(e) {
 
 // Fiziksel dünya kayması bunu kullanır. Kalıcı scrollSpeed (zorluk eğrisi) DEĞİŞMEZ.
 function getEffectiveScrollSpeed() {
-  return scrollSpeed * tempoBurst.speedFactor;
+  return scrollSpeed * tempoBurst.speedFactor * getTimeScale(); // Faz 21: Chrono (buff yokken 1)
 }
 
 function resetTempoBurst() {
@@ -3445,12 +3773,20 @@ function updateGame() {
   }
   // Faz 17: tempo-patlaması fazı + GEÇİCİ hız çarpanı (kalıcı scrollSpeed'e dokunmaz).
   updateTempoBurst();
-  const worldSpeed = getEffectiveScrollSpeed(); // fiziksel dünya kayması (patlama dışında = scrollSpeed)
   updateStage(); // Faz 6: eşik geçildiyse tek seferlik stageUp cue
   updateActiveBuff(dt); // Faz 9: süre/telegraph/dokunulmazlık (hız ve skor faktörü bundan okunur)
+  syncBallRadius();     // Faz 21: Nano başlangıç/bitişinde yarıçap (platformdaki top zeminde kalır)
+  // Faz 21: Chrono ölçeği getEffectiveScrollSpeed() içinde -> buff güncellendikten SONRA okunur.
+  const worldSpeed = getEffectiveScrollSpeed(); // fiziksel dünya kayması (patlama dışında = scrollSpeed)
+  // Faz 21: Chrono dünya zamanı. Buff yokken 1 -> aşağıdaki tüm formüller Faz 1-20 ile birebir.
+  const timeScale = getTimeScale();
+  const wdt = dt * timeScale;     // dünya saati (kayma, salınım, kırılma, diken olayları)
+  const R = getBallR();           // Faz 21: Nano'da 6, aksi halde BALL_R
   // --- Skor: dünyanın toplam yukarı kaydırma mesafesi x momentum çarpanı ---
   // Faz 9: Nitro aktifken getScoreFactor() = NITRO_SCORE_FACTOR (debuff), aksi halde tam 1.
-  score += scrollSpeed * dt * multiplier * getScoreFactor();
+  // Faz 21: Chrono'da dünya yavaş kayar -> mesafe skoru da aynı oranda (zaman yavaşlatma puan çiftliği olmasın).
+  score += scrollSpeed * timeScale * dt * multiplier * getScoreFactor();
+  checkNewRecord(); // Faz 21: rekor geçildiği AN tek seferlik vurgu (skip bonusu ayrıca onLanding'de)
 
   // --- Yatay kontrol (SADECE sol/sağ, dikey tamamen otomatik) ---
   // Faz 9: MOVE_SPEED sabit kalır; Nitro geçici çarpanı getMoveSpeedMult() ile uygulanır.
@@ -3466,13 +3802,13 @@ function updateGame() {
   if (Math.abs(ball.pushVx) < 1) ball.pushVx = 0;
 
   // --- Ekran kenarından wrap (Pac-Man usulü, ani ama basit tek-frame geçiş) ---
-  if (ball.x < -BALL_R) ball.x = CANVAS_W + BALL_R;
-  if (ball.x > CANVAS_W + BALL_R) ball.x = -BALL_R;
+  if (ball.x < -R) ball.x = CANVAS_W + R;
+  if (ball.x > CANVAS_W + R) ball.x = -R;
 
   // --- Tüm platformları yukarı kaydır (dünya kayması) ---
   for (const p of platforms) {
     p.y -= worldSpeed * dt;
-    if (p.kind === 'moving') updateMovingPlatform(p, dt); // Faz 6: yatay salınım (+ üstündeki top)
+    if (p.kind === 'moving') updateMovingPlatform(p, wdt); // Faz 6: yatay salınım (+ üstündeki top); Faz 21: dünya saati
     if (p.shatterT !== null) p.shatterT += dt; // Faz 14 (§15.1): shatter fade sayacı
   }
   lastSpawnY -= worldSpeed * dt;
@@ -3485,13 +3821,14 @@ function updateGame() {
 
     // Hâlâ platformun üzerinde mi? (yatayda kaymış olabilir)
     const p = ball.currentPlatform;
-    if (!p || ball.x + BALL_R < p.x || ball.x - BALL_R > p.x + p.w) {
+    if (!p || ball.x + R < p.x || ball.x - R > p.x + p.w) {
       ball.grounded = false;
       ball.currentPlatform = null;
     }
   } else {
     // Serbest düşüş.
-    ball.vy = Math.min(ball.vy + GRAVITY * dt, MAX_FALL_SPEED);
+    // Faz 21: Gülle g=3200/tavan 1300, Chrono g ve tavan x0.55 (buff yokken GRAVITY/MAX_FALL_SPEED).
+    ball.vy = Math.min(ball.vy + getGravity() * dt, getMaxFallSpeed());
     ball.y += ball.vy * dt;
 
     // Faz 7: geçilen satırları iniş kontrolünden ÖNCE say (aynı karede pas + iniş olursa kaçmasın).
@@ -3500,15 +3837,20 @@ function updateGame() {
     // Platforma iniş kontrolü (sadece düşerken, yukarı hareket ederken değil).
     if (ball.vy >= 0) {
       for (const p of platforms) {
-        const ballBottom = ball.y + BALL_R;
+        if (p.broken) continue; // Faz 21: Gülle bu karede kırdıysa
+        const ballBottom = ball.y + R;
         const prevBallBottom = ballBottom - ball.vy * dt;
         // Platformlar bu karede zaten yukarı kaydırıldı; önceki karedeki tepe
         // konumuyla karşılaştır, yoksa top platformun içinden geçebilir (tünelleme).
         const prevPlatformTop = p.y + worldSpeed * dt;
-        const withinX = ball.x + BALL_R > p.x && ball.x - BALL_R < p.x + p.w;
+        const withinX = ball.x + R > p.x && ball.x - R < p.x + p.w;
         const crossingTop = prevBallBottom <= prevPlatformTop && ballBottom >= p.y;
+        if (withinX && crossingTop && buffIs('gulle') && p.kind === 'fragile') {
+          gulleSmash(p); // Faz 21: Gülle kırılgan platformu beklemeden kırar, top içinden geçer
+          continue;
+        }
         if (withinX && crossingTop) {
-          ball.y = p.y - BALL_R;
+          ball.y = p.y - R;
           ball.vy = 0;
           ball.grounded = true;
           ball.currentPlatform = p;
@@ -3521,7 +3863,7 @@ function updateGame() {
   }
 
   // --- Faz 6: kırılgan platformlar (ilk temastan FRAGILE_BREAK_S sonra kaybolur) ---
-  updateFragilePlatforms(dt);
+  updateFragilePlatforms(wdt); // Faz 21: dünya saati (Chrono'da kırılma da yavaşlar)
 
   // --- Eski platformları temizle (ekranın üstünden çıkanlar + kırılanlar) ---
   platforms = platforms.filter(p => p.y > -PLATFORM_H - 20 && !p.broken);
@@ -3544,7 +3886,8 @@ function updateGame() {
   updatePickup(dt);
 
   // --- Faz 6 aşama 3: inen diken pulse (pulse yapan uçların konumu hitbox'a da yansır) ---
-  updatePulse(dt);
+  updatePulse(wdt); // Faz 21: dünya saati
+  updateSarkit(wdt); // Faz 21 (§23.3): inen diken grubu (uçlar spikeDrop üzerinden hitbox'a yansır)
 
   // --- Kayıp koşulu 1: diken UCU (ya da V arasında ezilme); gövde sadece iter ---
   if (handleSpikes()) {
@@ -3566,6 +3909,7 @@ function triggerGameOver(cause) {
   if (tryAegisAbsorb(cause)) return;
   deathCause = cause || null;
   gameState = 'gameover';
+  commitBestScore(); // Faz 21: rekor kalıcı yazılır (oyun bitti ekranı bunu okur)
   juiceOnDeath(); // Faz 4: kozmetik
 }
 
@@ -3592,11 +3936,12 @@ function distToTip(i) {
 // (onu ölümcül uç kontrolü ele alır).
 function spikeBodyContacts() {
   const contacts = [];
+  const hr = getHurtR(); // Faz 21: Nano'da 4
   for (let i = 0; i < SPIKE_COUNT; i++) {
     const tx = spikeTipX(i);
     const ty = spikeTipY(i);
-    if (Math.abs(ball.x - tx) > SPIKE_W / 2 + HURTBOX_R) continue;
-    if (ball.y - HURTBOX_R > ty) continue;
+    if (Math.abs(ball.x - tx) > SPIKE_W / 2 + hr) continue;
+    if (ball.y - hr > ty) continue;
     const faces = [
       { px: i * SPIKE_W, py: 0 },            // sol yüz: sol taban köşesi -> uç
       { px: (i + 1) * SPIKE_W, py: 0 }       // sağ yüz: sağ taban köşesi -> uç
@@ -3611,9 +3956,9 @@ function spikeBodyContacts() {
       let nx = uy / len, ny = -ux / len;
       if (nx * (f.px - tx) < 0) { nx = -nx; ny = -ny; }
       const s = dx * nx + dy * ny; // işaretli mesafe (dışarı +)
-      if (s < HURTBOX_R && s > -SPIKE_W) {
+      if (s < hr && s > -SPIKE_W) {
         // s<0: merkez üçgenin içine girmiş; yine aynı yüzden dışarı it.
-        contacts.push({ pen: HURTBOX_R - s, nx, ny, spike: i });
+        contacts.push({ pen: hr - s, nx, ny, spike: i });
       }
     }
   }
@@ -3623,8 +3968,9 @@ function spikeBodyContacts() {
 // true dönerse oyun bitti.
 function handleSpikes() {
   // 1) Ölümcül uç: sadece tepe noktası (HURTBOX_R + ~2px).
+  const killDist = getSpikeKillDist(); // Faz 21: Nano'da 6 (aksi halde SPIKE_KILL_DIST = 10)
   for (let i = 0; i < SPIKE_COUNT; i++) {
-    if (distToTip(i) <= SPIKE_KILL_DIST) {
+    if (distToTip(i) <= killDist) {
       triggerGameOver('spike_tip');
       return true;
     }
@@ -3661,7 +4007,7 @@ function handleSpikes() {
 
   // İtme topu bir uca taşıdıysa yine ölümcül.
   for (let i = 0; i < SPIKE_COUNT; i++) {
-    if (distToTip(i) <= SPIKE_KILL_DIST) {
+    if (distToTip(i) <= killDist) {
       triggerGameOver('spike_tip');
       return true;
     }
@@ -3676,16 +4022,19 @@ function handleSpikes() {
 // menzilden çıkınca (kaçış anı) bir kez değerlendirilir -> diken başına tek sayım.
 // ---------------------------------------------------------------------------
 function trackNearMisses() {
+  // Faz 21: Nano'da pencere daralır (öldürme 6, kıl payı <= 12, çıkış 16); buff yokken 10/16/20.
+  const hr = getHurtR(), killDist = getSpikeKillDist();
+  const nmMax = getNearMissMaxDist(), nmExit = getNearMissExitDist();
   for (let i = 0; i < SPIKE_COUNT; i++) {
-    const inRange = Math.abs(ball.x - spikeTipX(i)) < SPIKE_W / 2 + HURTBOX_R;
+    const inRange = Math.abs(ball.x - spikeTipX(i)) < SPIKE_W / 2 + hr;
     const d = distToTip(i);
-    if (inRange && d <= NEAR_MISS_EXIT_DIST) {
+    if (inRange && d <= nmExit) {
       const prev = spikePasses.get(i);
       spikePasses.set(i, prev === undefined ? d : Math.min(prev, d));
     } else if (spikePasses.has(i)) {
       const minD = spikePasses.get(i);
       spikePasses.delete(i);
-      if (minD > SPIKE_KILL_DIST && minD <= NEAR_MISS_MAX_DIST) {
+      if (minD > killDist && minD <= nmMax) {
         onNearMiss(i, minD);
       }
     }
@@ -3714,6 +4063,7 @@ function onLanding(p) {
   const skips = airtimeTracker.skippedCount;
   if (skips > 0) {
     applySkipBonus(skips);
+    checkNewRecord(); // Faz 21: büyük skip bonusu rekoru tek karede geçebilir
   } else {
     if (!nearMissSinceLanding) {
       multiplier = 1;
@@ -3772,12 +4122,12 @@ function updateAirtimeAndSkips() {
     t.active = true;
     t.startY = ball.y;
     for (const p of platforms) {
-      if (p.y <= ball.y + BALL_R + 1) t.ignoredPlatformIds.add(p.id);
+      if (p.y <= ball.y + getBallR() + 1) t.ignoredPlatformIds.add(p.id);
     }
   }
   for (const p of platforms) {
     if (p.broken || t.ignoredPlatformIds.has(p.id) || t.passedPlatformIds.has(p.id)) continue;
-    if (ball.y - BALL_R > p.y + p.h) {
+    if (ball.y - getBallR() > p.y + p.h) {
       // Aynı satırda (±SKIP_ROW_TOL) zaten sayılmış başka platform varsa satır bir kez sayılır.
       let sameRow = false;
       for (const q of platforms) {
@@ -3788,7 +4138,7 @@ function updateAirtimeAndSkips() {
         t.skippedCount++;
         onSkipRow(t.skippedCount, p);
       }
-    } else if (circleTouchesRect(ball.x, ball.y, BALL_R, p)) {
+    } else if (circleTouchesRect(ball.x, ball.y, getBallR(), p)) {
       t.ignoredPlatformIds.add(p.id); // yandan değdi: temas var, pas sayılmaz
     }
   }
@@ -3837,7 +4187,8 @@ function applySkipBonus(skips) {
   else if (tier === 3) multiplier = MAX_MULTIPLIER;
   // tier 1: çarpan KORUNUR (düşürülmez)
   // Faz 9: Nitro debuff'ı yalnız PUANI yarılar (getScoreFactor); çarpan kuralları aynen.
-  const bonus = SKIP_BONUS_BASE[tier] * multiplier * getScoreFactor();
+  // Faz 21: Demir Gülle aktifken pas bonusu x3 (getSkipBonusFactor; buff yokken 1).
+  const bonus = SKIP_BONUS_BASE[tier] * multiplier * getScoreFactor() * getSkipBonusFactor();
   score += bonus;
   lastSkipResult = { skips: skips, tier: tier, bonus: bonus, multBefore: multBefore, multiplier: multiplier };
   logSkip('skipLanding', lastSkipResult);
@@ -3867,8 +4218,11 @@ function resetPickups() {
   pickup = null;
   aegisGraceS = 0;
   nitroTrailT = 0;
-  pickupStats = { rolls: 0, spawned: { aegis: 0, nitro: 0 }, onRisk: 0, collected: { aegis: 0, nitro: 0 },
-                  missed: 0, expired: { aegis: 0, nitro: 0 }, aegisAbsorbs: 0, graceSaves: 0 };
+  // Faz 21: tip sayaçları PICKUP_ORDER'dan (yeni tip eklemek = PICKUP_DEFS + PICKUP_ORDER girişi).
+  const zero = () => Object.fromEntries(PICKUP_ORDER.map(t => [t, 0]));
+  pickupStats = { rolls: 0, spawned: zero(), onRisk: 0, collected: zero(),
+                  missed: 0, expired: zero(), aegisAbsorbs: 0, graceSaves: 0,
+                  gulleSmash: 0, rejected: 0 };
 }
 
 function logPickup(event, data) {
@@ -3938,14 +4292,14 @@ function updatePickup(dt) {
     pk.plat = null;                   // platform kırıldı: eşya havada dünya ile kayar
     pk.y -= getEffectiveScrollSpeed() * dt;
   }
-  if (circleTouchesRect(ball.x, ball.y, BALL_R, pickupRect(pk))) {
+  if (circleTouchesRect(ball.x, ball.y, getBallR(), pickupRect(pk))) {
     collectPickup();
     return;
   }
   // Top dünyada asla yukarı çıkmaz: eşya topun üstünde kaldıysa artık ulaşılamaz. Diken bölgesine
   // giren eşya da (dikenle çakışmasın) kaybolur. İkisinde de bir sonraki uygun satırda yeni zar.
   if (pk.y - PICKUP_SIZE / 2 < PICKUP_SPIKE_CLEAR_Y) despawnPickup('spikeZone');
-  else if (pk.y + PICKUP_SIZE / 2 < ball.y - BALL_R) despawnPickup('passed');
+  else if (pk.y + PICKUP_SIZE / 2 < ball.y - getBallR()) despawnPickup('passed');
 }
 
 function despawnPickup(reason) {
@@ -3957,7 +4311,11 @@ function despawnPickup(reason) {
 
 function collectPickup() {
   const pk = pickup;
-  if (!pk || activeBuff) return false; // tek etkin güç kuralı (ileride çoklu tip için tek kapı)
+  if (!pk) return false;
+  if (activeBuff) { // tek etkin güç kuralı: 5 tipin hepsi bu tek kapıdan geçer
+    if (pickupStats) pickupStats.rejected++;
+    return false;
+  }
   pickup = null;
   pickupStats.collected[pk.type]++;
   startBuff(pk.type);
@@ -3994,6 +4352,7 @@ function updateActiveBuff(dt) {
   }
   tickDownWarning(timeLeft, b);
   if (b.type === 'nitro') updateNitroTrail(dt, b);
+  if (b.type === 'gulle') updateGulleTrail(dt, b); // Faz 21
 }
 
 // Pac-Man "Telegraphing Expiration" (Aegis + Nitro ortak): son BUFF_WARN_S'de halka/iz 8Hz
@@ -4029,6 +4388,68 @@ function getScoreFactor() {
   return activeBuff && activeBuff.type === 'nitro' ? NITRO_SCORE_FACTOR : 1;
 }
 
+// ---------------------------------------------------------------------------
+// Faz 21 (§23.1): Chrono / Gülle / Nano etki kancaları. Hepsi activeBuff'tan okunur (tek etkin
+// güç kuralı aynı kapıdan geçer); buff yokken her biri Faz 1-20 sabitlerini birebir döndürür.
+// ---------------------------------------------------------------------------
+function buffIs(type) {
+  return !!(activeBuff && activeBuff.type === type);
+}
+
+// Chrono: dünya zamanı ölçeği. Giriş ve bitişte CHRONO_RAMP_S smoothstep (bitiş, Pac-Man uyarı
+// penceresinin içinde kalır: oyuncu normale dönüşü hem görür hem hisseder).
+function getTimeScale() {
+  if (!buffIs('chrono')) return 1;
+  const b = activeBuff;
+  const edge = Math.min(b.t, b.durationS - b.t) / CHRONO_RAMP_S;
+  return 1 - (1 - CHRONO_TIME_SCALE) * smoothstep01(edge);
+}
+
+function getGravity() {
+  if (buffIs('gulle')) return GULLE_GRAVITY;
+  return GRAVITY * getTimeScale();
+}
+
+function getMaxFallSpeed() {
+  if (buffIs('gulle')) return GULLE_MAX_FALL;
+  return MAX_FALL_SPEED * getTimeScale();
+}
+
+function getSkipBonusFactor() {
+  return buffIs('gulle') ? GULLE_SKIP_MULT : 1;
+}
+
+function getBallR() {
+  return buffIs('nano') ? NANO_BALL_R : BALL_R;
+}
+
+function getHurtR() {
+  return buffIs('nano') ? NANO_HURT_R : HURTBOX_R;
+}
+
+function getSpikeKillDist() {
+  return getHurtR() + SPIKE_TIP_LETHAL_R;
+}
+
+function getNearMissMaxDist() {
+  return getHurtR() + (NEAR_MISS_MAX_DIST - HURTBOX_R);
+}
+
+function getNearMissExitDist() {
+  return getNearMissMaxDist() + (NEAR_MISS_EXIT_DIST - NEAR_MISS_MAX_DIST);
+}
+
+// Nano başlayınca/bitince yarıçap değişir: platformdaki topun ALT kenarı platform üstünde kalsın
+// (havada ise merkez korunur). updateGame her kare çağırır; değişiklik yoksa hiçbir şey yapmaz.
+function syncBallRadius() {
+  const r = getBallR();
+  if (ball.r === r) return;
+  const prev = ball.r || BALL_R;
+  ball.r = r;
+  if (ball.grounded && ball.currentPlatform) ball.y = ball.currentPlatform.y - r;
+  logPickup('ballRadius', { from: prev, to: r });
+}
+
 // Kalkan: ölüm anında kalkan kırılır, top güvenli yöne itilir, AEGIS_GRACE_S dokunulmazlık.
 // Dokunulmazlıkta gelen ölüm tetikleri de (kalkan harcamadan) aynı kurtarmayla emilir.
 function tryAegisAbsorb(cause) {
@@ -4058,12 +4479,14 @@ function rescueBall(cause) {
   ball.grounded = false;
   ball.currentPlatform = null;
   ball.pushVx = 0;
+  const R = getBallR();
   if (cause === 'fell') {
-    ball.y = CANVAS_H - BALL_R;
+    ball.y = CANVAS_H - R;
     ball.vy = -AEGIS_FELL_VY;
   } else {
-    let y = Math.max(ball.y, PICKUP_SPIKE_CLEAR_Y + SPIKE_KILL_DIST + 2);
-    if (plat) y = Math.max(y, plat.y + plat.h + BALL_R + 1);
+    let y = Math.max(ball.y, PICKUP_SPIKE_CLEAR_Y + getSpikeKillDist() + 2,
+                     deepestTipYNear(ball.x) + getSpikeKillDist() + 2); // Faz 21: sarkıt ucunun altına
+    if (plat) y = Math.max(y, plat.y + plat.h + R + 1);
     ball.y = y;
     ball.vy = AEGIS_PUSH_VY;
   }
@@ -4071,10 +4494,14 @@ function rescueBall(cause) {
   spikePasses.clear();
 }
 
+// Faz 21: tip -> PAL anahtarı (eşya rengi; toplama patlaması + top halkası). Palette yeni renk yok.
+const PICKUP_COLOR_KEY = { aegis: 'ballLight', nitro: 'spikeTip', nano: 'ballMain', gulle: 'hud', chrono: 'platLight' };
+
 function juiceOnPickup(pk) {
   sfxPickup(pk.type);
+  sfxPickupFx(pk.type); // Faz 21: Chrono süzülme / Gülle ağır darbe / Nano cıvıltı (Aegis/Nitro: yok)
   if (!JUICE.buffFx) return;
-  if (JUICE.debris) spawnDebris(pk.x, pk.y + PICKUP_SIZE / 2, pk.type === 'aegis' ? PAL.ballLight : PAL.spikeTip);
+  if (JUICE.debris) spawnDebris(pk.x, pk.y + PICKUP_SIZE / 2, PAL[PICKUP_COLOR_KEY[pk.type]]);
   if (JUICE.hitstop) hitstopFramesLeft = Math.max(hitstopFramesLeft, 1); // rapor §3.5: 1 kare
 }
 
@@ -4083,6 +4510,169 @@ function juiceOnAegisBreak() {
   if (!JUICE.buffFx) return;
   if (JUICE.debris) spawnDebris(ball.x, ball.y, PAL.ballLight);
   if (JUICE.shake) startShake(SHAKE_LANDING_PX * 2, 'vertical');
+}
+
+// Faz 21: Gülle kırılgan platforma değdiği karede: FRAGILE_BREAK_S beklemeden kır, top durmadan
+// içinden geçer (rapor §3.4: "tek karede kırıp içinden geçer"). Mevcut breakPlatform() kırık
+// parçalarını üretir; ek olarak ağır darbe sesi + 5px sarsıntı.
+function gulleSmash(p) {
+  p.crackT = 0;
+  breakPlatform(p);
+  pickupStats.gulleSmash++;
+  logPickup('gulleSmash', { platformId: p.id, vy: +ball.vy.toFixed(1) });
+  if (JUICE.buffFx && JUICE.shake) startShake(GULLE_LAND_SHAKE_PX, 'vertical');
+  sfxGulleLand();
+}
+
+// Faz 21: Gülle düşüş izi (koyu kurşun parçacıkları; mevcut debris dizisi, yeni sistem yok).
+// Yalnız hızlı düşüşte (vy > GHOST_FALL_VY) üretilir: "kurşun gibi çöküş" okunur.
+let gulleTrailT = 0;
+function updateGulleTrail(dt, b) {
+  if (!JUICE.buffFx || !JUICE.debris) return;
+  if (ball.grounded || ball.vy < GHOST_FALL_VY) { gulleTrailT = 0; return; }
+  gulleTrailT += dt;
+  while (gulleTrailT >= NITRO_TRAIL_EVERY_S) {
+    gulleTrailT -= NITRO_TRAIL_EVERY_S;
+    if (!b.flashOn) continue;
+    debris.push({ x: ball.x + (Math.random() - 0.5) * BALL_R, y: ball.y - BALL_R * 0.8,
+                  vx: (Math.random() - 0.5) * 20, vy: -(40 + Math.random() * 40),
+                  life: NITRO_TRAIL_LIFE_S, size: 3,
+                  col: Math.random() < 0.5 ? PAL.platShadow : PAL.platMain });
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Faz 21: eşya ikonları, 16x16 piksel matrisleri (kodla piksel çizim, Aegis/Nitro'nun düz-şekil
+// diliyle aynı ölçek). Harf -> PAL anahtarı: renkler temayla birlikte değişir, palette yeni renk yok.
+// '.' = şeffaf. 2 kare: [0] normal, [1] parıltı/pulse karesi (PICKUP_ICON_FRAME_S'de bir değişir).
+// ---------------------------------------------------------------------------
+const PICKUP_ICON_FRAME_S = 0.3;
+const ICON_KEYS = { F: 'hud', G: 'platLight', M: 'platMain', D: 'platShadow', S: 'ballLight', Y: 'ballMain', L: 'platLight' };
+const PICKUP_ICONS = {
+  // Chrono Sisi: kum saati. Cam soğuk mavi (platLight), çerçeve kırık beyaz, kum açık altın.
+  chrono: [[
+    '..FFFFFFFFFFFF..',
+    '..FMMMMMMMMMMF..',
+    '...FGSSSSSSGF...',
+    '...FGGSSSSGGF...',
+    '....FGGSSGGF....',
+    '.....FGSSGF.....',
+    '......FSSF......',
+    '.......SS.......',
+    '.......SS.......',
+    '......FSSF......',
+    '.....FGGSGF.....',
+    '....FGGGSGGF....',
+    '...FGGGSSSGGF...',
+    '...FSSSSSSSSF...',
+    '..FMMMMMMMMMMF..',
+    '..FFFFFFFFFFFF..'
+  ], [
+    '..FFFFFFFFFFFF..',
+    '..FMMMMMMMMMMF..',
+    '...FGGSSSSGGF...',
+    '...FGGSSSSGGF...',
+    '....FGGSSGGF....',
+    '.....FGSSGF.....',
+    '......FSSF......',
+    '.......S........',
+    '........S.......',
+    '......FSSF......',
+    '.....FGSGGF.....',
+    '....FGGSSGGF....',
+    '...FGGSSSSGGF...',
+    '...FSSSSSSSSF...',
+    '..FMMMMMMMMMMF..',
+    '..FFFFFFFFFFFF..'
+  ]],
+  // Demir Gülle: halkalı kurşun ağırlık bloğu + kabartma aşağı ok ("ağır, düşer"). Gövde
+  // platMain/platShadow, dış hat platLight, ok kırık beyaz. 2. kare: ok 1px aşağı (aşağı nabız).
+  gulle: [[
+    '......LLLL......',
+    '.....L....L.....',
+    '.....L....L.....',
+    '....LLLLLLLL....',
+    '....LMMMMMML....',
+    '...LMMMFFMMML...',
+    '...LMMMFFMMML...',
+    '..LMMMMFFMMMML..',
+    '..LMMFFFFFFMML..',
+    '.LMMMMFFFFMMMDL.',
+    '.LMMMMMFFMMMMDL.',
+    'LMMMMMMMMMMMMDDL',
+    'LDMMMMMMMMMMDDDL',
+    'LDDDDDDDDDDDDDDL',
+    'LLLLLLLLLLLLLLLL',
+    '................'
+  ], [
+    '......LLLL......',
+    '.....L....L.....',
+    '.....L....L.....',
+    '....LLLLLLLL....',
+    '....LMMMMMML....',
+    '...LMMMMMMMML...',
+    '...LMMMFFMMML...',
+    '..LMMMMFFMMMML..',
+    '..LMMMMFFMMMML..',
+    '.LMMMFFFFFFMMDL.',
+    '.LMMMMFFFFMMMDL.',
+    'LMMMMMMFFMMMMDDL',
+    'LDMMMMMMMMMMDDDL',
+    'LDDDDDDDDDDDDDDL',
+    'LLLLLLLLLLLLLLLL',
+    '................'
+  ]],
+  // Nano Çekirdek: 4x4 kırık beyaz çekirdek (rapor §3.4) + altın parıltı ışınları (2 kare: + / x).
+  nano: [[
+    '................',
+    '.......SS.......',
+    '.......SS.......',
+    '................',
+    '.......YY.......',
+    '................',
+    '......FFFF......',
+    '.SS.Y.FFFF.Y.SS.',
+    '.SS.Y.FFFF.Y.SS.',
+    '......FFFF......',
+    '................',
+    '.......YY.......',
+    '................',
+    '.......SS.......',
+    '.......SS.......',
+    '................'
+  ], [
+    '................',
+    '................',
+    '..S..........S..',
+    '...S........S...',
+    '....Y......Y....',
+    '................',
+    '......FFFF......',
+    '......FFFF......',
+    '......FFFF......',
+    '......FFFF......',
+    '................',
+    '....Y......Y....',
+    '...S........S...',
+    '..S..........S..',
+    '................',
+    '................'
+  ]]
+};
+
+function drawPixelIcon(rows, x0, y0) {
+  noStroke();
+  let lastKey = null;
+  for (let r = 0; r < rows.length; r++) {
+    const row = rows[r];
+    for (let c = 0; c < row.length; c++) {
+      const ch = row[c];
+      if (ch === '.') continue;
+      const key = ICON_KEYS[ch];
+      if (key !== lastKey) { fill(PAL[key]); lastKey = key; }
+      rect(x0 + c, y0 + r, 1, 1);
+    }
+  }
 }
 
 // Nitro alev izi: mevcut debris dizisine turuncu/kırmızı parçacık (yeni parçacık sistemi yok).
@@ -4112,7 +4702,12 @@ function drawPickup() {
   noStroke();
   fill(PAL.platShadow); // 1px gölge: platform üst kenarında (salınımdan bağımsız)
   rect(cx - 5, Math.round(pk.y) + PICKUP_FLOAT_PX - 1, 10, 1);
-  if (pk.type === 'aegis') {
+  if (PICKUP_ICONS[pk.type]) {
+    // Faz 21: Chrono/Gülle/Nano piksel ikonu (16x16 = PICKUP_SIZE, hitbox ile birebir kutu).
+    const frames = PICKUP_ICONS[pk.type];
+    const f = Math.floor(pk.t / PICKUP_ICON_FRAME_S) % frames.length;
+    drawPixelIcon(frames[f], cx - h, cy - h);
+  } else if (pk.type === 'aegis') {
     fill(PAL.ballMain);
     quad(cx, cy - h, cx + h, cy, cx, cy + h, cx - h, cy);
     fill(PAL.ballLight);
@@ -4129,20 +4724,22 @@ function drawPickup() {
 // Topun üstüne (drawBall'dan SONRA) güç göstergesi. Telegraph'ta flashOn=false kareleri çizilmez.
 function drawBuffFx() {
   const b = activeBuff;
+  const ringR = getBallR() + (AEGIS_RING_R - BALL_R); // Faz 21: Nano'da halka da küçülür (6+4)
   if (b && b.flashOn) {
-    const col = b.type === 'aegis' ? PAL.ballLight : PAL.spikeTip;
+    const col = PAL[PICKUP_COLOR_KEY[b.type]];
     noFill();
     stroke(col);
     strokeWeight(1);
-    circle(ball.x, ball.y, AEGIS_RING_R * 2);
+    circle(ball.x, ball.y, ringR * 2);
     noStroke();
+    drawBuffFxExtra(b, ringR); // Faz 21: Chrono saat tikleri / Gülle ağırlık / Nano parıltı
     if (b.type === 'aegis') {
       // rapor §3.4: topun etrafında dönen 2 adet 2x2 altın yörünge pikseli (1 tur/sn)
       fill(PAL.ballLight);
       const a = b.t * Math.PI * 2;
       for (const off of [0, Math.PI]) {
-        rect(Math.round(ball.x + Math.cos(a + off) * AEGIS_RING_R) - 1,
-             Math.round(ball.y + Math.sin(a + off) * AEGIS_RING_R) - 1, 2, 2);
+        rect(Math.round(ball.x + Math.cos(a + off) * ringR) - 1,
+             Math.round(ball.y + Math.sin(a + off) * ringR) - 1, 2, 2);
       }
     }
   }
@@ -4152,9 +4749,61 @@ function drawBuffFx() {
     noStroke();
     for (let k = 0; k < 8; k++) {
       const a = (k / 8) * Math.PI * 2;
-      rect(Math.round(ball.x + Math.cos(a) * AEGIS_RING_R) - 1, Math.round(ball.y + Math.sin(a) * AEGIS_RING_R) - 1, 2, 2);
+      rect(Math.round(ball.x + Math.cos(a) * ringR) - 1, Math.round(ball.y + Math.sin(a) * ringR) - 1, 2, 2);
     }
   }
+}
+
+// Faz 21: türe özgü top üstü gösterge (halkaya ek). Telegraph'ta (flashOn=false) çağrılmaz.
+function drawBuffFxExtra(b, ringR) {
+  noStroke();
+  if (b.type === 'chrono') {
+    // Saat kadranı: 4 sabit tik + yavaş dönen tek ibre pikseli (0.5 tur/sn).
+    fill(PAL.platLight);
+    for (let k = 0; k < 4; k++) {
+      const a = k * Math.PI / 2;
+      rect(Math.round(ball.x + Math.cos(a) * (ringR + 2)) - 1, Math.round(ball.y + Math.sin(a) * (ringR + 2)) - 1, 2, 2);
+    }
+    fill(PAL.hud);
+    const a = b.t * Math.PI - Math.PI / 2;
+    rect(Math.round(ball.x + Math.cos(a) * ringR) - 1, Math.round(ball.y + Math.sin(a) * ringR) - 1, 2, 2);
+  } else if (b.type === 'gulle') {
+    // Ağırlık: halkanın ÜSTÜNDE 6x4 kurşun blok (topu aşağı bastırır; platform çizgisiyle çakışmaz).
+    const x = Math.round(ball.x) - 3, y = Math.round(ball.y - ringR) - 6;
+    fill(PAL.platLight);
+    rect(x - 1, y - 1, 8, 6);
+    fill(PAL.platMain);
+    rect(x, y, 6, 4);
+  } else if (b.type === 'nano') {
+    // Parıltı: halka üstünde 2 karşıt piksel, 4Hz yer değiştirir (küçük topu gözden kaçırma).
+    fill(PAL.ballLight);
+    const k = Math.floor(b.t * 4) % 2;
+    const a = k ? Math.PI / 4 : -Math.PI / 4;
+    for (const off of [0, Math.PI]) {
+      rect(Math.round(ball.x + Math.cos(a + off) * (ringR + 2)), Math.round(ball.y + Math.sin(a + off) * (ringR + 2)), 1, 1);
+    }
+  }
+}
+
+// Faz 21: Chrono etkinken ekran kenarında soğuk mavi Bayer çerçeve (bullet-time okunur). Kalınlık
+// zaman ölçeğiyle orantılı (0 -> 6px), HUD'dan önce çizilir. Telegraph'ta 8Hz ile o da yanıp söner.
+const CHRONO_FRAME_PX = 6;
+function drawChronoFrame() {
+  if (!buffIs('chrono') || !activeBuff.flashOn) return;
+  const k = (1 - getTimeScale()) / (1 - CHRONO_TIME_SCALE); // 0..1
+  const w = Math.round(CHRONO_FRAME_PX * k);
+  if (w <= 0) return;
+  // Hedef temanın sabit rengi (PAL geçişte her kare farklı hex üretir -> desen önbelleği taşardı).
+  const img = getPatternImage(0.5, THEME_PALETTES[themeIndex].platLight);
+  drawingContext.save();
+  drawingContext.beginPath();
+  drawingContext.rect(0, 0, CANVAS_W, w);
+  drawingContext.rect(0, CANVAS_H - w, CANVAS_W, w);
+  drawingContext.rect(0, w, w, CANVAS_H - 2 * w);
+  drawingContext.rect(CANVAS_W - w, w, w, CANVAS_H - 2 * w);
+  drawingContext.clip();
+  image(img, 0, 0);
+  drawingContext.restore();
 }
 
 function drawWorld() {
@@ -4171,7 +4820,9 @@ function drawWorld() {
 
   // Üstteki sabit diken şeridi - tepe noktası aşağı bakan üçgenler dizisi.
   drawPulseTelegraph();
+  drawSarkitTelegraph(); // Faz 21: yanıp sönen sütun gölgesi (dikenlerin ARKASINDA)
   for (let i = 0; i < SPIKE_COUNT; i++) drawSpike(i);
+  drawSarkitMarker();    // Faz 21: "!" işareti (dikenlerin ÖNÜNDE)
 }
 
 // Diken i: gölge (#4a0e0e) tam üçgen = Faz 2 gövde geometrisi; ana kırmızı (#c81d25)
@@ -4180,7 +4831,7 @@ function drawWorld() {
 // (tepe noktasına <= SPIKE_TIP_LETHAL_R). Uç bloğu daima en son (en üstte) çizilir.
 function drawSpike(i) {
   const x0 = i * SPIKE_W;
-  const tx = spikeTipX(i);
+  const tx = spikeTipX(i) + sarkitJitter(i); // Faz 21: uyarıda uç ±1px titrer (yalnız görsel)
   const ty = spikeTipY(i);
   fill(PAL.spikeShadow);
   triangle(x0, 0, x0 + SPIKE_W, 0, tx, ty);
@@ -4356,6 +5007,145 @@ function drawScore() {
   // Sayaç diken şeridinin hemen altında, ekranın üst köşesinde.
   text(Math.floor(score) + '  x' + multiplier, 10, SPIKE_STRIP_H + 6);
   noStroke();
+  drawBestHud(SPIKE_STRIP_H + 6 + hud.size + 3);
+}
+
+// ---------------------------------------------------------------------------
+// Faz 21 (§23.2): en yüksek skor. localStorage yalnız setup (oku) + oyun bitti / sekme gizlenme
+// (yaz) anlarında kullanılır; kare döngüsünde depolama erişimi yok.
+// ---------------------------------------------------------------------------
+function loadBestScore() {
+  try {
+    const v = parseInt(window.localStorage.getItem(BEST_SCORE_KEY), 10);
+    bestStorageOk = true;
+    return Number.isFinite(v) && v > 0 ? v : 0;
+  } catch (e) {
+    bestStorageOk = false;
+    return 0;
+  }
+}
+
+function saveBestScore(v) {
+  try {
+    window.localStorage.setItem(BEST_SCORE_KEY, String(v));
+    bestStorageOk = true;
+    return true;
+  } catch (e) {
+    bestStorageOk = false;
+    return false;
+  }
+}
+
+function resetRecordRun() {
+  bestAtRunStart = bestScore;
+  newRecordThisRun = false;
+  recordBannerT = -1;
+}
+
+// Koşu içi: önceki rekor (> 0) geçildiği ilk an. İlk oyunda (rekor 0) koşu içi vurgu yok;
+// her puan rekor olurdu -> anlamsız gürültü. İlk oyunun rekoru oyun bitti ekranında gösterilir.
+function checkNewRecord() {
+  if (newRecordThisRun || bestAtRunStart <= 0) return false;
+  if (Math.floor(score) <= bestAtRunStart) return false;
+  newRecordThisRun = true;
+  recordBannerT = 0;
+  logPickup('newRecord', { score: Math.floor(score), prevBest: bestAtRunStart });
+  sfxRecord();
+  if (JUICE.stageUp) stageFlashFramesLeft = Math.max(stageFlashFramesLeft, Math.round(STAGEUP_FLASH_FRAMES / 2));
+  return true;
+}
+
+function commitBestScore() {
+  const s = Math.floor(score);
+  if (s > bestScore) {
+    bestScore = s;
+    saveBestScore(s);
+  }
+  return bestScore;
+}
+
+// Sekme kapanır/gizlenirse koşu ortasındaki rekor kaybolmasın (bestAtRunStart değişmez).
+if (typeof document !== 'undefined') {
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden' && gameState === 'playing' && Math.floor(score) > bestScore) {
+      saveBestScore(Math.floor(score));
+    }
+  });
+}
+
+function isRecordRun() {
+  return Math.floor(score) > bestAtRunStart && Math.floor(score) > 0;
+}
+
+// HUD: skorun altında küçük "EN İYİ N". Rekor geçildiyse canlı skoru gösterir (rakam birlikte akar).
+function drawBestHud(y) {
+  const shown = Math.max(bestAtRunStart, newRecordThisRun ? Math.floor(score) : 0);
+  noStroke();
+  textSize(RECORD_HUD_SIZE);
+  textAlign(LEFT, TOP);
+  const label = 'EN İYİ ' + shown;
+  if (newRecordThisRun) {
+    drawOutlinedText(label, 10, y, color(0, 0, 0), 1);
+    fill(PAL.ballMain);
+  } else {
+    fill(PAL.hud);
+  }
+  text(label, 10, y);
+  drawRecordBanner();
+}
+
+// Kısa vurgu: ekran ortası üstünde "YENİ REKOR!" (skor pop'uyla aynı overshoot eğrisi + siyah kontur,
+// her temada okunur), son %30'da söner. recordBannerT gerçek kare süresiyle ilerler.
+function drawRecordBanner() {
+  if (recordBannerT < 0) return;
+  if (gameState === 'gameover') { recordBannerT = -1; return; } // oyun bitti ekranı kendi vurgusunu çizer
+  const t = recordBannerT;
+  if (t >= RECORD_BANNER_S) { recordBannerT = -1; return; }
+  recordBannerT += Math.min(deltaTime, 50) / 1000;
+  const sc = scorePopScale(t);
+  const fadeStart = RECORD_BANNER_S * 0.7;
+  const a = t < fadeStart ? 255 : 255 * (1 - (t - fadeStart) / (RECORD_BANNER_S - fadeStart));
+  const blinkOn = Math.floor(t * 8) % 2 === 0;
+  push();
+  translate(CANVAS_W / 2, SPIKE_STRIP_H + 70);
+  scale(sc);
+  textAlign(CENTER, CENTER);
+  textSize(RECORD_BANNER_SIZE);
+  const oc = color(0, 0, 0); oc.setAlpha(a);
+  drawOutlinedText('YENİ REKOR!', 0, 0, oc, SCORE_POP_OUTLINE_W);
+  const fc = color(blinkOn ? PAL.ballLight : PAL.ballMain); fc.setAlpha(a);
+  fill(fc);
+  text('YENİ REKOR!', 0, 0);
+  pop();
+}
+
+function buildRecordArp(ctx, dest, t) {
+  const osc = ctx.createOscillator();
+  osc.type = 'square';
+  const env = ctx.createGain();
+  env.gain.setValueAtTime(0, t);
+  const freqs = [];
+  for (let i = 0; i < RECORD_ARP_MIDI.length; i++) {
+    const ns = t + i * RECORD_ARP_NOTE_S;
+    const f = midiToHz(RECORD_ARP_MIDI[i]);
+    freqs.push(+f.toFixed(2));
+    osc.frequency.setValueAtTime(f, ns);
+    env.gain.setValueAtTime(0, ns);
+    env.gain.linearRampToValueAtTime(0.7, ns + 0.003);
+    env.gain.setValueAtTime(0.7, ns + RECORD_ARP_NOTE_S * 0.7);
+    env.gain.linearRampToValueAtTime(0, ns + RECORD_ARP_NOTE_S);
+  }
+  const end = t + RECORD_ARP_MIDI.length * RECORD_ARP_NOTE_S;
+  osc.connect(env).connect(dest);
+  osc.start(t);
+  osc.stop(end + 0.01);
+  cleanupOnEnded(osc, [osc, env]);
+  return { node: osc, type: osc.type, freqs: freqs, gainStart: t, gainEnd: end, stopAt: end + 0.01 };
+}
+
+function sfxRecord() {
+  if (!SOUND.multiplier) return;
+  playSfx('record', 'pulse1', buildRecordArp);
 }
 
 // Faz 17 telegraph HUD ipucu: sağ üst köşede (skorun karşısı, diken şeridinin hemen altı) 3 küçük
@@ -4393,9 +5183,19 @@ function drawGameOver() {
   text('GAME OVER', CANVAS_W / 2, CANVAS_H / 2 - 30);
   textSize(20);
   text('SKOR: ' + Math.floor(score), CANVAS_W / 2, CANVAS_H / 2 + 5);
+  // Faz 21 (§23.2): EN İYİ satırı + rekor koşusunda yanıp sönen "YENİ REKOR!" (4Hz).
+  textSize(16);
+  text('EN İYİ: ' + bestScore, CANVAS_W / 2, CANVAS_H / 2 + 30);
+  if (isRecordRun() && Math.floor(millis() / 250) % 2 === 0) {
+    textSize(18);
+    drawOutlinedText('YENİ REKOR!', CANVAS_W / 2, CANVAS_H / 2 - 62, color(0, 0, 0), 1.4);
+    fill(PAL.ballMain);
+    text('YENİ REKOR!', CANVAS_W / 2, CANVAS_H / 2 - 62);
+    fill(PAL.hud);
+  }
   textSize(14);
   text(IS_TOUCH_DEVICE ? 'Yeniden başlamak için dokun' : 'Yeniden başlamak için BOŞLUK ya da tıkla',
-       CANVAS_W / 2, CANVAS_H / 2 + 35);
+       CANVAS_W / 2, CANVAS_H / 2 + 58);
 }
 
 // --- Mobil dokunmatik ipucu ---
@@ -4449,7 +5249,15 @@ function touchStarted(e) {
   if (gameState === 'gameover') {
     // GAME OVER yazısı göründükten sonra dokunuş yeniden başlatır. Bu parmak yöne
     // sayılmaz (yeni koşu, bırakılana kadar topu kendiliğinden sürüklemesin).
-    if (hitstopMs <= 0) resetGame();
+    // Faz 21 (§23.4): ölüm anında BASILI KALAN eski parmaklar da yeni koşuyu sürüklemez
+    // (önceden touchOrder'da kalıp yeni koşuyu ilk karede yana kaydırıyordu); yön için
+    // parmak kaldırılıp yeniden basılmalı.
+    if (hitstopMs <= 0) {
+      resetGame();
+      touchOrder = [];
+      touchDir = 0;
+      return false;
+    }
     updateTouchDir(e);
     return false;
   }
