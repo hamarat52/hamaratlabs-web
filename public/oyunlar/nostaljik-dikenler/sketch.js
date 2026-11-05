@@ -247,7 +247,12 @@ const SOUND = {
   masterVolume: 0.5,
   debugLog: false    // true: her ses olayı konsola da yazılır (soundLog dizisi her zaman dolar)
 };
-const CH_GAIN = { pulse1: 0.22, pulse2: 0.10, triangle: 0.9, noise: 0.45 }; // kanal karışım seviyeleri
+// Fix/müzik-mix-ve-dinamik-aranjman: ses-muhendisligi-sonuc.txt Bölüm 2/6 Adım 1 tam tablosu.
+// Önceki dal (fix/muzik-bas-davul-armoni) ölçümü: 20-800Hz bandı toplam enerjinin %93.9'u
+// (lead -14.5dB/28x daha zayıf). Burada lead öne alınır, bas/kick kısılır -> hedef ~%55
+// bas / %30 orta / %15 tiz (bkz. tools/audio-render/analyze_spectrum.py doğrulaması).
+const CH_GAIN = { pulse1: 0.22, pulse2: 0.30, triangle: 0.9, noise: 0.45,
+                  musicBass: 0.12, musicDrum: 0.24, musicHarm: 0.20 }; // kanal karışım seviyeleri
 // İniş "thud" (triangle): 60Hz -> 30Hz üstel pitch drop
 const THUD_F0 = 60;
 const THUD_F1 = 30;
@@ -308,7 +313,137 @@ const MUSIC_PATTERNS_BY_THEME = [
 ];
 const MUSIC_PATTERN_LEN = 8;
 const MUSIC_NOTE_FRAC = 0.55;  // nota uzunluğu = adımın %55'i (8-bit staccato)
+const MUSIC_NOTE_FRAC_LEGATO = 0.85; // Bar 3 (B kesiti): daha bağlı/legato çalım
 const MUSIC_LOOKAHEAD_S = 0.12;
+
+// --- Fix/müzik-bas-davul-armoni: bas+davul+armoni "orkestra" katmanları ---------------------
+// Melodi notalarına (MUSIC_PATTERNS_BY_THEME) DOKUNULMAZ; üstüne katman eklenir. 8 adımlık
+// melodi döngüsü aynı kalırken form 32 adıma (4 bar: A-A'-B-C) bas/davul/armoni akor
+// değişimiyle genişler (araştırma raporu: muzik-arastirma-sonuc.txt, ADIM 1-6).
+const MUSIC_FORM_BARS = 4;              // 4 bar x 8 adım = 32 adımlık form
+const MUSIC_LEAD_OCTAVE_SHIFT = 12;     // lead (pulse2) +1 oktav: bas hattıyla çakışma sıfırlanır
+
+// ADIM 1: her temanın her barı için [ilk yarı kökü, ikinci yarı kökü] (MIDI, triangle bas).
+const BASS_ROOTS_BY_THEME = [
+  [[33, 38], [33, 36], [41, 38], [33, 40]], // 0 Karanlık (Am -> Dm/A)
+  [[36, 45], [36, 43], [41, 43], [36, 43]], // 1 Gündüz   (C -> Am/G)
+  [[33, 36], [41, 43], [33, 36], [38, 40]], // 2 Gece     (Am -> C)
+  [[33, 34], [33, 39], [34, 33], [39, 40]], // 3 Lav      (Frigyen/Locrian, m2+tritone)
+  [[33, 38], [40, 38], [36, 38], [40, 33]]  // 4 Buz      (Dorian/Sus2)
+];
+
+// ADIM 3: bas hattı (triangle, oktav pompa ritmi: çift adım kök, tek adım +12 oktav üstü).
+const BASS_EVEN_FRAC = 0.62;   // vuruş başı (kök) kapı süresi oranı (nefes boşluğu açıldı)
+const BASS_ODD_FRAC = 0.42;    // off-beat (oktav) kapı süresi oranı
+const BASS_PLUCK_S = 0.018;    // pluck/slap: freq*1.15 -> freq üstel ramp süresi
+const BASS_PLUCK_MULT = 1.15;
+const BASS_ATTACK_S = 0.004;
+const BASS_RELEASE_S = 0.015;
+const BASS_PEAK = 1.0;
+
+// ADIM 4: davul (noise + triangle gövde, zaman paylaşımlı tek "kanal"). Değerler
+// ses-muhendisligi-sonuc.txt Bölüm 6 Adım 1 tam tablosundan BİREBİR.
+const KICK_F0 = 115, KICK_F1 = 45, KICK_DROP_S = 0.042, KICK_ATTACK_S = 0.002, KICK_PEAK = 0.68;
+// Adım 5: kick "beater click" (8ms bandpass @2800Hz) - tiz transient, kick küçük hoparlörde de duyulsun.
+const KICK_CLICK_HZ = 2800, KICK_CLICK_Q = 1.5, KICK_CLICK_S = 0.008, KICK_CLICK_PEAK = 0.25;
+const SNARE_BODY_F0 = 190, SNARE_BODY_F1 = 85, SNARE_BODY_S = 0.035, SNARE_BODY_ATTACK_S = 0.002,
+      SNARE_BODY_PEAK = 0.45;
+const SNARE_NOISE_HZ = 2200, SNARE_NOISE_FILL_HZ = 2800, SNARE_NOISE_Q = 0.65,
+      SNARE_NOISE_ATTACK_S = 0.002, SNARE_NOISE_DECAY_S = 0.110, SNARE_NOISE_PEAK = 1.10;
+const HIHAT_HZ = 5200, HIHAT_Q = 0.8, HIHAT_ATTACK_S = 0.001, HIHAT_DECAY_S = 0.048,
+      HIHAT_DECAY_OPEN_S = 0.095, HIHAT_PEAK = 0.85;
+
+// ADIM 5: ikinci pulse armoni/arpej katmanı (hızlı chip-arpej: midi -> nextMidi -> midi).
+const HARM_SEG_S = 0.035;
+const HARM_PEAK = 0.8;
+
+// --- Fix/müzik-mix-ve-dinamik-aranjman: ses mühendisliği (EQ/sentez/master) sabitleri ------
+// (ses-muhendisligi-sonuc.txt Bölüm 3/4/5/6, Adım 2-7)
+// ADIM 3: %25/%12.5 duty cycle PeriodicWave (NES 2A03 pulse kanalı tınısı). Lead = %25 (sıcak,
+// obua benzeri), Armoni = %12.5 (parlak, kristal arpej). 32 harmonik, b_n = (2/nπ)sin(nπD).
+const PULSE_WAVE_HARMONICS = 32;
+const PULSE_LEAD_DUTY = 0.25;
+const PULSE_HARM_DUTY = 0.125;
+// ADIM 4: lead unison detune (±5 cent) - iki pulse25 osilatör, faz girişimiyle "canlı/geniş" tını.
+const LEAD_DETUNE_CENTS = [-5, 5];
+const LEAD_DETUNE_GAIN = 0.65;         // her unison osc'un karışım kazancı
+const LEAD_PLUCK_OVERSHOOT = 1.2;      // ilk ~12ms parlaklık zarfı (pluck transienti)
+const LEAD_PLUCK_SUSTAIN = 0.85;       // sustain seviyesi
+const LEAD_PLUCK_ATTACK_S = 0.012;
+const LEAD_PLUCK_DECAY_S = 0.045;
+// ADIM 6: kanal bazlı BiquadFilterNode EQ zinciri frekansları (setupChannelStrip).
+const EQ_BASS_HPF_HZ = 45, EQ_BASS_HPF_Q = 0.707;
+const EQ_BASS_PEAK_HZ = 110, EQ_BASS_PEAK_GAIN = -3.5, EQ_BASS_PEAK_Q = 1.2;
+const EQ_BASS_LPF_HZ = 650, EQ_BASS_LPF_Q = 0.707;
+const EQ_LEAD_HPF_HZ = 250, EQ_LEAD_HPF_Q = 0.707;
+const EQ_LEAD_PEAK_HZ = 380, EQ_LEAD_PEAK_GAIN = -4.0, EQ_LEAD_PEAK_Q = 1.4;
+const EQ_LEAD_SHELF_HZ = 2200, EQ_LEAD_SHELF_GAIN = 9.0;
+const EQ_LEAD_LPF_HZ = 11000, EQ_LEAD_LPF_Q = 0.707;
+const EQ_HARM_HPF_HZ = 420, EQ_HARM_HPF_Q = 0.707;
+const EQ_HARM_SHELF_HZ = 3200, EQ_HARM_SHELF_GAIN = 5.0;
+const EQ_DRUM_HPF_HZ = 45, EQ_DRUM_HPF_Q = 0.707;
+const EQ_DRUM_PEAK_HZ = 220, EQ_DRUM_PEAK_GAIN = -3.5, EQ_DRUM_PEAK_Q = 1.2;
+const EQ_DRUM_SHELF_HZ = 4500, EQ_DRUM_SHELF_GAIN = 4.5;
+// ADIM 7: master bus - kısa oda reverb'ü (ConvolverNode, sentetik IR) + glue compressor + tilt EQ.
+const REVERB_IR_S = 0.30;          // sentetik oda IR süresi
+const REVERB_IR_DECAY = 6;         // e^{-t*DECAY} üstel sönüm
+const REVERB_SEND_GAIN = 0.15;     // lead + armoni'den reverb'e gönderim seviyesi
+const REVERB_SEND_HPF_HZ = 600, REVERB_SEND_LPF_HZ = 5500; // basları reverb'e göndermez
+const MASTER_TILT_LOW_HZ = 180, MASTER_TILT_LOW_GAIN = -2.5;
+const MASTER_TILT_HIGH_HZ = 3200, MASTER_TILT_HIGH_GAIN = 3.5;
+const MASTER_COMP_THRESHOLD = -16, MASTER_COMP_KNEE = 12, MASTER_COMP_RATIO = 3.5,
+      MASTER_COMP_ATTACK = 0.015, MASTER_COMP_RELEASE = 0.12;
+const MASTER_SOFTCLIP_DRIVE = 1.6;   // tanh(k*x)/tanh(k) yumuşak kırpma
+
+// --- Fix/müzik-mix-ve-dinamik-aranjman: dinamik aranjman sabitleri -------------------------
+// (muzik-aranjman-dinamik-sonuc.txt Bölüm 7, Adım 1-7)
+// ADIM 1: getMusicIntensity() durum makinesi eşikleri.
+const INTENSITY_INTRO_STEPS = 8;       // musicStep < 8: yoğunluk 0 (nefes/intro)
+const INTENSITY_MULTIPLIER_BOOST = 4;  // multiplier >= 4 -> yoğunluk +1
+const INTENSITY_DANGER_BALL_Y = 110;   // ball.y < 110 (diken şeridine yakın) -> yoğunluk +1
+// ADIM 3: bar bazlı gerilim-çözülme eğrisi (getStepDynamics -> barGain çarpanı).
+const BAR0_ACCENT_GAIN = 1.12, BAR0_REST_GAIN = 0.88;   // A - çözülme ("The One" vurgulu)
+const BAR1_GAIN = 0.94;                                  // A' - hareketlenme
+const BAR2_GAIN = 1.05;                                  // B - genişleme (legato)
+const BAR3_GAIN_START = 0.90, BAR3_GAIN_END = 1.20;      // C - gerilim crescendo
+// ADIM 4: groove (swing + ghost velocity).
+const SWING_OFFSET_FRAC = 0.018;        // off-beat mikro-gecikme (stepS oranı)
+const HIHAT_GHOST_WEAK = 0.60;          // stepInBar 1,3
+const HIHAT_GHOST_MED = 0.75;           // stepInBar 5
+const HIHAT_GHOST_STRONG = 0.95;        // stepInBar 7
+// ADIM 5: dinamik master müzik filtresi (lowpass sweep) - SADECE müzik kanalları.
+const MUSIC_FILTER_BASE_HZ = 2600, MUSIC_FILTER_RANGE_HZ = 4400, MUSIC_FILTER_STAGE_STEP_HZ = 800;
+const MUSIC_FILTER_BURST_HZ = 4600, MUSIC_FILTER_BURST_Q = 0.85;
+const MUSIC_FILTER_TELE_START_HZ = 1800, MUSIC_FILTER_TELE_END_HZ = 10000;
+const MUSIC_FILTER_SMOOTH_S = 0.08;
+// ADIM 6: tonaliteye uygun death sting (4 nota: 3 hızlı iniş + 1 çöken son nota).
+const DEATH_STING_NOTE_S = 0.09;
+const DEATH_STING_LAST_S = 0.32;
+const DEATH_STING_PITCH_DROP_ST = -2;
+const DEATH_STING_BY_THEME = [
+  [64, 60, 57, 56], // 0 Karanlık (Am): E4 C4 A3 G#3
+  [67, 64, 63, 60], // 1 Gündüz (C):   G4 E4 Eb4 C4
+  [69, 64, 60, 57], // 2 Gece:         A4 E4 C4 A3
+  [64, 63, 58, 57], // 3 Volkanik:     E4 Eb4 Bb3 A3
+  [71, 64, 59, 57]  // 4 Buz/Kış:      B4 E4 B3 A3
+];
+// ADIM 7: stage geçişi - tonaliteye uygun, stage'e göre büyüyen fanfar akorları + "vites atlama".
+const STAGEUP_CHORDS_BY_THEME = [
+  [69, 72, 76, 81, 83], // 0 Karanlık (Am): A4 C5 E5 A5 B5
+  [60, 64, 67, 72, 76], // 1 Gündüz (C):    C4 E4 G4 C5 E5
+  [69, 72, 76, 81, 84], // 2 Gece (Am):     A4 C5 E5 A5 C6
+  [57, 61, 64, 69, 73], // 3 Volkanik:      A3 C#4 E4 A4 C#5
+  [57, 60, 64, 69, 74]  // 4 Buz (Dorian):  A3 C4 E4 A4 D5
+];
+const STAGEUP_PITCH_SHIFT_SEMITONES = 2; // stage>=3: tüm müzik katmanları +2 yarı ton ("vites atlama")
+const STAGEUP_PITCH_SHIFT_STEPS = 8;     // yeni stage girişinden sonraki ilk 8 adım boyunca
+
+// ADIM 6: SFX ducking - triangle/noise SFX çalarken o pencerede bas/davul katmanı atlanır
+// (iniş thud, diken uyarısı, çarpan vb. %100 net duyulmaya devam eder, regresyon olmaz).
+const SFX_TRIANGLE_DUCK_FALLBACK_S = 0.14;
+const SFX_NOISE_DUCK_FALLBACK_S = 0.20;
+let sfxTriangleBusyUntil = 0;
+let sfxNoiseBusyUntil = 0;
 // Faz 17: tempo-patlaması -> hız-patlaması. Zamanlama getDifficultyElapsedS()'ten (ayrı zamanlayıcı
 // YOK, deterministik): ilk patlama zorluk-zamanı 20sn, sonra her 30sn (20, 50, 80, ...).
 // Patlamadan TEMPO_BURST_TELEGRAPH_S önce uyarı (ses + HUD). BPM çarpanı yalnız updateAudio()'da,
@@ -330,8 +465,10 @@ const TEMPO_TELE_ONSETS_S = [0, 0.14, 0.24]; // hızlanan aralıklar
 const TEMPO_TELE_NOTE_S = 0.07;
 const TEMPO_TELE_GLIDE_ST = 2;               // nota içi yukarı kayma (yarım ton)
 const TEMPO_TELE_PEAK = 0.6;
-// Faz 6 stageUp chime (triangle): A4 C#5 E5 majör üçlü, yükselen. Çarpan arpejinden farkı:
-// dalga (triangle vs square), nota uzunluğu (0.12sn vs 0.04sn staccato), uzun çınlama kuyruğu.
+// Faz 6 stageUp chime (triangle), yükselen. Çarpan arpejinden farkı: dalga (triangle vs
+// square), nota uzunluğu (0.12sn vs 0.04sn staccato), uzun çınlama kuyruğu. Fix/müzik-mix-ve-
+// dinamik-aranjman ADIM7: akor artık STAGEUP_CHORDS_BY_THEME'den (tonaliteye uygun, stage'e göre
+// büyüyen) geliyor; STAGEUP_MIDI sabit La Majör üçlüsü sadece tema0 fallback referansı olarak kalır.
 const STAGEUP_MIDI = [69, 73, 76];
 const STAGEUP_STEP_S = 0.12;
 const STAGEUP_TAIL_S = 0.4;   // son nota sönümü -> toplam ~0.64sn
@@ -483,6 +620,7 @@ let skipGhostMs = 0;          // Faz 7: >0 iken ghost izi açık ve altın renkt
 // --- Faz 5 ses durumu (AudioContext ilk kullanıcı etkileşiminde kurulur: autoplay politikası) ---
 let audioCtx = null;
 let masterGain = null;
+let musicFilter = null;     // Fix/müzik-mix-ve-dinamik-aranjman ADIM5: dinamik lowpass (sadece müzik bus'u)
 let chan = null;            // { pulse1, pulse2, triangle, noise } -> GainNode
 let noiseBuffer = null;     // tek seferlik beyaz gürültü buffer'ı (her olayda yeni kaynak, aynı buffer)
 let appliedMasterGain = -1; // masterGain'e en son yazılan değer
@@ -1968,16 +2106,15 @@ function unlockAudio() {
     masterGain = audioCtx.createGain();
     outAnalyser = audioCtx.createAnalyser();
     outAnalyser.fftSize = 2048;
-    mixAnalyser.connect(masterGain);
+    // Fix/müzik-mix-ve-dinamik-aranjman: kanal EQ + reverb + dinamik müzik filtresi
+    // (buildAudioGraph) mixAnalyser'a (ölçüm/sum bus) toplanır, ardından master glue chain
+    // (tilt EQ + soft-clip + compressor, buildMasterChain) masterGain'e bağlanır.
+    const graph = buildAudioGraph(audioCtx, mixAnalyser);
+    chan = graph.chan;
+    musicFilter = graph.musicFilter;
+    buildMasterChain(audioCtx, mixAnalyser, masterGain);
     masterGain.connect(outAnalyser);
     outAnalyser.connect(audioCtx.destination);
-    chan = {};
-    for (const name of Object.keys(CH_GAIN)) {
-      const g = audioCtx.createGain();
-      g.gain.value = CH_GAIN[name];
-      g.connect(mixAnalyser);
-      chan[name] = g;
-    }
     noiseBuffer = createNoiseBuffer(audioCtx);
     appliedMasterGain = -1;
     applyMasterVolume();
@@ -2153,23 +2290,62 @@ function buildNoiseBurst(ctx, dest, t, buffer) {
   return { node: src, type: 'noise-buffer', bufferLen: buffer.length, gainStart: t, gainEnd: end, stopAt: end + 0.01 };
 }
 
-// Faz 6 stageUp chime: triangle, 3 nota yükselen majör üçlü (A4 C#5 E5), legato + uzun sönüm.
-// Çarpan arpejinden ayrı: square değil triangle, 0.04sn staccato değil 0.12sn adım, son nota çınlar.
-function buildStageUpChime(ctx, dest, t) {
+// ADIM6 (aranjman): tonaliteye uygun "death sting" - 3 hızlı alçalan nota (0.09sn adım) + 1
+// uzayan/çöken son nota (0.32sn, sonunda -2 yarı ton aşağı pitch-bend). cutMusicNow() sonrası
+// müzikal cümleyi havada bırakmamak için gürültü patlamasının hemen arkasına eklenir.
+function buildDeathSting(ctx, dest, t, themeIndex) {
+  const notes = DEATH_STING_BY_THEME[themeIndex || 0] || DEATH_STING_BY_THEME[0];
   const osc = ctx.createOscillator();
   osc.type = 'triangle';
   const env = ctx.createGain();
   env.gain.setValueAtTime(0, t);
   const freqs = [];
-  for (let i = 0; i < STAGEUP_MIDI.length; i++) {
+  for (let i = 0; i < 3; i++) {
+    const ns = t + i * DEATH_STING_NOTE_S;
+    const f = midiToHz(notes[i]);
+    freqs.push(+f.toFixed(2));
+    osc.frequency.setValueAtTime(f, ns);
+    env.gain.setValueAtTime(0.7, ns);
+    env.gain.linearRampToValueAtTime(0, ns + DEATH_STING_NOTE_S * 0.9);
+  }
+  const lastStart = t + 3 * DEATH_STING_NOTE_S;
+  const f0 = midiToHz(notes[3]);
+  const f1 = midiToHz(notes[3] + DEATH_STING_PITCH_DROP_ST);
+  osc.frequency.setValueAtTime(f0, lastStart);
+  osc.frequency.exponentialRampToValueAtTime(f1, lastStart + DEATH_STING_LAST_S);
+  const end = lastStart + DEATH_STING_LAST_S;
+  env.gain.setValueAtTime(0.7, lastStart);
+  env.gain.exponentialRampToValueAtTime(0.001, end);
+  freqs.push(+f0.toFixed(2));
+  osc.connect(env).connect(dest);
+  osc.start(t);
+  osc.stop(end + 0.01);
+  cleanupOnEnded(osc, [osc, env]);
+  return { node: osc, type: osc.type, notes: notes.length, freqs: freqs,
+           gainStart: t, gainEnd: end, stopAt: end + 0.01 };
+}
+
+// Faz 6 stageUp chime: triangle, tonaliteye uygun (musicThemeIndex) + stage'e göre büyüyen
+// fanfar akoru (stage1: 3 nota, stage2: 4, stage3: 5), legato + uzun sönüm (ADIM7, aranjman).
+// Çarpan arpejinden ayrı: square değil triangle, 0.04sn staccato değil 0.12sn adım, son nota çınlar.
+function buildStageUpChime(ctx, dest, t, themeIndex, stageVal) {
+  const chordsAll = STAGEUP_CHORDS_BY_THEME[themeIndex || 0] || STAGEUP_CHORDS_BY_THEME[0];
+  const count = constrain((stageVal || 1) + 2, 3, chordsAll.length);
+  const midis = chordsAll.slice(0, count);
+  const osc = ctx.createOscillator();
+  osc.type = 'triangle';
+  const env = ctx.createGain();
+  env.gain.setValueAtTime(0, t);
+  const freqs = [];
+  for (let i = 0; i < midis.length; i++) {
     const ns = t + i * STAGEUP_STEP_S;
-    const f = midiToHz(STAGEUP_MIDI[i]);
+    const f = midiToHz(midis[i]);
     freqs.push(+f.toFixed(2));
     osc.frequency.setValueAtTime(f, ns);
     env.gain.setValueAtTime(STAGEUP_PEAK * 0.6, ns);
     env.gain.linearRampToValueAtTime(STAGEUP_PEAK, ns + 0.01);
   }
-  const lastStart = t + (STAGEUP_MIDI.length - 1) * STAGEUP_STEP_S;
+  const lastStart = t + (midis.length - 1) * STAGEUP_STEP_S;
   const end = lastStart + STAGEUP_TAIL_S;
   env.gain.setValueAtTime(STAGEUP_PEAK, lastStart + 0.01);
   env.gain.exponentialRampToValueAtTime(0.001, end);
@@ -2177,7 +2353,7 @@ function buildStageUpChime(ctx, dest, t) {
   osc.start(t);
   osc.stop(end + 0.01);
   cleanupOnEnded(osc, [osc, env]);
-  return { node: osc, type: osc.type, notes: STAGEUP_MIDI.length, freqs: freqs,
+  return { node: osc, type: osc.type, notes: midis.length, freqs: freqs,
            gainStart: t, gainEnd: end, stopAt: end + 0.01 };
 }
 
@@ -2288,21 +2464,589 @@ function buildSkipCue(ctx, dest, t, tier) {
   return { node: osc, type: osc.type, tier: tier, notes: count, freqs: freqs, gainStart: t, gainEnd: end, stopAt: end + 0.01 };
 }
 
-// Müzik notası: square, sekizlik adımın %55'i kadar çalar (staccato).
-function buildMusicNote(ctx, dest, t, freq, durS) {
-  const osc = ctx.createOscillator();
-  osc.type = 'square';
-  osc.frequency.setValueAtTime(freq, t);
+// --- Fix/müzik-mix-ve-dinamik-aranjman: PeriodicWave (%25/%12.5 duty, NES 2A03 tınısı) -------
+// ADIM 3 (ses mühendisliği): b_n = (2/nπ)sin(nπD) - ctx başına bir kez üretilip WeakMap'te
+// önbelleklenir (OfflineAudioContext her render'da yeni nesne olduğu için ctx -> set eşlemesi).
+let pulseWaveCache = new WeakMap();
+function makePulseWave(ctx, duty) {
+  const n = PULSE_WAVE_HARMONICS;
+  const real = new Float32Array(n + 1);
+  const imag = new Float32Array(n + 1);
+  for (let k = 1; k <= n; k++) imag[k] = (2 / (k * Math.PI)) * Math.sin(k * Math.PI * duty);
+  return ctx.createPeriodicWave(real, imag);
+}
+function getPulseWaveSet(ctx) {
+  let set = pulseWaveCache.get(ctx);
+  if (!set) {
+    set = { lead: makePulseWave(ctx, PULSE_LEAD_DUTY), harm: makePulseWave(ctx, PULSE_HARM_DUTY) };
+    pulseWaveCache.set(ctx, set);
+  }
+  return set;
+}
+
+// Birden fazla osilatörü (unison) TEK bir "voice" gibi .stop()/.addEventListener('ended') ile
+// kontrol etmek için ince sarmalayıcı (cutMusicNow hepsini aynı anda durdurabilsin diye).
+function makeVoiceGroup(primary, stoppables) {
+  return {
+    stop(t) { for (const n of stoppables) { try { n.stop(t); } catch (e) { /* zaten durmuş */ } } },
+    addEventListener(type, cb) { primary.addEventListener(type, cb); }
+  };
+}
+
+// --- Fix/müzik-mix-ve-dinamik-aranjman: kanal EQ zinciri + reverb + master bus zinciri -------
+// (ses-muhendisligi-sonuc.txt Bölüm 3/5/6, Adım 6-7). Yalnız müzik kanalları (pulse2, musicBass,
+// musicDrum, musicHarm) EQ'dan geçer; SFX kanalları (pulse1, triangle, noise) DOKUNULMADAN
+// (regresyon riski sıfır) doğrudan sum bus'a bağlanır.
+function buildChannelEQ(ctx, name) {
+  const nodes = [];
+  const mk = (type, freq, q, gain) => {
+    const f = ctx.createBiquadFilter();
+    f.type = type;
+    f.frequency.value = freq;
+    if (q != null) f.Q.value = q;
+    if (gain != null) f.gain.value = gain;
+    nodes.push(f);
+    return f;
+  };
+  if (name === 'musicBass') {
+    mk('highpass', EQ_BASS_HPF_HZ, EQ_BASS_HPF_Q);
+    mk('peaking', EQ_BASS_PEAK_HZ, EQ_BASS_PEAK_Q, EQ_BASS_PEAK_GAIN);
+    mk('lowpass', EQ_BASS_LPF_HZ, EQ_BASS_LPF_Q);
+  } else if (name === 'pulse2') {
+    mk('highpass', EQ_LEAD_HPF_HZ, EQ_LEAD_HPF_Q);
+    mk('peaking', EQ_LEAD_PEAK_HZ, EQ_LEAD_PEAK_Q, EQ_LEAD_PEAK_GAIN);
+    mk('highshelf', EQ_LEAD_SHELF_HZ, null, EQ_LEAD_SHELF_GAIN);
+    mk('lowpass', EQ_LEAD_LPF_HZ, EQ_LEAD_LPF_Q);
+  } else if (name === 'musicHarm') {
+    mk('highpass', EQ_HARM_HPF_HZ, EQ_HARM_HPF_Q);
+    mk('highshelf', EQ_HARM_SHELF_HZ, null, EQ_HARM_SHELF_GAIN);
+  } else if (name === 'musicDrum') {
+    mk('highpass', EQ_DRUM_HPF_HZ, EQ_DRUM_HPF_Q);
+    mk('peaking', EQ_DRUM_PEAK_HZ, EQ_DRUM_PEAK_Q, EQ_DRUM_PEAK_GAIN);
+    mk('highshelf', EQ_DRUM_SHELF_HZ, null, EQ_DRUM_SHELF_GAIN);
+  } else {
+    return null; // SFX kanalı: EQ yok
+  }
+  for (let i = 0; i < nodes.length - 1; i++) nodes[i].connect(nodes[i + 1]);
+  return { input: nodes[0], output: nodes[nodes.length - 1] };
+}
+
+// Sentetik kısa oda reverb'ü: 0.30sn üstel sönümlü (e^{-t*6}) beyaz gürültü IR.
+function createReverbImpulse(ctx) {
+  const len = Math.max(1, Math.floor(ctx.sampleRate * REVERB_IR_S));
+  const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+  const d = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) {
+    const tt = i / ctx.sampleRate;
+    d[i] = (Math.random() * 2 - 1) * Math.exp(-tt * REVERB_IR_DECAY);
+  }
+  return buf;
+}
+
+// Tüm CH_GAIN kanallarını kurar: müzik kanalları EQ -> musicSum -> musicFilter (dinamik lowpass,
+// ADIM5) -> sumNode; lead+armoni ayrıca kısa oda reverb'üne gönderilir. SFX kanalları direkt
+// sumNode'a bağlanır. unlockAudio() (live) VE renderMusicOfflineWav() (offline) AYNI fonksiyonu
+// çağırır -> mix gerçek prodüksiyon grafiğidir, kopya/parafraz değildir.
+function buildAudioGraph(ctx, sumNode) {
+  const chanObj = {};
+  const musicSum = ctx.createGain();
+  musicSum.gain.value = 1;
+  const filter = ctx.createBiquadFilter();
+  filter.type = 'lowpass';
+  filter.frequency.value = MUSIC_FILTER_BASE_HZ;
+  filter.Q.value = 0.707;
+  musicSum.connect(filter);
+  filter.connect(sumNode);
+
+  const convolver = ctx.createConvolver();
+  convolver.buffer = createReverbImpulse(ctx);
+  const reverbHpf = ctx.createBiquadFilter();
+  reverbHpf.type = 'highpass';
+  reverbHpf.frequency.value = REVERB_SEND_HPF_HZ;
+  const reverbLpf = ctx.createBiquadFilter();
+  reverbLpf.type = 'lowpass';
+  reverbLpf.frequency.value = REVERB_SEND_LPF_HZ;
+  reverbHpf.connect(reverbLpf).connect(convolver).connect(sumNode);
+
+  for (const name of Object.keys(CH_GAIN)) {
+    const g = ctx.createGain();
+    g.gain.value = CH_GAIN[name];
+    const eq = buildChannelEQ(ctx, name);
+    if (eq) {
+      g.connect(eq.input);
+      eq.output.connect(musicSum);
+      if (name === 'pulse2' || name === 'musicHarm') {
+        const send = ctx.createGain();
+        send.gain.value = REVERB_SEND_GAIN;
+        eq.output.connect(send);
+        send.connect(reverbHpf);
+      }
+    } else {
+      g.connect(sumNode);
+    }
+    chanObj[name] = g;
+  }
+  return { chan: chanObj, musicFilter: filter };
+}
+
+// Master bus: tilt EQ (low shelf -2.5dB/180Hz + high shelf +3.5dB/3200Hz) -> yumuşak
+// (tanh) soft-clip -> glue compressor (threshold -16dB, ratio 3.5, attack 15ms, release 120ms).
+function buildMasterChain(ctx, src, dest) {
+  const tiltLow = ctx.createBiquadFilter();
+  tiltLow.type = 'lowshelf';
+  tiltLow.frequency.value = MASTER_TILT_LOW_HZ;
+  tiltLow.gain.value = MASTER_TILT_LOW_GAIN;
+  const tiltHigh = ctx.createBiquadFilter();
+  tiltHigh.type = 'highshelf';
+  tiltHigh.frequency.value = MASTER_TILT_HIGH_HZ;
+  tiltHigh.gain.value = MASTER_TILT_HIGH_GAIN;
+  const shaper = ctx.createWaveShaper();
+  const n = 1024;
+  const curve = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    const x = (i / (n - 1)) * 2 - 1;
+    curve[i] = Math.tanh(MASTER_SOFTCLIP_DRIVE * x) / Math.tanh(MASTER_SOFTCLIP_DRIVE);
+  }
+  shaper.curve = curve;
+  const comp = ctx.createDynamicsCompressor();
+  comp.threshold.value = MASTER_COMP_THRESHOLD;
+  comp.knee.value = MASTER_COMP_KNEE;
+  comp.ratio.value = MASTER_COMP_RATIO;
+  comp.attack.value = MASTER_COMP_ATTACK;
+  comp.release.value = MASTER_COMP_RELEASE;
+  src.connect(tiltLow).connect(tiltHigh).connect(shaper).connect(comp).connect(dest);
+  return comp;
+}
+
+// Dinamik müzik filtresi hedef kesim frekansı (ADIM5): zorluk/stage arttıkça açılır, tempo-burst
+// telegraph'ında riser gibi yukarı süpürülür, burst anında rezonanslı tepeye çıkar.
+function getMusicFilterTargetHz(difficultyT, stageVal, tempoPhase, teleLocal) {
+  if (tempoPhase === 'burst') return { hz: MUSIC_FILTER_BURST_HZ, q: MUSIC_FILTER_BURST_Q };
+  if (tempoPhase === 'telegraph' && teleLocal != null) {
+    const span = TEMPO_BURST_TELEGRAPH_S;
+    const prog = constrain(1 - (-teleLocal) / span, 0, 1); // -span..0 -> 0..1
+    const hz = MUSIC_FILTER_TELE_START_HZ + prog * (MUSIC_FILTER_TELE_END_HZ - MUSIC_FILTER_TELE_START_HZ);
+    return { hz: hz, q: 0.9 };
+  }
+  const hz = MUSIC_FILTER_BASE_HZ + difficultyT * MUSIC_FILTER_RANGE_HZ + stageVal * MUSIC_FILTER_STAGE_STEP_HZ;
+  return { hz: hz, q: 0.707 };
+}
+
+// Müzik notası (lead, pulse2): %25 duty PeriodicWave, ±5 cent unison detune (2 osilatör, faz
+// girişimi -> "canlı/geniş" tını) + pluck zarfı (hızlı parlaklık overshoot -> sustain).
+function buildMusicNote(ctx, dest, t, freq, durS, gainScale) {
+  const scale = gainScale == null ? 1 : gainScale;
+  const waves = getPulseWaveSet(ctx);
+  const attackS = Math.min(LEAD_PLUCK_ATTACK_S, durS * 0.3);
+  const decayS = Math.min(LEAD_PLUCK_DECAY_S, durS * 0.3);
   const env = ctx.createGain();
   env.gain.setValueAtTime(0, t);
-  env.gain.linearRampToValueAtTime(1, t + 0.003);
-  env.gain.setValueAtTime(1, t + durS - 0.005);
+  env.gain.linearRampToValueAtTime(LEAD_PLUCK_OVERSHOOT * scale, t + attackS);
+  env.gain.linearRampToValueAtTime(LEAD_PLUCK_SUSTAIN * scale, t + attackS + decayS);
+  const sustainEnd = Math.max(t + attackS + decayS, t + durS - 0.01);
+  env.gain.setValueAtTime(LEAD_PLUCK_SUSTAIN * scale, sustainEnd);
+  env.gain.linearRampToValueAtTime(0, t + durS);
+  const stopAt = t + durS + 0.02;
+  const oscs = [];
+  for (let i = 0; i < LEAD_DETUNE_CENTS.length; i++) {
+    const osc = ctx.createOscillator();
+    osc.setPeriodicWave(waves.lead);
+    osc.frequency.setValueAtTime(freq, t);
+    osc.detune.setValueAtTime(LEAD_DETUNE_CENTS[i], t);
+    const g = ctx.createGain();
+    g.gain.value = LEAD_DETUNE_GAIN;
+    osc.connect(g).connect(env);
+    osc.start(t);
+    osc.stop(stopAt);
+    cleanupOnEnded(osc, [osc, g]);
+    oscs.push(osc);
+  }
+  env.connect(dest);
+  return makeVoiceGroup(oscs[0], oscs);
+}
+
+// --- Fix/müzik-bas-davul-armoni (+ mix-ve-dinamik-aranjman): bas + davul + armoni katmanları --
+
+// ADIM 3: bas hattı (triangle). Çift adımlarda kök, tek adımlarda +1 oktav ("oktav pompa").
+// Vuruş başlarında (çift adım) pluck/slap etkisi: freq*1.15 -> freq üstel ramp (0.018sn).
+function buildBassNote(ctx, dest, t, rootMidi, stepInBar, stepS, gainScale) {
+  const scale = gainScale == null ? 1 : gainScale;
+  const isDown = stepInBar % 2 === 0;
+  const midi = isDown ? rootMidi : rootMidi + 12;
+  const freq = midiToHz(midi);
+  const durS = stepS * (isDown ? BASS_EVEN_FRAC : BASS_ODD_FRAC);
+  const osc = ctx.createOscillator();
+  osc.type = 'triangle';
+  if (isDown) {
+    osc.frequency.setValueAtTime(freq * BASS_PLUCK_MULT, t);
+    osc.frequency.exponentialRampToValueAtTime(freq, t + BASS_PLUCK_S);
+  } else {
+    osc.frequency.setValueAtTime(freq, t);
+  }
+  const env = ctx.createGain();
+  env.gain.setValueAtTime(0, t);
+  env.gain.linearRampToValueAtTime(BASS_PEAK * scale, t + BASS_ATTACK_S);
+  const releaseAt = Math.max(t + BASS_ATTACK_S, t + durS - BASS_RELEASE_S);
+  env.gain.setValueAtTime(BASS_PEAK * scale, releaseAt);
   env.gain.linearRampToValueAtTime(0, t + durS);
   osc.connect(env).connect(dest);
   osc.start(t);
   osc.stop(t + durS + 0.01);
   cleanupOnEnded(osc, [osc, env]);
   return osc;
+}
+
+// ADIM 4/5: davul bileşenleri (tek noise buffer'ı zaman paylaşımlı kullanır, bkz. scheduleDrumStep).
+function buildKick(ctx, dest, t, buffer, gainScale) {
+  const scale = gainScale == null ? 1 : gainScale;
+  const osc = ctx.createOscillator();
+  osc.type = 'triangle';
+  osc.frequency.setValueAtTime(KICK_F0, t);
+  osc.frequency.exponentialRampToValueAtTime(KICK_F1, t + KICK_DROP_S);
+  const env = ctx.createGain();
+  const end = envelopeAD(env.gain, t, KICK_PEAK * scale, KICK_ATTACK_S, KICK_DROP_S);
+  osc.connect(env).connect(dest);
+  osc.start(t);
+  osc.stop(end + 0.01);
+  cleanupOnEnded(osc, [osc, env]);
+  if (!buffer) return osc;
+  // ADIM5: 8ms "beater click" (bandpass @2800Hz) - kick küçük hoparlörde de duyulsun.
+  const clickSrc = ctx.createBufferSource();
+  clickSrc.buffer = buffer;
+  const bp = ctx.createBiquadFilter();
+  bp.type = 'bandpass';
+  bp.frequency.setValueAtTime(KICK_CLICK_HZ, t);
+  bp.Q.setValueAtTime(KICK_CLICK_Q, t);
+  const clickEnv = ctx.createGain();
+  const clickEnd = envelopeAD(clickEnv.gain, t, KICK_CLICK_PEAK * scale, 0.001, KICK_CLICK_S);
+  clickSrc.connect(bp).connect(clickEnv).connect(dest);
+  clickSrc.start(t);
+  clickSrc.stop(clickEnd + 0.005);
+  cleanupOnEnded(clickSrc, [clickSrc, bp, clickEnv]);
+  return makeVoiceGroup(osc, [osc, clickSrc]);
+}
+
+function buildSnareBody(ctx, dest, t, gainScale) {
+  const scale = gainScale == null ? 1 : gainScale;
+  const osc = ctx.createOscillator();
+  osc.type = 'triangle';
+  osc.frequency.setValueAtTime(SNARE_BODY_F0, t);
+  osc.frequency.exponentialRampToValueAtTime(SNARE_BODY_F1, t + SNARE_BODY_S);
+  const env = ctx.createGain();
+  const end = envelopeAD(env.gain, t, SNARE_BODY_PEAK * scale, SNARE_BODY_ATTACK_S, SNARE_BODY_S);
+  osc.connect(env).connect(dest);
+  osc.start(t);
+  osc.stop(end + 0.01);
+  cleanupOnEnded(osc, [osc, env]);
+  return osc;
+}
+
+// hz: bandpass merkez frekansı (varsayılan SNARE_NOISE_HZ; dolgu/roll vuruşları kendi hz'ini verir).
+function buildSnareNoise(ctx, dest, t, buffer, hz, gainScale) {
+  const scale = gainScale == null ? 1 : gainScale;
+  const freq = hz == null ? SNARE_NOISE_HZ : hz;
+  const src = ctx.createBufferSource();
+  src.buffer = buffer;
+  const bp = ctx.createBiquadFilter();
+  bp.type = 'bandpass';
+  bp.frequency.setValueAtTime(freq, t);
+  bp.Q.setValueAtTime(SNARE_NOISE_Q, t);
+  const env = ctx.createGain();
+  const end = envelopeAD(env.gain, t, SNARE_NOISE_PEAK * scale, SNARE_NOISE_ATTACK_S, SNARE_NOISE_DECAY_S);
+  src.connect(bp).connect(env).connect(dest);
+  src.start(t);
+  src.stop(end + 0.01);
+  cleanupOnEnded(src, [src, bp, env]);
+  return src;
+}
+
+function buildHiHat(ctx, dest, t, buffer, open, gainScale) {
+  const scale = gainScale == null ? 1 : gainScale;
+  const src = ctx.createBufferSource();
+  src.buffer = buffer;
+  const hp = ctx.createBiquadFilter();
+  hp.type = 'highpass';
+  hp.frequency.setValueAtTime(HIHAT_HZ, t);
+  hp.Q.setValueAtTime(HIHAT_Q, t);
+  const env = ctx.createGain();
+  const end = envelopeAD(env.gain, t, HIHAT_PEAK * scale, HIHAT_ATTACK_S, open ? HIHAT_DECAY_OPEN_S : HIHAT_DECAY_S);
+  src.connect(hp).connect(env).connect(dest);
+  src.start(t);
+  src.stop(end + 0.01);
+  cleanupOnEnded(src, [src, hp, env]);
+  return src;
+}
+
+// ADIM2.3 + ADIM4 (aranjman): davul vertical layering (intensity 0..4) + groove (senkop/
+// velocity/swing/gerçek 16'lık snare roll). duckTri/duckNoise: SFX ducking (regresyon yok).
+function scheduleDrumStep(ctx, dest, t, swingT, stepInBar, barIndex, buffer, duckTri, duckNoise,
+                           intensity, isBurst, stepS) {
+  const nodes = [];
+  const isFillBar = barIndex === MUSIC_FORM_BARS - 1; // Bar 3 (C kesiti)
+  if (isFillBar && (stepInBar === 6 || stepInBar === 7) && intensity >= 1) {
+    if (stepInBar === 6) {
+      // ADIM4.3: gerçek 16'lık snare roll - 4 vuruş (t, t+0.5, t+1.0, t+1.5 step), crescendo.
+      const gains = [0.55, 0.72, 0.90, 1.15];
+      const hzs = [SNARE_NOISE_HZ, 1300, 1700, SNARE_NOISE_FILL_HZ];
+      for (let i = 0; i < 4; i++) {
+        const rt = t + stepS * 0.5 * i;
+        if (!duckTri) nodes.push(buildSnareBody(ctx, dest, rt, gains[i]));
+        if (!duckNoise) nodes.push(buildSnareNoise(ctx, dest, rt, buffer, hzs[i], gains[i]));
+      }
+    }
+    return nodes;
+  }
+  if (intensity === 0) {
+    // ADIM2.3 intensity 0: yalnız adım 0'da yumuşak kick, snare/hi-hat kapalı.
+    if (stepInBar === 0 && !duckTri) nodes.push(buildKick(ctx, dest, t, buffer, 0.6));
+    return nodes;
+  }
+  // ADIM4.2 senkop: barIndex 1/2'de (A'/B) ve intensity>=2'de kick 0,3,5'e kayar ("tresillo").
+  let kickSteps = [0, 4];
+  if (intensity >= 2 && (barIndex === 1 || barIndex === 2)) kickSteps = [0, 3, 5];
+  const isKick = kickSteps.indexOf(stepInBar) >= 0;
+  const isSnare = stepInBar === 2 || stepInBar === 6;
+  if (isKick) {
+    if (!duckTri) nodes.push(buildKick(ctx, dest, t, buffer, 1));
+  } else if (isSnare) {
+    if (!duckTri) nodes.push(buildSnareBody(ctx, dest, t, 1));
+    if (!duckNoise) nodes.push(buildSnareNoise(ctx, dest, t, buffer, SNARE_NOISE_HZ, 1));
+  } else {
+    // intensity===1: hi-hat yalnız Bar2/Bar3'te (Bar0/1'de ferahlık); intensity>=2: her zaman.
+    const hatAllowed = intensity >= 2 || (intensity === 1 && (barIndex === 2 || barIndex === 3));
+    if (hatAllowed && !duckNoise) {
+      // ADIM4.1/4.2: ghost velocity (vurgu farkı) + swing (mikro-gecikme) + Bar2'de açık hi-hat.
+      let vel = 1;
+      if (stepInBar === 1 || stepInBar === 3) vel = HIHAT_GHOST_WEAK;
+      else if (stepInBar === 5) vel = HIHAT_GHOST_MED;
+      else if (stepInBar === 7) vel = HIHAT_GHOST_STRONG;
+      const open = isBurst || (barIndex === 2 && (stepInBar === 3 || stepInBar === 7));
+      nodes.push(buildHiHat(ctx, dest, swingT, buffer, open, vel));
+    }
+  }
+  return nodes;
+}
+
+// ADIM 5: armoni/arpej katmanı — tek osilatörde hızlı 2 nota chip-arpej (midi -> nextMidi ->
+// midi), 35ms segmentler, %12.5 duty PeriodicWave (parlak/kristal arpej tınısı).
+function buildHarmonyNote(ctx, dest, t, midi, nextMidi, gainScale) {
+  const scale = gainScale == null ? 1 : gainScale;
+  const waves = getPulseWaveSet(ctx);
+  const osc = ctx.createOscillator();
+  osc.setPeriodicWave(waves.harm);
+  const env = ctx.createGain();
+  env.gain.setValueAtTime(0, t);
+  const segs = [midi, nextMidi, midi];
+  for (let i = 0; i < segs.length; i++) {
+    const ns = t + i * HARM_SEG_S;
+    const f = midiToHz(segs[i]);
+    osc.frequency.setValueAtTime(f, ns);
+    env.gain.setValueAtTime(0, ns);
+    env.gain.linearRampToValueAtTime(HARM_PEAK * scale, ns + 0.003);
+    env.gain.setValueAtTime(HARM_PEAK * scale, ns + HARM_SEG_S - 0.004);
+    env.gain.linearRampToValueAtTime(0, ns + HARM_SEG_S);
+  }
+  const end = t + segs.length * HARM_SEG_S;
+  osc.connect(env).connect(dest);
+  osc.start(t);
+  osc.stop(end + 0.01);
+  cleanupOnEnded(osc, [osc, env]);
+  return osc;
+}
+
+// --- Fix/müzik-mix-ve-dinamik-aranjman: dinamik aranjman pure fonksiyonları (test edilebilir) -
+// (muzik-aranjman-dinamik-sonuc.txt Bölüm 7, Adım 1/3)
+// ADIM 1: getMusicIntensity() durum makinesi. Globale dokunmaz (parametre alır) -> hem
+// updateAudio() (canlı state) hem renderMusicOfflineWav() (sentetik state) ile test edilebilir.
+function getMusicIntensity(musicStepVal, stageVal, multiplierVal, ballY, tempoPhase) {
+  if (musicStepVal < INTENSITY_INTRO_STEPS) return 0;
+  if (tempoPhase === 'burst') return 4;
+  if (tempoPhase === 'telegraph') return 3;
+  let base = Math.min(3, stageVal + 1);
+  if (multiplierVal >= INTENSITY_MULTIPLIER_BOOST || (ballY != null && ballY < INTENSITY_DANGER_BALL_Y)) {
+    base = Math.min(4, base + 1);
+  }
+  return base;
+}
+
+// ADIM 3: bar bazlı gerilim-çözülme eğrisi (barGain çarpanı).
+function getStepDynamics(barIndex, stepInBar) {
+  if (barIndex === 0) return stepInBar === 0 ? BAR0_ACCENT_GAIN : BAR0_REST_GAIN;
+  if (barIndex === 1) return BAR1_GAIN;
+  if (barIndex === 2) return BAR2_GAIN;
+  return BAR3_GAIN_START + (stepInBar / (MUSIC_PATTERN_LEN - 1)) * (BAR3_GAIN_END - BAR3_GAIN_START);
+}
+
+// ADIM 2.4: armoni katmanı aktiflik kuralı (vertical layering tablosu).
+function isHarmonyActiveFor(intensity, barIndex, stepInBar) {
+  if (intensity <= 1) return barIndex === 2 && stepInBar % 2 === 0;
+  if (intensity === 2) return barIndex >= 1 && stepInBar % 2 === 0;
+  if (intensity === 3) return stepInBar % 2 === 0 || barIndex === 2;
+  return true; // intensity === 4: her barda her adımda
+}
+
+// ADIM 2 + ADIM 3 + ADIM 4: TEK bir adımın TÜM müzik katmanlarını (lead/bas/davul/armoni)
+// vertical layering + bar gerilim eğrisi + groove ile planlar/üretir. Live (updateAudio) ve
+// offline (renderMusicOfflineWav) TAMAMEN AYNI bu fonksiyonu çağırır (tek doğruluk kaynağı,
+// kopya/parafraz yok). p: { t, stepS, stepInBar, barIndex, pattern, rootMidi, intensity,
+// isBurst, duckTri, duckNoise, stagePitchShift }.
+function scheduleMusicStep(ctx, chanObj, buffer, p) {
+  const voices = [];
+  const barGain = getStepDynamics(p.barIndex, p.stepInBar);
+  // ADIM2.1: Bar3 sonu (adım 31) - bas+armoni TAMAMEN susar (1 sekizlik nefes boşluğu/micro-drop).
+  const isCadenceDrop = p.barIndex === MUSIC_FORM_BARS - 1 && p.stepInBar === 7 && p.intensity >= 1;
+  const pitchShift = p.stagePitchShift || 0;
+  const midi = p.pattern[p.stepInBar] + pitchShift;
+  const nextMidi = p.pattern[(p.stepInBar + 1) % MUSIC_PATTERN_LEN] + pitchShift;
+  const noteFrac = p.barIndex === 2 ? MUSIC_NOTE_FRAC_LEGATO : MUSIC_NOTE_FRAC;
+  const swingT = p.t + (p.stepInBar % 2 === 1 ? p.stepS * SWING_OFFSET_FRAC : 0);
+
+  // LEAD (pulse2): her zaman çalar; intro'da sakin (%85), Bar2'de crescendo, zirvede
+  // (intensity 4, Bar3 2. yarısı) oktav sıçraması.
+  let leadGain = barGain;
+  if (p.intensity === 0) leadGain *= 0.85;
+  if (p.barIndex === 2) leadGain *= (0.90 + 0.20 * (p.stepInBar / 7));
+  let leadMidi = midi + MUSIC_LEAD_OCTAVE_SHIFT;
+  if (p.intensity >= 4 && p.barIndex === 3 && p.stepInBar >= 4) leadMidi += 12;
+  voices.push(buildMusicNote(ctx, chanObj.pulse2, p.t, midiToHz(leadMidi), p.stepS * noteFrac, leadGain));
+
+  // BASS (musicBass): intensity 0'da yalnız çift adım, Bar1'de beşli geçiş notası, cadence'ta susar.
+  if (!p.duckTri && !isCadenceDrop) {
+    const skipOffBeat = p.intensity === 0 && p.stepInBar % 2 === 1;
+    if (!skipOffBeat) {
+      let rootMidi = p.rootMidi + pitchShift;
+      const usePassing = p.intensity >= 1 && p.barIndex === 1 && (p.stepInBar === 3 || p.stepInBar === 7);
+      if (usePassing) rootMidi += 7;
+      const bassGain = barGain * (p.intensity === 0 ? 0.7 : 1);
+      voices.push(buildBassNote(ctx, chanObj.musicBass, p.t, rootMidi, p.stepInBar, p.stepS, bassGain));
+    }
+  }
+
+  // DAVUL (musicDrum): vertical layering + groove (bkz. scheduleDrumStep).
+  const drumNodes = scheduleDrumStep(ctx, chanObj.musicDrum, p.t, swingT, p.stepInBar, p.barIndex,
+                                      buffer, p.duckTri, p.duckNoise, p.intensity, p.isBurst, p.stepS);
+  for (const dn of drumNodes) voices.push(dn);
+
+  // ARMONİ (musicHarm): ADIM2 oktav bug'ı burada düzeltildi (+MUSIC_LEAD_OCTAVE_SHIFT eklendi -
+  // önceki dalda 110-261Hz "bas" bandına çamur basıyordu, şimdi 220-523Hz'e taşındı).
+  const harmonyActive = !isCadenceDrop && isHarmonyActiveFor(p.intensity, p.barIndex, p.stepInBar);
+  if (harmonyActive) {
+    const harmGain = barGain * (p.barIndex === 2 ? 1.1 : 1);
+    voices.push(buildHarmonyNote(ctx, chanObj.musicHarm, swingT,
+      midi + MUSIC_LEAD_OCTAVE_SHIFT, nextMidi + MUSIC_LEAD_OCTAVE_SHIFT, harmGain));
+  }
+
+  return { voices: voices, harmonyActive: harmonyActive, barGain: barGain, isCadenceDrop: isCadenceDrop };
+}
+
+// --- Fix/müzik-bas-davul-armoni: kanıt/test amaçlı OfflineAudioContext render yardımcıları ---
+// Oyun/tarayıcı state'inden bağımsız: deterministik 32 adımlık (4 bar) döngüyü gerçek
+// Web Audio build fonksiyonlarıyla (buildMusicNote/buildBassNote/buildDrumStep/
+// buildHarmonyNote - PRODÜKSİYON kodunun BİREBİR aynısı) render edip WAV olarak döndürür.
+// Konsoldan: `await renderMusicOfflineWav(0, 4, 110)` -> data:audio/wav;base64,... döndürür.
+function audioBufferToWav(buffer) {
+  const numCh = buffer.numberOfChannels;
+  const sr = buffer.sampleRate;
+  const len = buffer.length;
+  const blockAlign = numCh * 2;
+  const dataSize = len * blockAlign;
+  const ab = new ArrayBuffer(44 + dataSize);
+  const view = new DataView(ab);
+  const writeStr = (offset, s) => { for (let i = 0; i < s.length; i++) view.setUint8(offset + i, s.charCodeAt(i)); };
+  writeStr(0, 'RIFF');
+  view.setUint32(4, 36 + dataSize, true);
+  writeStr(8, 'WAVE');
+  writeStr(12, 'fmt ');
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true); // PCM
+  view.setUint16(22, numCh, true);
+  view.setUint32(24, sr, true);
+  view.setUint32(28, sr * blockAlign, true);
+  view.setUint16(32, blockAlign, true);
+  view.setUint16(34, 16, true);
+  writeStr(36, 'data');
+  view.setUint32(40, dataSize, true);
+  const channels = [];
+  for (let c = 0; c < numCh; c++) channels.push(buffer.getChannelData(c));
+  let offset = 44;
+  for (let i = 0; i < len; i++) {
+    for (let c = 0; c < numCh; c++) {
+      let s = Math.max(-1, Math.min(1, channels[c][i]));
+      s = s < 0 ? s * 0x8000 : s * 0x7fff;
+      view.setInt16(offset, s, true);
+      offset += 2;
+    }
+  }
+  return ab;
+}
+
+function arrayBufferToBase64(buf) {
+  let binary = '';
+  const bytes = new Uint8Array(buf);
+  const chunk = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunk) {
+    binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+  }
+  return btoa(binary);
+}
+
+// themeIndex: 0..4, numBars: varsayılan MUSIC_FORM_BARS (4 = tam 32 adımlık form),
+// bpm: varsayılan MUSIC_BPM_START. opts (Fix/müzik-mix-ve-dinamik-aranjman kanıt render'ları
+// için): { forcedIntensity: 0..4 (verilmezse getMusicIntensity() ile sentetik normal akış
+// hesaplanır), forcedBurst: true ise musicFilter tempo-burst rezonans tepesine (12kHz/Q2.2)
+// çıkar ve hi-hat'ler açık çalar, harmonyFromBar0: true ise forcedIntensity yoksa armoni
+// Bar 0'dan duyulsun diye intensity 3 varsayılır (eski test kolaylığı), stagePitchShift:
+// yarı ton cinsinden (ADIM7 "vites atlama" kanıtı için).
+async function renderMusicOfflineWav(themeIndex, numBars, bpm, opts) {
+  opts = opts || {};
+  numBars = numBars || MUSIC_FORM_BARS;
+  bpm = bpm || MUSIC_BPM_START;
+  const totalSteps = numBars * MUSIC_PATTERN_LEN;
+  const stepS = 60 / bpm / 2;
+  const durationS = totalSteps * stepS + 1.0; // +1sn kuyruk (son notaların sönümü için)
+  const sampleRate = 44100;
+  const offCtx = new OfflineAudioContext(1, Math.ceil(durationS * sampleRate), sampleRate);
+  const sumNode = offCtx.createGain();
+  sumNode.gain.value = 1;
+  const master = offCtx.createGain();
+  master.gain.value = 0.5; // SOUND.masterVolume varsayılanı (gerçek oyun default'u)
+  buildMasterChain(offCtx, sumNode, master);
+  master.connect(offCtx.destination);
+  const graph = buildAudioGraph(offCtx, sumNode);
+  const offChan = graph.chan;
+  const offMusicFilter = graph.musicFilter;
+  const offNoiseBuffer = createNoiseBuffer(offCtx);
+  let t = 0.05;
+  const pattern = MUSIC_PATTERNS_BY_THEME[themeIndex];
+  const forcedIntensity = opts.forcedIntensity != null ? opts.forcedIntensity
+                         : (opts.harmonyFromBar0 ? 3 : null);
+  const isBurst = !!opts.forcedBurst;
+  const stagePitchShift = opts.stagePitchShift || 0;
+  for (let step = 0; step < totalSteps; step++) {
+    const stepInBar = step % MUSIC_PATTERN_LEN;
+    const barIndex = Math.floor(step / MUSIC_PATTERN_LEN) % MUSIC_FORM_BARS;
+    const rootMidi = BASS_ROOTS_BY_THEME[themeIndex][barIndex][stepInBar < 4 ? 0 : 1];
+    // ADIM1: forcedIntensity verilmemişse sentetik "normal akış" (stage0, multiplier1,
+    // tehlike yok, burst yok) -> ADIM1 durum makinesiyle BİREBİR aynı şekilde hesaplanır.
+    const intensity = forcedIntensity != null ? forcedIntensity
+                     : getMusicIntensity(step, 0, 1, null, isBurst ? 'burst' : 'normal');
+    // ADIM5: dinamik müzik filtresi - render'da anlık hedefe ATLAR (offline/deterministik;
+    // live'daki setTargetAtTime yumuşatması updateAudio() tarafında ayrıca doğrulanır).
+    const filterTarget = isBurst
+      ? { hz: MUSIC_FILTER_BURST_HZ, q: MUSIC_FILTER_BURST_Q }
+      : { hz: MUSIC_FILTER_BASE_HZ + (intensity / 4) * MUSIC_FILTER_RANGE_HZ, q: 0.707 };
+    offMusicFilter.frequency.setValueAtTime(filterTarget.hz, t);
+    offMusicFilter.Q.setValueAtTime(filterTarget.q, t);
+    scheduleMusicStep(offCtx, offChan, offNoiseBuffer, {
+      t: t, stepS: stepS, stepInBar: stepInBar, barIndex: barIndex, pattern: pattern,
+      rootMidi: rootMidi, intensity: intensity, isBurst: isBurst,
+      duckTri: false, duckNoise: false, stagePitchShift: stagePitchShift
+    });
+    t += stepS;
+  }
+  const rendered = await offCtx.startRendering();
+  const wav = audioBufferToWav(rendered);
+  return 'data:audio/wav;base64,' + arrayBufferToBase64(wav);
 }
 
 function logSound(event, data) {
@@ -2325,6 +3069,15 @@ function playSfx(event, channel, build) {
   const data = Object.assign({ channel: channel }, info);
   delete data.node;
   logSound(event, data);
+  // ADIM 6: SFX ducking - triangle/noise SFX çaldığında müzik bas/davul katmanı o pencerede
+  // atlanır (iniş thud, diken uyarısı vb. %100 net duyulmaya devam eder).
+  if (channel === 'triangle') {
+    sfxTriangleBusyUntil = Math.max(sfxTriangleBusyUntil,
+      info.gainEnd != null ? info.gainEnd : ctx.currentTime + SFX_TRIANGLE_DUCK_FALLBACK_S);
+  } else if (channel === 'noise') {
+    sfxNoiseBusyUntil = Math.max(sfxNoiseBusyUntil,
+      info.gainEnd != null ? info.gainEnd : ctx.currentTime + SFX_NOISE_DUCK_FALLBACK_S);
+  }
   return info;
 }
 
@@ -2351,12 +3104,15 @@ function sfxDeath() {
   cutMusicNow(ctx.currentTime);
   if (!SOUND.death) return;
   playSfx('death', 'noise', (c, dest, t) => buildNoiseBurst(c, dest, t, noiseBuffer));
+  // ADIM6 (aranjman): gürültünün hemen arkasına (0.03sn gecikmeyle), aktif temanın tonalitesine
+  // uyumlu alçalan "death sting" eklenir - müzikal cümle havada bırakılmaz.
+  playSfx('deathSting', 'triangle', (c, dest, t) => buildDeathSting(c, dest, t + 0.03, musicThemeIndex));
 }
 
 // Faz 6: aşama girişi (ayrı olay adı 'stageUp', ayrı fonksiyon; ölüm/çarpanla paylaşılan kod yok).
 function sfxStageUp() {
   if (!SOUND.stageUp) return;
-  playSfx('stageUp', 'triangle', buildStageUpChime);
+  playSfx('stageUp', 'triangle', (ctx, dest, t) => buildStageUpChime(ctx, dest, t, musicThemeIndex, stage));
 }
 
 function sfxSpikeWarn() {
@@ -2474,28 +3230,38 @@ function sfxTempoTelegraph() {
   playSfx('tempoTelegraph', 'pulse1', buildTempoTelegraph);
 }
 
+// Fix/müzik-bas-davul-armoni: tüm müzik katmanları (lead, bas, davul, armoni) musicVoices
+// dizisine eklenir -> tek döngüde aynı anda .stop(t) ile kesilir (hiçbiri atlanmaz). Bus
+// seviyeleri de ek güvenlik için 0'a çekilir.
+const MUSIC_CHANNELS = ['pulse2', 'musicBass', 'musicDrum', 'musicHarm'];
 function cutMusicNow(t) {
   const stopped = musicVoices.length;
   for (const v of musicVoices) {
     try { v.stop(t); } catch (e) { /* zaten durmuş */ }
   }
   musicVoices = [];
-  chan.pulse2.gain.cancelScheduledValues(t);
-  chan.pulse2.gain.setValueAtTime(0, t);
+  for (const name of MUSIC_CHANNELS) {
+    chan[name].gain.cancelScheduledValues(t);
+    chan[name].gain.setValueAtTime(0, t);
+  }
   musicNextTime = 0;
   logSound('bassCut', { channel: 'pulse2', voicesStopped: stopped, gainAfter: 0 });
 }
 
-// resetGame(): müzik kanalı ölümde kesilmişti, seviyesini geri getir.
+// resetGame(): müzik kanalları ölümde kesilmişti, seviyelerini geri getir.
 function resetSound() {
   musicNextTime = 0;
   musicStep = 0;
   musicThemeIndex = 0;   // Faz 17: yeni koşu tema 0 pattern'iyle başlar
   pendingThemeIndex = 0;
+  sfxTriangleBusyUntil = 0;
+  sfxNoiseBusyUntil = 0;
   if (!audioCtx) return;
   const t = audioCtx.currentTime;
-  chan.pulse2.gain.cancelScheduledValues(t);
-  chan.pulse2.gain.setValueAtTime(CH_GAIN.pulse2, t);
+  for (const name of MUSIC_CHANNELS) {
+    chan[name].gain.cancelScheduledValues(t);
+    chan[name].gain.setValueAtTime(CH_GAIN[name], t);
+  }
 }
 
 // Müzik temposu zorluk eğrisinin KENDİ durumundan türetilir (ayrı zamanlayıcı yok, DRY).
@@ -2614,6 +3380,21 @@ function updateAudio() {
   const baseBpm = getMusicBpm();
   const bpm = baseBpm * tempoBurst.bpmMult;
   const stepS = 60 / bpm / 2; // sekizlik nota
+  // ADIM 5 (aranjman): dinamik müzik filtresi - SADECE müzik bus'u (SFX etkilenmez). Zorluk/
+  // stage arttıkça açılır; tempo-burst telegraph'ında riser gibi süpürülür, burst'te rezonanslı
+  // tepeye çıkar. setTargetAtTime: ani sıçrama yapmadan (80ms zaman sabiti) pürüzsüz geçiş.
+  if (musicFilter) {
+    const target = getMusicFilterTargetHz(getDifficultyT(), stage, tempoBurst.phase, tempoBurst.local);
+    musicFilter.frequency.setTargetAtTime(target.hz, now, MUSIC_FILTER_SMOOTH_S);
+    musicFilter.Q.setTargetAtTime(target.q, now, MUSIC_FILTER_SMOOTH_S);
+  }
+  const addVoice = (v) => {
+    musicVoices.push(v);
+    v.addEventListener('ended', () => {
+      const i = musicVoices.indexOf(v);
+      if (i >= 0) musicVoices.splice(i, 1);
+    });
+  };
   while (musicNextTime < now + MUSIC_LOOKAHEAD_S) {
     if (musicStep % MUSIC_PATTERN_LEN === 0 && pendingThemeIndex !== musicThemeIndex) {
       musicPatternLog.push({ t: +musicNextTime.toFixed(4), step: musicStep,
@@ -2622,15 +3403,29 @@ function updateAudio() {
       musicThemeIndex = pendingThemeIndex;
     }
     const pattern = MUSIC_PATTERNS_BY_THEME[musicThemeIndex];
-    const midi = pattern[musicStep % MUSIC_PATTERN_LEN];
-    const osc = buildMusicNote(audioCtx, chan.pulse2, musicNextTime, midiToHz(midi), stepS * MUSIC_NOTE_FRAC);
-    musicVoices.push(osc);
-    osc.addEventListener('ended', () => {
-      const i = musicVoices.indexOf(osc);
-      if (i >= 0) musicVoices.splice(i, 1);
+    const stepInBar = musicStep % MUSIC_PATTERN_LEN;
+    const barIndex = Math.floor(musicStep / MUSIC_PATTERN_LEN) % MUSIC_FORM_BARS;
+    const isBurst = tempoBurst.phase === 'burst';
+    const duckTri = musicNextTime < sfxTriangleBusyUntil;
+    const duckNoise = musicNextTime < sfxNoiseBusyUntil;
+    const rootMidi = BASS_ROOTS_BY_THEME[musicThemeIndex][barIndex][stepInBar < 4 ? 0 : 1];
+    // ADIM 1 (aranjman): getMusicIntensity() durum makinesi - canlı oyun state'inden (stage,
+    // multiplier, ball.y, tempoBurst.phase) 0..4 yoğunluk hesaplar (vertical layering tetiği).
+    const intensity = getMusicIntensity(musicStep, stage, multiplier, ball ? ball.y : null, tempoBurst.phase);
+    // ADIM 7 (aranjman): stage>=3 "vites atlama" - tüm müzik katmanları +2 yarı ton kalıcı kayar.
+    const stagePitchShift = stage >= 3 ? STAGEUP_PITCH_SHIFT_SEMITONES : 0;
+    // ADIM 2/3/4 (aranjman): tek bir adımın TÜM katmanlarını (lead/bas/davul/armoni) vertical
+    // layering + bar gerilim eğrisi + groove ile planlar (live VE offline AYNI fonksiyon).
+    const result = scheduleMusicStep(audioCtx, chan, noiseBuffer, {
+      t: musicNextTime, stepS: stepS, stepInBar: stepInBar, barIndex: barIndex, pattern: pattern,
+      rootMidi: rootMidi, intensity: intensity, isBurst: isBurst, duckTri: duckTri, duckNoise: duckNoise,
+      stagePitchShift: stagePitchShift
     });
+    for (const v of result.voices) addVoice(v);
     musicLog.push({ t: +musicNextTime.toFixed(4), bpm: +bpm.toFixed(2), baseBpm: baseBpm, step: musicStep,
-                    midi: midi, theme: musicThemeIndex, burst: tempoBurst.phase === 'burst',
+                    midi: pattern[stepInBar], theme: musicThemeIndex, burst: isBurst,
+                    barIndex: barIndex, duckTri: duckTri, duckNoise: duckNoise, harmony: result.harmonyActive,
+                    intensity: intensity, barGain: +result.barGain.toFixed(3),
                     scrollSpeed: +scrollSpeed.toFixed(2), effScrollSpeed: +getEffectiveScrollSpeed().toFixed(2) });
     if (musicLog.length > MUSIC_LOG_MAX) musicLog.shift();
     musicNextTime += stepS;
