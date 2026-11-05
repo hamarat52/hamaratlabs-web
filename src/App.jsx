@@ -491,6 +491,9 @@ function AppCard({ app, big = false }) {
             {app.internal ? (
               // İç kullanım aracı: indirme vaadi yok, yalnız "Özel" rozeti.
               <span className="card__private">Özel</span>
+            ) : app.playable ? (
+              // Tarayıcıda oynanan oyun: indirilecek bir şey yok, "Yakında" yanlış olur.
+              <span className="card__get">Oyna →</span>
             ) : (
               <span className={available ? 'card__get' : 'card__soon'}>{available ? (app.stage === 'beta' ? 'Açık betada →' : 'İndir →') : 'Yakında'}</span>
             )}

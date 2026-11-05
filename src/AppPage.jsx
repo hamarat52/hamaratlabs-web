@@ -62,7 +62,7 @@ export default function AppPage({ app }) {
             <h1>{app.name}</h1>
             {!isPlaceholder(app.lead) && <p>{app.lead}</p>}
             <div className="apppage__actions">
-              {app.internal ? null : available ? (
+              {app.internal || app.playable ? null : available ? (
                 <a className="apppage__dl" href={app.download} target="_blank" rel="noopener noreferrer">
                   {app.downloadLabel || 'İndir'}
                 </a>

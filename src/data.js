@@ -150,15 +150,24 @@ export const APPS = [
   {
     name: 'Düşen Top',
     stage: 'beta',
-    short: 'Siyah-beyaz, dikenlerden kaçan nostaljik arcade oyunu',
-    lead: 'Tavandaki dikenlerden kaçarken yukarı çıkan platformların arasından geçmeye çalıştığın, nostaljik, tamamen siyah-beyaz bir arcade oyunu.',
-    points: ['Sol/sağ ok tuşuyla kontrol', 'Zamanla hızlanan zorluk', 'Tek ekran, tarayıcıda oynanır'],
+    short: 'Tavandaki dikenlerden kaçıp platformların arasından düştüğün piksel arcade oyunu',
+    lead: 'Platformlar yukarı çıkıyor, dikenler tavanda bekliyor. Boşluklardan aşağı kaçar, eşya toplar, rekorunu kovalarsın. Skor arttıkça dünyanın rengi değişir, zaman geçtikçe oyun hızlanır.',
+    points: [
+      'Telefonda dokunarak, bilgisayarda ok tuşlarıyla',
+      '5 eşya ve tavandan inen dikenler',
+      'En yüksek skor kaydı',
+      'Tarayıcıda oynanır'
+    ],
     platform: 'TARAYICI',
+    // İndirilecek bir şey yok, tarayıcıda oynanır: kartta "Yakında" yerine "Oyna →",
+    // ürün sayfasında kaçan "İndir" butonu yerine yalnız "Oyna" CTA'sı.
+    playable: true,
     // Tek sayfalık statik oyun (p5.js, build gerektirmez) — public/'ten doğrudan servis edilir.
     // Tam URL: SPA router'ı atlayıp gerçek dosyayı yeni sekmede açar.
     visitUrl: 'https://hamaratlabs.com/oyunlar/nostaljik-dikenler/index.html',
     visitLabel: 'Oyna',
-    visitAccent: 'linear-gradient(135deg, #111111 0%, #555555 100%)'
+    // Oyunun gece zemini (#0a0e2a) ve diken kırmızısı (#c81d25); beyaz yazı ikisinde de okunur.
+    visitAccent: 'linear-gradient(135deg, #0a0e2a 0%, #c81d25 100%)'
   }
 ];
 
