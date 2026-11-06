@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "image": "atlas.png",
+    "size": {
+      "w": 64,
+      "h": 16
+    },
+    "schema": 1,
+    "placeholder": true,
+    "note": "GECICI yer tutucu (tools/v2-atlas/make_placeholder_atlas.py). Uretilmis varliklar ayni semayla gelir."
+  },
+  "frames": {
+    "ball": {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16,
+      "anchor": [
+        8,
+        8
+      ]
+    },
+    "plat_l": {
+      "x": 16,
+      "y": 0,
+      "w": 4,
+      "h": 12
+    },
+    "plat_m0": {
+      "x": 20,
+      "y": 0,
+      "w": 8,
+      "h": 12
+    },
+    "plat_m1": {
+      "x": 28,
+      "y": 0,
+      "w": 8,
+      "h": 12
+    },
+    "plat_m2": {
+      "x": 36,
+      "y": 0,
+      "w": 8,
+      "h": 12
+    },
+    "plat_r": {
+      "x": 44,
+      "y": 0,
+      "w": 4,
+      "h": 12
+    }
+  },
+  "platforms": {
+    "default": {
+      "type": "slice3",
+      "left": "plat_l",
+      "mid": [
+        "plat_m0",
+        "plat_m1",
+        "plat_m2"
+      ],
+      "right": "plat_r",
+      "surfaceY": 0,
+      "collisionH": 8
+    }
+  }
+}
