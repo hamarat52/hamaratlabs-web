@@ -56,7 +56,8 @@ Galeri altyazısı kontrastı (`kontrast.py`, sayaç "03 / 13"): canlı 2.36:1 �
 ## Masaüstü değişmedi kanıtı
 - Yerleşim eşitliği (`yerlesim.py`, her öğenin offset kutusu + yazı boyu, animasyondan bağımsız), 1280 ve 700 px:
   `?yon=a` ve `?yon=b`, parametresiz derlemeyle 4 sayfada 0 farklı öğe (`yerlesim-1280.log`, `yerlesim-700.log`).
-  Canlıda 1 öğe eksik: alt menüdeki Öneriyorum bağlantısı (9c776f9, o sırada yayında değildi).
+  Canlıyla (o anki canlı = 9c776f9 + yeni harita verisi): ana sayfa, /anlatiyorum, /oneriyorum 0 farklı öğe;
+  /uretiyorum 31 farklı, hepsi harita bölümünün boyu (koşu, harita verisi gelmeden önceki derlemeyle yapıldı; dal sonra ileri sarıldı).
 - Piksel farkı 1280 (`karsilastir.py`): /uretiyorum ve /oneriyorum ilk ekran canlıyla %0.00; /anlatiyorum fark yalnız ses topu kutusunda; ana sayfadaki %9.6 fark parametresiz yerel derlemede de var (kar ve kart animasyonu).
 - Not: 1280 görüntüleri harita verisi güncellemesinden önce alındı; yerleşim eşitliği de o derlemeyle. Yeni CSS yalnız 620 px altı.
 
