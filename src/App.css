@@ -939,3 +939,23 @@ mark {
 .school__note { font-family: var(--mono); font-size: 11.5px; color: var(--muted); padding-left: 4px; }
 @media (prefers-reduced-motion: reduce) { .school__btn { transition: none; } .school__btn:hover { transform: none; } }
 
+
+/* ---------- Telefon düzeltmeleri (2026-11-08) ---------- */
+/* Kart parıltısı (BorderGlow .edge-light) kartın 40px dışına taşıyor; telefonda sayfa 14px yana kayıyordu.
+   clip kaydırma kabı açmaz, yapışkan (sticky) öğeleri bozmaz. */
+main { overflow-x: clip; }
+/* Küçük metin bağlantılarına görünmez dokunma alanı (≥44px yükseklik); görünüm aynı kalır. */
+.pagehead__back,
+.apppage__back,
+.devpage__back,
+.ideaboard__back,
+.akh__back,
+.devpage__follow,
+.skill__links a { position: relative; }
+.pagehead__back::after,
+.apppage__back::after,
+.devpage__back::after,
+.ideaboard__back::after,
+.akh__back::after,
+.devpage__follow::after,
+.skill__links a::after { content: ''; position: absolute; inset: -13px -6px; }

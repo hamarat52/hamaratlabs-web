@@ -407,7 +407,7 @@ function Breath() {
         ))}
       </div>
       <div className="breath__foot">
-        <p className="sr-only">Ürettiğim, anlattığım ve paylaştığım laboratuvarıma hoş geldin.</p>
+        <h1 className="sr-only">Ürettiğim, anlattığım ve paylaştığım laboratuvarıma hoş geldin.</h1>
         <div className="breath__tech" aria-hidden="true">
           <div className="breath__techline">
             <TechText
@@ -739,6 +739,7 @@ function Footer() {
             <Link to="/uretiyorum">Üretiyorum</Link>
             <Link to="/paylasiyorum">Paylaşıyorum</Link>
             <Link to="/anlatiyorum">Anlatıyorum</Link>
+            <Link to="/oneriyorum">Öneriyorum</Link>
             <Link to="/ogretici">Öğretici</Link>
             <Link to="/okul-projeleri">Okul Projeleri</Link>
             <Link to="/aktivite">Aktivite</Link>
