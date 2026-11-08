@@ -8,7 +8,7 @@ import './DevelopmentMap.css';
 // Boş günler eksende sıkıştırılır (≈ işaretiyle gösterilir), sıra ve tarihler korunur.
 
 const ORIGIN = '2026-09-26'; // 0: ilk ürünün (tiTimer) ilk commit'i
-const TODAY = '2026-10-21'; // en son commit (WingWire v0.1.1)
+const LAST = '2026-11-07'; // haritadaki en son istasyon (WingWire 0.2.1, SesVer kuyruk); 2026-11-08'de repolardan güncellendi
 const MONTHS = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
 const dayOf = d => Math.round((Date.parse(`${d}T00:00:00Z`) - Date.parse(`${ORIGIN}T00:00:00Z`)) / 86400000);
 const fmt = d => {
@@ -41,7 +41,11 @@ const LINES = [
       s('2026-10-19', 'ef54c0e', 'Site GitHub Pages’e hazır', 'feature', 1),
       s('2026-10-20', '874bfd3', 'Alan adı + canonical/sitemap', 'feature', 0),
       s('2026-10-20', '7ddf013', 'Alan adı düzeltmesi: ivd', 'fix', 0),
-      s('2026-10-20', '696a632', 'Geri al: github.io adresi', 'fix', 1)
+      s('2026-10-20', '696a632', 'Geri al: github.io adresi', 'fix', 1),
+      s('2026-10-23', 'f0210f5', 'Safari eklentisine dönüşüm', 'major', 0),
+      s('2026-10-25', '1f9c0f2', 'Dövizli giderler, yedek kur', 'feature', 0),
+      s('2026-10-26', 'aad6786', 'Apple imzası + marka ikonu', 'design', 1),
+      s('2026-10-27', '1e11b7d', 'iPhone Safari eklentisi', 'release', 1)
     ]
   },
   {
@@ -58,7 +62,14 @@ const LINES = [
       s('2026-10-18', '8761c05', 'macOS SesVer.app paketi', 'release', 1, { slot: 3 }),
       s('2026-10-19', 'aa3f673', 'Uygulama ikonu', 'design', 1),
       s('2026-10-19', 'd94d96b', 'Windows kurulum CI testi', 'feature', 0),
-      s('2026-10-20', '92b869c', 'macOS açılış çökmesi giderildi', 'fix', 0)
+      s('2026-10-20', '92b869c', 'macOS açılış çökmesi giderildi', 'fix', 0),
+      s('2026-10-22', 'eecf079', 'Arayüz 11 dilde', 'major', 0),
+      s('2026-10-24', '989f6f3', 'NVIDIA/AMD hızlandırma', 'feature', 1),
+      s('2026-10-26', 'e4eb0f3', 'MIT lisansı', 'feature', 1),
+      s('2026-10-28', '0187b12', 'macOS imza + DMG hattı', 'release', 0),
+      s('2026-10-30', 'f61a2b0', 'Hızlı Mod', 'major', 0),
+      s('2026-11-07', '9afe37c', 'Üretim kuyruğu', 'major', 1),
+      s('2026-11-07', '7a8b3e4', 'Güvenlik düzeltmeleri', 'fix', 1)
     ]
   },
   {
@@ -77,15 +88,47 @@ const LINES = [
       s('2026-10-18', '787a2c4', 'by HamaratLabs marka imzası', 'design', 0, { slot: 1, hub: true }),
       s('2026-10-20', 'f18a8cf', 'Kanban sekmesi (MVP)', 'major', 1),
       s('2026-10-21', '8e68cde', 'v0.1.0 ilk açık indirme', 'release', 1),
-      s('2026-10-21', '22dd2da', 'v0.1.1 release varyantı', 'release', 0)
+      s('2026-10-21', '22dd2da', 'v0.1.1 release varyantı', 'release', 0),
+      s('2026-10-22', '337d0e1', 'Büyük dosya yükleme', 'feature', 0),
+      s('2026-10-24', '63b8727', 'QR ile bağlanma', 'feature', 1),
+      s('2026-10-25', '69baf4e', 'Çoklu bot grup sohbeti', 'major', 1),
+      s('2026-10-30', '32dc388', 'Paylaş menüsünden gönder', 'feature', 0),
+      s('2026-11-02', 'de3b5f1', 'WingWire Web bağlantısı', 'major', 0),
+      s('2026-11-05', 'd2d376b', 'Sohbet bildirimleri', 'feature', 1),
+      s('2026-11-06', 'fc2f5d6', 'Konuş: sesli ajan', 'major', 1),
+      s('2026-11-07', 'bfc0e9c', '0.2.0 sürümü', 'release', 0),
+      s('2026-11-07', '065774f', '0.2.1 performans', 'release', 0)
+    ]
+  },
+  {
+    name: 'Kitabe',
+    fallback: ['#ebc47c', '#9a6428'],
+    col: 1010,
+    stations: [
+      s('2026-10-18', '3e12537', 'Flutter MVP: 5 ekran', 'major'),
+      s('2026-10-19', 'd8cd20b', 'Yeni kaynaklı kayıtlar', 'feature'),
+      s('2026-10-25', 'a9518c2', 'Gerçek harita (OSM)', 'major', 1),
+      s('2026-10-25', '7a182b7', 'macOS + web', 'feature', 1),
+      s('2026-10-26', 'a5e7c32', 'Release imzalama', 'release', 0),
+      s('2026-10-26', '2b3511f', 'Eserden kitabelere', 'feature', 0)
+    ]
+  },
+  {
+    name: 'tiTimer',
+    fallback: ['#4E9BAA', '#2F6D7C'],
+    col: 1210,
+    stations: [
+      s('2026-09-26', 'e8f981c', 'İlk kod: Sayaç ekranı', 'feature'),
+      s('2026-10-19', '0a18db7', 'Haftalık rapor', 'feature'),
+      s('2026-11-01', '2746960', 'Yazı tipleri gömüldü', 'fix', 1),
+      s('2026-11-01', '39fda6e', '0.1.0 imza ayarı', 'release', 1),
+      s('2026-11-01', '25047e3', 'Marka ikonu', 'design', 1)
     ]
   }
 ];
 
 // Fikir aşamasındaki ürünler: tek, soluk halka; hat çizilmez (sitedeki "fikir" rozetiyle tutarlı).
 const IDEAS = [
-  { name: 'tiTimer', date: '2026-09-26', hash: 'e8f981c', note: 'Repoda ilk kod bugün yazıldı; sitede hâlâ fikir aşamasında.' },
-  { name: 'Kitabe', date: '2026-10-19', hash: 'e5e3a96', note: 'hamaratlabs.com ilk sürümünde listeye eklendi.' },
   { name: 'Pomodoro Restoran', date: '2026-10-19', hash: 'e5e3a96', note: 'hamaratlabs.com ilk sürümünde listeye eklendi.' },
   { name: 'Duo for X', date: '2026-10-19', hash: 'e5e3a96', note: 'hamaratlabs.com ilk sürümünde listeye eklendi.' }
 ];
@@ -98,7 +141,7 @@ const colorsOf = line => {
 };
 
 // ---------- Yerleşim (statik veri, modül düzeyinde bir kez hesaplanır) ----------
-const W = 1000;
+const W = 1360;
 const AXIS_X = 92;
 const IDEA_X = 136;
 const LANE = 24;
@@ -128,7 +171,7 @@ const lines = LINES.map(line => ({
 const ideas = slotted(IDEAS).map(idea => ({ ...idea, stage: productOf(idea.name).stage || 'idea' }));
 
 const allPoints = [...lines.flatMap(l => l.stations), ...ideas];
-const dates = [...new Set([ORIGIN, TODAY, ...allPoints.map(p => p.date)])].sort();
+const dates = [...new Set([ORIGIN, LAST, ...allPoints.map(p => p.date)])].sort();
 const bands = {};
 const gaps = [];
 let h = 0;
@@ -257,7 +300,7 @@ export default function DevelopmentMap() {
         <span className="mono muted">GELİŞİM HARİTASI</span>
         <h3>Her ürün bir hat</h3>
         <p className="muted">
-          26 Eylül 2026’daki ilk koddan bugüne. Zaman alttan üste akar; istasyonlar repolardaki gerçek commit tarihleri.
+          26 Eylül 2026’daki ilk koddan 7 Kasım 2026’ya. Zaman alttan üste akar; istasyonlar repolardaki gerçek commit tarihleri.
           Boş günler sıkıştırıldı.
         </p>
       </div>
@@ -265,7 +308,7 @@ export default function DevelopmentMap() {
       <div className="dm__grid">
         <div className="dm__scroll" tabIndex={0} aria-label="Gelişim haritası, yana kaydırılabilir">
           <svg className="dm__svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="dm-title">
-            <title id="dm-title">Ürünlerin 26 Eylül 2026’dan bugüne gelişim haritası</title>
+            <title id="dm-title">Ürünlerin 26 Eylül - 7 Kasım 2026 gelişim haritası</title>
             <defs>
               {lines.map((line, i) => (
                 <linearGradient
@@ -300,7 +343,7 @@ export default function DevelopmentMap() {
                       {fmt(d)}
                     </text>
                     <text className="dm-axis__day" x={AXIS_X - 10} y={y + 12} textAnchor="end">
-                      {n === 0 ? '0' : d === TODAY ? `bugün · ${n}` : `+${n}`}
+                      {n === 0 ? '0' : `+${n}`}
                     </text>
                   </g>
                 );

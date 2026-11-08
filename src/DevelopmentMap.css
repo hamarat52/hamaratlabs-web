@@ -47,7 +47,7 @@
 .dm__svg {
   display: block;
   width: 100%;
-  min-width: 760px;
+  min-width: 1034px; /* viewBox 1360 genişliğinde; yazılar 0.76 ölçeğin altına inmesin */
   height: auto;
   font-family: var(--font);
 }
@@ -237,7 +237,7 @@
 }
 
 .dm__hint {
-  display: none;
+  display: block; /* 5 hat: masaüstünde de yana kayar */
   margin: 8px 0 0;
   font-size: 11px;
   text-align: center;
