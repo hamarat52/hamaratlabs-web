@@ -18,18 +18,14 @@ import ErrorBoundary from './components/ErrorBoundary';
 // WebGL'siz yedek galeri ogl içermez (küçük); error boundary'nin chunk yüklenemese de gösterebilmesi için ana pakette.
 import FlexCarouselFallback from './components/rb/FlexCarousel/FlexCarouselFallback';
 import { POSTS } from './ogretici/posts';
-// TASLAK: telefon düzeni yönleri (?yon=a | ?yon=b). Bkz. docs/mobil-taslak-raporu.md
-import './mobil-taslak.css';
-import { YON, usePhone } from './mobilTaslak';
+// Telefon düzeni (620 px altı; masaüstü ve tablet etkilenmez). Bkz. docs/mobil-son-raporu.md
+import './mobil.css';
 
 // Performans: ilk açılışta (ana sayfa) gerekmeyen her şey ayrı parça (chunk) olarak yüklenir.
 // - Uygulama sayfaları (AppPage, tiTimer): motion + hugeicons yalnız bu sayfalarda gerekiyor.
 // - Footer şeridi (FlexCarousel, ogl/WebGL + 13 foto): ekrana yaklaşınca bağlanır (WhenNear).
-// - Zemin efektleri: varsayılan Kar (PixelSnow) ana pakette; diğerleri seçilince yüklenir.
 const AppPage = lazy(() => import('./AppPage'));
 const FlexCarousel = lazy(() => import('./components/rb/FlexCarousel/FlexCarousel'));
-const GradientASCII = lazy(() => import('./components/rb/GradientASCII/GradientASCII'));
-const LetterGlitch = lazy(() => import('./components/rb/LetterGlitch/LetterGlitch'));
 // Öğretici / Nasıl Yaptık: liste (/ogretici) ve yazılar (/ogretici/<slug>). Yazı listesi src/ogretici/posts.js.
 const OgreticiPage = lazy(() => import('./ogretici/OgreticiPage'));
 
@@ -280,94 +276,34 @@ function Header({ path }) {
 }
 
 
-// Sitenin ilk ekranı: neredeyse boş. Zemin efektini ziyaretçi seçebilir, seçim tarayıcıda hatırlanır.
+// Sitenin ilk ekranı: neredeyse boş. Zemin sabit kar, renk sabit yeşil (2026-11-08: renk ve zemin seçicileri
+// kaldırıldı; daha önce tarayıcıya kaydedilmiş hl-ground / hl-tint seçimi artık okunmuyor).
 const ICON = { fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' };
-const GROUNDS = [
-  {
-    id: 'snow',
-    label: 'Kar',
-    icon: <path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9.5 4.5 12 6l2.5-1.5M9.5 19.5 12 18l2.5 1.5" />
-  },
-  {
-    id: 'ascii',
-    label: 'ASCII',
-    icon: <path d="M5 6h3M11 6h3M17 6h2M5 12h2M10 12h4M17 12h2M5 18h4M12 18h2M17 18h2" />
-  },
-  {
-    id: 'glitch',
-    label: 'Glitch',
-    icon: <path d="M4 6h10M4 10h6M13 10h7M4 14h12M8 18h12" />
-  }
-];
+const GREEN = '#7fae12';
 
-const TINTS = [
-  { id: 'green', label: 'Yeşil', color: '#7fae12' },
-  { id: 'ink', label: 'Koyu', color: '#101317' },
-  { id: 'grey', label: 'Gri', color: '#9aa0a6' },
-  { id: 'amber', label: 'Turuncu', color: '#e8833a' }
-];
-
-const remember = (key, fallback) => {
-  try {
-    return localStorage.getItem(key) || fallback;
-  } catch {
-    return fallback;
-  }
-};
-const store = (key, value) => {
-  try {
-    localStorage.setItem(key, value);
-  } catch {
-    /* depolama kapalıysa seçim yalnız bu ziyarette kalır */
-  }
-};
-
-function Ground({ id, color }) {
-  if (id === 'snow') return <PixelSnow color={color} lightMode density={0.32} speed={0.55} pixelSize={3} opacity={0.7} glow={0} />;
-  if (id === 'ascii')
-    return (
-      <GradientASCII
-        lightMode
-        colors={['#fffdf8', '#f2efe6', color, '#101317']}
-        shape="horizon"
-        cellSize={16}
-        glyphOpacity={0.4}
-        gradientOpacity={0.45}
-        flicker={0.12}
-        fontFamily="'JetBrains Mono', monospace"
-      />
-    );
-  // Açık zemin üstünde soluk harf ızgarası; parıltılar seçili tonla yanar.
-  if (id === 'glitch')
-    return <LetterGlitch background="#fffdf8" glitchColors={['#e7e2d6', '#d3cdbf', color]} glitchSpeed={70} flashChance={0.04} outerVignette={false} />;
-  return null;
+// Telefon kırılımı: mobil.css ile aynı eşik.
+const PHONE = '(max-width: 620px)';
+function usePhone() {
+  const [phone, setPhone] = useState(() => typeof window !== 'undefined' && window.matchMedia(PHONE).matches);
+  useEffect(() => {
+    const mq = window.matchMedia(PHONE);
+    const on = () => setPhone(mq.matches);
+    on();
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  return phone;
 }
 
 function Breath() {
-  const [ground, setGround] = useState(() => {
-    const g = remember('hl-ground', 'snow');
-    return GROUNDS.some(x => x.id === g) ? g : 'snow';
-  });
-  const [tint, setTint] = useState(() => remember('hl-tint', 'green'));
-  const color = (TINTS.find(t => t.id === tint) || TINTS[0]).color;
-  // TASLAK: telefonda ip logonun (sol üst, ~0-0.57 genişlik) üstünden geçmesin; kart sağa asılır.
+  // Telefonda ip logonun (sol üst, ~0-0.57 genişlik) üstünden geçmesin diye kart sağa asılır.
+  // Karşılama yazısı telefonda HTML başlık (mobil.css); TechText yazma animasyonu yalnız masaüstünde kurulur.
   const phone = usePhone();
-  const anchorX = YON && phone ? 0.63 : 0.5;
-  const pick = id => {
-    setGround(id);
-    store('hl-ground', id);
-  };
-  const pickTint = id => {
-    setTint(id);
-    store('hl-tint', id);
-  };
 
   return (
     <section className="breath" aria-label="Giriş">
-      <div className="breath__bg" aria-hidden="true" key={`${ground}-${tint}`}>
-        <Suspense fallback={null}>
-          <Ground id={ground} color={color} />
-        </Suspense>
+      <div className="breath__bg" aria-hidden="true">
+        <PixelSnow color={GREEN} lightMode density={0.32} speed={0.55} pixelSize={3} opacity={0.7} glow={0} />
       </div>
       <Lanyard
         className="breath__lanyard"
@@ -375,90 +311,62 @@ function Breath() {
         imageAlt="Yusuf Hamarat"
         label="YUSUF HAMARAT"
         serial="KURUCU · HL 001"
-        color={tint === 'ink' || tint === 'grey' ? '#d0ff63' : color}
+        color={GREEN}
         cardWidth={232}
         cardHeight={340}
-        anchorX={anchorX}
+        anchorX={phone ? 0.63 : 0.5}
         ropeLength={0.17}
         minRope={90}
         maxRope={190}
       />
-      <div className="grounds" role="group" aria-label="Zemini değiştir">
-        {GROUNDS.map(g => (
-          <button
-            key={g.id}
-            type="button"
-            aria-pressed={ground === g.id}
-            aria-label={g.label}
-            title={g.label}
-            style={ground === g.id ? { color } : undefined}
-            onClick={() => pick(g.id)}
-          >
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" {...ICON}>
-              {g.icon}
-            </svg>
-          </button>
-        ))}
-      </div>
-      <div className="tints" role="group" aria-label="Rengi değiştir">
-        {TINTS.map(t => (
-          <button
-            key={t.id}
-            type="button"
-            aria-pressed={tint === t.id}
-            aria-label={t.label}
-            title={t.label}
-            style={{ background: t.color }}
-            onClick={() => pickTint(t.id)}
-          />
-        ))}
-      </div>
       <div className="breath__foot">
         <h1 className="sr-only">Ürettiğim, anlattığım ve paylaştığım laboratuvarıma hoş geldin.</h1>
-        <div className="breath__tech" aria-hidden="true">
-          <div className="breath__techline">
-            <TechText
-              text="Ürettiğim, anlattığım ve paylaştığım"
-              fontFamily="'Geist', Arial, sans-serif"
-              fontWeight={500}
-              letterSpacing={-0.03}
-              color="#101317"
-              accentColor={color}
-              align="center"
-              intro="type"
-              introDuration={1.6}
-              sweep={false}
-              reach={170}
-              dashLength={3}
-              dashGap={2}
-              strokeWidth={1.2}
-              specks={0}
-              draggable={false}
-              clickKick={false}
-            />
+        {!phone && (
+          <div className="breath__tech" aria-hidden="true">
+            <div className="breath__techline">
+              <TechText
+                text="Ürettiğim, anlattığım ve paylaştığım"
+                fontFamily="'Geist', Arial, sans-serif"
+                fontWeight={500}
+                letterSpacing={-0.03}
+                color="#101317"
+                accentColor={GREEN}
+                align="center"
+                intro="type"
+                introDuration={1.6}
+                sweep={false}
+                reach={170}
+                dashLength={3}
+                dashGap={2}
+                strokeWidth={1.2}
+                specks={0}
+                draggable={false}
+                clickKick={false}
+              />
+            </div>
+            <div className="breath__techline">
+              <TechText
+                text="laboratuvarıma hoş geldin."
+                fontFamily="'Geist', Arial, sans-serif"
+                fontWeight={500}
+                letterSpacing={-0.03}
+                color="#101317"
+                accentColor={GREEN}
+                align="center"
+                intro="type"
+                introDuration={1.6}
+                sweep={false}
+                reach={170}
+                dashLength={3}
+                dashGap={2}
+                strokeWidth={1.2}
+                specks={0}
+                draggable={false}
+                clickKick={false}
+              />
+            </div>
           </div>
-          <div className="breath__techline">
-            <TechText
-              text="laboratuvarıma hoş geldin."
-              fontFamily="'Geist', Arial, sans-serif"
-              fontWeight={500}
-              letterSpacing={-0.03}
-              color="#101317"
-              accentColor={color}
-              align="center"
-              intro="type"
-              introDuration={1.6}
-              sweep={false}
-              reach={170}
-              dashLength={3}
-              dashGap={2}
-              strokeWidth={1.2}
-              specks={0}
-              draggable={false}
-              clickKick={false}
-            />
-          </div>
-        </div>
+        )}
         <a href="#uretiyorum" className="breath__down" aria-label="Aşağı in">
           <svg viewBox="0 0 24 48" width="18" height="36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path className="breath__down-line" d="M12 2v38" />

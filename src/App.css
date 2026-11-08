@@ -574,7 +574,7 @@ mark {
 .breath__foot { width: min(1100px, calc(100% - 2 * var(--gutter))); }
 .breath__tech { width: 100%; height: clamp(56px, 6vw, 96px); }
 
-/* İlk ekran: alt ortada karşılama, solda efekt, sağda renk seçici */
+/* İlk ekran: alt ortada karşılama */
 .breath { align-items: stretch; }
 .breath__foot {
   position: absolute;
@@ -588,55 +588,6 @@ mark {
   gap: 14px;
   text-align: center;
 }
-.grounds,
-.tints {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  z-index: 2;
-}
-.grounds { left: var(--gutter); }
-.tints { right: var(--gutter); }
-.grounds button {
-  width: 40px;
-  height: 40px;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
-  color: #b8b1a1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.grounds button:hover { color: var(--muted); }
-.grounds button[aria-pressed='true'] { color: var(--ink); }
-.tints button {
-  position: relative;
-  width: 22px;
-  height: 22px;
-  margin: 11px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  cursor: pointer;
-  filter: saturate(0.2);
-  opacity: 0.4;
-  transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
-}
-.tints button:hover { opacity: 0.7; }
-.tints button[aria-pressed='true'] { filter: none; opacity: 1; transform: scale(1.15); }
-/* Dokunma alanı ≥44×44: görünen daire/ikon aynı boyutta kalır, görünmez halka tıklanabilir */
-.grounds button { position: relative; }
-.grounds button::before,
-.tints button::before { content: ''; position: absolute; border-radius: 50%; }
-.grounds button::before { inset: -2px; }
-.tints button::before { inset: -11px; }
-.tints button[aria-pressed='true']::before { inset: -10px; }
-.tints { gap: 0; }
 
 /* Aşağı oku */
 .breath__down {
@@ -836,7 +787,7 @@ mark {
 /* Dokunma alanı 44px; negatif margin satırın yerini korur */
 .insta__link { min-height: 44px; margin: -11px 0; }
 
-/* Açılış: ipe asılı hamaratlabs kartı (Lanyard). Zeminin üstünde, seçicilerin altında. */
+/* Açılış: ipe asılı hamaratlabs kartı (Lanyard). Zeminin üstünde. */
 .breath__lanyard { z-index: 1; }
 @media (max-width: 620px) {
   .breath__lanyard .lanyard__meta { font-size: 9px; padding: 8px 10px; }

@@ -7,6 +7,22 @@ import './Lanyard.css';
 const reducedMotion = () =>
   typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
+/* Kaydırma savrulması sınırları (hız birimi: 1/120 sn'lik alt adım başına px).
+   Eskiden her scroll olayı karta sınırsız hız ekliyordu; momentumlu kaydırmada kart yüzlerce px savruluyor,
+   kart görünmezken biriken itki geri dönüşte tek karede uygulanıp kartı ekrandan atıyordu. Şimdi:
+   - itki yalnız kart görünürken toplanır, kare başına bir kez ve en fazla KICK_MAX uygulanır;
+   - kaydırma kartı SWAY_VMAX'tan hızlı itemez (sürükleyip bırakmanın daha hızlı salınımı frenlenmez);
+   - kart askı noktasından SWAY_DEV'den uzaktayken dışa doğru itilmez.
+   Bu üçü birlikte salınımın enerjisini, dolayısıyla genliğini (≈ 15-20 px) sınırlar. */
+const KICK_GAIN = 0.012; // kaydırılan her px için eklenen hız
+const KICK_MAX = 0.4;
+const SWAY_VMAX = 0.4; // ≈ 48 px/sn
+const SWAY_DEV = 8;
+// Kaydırmadan sonraki 3 sn kart daha sıkı sönümlenir (alt adım başına 0.98; normali 0.992): sallantı ~1 sn'de
+// söner. Sürükleyip bırakmanın uzun salınımı etkilenmez.
+const SCROLL_DAMP = 0.98;
+const SCROLL_SETTLE_MS = 3000;
+
 /* İpe asılı kart. Kayış Verlet zinciri, kart ise kayışın ucuna bağlı ağır bir sarkaç;
    sürüklenir, bırakınca sallanır, sayfa kayınca hafifçe savrulur.
    Her kare yalnızca SVG yolu ile kartın transform'u güncellenir; React yeniden çizmez. */
@@ -52,6 +68,8 @@ export default function Lanyard({
     let cw = cardWidth;
     let ch = cardHeight;
     let seg = 10;
+    let segTarget = 10;
+    let hangTarget = 0;
     let anchor = { x: 0, y: -6 };
     let pts = [];
     let center = { x: 0, y: 0, px: 0, py: 0 };
@@ -62,6 +80,7 @@ export default function Lanyard({
     let last = 0;
     let t0 = 0;
     let pendingKick = 0;
+    let settleUntil = 0; // kaydırma sonrası sıkı sönüm bitişi (step'in zaman tabanında, ms)
     // Uyku: esinti son etkileşimden sonra söner; kart durulunca döngü durur, scroll/dokunuşla uyanır.
     let wakeAt = 0;
     let calm = 0;
@@ -76,10 +95,14 @@ export default function Lanyard({
       card.style.width = `${cw}px`;
       card.style.height = `${ch}px`;
       const len = Math.min(maxRope, Math.max(minRope, H * ropeLength));
-      seg = len / segments;
-      hang = ch / 2 + 6;
+      segTarget = len / segments;
+      hangTarget = ch / 2 + 6;
       anchor = { x: W * anchorX, y: -6 };
+      // Sonraki boyut değişimlerinde (telefonda adres çubuğu açılıp kapanınca yükseklik değişir) ip ve askı
+      // boyu bir anda değil, step() içinde yumuşakça yeni değere gider; ani kısalma Verlet'te hıza dönüşüp kartı sıçratıyordu.
       if (!first) return;
+      seg = segTarget;
+      hang = hangTarget;
       // Açılış: kart yandan, yukarıdan bırakılır; ip kendiliğinden sarkar.
       const swing = intro && !still ? Math.min(W * 0.32, len * 0.9) : 0;
       pts = [];
@@ -96,13 +119,15 @@ export default function Lanyard({
     };
 
     const step = (dt, time) => {
-      const { gravity: g, damping: damp, wind: wd, scrollKick: sk } = propsRef.current;
+      const { gravity: g, damping: base, wind: wd } = propsRef.current;
+      const damp = !drag && time < settleUntil ? Math.min(base, SCROLL_DAMP) : base;
       const dt2 = dt * dt;
       const fade = Math.max(0, 1 - (time - wakeAt) / 7000);
       const breeze = still ? 0 : fade * wd * 26 * Math.sin(time * 0.0009) * Math.sin(time * 0.00037 + 1.3);
-      if (pendingKick) {
-        center.px -= pendingKick * sk;
-        pendingKick = 0;
+      if (seg !== segTarget || hang !== hangTarget) {
+        const a = Math.min(1, dt * 4);
+        seg = Math.abs(segTarget - seg) < 0.01 ? segTarget : seg + (segTarget - seg) * a;
+        hang = Math.abs(hangTarget - hang) < 0.01 ? hangTarget : hang + (hangTarget - hang) * a;
       }
       for (let i = 1; i < pts.length; i++) {
         const p = pts[i];
@@ -184,12 +209,30 @@ export default function Lanyard({
       }
     };
 
+    // Kaydırma itkisi: kare başına bir kez, sınırlı (bkz. KICK_* / SWAY_* açıklaması). Sürüklerken uygulanmaz.
+    const applyKick = () => {
+      const sk = propsRef.current.scrollKick;
+      const sum = pendingKick;
+      pendingKick = 0;
+      if (drag || !sk) return;
+      const k = Math.max(-KICK_MAX, Math.min(KICK_MAX, sum * KICK_GAIN)) * sk;
+      const dev = center.x - anchor.x;
+      if (dev * k > 0 && Math.abs(dev) >= SWAY_DEV) return;
+      const v = center.x - center.px;
+      const cap = Math.max(SWAY_VMAX * sk, Math.abs(v));
+      center.px = center.x - Math.max(-cap, Math.min(cap, v + k));
+    };
+
     const loop = now => {
       raf = 0;
       if (!visible) return;
       if (!t0) t0 = now;
       const dt = Math.min(1 / 30, last ? (now - last) / 1000 : 1 / 60);
       last = now;
+      if (pendingKick) {
+        applyKick();
+        settleUntil = now - t0 + SCROLL_SETTLE_MS;
+      }
       // Sabit küçük adımlar: kare hızı düşse de zincir patlamaz.
       const n = Math.max(1, Math.round(dt / (1 / 120)));
       for (let i = 0; i < n; i++) step(dt / n, now - t0);
@@ -234,24 +277,27 @@ export default function Lanyard({
 
     const io = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting && !document.hidden;
+      pendingKick = 0;
       if (visible) start();
     });
     io.observe(root);
     const onVis = () => {
       visible = !document.hidden;
+      pendingKick = 0;
       if (visible) start();
     };
     document.addEventListener('visibilitychange', onVis);
 
+    // Kart görünmezken itki biriktirilmez (eskiden birikip geri dönüşte tek karede uygulanıyordu);
+    // lastY her olayda güncellenir ki geri dönüşteki ilk fark doğru olsun.
     let lastY = window.scrollY;
     const onScroll = () => {
       const y = window.scrollY;
-      const dy = Math.max(-60, Math.min(60, y - lastY));
+      const dy = y - lastY;
       lastY = y;
-      if (!still && dy) {
-        pendingKick += dy * 0.18;
-        wake();
-      }
+      if (still || !dy || !visible) return;
+      pendingKick += dy;
+      start(); // esinti yeniden başlatılmaz: kaydırma bitince kart yalnız kendi salınımını söndürür
     };
     window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -263,6 +309,7 @@ export default function Lanyard({
       if (ev.button !== undefined && ev.button !== 0) return;
       const p = local(ev);
       drag = { ox: p.x - center.x, oy: p.y - center.y, tx: center.x, ty: center.y };
+      settleUntil = 0;
       card.setPointerCapture?.(ev.pointerId);
       card.classList.add('lanyard__card--drag');
       wake();

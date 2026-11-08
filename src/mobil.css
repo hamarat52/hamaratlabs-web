@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Telefon düzeni (2026-11-08, Yusuf'un seçimi: taslaktaki B "tek sütun büyük kart").
+   Yalnız en fazla 620 px genişlikte etkilidir: masaüstü ve tablet aynı kalır.
+   - Tek büyük sayfa başlığı; altındaki bölüm başlığı yalnız ekran okuyucuya kalır.
+   - Kartlar tek sütun, tam genişlik; açılıştaki karşılama yazısı HTML başlık (TechText telefonda kurulmaz).
+   - 12 px altı yazı yok, gelişim haritası 0.9 ölçek, ses topu kendi satırında.
+   `html:root` öneki taslaktaki `html[data-yon]` ile aynı özgüllüğü (0,1,1) verir: sonradan yüklenen sayfa
+   parçalarının CSS'i (fikir panosu, geliştirme sayfası) bu kuralları ezmesin.
+   Taslak dosyaları (mobil-taslak.css, mobilTaslak.js) artık içe aktarılmıyor.
+   ========================================================================== */
+
+@media (max-width: 620px) {
+  /* Bölümler arası 96 px telefonda fazla: 56 px */
+  html:root .section { padding-top: 56px; padding-bottom: 56px; }
+  html:root .series .section { padding-bottom: 32px; }
+
+  /* Küçük yazılar telefonda en az 12 px */
+  html:root .lesson__meta,
+  html:root .insta__link span:first-child,
+  html:root .tool__meta,
+  html:root .tool__go,
+  html:root .school__note,
+  html:root .toolwall__tile .mono,
+  html:root .dm__hint,
+  html:root .dm-legend h4,
+  html:root .skill__kind,
+  html:root .skill__unverified,
+  html:root .skills__facet > .mono,
+  html:root .chip--sm .mono,
+  html:root .trial__inner dt,
+  html:root .ib-note__stamp,
+  html:root .ib-note__label,
+  html:root .ib-note__hint,
+  html:root .ib-facts dt,
+  html:root .ib-card__foot,
+  html:root .devpage__block em,
+  html:root .devpage__label,
+  html:root .devpage__tag,
+  html:root .devpage__plan li small,
+  html:root .stage,
+  html:root .tiny { font-size: 12px; }
+  /* Soluk etiketler 12 px'te de okunsun: opaklık yerine düz gri */
+  html:root .tool__meta,
+  html:root .tool__go { opacity: 1; color: var(--muted); }
+
+  /* Gelişim haritası telefonda 0.9 ölçek (viewBox 1360 birim → 1224 px). SVG yazı boyu kullanıcı birimidir:
+     13.4 × 0.9 = 12.06 px. Sağ kenardaki solma devamı olduğunu gösterir. */
+  html:root .dm__svg { min-width: 1224px; overflow: visible; margin-right: 28px; }
+  html:root .dm-label,
+  html:root .dm-axis__date,
+  html:root .dm-axis__day,
+  html:root .dm-axis__gap text { font-size: 13.4px; }
+  html:root .dm-pill text { font-size: 14px; }
+  html:root .dm__scroll {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+  }
+
+  /* İp logonun üstünden geçmesin diye kart sağa asılır (App.jsx anchorX). Kart kimliği 9 → 12 px. */
+  html:root .breath__lanyard .lanyard__meta { font-size: 12px; padding: 8px 10px; letter-spacing: 0.04em; }
+
+  /* Tek başlık: sayfa başlığı kalır; altındaki bölüm başlığı yalnız ekran okuyucuya. */
+  html:root .pagehead .wrap { padding-top: 20px; padding-bottom: 24px; gap: 8px; }
+  html:root .pagehead h1 { font-size: 52px; }
+  html:root .pagehead .lead { font-size: 17px; line-height: 1.45; }
+  html:root .pagehead + .section,
+  html:root .pagehead + .series .section { padding-top: 20px; }
+  html:root .pagehead + .section .section__head,
+  html:root .pagehead + .series .section__head { margin-bottom: 20px; gap: 0; }
+  html:root .pagehead + .section .section__head > div:first-child,
+  html:root .pagehead + .series .section__head > div:first-child {
+    position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  html:root .chip { min-height: 44px; padding: 0 14px; font-size: 14.5px; }
+  html:root .chips { gap: 6px; }
+
+  /* Tek sütun; her kartın başında ikon + aşama + ad, açıklama tam genişlik. */
+  html:root .cards { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  html:root .cards--big { gap: 14px; margin-bottom: 14px; }
+  html:root .cards:not(.cards--big) .card__body {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    grid-template-areas: 'logo stage' 'logo name' 'lead lead' 'foot foot';
+    align-items: end;
+    column-gap: 16px;
+    padding: 20px 20px 18px;
+  }
+  html:root .cards:not(.cards--big) .card__info { display: contents; }
+  html:root .cards:not(.cards--big) .card__logo { grid-area: logo; aspect-ratio: auto; align-self: center; }
+  html:root .cards:not(.cards--big) .card__logo .appicon { width: 72px; height: 72px; }
+  html:root .cards:not(.cards--big) .card__stage { grid-area: stage; }
+  html:root .cards:not(.cards--big) .card__info h3 { grid-area: name; align-self: start; font-size: 22px; }
+  html:root .cards:not(.cards--big) .card__info p { grid-area: lead; margin-top: 14px; font-size: 15.5px; }
+  html:root .cards:not(.cards--big) .card__foot { grid-area: foot; padding-top: 14px; }
+  /* Büyük kartlar: logo alanı 200 → 168 px */
+  html:root .card--big .card__logo { min-height: 168px; }
+  html:root .card--big .card__info { padding: 0 22px 22px; }
+  html:root .card__platform,
+  html:root .card__get,
+  html:root .card__soon { white-space: nowrap; }
+
+  /* Karşılama yazısı tuvalde değil, HTML başlık olarak (sayfadaki h1). TechText telefonda kurulmaz;
+     bu kural yalnız güvence (App.jsx ile CSS eşiği aynı: 620 px). */
+  html:root .breath__tech { display: none; }
+  html:root .breath__foot h1.sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    max-width: 15em;
+    font-family: 'Geist', var(--font);
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    animation: mobil-baslik-in 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
+  }
+  html:root .breath__foot { gap: 18px; bottom: 32px; }
+
+  /* Ses topu kendi satırında ortada, boşluk kısalır. */
+  html:root .section__head > .series__ball { width: 96px; height: 96px; margin: 0 auto; align-self: center; }
+  html:root .series .section__head { row-gap: 16px; }
+
+  /* İlham galerisi: altyazı fildişi hap içinde; alt solma kalkar. */
+  html:root .footer__carousel {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 100%);
+  }
+  html:root .flex-carousel__caption { gap: 6px; }
+  html:root .flex-carousel__title,
+  html:root .flex-carousel__count {
+    background: var(--ivory);
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  html:root .flex-carousel__count:not([data-hidden]) { opacity: 1; }
+  html:root .flex-carousel__title { padding: 5px 14px; border-radius: 999px; }
+  html:root .flex-carousel__count { padding: 4px 10px; border-radius: 999px; font-size: 13px; }
+}
+
+@keyframes mobil-baslik-in {
+  from { opacity: 0; transform: translateY(10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:root .breath__foot h1.sr-only { animation: none; }
+}
