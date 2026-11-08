@@ -9,4 +9,7 @@ genislik/
 0-1280/
 *.log
 !son-olcum.log
+!son-olcum-*.log
+!acilis.log
+!surukle.log
 !yerlesim-*.log

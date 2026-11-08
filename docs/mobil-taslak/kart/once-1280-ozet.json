@@ -1,0 +1,57 @@
+{
+ "url": "http://127.0.0.1:4392/",
+ "width": 1280,
+ "dinlenme_x": 639.9,
+ "kart_kutusu_genislik": 232.2,
+ "konsol": [],
+ "ortalama_fps": 16.5,
+ "acilis_dinlenme_bekleme_sn": 25.1,
+ "evreler": {
+  "e1": {
+   "kare": 137,
+   "gorunur_kare": 137,
+   "max_scrollY": 300,
+   "max_yatay_sapma": 242.8,
+   "sapma_sag": 242.8,
+   "sapma_sol": -130.4,
+   "max_dikey_sapma": 162.2,
+   "kare_basina_max_yatay_sicrama": 38.9,
+   "min_sol_bosluk": 326.0,
+   "min_sag_bosluk": 198.2,
+   "gorus_disi_kare": 0,
+   "hero_disi_kare": 11,
+   "dinlenme_sn": null
+  },
+  "e2": {
+   "kare": 185,
+   "gorunur_kare": 135,
+   "max_scrollY": 2500,
+   "max_yatay_sapma": 176.5,
+   "sapma_sag": 176.5,
+   "sapma_sol": -159.0,
+   "max_dikey_sapma": 214.0,
+   "kare_basina_max_yatay_sicrama": 38.0,
+   "min_sol_bosluk": 274.6,
+   "min_sag_bosluk": 253.9,
+   "gorus_disi_kare": 0,
+   "hero_disi_kare": 29,
+   "dinlenme_sn": null
+  },
+  "e3": {
+   "kare": 190,
+   "gorunur_kare": 149,
+   "max_scrollY": 1200,
+   "max_yatay_sapma": 313.9,
+   "sapma_sag": 313.9,
+   "sapma_sol": -242.2,
+   "max_dikey_sapma": 422.9,
+   "kare_basina_max_yatay_sicrama": 37.5,
+   "min_sol_bosluk": 209.8,
+   "min_sag_bosluk": 129.3,
+   "gorus_disi_kare": 0,
+   "hero_disi_kare": 66,
+   "dinlenme_sn": null
+  }
+ },
+ "acilis_gorus_disi_kare": 0
+}

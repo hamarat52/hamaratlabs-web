@@ -1,0 +1,27 @@
+{
+ "/": {
+  "scrollW": 1280,
+  "height": 5302,
+  "firstCardY": 1090,
+  "firstLessonY": 3561,
+  "firstToolY": null,
+  "cardWidths": [
+   544,
+   544,
+   208,
+   208,
+   208,
+   208,
+   208,
+   208,
+   208
+  ],
+  "smallCount": 11,
+  "smallText": [
+   "10.0px span x2: YUSUF HAMARAT | KURUCU · HL 001",
+   "11.0px span x4: Reels | Reels",
+   "11.0px lesson__meta x5: YOUTUBE · REELS | REELS · YOUTUBE"
+  ],
+  "logs": []
+ }
+}

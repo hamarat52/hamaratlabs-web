@@ -1,0 +1,55 @@
+{
+ "/": {
+  "scrollW": 390,
+  "height": 7231,
+  "firstCardY": 1286,
+  "firstLessonY": 5300,
+  "firstToolY": null,
+  "cardWidths": [
+   358,
+   358,
+   171,
+   171,
+   171,
+   171,
+   171,
+   171,
+   171
+  ],
+  "smallCount": 11,
+  "smallText": [
+   "9.0px span x2: YUSUF HAMARAT | KURUCU · HL 001",
+   "11.0px span x4: Reels | Reels",
+   "11.0px lesson__meta x5: YOUTUBE · REELS | REELS · YOUTUBE"
+  ],
+  "logs": []
+ },
+ "/uretiyorum": {
+  "scrollW": 390,
+  "height": 6094,
+  "firstCardY": 674,
+  "firstLessonY": null,
+  "firstToolY": null,
+  "cardWidths": [
+   358,
+   358,
+   171,
+   171,
+   171,
+   171,
+   171,
+   171,
+   171
+  ],
+  "smallCount": 116,
+  "smallText": [
+   "8.4px dm-axis__date x24: 26 Eyl | 28 Eyl",
+   "7.2px dm-axis__day x24: 0 | +2",
+   "7.2px text x1: ≈ 13 gün",
+   "9.1px text x5: Income vs Desires | SesVer",
+   "8.7px dm-label x61: Eklenti + tanıtım sitesi | Kur tazeleme hatası düzeltil",
+   "11.0px dm__hint x1: ← haritayı yana kaydır →"
+  ],
+  "logs": []
+ }
+}
