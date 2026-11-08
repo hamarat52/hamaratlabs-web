@@ -48,6 +48,13 @@ if (existsSync(schoolDir)) {
     if (d.isDirectory() && existsSync(path.join(schoolDir, d.name, 'index.html'))) staticUrls.push(`/okul-projeleri/${d.name}/`);
   }
 }
+// Income vs Desires'ın düz HTML sitesi (public/income-vs-desires/, IVD reposundan kopya; 2026-11-08'de GitHub Pages'ten taşındı).
+// Cloudflare Pages .html'siz adresle sunar (destek.html -> /income-vs-desires/destek), sitemap'e de öyle girer.
+const ivdDir = path.join(__dirname, '..', 'public', 'income-vs-desires');
+const ivdPages = (dir, rel = '') => readdirSync(dir, { withFileTypes: true }).flatMap(d =>
+  d.isDirectory() ? ivdPages(path.join(dir, d.name), `${rel}${d.name}/`)
+    : d.name.endsWith('.html') ? [`/income-vs-desires/${rel}${d.name.replace(/(^|\/)?index\.html$/, '').replace(/\.html$/, '')}`] : []);
+if (existsSync(ivdDir)) staticUrls.push(...ivdPages(ivdDir).sort());
 // CI'da dist'e başka repolardan kopyalanan Okul Projeleri sayfaları (bkz. .github/workflows/deploy.yml).
 staticUrls.push('/okul-projeleri/ricambio/');
 const appUrls = allApps.map(a => `/uretiyorum/${slugOf(a.name)}`);

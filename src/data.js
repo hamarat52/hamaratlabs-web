@@ -82,8 +82,9 @@ export const APPS = [
     ],
     download: 'https://github.com/hamarat52/income-vs-desires',
     downloadLabel: "GitHub'dan indir",
-    // Ürünün kendi sitesi (GitHub Pages). AppPage bu alan varsa ek bir CTA gösterir.
-    visitUrl: 'https://hamarat52.github.io/income-vs-desires/',
+    // Ürünün kendi sitesi: 2026-11-08'den beri public/income-vs-desires/ altında düz HTML (GitHub Pages kopyası kapanıyor).
+    // Statik sayfa olduğu için tam URL: '/' ile başlarsa SPA Router yakalar, dosyaya ulaşılmaz.
+    visitUrl: 'https://hamaratlabs.com/income-vs-desires/',
     visitLabel: 'Ürünü ziyaret et',
     // Hedef sitenin kendi kimliği: krem zemin + kiremit kırmızısı vurgu (terminal/monospace dil).
     visitAccent: 'linear-gradient(135deg, #C2451F 0%, #962D12 100%)'

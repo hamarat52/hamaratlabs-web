@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Privacy policy | IncomeVsDesires</title>
+    <meta
+      name="description"
+      content="IncomeVsDesires collects no data and has no server. Your pay and expenses are stored only in your own browser."
+    />
+    <link rel="canonical" href="https://hamaratlabs.com/income-vs-desires/en/privacy" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>"
+    />
+    <script src="../theme.js"></script>
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="wrap topbar">
+      <a class="brand" href="../">income<span>vs</span>desires</a>
+      <nav class="topnav">
+        <a href="./support">Support</a>
+        <a href="../gizlilik" lang="tr" hreflang="tr">Türkçe</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">☾</button>
+      </nav>
+    </header>
+
+    <main id="main" class="wrap article">
+      <header>
+        <p class="meta"><time datetime="2026-10-28">Last updated: October 28, 2026</time></p>
+        <h1 style="font-size: clamp(28px, 4.5vw, 44px)">Privacy policy</h1>
+        <p class="lede">
+          The short version: we collect no data. No server, no account, no
+          analytics.
+        </p>
+      </header>
+
+      <h2>What data we handle</h2>
+
+      <p>
+        The IncomeVsDesires extension stores the following <strong>only in
+        your browser</strong>:
+      </p>
+
+      <ul>
+        <li>The monthly take-home pay and currency you enter</li>
+        <li>Your work schedule (hours per day, days per month)</li>
+        <li>The fixed expenses you add (name, amount, period, type)</li>
+        <li>The list of sites where you turned the extension off</li>
+      </ul>
+
+      <p>
+        In Chrome, this data is kept in Chrome's own <code>storage.sync</code>
+        storage. If sync is turned on in your Chrome account, Google syncs it
+        on its own infrastructure; that is Chrome's standard behavior and it
+        never reaches us.
+      </p>
+
+      <p>
+        In Safari (Mac, iPhone, iPad), the same data is kept in Safari's
+        extension storage; it never reaches us.
+      </p>
+
+      <h2>What we don't collect</h2>
+
+      <ul>
+        <li>The sites you visit, your history, your tabs</li>
+        <li>The prices you see or convert</li>
+        <li>IP address, device ID, cookies</li>
+        <li>Any personally identifiable information</li>
+      </ul>
+
+      <p>
+        The extension has no server. Since there is nowhere to send your data,
+        we couldn't collect it even if we wanted to.
+      </p>
+
+      <h2>Outgoing requests</h2>
+
+      <p>
+        Once a day, the extension fetches exchange rates from
+        <a href="https://frankfurter.dev" rel="noopener">frankfurter.dev</a>
+        (European Central Bank data). If that address can't be reached, it
+        asks for the same table from two backup sources in turn:
+        <a href="https://www.exchangerate-api.com/docs/free" rel="noopener">open.er-api.com</a>
+        and
+        <a href="https://github.com/fawazahmed0/exchange-api" rel="noopener">currency-api</a>
+        (via cdn.jsdelivr.net). These requests only ask for the rate table;
+        they contain nothing about your pay, the sites you visit or anything
+        that identifies you. If none of them responds, the extension uses the
+        last rates it fetched successfully and says so in the panel.
+      </p>
+
+      <h2>What we do to pages</h2>
+
+      <p>
+        The extension finds price text on the page you are viewing and writes
+        working time in its place. This happens entirely inside the browser,
+        on the page being displayed. Page content is never sent anywhere or
+        saved.
+      </p>
+
+      <p>
+        On some domains the extension doesn't run at all (such as email,
+        document and banking sites). You can also turn it off for any site
+        with one click from the panel.
+      </p>
+
+      <h2>If you send feedback</h2>
+
+      <p>
+        If you use the "report a bug" form inside the extension, you see the
+        text exactly as it will be sent before you send it. The report
+        includes the extension version, browser information, your currency
+        and your work schedule.
+        <strong>Your pay and your expense list are never included.</strong>
+      </p>
+
+      <h2>This website</h2>
+
+      <p>
+        This website uses no cookies, has no analytics script and loads no
+        third-party resources. The calculator on the page runs entirely in
+        your browser; the pay you type goes nowhere.
+      </p>
+
+      <p>
+        The only thing we keep in your browser is the theme you pick with the
+        button in the top bar (<code>ivd-theme</code>). It is never sent to a
+        server and doesn't identify you; its only job is to open the page in
+        the colors you chose next time.
+      </p>
+
+      <h2>Changes</h2>
+
+      <p>
+        If this policy changes, the date above is updated. If a change would
+        start collecting data, it will be stated clearly in the extension's
+        release notes.
+      </p>
+    </main>
+
+    <footer class="section foot">
+      <div class="wrap foot-grid">
+        <div>
+          <strong>IncomeVsDesires</strong>
+          Turns prices into your working time.
+        </div>
+        <div>
+          <strong>Site</strong>
+          <a href="./support">Support</a>
+          <a href="../gizlilik" lang="tr" hreflang="tr">Gizlilik (Türkçe)</a>
+          <a href="../">Home (Turkish)</a>
+        </div>
+        <div>
+          <strong>hamaratlabs</strong>
+          <a href="/">hamaratlabs.com</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

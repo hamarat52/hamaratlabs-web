@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>IncomeVsDesires · Fiyatları çalışma saatine çeviren Chrome eklentisi</title>
+    <meta
+      name="description"
+      content="Maaşını ve çalışma düzenini gir, internetteki her fiyat kaç saatlik mesaine denk geldiğini göstersin. Trendyol, Hepsiburada, Amazon ve Google Alışveriş'te test edildi. Ücretsiz Chrome eklentisi."
+    />
+    <link rel="canonical" href="https://hamaratlabs.com/income-vs-desires/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="IncomeVsDesires" />
+    <meta property="og:title" content="500 TL değil. 1,8 saat." />
+    <meta
+      property="og:description"
+      content="Fiyatları maaşına göre çalışma süresine çeviren ücretsiz Chrome eklentisi."
+    />
+    <meta property="og:url" content="https://hamaratlabs.com/income-vs-desires/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "IncomeVsDesires",
+            "applicationCategory": "BrowserApplication",
+            "operatingSystem": "Chrome",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+            "inLanguage": "tr",
+            "description": "İnternetteki fiyatları, maaşına göre kaç saat çalışman gerektiğine çeviren Chrome eklentisi."
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Saatlik ücretim nasıl hesaplanıyor?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Aylık net maaşın, günlük çalışma saatin ile aylık çalışma gününün çarpımına bölünür. Örneğin 50.000 TL maaş, günde 8 saat, ayda 22 gün çalışan biri için saatlik 284,09 TL eder."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Maaş bilgim bir yere gönderiliyor mu?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hayır. Maaşın ve giderlerin Chrome'un kendi ayar deposunda tutulur; Chrome senkronizasyonun açıksa Chrome bunları Google hesabındaki diğer cihazlarınla eşitler. Eklentinin sunucusu yoktur; bize hiçbir veri gelmez."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Hangi sitelerde çalışıyor?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Eklenti site tanımaz, sayfadaki fiyat yazımını tanır; bu yüzden çoğu sitede çalışır. Trendyol, Hepsiburada, Amazon.com.tr, n11, LC Waikiki, Migros, Teknosa, Çiçeksepeti, Sahibinden, MediaMarkt ve Google Alışveriş gerçek sayfalarda tek tek test edildi (28 Ekim 2026)."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script src="./theme.js"></script>
+  </head>
+
+  <body>
+    <a class="skip" href="#main">İçeriğe geç</a>
+
+    <header class="wrap topbar">
+      <a class="brand" href="./">income<span>vs</span>desires</a>
+      <nav class="topnav">
+        <a href="#hesapla">Hesapla</a>
+        <a href="#kanit">Testler</a>
+        <a href="./blog/">Yazılar</a>
+        <a href="#kur" class="mono" style="color: var(--stamp)">Kur →</a>
+        <button type="button" class="theme-toggle" aria-label="Karanlık görünüme geç" aria-pressed="false">☾</button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="wrap hero ruled">
+        <div>
+          <h1>500 TL değil.<br />1 saat 46 dakika.</h1>
+          <p class="lede">
+            Fiyat etiketleri parayla konuşur, sen ise hayatını saatle
+            yaşıyorsun. Bu eklenti internetteki her fiyatı senin mesaine
+            çevirir. Böylece "pahalı mı?" sorusunun cevabını gerçekten
+            görürsün.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn" href="#kur">Chrome'a ücretsiz ekle</a>
+            <a class="btn ghost" href="#hesapla">Önce saatimi hesapla</a>
+          </div>
+
+          <p class="hero-note">
+            Kayıt yok · sunucu yok · maaşın bize gelmez
+          </p>
+        </div>
+
+        <div>
+          <div class="receipt">
+            <div class="receipt-head">
+              <span>Sepetin</span>
+              <span>mesai karşılığı</span>
+            </div>
+
+            <div class="receipt-row">
+              <span class="receipt-item">Spor ayakkabı</span>
+              <button class="tick" type="button" data-money="2.499 TL">
+                1,1 gün
+              </button>
+            </div>
+            <div class="receipt-row">
+              <span class="receipt-item">Kablosuz kulaklık</span>
+              <button class="tick" type="button" data-money="1.899 TL">
+                6,7 saat
+              </button>
+            </div>
+            <div class="receipt-row">
+              <span class="receipt-item">Kahve (günde 1, ayda 30)</span>
+              <button class="tick" type="button" data-money="2.700 TL">
+                1,2 gün
+              </button>
+            </div>
+            <div class="receipt-row">
+              <span class="receipt-item">Telefon</span>
+              <button class="tick" type="button" data-money="49.999 TL">
+                1 ay</button
+              >
+            </div>
+
+            <div class="receipt-total">
+              <span>TOPLAM</span>
+              <button class="tick" type="button" data-money="57.097 TL">
+                1,2 ay
+              </button>
+            </div>
+
+            <p class="receipt-hint">
+              rakamlara dokun, paraya geri döner ↑
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= HESAPLAYICI ================= -->
+      <section class="section" id="hesapla">
+        <div class="wrap">
+          <p class="eyebrow"><span>01 · Saatlik ücret hesaplama</span></p>
+          <h2>Bir saatin kaç para ediyor?</h2>
+          <p class="lede" style="margin-bottom: 36px">
+            Maaşını yaz; saatlik ve günlük kazancını, sonra da sık alınan
+            şeylerin sana kaç saate mal olduğunu göster.
+          </p>
+
+          <div class="calc">
+            <form id="calcForm" novalidate>
+              <label class="field">
+                <span>Aylık net maaş (TL)</span>
+                <input type="text" id="salary" inputmode="numeric" autocomplete="off" value="50000" />
+              </label>
+
+              <div class="field-row">
+                <label class="field" style="flex: 1">
+                  <span>Saat / gün</span>
+                  <input type="number" id="hoursPerDay" min="1" max="24" step="any" value="8" />
+                </label>
+                <label class="field" style="flex: 1">
+                  <span>Gün / ay</span>
+                  <input type="number" id="daysPerMonth" min="1" max="31" step="any" value="22" />
+                </label>
+              </div>
+
+              <div class="result">
+                <div class="result-figure" id="hourly">₺284,09</div>
+                <div class="result-label" id="hourlyNote">
+                  bir saatin · ayda 176 saat çalışıyorsun
+                </div>
+              </div>
+            </form>
+
+            <div class="scroll-x">
+              <table class="examples">
+                <thead>
+                  <tr>
+                    <th scope="col">Ne aldığın</th>
+                    <th scope="col">Fiyat</th>
+                    <th scope="col">Ne kadar çalışma</th>
+                  </tr>
+                </thead>
+                <tbody id="examples"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NASIL ÇALIŞIR ================= -->
+      <section class="section">
+        <div class="wrap">
+          <p class="eyebrow"><span>02 · Ne yapıyor</span></p>
+          <h2>Dört şey, hepsi tarayıcının içinde</h2>
+
+          <div class="rows">
+            <div class="row">
+              <span class="row-num">001</span>
+              <span class="row-title">Fiyatı süreye çevirir</span>
+              <p>
+                Gezdiğin sayfadaki fiyatlar yerine mesai karşılığı yazar.
+                Rakama tıklarsan fiyat geri gelir. Dolar, euro ve sterlin
+                fiyatlar günlük kurla önce senin paranı bulur.
+              </p>
+            </div>
+            <div class="row">
+              <span class="row-num">002</span>
+              <span class="row-title">Kendi biriminle konuşur</span>
+              <p>
+                "1 gün" senin bir günlük mesain, "1 ay" ise tam bir maaşın.
+                Takvim günü değil, çalıştığın süre. Günde 8 saat çalışan biri
+                için 20.000 TL, 8,8 iş günü demek.
+              </p>
+            </div>
+            <div class="row">
+              <span class="row-num">003</span>
+              <span class="row-title">Sabit giderlerini tartar</span>
+              <p>
+                Kira, aidat, dijital abonelikler… Ayın kaç gününü hangi gidere
+                çalıştığını halka grafikte gösterir. Yıllık ödemeler otomatik
+                aylığa bölünür.
+              </p>
+            </div>
+            <div class="row">
+              <span class="row-num">004</span>
+              <span class="row-title">Hiçbir şey göndermez</span>
+              <p>
+                Sunucu yok, hesap yok, takip yok. Maaşın Chrome'un kendi
+                deposunda durur; senkronizasyon açıksa onu yalnızca Chrome
+                diğer cihazlarına taşır, bize hiçbir şey gelmez. Eklentinin
+                dışarıya yaptığı tek istek, merkez bankası kurlarını çeken
+                günlük istektir.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= KANIT ================= -->
+      <section class="section" id="kanit">
+        <div class="wrap">
+          <p class="eyebrow"><span>03 · Testler</span></p>
+          <h2>Ekran görüntüsü değil, ölçüm</h2>
+          <p class="lede" style="margin-bottom: 32px">
+            Her site gerçek sayfalarda tek tek denendi; sayfadaki fiyatların
+            kaçını yakaladığı ve taramanın kaç milisaniye sürdüğü ölçüldü.
+          </p>
+
+          <div class="scroll-x">
+            <table class="proof">
+              <caption>Ölçüm tarihi: 28 Ekim 2026</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Site</th>
+                  <th scope="col">Sayfadaki element</th>
+                  <th scope="col">Bulunan fiyat</th>
+                  <th scope="col">Tarama</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">LC Waikiki</th><td>7.594</td><td class="ok">145</td><td>34 ms</td></tr>
+                <tr><th scope="row">Trendyol</th><td>6.937</td><td class="ok">143</td><td>33 ms</td></tr>
+                <tr><th scope="row">n11</th><td>4.412</td><td class="ok">93</td><td>25 ms</td></tr>
+                <tr><th scope="row">Hepsiburada</th><td>6.642</td><td class="ok">90</td><td>50 ms</td></tr>
+                <tr><th scope="row">Amazon.com.tr</th><td>11.093</td><td class="ok">79</td><td>124 ms</td></tr>
+                <tr><th scope="row">Google Alışveriş</th><td>8.725</td><td class="ok">62</td><td>41 ms</td></tr>
+                <tr><th scope="row">Migros</th><td>3.648</td><td class="ok">51</td><td>31 ms</td></tr>
+                <tr><th scope="row">Teknosa</th><td>6.817</td><td class="ok">49</td><td>35 ms</td></tr>
+                <tr><th scope="row">Çiçeksepeti</th><td>1.965</td><td class="ok">45</td><td>12 ms</td></tr>
+                <tr><th scope="row">Sahibinden</th><td>3.282</td><td class="ok">20</td><td>38 ms</td></tr>
+                <tr><th scope="row">MediaMarkt</th><td>5.684</td><td class="ok">8 (ilk ekran)</td><td>29 ms</td></tr>
+                <tr><th scope="row">Boyner</th><td>—</td><td>bilinmiyor</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="margin-top: 24px; color: var(--ink-2)">
+            Boyner'de ürünler test tarayıcısında yüklenmedi, sonuç bilinmiyor.
+            MediaMarkt ürünleri kaydırdıkça yüklüyor; tablo ilk ekranı gösterir.
+          </p>
+
+          <p style="margin-top: 12px; color: var(--ink-2)">
+            Eklenti site listesi tutmaz, sayfadaki fiyat yazımını tanır. Bu
+            yüzden listede olmayan sitelerde de çalışır. Yakalayamadığı bir
+            fiyat görürsen eklentinin içinden bildirebilirsin.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= KURULUM ================= -->
+      <section class="section" id="kur">
+        <div class="wrap">
+          <p class="eyebrow"><span>04 · Kurulum</span></p>
+          <h2>Üç adım, iki dakika</h2>
+
+          <div class="rows">
+            <div class="row">
+              <span class="row-num">01</span>
+              <span class="row-title">Eklentiyi ekle</span>
+              <p>Chrome Web Mağazası'ndan ücretsiz kur.</p>
+            </div>
+            <div class="row">
+              <span class="row-num">02</span>
+              <span class="row-title">Maaşını gir</span>
+              <p>
+                Aylık net maaş, günde kaç saat, ayda kaç gün. Üç alan, hepsi bu.
+              </p>
+            </div>
+            <div class="row">
+              <span class="row-num">03</span>
+              <span class="row-title">Alışverişe çık</span>
+              <p>Fiyatlar artık saatle konuşuyor. Fikrin değişecek.</p>
+            </div>
+          </div>
+
+          <div class="hero-actions" style="margin-top: 36px">
+            <a class="btn" href="#" data-store-link>Chrome'a ücretsiz ekle</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="section foot">
+      <div class="wrap foot-grid">
+        <div>
+          <strong>IncomeVsDesires</strong>
+          Fiyatları mesaine çevirir.<br />
+          Türkiye için yapıldı.
+        </div>
+        <div>
+          <strong>Site</strong>
+          <a href="#hesapla">Saatlik ücret hesaplama</a>
+          <a href="./blog/">Yazılar</a>
+          <a href="./gizlilik">Gizlilik</a>
+          <a href="./destek">Destek</a>
+        </div>
+        <div>
+          <strong>Yazılar</strong>
+          <a href="./blog/saatlik-ucret-nasil-hesaplanir">Saatlik ücret nasıl hesaplanır</a>
+          <a href="./blog/kira-maasin-yuzde-kaci-olmali">Kira maaşın yüzde kaçı olmalı</a>
+          <a href="./blog/durtusel-alisveristen-kurtulmak">Dürtüsel alışverişten kurtulmak</a>
+        </div>
+        <div>
+          <strong>hamaratlabs</strong>
+          <a href="/">hamaratlabs.com</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./calc.js"></script>
+  </body>
+</html>
