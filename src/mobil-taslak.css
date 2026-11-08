@@ -1,0 +1,220 @@
+/* ==========================================================================
+   TASLAK: telefon düzeni, iki yön (design/mobil-taslak, 2026-11-08).
+   Yalnız <html data-yon="a|b"> ve en fazla 620 px genişlikte etkilidir: masaüstü ve tablet aynı kalır.
+   A "Sıkı liste": iki başlık da kalır ama küçülür, kartlar App Store listesi gibi satır.
+   B "Tek sütun büyük kart": tek büyük sayfa başlığı, kartlar tam genişlik, başlık metni HTML.
+   Ortak: 12 px altı yazı yok, gelişim haritası 1:1 ölçek, ses topu boşluğu kapanır.
+   Seçimden sonra seçilmeyen yön silinir, seçilen yönün kuralları App.css'e taşınır.
+   ========================================================================== */
+
+@media (max-width: 620px) {
+  /* ---------- Ortak (A ve B) ---------- */
+
+  /* Bölümler arası 96 px telefonda fazla: 56 px */
+  html[data-yon] .section { padding-top: 56px; padding-bottom: 56px; }
+  html[data-yon] .series .section { padding-bottom: 32px; }
+
+  /* Sorun 5: küçük yazılar telefonda en az 12 px */
+  html[data-yon] .lesson__meta,
+  html[data-yon] .insta__link span:first-child,
+  html[data-yon] .tool__meta,
+  html[data-yon] .tool__go,
+  html[data-yon] .school__note,
+  html[data-yon] .toolwall__tile .mono,
+  html[data-yon] .dm__hint,
+  html[data-yon] .dm-legend h4,
+  html[data-yon] .skill__kind,
+  html[data-yon] .skill__unverified,
+  html[data-yon] .skills__facet > .mono,
+  html[data-yon] .chip--sm .mono,
+  html[data-yon] .trial__inner dt,
+  html[data-yon] .ib-note__stamp,
+  html[data-yon] .ib-note__label,
+  html[data-yon] .ib-note__hint,
+  html[data-yon] .ib-facts dt,
+  html[data-yon] .ib-card__foot,
+  html[data-yon] .devpage__block em,
+  html[data-yon] .devpage__label,
+  html[data-yon] .devpage__tag,
+  html[data-yon] .devpage__plan li small,
+  html[data-yon] .stage,
+  html[data-yon] .tiny { font-size: 12px; }
+  /* Soluk etiketler 12 px'te de okunsun: opaklık yerine düz gri */
+  html[data-yon] .tool__meta,
+  html[data-yon] .tool__go { opacity: 1; color: var(--muted); }
+
+  /* Sorun 7: gelişim haritası telefonda 0.9 ölçek (viewBox 1360 birim → 1224 px; canlıda 1034 px, ölçek 0.76).
+     SVG yazı boyu kullanıcı birimidir: 13.4 × 0.9 = 12.06 px. İlk görünümde eksen ve ilk hat birlikte kalır.
+     Etiketler komşu hatta ve birbirine değmez (rapordaki çakışma ölçümü). Sağ kenardaki solma devamı olduğunu gösterir. */
+  html[data-yon] .dm__svg { min-width: 1224px; overflow: visible; margin-right: 28px; }
+  html[data-yon] .dm-label,
+  html[data-yon] .dm-axis__date,
+  html[data-yon] .dm-axis__day,
+  html[data-yon] .dm-axis__gap text { font-size: 13.4px; }
+  html[data-yon] .dm-pill text { font-size: 14px; }
+  html[data-yon] .dm__scroll {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+  }
+
+  /* Sorun 3 (ortak): ip logonun üstünden geçmesin diye kart sağa asılır (App.jsx anchorX).
+     Kart kimliğindeki yazı 9 px'ten 12 px'e. */
+  html[data-yon] .breath__lanyard .lanyard__meta { font-size: 12px; padding: 8px 10px; letter-spacing: 0.04em; }
+
+  /* ---------- Yön A: Sıkı liste ---------- */
+
+  /* Sorun 1: iki başlık kalır, ikisi de sıkışır. */
+  html[data-yon='a'] .pagehead .wrap { padding-top: 16px; padding-bottom: 20px; gap: 6px; }
+  html[data-yon='a'] .pagehead h1 { font-size: 40px; }
+  html[data-yon='a'] .pagehead .lead { font-size: 16px; line-height: 1.45; }
+  html[data-yon='a'] .pagehead + .section,
+  html[data-yon='a'] .pagehead + .series .section { padding-top: 20px; }
+  html[data-yon='a'] .pagehead + .section .section__head,
+  html[data-yon='a'] .pagehead + .series .section__head { gap: 14px; margin-bottom: 18px; }
+  html[data-yon='a'] .pagehead + .section h2,
+  html[data-yon='a'] .pagehead + .series h2 { font-size: 24px; }
+  html[data-yon='a'] .pagehead + .section .section__head p,
+  html[data-yon='a'] .pagehead + .series .section__head p { margin-top: 4px; font-size: 15px; }
+  /* Süzgeçler tek satır, yana kayar */
+  html[data-yon='a'] .chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0 var(--gutter);
+    scrollbar-width: none;
+    flex: 1 1 100%;
+  }
+  html[data-yon='a'] .chips::-webkit-scrollbar { display: none; }
+  html[data-yon='a'] .chip { flex: none; padding: 0 16px; }
+
+  /* Sorun 2: kartlar liste satırı; solda ikon, sağda bilgi. */
+  html[data-yon='a'] .cards,
+  html[data-yon='a'] .cards--big { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  html[data-yon='a'] .cards--big { margin-bottom: 10px; }
+  html[data-yon='a'] .card .card__body,
+  html[data-yon='a'] .card--big .card__body { flex-direction: row; align-items: flex-start; gap: 14px; padding: 16px 16px 14px; }
+  html[data-yon='a'] .card .card__logo,
+  html[data-yon='a'] .card--big .card__logo { flex: 0 0 64px; height: 64px; min-height: 0; aspect-ratio: auto; }
+  html[data-yon='a'] .card--big .card__logo { flex-basis: 84px; height: 84px; }
+  html[data-yon='a'] .card__logo .appicon { width: 64px; height: 64px; }
+  html[data-yon='a'] .card--big .card__logo .appicon { width: 84px; height: 84px; }
+  html[data-yon='a'] .card .card__info,
+  html[data-yon='a'] .card--big .card__info { padding: 0; gap: 4px; justify-content: flex-start; }
+  html[data-yon='a'] .card__info h3 { font-size: 19px; }
+  html[data-yon='a'] .card--big .card__info h3 { font-size: 24px; }
+  html[data-yon='a'] .card__info p { font-size: 14.5px; line-height: 1.45; }
+  html[data-yon='a'] .card--big .card__info p { font-size: 15.5px; }
+  html[data-yon='a'] .card__foot { padding-top: 8px; }
+  html[data-yon='a'] .card__platform,
+  html[data-yon='a'] .card__get,
+  html[data-yon='a'] .card__soon { white-space: nowrap; }
+
+  /* Sorun 3: TechText satırları sıkı (64 → 40 px kutu, yazı boyu aynı kalır). */
+  html[data-yon='a'] .breath__techline { height: 40px; }
+  html[data-yon='a'] .breath__foot { gap: 10px; }
+
+  /* Sorun 4: ses topu başlığın sağ üstünde, küçük. */
+  html[data-yon='a'] .series .section__head { position: relative; }
+  html[data-yon='a'] .series .section__head > div:not(.series__ball) { padding-right: 84px; }
+  html[data-yon='a'] .section__head > .series__ball { position: absolute; top: 0; right: 0; width: 76px; height: 76px; }
+  html[data-yon='a'] .pagehead + .series .section__head > .series__ball { top: -6px; }
+
+  /* Sorun 6: ilham galerisi altyazısı alt solmanın dışında, mürekkep renginde. */
+  html[data-yon='a'] .footer__carousel {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 100%);
+  }
+  html[data-yon='a'] .flex-carousel__title { color: var(--ink); }
+  html[data-yon='a'] .flex-carousel__count { font-size: 13px; }
+  html[data-yon='a'] .flex-carousel__count:not([data-hidden]) { opacity: 0.75; }
+
+  /* ---------- Yön B: Tek sütun büyük kart ---------- */
+
+  /* Sorun 1: tek başlık. Sayfa başlığı kalır; altındaki bölüm başlığı yalnız ekran okuyucuya. */
+  html[data-yon='b'] .pagehead .wrap { padding-top: 20px; padding-bottom: 24px; gap: 8px; }
+  html[data-yon='b'] .pagehead h1 { font-size: 52px; }
+  html[data-yon='b'] .pagehead .lead { font-size: 17px; line-height: 1.45; }
+  html[data-yon='b'] .pagehead + .section,
+  html[data-yon='b'] .pagehead + .series .section { padding-top: 20px; }
+  html[data-yon='b'] .pagehead + .section .section__head,
+  html[data-yon='b'] .pagehead + .series .section__head { margin-bottom: 20px; gap: 0; }
+  html[data-yon='b'] .pagehead + .section .section__head > div:first-child,
+  html[data-yon='b'] .pagehead + .series .section__head > div:first-child {
+    position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  html[data-yon='b'] .chip { min-height: 44px; padding: 0 14px; font-size: 14.5px; }
+  html[data-yon='b'] .chips { gap: 6px; }
+
+  /* Sorun 2: tek sütun; her kartın başında ikon + aşama + ad, açıklama tam genişlik. */
+  html[data-yon='b'] .cards { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  html[data-yon='b'] .cards--big { gap: 14px; margin-bottom: 14px; }
+  html[data-yon='b'] .cards:not(.cards--big) .card__body {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    grid-template-areas: 'logo stage' 'logo name' 'lead lead' 'foot foot';
+    align-items: end;
+    column-gap: 16px;
+    padding: 20px 20px 18px;
+  }
+  html[data-yon='b'] .cards:not(.cards--big) .card__info { display: contents; }
+  html[data-yon='b'] .cards:not(.cards--big) .card__logo { grid-area: logo; aspect-ratio: auto; align-self: center; }
+  html[data-yon='b'] .cards:not(.cards--big) .card__logo .appicon { width: 72px; height: 72px; }
+  html[data-yon='b'] .cards:not(.cards--big) .card__stage { grid-area: stage; }
+  html[data-yon='b'] .cards:not(.cards--big) .card__info h3 { grid-area: name; align-self: start; font-size: 22px; }
+  html[data-yon='b'] .cards:not(.cards--big) .card__info p { grid-area: lead; margin-top: 14px; font-size: 15.5px; }
+  html[data-yon='b'] .cards:not(.cards--big) .card__foot { grid-area: foot; padding-top: 14px; }
+  /* Büyük kartlar: logo alanı 200 → 168 px */
+  html[data-yon='b'] .card--big .card__logo { min-height: 168px; }
+  html[data-yon='b'] .card--big .card__info { padding: 0 22px 22px; }
+  html[data-yon='b'] .card__platform,
+  html[data-yon='b'] .card__get,
+  html[data-yon='b'] .card__soon { white-space: nowrap; }
+
+  /* Sorun 3: karşılama yazısı tuvalde değil, HTML başlık olarak (zaten sayfadaki h1). */
+  html[data-yon='b'] .breath__tech { display: none; }
+  html[data-yon='b'] .breath__foot h1.sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    max-width: 15em;
+    font-family: 'Geist', var(--font);
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    animation: yon-b-in 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
+  }
+  html[data-yon='b'] .breath__foot { gap: 18px; bottom: 32px; }
+
+  /* Sorun 4: ses topu kendi satırında ortada, boşluk kısalır. */
+  html[data-yon='b'] .section__head > .series__ball { width: 96px; height: 96px; margin: 0 auto; align-self: center; }
+  html[data-yon='b'] .series .section__head { row-gap: 16px; }
+
+  /* Sorun 6: altyazı fildişi hap içinde; alt solma kalkar. */
+  html[data-yon='b'] .footer__carousel {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 100%);
+  }
+  html[data-yon='b'] .flex-carousel__caption { gap: 6px; }
+  html[data-yon='b'] .flex-carousel__title,
+  html[data-yon='b'] .flex-carousel__count {
+    background: var(--ivory);
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  html[data-yon='b'] .flex-carousel__count:not([data-hidden]) { opacity: 1; }
+  html[data-yon='b'] .flex-carousel__title { padding: 5px 14px; border-radius: 999px; }
+  html[data-yon='b'] .flex-carousel__count { padding: 4px 10px; border-radius: 999px; font-size: 13px; }
+}
+
+@keyframes yon-b-in {
+  from { opacity: 0; transform: translateY(10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-yon='b'] .breath__foot h1.sr-only { animation: none; }
+}

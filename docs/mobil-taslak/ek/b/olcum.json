@@ -1,0 +1,46 @@
+{
+ "/paylasiyorum": {
+  "scrollW": 390,
+  "height": 1787,
+  "firstCardY": null,
+  "firstLessonY": null,
+  "firstToolY": null,
+  "cardWidths": [],
+  "smallCount": 0,
+  "smallText": [],
+  "logs": []
+ },
+ "/skills": {
+  "scrollW": 390,
+  "height": 9361,
+  "firstCardY": null,
+  "firstLessonY": null,
+  "firstToolY": null,
+  "cardWidths": [],
+  "smallCount": 0,
+  "smallText": [],
+  "logs": []
+ },
+ "/uretiyorum/kitabe": {
+  "scrollW": 390,
+  "height": 3807,
+  "firstCardY": null,
+  "firstLessonY": null,
+  "firstToolY": null,
+  "cardWidths": [],
+  "smallCount": 0,
+  "smallText": [],
+  "logs": []
+ },
+ "/uretiyorum/pomodoro-restoran": {
+  "scrollW": 390,
+  "height": 2640,
+  "firstCardY": null,
+  "firstLessonY": null,
+  "firstToolY": null,
+  "cardWidths": [],
+  "smallCount": 0,
+  "smallText": [],
+  "logs": []
+ }
+}

@@ -1,0 +1,12 @@
+# Ağır ham görüntüler yalnız worktree'de kalır; depoya paftalar (karsilastirma/), harita/, ilham/,
+# ölçüm JSON'ları ve betikler girer. Ham görüntüleri yeniden üretmek için rapordaki komutlar.
+*-tam.png
+*-ilk.png
+!harita/*.png
+!ilham/*.png
+parca/
+genislik/
+0-1280/
+*.log
+!son-olcum.log
+!yerlesim-*.log

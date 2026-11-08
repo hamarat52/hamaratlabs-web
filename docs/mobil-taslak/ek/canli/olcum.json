@@ -1,0 +1,59 @@
+{
+ "/paylasiyorum": {
+  "scrollW": 390,
+  "height": 2093,
+  "firstCardY": null,
+  "firstLessonY": null,
+  "firstToolY": null,
+  "cardWidths": [],
+  "smallCount": 4,
+  "smallText": [
+   "11.0px span x4: Reels | Reels"
+  ],
+  "logs": []
+ },
+ "/skills": {
+  "scrollW": 390,
+  "height": 9284,
+  "firstCardY": null,
+  "firstLessonY": null,
+  "firstToolY": null,
+  "cardWidths": [],
+  "smallCount": 24,
+  "smallText": [
+   "10.5px skill__kind x24: Skill · Geliştirme | Kütüphane · Geliştirme"
+  ],
+  "logs": []
+ },
+ "/uretiyorum/kitabe": {
+  "scrollW": 390,
+  "height": 3800,
+  "firstCardY": null,
+  "firstLessonY": null,
+  "firstToolY": null,
+  "cardWidths": [],
+  "smallCount": 8,
+  "smallText": [
+   "11.0px devpage__tag x1: Geliştirmede",
+   "10.5px devpage__label x4: Şu an | Tahmini adım",
+   "10.5px small x3: taslak | taslak"
+  ],
+  "logs": []
+ },
+ "/uretiyorum/pomodoro-restoran": {
+  "scrollW": 390,
+  "height": 2607,
+  "firstCardY": null,
+  "firstLessonY": null,
+  "firstToolY": null,
+  "cardWidths": [],
+  "smallCount": 11,
+  "smallText": [
+   "10.5px ib-note__label x1: Fikir aşaması",
+   "10.0px dt x4: Ad | Ne?",
+   "10.0px ib-note__hint x1: notları tutup taşıyabilirsin",
+   "9.5px ib-note__stamp x5: örnek | örnek"
+  ],
+  "logs": []
+ }
+}

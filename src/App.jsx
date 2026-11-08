@@ -18,6 +18,9 @@ import ErrorBoundary from './components/ErrorBoundary';
 // WebGL'siz yedek galeri ogl içermez (küçük); error boundary'nin chunk yüklenemese de gösterebilmesi için ana pakette.
 import FlexCarouselFallback from './components/rb/FlexCarousel/FlexCarouselFallback';
 import { POSTS } from './ogretici/posts';
+// TASLAK: telefon düzeni yönleri (?yon=a | ?yon=b). Bkz. docs/mobil-taslak-raporu.md
+import './mobil-taslak.css';
+import { YON, usePhone } from './mobilTaslak';
 
 // Performans: ilk açılışta (ana sayfa) gerekmeyen her şey ayrı parça (chunk) olarak yüklenir.
 // - Uygulama sayfaları (AppPage, tiTimer): motion + hugeicons yalnız bu sayfalarda gerekiyor.
@@ -347,6 +350,9 @@ function Breath() {
   });
   const [tint, setTint] = useState(() => remember('hl-tint', 'green'));
   const color = (TINTS.find(t => t.id === tint) || TINTS[0]).color;
+  // TASLAK: telefonda ip logonun (sol üst, ~0-0.57 genişlik) üstünden geçmesin; kart sağa asılır.
+  const phone = usePhone();
+  const anchorX = YON && phone ? 0.63 : 0.5;
   const pick = id => {
     setGround(id);
     store('hl-ground', id);
@@ -372,6 +378,7 @@ function Breath() {
         color={tint === 'ink' || tint === 'grey' ? '#d0ff63' : color}
         cardWidth={232}
         cardHeight={340}
+        anchorX={anchorX}
         ropeLength={0.17}
         minRope={90}
         maxRope={190}

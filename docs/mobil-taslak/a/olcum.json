@@ -1,0 +1,66 @@
+{
+ "/": {
+  "scrollW": 390,
+  "height": 5955,
+  "firstCardY": 1142,
+  "firstLessonY": 4024,
+  "firstToolY": null,
+  "cardWidths": [
+   358,
+   358,
+   358,
+   358,
+   358,
+   358,
+   358,
+   358,
+   358
+  ],
+  "smallCount": 0,
+  "smallText": [],
+  "logs": []
+ },
+ "/uretiyorum": {
+  "scrollW": 390,
+  "height": 4580,
+  "firstCardY": 344,
+  "firstLessonY": null,
+  "firstToolY": null,
+  "cardWidths": [
+   358,
+   358,
+   358,
+   358,
+   358,
+   358,
+   358,
+   358,
+   358
+  ],
+  "smallCount": 0,
+  "smallText": [],
+  "logs": []
+ },
+ "/anlatiyorum": {
+  "scrollW": 390,
+  "height": 2242,
+  "firstCardY": null,
+  "firstLessonY": 311,
+  "firstToolY": null,
+  "cardWidths": [],
+  "smallCount": 0,
+  "smallText": [],
+  "logs": []
+ },
+ "/oneriyorum": {
+  "scrollW": 390,
+  "height": 2908,
+  "firstCardY": null,
+  "firstLessonY": null,
+  "firstToolY": 215,
+  "cardWidths": [],
+  "smallCount": 0,
+  "smallText": [],
+  "logs": []
+ }
+}
