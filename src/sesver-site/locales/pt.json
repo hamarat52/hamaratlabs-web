@@ -75,5 +75,15 @@
   "Klasördeki <span class=\"sv-mono\">MACOS_BASLAT.command</span> dosyasına çift tıkla (uyarı çıkarsa sağ tık → Aç).": "Clique duas vezes em <span class=\"sv-mono\">MACOS_BASLAT.command</span> na pasta (se aparecer um aviso: clique com o botão direito → Abrir).",
   "Terminal “Running on local URL” yazınca tarayıcıda <span class=\"sv-mono\">127.0.0.1:7860</span> adresini aç.": "Quando o Terminal mostrar “Running on local URL”, abra <span class=\"sv-mono\">127.0.0.1:7860</span> no navegador.",
   "GitHub'dan indir": "Baixar do GitHub",
-  "8 GB RAM'li cihazlarda kullanım önerilmez. Ayrıntılı kurulum ve sorun giderme README'de.": "Não recomendado em dispositivos com 8 GB de RAM. A instalação detalhada e a solução de problemas estão no README."
+  "8 GB RAM'li cihazlarda kullanım önerilmez. Ayrıntılı kurulum ve sorun giderme README'de.": "Não recomendado em dispositivos com 8 GB de RAM. A instalação detalhada e a solução de problemas estão no README.",
+  "Windows için indir": "Baixar para Windows",
+  "Mac için indir": "Baixar para Mac",
+  "Tüm sürümler": "Todas as versões",
+  "İndirme seçenekleri": "Opções de download",
+  "{ad} Windows ve Mac bilgisayarda çalışır; telefon ve Linux sürümü yok. Kuracağın bilgisayarın sistemini seç.": "{ad} funciona em computadores Windows e Mac; não há versão para celular nem para Linux. Escolha o sistema do computador onde vai instalar.",
+  "Kurulum programı imzasız. “Windows bilgisayarınızı korudu” çıkarsa <em>Ek bilgi → Yine de çalıştır</em>.": "O instalador não é assinado. Se aparecer “O Windows protegeu o computador”, escolha <em>Mais informações → Executar assim mesmo</em>.",
+  "İmzalı ve Apple onaylı; açarken güvenlik uyarısı çıkmaz.": "Assinado e notarizado pela Apple; nenhum aviso de segurança ao abrir.",
+  "DMG dosyasını aç, {ad} simgesini <em>Uygulamalar</em> klasörüne sürükle.": "Abra o DMG e arraste o ícone do {ad} para a pasta <em>Aplicativos</em>.",
+  "Uygulamalar klasöründen aç. İlk açılışta Python ortamını kendisi kurar; internet gerekir.": "Abra pela pasta Aplicativos. Na primeira abertura ele instala o próprio ambiente Python; é preciso internet.",
+  "Apple Silicon (M1 ve sonrası) ve 16 GB ya da üstü RAM önerilir. Intel Mac’te denenmedi.": "Recomenda-se Apple Silicon (M1 ou mais recente) e 16 GB de RAM ou mais. Não testado em Macs com Intel."
 }

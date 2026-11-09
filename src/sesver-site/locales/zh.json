@@ -75,5 +75,15 @@
   "Klasördeki <span class=\"sv-mono\">MACOS_BASLAT.command</span> dosyasına çift tıkla (uyarı çıkarsa sağ tık → Aç).": "双击文件夹中的 <span class=\"sv-mono\">MACOS_BASLAT.command</span>（如出现警告，请右键 → 打开）。",
   "Terminal “Running on local URL” yazınca tarayıcıda <span class=\"sv-mono\">127.0.0.1:7860</span> adresini aç.": "当终端显示“Running on local URL”后，在浏览器中打开 <span class=\"sv-mono\">127.0.0.1:7860</span>。",
   "GitHub'dan indir": "从 GitHub 下载",
-  "8 GB RAM'li cihazlarda kullanım önerilmez. Ayrıntılı kurulum ve sorun giderme README'de.": "不建议在 8 GB 内存的设备上使用。详细的安装和故障排除说明见 README。"
+  "8 GB RAM'li cihazlarda kullanım önerilmez. Ayrıntılı kurulum ve sorun giderme README'de.": "不建议在 8 GB 内存的设备上使用。详细的安装和故障排除说明见 README。",
+  "Windows için indir": "下载 Windows 版",
+  "Mac için indir": "下载 Mac 版",
+  "Tüm sürümler": "所有版本",
+  "İndirme seçenekleri": "下载选项",
+  "{ad} Windows ve Mac bilgisayarda çalışır; telefon ve Linux sürümü yok. Kuracağın bilgisayarın sistemini seç.": "{ad} 可在 Windows 和 Mac 电脑上运行，没有手机版和 Linux 版。请选择你要安装的电脑的系统。",
+  "Kurulum programı imzasız. “Windows bilgisayarınızı korudu” çıkarsa <em>Ek bilgi → Yine de çalıştır</em>.": "安装程序未签名。如果提示“Windows 已保护你的电脑”，请选择<em>更多信息 → 仍要运行</em>。",
+  "İmzalı ve Apple onaylı; açarken güvenlik uyarısı çıkmaz.": "已签名并经 Apple 公证，打开时不会出现安全警告。",
+  "DMG dosyasını aç, {ad} simgesini <em>Uygulamalar</em> klasörüne sürükle.": "打开 DMG，把 {ad} 图标拖到<em>应用程序</em>文件夹。",
+  "Uygulamalar klasöründen aç. İlk açılışta Python ortamını kendisi kurar; internet gerekir.": "从“应用程序”中打开。首次启动时会自行安装 Python 环境，需要联网。",
+  "Apple Silicon (M1 ve sonrası) ve 16 GB ya da üstü RAM önerilir. Intel Mac’te denenmedi.": "建议使用 Apple 芯片（M1 或更新）和 16 GB 及以上内存。尚未在 Intel Mac 上测试。"
 }

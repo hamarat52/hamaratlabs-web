@@ -75,5 +75,15 @@
   "Klasördeki <span class=\"sv-mono\">MACOS_BASLAT.command</span> dosyasına çift tıkla (uyarı çıkarsa sağ tık → Aç).": "Double-click <span class=\"sv-mono\">MACOS_BASLAT.command</span> in the folder (if a warning appears, right-click → Open).",
   "Terminal “Running on local URL” yazınca tarayıcıda <span class=\"sv-mono\">127.0.0.1:7860</span> adresini aç.": "When Terminal shows “Running on local URL”, open <span class=\"sv-mono\">127.0.0.1:7860</span> in your browser.",
   "GitHub'dan indir": "Download from GitHub",
-  "8 GB RAM'li cihazlarda kullanım önerilmez. Ayrıntılı kurulum ve sorun giderme README'de.": "Not recommended on devices with 8 GB of RAM. Detailed setup and troubleshooting are in the README."
+  "8 GB RAM'li cihazlarda kullanım önerilmez. Ayrıntılı kurulum ve sorun giderme README'de.": "Not recommended on devices with 8 GB of RAM. Detailed setup and troubleshooting are in the README.",
+  "Windows için indir": "Download for Windows",
+  "Mac için indir": "Download for Mac",
+  "Tüm sürümler": "All releases",
+  "İndirme seçenekleri": "Download options",
+  "{ad} Windows ve Mac bilgisayarda çalışır; telefon ve Linux sürümü yok. Kuracağın bilgisayarın sistemini seç.": "{ad} runs on Windows and Mac computers; there is no phone or Linux version. Pick the system of the computer you will install it on.",
+  "Kurulum programı imzasız. “Windows bilgisayarınızı korudu” çıkarsa <em>Ek bilgi → Yine de çalıştır</em>.": "The installer is unsigned. If you see “Windows protected your PC”, choose <em>More info → Run anyway</em>.",
+  "İmzalı ve Apple onaylı; açarken güvenlik uyarısı çıkmaz.": "Signed and notarized by Apple; no security warning when you open it.",
+  "DMG dosyasını aç, {ad} simgesini <em>Uygulamalar</em> klasörüne sürükle.": "Open the DMG and drag the {ad} icon into the <em>Applications</em> folder.",
+  "Uygulamalar klasöründen aç. İlk açılışta Python ortamını kendisi kurar; internet gerekir.": "Open it from Applications. On first launch it sets up its own Python environment; an internet connection is needed.",
+  "Apple Silicon (M1 ve sonrası) ve 16 GB ya da üstü RAM önerilir. Intel Mac’te denenmedi.": "Apple Silicon (M1 or later) and 16 GB of RAM or more are recommended. Not tested on Intel Macs."
 }

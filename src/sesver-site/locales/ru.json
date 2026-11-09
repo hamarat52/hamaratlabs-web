@@ -75,5 +75,15 @@
   "Klasördeki <span class=\"sv-mono\">MACOS_BASLAT.command</span> dosyasına çift tıkla (uyarı çıkarsa sağ tık → Aç).": "Дважды щёлкните по файлу <span class=\"sv-mono\">MACOS_BASLAT.command</span> в папке (если появится предупреждение: правый щелчок → Открыть).",
   "Terminal “Running on local URL” yazınca tarayıcıda <span class=\"sv-mono\">127.0.0.1:7860</span> adresini aç.": "Когда в Терминале появится «Running on local URL», откройте в браузере <span class=\"sv-mono\">127.0.0.1:7860</span>.",
   "GitHub'dan indir": "Скачать с GitHub",
-  "8 GB RAM'li cihazlarda kullanım önerilmez. Ayrıntılı kurulum ve sorun giderme README'de.": "Не рекомендуется для устройств с 8 ГБ ОЗУ. Подробная установка и устранение неполадок — в README."
+  "8 GB RAM'li cihazlarda kullanım önerilmez. Ayrıntılı kurulum ve sorun giderme README'de.": "Не рекомендуется для устройств с 8 ГБ ОЗУ. Подробная установка и устранение неполадок описаны в README.",
+  "Windows için indir": "Скачать для Windows",
+  "Mac için indir": "Скачать для Mac",
+  "Tüm sürümler": "Все версии",
+  "İndirme seçenekleri": "Варианты загрузки",
+  "{ad} Windows ve Mac bilgisayarda çalışır; telefon ve Linux sürümü yok. Kuracağın bilgisayarın sistemini seç.": "{ad} работает на компьютерах с Windows и Mac; версии для телефона и Linux нет. Выберите систему компьютера, на который будете устанавливать.",
+  "Kurulum programı imzasız. “Windows bilgisayarınızı korudu” çıkarsa <em>Ek bilgi → Yine de çalıştır</em>.": "Установщик не подписан. Если появится «Система Windows защитила ваш компьютер», выберите <em>Подробнее → Выполнить в любом случае</em>.",
+  "İmzalı ve Apple onaylı; açarken güvenlik uyarısı çıkmaz.": "Подписано и заверено Apple; при открытии предупреждений безопасности нет.",
+  "DMG dosyasını aç, {ad} simgesini <em>Uygulamalar</em> klasörüne sürükle.": "Откройте DMG и перетащите значок {ad} в папку <em>Программы</em>.",
+  "Uygulamalar klasöründen aç. İlk açılışta Python ortamını kendisi kurar; internet gerekir.": "Откройте из папки «Программы». При первом запуске приложение само настроит среду Python; нужен интернет.",
+  "Apple Silicon (M1 ve sonrası) ve 16 GB ya da üstü RAM önerilir. Intel Mac’te denenmedi.": "Рекомендуются Apple Silicon (M1 и новее) и 16 ГБ ОЗУ или больше. На Mac с Intel не тестировалось."
 }

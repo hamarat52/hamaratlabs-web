@@ -999,6 +999,57 @@
   margin: 0;
 }
 
+/* İşletim sistemine göre indirme (DownloadPick) */
+.sv-dl {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 0 32px;
+}
+
+.sv-dl__main {
+  min-height: 56px;
+  padding: 0 34px;
+  font-size: 18px;
+}
+
+.sv-dl__info {
+  max-width: 560px;
+  margin: 0;
+  font-size: 14px;
+  color: var(--sv-ink-2);
+}
+
+.sv-dl__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sv-dl__more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 14px;
+  color: var(--sv-ink-2);
+}
+
+.sv-dl__more a {
+  position: relative;
+  color: #c2410c;
+  font-weight: 700;
+}
+
+/* Küçük bağlantıya görünmez 44 px dokunma alanı */
+.sv-dl__more a::after {
+  content: '';
+  position: absolute;
+  inset: -13px -6px;
+}
+
 /* ---------- footer ---------- */
 .sv-foot {
   display: flex;

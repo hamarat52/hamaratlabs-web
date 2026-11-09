@@ -15,7 +15,12 @@ import './sesver.css';
 const TITLE = 'SesVer — Yazdığın, kendi bilgisayarında sese dönüşsün';
 const BG = '#fbf6ee';
 const GITHUB = 'https://github.com/hamarat52/sesver';
+// İndirme adresleri sürümsüz (releases/latest/download): yeni sürüm çıkınca kendiliğinden güncel kalır.
+// Ad değişirse: APP_NAME (indirme metinlerindeki {ad}) ve aşağıdaki dosya adları.
+const APP_NAME = 'SesVer';
 const WIN_EXE = 'https://github.com/hamarat52/sesver/releases/latest/download/SesVer-Kurulum-Windows.exe';
+const MAC_DMG = 'https://github.com/hamarat52/sesver/releases/latest/download/SesVer-macOS.dmg';
+const RELEASES = 'https://github.com/hamarat52/sesver/releases/latest';
 
 // Yaylanan, organik his: düşük sönüm, hafif taşma.
 const SPRING = { stiffness: 120, damping: 18, mass: 0.6 };
@@ -123,6 +128,73 @@ export function AudioDemo({ src = null, label = 'Dinle', tone = 'source' }) {
 function Rich({ as = 'p', html, ...rest }) {
   const Tag = as;
   return <Tag {...rest} dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
+// Ziyaretçinin sistemi: 'win' | 'mac' | 'other'. Telefon, tablet, Linux ve tanınmayan her şey 'other' olur;
+// yanlış dosya indirtmemek için birincil düğme yalnız sistem kesin bilinince çizilir.
+function detectOs() {
+  if (typeof navigator === 'undefined') return 'other';
+  const ua = navigator.userAgent || '';
+  const platform = navigator.userAgentData?.platform || navigator.platform || '';
+  // iPadOS masaüstü kipinde kendini Mac gibi tanıtır; dokunmatik nokta sayısı ele verir.
+  const touchMac = /Mac/i.test(platform) && navigator.maxTouchPoints > 1;
+  if (navigator.userAgentData?.mobile || /Android|iPhone|iPad|iPod|Mobi/i.test(ua) || touchMac) return 'other';
+  if (/Win/i.test(platform) || /Windows NT/i.test(ua)) return 'win';
+  if (/Mac/i.test(platform) || /Macintosh/i.test(ua)) return 'mac';
+  return 'other';
+}
+
+const DOWNLOADS = {
+  win: { href: WIN_EXE, label: 'Windows için indir' },
+  mac: { href: MAC_DMG, label: 'Mac için indir' }
+};
+
+// Kurulum bölümündeki tek birincil indirme düğmesi: algılanan sisteme göre .exe ya da .dmg.
+// Öbür sistem ve tüm sürümler küçük bağlantı olarak durur. Sistem bilinmiyorsa iki seçenek eşit gösterilir.
+function DownloadPick() {
+  const { t } = useI18n();
+  const [os] = useState(detectOs);
+  const allReleases = (
+    <a href={RELEASES} target="_blank" rel="noopener noreferrer">
+      {t('Tüm sürümler')}
+    </a>
+  );
+
+  if (os === 'other') {
+    return (
+      <div className="sv-dl" role="group" aria-label={t('İndirme seçenekleri')} data-os={os}>
+        <p className="sv-dl__info">
+          {t('{ad} Windows ve Mac bilgisayarda çalışır; telefon ve Linux sürümü yok. Kuracağın bilgisayarın sistemini seç.', { ad: APP_NAME })}
+        </p>
+        <div className="sv-dl__row">
+          <a className="sv-btn sv-btn--ghost" href={WIN_EXE}>{t(DOWNLOADS.win.label)}</a>
+          <a className="sv-btn sv-btn--ghost" href={MAC_DMG}>{t(DOWNLOADS.mac.label)}</a>
+        </div>
+        <p className="sv-dl__more">{allReleases}</p>
+      </div>
+    );
+  }
+
+  const main = DOWNLOADS[os];
+  const alt = DOWNLOADS[os === 'win' ? 'mac' : 'win'];
+  return (
+    <div className="sv-dl" role="group" aria-label={t('İndirme seçenekleri')} data-os={os}>
+      <a className="sv-btn sv-btn--primary sv-dl__main" href={main.href}>{t(main.label)}</a>
+      <Rich
+        className="sv-dl__info"
+        html={
+          os === 'win'
+            ? t('Kurulum programı imzasız. “Windows bilgisayarınızı korudu” çıkarsa <em>Ek bilgi → Yine de çalıştır</em>.')
+            : t('İmzalı ve Apple onaylı; açarken güvenlik uyarısı çıkmaz.')
+        }
+      />
+      <p className="sv-dl__more">
+        <a href={alt.href}>{t(alt.label)}</a>
+        <span aria-hidden="true">·</span>
+        {allReleases}
+      </p>
+    </div>
+  );
 }
 
 // Arayüz dili seçici (masaüstündeki "Arayüz dili" ayarının karşılığı). Seçenek adları her dilin kendi adıdır.
@@ -605,9 +677,12 @@ export default function SesVerSite() {
             </h2>
             <p className="sv-lead">{t('İlk çalıştırmada gereken her şey (Python dahil) otomatik iner. En az 20 GB boş alan ve internet gerekir; model yaklaşık 5 GB.')}</p>
           </Rise>
+          <Rise reduce={reduce}>
+            <DownloadPick />
+          </Rise>
           <div className="sv-cta__grid">
             <Rise reduce={reduce} className="sv-card sv-step">
-              <span className="sv-mono">Windows</span>
+              <span className="sv-mono" lang="en">Windows</span>
               <ol>
                 <Rich as="li" html={t('{dosya} dosyasını indir.', { dosya: `<a href="${WIN_EXE}">SesVer-Kurulum-Windows.exe</a>` })} />
                 <Rich as="li" html={t('Çift tıkla; “Windows bilgisayarınızı korudu” derse <em>Ek bilgi → Yine de çalıştır</em>.')} />
@@ -615,16 +690,16 @@ export default function SesVerSite() {
               </ol>
             </Rise>
             <Rise reduce={reduce} delay={0.08} className="sv-card sv-step">
-              <span className="sv-mono">macOS</span>
+              <span className="sv-mono" lang="en">macOS</span>
               <ol>
-                <Rich as="li" html={t("GitHub sayfasında <em>Code → Download ZIP</em>, sonra ZIP'e çift tıkla.")} />
-                <Rich as="li" html={t('Klasördeki <span class="sv-mono">MACOS_BASLAT.command</span> dosyasına çift tıkla (uyarı çıkarsa sağ tık → Aç).')} />
-                <Rich as="li" html={t('Terminal “Running on local URL” yazınca tarayıcıda <span class="sv-mono">127.0.0.1:7860</span> adresini aç.')} />
+                <Rich as="li" html={t('{dosya} dosyasını indir.', { dosya: `<a href="${MAC_DMG}">SesVer-macOS.dmg</a>` })} />
+                <Rich as="li" html={t('DMG dosyasını aç, {ad} simgesini <em>Uygulamalar</em> klasörüne sürükle.', { ad: APP_NAME })} />
+                <Rich as="li" html={t('Uygulamalar klasöründen aç. İlk açılışta Python ortamını kendisi kurar; internet gerekir.')} />
               </ol>
+              <p className="sv-note">{t('Apple Silicon (M1 ve sonrası) ve 16 GB ya da üstü RAM önerilir. Intel Mac’te denenmedi.')}</p>
             </Rise>
           </div>
           <Rise reduce={reduce} className="sv-cta__actions">
-            <a className="sv-btn sv-btn--primary" href={GITHUB} target="_blank" rel="noopener noreferrer">{t("GitHub'dan indir")}</a>
             <span className="sv-note">{t("8 GB RAM'li cihazlarda kullanım önerilmez. Ayrıntılı kurulum ve sorun giderme README'de.")}</span>
           </Rise>
         </section>
