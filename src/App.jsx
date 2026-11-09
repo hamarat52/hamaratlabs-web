@@ -177,13 +177,15 @@ export default function App() {
             {path === '/oneriyorum' && <Tools />}
             {path === '/okul-projeleri' && <SchoolProjects />}
           </>
-        ) : (
+        ) : path === '/' ? (
           <>
             <Breath />
             <Apps />
             <Share />
             <Teach />
           </>
+        ) : (
+          <NotFoundPage />
         )}
       </main>
       <Footer />
@@ -275,6 +277,8 @@ function Header({ path }) {
   );
 }
 
+
+import NotFoundPage from './NotFoundPage';
 
 // Sitenin ilk ekranı: neredeyse boş. Zemin sabit kar, renk sabit yeşil (2026-11-08: renk ve zemin seçicileri
 // kaldırıldı; daha önce tarayıcıya kaydedilmiş hl-ground / hl-tint seçimi artık okunmuyor).
