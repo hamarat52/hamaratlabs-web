@@ -141,7 +141,7 @@ const colorsOf = line => {
 };
 
 // ---------- Yerleşim (statik veri, modül düzeyinde bir kez hesaplanır) ----------
-const W = 1360;
+const W = 1390; // 1360 + sağda tiTimer etiketleri için pay
 const AXIS_X = 92;
 const IDEA_X = 136;
 const LANE = 24;

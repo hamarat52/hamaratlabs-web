@@ -6,7 +6,7 @@
    - 12 px altı yazı yok, gelişim haritası 0.9 ölçek, ses topu kendi satırında.
    `html:root` öneki taslaktaki `html[data-yon]` ile aynı özgüllüğü (0,1,1) verir: sonradan yüklenen sayfa
    parçalarının CSS'i (fikir panosu, geliştirme sayfası) bu kuralları ezmesin.
-   Taslak dosyaları (mobil-taslak.css, mobilTaslak.js) artık içe aktarılmıyor.
+   Taslak dosyaları (mobil-taslak.css, mobilTaslak.js) 2026-11-09'da silindi.
    ========================================================================== */
 
 @media (max-width: 620px) {
@@ -43,9 +43,9 @@
   html:root .tool__meta,
   html:root .tool__go { opacity: 1; color: var(--muted); }
 
-  /* Gelişim haritası telefonda 0.9 ölçek (viewBox 1360 birim → 1224 px). SVG yazı boyu kullanıcı birimidir:
+  /* Gelişim haritası telefonda 0.9 ölçek (viewBox 1390 birim → 1251 px). SVG yazı boyu kullanıcı birimidir:
      13.4 × 0.9 = 12.06 px. Sağ kenardaki solma devamı olduğunu gösterir. */
-  html:root .dm__svg { min-width: 1224px; overflow: visible; margin-right: 28px; }
+  html:root .dm__svg { min-width: 1251px; overflow: visible; margin-right: 28px; }
   html:root .dm-label,
   html:root .dm-axis__date,
   html:root .dm-axis__day,

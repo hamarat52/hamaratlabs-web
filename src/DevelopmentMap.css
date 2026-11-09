@@ -329,3 +329,28 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Masaüstünde de okunur boy (2026-11-09, Yusuf: "büyüt"). Telefondaki 0.9 ölçek her genişlikte:
+   viewBox 1390 birim → en az 1251 px, SVG yazı 13.4 birim ≈ 12 px. Açıklama kutusu (varsayılan kapalı)
+   haritanın üstüne geçer, harita tam genişliği kullanır; sığmayan kısım yana kayar. */
+.dm__grid { grid-template-columns: 1fr; }
+.dm-legend { position: static; order: -1; }
+.dm-legend__lines,
+.dm-legend__shapes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.dm__svg { min-width: 1251px; }
+.dm-label,
+.dm-axis__date,
+.dm-axis__day,
+.dm-axis__gap text { font-size: 13.4px; }
+.dm-pill text { font-size: 14px; }
+/* Telefon dışı: harita kutuya tam sığsın (1102 px ≈ 0.79 ölçek), yazı birimi buna göre büyür (15.2 × 0.79 ≈ 12 px). */
+@media (min-width: 621px) {
+  .dm__svg { min-width: 1102px; }
+  .dm-label,
+  .dm-axis__date,
+  .dm-axis__day,
+  .dm-axis__gap text { font-size: 15.2px; }
+  .dm-pill text { font-size: 15.8px; }
+}
+/* Harita kutuya tam sığdığında kaydırma ipucu gereksiz. */
+@media (min-width: 1200px) { .dm__hint { display: none; } }
