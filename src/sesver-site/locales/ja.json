@@ -82,7 +82,7 @@
   "İndirme seçenekleri": "ダウンロードの選択肢",
   "{ad} Windows ve Mac bilgisayarda çalışır; telefon ve Linux sürümü yok. Kuracağın bilgisayarın sistemini seç.": "{ad} は Windows と Mac のパソコンで動きます。スマートフォン版と Linux 版はありません。インストールするパソコンのシステムを選んでください。",
   "Kurulum programı imzasız. “Windows bilgisayarınızı korudu” çıkarsa <em>Ek bilgi → Yine de çalıştır</em>.": "インストーラーは署名されていません。「Windows によって PC が保護されました」と表示されたら<em>詳細情報 → 実行</em>を選びます。",
-  "İmzalı ve Apple onaylı; açarken güvenlik uyarısı çıkmaz.": "署名済みで Apple の公証を受けています。開くときにセキュリティ警告は出ません。",
+  "İmzalı ve Apple onaylı. İlk açılışta macOS yalnız internetten indirildiğini söyleyip onay ister; <em>Aç</em> de.": "署名済みで Apple の公証を受けています。初回起動時は macOS がインターネットからダウンロードされたことを知らせて確認を求めるだけです。<em>開く</em>を選びます。",
   "DMG dosyasını aç, {ad} simgesini <em>Uygulamalar</em> klasörüne sürükle.": "DMG を開き、{ad} のアイコンを<em>アプリケーション</em>フォルダにドラッグします。",
   "Uygulamalar klasöründen aç. İlk açılışta Python ortamını kendisi kurar; internet gerekir.": "アプリケーションフォルダから開きます。初回起動時に Python 環境を自動で準備します。インターネット接続が必要です。",
   "Apple Silicon (M1 ve sonrası) ve 16 GB ya da üstü RAM önerilir. Intel Mac’te denenmedi.": "Apple シリコン（M1 以降）と 16 GB 以上のメモリを推奨します。Intel Mac では未検証です。"

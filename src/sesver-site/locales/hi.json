@@ -82,7 +82,7 @@
   "İndirme seçenekleri": "डाउनलोड विकल्प",
   "{ad} Windows ve Mac bilgisayarda çalışır; telefon ve Linux sürümü yok. Kuracağın bilgisayarın sistemini seç.": "{ad} Windows और Mac कंप्यूटर पर चलता है; फ़ोन या Linux संस्करण नहीं है। जिस कंप्यूटर पर इंस्टॉल करेंगे, उसका सिस्टम चुनें।",
   "Kurulum programı imzasız. “Windows bilgisayarınızı korudu” çıkarsa <em>Ek bilgi → Yine de çalıştır</em>.": "इंस्टॉलर पर हस्ताक्षर नहीं है। अगर “Windows ने आपके PC की सुरक्षा की” दिखे, तो <em>अधिक जानकारी → फिर भी चलाएँ</em> चुनें।",
-  "İmzalı ve Apple onaylı; açarken güvenlik uyarısı çıkmaz.": "हस्ताक्षरित और Apple द्वारा नोटराइज़्ड; खोलते समय कोई सुरक्षा चेतावनी नहीं आती।",
+  "İmzalı ve Apple onaylı. İlk açılışta macOS yalnız internetten indirildiğini söyleyip onay ister; <em>Aç</em> de.": "हस्ताक्षरित और Apple द्वारा नोटराइज़्ड। पहली बार खोलने पर macOS केवल बताता है कि यह इंटरनेट से डाउनलोड हुआ है और पुष्टि माँगता है; <em>खोलें</em> चुनें।",
   "DMG dosyasını aç, {ad} simgesini <em>Uygulamalar</em> klasörüne sürükle.": "DMG खोलें और {ad} आइकन को <em>Applications</em> फ़ोल्डर में खींचें।",
   "Uygulamalar klasöründen aç. İlk açılışta Python ortamını kendisi kurar; internet gerekir.": "Applications से खोलें। पहली बार खोलने पर यह अपना Python परिवेश खुद सेट करता है; इंटरनेट ज़रूरी है।",
   "Apple Silicon (M1 ve sonrası) ve 16 GB ya da üstü RAM önerilir. Intel Mac’te denenmedi.": "Apple Silicon (M1 या नया) और 16 GB या अधिक RAM की सलाह दी जाती है। Intel Mac पर परीक्षण नहीं हुआ।"

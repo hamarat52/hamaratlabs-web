@@ -185,7 +185,7 @@ function DownloadPick() {
         html={
           os === 'win'
             ? t('Kurulum programı imzasız. “Windows bilgisayarınızı korudu” çıkarsa <em>Ek bilgi → Yine de çalıştır</em>.')
-            : t('İmzalı ve Apple onaylı; açarken güvenlik uyarısı çıkmaz.')
+            : t('İmzalı ve Apple onaylı. İlk açılışta macOS yalnız internetten indirildiğini söyleyip onay ister; <em>Aç</em> de.')
         }
       />
       <p className="sv-dl__more">

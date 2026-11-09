@@ -82,7 +82,7 @@
   "İndirme seçenekleri": "خيارات التنزيل",
   "{ad} Windows ve Mac bilgisayarda çalışır; telefon ve Linux sürümü yok. Kuracağın bilgisayarın sistemini seç.": "يعمل {ad} على حواسيب Windows وMac؛ لا يوجد إصدار للهاتف أو Linux. اختر نظام الحاسوب الذي ستثبّته عليه.",
   "Kurulum programı imzasız. “Windows bilgisayarınızı korudu” çıkarsa <em>Ek bilgi → Yine de çalıştır</em>.": "برنامج التثبيت غير موقّع. إذا ظهرت رسالة «حمى Windows جهاز الكمبيوتر» فاختر <em>مزيد من المعلومات ← التشغيل على أي حال</em>.",
-  "İmzalı ve Apple onaylı; açarken güvenlik uyarısı çıkmaz.": "موقّع وموثّق من Apple؛ لا يظهر تحذير أمني عند فتحه.",
+  "İmzalı ve Apple onaylı. İlk açılışta macOS yalnız internetten indirildiğini söyleyip onay ister; <em>Aç</em> de.": "موقّع وموثّق من Apple. عند الفتح الأول ينبّه macOS فقط إلى أنه نُزّل من الإنترنت ويطلب التأكيد؛ اختر <em>فتح</em>.",
   "DMG dosyasını aç, {ad} simgesini <em>Uygulamalar</em> klasörüne sürükle.": "افتح ملف DMG واسحب أيقونة {ad} إلى مجلد <em>التطبيقات</em>.",
   "Uygulamalar klasöründen aç. İlk açılışta Python ortamını kendisi kurar; internet gerekir.": "افتحه من مجلد التطبيقات. في التشغيل الأول يجهّز بيئة Python بنفسه؛ يلزم اتصال بالإنترنت.",
   "Apple Silicon (M1 ve sonrası) ve 16 GB ya da üstü RAM önerilir. Intel Mac’te denenmedi.": "يُنصح بمعالج Apple Silicon (M1 أو أحدث) وذاكرة 16 GB أو أكثر. لم يُختبر على أجهزة Mac بمعالج Intel."

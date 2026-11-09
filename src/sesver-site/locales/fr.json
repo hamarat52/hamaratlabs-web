@@ -82,7 +82,7 @@
   "İndirme seçenekleri": "Options de téléchargement",
   "{ad} Windows ve Mac bilgisayarda çalışır; telefon ve Linux sürümü yok. Kuracağın bilgisayarın sistemini seç.": "{ad} fonctionne sur les ordinateurs Windows et Mac ; il n'existe pas de version pour téléphone ni pour Linux. Choisissez le système de l'ordinateur sur lequel vous l'installerez.",
   "Kurulum programı imzasız. “Windows bilgisayarınızı korudu” çıkarsa <em>Ek bilgi → Yine de çalıştır</em>.": "Le programme d'installation n'est pas signé. Si « Windows a protégé votre ordinateur » s'affiche, choisissez <em>Informations complémentaires → Exécuter quand même</em>.",
-  "İmzalı ve Apple onaylı; açarken güvenlik uyarısı çıkmaz.": "Signé et notarié par Apple ; aucun avertissement de sécurité à l'ouverture.",
+  "İmzalı ve Apple onaylı. İlk açılışta macOS yalnız internetten indirildiğini söyleyip onay ister; <em>Aç</em> de.": "Signé et notarié par Apple. Au premier lancement, macOS indique seulement qu'il a été téléchargé depuis internet et demande confirmation ; choisissez <em>Ouvrir</em>.",
   "DMG dosyasını aç, {ad} simgesini <em>Uygulamalar</em> klasörüne sürükle.": "Ouvrez le DMG et faites glisser l'icône {ad} dans le dossier <em>Applications</em>.",
   "Uygulamalar klasöründen aç. İlk açılışta Python ortamını kendisi kurar; internet gerekir.": "Ouvrez-le depuis Applications. Au premier lancement, il installe lui-même son environnement Python ; une connexion internet est nécessaire.",
   "Apple Silicon (M1 ve sonrası) ve 16 GB ya da üstü RAM önerilir. Intel Mac’te denenmedi.": "Apple Silicon (M1 ou plus récent) et 16 Go de RAM ou plus sont recommandés. Non testé sur les Mac Intel."
