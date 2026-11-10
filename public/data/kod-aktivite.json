@@ -27099,6 +27099,24 @@
     "lines": 678
   },
   {
+    "repo": "hamaratlabs-web",
+    "hash": "9220e9b23d",
+    "date": "2026-11-08T12:14:42+03:00",
+    "subject": "design(mobil): telefon düzeni taslağı, iki yön (?yon=a sıkı liste, ?yon=b tek sütun büyük kart); yalnız 620px altı, masaüstü aynı; rapor ve ölçüm betikleri",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1339
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "41463f8082",
+    "date": "2026-11-08T12:14:51+03:00",
+    "subject": "docs(mobil-taslak): yerleşim eşitliği sonucu güncellendi",
+    "score": 25,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
     "repo": "wingwire-android",
     "hash": "61802c7417",
     "date": "2026-11-08T12:21:41+03:00",
@@ -27234,6 +27252,24 @@
     "lines": 0
   },
   {
+    "repo": "hamaratlabs-web",
+    "hash": "8f70cdb97f",
+    "date": "2026-11-08T12:52:19+03:00",
+    "subject": "feat(mobil): telefon düzeni B kalıcı (?yon kalktı); açılıştan renk/zemin seçicileri kalktı (kar + yeşil sabit); sarkan kart kaydırmada savrulmuyor",
+    "score": 92,
+    "is_merge": false,
+    "lines": 500
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "4625834599",
+    "date": "2026-11-08T12:56:16+03:00",
+    "subject": "docs(mobil): son rapor; kart kaydırma testi önce/sonra, açılış, sürükleme ve yerleşim eşitliği ölçümleri, önce/sonra paftaları",
+    "score": 45,
+    "is_merge": false,
+    "lines": 1210
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "89820e4d44",
     "date": "2026-11-08T12:56:22+03:00",
@@ -27259,6 +27295,15 @@
     "score": 56,
     "is_merge": false,
     "lines": 374
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "8607270794",
+    "date": "2026-11-08T13:00:18+03:00",
+    "subject": "chore(açılış): kullanılmayan ASCII ve Glitch zemin bileşenleri kaldırıldı (Yusuf: kar ve yeşil kalıyor, gerisi gitsin)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1259
   },
   {
     "repo": "wingwire-app-web",
@@ -27549,6 +27594,15 @@
     "lines": 14
   },
   {
+    "repo": "hamaratlabs-web",
+    "hash": "a9845fe3ef",
+    "date": "2026-11-08T15:49:39+03:00",
+    "subject": "feat(ivd): Income vs Desires sitesi hamaratlabs.com/income-vs-desires altına taşındı (destek, gizlilik TR/EN, blog, tanıtım; IVD 704a828 kopyası, canonical yeni alan adı, sitemap, kart bağlantısı)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2765
+  },
+  {
     "repo": "wingwire-android",
     "hash": "64e5d01005",
     "date": "2026-11-08T15:50:22+03:00",
@@ -27556,6 +27610,15 @@
     "score": 37,
     "is_merge": false,
     "lines": 118
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "52eebcf279",
+    "date": "2026-11-08T15:53:16+03:00",
+    "subject": "fix(ivd): destek e-postası Cloudflare e-posta gizlemesinden muaf (email_off); JS'siz okuyucu ve mağaza denetimi adresi açık görsün",
+    "score": 51,
+    "is_merge": false,
+    "lines": 4
   },
   {
     "repo": "income-vs-desires",
@@ -27684,6 +27747,15 @@
     "lines": 16
   },
   {
+    "repo": "hamaratlabs-web",
+    "hash": "a76e33cbd3",
+    "date": "2026-11-08T16:16:21+03:00",
+    "subject": "fix(ivd): sayfalar IVD a10faaf'tan yeniden kopyalandı; em dash kaldırıldı (ana sayfa Boyner satırı, TR/EN destek)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
     "repo": "sesver",
     "hash": "8bb4ceefd9",
     "date": "2026-11-08T16:31:27+03:00",
@@ -27724,6 +27796,42 @@
     "hash": "b0dafd09b0",
     "date": "2026-11-09T00:34:05+03:00",
     "subject": "merge: fix/widget-tema → main (widget renkleri uygulamanın açık/koyu tercihini izler; tema değişince yeniden çizim; siberguvenlik GEÇER; Yusuf kalıcı onayı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "8096a8238f",
+    "date": "2026-11-09T12:31:52+03:00",
+    "subject": "chore(aktivite): günlük kod aktivite verisi güncellendi (2026-11-09)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 11734
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "6e25e656c8",
+    "date": "2026-11-09T12:41:24+03:00",
+    "subject": "fix(gelişim-haritası): masaüstünde de okunur boy (etiket ~12 px, harita kutuya sığar, açıklama üstte); seçilmeyen A taslağı dosyaları silindi",
+    "score": 65,
+    "is_merge": false,
+    "lines": 287
+  },
+  {
+    "repo": "sesver",
+    "hash": "bccac5bbad",
+    "date": "2026-11-09T12:57:17+03:00",
+    "subject": "feat(acilis): buyuk karsilama panelden kalkti; acilista bir kez oynayan, gecilebilen acilis ekrani",
+    "score": 90,
+    "is_merge": false,
+    "lines": 333
+  },
+  {
+    "repo": "sesver",
+    "hash": "8c5dc95142",
+    "date": "2026-11-09T12:57:22+03:00",
+    "subject": "Merge remote-tracking branch 'origin/main' into feature/uretim-kuyrugu",
     "score": 50,
     "is_merge": true,
     "lines": 0
@@ -27781,5 +27889,95 @@
     "score": 50,
     "is_merge": true,
     "lines": 0
+  },
+  {
+    "repo": "sesver",
+    "hash": "db1fa75a30",
+    "date": "2026-11-09T14:52:41+03:00",
+    "subject": "Merge remote-tracking branch 'origin/main' into feature/uretim-kuyrugu",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "sesver",
+    "hash": "de2824a921",
+    "date": "2026-11-09T14:58:17+03:00",
+    "subject": "fix(macos): sinyalle kapanma (SIGTERM/SIGINT/SIGHUP) normal kapanis; \"quit unexpectedly\" penceresi yalniz gercek hatada",
+    "score": 62,
+    "is_merge": false,
+    "lines": 131
+  },
+  {
+    "repo": "sesver",
+    "hash": "8700a6757e",
+    "date": "2026-11-09T14:58:33+03:00",
+    "subject": "chore(surum): 1.4.0",
+    "score": 43,
+    "is_merge": false,
+    "lines": 9
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "c14578b9a8",
+    "date": "2026-11-09T23:50:12+03:00",
+    "subject": "chore(aktivite): günlük kod aktivite verisi güncellendi (2026-11-09)",
+    "score": 51,
+    "is_merge": false,
+    "lines": 108
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "c9aa8756a8",
+    "date": "2026-11-10T01:41:23+03:00",
+    "subject": "feat(404): bilinmeyen adreste ana sayfa yerine 404 sayfası (başlık/alt bilgi korunur, Ana sayfaya dön bağlantısı)",
+    "score": 81,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "893377ae62",
+    "date": "2026-11-10T01:42:27+03:00",
+    "subject": "Merge branch 'feat/404-sayfasi'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "sesver",
+    "hash": "7d4e94497e",
+    "date": "2026-11-10T01:42:49+03:00",
+    "subject": "fix(arayuz): 'Ses uretim dili ayridir' uyarisi kaldirildi",
+    "score": 57,
+    "is_merge": false,
+    "lines": 29
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "e4a7ec2e22",
+    "date": "2026-11-10T10:57:06+03:00",
+    "subject": "feat(claude): Claude kota kartı v2 (son.json desteği, 3 hesap ve tam tarih)",
+    "score": 89,
+    "is_merge": false,
+    "lines": 212
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "946e24785a",
+    "date": "2026-11-10T12:08:22+03:00",
+    "subject": "feat: add initial 2.5D interactive concept lab, simulation architecture, and AGENTS.md",
+    "score": 94,
+    "is_merge": false,
+    "lines": 1143
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "b5f638199d",
+    "date": "2026-11-10T16:03:28+03:00",
+    "subject": "feat(okul-projeleri): Fibi sunumu, listelenmemiş /okul-projeleri/fibi/sunum/",
+    "score": 90,
+    "is_merge": false,
+    "lines": 343
   }
 ]
