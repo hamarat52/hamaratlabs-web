@@ -256,7 +256,7 @@ function Hero({ reduce }) {
           <a className="sv-btn sv-btn--primary" href="#kur">{t('Ücretsiz indir')}</a>
           <a className="sv-btn sv-btn--ghost" href={GITHUB} target="_blank" rel="noopener noreferrer">{t("GitHub'da incele")}</a>
         </div>
-        <p className="sv-hero__meta">{t('macOS · Windows · ticari olmayan kullanım için ücretsiz')}</p>
+        <p className="sv-hero__meta">{t('macOS · Windows · ücretsiz ve açık kaynak (MIT)')}</p>
       </Motion.div>
       <Motion.div className="sv-hero__wave" style={reduce ? undefined : { scaleY: waveScale, y: waveY }}>
         <Bars heights={HERO_BARS} className="sv-bars--hero" />
@@ -503,7 +503,7 @@ function LocalLicense({ reduce }) {
           </span>
           <span className="sv-license__head">
             <span className="sv-license__name">{t('Lisans, açıkça')}</span>
-            <span className="sv-mono sv-license__tag">PolyForm Noncommercial 1.0.0</span>
+            <span className="sv-mono sv-license__tag">MIT</span>
           </span>
           <span className="sv-license__chev">
             <LocalGlyph name="chevron" />
@@ -515,19 +515,19 @@ function LocalLicense({ reduce }) {
           <span className="sv-license__dot sv-license__dot--ok">
             <LocalGlyph name="check" />
           </span>
-          <Rich html={t('<strong>SesVer\'in kodu</strong> <span class="sv-mono">PolyForm Noncommercial 1.0.0</span> lisanslıdır. Kişisel kullanım, inceleme, eğitim, araştırma ve değiştirme serbesttir.')} />
+          <Rich html={t('<strong>SesVer\'in kodu</strong> <span class="sv-mono">MIT</span> lisanslıdır. Kullanmak, değiştirmek ve paylaşmak serbesttir.')} />
         </li>
         <li>
-          <span className="sv-license__dot sv-license__dot--no">
-            <LocalGlyph name="cross" />
+          <span className="sv-license__dot sv-license__dot--ok">
+            <LocalGlyph name="check" />
           </span>
-          <Rich html={t("<strong>Ticari kullanım ve yeniden satış izinli değildir.</strong> Ticari bir ürüne ya da servise dahil etmek için HamaratLabs'ten ayrıca izin gerekir.")} />
+          <Rich html={t('<strong>Ticari kullanım da serbesttir.</strong> Tek şart, lisans ve telif bildirimini korumaktır.')} />
         </li>
         <li>
           <span className="sv-license__dot sv-license__dot--src">
             <LocalGlyph name="eye" />
           </span>
-          <p>{t('Kaynak kodu açık ve incelenebilir; ancak bu lisans OSI tanımlı bir “open source” lisansı değildir.')}</p>
+          <p>{t('Kaynak kodu açık; MIT, OSI onaylı bir açık kaynak lisansıdır.')}</p>
         </li>
         <li>
           <span className="sv-license__dot sv-license__dot--dep">
