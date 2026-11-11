@@ -444,6 +444,121 @@ function Rise({ reduce, delay = 0, className = '', children }) {
   );
 }
 
+// Tanıtım videosu (SesVer 1.4.0, 34,6 sn, gömülü Türkçe altyazı). Yalnız Türkçe arayüzde, hero'nun hemen altında.
+//  - Kendiliğinden oynamaz. Tıklanana kadar <video>'nun src'si yoktur: preload="none" iOS'ta yalnız ipucu sayıldığından
+//    tek bayt inmemesini src'nin yokluğu garanti eder. Kapak ayrı <img loading="lazy">.
+//  - src ve play() tıklama işleyicisinin içinde: iOS sesli oynatmaya yalnız kullanıcı hareketi anında izin verir.
+//  - playsInline: telefonda sayfa içinde oynar; tam ekran yerel kontrollerde kalır.
+//  - Taslak yönleri ?yon=a|b|c ile seçilir (parametresiz = a). Yusuf seçince seçilmeyenler kaldırılacak.
+const INTRO_SRC = '/video/sesver/sesver-tanitim-1.4.0.mp4';
+const INTRO_POSTER = '/video/sesver/sesver-tanitim-1.4.0-kapak.webp';
+const INTRO_LABEL = 'SesVer tanıtım videosunu oynat, 34 saniye, sesli';
+const INTRO_YONS = ['a', 'b', 'c'];
+const INTRO_BARS = barHeights(5, 2.4);
+
+function introYon() {
+  if (typeof window === 'undefined') return 'a';
+  const y = new URLSearchParams(window.location.search).get('yon');
+  return INTRO_YONS.includes(y) ? y : 'a';
+}
+
+function PlayGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.4-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+// Kapak + oynat düğmesi; tıklanınca aynı yerde yerel kontrollü <video>. children = yöne özgü düğme süsü.
+function IntroPlayer({ children }) {
+  const ref = useRef(null);
+  const [started, setStarted] = useState(false);
+
+  // Düğme kalkınca odak kaybolmasın: klavye ve ekran okuyucu doğrudan oynatıcıya geçer.
+  useEffect(() => {
+    if (started) ref.current?.focus({ preventScroll: true });
+  }, [started]);
+
+  const start = () => {
+    const el = ref.current;
+    if (!el) return;
+    if (!el.getAttribute('src')) el.src = asset(INTRO_SRC);
+    // Oynatma reddedilirse (ör. tarayıcı politikası) yerel kontroller açık kalır, ziyaretçi oradan başlatır.
+    el.play().catch(() => {});
+    setStarted(true);
+  };
+
+  return (
+    <div className={`sv-intro__frame${started ? ' is-started' : ''}`}>
+      <video ref={ref} className="sv-intro__video" controls={started} playsInline preload="none" aria-label="SesVer tanıtım videosu" />
+      {!started && (
+        <button type="button" className="sv-intro__start" onClick={start} aria-label={INTRO_LABEL}>
+          <img className="sv-intro__poster" src={asset(INTRO_POSTER)} alt="" width="1920" height="1080" loading="lazy" decoding="async" />
+          {children}
+        </button>
+      )}
+    </div>
+  );
+}
+
+function IntroDisc() {
+  return (
+    <span className="sv-intro__disc" aria-hidden="true">
+      <PlayGlyph />
+    </span>
+  );
+}
+
+function IntroVideo({ reduce }) {
+  const [yon] = useState(introYon);
+  const ref = useRef(null);
+  // Yön C: pencere aşağıdan eğik gelir, ekranın ortasına varınca düzleşir (yalnız transform).
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'center center'] });
+  const p = useSpring(scrollYProgress, SPRING);
+  const rotateX = useTransform(p, [0, 1], [18, 0]);
+  const scale = useTransform(p, [0, 1], [0.9, 1]);
+
+  return (
+    <section ref={ref} className="sv-intro" data-yon={yon} aria-label="Tanıtım videosu">
+      {yon === 'a' && (
+        <Rise reduce={reduce} className="sv-card sv-intro__card">
+          <IntroPlayer>
+            <IntroDisc />
+            <span className="sv-intro__pill" aria-hidden="true">İzle · 34 sn</span>
+          </IntroPlayer>
+        </Rise>
+      )}
+      {yon === 'b' && (
+        <div className="sv-intro__stage">
+          <Rise reduce={reduce}>
+            <h2 className="sv-intro__title">
+              <span className="sv-grad">34 saniyede</span> SesVer.
+            </h2>
+          </Rise>
+          <Rise reduce={reduce} delay={0.06}>
+            <IntroPlayer>
+              <IntroDisc />
+            </IntroPlayer>
+          </Rise>
+        </div>
+      )}
+      {yon === 'c' && (
+        <div className="sv-intro__persp">
+          <Motion.div className="sv-intro__tilt" style={reduce ? undefined : { rotateX, scale }}>
+            <IntroPlayer>
+              <span className="sv-intro__pill sv-intro__pill--bars" aria-hidden="true">
+                <Bars heights={INTRO_BARS} className="sv-bars--intro" />
+                Sesli izle
+              </span>
+            </IntroPlayer>
+          </Motion.div>
+        </div>
+      )}
+    </section>
+  );
+}
+
 const FEATURES = [
   { k: 'Hazır sesler', v: 'Yaşlı Masalcı, Belgesel Anlatıcı, Heyecanlı Sunucu. Tarifle tasarlanmış sentetik seslerdir, gerçek kişi değildir.' },
   { k: 'Tarif ederek tasarla', v: 'Yaş, cinsiyet, ton, doku ve hız seç; 4 aday dinle, beğendiğini Seslerim\'e kaydet.' },
@@ -609,6 +724,9 @@ export default function SesVerSite() {
       <Nav />
       <main>
         <Hero reduce={reduce} />
+
+        {/* Video Türkçe (dış ses + altyazı); öbür dillerde bölüm hiç çizilmez, sayfa eskisiyle aynı kalır. */}
+        {lang === DEFAULT_LANG && <IntroVideo reduce={reduce} />}
 
         <section className="sv-features">
           {FEATURES.map((f, i) => (

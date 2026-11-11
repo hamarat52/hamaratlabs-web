@@ -364,6 +364,229 @@
   }
 }
 
+/* ---------- tanıtım videosu (yalnız tr; taslak yönleri data-yon=a|b|c) ---------- */
+.sv-intro {
+  padding: 8px clamp(20px, 6vw, 80px) 0;
+}
+
+.sv-intro__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--sv-ink);
+  isolation: isolate;
+}
+
+.sv-intro__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: var(--sv-ink);
+}
+
+.sv-intro__video:focus-visible {
+  outline: 3px solid var(--sv-orange);
+  outline-offset: -3px;
+}
+
+/* Kapak düğmesi karenin tamamı: dokunma hedefi oynatıcının kendisi kadar. */
+.sv-intro__start {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: inherit;
+  background: var(--sv-bg-2);
+  color: var(--sv-ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.sv-intro__start::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(35, 26, 20, 0.38), rgba(35, 26, 20, 0.04) 55%);
+  pointer-events: none;
+}
+
+/* Halka kapak görselinin altında kalmasın diye üst katmanda (::after) çizilir. */
+.sv-intro__start:focus-visible {
+  outline: none;
+}
+
+.sv-intro__start:focus-visible::after {
+  box-shadow: inset 0 0 0 4px var(--sv-orange), inset 0 0 0 7px rgba(255, 253, 249, 0.9);
+}
+
+.sv-intro__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sv-intro__start:hover .sv-intro__poster {
+  transform: scale(1.025);
+}
+
+.sv-intro__disc {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: clamp(64px, 8vw, 92px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--sv-grad);
+  color: #fff;
+  box-shadow: 0 18px 40px -14px rgba(255, 92, 134, 0.75), 0 0 0 8px rgba(255, 253, 249, 0.55);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sv-intro__disc svg {
+  width: 42%;
+  margin-inline-start: 6%;
+}
+
+.sv-intro__start:hover .sv-intro__disc {
+  transform: scale(1.06);
+}
+
+.sv-intro__pill {
+  position: absolute;
+  z-index: 2;
+  inset-inline-start: clamp(12px, 2vw, 22px);
+  bottom: clamp(12px, 2vw, 22px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.92);
+  color: var(--sv-ink);
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 10px 24px -14px rgba(35, 26, 20, 0.6);
+}
+
+/* A · Kart: sayfadaki öbür kartlarla aynı çerçeve; ince krem kenar bir cihaz çerçevesi gibi. */
+.sv-intro__card {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(6px, 0.8vw, 10px);
+}
+
+.sv-intro__card .sv-intro__frame {
+  border-radius: 21px;
+}
+
+.sv-intro__card .sv-intro__disc::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 253, 249, 0.85);
+  animation: sv-intro-ring 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes sv-intro-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+/* B · Sahne: koyu şerit, tek satır başlık, geniş oynatıcı. */
+.sv-intro[data-yon='b'] {
+  padding-inline: clamp(12px, 2vw, 24px);
+}
+
+.sv-intro__stage {
+  padding: clamp(36px, 6vw, 72px) clamp(16px, 5vw, 64px) clamp(24px, 4vw, 56px);
+  border-radius: 36px;
+  background:
+    radial-gradient(55% 60% at 85% 0%, rgba(255, 143, 31, 0.22), transparent 70%),
+    radial-gradient(45% 55% at 0% 100%, rgba(255, 92, 134, 0.18), transparent 70%),
+    var(--sv-ink);
+  color: var(--sv-bg);
+}
+
+.sv-intro__title {
+  max-width: 1080px;
+  margin: 0 auto clamp(18px, 3vw, 32px);
+  font-size: clamp(28px, 4.4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.sv-intro__stage .sv-intro__frame {
+  max-width: 1080px;
+  margin: 0 auto;
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.7);
+}
+
+/* C · Eğik pencere: aşağıdan eğik gelir, ortada düzleşir; arkasında sıcak bir ışıma. */
+.sv-intro__persp {
+  position: relative;
+  max-width: 1040px;
+  margin: 0 auto;
+  perspective: 1400px;
+}
+
+.sv-intro__persp::before {
+  content: '';
+  position: absolute;
+  inset: 8% 4% -6%;
+  z-index: 0;
+  border-radius: 40px;
+  background: var(--sv-grad);
+  filter: blur(48px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.sv-intro__tilt {
+  position: relative;
+  z-index: 1;
+  transform-origin: 50% 0%;
+  will-change: transform;
+}
+
+.sv-intro__tilt .sv-intro__frame {
+  border: 1px solid rgba(255, 253, 249, 0.7);
+  border-radius: 24px;
+  box-shadow: 0 40px 90px -40px rgba(120, 60, 10, 0.55);
+}
+
+.sv-intro__pill--bars {
+  padding: 10px 18px 10px 14px;
+}
+
+.sv-bars--intro {
+  width: 26px;
+  height: 18px;
+  gap: 3px;
+}
+
 /* ---------- özellikler ---------- */
 .sv-features,
 .sv-local__grid {
@@ -1157,6 +1380,32 @@
   .sv-license__body {
     grid-template-columns: 1fr;
   }
+
+  .sv-intro__frame {
+    border-radius: 16px;
+  }
+
+  .sv-intro__card .sv-intro__frame {
+    border-radius: 17px;
+  }
+
+  .sv-intro__card {
+    border-radius: 22px;
+  }
+
+  .sv-intro__stage {
+    border-radius: 26px;
+  }
+
+  .sv-intro__pill {
+    padding: 6px 12px;
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .sv-intro__disc {
+    box-shadow: 0 14px 30px -12px rgba(255, 92, 134, 0.75), 0 0 0 6px rgba(255, 253, 249, 0.55);
+  }
 }
 
 /* ---------- hareket azaltma ---------- */
@@ -1181,6 +1430,21 @@
   }
 
   .sv-local__card:hover {
+    transform: none;
+  }
+
+  .sv-intro__card .sv-intro__disc::before {
+    animation: none;
+    opacity: 0;
+  }
+
+  .sv-intro__poster,
+  .sv-intro__disc {
+    transition: none;
+  }
+
+  .sv-intro__start:hover .sv-intro__poster,
+  .sv-intro__start:hover .sv-intro__disc {
     transform: none;
   }
 }
