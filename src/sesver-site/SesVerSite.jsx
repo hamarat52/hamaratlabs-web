@@ -449,18 +449,16 @@ function Rise({ reduce, delay = 0, className = '', children }) {
 //    tek bayt inmemesini src'nin yokluğu garanti eder. Kapak ayrı <img loading="lazy">.
 //  - src ve play() tıklama işleyicisinin içinde: iOS sesli oynatmaya yalnız kullanıcı hareketi anında izin verir.
 //  - playsInline: telefonda sayfa içinde oynar; tam ekran yerel kontrollerde kalır.
-//  - Taslak yönleri ?yon=a|b|c ile seçilir (parametresiz = a). Yusuf seçince seçilmeyenler kaldırılacak.
+//  - Kapak iki boyda (960 / 1920, aynı kare): telefon her zaman küçüğünü indirir.
 const INTRO_SRC = '/video/sesver/sesver-tanitim-1.4.0.mp4';
 const INTRO_POSTER = '/video/sesver/sesver-tanitim-1.4.0-kapak.webp';
+const INTRO_POSTER_960 = '/video/sesver/sesver-tanitim-1.4.0-kapak-960.webp';
+const INTRO_POSTER_SRCSET = `${asset(INTRO_POSTER_960)} 960w, ${asset(INTRO_POSTER)} 1920w`;
+// Çerçeve genişliği: geniş ekranda 1080 px üst sınır, altında yaklaşık 86vw (bölüm + sahne iç boşlukları düşülünce).
+const INTRO_POSTER_SIZES = '(min-width: 1260px) 1080px, 86vw';
+// sesver.css'teki telefon kırılımıyla aynı. 3x ekranda bile 960 yeterli: çerçeve ~330 css px (≈ 990 cihaz pikseli).
+const INTRO_POSTER_PHONE = '(max-width: 720px)';
 const INTRO_LABEL = 'SesVer tanıtım videosunu oynat, 34 saniye, sesli';
-const INTRO_YONS = ['a', 'b', 'c'];
-const INTRO_BARS = barHeights(5, 2.4);
-
-function introYon() {
-  if (typeof window === 'undefined') return 'a';
-  const y = new URLSearchParams(window.location.search).get('yon');
-  return INTRO_YONS.includes(y) ? y : 'a';
-}
 
 function PlayGlyph() {
   return (
@@ -470,7 +468,7 @@ function PlayGlyph() {
   );
 }
 
-// Kapak + oynat düğmesi; tıklanınca aynı yerde yerel kontrollü <video>. children = yöne özgü düğme süsü.
+// Kapak + oynat düğmesi; tıklanınca aynı yerde yerel kontrollü <video>. children = düğme süsü (oynat diski).
 function IntroPlayer({ children }) {
   const ref = useRef(null);
   const [started, setStarted] = useState(false);
@@ -494,7 +492,22 @@ function IntroPlayer({ children }) {
       <video ref={ref} className="sv-intro__video" controls={started} playsInline preload="none" aria-label="SesVer tanıtım videosu" />
       {!started && (
         <button type="button" className="sv-intro__start" onClick={start} aria-label={INTRO_LABEL}>
-          <img className="sv-intro__poster" src={asset(INTRO_POSTER)} alt="" width="1920" height="1080" loading="lazy" decoding="async" />
+          {/* Telefonda (≤720 px) piksel yoğunluğundan bağımsız 960'lık kapak; daha genişte srcset/sizes seçer.
+              Öznitelik sırası: loading/sizes/srcSet src'den önce, tarayıcı yanlış boyu erkenden çekmesin. */}
+          <picture>
+            <source media={INTRO_POSTER_PHONE} srcSet={asset(INTRO_POSTER_960)} width="960" height="540" />
+            <img
+              className="sv-intro__poster"
+              alt=""
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+              sizes={INTRO_POSTER_SIZES}
+              srcSet={INTRO_POSTER_SRCSET}
+              src={asset(INTRO_POSTER)}
+            />
+          </picture>
           {children}
         </button>
       )}
@@ -510,51 +523,22 @@ function IntroDisc() {
   );
 }
 
+// Koyu sahne: tek satır başlık, altında geniş oynatıcı.
 function IntroVideo({ reduce }) {
-  const [yon] = useState(introYon);
-  const ref = useRef(null);
-  // Yön C: pencere aşağıdan eğik gelir, ekranın ortasına varınca düzleşir (yalnız transform).
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'center center'] });
-  const p = useSpring(scrollYProgress, SPRING);
-  const rotateX = useTransform(p, [0, 1], [18, 0]);
-  const scale = useTransform(p, [0, 1], [0.9, 1]);
-
   return (
-    <section ref={ref} className="sv-intro" data-yon={yon} aria-label="Tanıtım videosu">
-      {yon === 'a' && (
-        <Rise reduce={reduce} className="sv-card sv-intro__card">
+    <section className="sv-intro" aria-label="Tanıtım videosu">
+      <div className="sv-intro__stage">
+        <Rise reduce={reduce}>
+          <h2 className="sv-intro__title">
+            <span className="sv-grad">34 saniyede</span> SesVer.
+          </h2>
+        </Rise>
+        <Rise reduce={reduce} delay={0.06}>
           <IntroPlayer>
             <IntroDisc />
-            <span className="sv-intro__pill" aria-hidden="true">İzle · 34 sn</span>
           </IntroPlayer>
         </Rise>
-      )}
-      {yon === 'b' && (
-        <div className="sv-intro__stage">
-          <Rise reduce={reduce}>
-            <h2 className="sv-intro__title">
-              <span className="sv-grad">34 saniyede</span> SesVer.
-            </h2>
-          </Rise>
-          <Rise reduce={reduce} delay={0.06}>
-            <IntroPlayer>
-              <IntroDisc />
-            </IntroPlayer>
-          </Rise>
-        </div>
-      )}
-      {yon === 'c' && (
-        <div className="sv-intro__persp">
-          <Motion.div className="sv-intro__tilt" style={reduce ? undefined : { rotateX, scale }}>
-            <IntroPlayer>
-              <span className="sv-intro__pill sv-intro__pill--bars" aria-hidden="true">
-                <Bars heights={INTRO_BARS} className="sv-bars--intro" />
-                Sesli izle
-              </span>
-            </IntroPlayer>
-          </Motion.div>
-        </div>
-      )}
+      </div>
     </section>
   );
 }
@@ -725,8 +709,10 @@ export default function SesVerSite() {
       <main>
         <Hero reduce={reduce} />
 
-        {/* Video Türkçe (dış ses + altyazı); öbür dillerde bölüm hiç çizilmez, sayfa eskisiyle aynı kalır. */}
-        {lang === DEFAULT_LANG && <IntroVideo reduce={reduce} />}
+        {/* Video Türkçe (dış ses + altyazı); öbür dillerde bölüm hiç çizilmez, sayfa eskisiyle aynı kalır.
+            `selected` da bakılır: sözlük yüklenene kadar ekran Türkçe kalır (`lang` = tr); o arada bölüm
+            bir an çizilip kapağı indirtmesin. */}
+        {lang === DEFAULT_LANG && i18n.selected === DEFAULT_LANG && <IntroVideo reduce={reduce} />}
 
         <section className="sv-features">
           {FEATURES.map((f, i) => (
