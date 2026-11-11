@@ -12,7 +12,7 @@ import './sesver.css';
 //  - prefers-reduced-motion: reduce → scroll bağlı hareketler kapanır, CSS dalga animasyonları durur.
 //  - Ses örnekleri: VideoGen üretti (22 Ekim), Yusuf dinleyip onayladı. public/audio/sesver/*.mp3.
 
-const TITLE = 'SesVer — Yazdığın, kendi bilgisayarında sese dönüşsün';
+const TITLE = 'SesVer · Yazdığın, kendi bilgisayarında sese dönüşsün';
 const BG = '#fbf6ee';
 const GITHUB = 'https://github.com/hamarat52/sesver';
 // İndirme adresleri sürümsüz (releases/latest/download): yeni sürüm çıkınca kendiliğinden güncel kalır.
