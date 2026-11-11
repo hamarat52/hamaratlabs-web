@@ -9603,6 +9603,15 @@
     "lines": 407
   },
   {
+    "repo": "kitabe",
+    "hash": "1f4f54a73e",
+    "date": "2026-10-28T08:50:44+03:00",
+    "subject": "feat(tool): ottomaninscriptions.com nazik, kaldığı yerden süren tam içerik toplayıcısı",
+    "score": 91,
+    "is_merge": false,
+    "lines": 407
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "0f3b78a9d0",
     "date": "2026-10-28T08:57:38+03:00",
@@ -9657,6 +9666,15 @@
     "lines": 65690
   },
   {
+    "repo": "kitabe",
+    "hash": "7b2edd9d9e",
+    "date": "2026-10-28T09:04:41+03:00",
+    "subject": "feat(tool): ottomaninscriptions ayrıştırıcı (parse.py) + filigranlı WebP foto hattı (photos.py)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 65690
+  },
+  {
     "repo": "kitabe-wt-magaza",
     "hash": "678cebf2ce",
     "date": "2026-10-28T09:07:54+03:00",
@@ -9667,6 +9685,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "678cebf2ce",
+    "date": "2026-10-28T09:07:54+03:00",
+    "subject": "feat(data): ottomaninscriptions korpus modeli, isolate yükleme, transkripsiyon araması",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1281
+  },
+  {
+    "repo": "kitabe",
     "hash": "678cebf2ce",
     "date": "2026-10-28T09:07:54+03:00",
     "subject": "feat(data): ottomaninscriptions korpus modeli, isolate yükleme, transkripsiyon araması",
@@ -9703,6 +9730,24 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "e5736efe64",
+    "date": "2026-10-28T09:11:55+03:00",
+    "subject": "feat(ui): kaynak kitabe detayı + fotoğraf galerisi",
+    "score": 93,
+    "is_merge": false,
+    "lines": 847
+  },
+  {
+    "repo": "kitabe",
+    "hash": "a87137be63",
+    "date": "2026-10-28T09:11:55+03:00",
+    "subject": "feat(app): ilk açılış teşekkür/atıf ekranı + korpusun harita, arama, ana sayfa, profile bağlanması",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1234
+  },
+  {
+    "repo": "kitabe",
     "hash": "e5736efe64",
     "date": "2026-10-28T09:11:55+03:00",
     "subject": "feat(ui): kaynak kitabe detayı + fotoğraf galerisi",
@@ -9739,6 +9784,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "110f7a54b2",
+    "date": "2026-10-28T09:18:23+03:00",
+    "subject": "test(integration): atıf ilk açılış + kaynak detay ekran görüntüleri (fikstürle), 850 noktalı harita testi",
+    "score": 52,
+    "is_merge": false,
+    "lines": 139
+  },
+  {
+    "repo": "kitabe",
     "hash": "110f7a54b2",
     "date": "2026-10-28T09:18:23+03:00",
     "subject": "test(integration): atıf ilk açılış + kaynak detay ekran görüntüleri (fikstürle), 850 noktalı harita testi",
@@ -9810,6 +9864,15 @@
     "lines": 0
   },
   {
+    "repo": "kitabe",
+    "hash": "6d165ddc32",
+    "date": "2026-10-28T09:27:20+03:00",
+    "subject": "docs(screenshots): 03-map-eser (app_test'in eser paneli adımı; 2b3511f'te eklenmiş, görüntüsü hiç commit'lenmemişti)",
+    "score": 20,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "256157a34a",
     "date": "2026-10-28T09:28:25+03:00",
@@ -9873,6 +9936,15 @@
     "lines": 33185
   },
   {
+    "repo": "kitabe",
+    "hash": "f43375bfb7",
+    "date": "2026-10-28T09:54:16+03:00",
+    "subject": "fix(parse): metindeki düz '<…>' korunur; foto tarih alanındaki serbest metin tarihHam'a",
+    "score": 70,
+    "is_merge": false,
+    "lines": 33185
+  },
+  {
     "repo": "kitabe-wt-magaza",
     "hash": "5405d4df81",
     "date": "2026-10-28T09:55:42+03:00",
@@ -9883,6 +9955,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "5405d4df81",
+    "date": "2026-10-28T09:55:42+03:00",
+    "subject": "fix(parse): fotoğrafsız kitabe sayfasındaki yabancı initImg fotoğrafı bağlanmaz",
+    "score": 70,
+    "is_merge": false,
+    "lines": 3777
+  },
+  {
+    "repo": "kitabe",
     "hash": "5405d4df81",
     "date": "2026-10-28T09:55:42+03:00",
     "subject": "fix(parse): fotoğrafsız kitabe sayfasındaki yabancı initImg fotoğrafı bağlanmaz",
@@ -9990,6 +10071,24 @@
     "lines": 0
   },
   {
+    "repo": "kitabe",
+    "hash": "aa5c9bd50b",
+    "date": "2026-10-28T15:23:21+03:00",
+    "subject": "data(oi): tam önbellekten kitabeler.json (1957 kitabe, 839 yapı, 8976 foto referansı; foto boyutları henüz yok)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 163441
+  },
+  {
+    "repo": "kitabe",
+    "hash": "2252b45d73",
+    "date": "2026-10-28T15:23:21+03:00",
+    "subject": "Merge branch 'feat/ottoman-tam-icerik-veri' into feat/ottoman-tam-icerik",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
     "repo": "veri-duzeni",
     "hash": "077052f833",
     "date": "2026-10-28T15:30:47+03:00",
@@ -10035,6 +10134,15 @@
     "lines": 678
   },
   {
+    "repo": "kitabe",
+    "hash": "66f91a53d9",
+    "date": "2026-10-28T15:31:45+03:00",
+    "subject": "feat(atif): atıf doğrudan siteye — 'Osmanlı Kitabeleri Projesi — ottomaninscriptions.com' bağlantısı",
+    "score": 93,
+    "is_merge": false,
+    "lines": 678
+  },
+  {
     "repo": "kitabe-wt-magaza",
     "hash": "147a525c61",
     "date": "2026-10-28T15:32:34+03:00",
@@ -10045,6 +10153,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "147a525c61",
+    "date": "2026-10-28T15:32:34+03:00",
+    "subject": "test(oi): gerçek tam kitabeler.json testleri — sayılar, tekillik, 228 seçki eşleşmesi, tek pin, 7 editoryal kayıt, yükleme süresi ölçümü",
+    "score": 53,
+    "is_merge": false,
+    "lines": 184
+  },
+  {
+    "repo": "kitabe",
     "hash": "147a525c61",
     "date": "2026-10-28T15:32:34+03:00",
     "subject": "test(oi): gerçek tam kitabeler.json testleri — sayılar, tekillik, 228 seçki eşleşmesi, tek pin, 7 editoryal kayıt, yükleme süresi ölçümü",
@@ -10135,6 +10252,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "0681760981",
+    "date": "2026-10-28T15:40:21+03:00",
+    "subject": "feat(photos): kalite profilleri (--profil), varsayılan c-alan200k; ölçüm + okunabilirlik karşılaştırması",
+    "score": 94,
+    "is_merge": false,
+    "lines": 914
+  },
+  {
+    "repo": "kitabe",
     "hash": "0681760981",
     "date": "2026-10-28T15:40:21+03:00",
     "subject": "feat(photos): kalite profilleri (--profil), varsayılan c-alan200k; ölçüm + okunabilirlik karşılaştırması",
@@ -10153,6 +10279,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "aab72e721f",
+    "date": "2026-10-28T15:43:51+03:00",
+    "subject": "fix(parse): tamir başlık/yıl span'leri alanlara (tamirler[].sira/tarih), siteGrubu, muzeEnvanter; kompakt JSON + veri testleri",
+    "score": 70,
+    "is_merge": false,
+    "lines": 194919
+  },
+  {
+    "repo": "kitabe",
     "hash": "aab72e721f",
     "date": "2026-10-28T15:43:51+03:00",
     "subject": "fix(parse): tamir başlık/yıl span'leri alanlara (tamirler[].sira/tarih), siteGrubu, muzeEnvanter; kompakt JSON + veri testleri",
@@ -10171,6 +10306,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "591e754d3c",
+    "date": "2026-10-28T15:45:54+03:00",
+    "subject": "feat(eser): ana eser / bağlı eser hiyerarşisi, harita yakınlık eşiği ve kroki ekranı",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2839
+  },
+  {
+    "repo": "kitabe",
     "hash": "591e754d3c",
     "date": "2026-10-28T15:45:54+03:00",
     "subject": "feat(eser): ana eser / bağlı eser hiyerarşisi, harita yakınlık eşiği ve kroki ekranı",
@@ -10207,6 +10351,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "58a9e1550b",
+    "date": "2026-10-28T15:49:12+03:00",
+    "subject": "feat(veri): ana eser / bağlı yapı hiyerarşisi (hiyerarsi.json): site grubu kesin + muhafazakâr ad kökü+banî+≤250 m kuralı",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1594
+  },
+  {
+    "repo": "kitabe",
     "hash": "58a9e1550b",
     "date": "2026-10-28T15:49:12+03:00",
     "subject": "feat(veri): ana eser / bağlı yapı hiyerarşisi (hiyerarsi.json): site grubu kesin + muhafazakâr ad kökü+banî+≤250 m kuralı",
@@ -10225,6 +10378,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "c7c7318a05",
+    "date": "2026-10-28T15:49:13+03:00",
+    "subject": "test(integration): 13 atıf (yeniden), 16 ana eser, 17 kroki, 18 harita ana eser — gerçek kitabeler.json + Süleymaniye hiyerarşi/kroki TEST FİKSTÜRÜ, iPhone 18 Pro simülatörü",
+    "score": 51,
+    "is_merge": false,
+    "lines": 113
+  },
+  {
+    "repo": "kitabe",
     "hash": "c7c7318a05",
     "date": "2026-10-28T15:49:13+03:00",
     "subject": "test(integration): 13 atıf (yeniden), 16 ana eser, 17 kroki, 18 harita ana eser — gerçek kitabeler.json + Süleymaniye hiyerarşi/kroki TEST FİKSTÜRÜ, iPhone 18 Pro simülatörü",
@@ -10342,6 +10504,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "829bba6b93",
+    "date": "2026-10-28T15:56:48+03:00",
+    "subject": "test(integration): atıf bağlantısı gerçek url_launcher ile simülatörde tarayıcıyı açar",
+    "score": 47,
+    "is_merge": false,
+    "lines": 35
+  },
+  {
+    "repo": "kitabe",
     "hash": "829bba6b93",
     "date": "2026-10-28T15:56:48+03:00",
     "subject": "test(integration): atıf bağlantısı gerçek url_launcher ile simülatörde tarayıcıyı açar",
@@ -10485,6 +10656,15 @@
     "lines": 889
   },
   {
+    "repo": "kitabe",
+    "hash": "a1d8ec2b9c",
+    "date": "2026-10-28T16:26:25+03:00",
+    "subject": "feat(veri): kroki.json — 10 kalabalık ana eser için şematik kroki (site koordinatı + OSM ODbL izleri)",
+    "score": 94,
+    "is_merge": false,
+    "lines": 889
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "d7d5379d16",
     "date": "2026-10-28T16:28:40+03:00",
@@ -10539,6 +10719,15 @@
     "lines": 0
   },
   {
+    "repo": "kitabe",
+    "hash": "e08832a7bf",
+    "date": "2026-10-28T16:30:50+03:00",
+    "subject": "Merge branch 'feat/ottoman-tam-icerik-veri' into feat/ottoman-tam-icerik",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
     "repo": "kitabe-wt-magaza",
     "hash": "a34b80aeaf",
     "date": "2026-10-28T16:36:54+03:00",
@@ -10549,6 +10738,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "a34b80aeaf",
+    "date": "2026-10-28T16:36:54+03:00",
+    "subject": "data(oi): 4053 filigranlı fotoğrafın en/boy bilgisi (profil c-alan200k)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 16217
+  },
+  {
+    "repo": "kitabe",
     "hash": "a34b80aeaf",
     "date": "2026-10-28T16:36:54+03:00",
     "subject": "data(oi): 4053 filigranlı fotoğrafın en/boy bilgisi (profil c-alan200k)",
@@ -10567,6 +10765,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "326af86c02",
+    "date": "2026-10-28T16:37:25+03:00",
+    "subject": "docs(kaynaklar): ottomaninscriptions tam içerik, fotoğraf filigranı, siteye atıf, OSM/ODbL kroki",
+    "score": 31,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
+    "repo": "kitabe",
     "hash": "326af86c02",
     "date": "2026-10-28T16:37:25+03:00",
     "subject": "docs(kaynaklar): ottomaninscriptions tam içerik, fotoğraf filigranı, siteye atıf, OSM/ODbL kroki",
@@ -10585,6 +10792,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "0906f0f4a3",
+    "date": "2026-10-28T16:42:45+03:00",
+    "subject": "test(veri): gerçek hiyerarsi.json/kroki.json değişmezleri, ana eser toplamları, eksik foto yer tutucu; lisans: OpenStreetMap ODbL girdisi",
+    "score": 57,
+    "is_merge": false,
+    "lines": 582
+  },
+  {
+    "repo": "kitabe",
     "hash": "0906f0f4a3",
     "date": "2026-10-28T16:42:45+03:00",
     "subject": "test(veri): gerçek hiyerarsi.json/kroki.json değişmezleri, ana eser toplamları, eksik foto yer tutucu; lisans: OpenStreetMap ODbL girdisi",
@@ -10648,6 +10864,24 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "494e5e0d36",
+    "date": "2026-10-28T16:57:13+03:00",
+    "subject": "fix(ui): galeri fotoğrafı kırpılmaz (filigran görünür), kroki OSM atfı çizim üstünde sabit; ekran görüntüleri 13–18 gerçek veriyle",
+    "score": 64,
+    "is_merge": false,
+    "lines": 238
+  },
+  {
+    "repo": "kitabe",
+    "hash": "24a52bc8ed",
+    "date": "2026-10-28T16:57:13+03:00",
+    "subject": "chore(macos): url_launcher eklentisi kayıt dosyasına (flutter tarafından üretildi)",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "kitabe",
     "hash": "494e5e0d36",
     "date": "2026-10-28T16:57:13+03:00",
     "subject": "fix(ui): galeri fotoğrafı kırpılmaz (filigran görünür), kroki OSM atfı çizim üstünde sabit; ekran görüntüleri 13–18 gerçek veriyle",
@@ -10746,6 +10980,15 @@
     "lines": 2
   },
   {
+    "repo": "kitabe",
+    "hash": "48e3471845",
+    "date": "2026-10-28T17:07:52+03:00",
+    "subject": "docs(kaynaklar): ağ isteği notunu harita karolarıyla tutarlı yap",
+    "score": 24,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
     "repo": "sesver",
     "hash": "9b2ac6519a",
     "date": "2026-10-28T17:07:58+03:00",
@@ -10998,6 +11241,15 @@
     "lines": 5292
   },
   {
+    "repo": "kitabe",
+    "hash": "9c7d25d5a7",
+    "date": "2026-10-28T17:36:46+03:00",
+    "subject": "feat(l10n): uygulama içi İngilizce arayüz (gen_l10n, TR şablon + EN), Profil'de Dil / Language seçimi",
+    "score": 95,
+    "is_merge": false,
+    "lines": 5292
+  },
+  {
     "repo": "income-vs-desires-wt-chrome",
     "hash": "3e520a85d0",
     "date": "2026-10-28T17:38:57+03:00",
@@ -11068,6 +11320,15 @@
     "score": 91,
     "is_merge": false,
     "lines": 440
+  },
+  {
+    "repo": "kitabe",
+    "hash": "ff2ee533ae",
+    "date": "2026-10-28T18:09:30+03:00",
+    "subject": "feat(magaza): mağaza ham ekran görüntüsü + ekran kaydı düzeneği (flutter_driver)",
+    "score": 93,
+    "is_merge": false,
+    "lines": 720
   },
   {
     "repo": "income-vs-desires-wt-chrome",
@@ -11116,6 +11377,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "d80d58ec2b",
+    "date": "2026-10-28T18:21:08+03:00",
+    "subject": "docs(store): mağaza metinleri TR/EN, kurallar (resmî kaynak), kimlik, gizlilik politikası, yasal form cevapları, karakter sayacı",
+    "score": 40,
+    "is_merge": false,
+    "lines": 294
+  },
+  {
+    "repo": "kitabe",
     "hash": "d80d58ec2b",
     "date": "2026-10-28T18:21:08+03:00",
     "subject": "docs(store): mağaza metinleri TR/EN, kurallar (resmî kaynak), kimlik, gizlilik politikası, yasal form cevapları, karakter sayacı",
@@ -11205,6 +11475,15 @@
     "lines": 116
   },
   {
+    "repo": "kitabe",
+    "hash": "93711ddf97",
+    "date": "2026-10-28T20:40:06+03:00",
+    "subject": "feat(magaza): S2 çekim düzeltmeleri — Arşivden seçkisi paketteki fotoğrafı öne alır, sabit harita çerçevesi (yalnız çekim sürücüsü), arama 'Süleymaniye', ITSAppUsesNonExemptEncryption=false",
+    "score": 87,
+    "is_merge": false,
+    "lines": 116
+  },
+  {
     "repo": "kitabe-wt-magaza",
     "hash": "8eac8e82ce",
     "date": "2026-10-28T20:56:14+03:00",
@@ -11215,6 +11494,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "8eac8e82ce",
+    "date": "2026-10-28T20:56:14+03:00",
+    "subject": "feat(magaza): S3 mağaza görselleri TR/EN — pazarlama ekranları, feature graphic, ikon türevleri",
+    "score": 93,
+    "is_merge": false,
+    "lines": 700
+  },
+  {
+    "repo": "kitabe",
     "hash": "8eac8e82ce",
     "date": "2026-10-28T20:56:14+03:00",
     "subject": "feat(magaza): S3 mağaza görselleri TR/EN — pazarlama ekranları, feature graphic, ikon türevleri",
@@ -11368,6 +11656,15 @@
   },
   {
     "repo": "kitabe-wt-paylas",
+    "hash": "c5a7c021b0",
+    "date": "2026-10-28T22:30:56+03:00",
+    "subject": "docs(store): kontrol listesi, video kaydı (vd), EN feature graphic 'Photo:' atfı; çekim sürücüsünde MAGAZA_HARITA_ATLA",
+    "score": 35,
+    "is_merge": false,
+    "lines": 79
+  },
+  {
+    "repo": "kitabe",
     "hash": "c5a7c021b0",
     "date": "2026-10-28T22:30:56+03:00",
     "subject": "docs(store): kontrol listesi, video kaydı (vd), EN feature graphic 'Photo:' atfı; çekim sürücüsünde MAGAZA_HARITA_ATLA",
@@ -11709,7 +12006,25 @@
     "lines": 19262
   },
   {
+    "repo": "kitabe",
+    "hash": "e7ab3eedb6",
+    "date": "2026-10-29T00:13:16+03:00",
+    "subject": "data(oi): tüm fotoğraflar işlendi — filigran doğrulaması geçti, en/boy güncel",
+    "score": 60,
+    "is_merge": false,
+    "lines": 19262
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "2f2413e72d",
+    "date": "2026-10-29T00:14:51+03:00",
+    "subject": "Merge branch 'feat/ottoman-tam-icerik' into feat/magaza-paketi",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "kitabe",
     "hash": "2f2413e72d",
     "date": "2026-10-29T00:14:51+03:00",
     "subject": "Merge branch 'feat/ottoman-tam-icerik' into feat/magaza-paketi",
@@ -11916,6 +12231,15 @@
     "lines": 592
   },
   {
+    "repo": "kitabe",
+    "hash": "0a361a8b4b",
+    "date": "2026-10-29T00:42:20+03:00",
+    "subject": "fix(oi-veri): dil/vezin boş liste öğesi (797 vezin ', [NN]…') + .JPG uzantılı 108 foto — 8976/8976 WebP, eksik foto 0",
+    "score": 67,
+    "is_merge": false,
+    "lines": 592
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "b732f6696a",
     "date": "2026-10-29T00:42:26+03:00",
@@ -12087,7 +12411,25 @@
     "lines": 2008
   },
   {
+    "repo": "kitabe",
+    "hash": "fcfd14a794",
+    "date": "2026-10-29T01:00:36+03:00",
+    "subject": "feat(detay): kaynak kitabe detayı yeni düzen — AppBar yapı adı, başlık bloğu, özet çipleri, iki sütunlu künye, katlanır biyografi, not kutusu, tamir satırı, numaralı kaynaklar, Haritada göster; yapı/ana eser sayfaları aynı dilde",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2008
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "45285feebb",
+    "date": "2026-10-29T01:00:38+03:00",
+    "subject": "docs(gorsel): detay ekranı önce/sonra görüntüleri (emülatörsüz, gerçek font + WebP) ve yeniden kullanılabilir yakalama yardımcısı",
+    "score": 41,
+    "is_merge": false,
+    "lines": 425
+  },
+  {
+    "repo": "kitabe",
     "hash": "45285feebb",
     "date": "2026-10-29T01:00:38+03:00",
     "subject": "docs(gorsel): detay ekranı önce/sonra görüntüleri (emülatörsüz, gerçek font + WebP) ve yeniden kullanılabilir yakalama yardımcısı",
@@ -12213,7 +12555,34 @@
     "lines": 69
   },
   {
+    "repo": "kitabe",
+    "hash": "d155172657",
+    "date": "2026-10-29T01:15:47+03:00",
+    "subject": "feat(font): Lora yedeği Noto Serif + Arap harfli metin için Noto Naskh Arabic (Google Fonts, OFL; alt küme betiği + kapsam denetimi: eksik 0); lisans sayfası; yakalama yardımcısı pubspec fontlarını yükler",
+    "score": 93,
+    "is_merge": false,
+    "lines": 706
+  },
+  {
+    "repo": "kitabe",
+    "hash": "8ba667d223",
+    "date": "2026-10-29T01:15:47+03:00",
+    "subject": "fix(oi-veri): tam genişlik artıkları (U+FF1B→';' 132 kayıt, U+3000→' ' 1) ve görünmeyen C0 denetim karakterleri (3 kayıt) normalleştirildi; 133 kayıt",
+    "score": 60,
+    "is_merge": false,
+    "lines": 69
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "ab40d39ca6",
+    "date": "2026-10-29T01:15:48+03:00",
+    "subject": "docs(gorsel): sonra görüntüleri Noto yedekleriyle yenilendi + Arap harfli görünüm (Naskh)",
+    "score": 30,
+    "is_merge": false,
+    "lines": 19
+  },
+  {
+    "repo": "kitabe",
     "hash": "ab40d39ca6",
     "date": "2026-10-29T01:15:48+03:00",
     "subject": "docs(gorsel): sonra görüntüleri Noto yedekleriyle yenilendi + Arap harfli görünüm (Naskh)",
@@ -12375,6 +12744,15 @@
     "lines": 3070
   },
   {
+    "repo": "kitabe",
+    "hash": "627241987a",
+    "date": "2026-10-29T01:51:02+03:00",
+    "subject": "fix(icerik): Keşif yalnız ottomaninscriptions.com kayıtlarından (günlük deterministik Günün Eseri, farklı yapılardan Öne Çıkanlar); elle yazılmış tohum verisi ve eski detay ekranı kullanım dışı, haritada/aramada/master-detail'de yok; Wikimedia fotoğrafları pakette değil; uydurma tarama raporu + önce/sonra görüntüleri",
+    "score": 70,
+    "is_merge": false,
+    "lines": 3070
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "6803a7beb2",
     "date": "2026-10-29T01:51:12+03:00",
@@ -12393,7 +12771,25 @@
     "lines": 2858
   },
   {
+    "repo": "kitabe",
+    "hash": "502f5cd64d",
+    "date": "2026-10-29T01:55:14+03:00",
+    "subject": "feat(paylas): Spotify tarzı paylaşım kartı — 3 şablon × 3 boyut, satır/beyit seçimi (tarih beyti yalnız ebcedNotu işaretiyle), fotoğraftan baskın renk + WCAG AA, ekran dışı PNG (1080 px), paylaşım sayfası; ARB paylas* anahtarları; path_provider doğrudan bağımlılık",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2858
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "9ac25878d9",
+    "date": "2026-10-29T01:57:03+03:00",
+    "subject": "feat(paylas/android): yerel kanal org.kitabe.kitabe/paylas — Instagram Hikâye (ADD_TO_STORY + source_application), ACTION_SEND ile Instagram/WhatsApp/X, MediaStore galeri (API 29+); FileProvider (<paket>.paylas, cache/paylas/) + paket görünürlüğü sorguları; debug arm64 derlemesi geçti",
+    "score": 88,
+    "is_merge": false,
+    "lines": 183
+  },
+  {
+    "repo": "kitabe",
     "hash": "9ac25878d9",
     "date": "2026-10-29T01:57:03+03:00",
     "subject": "feat(paylas/android): yerel kanal org.kitabe.kitabe/paylas — Instagram Hikâye (ADD_TO_STORY + source_application), ACTION_SEND ile Instagram/WhatsApp/X, MediaStore galeri (API 29+); FileProvider (<paket>.paylas, cache/paylas/) + paket görünürlüğü sorguları; debug arm64 derlemesi geçti",
@@ -12438,7 +12834,34 @@
     "lines": 87
   },
   {
+    "repo": "kitabe",
+    "hash": "e56d1ff4bf",
+    "date": "2026-10-29T02:02:13+03:00",
+    "subject": "feat(paylas): detay ekranında AppBar + alttaki Paylaş tek giriş noktasına (kitabePaylas) bağlandı; (b) şablonda esnek fotoğraf/metin (taşma yok); testler: satır/beyit, 1–4 sınırı, AA kontrast, kaydırmayla şablon, 3 PNG boyutu, atıf her kartta, Instagram/App ID yokken gizleme, sistem paylaşımına düşme, %200 metin",
+    "score": 93,
+    "is_merge": false,
+    "lines": 780
+  },
+  {
+    "repo": "kitabe",
+    "hash": "eb90ec4602",
+    "date": "2026-10-29T02:02:13+03:00",
+    "subject": "feat(paylas/ios): kanal (AppDelegate) — canOpenURL ile Instagram/Hikâye/WhatsApp/X, Hikâye pasteboard (backgroundImage + source_application), Fotoğraflar'a ekleme; LSApplicationQueriesSchemes + NSPhotoLibraryAddUsageDescription (TR/EN); simülatör derlemesi (--no-codesign) geçti",
+    "score": 86,
+    "is_merge": false,
+    "lines": 87
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "21cef9ee31",
+    "date": "2026-10-29T02:05:47+03:00",
+    "subject": "docs(paylas): örnek kartlar (2 kayıt × 3 şablon × 3 boyut + Arap harfli) ve TR/EN paylaşım sayfası görüntüleri (emülatörsüz, gerçek fontlar; hepsi < 1,5 MB); tool/paylas_png_sinir.py; docs/durum-paylas.md (veri satır/beyit incelemesi, kararlar, platform notları, harita paneli bağlantı satırı)",
+    "score": 39,
+    "is_merge": false,
+    "lines": 216
+  },
+  {
+    "repo": "kitabe",
     "hash": "21cef9ee31",
     "date": "2026-10-29T02:05:47+03:00",
     "subject": "docs(paylas): örnek kartlar (2 kayıt × 3 şablon × 3 boyut + Arap harfli) ve TR/EN paylaşım sayfası görüntüleri (emülatörsüz, gerçek fontlar; hepsi < 1,5 MB); tool/paylas_png_sinir.py; docs/durum-paylas.md (veri satır/beyit incelemesi, kararlar, platform notları, harita paneli bağlantı satırı)",
@@ -12492,6 +12915,15 @@
     "lines": 601
   },
   {
+    "repo": "kitabe",
+    "hash": "d70ae621c0",
+    "date": "2026-10-29T02:14:36+03:00",
+    "subject": "feat(sadelestirme): tool/sadelestirme/birlestir.py — JSONL partileri → assets/data/oi/sadelestirme.json (json.loads doğrulama, bozuk satır/bilinmeyen hid raporu, blokUyumsuz, belirsiz konumu, EN birleşimi); 19 Python testi; README. İlk çıktı: TR 500, EN 0, blokUyumsuz 1, bilinmeyen 0",
+    "score": 92,
+    "is_merge": false,
+    "lines": 601
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "0862214a17",
     "date": "2026-10-29T02:18:22+03:00",
@@ -12519,6 +12951,15 @@
     "lines": 1971
   },
   {
+    "repo": "kitabe",
+    "hash": "8939cc9ed6",
+    "date": "2026-10-29T02:23:11+03:00",
+    "subject": "feat(sadelestirme): yükleyici (lib/data/sadelestirme.dart; korpusla birlikte, yoksa boş) + Kitabe metni sekmeleri (Latin · Sadeleştirilmiş · English · Arap; verisi olmayan sekme yok), Karşılaştır (telefonda alt alta, tablette yan yana), blokUyumsuz → düz, düşük güven uyarısı, belirsiz işaretleri + gerekçe, katlanır kaynaklar; başlık altı özet, Notlar'da tarih beyti; arama sade/EN metinde (3. sıra); paylaşım kartında seçili bloğun sadesi + AI atfı; ARB sade*/sadeAyarNotu*; 22 widget/birim testi",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1971
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "755dd3e461",
     "date": "2026-10-29T02:26:36+03:00",
@@ -12537,7 +12978,25 @@
     "lines": 253
   },
   {
+    "repo": "kitabe",
+    "hash": "56e0011139",
+    "date": "2026-10-29T02:26:37+03:00",
+    "subject": "docs(sadelestirme): görüntüler docs/gorsel-kalite/sadelestirme (K1307 telefon TR/EN + tablet karşılaştırma, kaynaklar, belirsiz sayfası; K4221 düşük güven; K4362 sadeleştirmesiz; hepsi < 1,5 MB); veri yenilendi (TR 540, EN 0, blokUyumsuz 1, bilinmeyen hid 0; kaynak 5d1cf21); belirsiz sayfa başlığı çoğul; arama sırası testi; durum-paylas.md Q bölümü + Ayarlar bağlama satırı",
+    "score": 39,
+    "is_merge": false,
+    "lines": 253
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "addd70e7be",
+    "date": "2026-10-29T02:26:50+03:00",
+    "subject": "feat(harita): Google Haritalar tarzı alt panel — özet/yarım/tam durakları, geri tuşu zinciri, kamera ofseti, seçili pin üstte, yüzen arama, konum ipucu çipi, Yol tarifi (geo:/Apple Haritalar), Paylaş/Kaydet yer tutucusu; filtre adları 'Ana eserler / Tüm eserler' (ölçüt docs/harita-filtresi.md); iç bilgi metinleri arayüzden kaldırıldı; 24 widget testi + önce/sonra görüntüleri ve video",
+    "score": 95,
+    "is_merge": false,
+    "lines": 4116
+  },
+  {
+    "repo": "kitabe",
     "hash": "addd70e7be",
     "date": "2026-10-29T02:26:50+03:00",
     "subject": "feat(harita): Google Haritalar tarzı alt panel — özet/yarım/tam durakları, geri tuşu zinciri, kamera ofseti, seçili pin üstte, yüzen arama, konum ipucu çipi, Yol tarifi (geo:/Apple Haritalar), Paylaş/Kaydet yer tutucusu; filtre adları 'Ana eserler / Tüm eserler' (ölçüt docs/harita-filtresi.md); iç bilgi metinleri arayüzden kaldırıldı; 24 widget testi + önce/sonra görüntüleri ve video",
@@ -12681,6 +13140,15 @@
     "lines": 3375
   },
   {
+    "repo": "kitabe",
+    "hash": "dc33a70988",
+    "date": "2026-10-29T03:26:45+03:00",
+    "subject": "feat(ayarlar): Profil → Ayarlar (maket; Tema/metin boyutu yok) — Kaydet (yer imi) tüm OI detaylarında ve harita panelinde, Kaydedilen kitabeler listesi, eski beğenilerin taşınması (tohum: OI karşılığı yok → düşer, sayılır), konum izni satırı, kalıcı harita filtresi, gerçek çevrimdışı içerik (paket-ozeti.json), mailto geri bildirim (panoya yedek), uygulama içi gizlilik = mağaza metni (iletişim adresi), package_info_plus sürüm; 17+1 widget testi, önce/sonra görüntüleri",
+    "score": 95,
+    "is_merge": false,
+    "lines": 3375
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "0431707961",
     "date": "2026-10-29T03:26:46+03:00",
@@ -12708,6 +13176,15 @@
     "lines": 0
   },
   {
+    "repo": "kitabe",
+    "hash": "47ac266d24",
+    "date": "2026-10-29T03:29:42+03:00",
+    "subject": "merge: feat/paylas-karti (Paylaş kartı + sadeleştirme entegrasyonu) → feat/magaza-paketi; detay onShare kancası korunur, varsayılan yol kitabePaylas",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "31cd01ff2c",
     "date": "2026-10-29T03:32:24+03:00",
@@ -12726,7 +13203,25 @@
     "lines": 174
   },
   {
+    "repo": "kitabe",
+    "hash": "987fa01888",
+    "date": "2026-10-29T03:33:49+03:00",
+    "subject": "fix(oi-veri): yapı/tamir tarihlerinde '－ 0' bitiş artığı atıldı (192 alan); hicrî↔miladî tutmayan kayıtlar tarihTutarsiz: true (yapı 12, tamir 11; kaynak değeri aynen, dönüşüm yalnız denetim); Python testleri (75 OK)",
+    "score": 63,
+    "is_merge": false,
+    "lines": 174
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "2f8be34bcb",
+    "date": "2026-10-29T03:35:45+03:00",
+    "subject": "docs(store): açıklamalara Paylaş kartı; 'kaynak esastır' paragrafı sadeleştirmenin yapay zekâ yardımıyla hazırlandığını dürüstçe söyler; Play iletişim e-postası (Yusuf 00:45)",
+    "score": 31,
+    "is_merge": false,
+    "lines": 24
+  },
+  {
+    "repo": "kitabe",
     "hash": "2f8be34bcb",
     "date": "2026-10-29T03:35:45+03:00",
     "subject": "docs(store): açıklamalara Paylaş kartı; 'kaynak esastır' paragrafı sadeleştirmenin yapay zekâ yardımıyla hazırlandığını dürüstçe söyler; Play iletişim e-postası (Yusuf 00:45)",
@@ -12780,6 +13275,15 @@
     "lines": 1493
   },
   {
+    "repo": "kitabe",
+    "hash": "3796db9003",
+    "date": "2026-10-29T03:50:42+03:00",
+    "subject": "fix(G): tarih '0'/boş hiçbir listede yok; kaynakta hicrî↔miladî tutarsız tarihte bilgi ikonu (detay, künye, tamir, yapı sayfası, harita paneli) + kartta yalnız hicrî; harita paneli Paylaş → kitabePaylas (fotoğraflı + metinli ilk kitabe, yoksa gizli); Ayarlar notu sadeAyarCumlesi; Arşivden satırı yapı adı / Başlık · tarih, 'tek kaynak' kalktı; tam durakta tek başlık/✕, meta öğe bazlı Wrap, küçük konum çipi; detayda alttaki Paylaş kaldırıldı; EN e-posta konusu 'Kitabe feedback'; kullanılmayan 6 ARB anahtarı; testler (252 geçti)",
+    "score": 70,
+    "is_merge": false,
+    "lines": 1493
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "13fe78ed0a",
     "date": "2026-10-29T03:53:28+03:00",
@@ -12807,6 +13311,15 @@
     "lines": 369
   },
   {
+    "repo": "kitabe",
+    "hash": "19073352d3",
+    "date": "2026-10-29T04:01:22+03:00",
+    "subject": "docs(G): düzeltme görüntüleri docs/gorsel-kalite/duzeltme-G (Keşif, harita yarım/tam/özet, Beylerbeyi detayı + ⓘ ipucu, Ayarlar alt notu; emülatörsüz, gerçek veri/fontlar, hepsi < 1,5 MB); Brief D detay görüntüleri eylem satırı + sadeleştirmeyle yeniden üretildi (aynı adlar); harita meta'sında ⓘ sonrası ayırıcı yok; durum.md G1–G6",
+    "score": 41,
+    "is_merge": false,
+    "lines": 369
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "1e2f07bacf",
     "date": "2026-10-29T04:01:31+03:00",
@@ -12826,6 +13339,15 @@
   },
   {
     "repo": "kitabe-wt-magaza",
+    "hash": "e51d03f0c0",
+    "date": "2026-10-29T04:08:53+03:00",
+    "subject": "fix(harita): panel meta'sında satır sonunda sarkan '·' yok — AyiriciliSarma: ayırıcı yalnız aynı satırdaki iki öğe arasında, sarılan öğenin önündeki gizli (çizilmez/dokunulmaz/semantik dışı); ⓘ sonrası ayırıcı yok; birim testleri; duzeltme-G harita görüntüleri yenilendi",
+    "score": 66,
+    "is_merge": false,
+    "lines": 372
+  },
+  {
+    "repo": "kitabe",
     "hash": "e51d03f0c0",
     "date": "2026-10-29T04:08:53+03:00",
     "subject": "fix(harita): panel meta'sında satır sonunda sarkan '·' yok — AyiriciliSarma: ayırıcı yalnız aynı satırdaki iki öğe arasında, sarılan öğenin önündeki gizli (çizilmez/dokunulmaz/semantik dışı); ⓘ sonrası ayırıcı yok; birim testleri; duzeltme-G harita görüntüleri yenilendi",
@@ -12870,6 +13392,15 @@
     "lines": 762
   },
   {
+    "repo": "kitabe",
+    "hash": "e348fd8693",
+    "date": "2026-10-29T04:23:23+03:00",
+    "subject": "feat(magaza): emülatörsüz mağaza ham görüntüleri — flutter test içinde gerçek veri/fontlar; 5 hedef (Android telefon 1080×2400, tablet 7\"/10\", iPhone 1206×2622, iPad 13\") × TR/EN, 01–08 (06 yok); platform (iOS/Android) + güvenli alan FakeViewPadding; sentetik durum çubuğu/hareket çubuğu bindirmesi, renk AppBar SystemUiOverlayStyle'ından; iOS sistem fontu SF Pro (CupertinoSystemText); Keşif günü sabit (9 Mart 2030); @Tags(magaza) varsayılan koşu dışında (dart_test.yaml); KitabeApp.temaUyarla (yalnız test)",
+    "score": 93,
+    "is_merge": false,
+    "lines": 762
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "80e3920c76",
     "date": "2026-10-29T04:23:29+03:00",
@@ -12906,6 +13437,15 @@
     "lines": 318
   },
   {
+    "repo": "kitabe",
+    "hash": "e7e5eff16a",
+    "date": "2026-10-29T04:39:57+03:00",
+    "subject": "feat(magaza): emülatörsüz ekran videoları — test içinde gerçek dokunma/sürükleme (zaman damgalı TestGesture), sahte saat kare başına 1/30 sn, ham RGBA kareler doğrudan ffmpeg'e (libx264 CRF 18, yuv420p, 30 fps); ısınma turu (görseller önbellekte); senaryo Keşif → K1370 galeri → metin Latin→Arap → arama → Süleymaniye → ana eser → kroki; yeniden kurulumda yeni navigator anahtarı",
+    "score": 90,
+    "is_merge": false,
+    "lines": 318
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "8cb7ffdc18",
     "date": "2026-10-29T04:40:21+03:00",
@@ -12933,7 +13473,25 @@
     "lines": 149
   },
   {
+    "repo": "kitabe",
+    "hash": "42517ef2ee",
+    "date": "2026-10-29T04:42:18+03:00",
+    "subject": "feat(store): pazarlama ekranları emülatörsüz Flutter ham çekimlerinden yeniden üretildi — iPhone (iphone-flutter), iPad (ipad13-flutter), Play telefon 1080×1920 (android-telefon), Play tablet 7\" 1080×1920 + 10\" 1440×2560 (android-tablet7/10) × TR/EN, 7'şer görsel; gorsel_uret.py kaynak klasörleri bağlandı, play-tablet iki boyut üretir; gorsel_kontrol.py Play boyutlarını ve klasör başına 7 görseli denetler (74 dosya OK)",
+    "score": 87,
+    "is_merge": false,
+    "lines": 149
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "f021af7b12",
+    "date": "2026-10-29T04:45:25+03:00",
+    "subject": "docs(magaza): tool/magaza/README.md — emülatörsüz yöntem (komutlar, hedefler/güvenli alan, font yükleme, sentetik durum çubuğu, video kare akışı + ffmpeg, sınırlamalar, harita notu, proje-bağımsız kullanım); store/GORSELLER.md ham kaynak tablosu + 01-kesif başlık denetimi; store/README.md Play telefon/tablet hazır, videolar VideoGen'de yeniden",
+    "score": 41,
+    "is_merge": false,
+    "lines": 367
+  },
+  {
+    "repo": "kitabe",
     "hash": "f021af7b12",
     "date": "2026-10-29T04:45:25+03:00",
     "subject": "docs(magaza): tool/magaza/README.md — emülatörsüz yöntem (komutlar, hedefler/güvenli alan, font yükleme, sentetik durum çubuğu, video kare akışı + ffmpeg, sınırlamalar, harita notu, proje-bağımsız kullanım); store/GORSELLER.md ham kaynak tablosu + 01-kesif başlık denetimi; store/README.md Play telefon/tablet hazır, videolar VideoGen'de yeniden",
@@ -12969,6 +13527,15 @@
     "lines": 2
   },
   {
+    "repo": "kitabe",
+    "hash": "d81958dca2",
+    "date": "2026-10-29T04:54:40+03:00",
+    "subject": "data(sadelestirme): TR 1220 kayıt (61 parti, kaynak bcf5fc9); blokUyumsuz 1, bozuk/bilinmeyen 0",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "4f42ae3fa0",
     "date": "2026-10-29T04:56:26+03:00",
@@ -12988,6 +13555,15 @@
   },
   {
     "repo": "kitabe-wt-magaza",
+    "hash": "4ed5f7d3d9",
+    "date": "2026-10-29T05:04:10+03:00",
+    "subject": "docs(store,durum): VideoGen v2 videoları (Flutter çiziminden, vd v2) VIDEOLAR.md + kontrol listesi; gece sırası kapanış notu",
+    "score": 34,
+    "is_merge": false,
+    "lines": 58
+  },
+  {
+    "repo": "kitabe",
     "hash": "4ed5f7d3d9",
     "date": "2026-10-29T05:04:10+03:00",
     "subject": "docs(store,durum): VideoGen v2 videoları (Flutter çiziminden, vd v2) VIDEOLAR.md + kontrol listesi; gece sırası kapanış notu",
@@ -13653,6 +14229,15 @@
     "lines": 2
   },
   {
+    "repo": "kitabe",
+    "hash": "752bcd2573",
+    "date": "2026-10-29T09:54:51+03:00",
+    "subject": "data(sadelestirme): TR 1955 kayıt (98/98 parti), EN 719 kayıt (36/98) — feat/sadelestirme 0b93425 (Organizatör)",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "e3575d0362",
     "date": "2026-10-29T09:55:42+03:00",
@@ -13680,7 +14265,25 @@
     "lines": 100
   },
   {
+    "repo": "kitabe",
+    "hash": "208d242fcf",
+    "date": "2026-10-29T09:58:35+03:00",
+    "subject": "ui(liste): kitabe satırlarında dosya ikonu yerine yuvarlak köşeli küçük fotoğraf (kitabe → yapı → ikon yedeği; filigran köşesi görünür) — 5 liste (Organizatör)",
+    "score": 51,
+    "is_merge": false,
+    "lines": 100
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "4390f28bc1",
+    "date": "2026-10-29T10:00:33+03:00",
+    "subject": "test: metni olan her kitabede sadeleştirilmiş Türkçe (1955/1955)",
+    "score": 46,
+    "is_merge": false,
+    "lines": 26
+  },
+  {
+    "repo": "kitabe",
     "hash": "4390f28bc1",
     "date": "2026-10-29T10:00:33+03:00",
     "subject": "test: metni olan her kitabede sadeleştirilmiş Türkçe (1955/1955)",
@@ -13698,7 +14301,25 @@
     "lines": 153
   },
   {
+    "repo": "kitabe",
+    "hash": "6eeb04be20",
+    "date": "2026-10-29T10:03:30+03:00",
+    "subject": "ui(liste): KitabeSatiri — küçük görsel 72 px genişlikte, yanındaki başlık+alt yazı bloğuyla aynı yükseklikte (yuvarlak köşeli dikdörtgen)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 153
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "a6545603df",
+    "date": "2026-10-29T10:05:45+03:00",
+    "subject": "ui(harita): eylem sırası Kitabeler · Kaydet · Paylaş · Yol tarifi (yol tarifi en sonda, vurgusuz)",
+    "score": 46,
+    "is_merge": false,
+    "lines": 25
+  },
+  {
+    "repo": "kitabe",
     "hash": "a6545603df",
     "date": "2026-10-29T10:05:45+03:00",
     "subject": "ui(harita): eylem sırası Kitabeler · Kaydet · Paylaş · Yol tarifi (yol tarifi en sonda, vurgusuz)",
@@ -13716,7 +14337,25 @@
     "lines": 116
   },
   {
+    "repo": "kitabe",
+    "hash": "b3a95e4018",
+    "date": "2026-10-29T10:14:13+03:00",
+    "subject": "fix(atif): 'Profil ›' → 'Ayarlar ›' (sekme adı değişti); açılış akışı görüntü testi",
+    "score": 62,
+    "is_merge": false,
+    "lines": 116
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "9e204c5bd2",
+    "date": "2026-10-29T10:16:20+03:00",
+    "subject": "ui(atif): tek dil (arayüz dili) + Devam/Kapat altta sabit, hep görünür; testler",
+    "score": 54,
+    "is_merge": false,
+    "lines": 226
+  },
+  {
+    "repo": "kitabe",
     "hash": "9e204c5bd2",
     "date": "2026-10-29T10:16:20+03:00",
     "subject": "ui(atif): tek dil (arayüz dili) + Devam/Kapat altta sabit, hep görünür; testler",
@@ -13752,6 +14391,15 @@
     "lines": 157
   },
   {
+    "repo": "kitabe",
+    "hash": "1e0546cbc7",
+    "date": "2026-10-29T10:20:30+03:00",
+    "subject": "feat(acilis): ilk açılış karşılama → Keşif; teşekkür ekranı zorunlu değil (karşılamada bağlantı + Ayarlar)",
+    "score": 88,
+    "is_merge": false,
+    "lines": 157
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "4afd6aa905",
     "date": "2026-10-29T10:22:27+03:00",
@@ -13762,6 +14410,15 @@
   },
   {
     "repo": "kitabe-wt-magaza",
+    "hash": "2ca36ac2db",
+    "date": "2026-10-29T10:22:35+03:00",
+    "subject": "ui(karsilama): teşekkür bağlantısı tema yazı stiliyle",
+    "score": 41,
+    "is_merge": false,
+    "lines": 5
+  },
+  {
+    "repo": "kitabe",
     "hash": "2ca36ac2db",
     "date": "2026-10-29T10:22:35+03:00",
     "subject": "ui(karsilama): teşekkür bağlantısı tema yazı stiliyle",
@@ -13797,7 +14454,25 @@
     "lines": 22
   },
   {
+    "repo": "kitabe",
+    "hash": "61ac9805d1",
+    "date": "2026-10-29T10:29:59+03:00",
+    "subject": "release: applicationId/bundle ID com.hamaratlabs.kitabe (Yusuf kararı; Play'e ilk yükleme)",
+    "score": 81,
+    "is_merge": false,
+    "lines": 22
+  },
+  {
     "repo": "kitabe-wt-magaza",
+    "hash": "08391c2f4b",
+    "date": "2026-10-29T10:31:13+03:00",
+    "subject": "store(play): görünen ad 'Kitabe: Ottoman Inscriptions' (TR+EN, Yusuf kararı)",
+    "score": 42,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "kitabe",
     "hash": "08391c2f4b",
     "date": "2026-10-29T10:31:13+03:00",
     "subject": "store(play): görünen ad 'Kitabe: Ottoman Inscriptions' (TR+EN, Yusuf kararı)",
@@ -13870,6 +14545,15 @@
   },
   {
     "repo": "kitabe-wt-magaza",
+    "hash": "46555cb226",
+    "date": "2026-10-29T10:51:49+03:00",
+    "subject": "release: sürüm 0.1.0 (yapı 2) — yayına kadar 1.0 altı (Yusuf kuralı)",
+    "score": 76,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "kitabe",
     "hash": "46555cb226",
     "date": "2026-10-29T10:51:49+03:00",
     "subject": "release: sürüm 0.1.0 (yapı 2) — yayına kadar 1.0 altı (Yusuf kuralı)",
@@ -19627,6 +20311,15 @@
     "score": 95,
     "is_merge": false,
     "lines": 1629
+  },
+  {
+    "repo": "kitabe",
+    "hash": "5e3d62f9e6",
+    "date": "2026-11-03T11:33:13+03:00",
+    "subject": "release(ios): App Store imza/yükleme hattı (tool/ios_yayin.sh), ExportOptions, yanmış yapı kaydı; sürüm 0.1.0+3 (yapı 2 ASC'de yanmış)",
+    "score": 54,
+    "is_merge": false,
+    "lines": 222
   },
   {
     "repo": "wingwire-android",
@@ -26613,6 +27306,24 @@
     "lines": 193
   },
   {
+    "repo": "kitabe",
+    "hash": "0ceb9b65d8",
+    "date": "2026-11-07T14:43:52+03:00",
+    "subject": "fix(harita): sekme dönüşünde alt panel içerik kaydırılmış halde takılmasın",
+    "score": 67,
+    "is_merge": false,
+    "lines": 547
+  },
+  {
+    "repo": "kitabe",
+    "hash": "b7c6c83e6a",
+    "date": "2026-11-07T14:43:52+03:00",
+    "subject": "fix(paylas): alttan açılan sayfanın son satırı gezinme çubuğunun arkasında kalmasın",
+    "score": 64,
+    "is_merge": false,
+    "lines": 237
+  },
+  {
     "repo": "sesver",
     "hash": "a49cfb48c9",
     "date": "2026-11-07T14:56:12+03:00",
@@ -27819,6 +28530,33 @@
     "lines": 287
   },
   {
+    "repo": "hamaratlabs-web",
+    "hash": "eb8c2501fc",
+    "date": "2026-11-09T12:48:09+03:00",
+    "subject": "feat(sesver): kurulum bölümüne sistemi algılayan indirme düğmesi; Mac adımları DMG'ye göre",
+    "score": 89,
+    "is_merge": false,
+    "lines": 258
+  },
+  {
+    "repo": "kitabe",
+    "hash": "22e3961c8d",
+    "date": "2026-11-09T12:48:38+03:00",
+    "subject": "feat(siri): Yakındaki Kitabeler + Haritada Yakındakiler (spike'tan sürüm hattına taşıma, yeni veri)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 3226
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "f1c4718f08",
+    "date": "2026-11-09T12:56:33+03:00",
+    "subject": "fix(sesver): Mac notu doğrulandı; notarize uygulamada da ilk açılışta macOS onay sorar (siberguvenlik bulgu 1)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 22
+  },
+  {
     "repo": "sesver",
     "hash": "bccac5bbad",
     "date": "2026-11-09T12:57:17+03:00",
@@ -27844,6 +28582,15 @@
     "score": 65,
     "is_merge": false,
     "lines": 303
+  },
+  {
+    "repo": "kitabe",
+    "hash": "f75fe16319",
+    "date": "2026-11-09T13:05:00+03:00",
+    "subject": "docs(v1): Siri taşıması + iki Android düzeltmesi raporu, kanıtlar; önce/sonra görüntü üretici (test/hata_goruntu_test.dart)",
+    "score": 45,
+    "is_merge": false,
+    "lines": 1745
   },
   {
     "repo": "wingwire-app-web",
@@ -27891,6 +28638,24 @@
     "lines": 0
   },
   {
+    "repo": "kitabe",
+    "hash": "64217f6194",
+    "date": "2026-11-09T14:46:45+03:00",
+    "subject": "chore: sürüm 0.1.1+4",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "kitabe",
+    "hash": "b00deff8f4",
+    "date": "2026-11-09T14:46:45+03:00",
+    "subject": "fix(ios): konum izin metni Siri/Kestirmeler kullanımını da söylesin; App Review notuna Siri deneme adımı",
+    "score": 53,
+    "is_merge": false,
+    "lines": 10
+  },
+  {
     "repo": "sesver",
     "hash": "db1fa75a30",
     "date": "2026-11-09T14:52:41+03:00",
@@ -27898,6 +28663,15 @@
     "score": 50,
     "is_merge": true,
     "lines": 0
+  },
+  {
+    "repo": "kitabe",
+    "hash": "ff26baf1da",
+    "date": "2026-11-09T14:56:40+03:00",
+    "subject": "release(ios): 0.1.1 (4) App Store Connect'e yüklendi (Yusuf onayı 2026-11-09)",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
   },
   {
     "repo": "sesver",
@@ -27954,6 +28728,33 @@
     "lines": 29
   },
   {
+    "repo": "kitabe",
+    "hash": "7cbebbda8f",
+    "date": "2026-11-10T01:53:39+03:00",
+    "subject": "fix(ios): ITMS-90683 uyarısı için NSLocationAlwaysAndWhenInUseUsageDescription eklendi",
+    "score": 51,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b1caadfc00",
+    "date": "2026-11-10T01:58:59+03:00",
+    "subject": "feat(konus): santral konusur gibi 2. tur (durum kalıpları, siz dili yok, sormadan ajana iletme)",
+    "score": 83,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "c200b00d83",
+    "date": "2026-11-10T10:28:29+03:00",
+    "subject": "feat(konus): Yerel motora sürekli dinleme ve söz kesme (P2) eklendi",
+    "score": 87,
+    "is_merge": false,
+    "lines": 135
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "e4a7ec2e22",
     "date": "2026-11-10T10:57:06+03:00",
@@ -27961,6 +28762,33 @@
     "score": 89,
     "is_merge": false,
     "lines": 212
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2fe70bd901",
+    "date": "2026-11-10T11:07:08+03:00",
+    "subject": "feat: servis bağlantıları envanteri ve tasarım taslakları",
+    "score": 90,
+    "is_merge": false,
+    "lines": 363
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2854ba5443",
+    "date": "2026-11-10T11:51:56+03:00",
+    "subject": "feat(ui): ortak önbellek (useCached) — sekme dönüşünde yeniden yükleme yok (27/27 yeşil)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2337
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b18847f846",
+    "date": "2026-11-10T11:57:25+03:00",
+    "subject": "fix(auth): çıkışta ortak UI önbelleğini (clearCache) temizle (siberguvenlik Bulgu 1)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 7
   },
   {
     "repo": "pomodoro-restoran",
@@ -27979,5 +28807,590 @@
     "score": 90,
     "is_merge": false,
     "lines": 343
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "71c8e85a83",
+    "date": "2026-11-10T23:50:40+03:00",
+    "subject": "chore(aktivite): günlük kod aktivite verisi güncellendi (2026-11-10)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 198
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "6f99e29c28",
+    "date": "2026-11-11T12:35:19+03:00",
+    "subject": "feat(gorsel): görsel üretimi agy ile doğrudan (Hermes/Claude ajanı yok)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1275
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "c159d7f7c2",
+    "date": "2026-11-11T12:35:27+03:00",
+    "subject": "docs(qa): gorsel-agy raporu + gerçek agy üretim kanıtları ve ekran görüntüleri",
+    "score": 33,
+    "is_merge": false,
+    "lines": 155
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "0f2e7ff72e",
+    "date": "2026-11-11T12:35:27+03:00",
+    "subject": "feat(olustur): Görsel motorları agy (Gemini) + ElevenLabs",
+    "score": 85,
+    "is_merge": false,
+    "lines": 85
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "1284952318",
+    "date": "2026-11-11T12:35:27+03:00",
+    "subject": "test(config): config-snapshot fikstürü — photogenProfile → agyBin/photogenModel/agyBrainDir",
+    "score": 47,
+    "is_merge": false,
+    "lines": 32
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ceff90210a",
+    "date": "2026-11-11T12:46:05+03:00",
+    "subject": "fix(config): agyBin — PATH'te agy yoksa ~/.local/bin/agy (canlı servis PATH'i); WW_AGY_BIN önce gelir",
+    "score": 62,
+    "is_merge": false,
+    "lines": 122
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8694a8cd35",
+    "date": "2026-11-11T12:47:58+03:00",
+    "subject": "revert(uretim): ElevenLabs görsel model listesi main'deki hâline (GPT Image 2 dahil) — gizleme kaldırıldı",
+    "score": 46,
+    "is_merge": false,
+    "lines": 22
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "1b5fe5dcd8",
+    "date": "2026-11-11T13:00:11+03:00",
+    "subject": "feat(gorsel): agy model seçici (Flash | Argon) — liste agy models'tan, sunucu yalnız listedeki gemini-* kimliğini kabul eder (yoksa 400); model oturum kaydına ve iş başlığına",
+    "score": 91,
+    "is_merge": false,
+    "lines": 482
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "1d10db9efe",
+    "date": "2026-11-11T13:01:10+03:00",
+    "subject": "docs(qa): gorsel-agy Ek 2 — agy model seçici + ElevenLabs geri alma; Argon kota kanıtı, Flash Orta gerçek üretim, 1440/390 görüntüler",
+    "score": 34,
+    "is_merge": false,
+    "lines": 236
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f6e76a1234",
+    "date": "2026-11-11T13:12:50+03:00",
+    "subject": "fix(gorsel): agy süre metni ölçüme göre (Flash ~1 dk, Argon «ölçülmedi»; eski ~2–5 dk kalktı) + kota hatası Türkçe (Argon: «Argon kotası dolu, Flash'ı dene.» + açılma zamanı)",
+    "score": 63,
+    "is_merge": false,
+    "lines": 179
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "bbadebb5db",
+    "date": "2026-11-11T13:15:11+03:00",
+    "subject": "docs(qa): gorsel-agy siberguvenlik kontrolü (GEÇER, koşullu B1)",
+    "score": 28,
+    "is_merge": false,
+    "lines": 42
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "3472702636",
+    "date": "2026-11-11T13:17:17+03:00",
+    "subject": "merge: fix/gorsel-agy → main (görsel üretimi agy ile doğrudan; Flash|Argon seçici; ElevenLabs listesi aynen; siberguvenlik GEÇER koşullu B1; Yusuf kalıcı onayı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "4ba8d41c84",
+    "date": "2026-11-11T13:56:46+03:00",
+    "subject": "fix(gorsel): agy kısıtlı oturum (B1-B3): --settings ile komut/URL/MCP reddi + küresel allow boşaltma, --sandbox, --disable-slash-commands; izin listeli env + işe özel TMPDIR; konuşma kaydındaki izin retleri iş günlüğüne; agy models hatası 30 sn önbellek",
+    "score": 65,
+    "is_merge": false,
+    "lines": 336
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "eba9a3d231",
+    "date": "2026-11-11T13:58:10+03:00",
+    "subject": "docs(qa): agy-kisit raporu + ölçümler (izin deneyleri A–M9, kabul denemeleri, doğrudan kod yolu saldırı kanıtı)",
+    "score": 38,
+    "is_merge": false,
+    "lines": 852
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8b0f9db476",
+    "date": "2026-11-11T14:09:28+03:00",
+    "subject": "merge: feat/yerel-surekli → birlestir-1111",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "efd37cea2a",
+    "date": "2026-11-11T14:09:28+03:00",
+    "subject": "merge: feat/konus-dogal-2 → birlestir-1111",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5c14160ef9",
+    "date": "2026-11-11T14:09:28+03:00",
+    "subject": "merge: fix/sekme-onbellek → birlestir-1111",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "kitabe",
+    "hash": "750329c119",
+    "date": "2026-11-11T14:10:23+03:00",
+    "subject": "chore: sürüm 0.1.1+5",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "6a9a083800",
+    "date": "2026-11-11T14:13:56+03:00",
+    "subject": "docs(qa): agy-kisit siberguvenlik kontrolü (ŞARTLI GEÇER: pixel-mcp kararı Yusuf'a; K1 takipte)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 58
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "725d1ed839",
+    "date": "2026-11-11T14:17:59+03:00",
+    "subject": "fix(claude): izlenen API anahtarı adı CLAUDE_500_API (tek sabit CLAUDE_API_KEY_NAME; testler/e2e sabitten)",
+    "score": 59,
+    "is_merge": false,
+    "lines": 53
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f6c2182db3",
+    "date": "2026-11-11T14:20:13+03:00",
+    "subject": "merge: fix/agy-kisit → birlestir-1111",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8ac5f85738",
+    "date": "2026-11-11T14:21:47+03:00",
+    "subject": "merge: fix/birlestir-1111 → main (agy kısıtlı oturum B1-B3 [siberguvenlik ŞARTLI GEÇER, şart: pixel-mcp agy'de kapatıldı]; sekme önbelleği [GEÇER, Bulgu 1 kapalı]; Santral doğal konuşma 2. tur [GEÇER]; Yerel motor sürekli dinleme + söz kesme [GEÇER]; tsc 0, vitest 4347/4347, build 0; Yusuf kalıcı onayı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "sesver",
+    "hash": "af9762ff04",
+    "date": "2026-11-11T14:21:55+03:00",
+    "subject": "docs(readme): tanitim videosu kapagi ve baglantisi; Windows surum notu basligindan em dash kaldirildi",
+    "score": 27,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "sesver",
+    "hash": "28acf3e93f",
+    "date": "2026-11-11T14:26:03+03:00",
+    "subject": "docs(readme): Lisans bolumundeki em dash'ler kaldirildi",
+    "score": 26,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "4731be5075",
+    "date": "2026-11-11T14:26:16+03:00",
+    "subject": "fix(sesver): lisans metni MIT'e göre düzeltildi (hero satırı + lisans kutusu, 10 dil); PolyForm/ticari kısıt kaldırıldı",
+    "score": 61,
+    "is_merge": false,
+    "lines": 94
+  },
+  {
+    "repo": "kitabe",
+    "hash": "430ae9e47a",
+    "date": "2026-11-11T14:26:45+03:00",
+    "subject": "release(ios): 0.1.1 (5) App Store Connect'e yüklendi (ITMS-90683 düzeltmesi; Yusuf onayı 2026-11-11)",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8d4905d9de",
+    "date": "2026-11-11T14:27:11+03:00",
+    "subject": "feat(claude): kart ve Ayarlar'da ayırma bekçisi aç/kapa anahtarı (kapı kapalıyken salt görünür + neden; kapalı/bilinmiyor durumu açık)",
+    "score": 89,
+    "is_merge": false,
+    "lines": 271
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "bfc0081be2",
+    "date": "2026-11-11T14:27:11+03:00",
+    "subject": "fix(claude): ayırma bekçisinin gerçek durumu Hermes cron'undan (hermes -p default cron list --all); kapalıyken bayat durum dosyası «kullanıyor» sayılmaz + PUT /ww/claude/ayirma/bekci (pause/resume, aynı kapı)",
+    "score": 68,
+    "is_merge": false,
+    "lines": 702
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "98d43b741c",
+    "date": "2026-11-11T14:28:21+03:00",
+    "subject": "chore(sesver): tanıtım videosu web sürümü (7,6 MB) ve kapak karesi; vd vid_20261110T093334Z_dd01b8, pm-sesver doğruladı",
+    "score": 35,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "b86eca1430",
+    "date": "2026-11-11T14:28:21+03:00",
+    "subject": "fix(sesver): kullanıcıya görünen em dash'ler kaldırıldı (sayfa başlığı 11 dil, Rusça 4 satır)",
+    "score": 57,
+    "is_merge": false,
+    "lines": 30
+  },
+  {
+    "repo": "kitabe",
+    "hash": "b7c5741f6b",
+    "date": "2026-11-11T14:28:45+03:00",
+    "subject": "Merge branch 'feat/v1-siri-android' (iOS 0.1.1 (5))",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "sesver",
+    "hash": "810d368495",
+    "date": "2026-11-11T14:28:56+03:00",
+    "subject": "fix(ci): surum notu basliginda $ver: PowerShell surucu oneki sanilmasin diye ${ver}",
+    "score": 49,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "6b146039a2",
+    "date": "2026-11-11T14:31:54+03:00",
+    "subject": "test(claude): e2e bekçi aç/kapa (sahte hermes cron: kapı kapalı 423 + salt görünür, kapı açık kapalı→açık→kapalı, X-WW-Client'sız 403) + ekran görüntüleri",
+    "score": 53,
+    "is_merge": false,
+    "lines": 173
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2cb44a1415",
+    "date": "2026-11-11T14:32:23+03:00",
+    "subject": "docs(claude): ayırma bekçisi aç/kapa (Hermes cron CLI, profil garantisi, durumlar, önbellek, kapı; canlıda kapı kapalı notu)",
+    "score": 32,
+    "is_merge": false,
+    "lines": 35
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "43c4342da1",
+    "date": "2026-11-11T14:47:28+03:00",
+    "subject": "docs(qa): agy-kota raporu + ölçümler (K2 alt ajan python3 reddi, gerçek kota e2e), sahte agy ile 1440/390 ekran; dogrudan.mts göreli içe aktarma",
+    "score": 36,
+    "is_merge": false,
+    "lines": 410
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8045521b6a",
+    "date": "2026-11-11T14:47:28+03:00",
+    "subject": "fix(gorsel): görsel üretim kotası metni (alt ajan 429 → «Görsel üretim kotası dolu, <İstanbul saati>'nde açılır.», saatsiz yedek); K1: kayıtta mcp_ çağrısı → iş durur, kayıt yok, günlükte güvenlik satırı; K2: ana + alt ajan konuşma kayıtları okunur (retler dahil); README K3 notu",
+    "score": 67,
+    "is_merge": false,
+    "lines": 518
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "27dba00074",
+    "date": "2026-11-11T14:49:40+03:00",
+    "subject": "merge: main → fix/agy-kota",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "53a1b65c30",
+    "date": "2026-11-11T14:51:01+03:00",
+    "subject": "feat(sesver): hero altına tanıtım videosu, 3 taslak yön (?yon=a|b|c, varsayılan a); yalnız tr, tıklanmadan bayt inmez",
+    "score": 91,
+    "is_merge": false,
+    "lines": 382
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "544c9dcad0",
+    "date": "2026-11-11T14:51:47+03:00",
+    "subject": "merge: fix/agy-kota → main (görsel kotası dolu metni + saat; agy MCP çağrısında iş durur; alt ajan retleri günlüğe; siberguvenlik GEÇER; Yusuf kalıcı onayı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "3308de53a9",
+    "date": "2026-11-11T14:51:47+03:00",
+    "subject": "docs(qa): agy-kota siberguvenlik kontrolü (GEÇER)",
+    "score": 28,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a85c97fd9c",
+    "date": "2026-11-11T15:09:59+03:00",
+    "subject": "Merge branch 'main' into feat/servis-baglanti",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "f19f56b5d6",
+    "date": "2026-11-11T15:11:46+03:00",
+    "subject": "feat(sesver): tanıtım videosu B yönü kalıcı (koyu sahne, \"34 saniyede SesVer.\"); A/C ve ?yon seçici kalktı",
+    "score": 89,
+    "is_merge": false,
+    "lines": 215
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ee425656e4",
+    "date": "2026-11-11T15:17:56+03:00",
+    "subject": "feat(model-baglanti): A2 (squash) — Ayarlar › Model bağlantıları salt okuma (kota çubukları, süzgeç çipleri, yeniden bağlama komutu kopyala, Gemini salt durum), sol menü durum noktaları, sohbet oturum modeli çipi (config.set --session, config.yaml'a yazmaz), Claude 429 kartı, GET /ww/mobile/model-baglanti-ozet; tsc 0, vitest 4400/4400, build 0; siberguvenlik ŞARTLI GEÇER → Ş1 (izole profil verisi) kapatıldı, squash; Yusuf kalıcı onayı",
+    "score": 95,
+    "is_merge": false,
+    "lines": 5901
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ac23597390",
+    "date": "2026-11-11T15:33:28+03:00",
+    "subject": "feat(servis-baglanti): A2 — Ayarlar › Bağlantılar › Servisler (7 servis, salt okuma) + GET /ww/mobile/servis-ozet",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1539
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ca3a786f16",
+    "date": "2026-11-11T15:34:52+03:00",
+    "subject": "merge: main → feat/servis-baglanti (model-baglanti ile union: MODULES, MOBILE_GATE, mobil-api §12 model / §13 servis)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "f0a2f57c1c",
+    "date": "2026-11-11T15:49:15+03:00",
+    "subject": "feat: upgrade to playable 2.5D pixel vertical slice with 10Hz sim, A*, PlateUp logistics, What-If dry-run, and social visits",
+    "score": 95,
+    "is_merge": false,
+    "lines": 5315
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "46b4a452d8",
+    "date": "2026-11-11T15:55:04+03:00",
+    "subject": "feat: center kitchen & dining around human Chefs and Waiters (Sous-Chef @Elif, double-carry skill, warm pass rails)",
+    "score": 92,
+    "is_merge": false,
+    "lines": 521
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "be4b3e4e54",
+    "date": "2026-11-11T15:59:17+03:00",
+    "subject": "docs(qa): servis-baglanti A2 siberguvenlik kontrolü (GEÇER)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 59
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "576e45b4da",
+    "date": "2026-11-11T15:59:18+03:00",
+    "subject": "merge: feat/servis-baglanti → main (A2: Ayarlar › Bağlantılar › Servisler, 7 servis salt okuma, mağazalar dürüst «Bağlı değil» + Ne gerekiyor; GET /ww/mobile/servis-ozet; siberguvenlik GEÇER; Yusuf kalıcı onayı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "3465ab00fb",
+    "date": "2026-11-11T21:15:29+03:00",
+    "subject": "feat(magaza): Servisler'den mağaza bağlantısı — App Store Connect (.p8 → ES256 JWT → GET /v1/apps) + Google Play (OAuth PKCE / servis hesabı → reviews GET) → Anahtar Zinciri; doğrula, kaldır (Google'da iptal); dosya-klasör durumu kaldırıldı; sahte Apple/Google ile birim + e2e; RAPOR",
+    "score": 95,
+    "is_merge": false,
+    "lines": 3994
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a2bac5c0a1",
+    "date": "2026-11-11T21:25:18+03:00",
+    "subject": "merge: feat/magaza-baglan → main (mağaza bağlantısı arayüzden: App Store Connect .p8 yükle + doğrula, Google Play OAuth / servis hesabı, Kaldır; Anahtar Zinciri; siberguvenlik GEÇER; Yusuf kalıcı onayı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "9332d5cce9",
+    "date": "2026-11-11T21:25:18+03:00",
+    "subject": "docs(qa): magaza-baglan siberguvenlik kontrolü (GEÇER)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 60
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b24d8fbb08",
+    "date": "2026-11-11T21:32:43+03:00",
+    "subject": "merge: main → feat/ayirma-ac-kapa (mağaza bağlantısı tabana alındı; çakışma yok)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "1ef1b4e081",
+    "date": "2026-11-11T21:38:54+03:00",
+    "subject": "fix(model-baglanti): main birleştirmesinden kalan kırık — readAyirma artık bekci ister; Model bağlantıları Hermes çalıştırmadığı için durum main'deki gibi yalnız dosyadan (tsc 2 hata + model-baglanti-server 1 kırmızı giderildi)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 17
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "18b3743f06",
+    "date": "2026-11-11T21:40:16+03:00",
+    "subject": "feat(claude): ayırma bekçisini açarken onay penceresi (hesap, 5 saatlik kullanım çubuğu + eşik çizgisi, eşik; eşik üstünde tehlikeli ton + «çekilir, sıfırlanana kadar gelmez, kapatmak geri almaz»; veri yok/bayat dürüst «bilinmiyor»); onaysız istek yok, kapatma doğrudan",
+    "score": 90,
+    "is_merge": false,
+    "lines": 361
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "99ada3ed33",
+    "date": "2026-11-11T21:42:28+03:00",
+    "subject": "feat(claude): onay metninde «5 dk» bölünmez boşlukla (satır sonunda «~5 / dk» kırılması)",
+    "score": 78,
+    "is_merge": false,
+    "lines": 10
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "180ed41521",
+    "date": "2026-11-11T21:42:29+03:00",
+    "subject": "test(claude): e2e bekçi onayı — kartta eşik altı (Vazgeç/Esc/arka plan → sahte cron'a resume yok) + eşik üstü uyarı → Onayla → açık → kapat pencere yok; Ayarlar'da aynı akış; pencere görünür alana sığar + ekran görüntüleri",
+    "score": 51,
+    "is_merge": false,
+    "lines": 110
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "fc9ee322e5",
+    "date": "2026-11-11T21:42:51+03:00",
+    "subject": "docs(claude): bekçiyi açarken onay penceresi (veri kaynağı, over/under/unknown/no-conf kararı, testler)",
+    "score": 31,
+    "is_merge": false,
+    "lines": 22
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "f559b0308e",
+    "date": "2026-11-11T21:55:10+03:00",
+    "subject": "feat: lock Konsept D (3/4 grid) as default view and add Konsept B exterior & garden customization mechanics",
+    "score": 88,
+    "is_merge": false,
+    "lines": 159
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "bab00a1649",
+    "date": "2026-11-11T21:57:28+03:00",
+    "subject": "docs: add Steam + mobile cross-save event-based sync architecture",
+    "score": 28,
+    "is_merge": false,
+    "lines": 9
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "280ad2d4b1",
+    "date": "2026-11-11T22:02:32+03:00",
+    "subject": "fix(claude): cron iş kimliği «-» ile başlayamaz (CLI seçeneği gibi okunmaz); bekçi ayirma.conf'u source etmez, grep ile okur (yorum + belge)",
+    "score": 58,
+    "is_merge": false,
+    "lines": 37
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "dddd8af2cc",
+    "date": "2026-11-11T22:08:17+03:00",
+    "subject": "docs(qa): ayirma-ac-kapa siberguvenlik kontrolü (1. tur GEÇTİ + B2/B4 sonrası 2. tur GEÇTİ)",
+    "score": 31,
+    "is_merge": false,
+    "lines": 90
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "4bf4334aa8",
+    "date": "2026-11-11T22:16:02+03:00",
+    "subject": "feat(art): integrate Konsept B/C/D pixel sprites and Chef's Strategy Desk UI",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1275
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "d939318dbd",
+    "date": "2026-11-11T22:20:13+03:00",
+    "subject": "chore(devlog): add repeatable screenshot, MP4 clip, and Before/After reel tooling",
+    "score": 56,
+    "is_merge": false,
+    "lines": 478
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "55ca40fb2d",
+    "date": "2026-11-11T23:31:58+03:00",
+    "subject": "feat(art): upgrade to 67 refined pixel sprites, bespoke stations, and 2-frame character walk animation",
+    "score": 89,
+    "is_merge": false,
+    "lines": 242
   }
 ]
