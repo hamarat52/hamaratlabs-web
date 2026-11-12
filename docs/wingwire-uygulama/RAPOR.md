@@ -11,7 +11,7 @@ Kaynak: onaylı taslak `docs/taslak/wingwire-landing-v2/5/index.html` (dal `desi
 - Kırmızı kristal küre kalktı: `/wingwire` artık `CrystalizedBall`'u (ve `motion`'ı) içe aktarmıyor, sayfada canvas/WebGL yok.
 - Aydınlık ve koyu tema (Theme.kt token'ları): açılışta cihaz tercihi, cihaz tercihi değişince izler; sağ üstteki düğmeyle elle seçilince o seçim kalır (saklanmaz, taslaktaki gibi). Bu sayfadayken `html` zemini ve `color-scheme` temayı izler, çıkınca eski hâline döner.
 - Hareket: CSS geçişleri, tek WAAPI (bildirimin uçuşu), diyagram motoru (`requestAnimationFrame`). Diyagram görünmüyorken, sekme gizliyken ya da Durdur'a basılınca döngü tamamen durur. `prefers-reduced-motion: reduce`: hüzme kurulmaz, bildirim metnin altında durur, telefon sohbeti gösterir, Durdur gizlenir; içerik eksiksiz.
-- Uygulamada fark edilen düzeltme: telefon diyagramında "Telefonun" → "Telefon" (masaüstü tuvalinde "Telefonun" kaldı, bkz. Sorular 1).
+- Uygulamada fark edilen düzeltme: "Telefonun" → "Telefon", hem telefon diyagramında hem (2. tur kararıyla) masaüstü tuvalinde.
 - APK bağlantısı bugünkü `/downloads/wingwire-0.1.1.apk` (sürüm numarası yazılmıyor). Alt bilgide `/wingwire/gizlilik/` bağlantısı var (sayfa ayrı iş; yerel önizlemede şu an SPA'ya düşüyor).
 
 ## Dosyalar
@@ -64,17 +64,18 @@ Komutlar (worktree kökünden): `env -u PYTHONPATH /usr/local/bin/python3 docs/w
 | 7 | WingWire chunk'ında `CrystalizedBall` izi | yok (`crystal` 0, `getContext` 0, `webgl` 0). Sayfada canvas: eski 1, yeni 0 |
 
 ### Görsel eşitlik (taslak ↔ React, fark pikseli / belirgin)
+2. tur koşusu ("Telefon" iki diyagramda da; 05e78e0 + masaüstü etiketi):
 | An | 1440 açık | 1440 koyu | 390 açık | 390 koyu |
 |---|---|---|---|---|
-| an-1 (bildirim düşmüş) | 20.671 / 29 | 25.140 / 45 | 0 / 0 | 0 / 0 |
-| an-2 (sohbet açılmış) | 2 / 0 | 2 / 0 | 0 / 0 | 0 / 0 |
-| dy-1 (90 kare) | 0 / 0 | 53.977 / 0 | 4.283 / 84 | 1.298 / 84 |
-| dy-2 (200 kare) | 17.436 / 0 | 36.443 / 544 | 4.466 / 84 | 619 / 84 |
-| az-tam (hareket azaltma, tam sayfa) | 0 / 0 (1440x4999) | 0 / 0 | 24.026 / 84 (390x4396) | 107 / 84 |
+| an-1 (bildirim düşmüş) | 20.671 / 29 | 20.006 / 44 | 0 / 0 | 0 / 0 |
+| an-2 (sohbet açılmış) | 2 / 0 | 0 / 0 | 0 / 0 | 38 / 0 |
+| dy-1 (90 kare) | 9.972 / 94 | 110.539 / 94 | 137 / 84 | 4.752 / 84 |
+| dy-2 (200 kare) | 57.756 / 1.736 | 310 / 94 | 5.725 / 84 | 6.621 / 492 |
+| az-tam (hareket azaltma, tam sayfa) | 120 / 94 (1440x4999) | 120 / 94 | 41.921 / 84 (390x4396) | 7.349 / 84 |
 
 Farkların nedeni (kareler `shots/esitlik/<an>-<genişlik>-<tema>.png` yan yana, `-fark.png` maske):
-- 390'daki 84 belirgin piksel her karede aynı yer: "Telefonun" → "Telefon" etiketindeki "un" (`az-tam-390-koyu`'da farkın tamamı x 119-135, y 1352-1362). İstenen değişiklik.
-- `dy-2-1440-koyu` 544: hüzmeler iki sayfada aynı konumda; Model kartının parlaması taslakta açık, React'te sönmüş. Parlama (`vurdu`) gerçek saatle 650 ms'de söner, kareler elle sürülen saatle ilerler; iki sayfa arasında gerçek süre farklı. Kod iki tarafta aynı.
+- Her diyagram karesindeki sabit 94 (1440) ve 84 (390) belirgin piksel aynı yer: "Telefonun" → "Telefon" etiketindeki "un" (`az-tam-1440-*`'te farkın tamamı x 281-299, y 1319-1329; `az-tam-390-koyu`'da belirgin farkın tamamı x 119-135, y 1352-1362). İstenen değişiklik.
+- `dy-2-1440-acik` 1.736 ve `dy-2-390-koyu` 492: hüzmeler iki sayfada aynı konumda ve aynı kartlar parlıyor; fark parlama halkasının şiddetinde (maske yalnız kart çevrelerinde halka). Parlama (`vurdu`) gerçek saatle 650 ms'de söner ve `.45s` geçişle çizilir, kareler elle sürülen saatle ilerler; iki sayfa arasında gerçek süre farklı. Kod iki tarafta aynı. (1. koşuda aynı neden `dy-2-1440-koyu`'da 544 vermişti; hangi karede çıktığı koşudan koşuya değişiyor.)
 - `an-1-1440` 29-45: telefon ekranı görselinin içinde, kanal başına 32'yi aşan çok az piksel; konum ve boyut ölçümle aynı (`.tel__ekran` iki sayfada 864,234 / 282,234 / 335,531 x 708,344). Görsel çözme/örnekleme oynaklığı.
 - Belirgin olmayan (≤32) farklar: gradyan ve gölge kenarlarında çizim gürültüsü.
 - Eşitliği bozan ve düzeltilen üç sızıntı (ilk koşuda yakalandı, aşağıda "Taslakla farklar").
@@ -92,7 +93,7 @@ Farkların nedeni (kareler `shots/esitlik/<an>-<genişlik>-<tema>.png` yan yana,
 - Taslağa göre fark: React = taslak + site kabuğu (ana paket 110,4 + ana CSS 12,0 + Geist 45,4), eksi taslağın 112,5 KB'lık satır içi belgesi.
 
 ## Taslakla farklar (bilerek)
-- "Telefonun" → "Telefon" yalnız telefon diyagramında (iş tanımı).
+- "Telefonun" → "Telefon" iki diyagramda da (iş tanımı + 2. tur kararı).
 - Seçilmeyen yön ve seçenekler taşınmadı: Yön B, mob 2/3/1eski, ışık sakin; `?yon`, `?mob`, `?isik`, `?tema`, `?bekle` parametreleri ve ölçüm globalleri (`wwDiyagram`, `wwHuzme`, `wwAc`, `wwDiyagramCalis`) yok. Gizli dahil kelime bu yüzden 604 → 259.
 - Sitenin genel CSS'inden sızıntıya karşı üç önlem (ilk eşitlik koşusunda 1 px kaymalar olarak çıktı): `App.css`'teki `.hero { border-bottom }` sıfırlandı; genel `.mono` (12 px, 700, harf aralığı) sızmasın diye sınıf `ww-mono` oldu ("tailscale serve" telefonda bu yüzden uzuyordu); `index.css`'in `*::before, *::after { box-sizing: border-box }` kuralı servis okunu 1 px daraltıyordu, kapsam içinde taslaktaki `content-box` geri verildi. Sitenin `html { scroll-padding-top: 80px; scroll-behavior: smooth }` kuralı sayfada kaldı (yalnız `#ust` bağlantısını etkiler, sonuç aynı).
 - Diyagram yeniden çizilince (yeniden boyut, servis listesi açılınca) uçuştaki hüzme görünür kalıyor; taslakta o tur sonuna kadar saydam kalıyordu.

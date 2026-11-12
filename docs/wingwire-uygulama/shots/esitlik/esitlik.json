@@ -34,13 +34,13 @@
    1440,
    900
   ],
-  "fark_piksel": 0,
-  "fark_belirgin": 0,
+  "fark_piksel": 9972,
+  "fark_belirgin": 94,
   "fark_kutusu": [
-   1079,
-   397,
-   1287,
-   487
+   281,
+   364,
+   1310,
+   521
   ],
   "ad": "dy-1-1440-acik"
  },
@@ -49,12 +49,12 @@
    1440,
    900
   ],
-  "fark_piksel": 17436,
-  "fark_belirgin": 0,
+  "fark_piksel": 57756,
+  "fark_belirgin": 1736,
   "fark_kutusu": [
    130,
-   383,
-   1124,
+   364,
+   1295,
    900
   ],
   "ad": "dy-2-1440-acik"
@@ -64,9 +64,14 @@
    1440,
    4999
   ],
-  "fark_piksel": 0,
-  "fark_belirgin": 0,
-  "fark_kutusu": null,
+  "fark_piksel": 120,
+  "fark_belirgin": 94,
+  "fark_kutusu": [
+   281,
+   1319,
+   299,
+   1329
+  ],
   "ad": "az-tam-1440-acik"
  },
  {
@@ -74,11 +79,11 @@
    1440,
    900
   ],
-  "fark_piksel": 25140,
-  "fark_belirgin": 45,
+  "fark_piksel": 20006,
+  "fark_belirgin": 44,
   "fark_kutusu": [
    639,
-   282,
+   288,
    1342,
    850
   ],
@@ -89,13 +94,13 @@
    1440,
    900
   ],
-  "fark_piksel": 2,
+  "fark_piksel": 0,
   "fark_belirgin": 0,
   "fark_kutusu": [
    639,
-   131,
+   631,
    1342,
-   836
+   656
   ],
   "ad": "an-2-1440-koyu"
  },
@@ -104,13 +109,13 @@
    1440,
    900
   ],
-  "fark_piksel": 53977,
-  "fark_belirgin": 0,
+  "fark_piksel": 110539,
+  "fark_belirgin": 94,
   "fark_kutusu": [
-   472,
+   281,
    371,
-   1309,
-   524
+   1302,
+   625
   ],
   "ad": "dy-1-1440-koyu"
  },
@@ -119,13 +124,13 @@
    1440,
    900
   ],
-  "fark_piksel": 36443,
-  "fark_belirgin": 544,
+  "fark_piksel": 310,
+  "fark_belirgin": 94,
   "fark_kutusu": [
-   154,
-   376,
+   126,
+   419,
    1314,
-   900
+   625
   ],
   "ad": "dy-2-1440-koyu"
  },
@@ -134,9 +139,14 @@
    1440,
    4999
   ],
-  "fark_piksel": 0,
-  "fark_belirgin": 0,
-  "fark_kutusu": null,
+  "fark_piksel": 120,
+  "fark_belirgin": 94,
+  "fark_kutusu": [
+   281,
+   1319,
+   299,
+   1329
+  ],
   "ad": "az-tam-1440-koyu"
  },
  {
@@ -164,13 +174,13 @@
    390,
    844
   ],
-  "fark_piksel": 4283,
+  "fark_piksel": 137,
   "fark_belirgin": 84,
   "fark_kutusu": [
-   22,
+   25,
    59,
-   377,
-   632
+   376,
+   629
   ],
   "ad": "dy-1-390-acik"
  },
@@ -179,7 +189,7 @@
    390,
    844
   ],
-  "fark_piksel": 4466,
+  "fark_piksel": 5725,
   "fark_belirgin": 84,
   "fark_kutusu": [
    13,
@@ -194,13 +204,13 @@
    390,
    4396
   ],
-  "fark_piksel": 24026,
+  "fark_piksel": 41921,
   "fark_belirgin": 84,
   "fark_kutusu": [
    0,
    509,
    390,
-   3449
+   3452
   ],
   "ad": "az-tam-390-acik"
  },
@@ -224,13 +234,13 @@
    390,
    844
   ],
-  "fark_piksel": 0,
+  "fark_piksel": 38,
   "fark_belirgin": 0,
   "fark_kutusu": [
-   325,
-   662,
+   98,
+   538,
    342,
-   690
+   754
   ],
   "ad": "an-2-390-koyu"
  },
@@ -239,7 +249,7 @@
    390,
    844
   ],
-  "fark_piksel": 1298,
+  "fark_piksel": 4752,
   "fark_belirgin": 84,
   "fark_kutusu": [
    22,
@@ -254,13 +264,13 @@
    390,
    844
   ],
-  "fark_piksel": 619,
-  "fark_belirgin": 84,
+  "fark_piksel": 6621,
+  "fark_belirgin": 492,
   "fark_kutusu": [
    13,
    59,
-   376,
-   549
+   377,
+   552
   ],
   "ad": "dy-2-390-koyu"
  },
@@ -269,13 +279,13 @@
    390,
    4396
   ],
-  "fark_piksel": 107,
+  "fark_piksel": 7349,
   "fark_belirgin": 84,
   "fark_kutusu": [
-   119,
-   1352,
-   135,
-   1362
+   0,
+   512,
+   390,
+   3449
   ],
   "ad": "az-tam-390-koyu"
  }

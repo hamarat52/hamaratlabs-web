@@ -349,7 +349,7 @@ function Ag({ az }) {
           <div className="tv">
             <div className="nd" data-n="tel">
               <Ik ad="tel" />
-              <b>Telefonun</b>
+              <b>Telefon</b>
               <span>WingWire</span>
             </div>
             <div className="zon">
