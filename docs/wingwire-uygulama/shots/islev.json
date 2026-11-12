@@ -1,0 +1,1394 @@
+{
+ "olcum": {
+  "react-1440-acik": {
+   "ilk_yukleme": {
+    "istek": 20,
+    "aktarilan_kb": 404.4,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 157.4,
+     "Image": 107.7,
+     "Script": 120.1,
+     "Stylesheet": 18.2
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 24,
+    "aktarilan_kb": 505.9,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 157.4,
+     "Image": 209.1,
+     "Script": 120.1,
+     "Stylesheet": 18.2
+    },
+    "dis_istek": [],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 1.1 http://ww-uygula.localhost:1355/wingwire",
+     "Font 10.7 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-400-normal.woff2",
+     "Font 10.9 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-800-normal.woff2",
+     "Font 11.0 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-600-normal.woff2",
+     "Font 11.8 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-400-normal.woff2",
+     "Font 11.9 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-800-normal.woff2",
+     "Font 12.2 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-600-normal.woff2",
+     "Font 15.1 ://ww-uygula.localhost:1355/fonts/wingwire/sora-latin-700-normal.woff2",
+     "Font 16.5 http://ww-uygula.localhost:1355/fonts/geist-latin-ext.woff2",
+     "Font 21.0 la.localhost:1355/fonts/wingwire/jetbrains-mono-latin-400-normal.woff2",
+     "Font 28.9 http://ww-uygula.localhost:1355/fonts/geist-latin.woff2",
+     "Font 7.5 ocalhost:1355/fonts/wingwire/jetbrains-mono-latin-ext-400-normal.woff2",
+     "Image 14.4 http://ww-uygula.localhost:1355/assets/u-bildirim-acik-DQ6j7YPj.webp",
+     "Image 39.7 http://ww-uygula.localhost:1355/assets/u-paylas-acik-Bipi5FlB.webp",
+     "Image 42.5 http://ww-uygula.localhost:1355/assets/u-sohbet-acik-WFiOilBa.webp",
+     "Image 43.7 tp://ww-uygula.localhost:1355/assets/u-ajanlar-yeni-acik-Dkb3mfih.webp",
+     "Image 47.8 http://ww-uygula.localhost:1355/assets/u-onay-acik-sM0hZjtQ.webp",
+     "Image 6.6 ://ww-uygula.localhost:1355/assets/u-bildirim-bagli-acik-DXur2_bF.webp",
+     "Image 7.2 http://ww-uygula.localhost:1355/assets/icon-CLBTEMxG.webp",
+     "Image 7.3 http://ww-uygula.localhost:1355/assets/u-w-baglanti-acik-B0tjo_Ca.webp",
+     "Script 110.4 http://ww-uygula.localhost:1355/assets/index-BcD8ECOP.js",
+     "Script 9.7 http://ww-uygula.localhost:1355/assets/WingWireSite-DcFi1s4U.js",
+     "Stylesheet 12.0 http://ww-uygula.localhost:1355/assets/index-Cf9jMt1_.css",
+     "Stylesheet 6.2 http://ww-uygula.localhost:1355/assets/WingWireSite-S2HMTlFT.css"
+    ]
+   },
+   "konsol_hata": [],
+   "olc_ilk": {
+    "ilkEkranKelime": 19,
+    "tumGorunurKelime": 169,
+    "gizliDahilKelime": 259,
+    "ilkMetin": [
+     "wing",
+     "wire",
+     "Masadan kalk.",
+     "Ajanın bilgisayarında çalışmaya devam eder. Haberi cebine gelir.",
+     "APK indir",
+     "Android · 64 bit · deneme sürümü"
+    ],
+    "scrollHeight": 4999,
+    "scrollWidth": 1440,
+    "innerWidth": 1440,
+    "kucukHedef": [],
+    "kucukYazi": [],
+    "minYazi": 14,
+    "minGovdeYazi": 14,
+    "indirIlkEkranda": [
+     "APK indir 566 /downloads/wingwire-0.1.1.apk"
+    ],
+    "tema": "acik",
+    "dyKelime": 83,
+    "dyMinYazi": 14,
+    "dyGorunen": "a",
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "emDash": 0,
+    "marketing": 0,
+    "kabloFis": 0,
+    "agYukseklik": 1346
+   },
+   "olc_gezildi": {
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "tumGorunurKelime": 169,
+    "kucukYazi": [],
+    "minYazi": 14,
+    "minGovdeYazi": 14,
+    "kucukHedef": []
+   }
+  },
+  "react-1440-koyu": {
+   "ilk_yukleme": {
+    "istek": 20,
+    "aktarilan_kb": 401.4,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 157.4,
+     "Image": 104.6,
+     "Script": 120.1,
+     "Stylesheet": 18.2
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 24,
+    "aktarilan_kb": 498.2,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 157.4,
+     "Image": 201.5,
+     "Script": 120.1,
+     "Stylesheet": 18.2
+    },
+    "dis_istek": [],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 1.1 http://ww-uygula.localhost:1355/wingwire",
+     "Font 10.7 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-400-normal.woff2",
+     "Font 10.9 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-800-normal.woff2",
+     "Font 11.0 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-600-normal.woff2",
+     "Font 11.8 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-400-normal.woff2",
+     "Font 11.9 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-800-normal.woff2",
+     "Font 12.2 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-600-normal.woff2",
+     "Font 15.1 ://ww-uygula.localhost:1355/fonts/wingwire/sora-latin-700-normal.woff2",
+     "Font 16.5 http://ww-uygula.localhost:1355/fonts/geist-latin-ext.woff2",
+     "Font 21.0 la.localhost:1355/fonts/wingwire/jetbrains-mono-latin-400-normal.woff2",
+     "Font 28.9 http://ww-uygula.localhost:1355/fonts/geist-latin.woff2",
+     "Font 7.5 ocalhost:1355/fonts/wingwire/jetbrains-mono-latin-ext-400-normal.woff2",
+     "Image 12.8 http://ww-uygula.localhost:1355/assets/u-bildirim-koyu-CvsxvEc4.webp",
+     "Image 37.8 http://ww-uygula.localhost:1355/assets/u-paylas-koyu-CCvS4oAr.webp",
+     "Image 42.2 tp://ww-uygula.localhost:1355/assets/u-ajanlar-yeni-koyu-F-gobVZ-.webp",
+     "Image 42.5 http://ww-uygula.localhost:1355/assets/u-sohbet-koyu-CBKcNlF5.webp",
+     "Image 45.9 http://ww-uygula.localhost:1355/assets/u-onay-koyu-C04eJdZz.webp",
+     "Image 6.3 ://ww-uygula.localhost:1355/assets/u-bildirim-bagli-koyu-BevmXFBJ.webp",
+     "Image 6.8 http://ww-uygula.localhost:1355/assets/u-w-baglanti-koyu-BIXhRf13.webp",
+     "Image 7.2 http://ww-uygula.localhost:1355/assets/icon-CLBTEMxG.webp",
+     "Script 110.4 http://ww-uygula.localhost:1355/assets/index-BcD8ECOP.js",
+     "Script 9.7 http://ww-uygula.localhost:1355/assets/WingWireSite-DcFi1s4U.js",
+     "Stylesheet 12.0 http://ww-uygula.localhost:1355/assets/index-Cf9jMt1_.css",
+     "Stylesheet 6.2 http://ww-uygula.localhost:1355/assets/WingWireSite-S2HMTlFT.css"
+    ]
+   },
+   "konsol_hata": [],
+   "olc_ilk": {
+    "ilkEkranKelime": 19,
+    "tumGorunurKelime": 169,
+    "gizliDahilKelime": 259,
+    "ilkMetin": [
+     "wing",
+     "wire",
+     "Masadan kalk.",
+     "Ajanın bilgisayarında çalışmaya devam eder. Haberi cebine gelir.",
+     "APK indir",
+     "Android · 64 bit · deneme sürümü"
+    ],
+    "scrollHeight": 4999,
+    "scrollWidth": 1440,
+    "innerWidth": 1440,
+    "kucukHedef": [],
+    "kucukYazi": [],
+    "minYazi": 14,
+    "minGovdeYazi": 14,
+    "indirIlkEkranda": [
+     "APK indir 566 /downloads/wingwire-0.1.1.apk"
+    ],
+    "tema": "koyu",
+    "dyKelime": 83,
+    "dyMinYazi": 14,
+    "dyGorunen": "a",
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "emDash": 0,
+    "marketing": 0,
+    "kabloFis": 0,
+    "agYukseklik": 1346
+   },
+   "olc_gezildi": {
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "tumGorunurKelime": 169,
+    "kucukYazi": [],
+    "minYazi": 14,
+    "minGovdeYazi": 14,
+    "kucukHedef": []
+   }
+  },
+  "react-390-acik": {
+   "ilk_yukleme": {
+    "istek": 22,
+    "aktarilan_kb": 418.3,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 157.4,
+     "Image": 121.6,
+     "Script": 120.1,
+     "Stylesheet": 18.2
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 24,
+    "aktarilan_kb": 505.9,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 157.4,
+     "Image": 209.1,
+     "Script": 120.1,
+     "Stylesheet": 18.2
+    },
+    "dis_istek": [],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 1.1 http://ww-uygula.localhost:1355/wingwire",
+     "Font 10.7 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-400-normal.woff2",
+     "Font 10.9 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-800-normal.woff2",
+     "Font 11.0 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-600-normal.woff2",
+     "Font 11.8 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-400-normal.woff2",
+     "Font 11.9 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-800-normal.woff2",
+     "Font 12.2 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-600-normal.woff2",
+     "Font 15.1 ://ww-uygula.localhost:1355/fonts/wingwire/sora-latin-700-normal.woff2",
+     "Font 16.5 http://ww-uygula.localhost:1355/fonts/geist-latin-ext.woff2",
+     "Font 21.0 la.localhost:1355/fonts/wingwire/jetbrains-mono-latin-400-normal.woff2",
+     "Font 28.9 http://ww-uygula.localhost:1355/fonts/geist-latin.woff2",
+     "Font 7.5 ocalhost:1355/fonts/wingwire/jetbrains-mono-latin-ext-400-normal.woff2",
+     "Image 14.4 http://ww-uygula.localhost:1355/assets/u-bildirim-acik-DQ6j7YPj.webp",
+     "Image 39.7 http://ww-uygula.localhost:1355/assets/u-paylas-acik-Bipi5FlB.webp",
+     "Image 42.5 http://ww-uygula.localhost:1355/assets/u-sohbet-acik-WFiOilBa.webp",
+     "Image 43.7 tp://ww-uygula.localhost:1355/assets/u-ajanlar-yeni-acik-Dkb3mfih.webp",
+     "Image 47.8 http://ww-uygula.localhost:1355/assets/u-onay-acik-sM0hZjtQ.webp",
+     "Image 6.6 ://ww-uygula.localhost:1355/assets/u-bildirim-bagli-acik-DXur2_bF.webp",
+     "Image 7.2 http://ww-uygula.localhost:1355/assets/icon-CLBTEMxG.webp",
+     "Image 7.3 http://ww-uygula.localhost:1355/assets/u-w-baglanti-acik-B0tjo_Ca.webp",
+     "Script 110.4 http://ww-uygula.localhost:1355/assets/index-BcD8ECOP.js",
+     "Script 9.7 http://ww-uygula.localhost:1355/assets/WingWireSite-DcFi1s4U.js",
+     "Stylesheet 12.0 http://ww-uygula.localhost:1355/assets/index-Cf9jMt1_.css",
+     "Stylesheet 6.2 http://ww-uygula.localhost:1355/assets/WingWireSite-S2HMTlFT.css"
+    ]
+   },
+   "konsol_hata": [],
+   "olc_ilk": {
+    "ilkEkranKelime": 19,
+    "tumGorunurKelime": 129,
+    "gizliDahilKelime": 259,
+    "ilkMetin": [
+     "wing",
+     "wire",
+     "Masadan kalk.",
+     "Ajanın bilgisayarında çalışmaya devam eder. Haberi cebine gelir.",
+     "APK indir",
+     "Android · 64 bit · deneme sürümü"
+    ],
+    "scrollHeight": 4167,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "kucukHedef": [],
+    "kucukYazi": [
+     "13px: Tailscale · özel ağ",
+     "13px: Hermes'in ayarındaki sağlayıcı",
+     "13px: mesaj",
+     "13px: ·",
+     "13px: onay",
+     "13px: dosya",
+     "13px: WingWire",
+     "13px: bilgisayarında",
+     "13px: ajanlar · cron · kanban",
+     "13px: bildirim",
+     "13px: onay isteği",
+     "13px: Beni ara",
+     "13px: (isteğe bağlı)",
+     "13px: tailscale serve",
+     "13px: Mac'te panel",
+     "13px: Göster",
+     "13px: şimdilik yalnız benim kurulumu",
+     "13px: İleride herkese açık olacak."
+    ],
+    "minYazi": 13,
+    "minGovdeYazi": 14,
+    "indirIlkEkranda": [
+     "APK indir 445 /downloads/wingwire-0.1.1.apk"
+    ],
+    "tema": "acik",
+    "dyKelime": 44,
+    "dyMinYazi": 13,
+    "dyGorunen": "m1",
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "emDash": 0,
+    "marketing": 0,
+    "kabloFis": 0,
+    "agYukseklik": 759
+   },
+   "olc_gezildi": {
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "tumGorunurKelime": 129,
+    "kucukYazi": [
+     "13px: Tailscale · özel ağ",
+     "13px: Hermes'in ayarındaki sağlayıcı",
+     "13px: mesaj",
+     "13px: ·",
+     "13px: onay",
+     "13px: dosya",
+     "13px: WingWire",
+     "13px: bilgisayarında",
+     "13px: ajanlar · cron · kanban",
+     "13px: bildirim",
+     "13px: onay isteği",
+     "13px: Beni ara",
+     "13px: (isteğe bağlı)",
+     "13px: tailscale serve",
+     "13px: Mac'te panel",
+     "13px: Göster",
+     "13px: şimdilik yalnız benim kurulumu",
+     "13px: İleride herkese açık olacak."
+    ],
+    "minYazi": 13,
+    "minGovdeYazi": 14,
+    "kucukHedef": []
+   }
+  },
+  "react-390-koyu": {
+   "ilk_yukleme": {
+    "istek": 22,
+    "aktarilan_kb": 414.5,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 157.4,
+     "Image": 117.8,
+     "Script": 120.1,
+     "Stylesheet": 18.2
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 24,
+    "aktarilan_kb": 498.2,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 157.4,
+     "Image": 201.5,
+     "Script": 120.1,
+     "Stylesheet": 18.2
+    },
+    "dis_istek": [],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 1.1 http://ww-uygula.localhost:1355/wingwire",
+     "Font 10.7 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-400-normal.woff2",
+     "Font 10.9 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-800-normal.woff2",
+     "Font 11.0 lhost:1355/fonts/wingwire/plus-jakarta-sans-latin-ext-600-normal.woff2",
+     "Font 11.8 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-400-normal.woff2",
+     "Font 11.9 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-800-normal.woff2",
+     "Font 12.2 localhost:1355/fonts/wingwire/plus-jakarta-sans-latin-600-normal.woff2",
+     "Font 15.1 ://ww-uygula.localhost:1355/fonts/wingwire/sora-latin-700-normal.woff2",
+     "Font 16.5 http://ww-uygula.localhost:1355/fonts/geist-latin-ext.woff2",
+     "Font 21.0 la.localhost:1355/fonts/wingwire/jetbrains-mono-latin-400-normal.woff2",
+     "Font 28.9 http://ww-uygula.localhost:1355/fonts/geist-latin.woff2",
+     "Font 7.5 ocalhost:1355/fonts/wingwire/jetbrains-mono-latin-ext-400-normal.woff2",
+     "Image 12.8 http://ww-uygula.localhost:1355/assets/u-bildirim-koyu-CvsxvEc4.webp",
+     "Image 37.8 http://ww-uygula.localhost:1355/assets/u-paylas-koyu-CCvS4oAr.webp",
+     "Image 42.2 tp://ww-uygula.localhost:1355/assets/u-ajanlar-yeni-koyu-F-gobVZ-.webp",
+     "Image 42.5 http://ww-uygula.localhost:1355/assets/u-sohbet-koyu-CBKcNlF5.webp",
+     "Image 45.9 http://ww-uygula.localhost:1355/assets/u-onay-koyu-C04eJdZz.webp",
+     "Image 6.3 ://ww-uygula.localhost:1355/assets/u-bildirim-bagli-koyu-BevmXFBJ.webp",
+     "Image 6.8 http://ww-uygula.localhost:1355/assets/u-w-baglanti-koyu-BIXhRf13.webp",
+     "Image 7.2 http://ww-uygula.localhost:1355/assets/icon-CLBTEMxG.webp",
+     "Script 110.4 http://ww-uygula.localhost:1355/assets/index-BcD8ECOP.js",
+     "Script 9.7 http://ww-uygula.localhost:1355/assets/WingWireSite-DcFi1s4U.js",
+     "Stylesheet 12.0 http://ww-uygula.localhost:1355/assets/index-Cf9jMt1_.css",
+     "Stylesheet 6.2 http://ww-uygula.localhost:1355/assets/WingWireSite-S2HMTlFT.css"
+    ]
+   },
+   "konsol_hata": [],
+   "olc_ilk": {
+    "ilkEkranKelime": 19,
+    "tumGorunurKelime": 129,
+    "gizliDahilKelime": 259,
+    "ilkMetin": [
+     "wing",
+     "wire",
+     "Masadan kalk.",
+     "Ajanın bilgisayarında çalışmaya devam eder. Haberi cebine gelir.",
+     "APK indir",
+     "Android · 64 bit · deneme sürümü"
+    ],
+    "scrollHeight": 4167,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "kucukHedef": [],
+    "kucukYazi": [
+     "13px: Tailscale · özel ağ",
+     "13px: Hermes'in ayarındaki sağlayıcı",
+     "13px: mesaj",
+     "13px: ·",
+     "13px: onay",
+     "13px: dosya",
+     "13px: WingWire",
+     "13px: bilgisayarında",
+     "13px: ajanlar · cron · kanban",
+     "13px: bildirim",
+     "13px: onay isteği",
+     "13px: Beni ara",
+     "13px: (isteğe bağlı)",
+     "13px: tailscale serve",
+     "13px: Mac'te panel",
+     "13px: Göster",
+     "13px: şimdilik yalnız benim kurulumu",
+     "13px: İleride herkese açık olacak."
+    ],
+    "minYazi": 13,
+    "minGovdeYazi": 14,
+    "indirIlkEkranda": [
+     "APK indir 445 /downloads/wingwire-0.1.1.apk"
+    ],
+    "tema": "koyu",
+    "dyKelime": 44,
+    "dyMinYazi": 13,
+    "dyGorunen": "m1",
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "emDash": 0,
+    "marketing": 0,
+    "kabloFis": 0,
+    "agYukseklik": 759
+   },
+   "olc_gezildi": {
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "tumGorunurKelime": 129,
+    "kucukYazi": [
+     "13px: Tailscale · özel ağ",
+     "13px: Hermes'in ayarındaki sağlayıcı",
+     "13px: mesaj",
+     "13px: ·",
+     "13px: onay",
+     "13px: dosya",
+     "13px: WingWire",
+     "13px: bilgisayarında",
+     "13px: ajanlar · cron · kanban",
+     "13px: bildirim",
+     "13px: onay isteği",
+     "13px: Beni ara",
+     "13px: (isteğe bağlı)",
+     "13px: tailscale serve",
+     "13px: Mac'te panel",
+     "13px: Göster",
+     "13px: şimdilik yalnız benim kurulumu",
+     "13px: İleride herkese açık olacak."
+    ],
+    "minYazi": 13,
+    "minGovdeYazi": 14,
+    "kucukHedef": []
+   }
+  },
+  "taslak-1440-acik": {
+   "ilk_yukleme": {
+    "istek": 17,
+    "aktarilan_kb": 331.6,
+    "tur_kb": {
+     "Document": 112.5,
+     "Font": 111.4,
+     "Image": 107.7
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 21,
+    "aktarilan_kb": 433.0,
+    "tur_kb": {
+     "Document": 112.5,
+     "Font": 111.4,
+     "Image": 209.1
+    },
+    "dis_istek": [
+     "http://ww-uygula.localhost:1355/assets/u-ajanlar-yeni-acik-Dkb3mfih.webp",
+     "http://ww-uygula.localhost:1355/assets/u-bildirim-acik-DQ6j7YPj.webp",
+     "http://ww-uygula.localhost:1355/assets/u-sohbet-acik-WFiOilBa.webp"
+    ],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 112.5 tp://ww-uygula-taslak.localhost:1355/index.html?yon=a&isik=guclu&mob=1",
+     "Font 10.6 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-400-normal.woff2",
+     "Font 10.8 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-800-normal.woff2",
+     "Font 10.9 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-600-normal.woff2",
+     "Font 11.8 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-400-normal.woff2",
+     "Font 11.9 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-800-normal.woff2",
+     "Font 12.1 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-600-normal.woff2",
+     "Font 15.0 tp://ww-uygula-taslak.localhost:1355/fonts/sora-latin-700-normal.woff2",
+     "Font 20.9 gula-taslak.localhost:1355/fonts/jetbrains-mono-latin-400-normal.woff2",
+     "Font 7.4 -taslak.localhost:1355/fonts/jetbrains-mono-latin-ext-400-normal.woff2",
+     "Image 14.4 http://ww-uygula-taslak.localhost:1355/img/u-bildirim-acik.webp",
+     "Image 39.7 http://ww-uygula-taslak.localhost:1355/img/u-paylas-acik.webp",
+     "Image 42.5 http://ww-uygula-taslak.localhost:1355/img/u-sohbet-acik.webp",
+     "Image 43.7 http://ww-uygula-taslak.localhost:1355/img/u-ajanlar-yeni-acik.webp",
+     "Image 47.8 http://ww-uygula-taslak.localhost:1355/img/u-onay-acik.webp",
+     "Image 6.6 http://ww-uygula-taslak.localhost:1355/img/u-bildirim-bagli-acik.webp",
+     "Image 7.2 http://ww-uygula-taslak.localhost:1355/img/icon.webp",
+     "Image 7.3 http://ww-uygula-taslak.localhost:1355/img/u-w-baglanti-acik.webp"
+    ]
+   },
+   "konsol_hata": [],
+   "olc_ilk": {
+    "ilkEkranKelime": 19,
+    "tumGorunurKelime": 169,
+    "gizliDahilKelime": 604,
+    "ilkMetin": [
+     "wing",
+     "wire",
+     "Masadan kalk.",
+     "Ajanın bilgisayarında çalışmaya devam eder. Haberi cebine gelir.",
+     "APK indir",
+     "Android · 64 bit · deneme sürümü"
+    ],
+    "scrollHeight": 4999,
+    "scrollWidth": 1440,
+    "innerWidth": 1440,
+    "kucukHedef": [],
+    "kucukYazi": [],
+    "minYazi": 14,
+    "minGovdeYazi": 14,
+    "indirIlkEkranda": [
+     "APK indir 566 https://hamaratlabs.com/downloads/wingwire-0.1.1.apk"
+    ],
+    "tema": "acik",
+    "dyKelime": 83,
+    "dyMinYazi": 14,
+    "dyGorunen": "a",
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "emDash": 0,
+    "marketing": 0,
+    "kabloFis": 0,
+    "agYukseklik": 1346
+   },
+   "olc_gezildi": {
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "tumGorunurKelime": 169,
+    "kucukYazi": [],
+    "minYazi": 14,
+    "minGovdeYazi": 14,
+    "kucukHedef": []
+   }
+  },
+  "taslak-1440-koyu": {
+   "ilk_yukleme": {
+    "istek": 14,
+    "aktarilan_kb": 328.5,
+    "tur_kb": {
+     "Document": 112.5,
+     "Font": 111.4,
+     "Image": 104.6
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 18,
+    "aktarilan_kb": 425.3,
+    "tur_kb": {
+     "Document": 112.5,
+     "Font": 111.4,
+     "Image": 201.4
+    },
+    "dis_istek": [],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 112.5 tp://ww-uygula-taslak.localhost:1355/index.html?yon=a&isik=guclu&mob=1",
+     "Font 10.6 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-400-normal.woff2",
+     "Font 10.8 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-800-normal.woff2",
+     "Font 10.9 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-600-normal.woff2",
+     "Font 11.8 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-400-normal.woff2",
+     "Font 11.9 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-800-normal.woff2",
+     "Font 12.1 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-600-normal.woff2",
+     "Font 15.0 tp://ww-uygula-taslak.localhost:1355/fonts/sora-latin-700-normal.woff2",
+     "Font 20.9 gula-taslak.localhost:1355/fonts/jetbrains-mono-latin-400-normal.woff2",
+     "Font 7.4 -taslak.localhost:1355/fonts/jetbrains-mono-latin-ext-400-normal.woff2",
+     "Image 12.8 http://ww-uygula-taslak.localhost:1355/img/u-bildirim-koyu.webp",
+     "Image 37.8 http://ww-uygula-taslak.localhost:1355/img/u-paylas-koyu.webp",
+     "Image 42.2 http://ww-uygula-taslak.localhost:1355/img/u-ajanlar-yeni-koyu.webp",
+     "Image 42.5 http://ww-uygula-taslak.localhost:1355/img/u-sohbet-koyu.webp",
+     "Image 45.9 http://ww-uygula-taslak.localhost:1355/img/u-onay-koyu.webp",
+     "Image 6.3 http://ww-uygula-taslak.localhost:1355/img/u-bildirim-bagli-koyu.webp",
+     "Image 6.8 http://ww-uygula-taslak.localhost:1355/img/u-w-baglanti-koyu.webp",
+     "Image 7.2 http://ww-uygula-taslak.localhost:1355/img/icon.webp"
+    ]
+   },
+   "konsol_hata": [],
+   "olc_ilk": {
+    "ilkEkranKelime": 19,
+    "tumGorunurKelime": 169,
+    "gizliDahilKelime": 604,
+    "ilkMetin": [
+     "wing",
+     "wire",
+     "Masadan kalk.",
+     "Ajanın bilgisayarında çalışmaya devam eder. Haberi cebine gelir.",
+     "APK indir",
+     "Android · 64 bit · deneme sürümü"
+    ],
+    "scrollHeight": 4999,
+    "scrollWidth": 1440,
+    "innerWidth": 1440,
+    "kucukHedef": [],
+    "kucukYazi": [],
+    "minYazi": 14,
+    "minGovdeYazi": 14,
+    "indirIlkEkranda": [
+     "APK indir 566 https://hamaratlabs.com/downloads/wingwire-0.1.1.apk"
+    ],
+    "tema": "koyu",
+    "dyKelime": 83,
+    "dyMinYazi": 14,
+    "dyGorunen": "a",
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "emDash": 0,
+    "marketing": 0,
+    "kabloFis": 0,
+    "agYukseklik": 1346
+   },
+   "olc_gezildi": {
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "tumGorunurKelime": 169,
+    "kucukYazi": [],
+    "minYazi": 14,
+    "minGovdeYazi": 14,
+    "kucukHedef": []
+   }
+  },
+  "taslak-390-acik": {
+   "ilk_yukleme": {
+    "istek": 16,
+    "aktarilan_kb": 345.4,
+    "tur_kb": {
+     "Document": 112.5,
+     "Font": 111.4,
+     "Image": 121.6
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 18,
+    "aktarilan_kb": 433.0,
+    "tur_kb": {
+     "Document": 112.5,
+     "Font": 111.4,
+     "Image": 209.1
+    },
+    "dis_istek": [],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 112.5 tp://ww-uygula-taslak.localhost:1355/index.html?yon=a&isik=guclu&mob=1",
+     "Font 10.6 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-400-normal.woff2",
+     "Font 10.8 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-800-normal.woff2",
+     "Font 10.9 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-600-normal.woff2",
+     "Font 11.8 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-400-normal.woff2",
+     "Font 11.9 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-800-normal.woff2",
+     "Font 12.1 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-600-normal.woff2",
+     "Font 15.0 tp://ww-uygula-taslak.localhost:1355/fonts/sora-latin-700-normal.woff2",
+     "Font 20.9 gula-taslak.localhost:1355/fonts/jetbrains-mono-latin-400-normal.woff2",
+     "Font 7.4 -taslak.localhost:1355/fonts/jetbrains-mono-latin-ext-400-normal.woff2",
+     "Image 14.4 http://ww-uygula-taslak.localhost:1355/img/u-bildirim-acik.webp",
+     "Image 39.7 http://ww-uygula-taslak.localhost:1355/img/u-paylas-acik.webp",
+     "Image 42.5 http://ww-uygula-taslak.localhost:1355/img/u-sohbet-acik.webp",
+     "Image 43.7 http://ww-uygula-taslak.localhost:1355/img/u-ajanlar-yeni-acik.webp",
+     "Image 47.8 http://ww-uygula-taslak.localhost:1355/img/u-onay-acik.webp",
+     "Image 6.6 http://ww-uygula-taslak.localhost:1355/img/u-bildirim-bagli-acik.webp",
+     "Image 7.2 http://ww-uygula-taslak.localhost:1355/img/icon.webp",
+     "Image 7.3 http://ww-uygula-taslak.localhost:1355/img/u-w-baglanti-acik.webp"
+    ]
+   },
+   "konsol_hata": [],
+   "olc_ilk": {
+    "ilkEkranKelime": 19,
+    "tumGorunurKelime": 129,
+    "gizliDahilKelime": 604,
+    "ilkMetin": [
+     "wing",
+     "wire",
+     "Masadan kalk.",
+     "Ajanın bilgisayarında çalışmaya devam eder. Haberi cebine gelir.",
+     "APK indir",
+     "Android · 64 bit · deneme sürümü"
+    ],
+    "scrollHeight": 4167,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "kucukHedef": [],
+    "kucukYazi": [
+     "13px: Tailscale · özel ağ",
+     "13px: Hermes'in ayarındaki sağlayıcı",
+     "13px: mesaj",
+     "13px: ·",
+     "13px: onay",
+     "13px: dosya",
+     "13px: WingWire",
+     "13px: bilgisayarında",
+     "13px: ajanlar · cron · kanban",
+     "13px: bildirim",
+     "13px: onay isteği",
+     "13px: Beni ara",
+     "13px: (isteğe bağlı)",
+     "13px: tailscale serve",
+     "13px: Mac'te panel",
+     "13px: Göster",
+     "13px: şimdilik yalnız benim kurulumu",
+     "13px: İleride herkese açık olacak."
+    ],
+    "minYazi": 13,
+    "minGovdeYazi": 14,
+    "indirIlkEkranda": [
+     "APK indir 445 https://hamaratlabs.com/downloads/wingwire-0.1.1.apk"
+    ],
+    "tema": "acik",
+    "dyKelime": 44,
+    "dyMinYazi": 13,
+    "dyGorunen": "m1",
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "emDash": 0,
+    "marketing": 0,
+    "kabloFis": 0,
+    "agYukseklik": 759
+   },
+   "olc_gezildi": {
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "tumGorunurKelime": 129,
+    "kucukYazi": [
+     "13px: Tailscale · özel ağ",
+     "13px: Hermes'in ayarındaki sağlayıcı",
+     "13px: mesaj",
+     "13px: ·",
+     "13px: onay",
+     "13px: dosya",
+     "13px: WingWire",
+     "13px: bilgisayarında",
+     "13px: ajanlar · cron · kanban",
+     "13px: bildirim",
+     "13px: onay isteği",
+     "13px: Beni ara",
+     "13px: (isteğe bağlı)",
+     "13px: tailscale serve",
+     "13px: Mac'te panel",
+     "13px: Göster",
+     "13px: şimdilik yalnız benim kurulumu",
+     "13px: İleride herkese açık olacak."
+    ],
+    "minYazi": 13,
+    "minGovdeYazi": 14,
+    "kucukHedef": []
+   }
+  },
+  "taslak-390-koyu": {
+   "ilk_yukleme": {
+    "istek": 16,
+    "aktarilan_kb": 341.6,
+    "tur_kb": {
+     "Document": 112.5,
+     "Font": 111.4,
+     "Image": 117.7
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 18,
+    "aktarilan_kb": 425.3,
+    "tur_kb": {
+     "Document": 112.5,
+     "Font": 111.4,
+     "Image": 201.4
+    },
+    "dis_istek": [],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 112.5 tp://ww-uygula-taslak.localhost:1355/index.html?yon=a&isik=guclu&mob=1",
+     "Font 10.6 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-400-normal.woff2",
+     "Font 10.8 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-800-normal.woff2",
+     "Font 10.9 slak.localhost:1355/fonts/plus-jakarta-sans-latin-ext-600-normal.woff2",
+     "Font 11.8 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-400-normal.woff2",
+     "Font 11.9 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-800-normal.woff2",
+     "Font 12.1 a-taslak.localhost:1355/fonts/plus-jakarta-sans-latin-600-normal.woff2",
+     "Font 15.0 tp://ww-uygula-taslak.localhost:1355/fonts/sora-latin-700-normal.woff2",
+     "Font 20.9 gula-taslak.localhost:1355/fonts/jetbrains-mono-latin-400-normal.woff2",
+     "Font 7.4 -taslak.localhost:1355/fonts/jetbrains-mono-latin-ext-400-normal.woff2",
+     "Image 12.8 http://ww-uygula-taslak.localhost:1355/img/u-bildirim-koyu.webp",
+     "Image 37.8 http://ww-uygula-taslak.localhost:1355/img/u-paylas-koyu.webp",
+     "Image 42.2 http://ww-uygula-taslak.localhost:1355/img/u-ajanlar-yeni-koyu.webp",
+     "Image 42.5 http://ww-uygula-taslak.localhost:1355/img/u-sohbet-koyu.webp",
+     "Image 45.9 http://ww-uygula-taslak.localhost:1355/img/u-onay-koyu.webp",
+     "Image 6.3 http://ww-uygula-taslak.localhost:1355/img/u-bildirim-bagli-koyu.webp",
+     "Image 6.8 http://ww-uygula-taslak.localhost:1355/img/u-w-baglanti-koyu.webp",
+     "Image 7.2 http://ww-uygula-taslak.localhost:1355/img/icon.webp"
+    ]
+   },
+   "konsol_hata": [],
+   "olc_ilk": {
+    "ilkEkranKelime": 19,
+    "tumGorunurKelime": 129,
+    "gizliDahilKelime": 604,
+    "ilkMetin": [
+     "wing",
+     "wire",
+     "Masadan kalk.",
+     "Ajanın bilgisayarında çalışmaya devam eder. Haberi cebine gelir.",
+     "APK indir",
+     "Android · 64 bit · deneme sürümü"
+    ],
+    "scrollHeight": 4167,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "kucukHedef": [],
+    "kucukYazi": [
+     "13px: Tailscale · özel ağ",
+     "13px: Hermes'in ayarındaki sağlayıcı",
+     "13px: mesaj",
+     "13px: ·",
+     "13px: onay",
+     "13px: dosya",
+     "13px: WingWire",
+     "13px: bilgisayarında",
+     "13px: ajanlar · cron · kanban",
+     "13px: bildirim",
+     "13px: onay isteği",
+     "13px: Beni ara",
+     "13px: (isteğe bağlı)",
+     "13px: tailscale serve",
+     "13px: Mac'te panel",
+     "13px: Göster",
+     "13px: şimdilik yalnız benim kurulumu",
+     "13px: İleride herkese açık olacak."
+    ],
+    "minYazi": 13,
+    "minGovdeYazi": 14,
+    "indirIlkEkranda": [
+     "APK indir 445 https://hamaratlabs.com/downloads/wingwire-0.1.1.apk"
+    ],
+    "tema": "koyu",
+    "dyKelime": 44,
+    "dyMinYazi": 13,
+    "dyGorunen": "m1",
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "emDash": 0,
+    "marketing": 0,
+    "kabloFis": 0,
+    "agYukseklik": 759
+   },
+   "olc_gezildi": {
+    "kirikGorsel": [],
+    "gorsel": 7,
+    "tumGorunurKelime": 129,
+    "kucukYazi": [
+     "13px: Tailscale · özel ağ",
+     "13px: Hermes'in ayarındaki sağlayıcı",
+     "13px: mesaj",
+     "13px: ·",
+     "13px: onay",
+     "13px: dosya",
+     "13px: WingWire",
+     "13px: bilgisayarında",
+     "13px: ajanlar · cron · kanban",
+     "13px: bildirim",
+     "13px: onay isteği",
+     "13px: Beni ara",
+     "13px: (isteğe bağlı)",
+     "13px: tailscale serve",
+     "13px: Mac'te panel",
+     "13px: Göster",
+     "13px: şimdilik yalnız benim kurulumu",
+     "13px: İleride herkese açık olacak."
+    ],
+    "minYazi": 13,
+    "minGovdeYazi": 14,
+    "kucukHedef": []
+   }
+  },
+  "eski-1440-acik": {
+   "ilk_yukleme": {
+    "istek": 13,
+    "aktarilan_kb": 266.9,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 87.9,
+     "Script": 160.8,
+     "Stylesheet": 17.1
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 13,
+    "aktarilan_kb": 266.9,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 87.9,
+     "Script": 160.8,
+     "Stylesheet": 17.1
+    },
+    "dis_istek": [],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 1.1 http://ww-uygula-eski.localhost:1355/wingwire",
+     "Font 11.6 p://ww-uygula-eski.localhost:1355/fonts/jetbrains-mono-latin-ext.woff2",
+     "Font 16.5 http://ww-uygula-eski.localhost:1355/fonts/geist-latin-ext.woff2",
+     "Font 28.9 http://ww-uygula-eski.localhost:1355/fonts/geist-latin.woff2",
+     "Font 30.9 http://ww-uygula-eski.localhost:1355/fonts/jetbrains-mono-latin.woff2",
+     "Script 0.6 ://ww-uygula-eski.localhost:1355/assets/use-combine-values-BXv1i9Vp.js",
+     "Script 0.6 tp://ww-uygula-eski.localhost:1355/assets/use-motion-value-B86MRKla.js",
+     "Script 110.4 http://ww-uygula-eski.localhost:1355/assets/index-DtA6lVaz.js",
+     "Script 4.2 http://ww-uygula-eski.localhost:1355/assets/use-spring-FTtopJnZ.js",
+     "Script 4.6 http://ww-uygula-eski.localhost:1355/assets/WingWireSite-DtsA-E1T.js",
+     "Script 40.5 http://ww-uygula-eski.localhost:1355/assets/react-Dowfhipe.js",
+     "Stylesheet 12.0 http://ww-uygula-eski.localhost:1355/assets/index-Cf9jMt1_.css",
+     "Stylesheet 5.1 http://ww-uygula-eski.localhost:1355/assets/WingWireSite-BUlX4cFm.css"
+    ]
+   },
+   "konsol_hata": []
+  },
+  "eski-1440-koyu": {
+   "ilk_yukleme": {
+    "istek": 13,
+    "aktarilan_kb": 267.0,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 87.9,
+     "Script": 160.8,
+     "Stylesheet": 17.1
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 13,
+    "aktarilan_kb": 267.0,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 87.9,
+     "Script": 160.8,
+     "Stylesheet": 17.1
+    },
+    "dis_istek": [],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 1.1 http://ww-uygula-eski.localhost:1355/wingwire",
+     "Font 11.6 p://ww-uygula-eski.localhost:1355/fonts/jetbrains-mono-latin-ext.woff2",
+     "Font 16.5 http://ww-uygula-eski.localhost:1355/fonts/geist-latin-ext.woff2",
+     "Font 28.9 http://ww-uygula-eski.localhost:1355/fonts/geist-latin.woff2",
+     "Font 30.9 http://ww-uygula-eski.localhost:1355/fonts/jetbrains-mono-latin.woff2",
+     "Script 0.6 ://ww-uygula-eski.localhost:1355/assets/use-combine-values-BXv1i9Vp.js",
+     "Script 0.6 tp://ww-uygula-eski.localhost:1355/assets/use-motion-value-B86MRKla.js",
+     "Script 110.4 http://ww-uygula-eski.localhost:1355/assets/index-DtA6lVaz.js",
+     "Script 4.2 http://ww-uygula-eski.localhost:1355/assets/use-spring-FTtopJnZ.js",
+     "Script 4.6 http://ww-uygula-eski.localhost:1355/assets/WingWireSite-DtsA-E1T.js",
+     "Script 40.5 http://ww-uygula-eski.localhost:1355/assets/react-Dowfhipe.js",
+     "Stylesheet 12.0 http://ww-uygula-eski.localhost:1355/assets/index-Cf9jMt1_.css",
+     "Stylesheet 5.1 http://ww-uygula-eski.localhost:1355/assets/WingWireSite-BUlX4cFm.css"
+    ]
+   },
+   "konsol_hata": []
+  },
+  "eski-390-acik": {
+   "ilk_yukleme": {
+    "istek": 13,
+    "aktarilan_kb": 266.9,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 87.9,
+     "Script": 160.8,
+     "Stylesheet": 17.1
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 13,
+    "aktarilan_kb": 266.9,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 87.9,
+     "Script": 160.8,
+     "Stylesheet": 17.1
+    },
+    "dis_istek": [],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 1.1 http://ww-uygula-eski.localhost:1355/wingwire",
+     "Font 11.6 p://ww-uygula-eski.localhost:1355/fonts/jetbrains-mono-latin-ext.woff2",
+     "Font 16.5 http://ww-uygula-eski.localhost:1355/fonts/geist-latin-ext.woff2",
+     "Font 28.9 http://ww-uygula-eski.localhost:1355/fonts/geist-latin.woff2",
+     "Font 30.9 http://ww-uygula-eski.localhost:1355/fonts/jetbrains-mono-latin.woff2",
+     "Script 0.6 ://ww-uygula-eski.localhost:1355/assets/use-combine-values-BXv1i9Vp.js",
+     "Script 0.6 tp://ww-uygula-eski.localhost:1355/assets/use-motion-value-B86MRKla.js",
+     "Script 110.4 http://ww-uygula-eski.localhost:1355/assets/index-DtA6lVaz.js",
+     "Script 4.2 http://ww-uygula-eski.localhost:1355/assets/use-spring-FTtopJnZ.js",
+     "Script 4.5 http://ww-uygula-eski.localhost:1355/assets/WingWireSite-DtsA-E1T.js",
+     "Script 40.5 http://ww-uygula-eski.localhost:1355/assets/react-Dowfhipe.js",
+     "Stylesheet 12.0 http://ww-uygula-eski.localhost:1355/assets/index-Cf9jMt1_.css",
+     "Stylesheet 5.1 http://ww-uygula-eski.localhost:1355/assets/WingWireSite-BUlX4cFm.css"
+    ]
+   },
+   "konsol_hata": []
+  },
+  "eski-390-koyu": {
+   "ilk_yukleme": {
+    "istek": 13,
+    "aktarilan_kb": 266.9,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 87.9,
+     "Script": 160.8,
+     "Stylesheet": 17.1
+    }
+   },
+   "tum_sayfa_gezildi": {
+    "istek": 13,
+    "aktarilan_kb": 266.9,
+    "tur_kb": {
+     "Document": 1.1,
+     "Font": 87.9,
+     "Script": 160.8,
+     "Stylesheet": 17.1
+    },
+    "dis_istek": [],
+    "hatali_yanit": [],
+    "dosyalar": [
+     "Document 1.1 http://ww-uygula-eski.localhost:1355/wingwire",
+     "Font 11.6 p://ww-uygula-eski.localhost:1355/fonts/jetbrains-mono-latin-ext.woff2",
+     "Font 16.5 http://ww-uygula-eski.localhost:1355/fonts/geist-latin-ext.woff2",
+     "Font 28.9 http://ww-uygula-eski.localhost:1355/fonts/geist-latin.woff2",
+     "Font 30.9 http://ww-uygula-eski.localhost:1355/fonts/jetbrains-mono-latin.woff2",
+     "Script 0.6 ://ww-uygula-eski.localhost:1355/assets/use-combine-values-BXv1i9Vp.js",
+     "Script 0.6 tp://ww-uygula-eski.localhost:1355/assets/use-motion-value-B86MRKla.js",
+     "Script 110.4 http://ww-uygula-eski.localhost:1355/assets/index-DtA6lVaz.js",
+     "Script 4.2 http://ww-uygula-eski.localhost:1355/assets/use-spring-FTtopJnZ.js",
+     "Script 4.6 http://ww-uygula-eski.localhost:1355/assets/WingWireSite-DtsA-E1T.js",
+     "Script 40.5 http://ww-uygula-eski.localhost:1355/assets/react-Dowfhipe.js",
+     "Stylesheet 12.0 http://ww-uygula-eski.localhost:1355/assets/index-Cf9jMt1_.css",
+     "Stylesheet 5.1 http://ww-uygula-eski.localhost:1355/assets/WingWireSite-BUlX4cFm.css"
+    ]
+   },
+   "konsol_hata": []
+  }
+ },
+ "baska": {
+  "/": {
+   "konsol_hata": [],
+   "baslik": "hamaratlabs",
+   "h1": "Ürettiğim, anlattığım ve paylaştığım laboratuvarıma hoş geldin.",
+   "yukseklik": 5418
+  },
+  "/uretiyorum": {
+   "konsol_hata": [],
+   "baslik": "hamaratlabs",
+   "h1": "Üretiyorum",
+   "yukseklik": 4699
+  },
+  "/sesver": {
+   "konsol_hata": [],
+   "baslik": "SesVer · Yazdığın, kendi bilgisayarında sese dönüşsün",
+   "h1": "Yazdığın,sese dönüşsün.",
+   "yukseklik": 8960
+  },
+  "/uretiyorum/wingwire": {
+   "konsol_hata": [],
+   "baslik": "hamaratlabs",
+   "h1": "WingWire",
+   "yukseklik": 2618
+  }
+ },
+ "spa_gir_cik": {
+  "once": {
+   "baslik": "hamaratlabs",
+   "html_bg": ""
+  },
+  "icerde": {
+   "yol": "/wingwire",
+   "wwl": true,
+   "baslik": "WingWire · Masadan kalk",
+   "html_bg": "rgb(247, 245, 240)"
+  },
+  "sonra": {
+   "yol": "/uretiyorum/wingwire",
+   "wwl": false,
+   "baslik": "hamaratlabs",
+   "html_bg": ""
+  },
+  "konsol_hata": []
+ },
+ "etkilesim": {
+  "1440": {
+   "dustu": {
+    "sinif": "bildirim dustu",
+    "gorunur": "visible",
+    "ust": 12,
+    "alt": 218
+   },
+   "dokununca": {
+    "bildirimGizli": true,
+    "cepCikti": true,
+    "sohbetOpak": "1"
+   },
+   "kendiliginden": {
+    "bildirimGizli": true,
+    "cepCikti": true
+   },
+   "kare_diyagram_gorunmuyor_1sn": 0,
+   "kare_diyagram_gorunuyor_1sn": 17,
+   "huzme_ornek": [
+    {
+     "yol": 15,
+     "hb": 15,
+     "akan": 5,
+     "kalinlik": "3.6",
+     "port": 30,
+     "ok": 0
+    },
+    {
+     "yol": 15,
+     "hb": 15,
+     "akan": 5,
+     "kalinlik": "3.6",
+     "port": 30,
+     "ok": 0
+    },
+    {
+     "yol": 15,
+     "hb": 15,
+     "akan": 9,
+     "kalinlik": "3.6",
+     "port": 30,
+     "ok": 0
+    },
+    {
+     "yol": 15,
+     "hb": 15,
+     "akan": 13,
+     "kalinlik": "3.6",
+     "port": 30,
+     "ok": 0
+    },
+    {
+     "yol": 15,
+     "hb": 15,
+     "akan": 12,
+     "kalinlik": "3.6",
+     "port": 30,
+     "ok": 0
+    },
+    {
+     "yol": 15,
+     "hb": 15,
+     "akan": 10,
+     "kalinlik": "3.6",
+     "port": 30,
+     "ok": 0
+    }
+   ],
+   "huzme_ofset_degisti": true,
+   "vurdu_goruldu": 2,
+   "durdur": {
+    "aria_pressed": "true",
+    "aria_label": "Hareketi başlat",
+    "yazi": "Oynat",
+    "kare_1sn": 0,
+    "boyut": [
+     98,
+     44
+    ]
+   },
+   "oynat": {
+    "aria_pressed": "false",
+    "kare_1sn": 20
+   },
+   "tema": {
+    "once": {
+     "tema": "acik",
+     "etiket": "Koyu temaya geç",
+     "bg": "rgb(247, 245, 240)"
+    },
+    "cihaz_karanlik_olunca": "koyu",
+    "dugmeden_sonra": {
+     "tema": "koyu",
+     "etiket": "Açık temaya geç",
+     "bg": "rgb(11, 15, 20)",
+     "sema": "dark",
+     "gorunenGorsel": [
+      "u-ajanlar-yeni-koyu-F-gobVZ-.webp",
+      "u-sohbet-koyu-CBKcNlF5.webp"
+     ]
+    },
+    "elle_secimden_sonra_cihaz_acik": "koyu"
+   },
+   "konsol_hata": []
+  },
+  "390": {
+   "dustu": {
+    "sinif": "bildirim dustu",
+    "gorunur": "visible",
+    "ust": 70,
+    "alt": 241
+   },
+   "dokununca": {
+    "bildirimGizli": true,
+    "cepCikti": true,
+    "sohbetOpak": "1"
+   },
+   "kendiliginden": {
+    "bildirimGizli": true,
+    "cepCikti": true
+   },
+   "kare_diyagram_gorunmuyor_1sn": 0,
+   "kare_diyagram_gorunuyor_1sn": 16,
+   "huzme_ornek": [
+    {
+     "yol": 7,
+     "hb": 9,
+     "akan": 6,
+     "kalinlik": "1.4",
+     "port": 0,
+     "ok": 0
+    },
+    {
+     "yol": 7,
+     "hb": 9,
+     "akan": 6,
+     "kalinlik": "1.4",
+     "port": 0,
+     "ok": 0
+    },
+    {
+     "yol": 7,
+     "hb": 9,
+     "akan": 5,
+     "kalinlik": "1.4",
+     "port": 0,
+     "ok": 0
+    },
+    {
+     "yol": 7,
+     "hb": 9,
+     "akan": 7,
+     "kalinlik": "1.4",
+     "port": 0,
+     "ok": 0
+    },
+    {
+     "yol": 7,
+     "hb": 9,
+     "akan": 7,
+     "kalinlik": "1.4",
+     "port": 0,
+     "ok": 0
+    },
+    {
+     "yol": 7,
+     "hb": 9,
+     "akan": 5,
+     "kalinlik": "1.4",
+     "port": 0,
+     "ok": 0
+    }
+   ],
+   "huzme_ofset_degisti": true,
+   "vurdu_goruldu": 1,
+   "durdur": {
+    "aria_pressed": "true",
+    "aria_label": "Hareketi başlat",
+    "yazi": "Oynat",
+    "kare_1sn": 0,
+    "boyut": [
+     44,
+     44
+    ]
+   },
+   "oynat": {
+    "aria_pressed": "false",
+    "kare_1sn": 18
+   },
+   "servis_ac": {
+    "once": {
+     "ag": 759,
+     "svcYol": "M288.5,451.3C288.5,463.3 280.0,467.3 280.0,479.3"
+    },
+    "sonra": {
+     "ag": 1202,
+     "svcYol": "M288.5,451.3C288.5,463.3 280.0,467.3 280.0,479.3",
+     "expanded": "true",
+     "yazi": "Gizle",
+     "liste": [
+      "ElevenLabs",
+      "letmepost",
+      "Depolama",
+      "YouTube",
+      "GitHub",
+      "Google Play Console",
+      "App Store Connect"
+     ],
+     "acik": "1"
+    },
+    "olc": {
+     "kucukHedef": [],
+     "kucukYazi": [
+      "13px: Tailscale · özel ağ",
+      "13px: Hermes'in ayarındaki sağlayıcı",
+      "13px: mesaj",
+      "13px: ·",
+      "13px: onay",
+      "13px: dosya",
+      "13px: WingWire",
+      "13px: bilgisayarında",
+      "13px: ajanlar · cron · kanban",
+      "13px: bildirim",
+      "13px: onay isteği",
+      "13px: Beni ara",
+      "13px: (isteğe bağlı)",
+      "13px: tailscale serve",
+      "13px: Mac'te panel",
+      "13px: Gizle",
+      "13px: Konuş · ses, isteğe bağlı",
+      "13px: yerel paylaşım sunucusu",
+      "13px: → desteklenen platformlar",
+      "13px: Bluesky",
+      "13px: Instagram",
+      "13px: LinkedIn",
+      "13px: Facebook",
+      "13px: Pinterest",
+      "13px: Threads",
+      "13px: TikTok",
+      "13px: X",
+      "13px: YouTube",
+      "13px: yerel klasör · harici disk; ye",
+      "13px: → Google Drive · yedek, arşiv",
+      "13px: şimdilik yalnız benim kurulumu",
+      "13px: İleride herkese açık olacak."
+     ],
+     "dyMinYazi": 13,
+     "dyKelime": 85,
+     "scrollWidth": 390,
+     "minGovdeYazi": 14
+    }
+   },
+   "servis_kapat": {
+    "expanded": "false",
+    "listeGizli": true
+   },
+   "tema": {
+    "once": {
+     "tema": "acik",
+     "etiket": "Koyu temaya geç",
+     "bg": "rgb(247, 245, 240)"
+    },
+    "cihaz_karanlik_olunca": "koyu",
+    "dugmeden_sonra": {
+     "tema": "koyu",
+     "etiket": "Açık temaya geç",
+     "bg": "rgb(11, 15, 20)",
+     "sema": "dark",
+     "gorunenGorsel": [
+      "u-ajanlar-yeni-koyu-F-gobVZ-.webp",
+      "u-sohbet-koyu-CBKcNlF5.webp"
+     ]
+    },
+    "elle_secimden_sonra_cihaz_acik": "koyu"
+   },
+   "konsol_hata": []
+  }
+ },
+ "az": {
+  "1440": {
+   "bildirimMetinde": true,
+   "bildirimGorunur": true,
+   "cepCikti": true,
+   "durGizli": true,
+   "kare_1sn_diyagram_gorunurken": 0,
+   "hb": 0,
+   "yol": [
+    15,
+    0
+   ],
+   "kelime": 168,
+   "konsol_hata": []
+  },
+  "390": {
+   "bildirimMetinde": true,
+   "bildirimGorunur": true,
+   "cepCikti": true,
+   "durGizli": true,
+   "kare_1sn_diyagram_gorunurken": 0,
+   "hb": 0,
+   "yol": [
+    0,
+    7
+   ],
+   "kelime": 129,
+   "konsol_hata": []
+  }
+ }
+}
