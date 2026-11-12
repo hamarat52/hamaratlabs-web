@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hamaratlabs Poster: a private publishing tool that uses YouTube API Services</title><meta name="description" content="Hamaratlabs Poster is a self-hosted, single-user publishing tool by Muhammed Yusuf Hamarat (hamaratlabs). It uses YouTube API Services to upload the owner's own videos to the owner's own YouTube channels."><meta name="robots" content="index,follow">
+<style>body{font:16px/1.6 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif;max-width:720px;margin:0 auto;padding:32px 20px;color:#1d1b18;background:#faf7f2;overflow-wrap:break-word}h1{font-size:28px;line-height:1.25}h2{font-size:20px;margin-top:28px}a{color:#8a3b12;overflow-wrap:anywhere}ul,ol{padding-left:22px}nav{font-size:14px;margin-bottom:24px}code{font-size:14px;background:#efe9df;padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}.meta{font-size:14px;color:#5a544c}.box{border:1px solid #e2d9cb;background:#fff;border-radius:8px;padding:14px 16px;margin:20px 0}.box p{margin:6px 0}.links{font-size:17px;font-weight:600}.tr{font-size:15px;color:#3d3832;border-top:1px solid #e2d9cb;margin-top:36px;padding-top:12px}footer{font-size:14px;color:#5a544c;margin-top:28px}</style>
+</head><body><nav><a href="/">hamaratlabs</a> · <a href="/poster/">Hamaratlabs Poster</a> · <a href="/poster/privacy/">Privacy Policy</a> · <a href="/poster/terms/">Terms of Service</a></nav>
+<h1>Hamaratlabs Poster</h1>
+<p class="meta">Last updated: 12 November 2026 · Published by: Muhammed Yusuf Hamarat (hamaratlabs), individual developer · Contact: <a href="mailto:premium.hamarat@gmail.com">premium.hamarat@gmail.com</a></p>
+<div class="box">
+<p><strong>Uses YouTube API Services.</strong> Hamaratlabs Poster uploads videos to <a href="https://www.youtube.com/">YouTube</a> through the YouTube Data API and reads channel analytics through the YouTube Analytics API.</p>
+<p class="links"><a href="/poster/privacy/">Privacy Policy</a> · <a href="/poster/terms/">Terms of Service</a></p>
+<p>By using Hamaratlabs Poster you agree to be bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>. YouTube data is also handled under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+</div>
+<p>Hamaratlabs Poster is a self-hosted publishing tool. Its owner, Muhammed Yusuf Hamarat, uses it to upload the videos he makes to his own YouTube channels and to see how those videos perform. It runs on his own computer and is not offered to anyone else.</p>
+<h2>Who uses it</h2>
+<ul>
+<li>Only the owner. There is no public sign-up, no user registration and no customer accounts.</li>
+<li>Only the owner's own YouTube channels are connected. The tool never accesses, uploads to or reads from anyone else's channel.</li>
+<li>It is free, has no advertising and is not sold or distributed.</li>
+</ul>
+<h2>What it does with YouTube</h2>
+<ol>
+<li><strong>Connect a channel.</strong> The owner signs in on Google's own consent screen and grants permission. If the Google Account manages several channels, Google asks which channel to connect.</li>
+<li><strong>Upload a video.</strong> The owner picks a video file he created and sets the title, description, tags, category, "made for kids" setting and the privacy status (public, unlisted or private). The tool uploads it with <code>videos.insert</code>.</li>
+<li><strong>Check processing.</strong> After the upload the tool asks YouTube whether processing has finished (<code>videos.list</code>, status only) and shows the result with the video link.</li>
+<li><strong>See analytics (read only).</strong> For the owner's own videos the tool shows views, watch time and audience retention from the YouTube Analytics API. It never changes anything on YouTube when reading analytics.</li>
+<li><strong>Disconnect.</strong> The owner can remove a channel in the tool at any time, and can also revoke access in his <a href="https://security.google.com/settings/security/permissions">Google Account permissions</a>.</li>
+</ol>
+<h2>Permissions (OAuth scopes) requested</h2>
+<ul>
+<li>Publishing: <code>https://www.googleapis.com/auth/youtube.upload</code> (upload videos) and <code>https://www.googleapis.com/auth/youtube.readonly</code> (identify the connected channel and check upload status).</li>
+<li>Analytics: <code>https://www.googleapis.com/auth/yt-analytics.readonly</code> and <code>https://www.googleapis.com/auth/youtube.readonly</code> (read only).</li>
+</ul>
+<p>The tool does not request the broad <code>youtube</code> scope. It cannot delete videos, edit playlists, post comments or change channel settings.</p>
+<h2>What it does not do</h2>
+<ul>
+<li>It does not access other people's channels or collect data about viewers.</li>
+<li>It does not sell, rent or share YouTube data with anyone.</li>
+<li>It does not show ads and does not use analytics or tracking tools.</li>
+<li>It is not exposed to the public internet. Its control panel is reachable only from the owner's own devices.</li>
+</ul>
+<h2>Upload notice</h2>
+<p>By clicking "upload", you certify that the content you are uploading complies with the YouTube Terms of Service (including the YouTube Community Guidelines) at <a href="https://www.youtube.com/t/terms">https://www.youtube.com/t/terms</a>. Please be sure not to violate others' copyright or privacy rights.</p>
+<h2>Policies</h2>
+<ul>
+<li><a href="/poster/privacy/">Hamaratlabs Poster Privacy Policy</a></li>
+<li><a href="/poster/terms/">Hamaratlabs Poster Terms of Service</a></li>
+<li><a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a></li>
+<li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+</ul>
+<h2>Contact</h2>
+<p>Questions or requests: <a href="mailto:premium.hamarat@gmail.com">premium.hamarat@gmail.com</a></p>
+<p class="tr" lang="tr"><strong>Türkçe özet:</strong> Hamaratlabs Poster, Muhammed Yusuf Hamarat'ın kendi bilgisayarında çalışan, yalnız kendisinin kullandığı bir yayın aracıdır. YouTube API Hizmetleri'yle kendi videolarını kendi YouTube kanallarına yükler ve bu videoların analizini (salt okuma) gösterir. Başka kimsenin kanalına erişmez, veri satmaz ya da paylaşmaz. Ayrıntılar: <a href="/poster/privacy/">Gizlilik Politikası</a> · <a href="/poster/terms/">Kullanım Şartları</a> (İngilizce).</p>
+<footer>Hamaratlabs Poster · Muhammed Yusuf Hamarat (hamaratlabs) · <a href="/poster/privacy/">Privacy Policy</a> · <a href="/poster/terms/">Terms of Service</a></footer>
+</body></html>

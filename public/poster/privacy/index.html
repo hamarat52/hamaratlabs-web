@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hamaratlabs Poster: Privacy Policy</title><meta name="description" content="Privacy Policy for Hamaratlabs Poster, the self-hosted YouTube publishing tool by Muhammed Yusuf Hamarat (hamaratlabs): which YouTube data it uses, where it is stored, how to revoke access and how to delete data."><meta name="robots" content="index,follow">
+<style>body{font:16px/1.6 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif;max-width:720px;margin:0 auto;padding:32px 20px;color:#1d1b18;background:#faf7f2;overflow-wrap:break-word}h1{font-size:28px;line-height:1.25}h2{font-size:20px;margin-top:28px}a{color:#8a3b12;overflow-wrap:anywhere}ul,ol{padding-left:22px}nav{font-size:14px;margin-bottom:24px}code{font-size:14px;background:#efe9df;padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}.meta{font-size:14px;color:#5a544c}.box{border:1px solid #e2d9cb;background:#fff;border-radius:8px;padding:14px 16px;margin:20px 0}.box p{margin:6px 0}.tr{font-size:15px;color:#3d3832;border-top:1px solid #e2d9cb;margin-top:36px;padding-top:12px}</style>
+</head><body><nav><a href="/">hamaratlabs</a> · <a href="/poster/">Hamaratlabs Poster</a> · <a href="/poster/privacy/">Privacy Policy</a> · <a href="/poster/terms/">Terms of Service</a></nav>
+<h1>Hamaratlabs Poster: Privacy Policy</h1>
+<p class="meta">Last updated: 12 November 2026 · Published by: Muhammed Yusuf Hamarat (hamaratlabs), individual developer · Contact: <a href="mailto:premium.hamarat@gmail.com">premium.hamarat@gmail.com</a></p>
+<p>Hamaratlabs Poster ("the app") is a self-hosted publishing tool. Its only user is its owner, Muhammed Yusuf Hamarat, who uses it to upload his own videos to his own YouTube channels and to read analytics for those channels. The app has no public sign-up and no other users. This policy explains what information the app accesses, stores, uses and shares, and how to revoke access and delete data. Connecting a YouTube channel to the app requires agreeing to this policy.</p>
+<h2>1. The app uses YouTube API Services</h2>
+<div class="box">
+<p>Hamaratlabs Poster uses <strong>YouTube API Services</strong> (the YouTube Data API and the YouTube Analytics API).</p>
+<p>By using the app you agree to be bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> (https://www.youtube.com/t/terms).</p>
+<p>Information obtained through YouTube API Services is also subject to the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> (https://policies.google.com/privacy).</p>
+</div>
+<h2>2. Information the app accesses, collects and stores</h2>
+<p>The app only works with the owner's own Google Account and his own YouTube channels. With the owner's permission it handles:</p>
+<ul>
+<li><strong>Google OAuth tokens.</strong> The access token and refresh token that Google issues after the owner grants permission on Google's consent screen. The app never sees or stores the owner's Google password.</li>
+<li><strong>Channel identity</strong> (scope <code>youtube.readonly</code>, <code>channels.list</code> with <code>mine=true</code>): the channel ID, channel title and channel thumbnail URL, used to show which channel is connected and to check that the right channel was connected.</li>
+<li><strong>Upload results</strong> (scopes <code>youtube.upload</code> and <code>youtube.readonly</code>): the video ID that YouTube returns after an upload and the upload and processing status from <code>videos.list</code>, used to show whether the upload succeeded and to link to the video.</li>
+<li><strong>Analytics for the owner's own videos</strong> (scopes <code>yt-analytics.readonly</code> and <code>youtube.readonly</code>): the list of the channel's recent uploads (title, publish date, duration, view, like and comment counts) and reports such as views, watch time, average view duration, audience retention and traffic sources.</li>
+<li><strong>Content the owner provides.</strong> The video files, titles, descriptions, tags and settings that the owner writes himself before uploading. This is the owner's own content, not data received from YouTube.</li>
+</ul>
+<p>The app does not collect information about viewers, subscribers or any other YouTube user, and it does not access any channel that the owner did not connect himself.</p>
+<h2>3. How the information is used</h2>
+<ul>
+<li>To upload the owner's videos to the channel he selects, with the title, description, tags, category, "made for kids" setting and privacy status (public, unlisted or private) that he chooses.</li>
+<li>To show the connected channel, the upload result and the processing status.</li>
+<li>To show the owner how his own videos perform (read only).</li>
+<li>To refresh the access token so the owner does not have to sign in again for every upload.</li>
+</ul>
+<p>The app takes an action on YouTube only when the owner starts it (an upload he creates or schedules). It does not change a video's privacy status or any other setting without his explicit choice.</p>
+<h2>4. Where the information is stored and how long</h2>
+<ul>
+<li>Everything runs on the owner's own computer. Tokens, channel identity and upload records are kept in a local database on that computer; refresh tokens are encrypted at rest (AES-256-GCM) or kept in the operating system's keychain. Access tokens for analytics are kept only in memory.</li>
+<li>Analytics results are kept only in memory for short periods (at most a few hours) and are not written to disk.</li>
+<li>Stored YouTube data is kept only as long as the channel stays connected. The app refreshes or deletes it at least every 30 days and regularly checks that its authorization is still valid; if the authorization can no longer be refreshed, the stored YouTube data for that channel is deleted within 7 days.</li>
+<li>The app is not exposed to the public internet. Its control panel can be reached only from the owner's own devices over a private network.</li>
+</ul>
+<h2>5. Sharing</h2>
+<ul>
+<li>Information is not sold, rented or shared with any third party, and is not used for advertising.</li>
+<li>Information is sent only to Google, through YouTube API Services and Google's OAuth service, to perform the actions described above. There are no internal or external parties who receive it: the owner is the only person who operates the app.</li>
+</ul>
+<h2>6. Advertising, third-party content, cookies and device information</h2>
+<ul>
+<li>The app shows no advertisements and does not allow third parties to serve content or advertisements.</li>
+<li>The app does not use analytics, tracking or advertising cookies, and it does not let third parties place or read cookies.</li>
+<li>The app's own control panel uses strictly necessary first-party cookies in the owner's browser: a session cookie to keep him signed in, and a short-lived cookie that protects the Google sign-in step. These are not used to track anyone.</li>
+<li>This website (hamaratlabs.com/poster/) does not set cookies and uses no tracking.</li>
+</ul>
+<h2>7. Revoking access</h2>
+<ul>
+<li>In the app: remove ("disconnect") the channel. The app deletes the stored tokens and channel record for that channel.</li>
+<li>In your Google Account: in addition to the app's own deletion procedure, you can revoke the app's access to your data at any time via the Google security settings page at <a href="https://security.google.com/settings/security/permissions">https://security.google.com/settings/security/permissions</a>. After access is revoked, all YouTube data stored by the app for that channel is deleted within 7 days.</li>
+</ul>
+<h2>8. Deleting data</h2>
+<ul>
+<li>To request deletion of any data the app stores, email <a href="mailto:premium.hamarat@gmail.com">premium.hamarat@gmail.com</a>. The data is deleted as soon as possible and within 7 days.</li>
+<li>Deleting data stored by the app does not delete anything on YouTube. Videos already uploaded stay on YouTube; to delete or change them, use YouTube or YouTube Studio.</li>
+</ul>
+<h2>9. Security</h2>
+<p>Tokens are encrypted or kept in the operating system keychain, are never written to logs and are never shown in the app's interface. The app requests only the narrow scopes listed above and does not request the broad <code>youtube</code> scope.</p>
+<h2>10. Children</h2>
+<p>The app is not directed at children and does not collect personal data from children. Videos that are made for kids are marked as such with the "made for kids" setting when they are uploaded.</p>
+<h2>11. Changes</h2>
+<p>If the app starts to use YouTube data in a new way, this policy will be updated before that happens and the date above will change. Using the app after a change requires agreeing to the updated policy.</p>
+<h2>12. Contact</h2>
+<p>Questions or complaints about the app's privacy practices: Muhammed Yusuf Hamarat (hamaratlabs), <a href="mailto:premium.hamarat@gmail.com">premium.hamarat@gmail.com</a></p>
+<p class="tr" lang="tr"><strong>Türkçe özet:</strong> Hamaratlabs Poster YouTube API Hizmetleri'ni kullanır; kullanan herkes <a href="https://www.youtube.com/t/terms">YouTube Hizmet Şartları</a>'na bağlı olmayı kabul eder ve veriler <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a> kapsamındadır. Uygulama yalnız sahibinin kendi kanallarıyla çalışır; belirteçler, kanal kimliği ve yükleme kayıtları yalnız onun bilgisayarında saklanır, kimseyle paylaşılmaz, reklam ya da izleme yoktur. İzin <a href="https://security.google.com/settings/security/permissions">Google güvenlik ayarlarından</a> her an geri alınabilir; silme isteği için <a href="mailto:premium.hamarat@gmail.com">premium.hamarat@gmail.com</a> (7 gün içinde silinir).</p>
+</body></html>
