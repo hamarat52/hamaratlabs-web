@@ -1,0 +1,472 @@
+[
+ {
+  "yol": "/wingwire",
+  "tema": "acik",
+  "genislik": 390,
+  "derleme": "once",
+  "bekletilen": [
+   "WingWireSite-DtsA-E1T.js",
+   "WingWireSite-BUlX4cFm.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#0a0f15",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/wingwire",
+  "tema": "acik",
+  "genislik": 390,
+  "derleme": "sonra",
+  "bekletilen": [
+   "WingWireSite-QUkuVqgo.js",
+   "WingWireSite-S2HMTlFT.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(247, 245, 240)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#f7f5f0",
+  "yuklu_zemin_renk": "#f7f5f0",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 329138,
+  "yuklu_once_sonra_belirgin": 320295
+ },
+ {
+  "yol": "/wingwire",
+  "tema": "acik",
+  "genislik": 1440,
+  "derleme": "once",
+  "bekletilen": [
+   "WingWireSite-DtsA-E1T.js",
+   "WingWireSite-BUlX4cFm.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#0d0f15",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/wingwire",
+  "tema": "acik",
+  "genislik": 1440,
+  "derleme": "sonra",
+  "bekletilen": [
+   "WingWireSite-QUkuVqgo.js",
+   "WingWireSite-S2HMTlFT.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(247, 245, 240)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#f7f5f0",
+  "yuklu_zemin_renk": "#ebe9e5",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 1296000,
+  "yuklu_once_sonra_belirgin": 1258130
+ },
+ {
+  "yol": "/wingwire",
+  "tema": "koyu",
+  "genislik": 390,
+  "derleme": "once",
+  "bekletilen": [
+   "WingWireSite-DtsA-E1T.js",
+   "WingWireSite-BUlX4cFm.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#0a0f15",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/wingwire",
+  "tema": "koyu",
+  "genislik": 390,
+  "derleme": "sonra",
+  "bekletilen": [
+   "WingWireSite-QUkuVqgo.js",
+   "WingWireSite-S2HMTlFT.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#0b0f14",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 307237,
+  "yuklu_once_sonra_belirgin": 123432
+ },
+ {
+  "yol": "/wingwire",
+  "tema": "koyu",
+  "genislik": 1440,
+  "derleme": "once",
+  "bekletilen": [
+   "WingWireSite-DtsA-E1T.js",
+   "WingWireSite-BUlX4cFm.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#0d0f15",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/wingwire",
+  "tema": "koyu",
+  "genislik": 1440,
+  "derleme": "sonra",
+  "bekletilen": [
+   "WingWireSite-QUkuVqgo.js",
+   "WingWireSite-S2HMTlFT.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#0a0e13",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 878112,
+  "yuklu_once_sonra_belirgin": 396598
+ },
+ {
+  "yol": "/sesver",
+  "tema": "acik",
+  "genislik": 390,
+  "derleme": "once",
+  "bekletilen": [
+   "SesVerSite-BvDYiwuQ.js",
+   "SesVerSite-CcxmFTp9.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#fcf6ed",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/sesver",
+  "tema": "acik",
+  "genislik": 390,
+  "derleme": "sonra",
+  "bekletilen": [
+   "SesVerSite-nslSK1Pg.js",
+   "SesVerSite-CcxmFTp9.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(251, 246, 238)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#fbf6ee",
+  "yuklu_zemin_renk": "#fcf6ed",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 5339,
+  "yuklu_once_sonra_belirgin": 1350
+ },
+ {
+  "yol": "/sesver",
+  "tema": "acik",
+  "genislik": 1440,
+  "derleme": "once",
+  "bekletilen": [
+   "SesVerSite-BvDYiwuQ.js",
+   "SesVerSite-CcxmFTp9.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#fcf6ed",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/sesver",
+  "tema": "acik",
+  "genislik": 1440,
+  "derleme": "sonra",
+  "bekletilen": [
+   "SesVerSite-nslSK1Pg.js",
+   "SesVerSite-CcxmFTp9.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(251, 246, 238)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#fbf6ee",
+  "yuklu_zemin_renk": "#fcf6ed",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 1610,
+  "yuklu_once_sonra_belirgin": 1128
+ },
+ {
+  "yol": "/sesver",
+  "tema": "koyu",
+  "genislik": 390,
+  "derleme": "once",
+  "bekletilen": [
+   "SesVerSite-BvDYiwuQ.js",
+   "SesVerSite-CcxmFTp9.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#fcf6ed",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/sesver",
+  "tema": "koyu",
+  "genislik": 390,
+  "derleme": "sonra",
+  "bekletilen": [
+   "SesVerSite-nslSK1Pg.js",
+   "SesVerSite-CcxmFTp9.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(251, 246, 238)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#fbf6ee",
+  "yuklu_zemin_renk": "#fcf6ed",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 4476,
+  "yuklu_once_sonra_belirgin": 895
+ },
+ {
+  "yol": "/sesver",
+  "tema": "koyu",
+  "genislik": 1440,
+  "derleme": "once",
+  "bekletilen": [
+   "SesVerSite-BvDYiwuQ.js",
+   "SesVerSite-CcxmFTp9.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#fcf6ed",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/sesver",
+  "tema": "koyu",
+  "genislik": 1440,
+  "derleme": "sonra",
+  "bekletilen": [
+   "SesVerSite-nslSK1Pg.js",
+   "SesVerSite-CcxmFTp9.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(251, 246, 238)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#fbf6ee",
+  "yuklu_zemin_renk": "#fcf6ed",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 460,
+  "yuklu_once_sonra_belirgin": 116
+ },
+ {
+  "yol": "/titimer",
+  "tema": "acik",
+  "genislik": 390,
+  "derleme": "once",
+  "bekletilen": [
+   "TiTimerSite-BaNzFVO2.js",
+   "TiTimerSite-DOEuLfDb.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#f6f6f2",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/titimer",
+  "tema": "acik",
+  "genislik": 390,
+  "derleme": "sonra",
+  "bekletilen": [
+   "TiTimerSite-B_Rm5nlY.js",
+   "TiTimerSite-DOEuLfDb.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(248, 247, 243)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#f8f7f3",
+  "yuklu_zemin_renk": "#f6f6f2",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 0,
+  "yuklu_once_sonra_belirgin": 0
+ },
+ {
+  "yol": "/titimer",
+  "tema": "acik",
+  "genislik": 1440,
+  "derleme": "once",
+  "bekletilen": [
+   "TiTimerSite-BaNzFVO2.js",
+   "TiTimerSite-DOEuLfDb.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#f7f6f3",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/titimer",
+  "tema": "acik",
+  "genislik": 1440,
+  "derleme": "sonra",
+  "bekletilen": [
+   "TiTimerSite-B_Rm5nlY.js",
+   "TiTimerSite-DOEuLfDb.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(248, 247, 243)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#f8f7f3",
+  "yuklu_zemin_renk": "#f7f6f3",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 4020,
+  "yuklu_once_sonra_belirgin": 361
+ },
+ {
+  "yol": "/titimer",
+  "tema": "koyu",
+  "genislik": 390,
+  "derleme": "once",
+  "bekletilen": [
+   "TiTimerSite-BaNzFVO2.js",
+   "TiTimerSite-DOEuLfDb.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#f6f6f2",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/titimer",
+  "tema": "koyu",
+  "genislik": 390,
+  "derleme": "sonra",
+  "bekletilen": [
+   "TiTimerSite-B_Rm5nlY.js",
+   "TiTimerSite-DOEuLfDb.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(248, 247, 243)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#f8f7f3",
+  "yuklu_zemin_renk": "#f6f6f2",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 0,
+  "yuklu_once_sonra_belirgin": 0
+ },
+ {
+  "yol": "/titimer",
+  "tema": "koyu",
+  "genislik": 1440,
+  "derleme": "once",
+  "bekletilen": [
+   "TiTimerSite-BaNzFVO2.js",
+   "TiTimerSite-DOEuLfDb.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(11, 15, 20)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#0b0f14",
+  "yuklu_zemin_renk": "#f7f6f3",
+  "konsol_hata": []
+ },
+ {
+  "yol": "/titimer",
+  "tema": "koyu",
+  "genislik": 1440,
+  "derleme": "sonra",
+  "bekletilen": [
+   "TiTimerSite-B_Rm5nlY.js",
+   "TiTimerSite-DOEuLfDb.css"
+  ],
+  "yedek_dom": {
+   "etiket": "DIV",
+   "bg": "rgb(248, 247, 243)",
+   "cocuk": 0
+  },
+  "yedek_orta_renk": "#f8f7f3",
+  "yuklu_zemin_renk": "#f7f6f3",
+  "konsol_hata": [],
+  "yuklu_once_sonra_fark": 4773,
+  "yuklu_once_sonra_belirgin": 876
+ },
+ {
+  "yol": "/",
+  "tema": "acik",
+  "derleme": "sonra",
+  "konsol_hata": [],
+  "baslik": "hamaratlabs"
+ },
+ {
+  "yol": "/",
+  "tema": "koyu",
+  "derleme": "sonra",
+  "konsol_hata": [],
+  "baslik": "hamaratlabs"
+ }
+]

@@ -24,7 +24,7 @@ Kaynak: onaylı taslak `docs/taslak/wingwire-landing-v2/5/index.html` (dal `desi
 | `src/wingwire-site/img/*.webp` (15) | yeni | taslağın `5/img`'inden bayt bayt aynı (`cmp`); Vite içe aktarımı, özetli ad. `u-arama-*` yalnız seçilmeyen Yön B'de vardı, alınmadı |
 | `docs/wingwire-uygulama/araclar/*.py` | yeni | `cdp_ortak.py`, `esitlik.py`, `islev.py`, `kareler.py`, `yokla.py`, `ozet.py` |
 | `docs/wingwire-uygulama/shots/` | yeni | eşitlik ve etkileşim kareleri, `esitlik.json`, `islev.json` (toplam ~1,5 MB) |
-| `src/App.jsx`, `src/data.js` | dokunulmadı | |
+| `src/App.jsx`, `src/data.js` | 1. turda dokunulmadı | 2. turda `App.jsx`'te yalnız bağımsız sayfa yükleme yedeği (ayrı commit); `data.js` hiç |
 
 Görseller `public/wingwire/` yerine `src/wingwire-site/img/` altında: içe aktarılınca özetli adla `dist/assets`'e gider (önbellek güvenli) ve `public/wingwire/gizlilik/` klasörüyle karışmaz.
 
@@ -116,14 +116,32 @@ Farkların nedeni (kareler `shots/esitlik/<an>-<genişlik>-<tema>.png` yan yana,
 ## Zayıf yanlar
 - Kare hızı başsız Chrome'da ölçüldü (16-20 kare/sn, yazılım çizimi); gerçek telefonda ölçülmedi.
 - Yerel önizleme `vite preview`; GitHub Pages'te soğuk açılış (404.html yönlendirmesi) bu işte denenmedi.
-- Açık temada soğuk açılışta, sayfa parçası inene kadar `App.jsx`'teki Suspense yedeği koyu (`#0b0f14`) çiziliyor; kısa bir koyu ekran görülebilir (bkz. Sorular 2).
+- Açık temada soğuk açılışta koyu yedek flaşı 2. turda düzeltildi (aşağıda "2. tur").
 - Hüzmenin `vurdu` parlaması gerçek saatle sönüyor; eşitlik karelerinde bu yüzden küçük farklar var (yukarıda).
 - Süreç notu: ilk eşitlik koşusunun kendi ürettiğim, henüz commit'lenmemiş PNG çıktılarını bir kez `rm -f` ile sildim; iş tanımındaki silme yasağına takılabilir. Sonraki koşularda betik her dosyanın üzerine yazacak şekilde değiştirildi, başka silme yok. Betikler `docs/wingwire-uygulama/araclar/__pycache__/` bıraktı; commit'e alınmadı, silinmedi.
 
-## Sorular
-1. "Telefonun" → "Telefon" yalnız telefon diyagramında yapıldı (iş tanımı "telefon diyagramında" diyor). Masaüstü tuvalinde de "Telefon" olsun mu? Tek satır.
-2. `App.jsx`'teki bağımsız sayfa Suspense yedeği koyu (`#0b0f14`; eski koyu WingWire sayfası için). Açık temada soğuk açılışta kısa bir koyu ekran olur. Yedeğin cihaz temasına göre renk alması `/wingwire` satırı değil, `/sesver` ve `/titimer`'i de etkileyen ortak satır; izin verilirse düzeltirim.
-3. `index.html` her sayfada Geist'i önden yüklüyor (45,4 KB, `/wingwire`'da kullanılmıyor). Bu, bu işin yazma alanı dışında. Dokunulsun mu?
-4. Toplam aktarılan bayt bugünkü sayfadan fazla (266,9 → 404,4 KB ilk yükleme): JS 40,7 KB azaldı, ama gerçek ekran görselleri ve ilk kez gerçekten inen marka fontları eklendi. Kabul mü, yoksa görsel ya da font tarafında kısma istenir mi (ör. sohbet görselini bildirim uçarken yüklemek; bu taslaktan sapar)?
-5. İçerik: pm-wingwire'ın `v2-icerik-kontrol.md` §4.2'si "şimdilik anlatılmayacaklar" listesinde "Marketing (..., YouTube), letmepost" diyor; onaylı taslağın diyagramında `letmepost` (desteklenen platformlarla) ve `YouTube` düğümleri var. Metni değiştirmedim (onaylı hâl). pm-wingwire teyit etsin.
-6. `public/fonts/wingwire/` içindeki kullanılmayan 6 font dosyası (~66 KB) silinsin mi? (silme onaylı iş)
+## Sorular (1. tur) ve kararlar (pm-hamaratlabs, 2026-11-12)
+1. Masaüstü tuvalinde de "Telefon" mu? Karar: evet. Yapıldı (f3a6924).
+2. Bağımsız sayfa yükleme yedeğindeki koyu flaş düzeltilsin mi? Karar: evet, /sesver ve /titimer'in görünümü değişmeden, ayrı commit. Yapıldı (aşağıda "2. tur").
+3. `index.html`'deki Geist ön yüklemesi? Karar: dokunulmaz (site geneli, ayrı iş).
+4. Ağırlık artışı (404 KB ilk yükleme)? Karar: kabul, kısma yok.
+5. letmepost ve YouTube diyagramda kalır mı? Karar: kalır (Yusuf "sosyal medyalar, letmepost" düğümlerini açıkça istedi). Metne dokunulmadı.
+6. `public/fonts/wingwire/` içindeki kullanılmayan 6 font silinsin mi? Karar: hayır; "Kaldırılan / kullanılmayan parçalar"da listede kalır.
+
+`docs/wingwire-uygulama/araclar/__pycache__/` takip dışı, olduğu gibi duruyor (commit'e katılmadı, `.gitignore`'a eklenmedi, silinmedi).
+
+## 2. tur: yükleme yedeği (App.jsx)
+- Sorun: `/wingwire`, `/sesver`, `/titimer` bağımsız sayfalarında sayfa parçası (`<Ad>Site-*.js/css`) inene kadar `App.jsx`'teki Suspense yedeği sabit koyu (`#0b0f14`, eski koyu WingWire sayfasından kalma) çiziliyordu. Üç sayfa da açılışta kısa bir koyu flaş veriyordu; açık zeminli /sesver ve /titimer dahil.
+- Değişiklik (`src/App.jsx`, ayrı commit): `STANDALONE_BG` sözlüğü; yedek sayfanın kendi zemin rengini alır. `/wingwire` cihaz tercihine göre `#F7F5F0` (açık) / `#0B0F14` (koyu), WingWireSite.jsx'teki `ZEMIN` ile aynı. `/sesver` `#fbf6ee` (sesver.css `--sv-bg`), `/titimer` `#f8f7f3` (titimer.css `--paper`). İkisi yalnız açık temalı sayfalar, yedekleri de cihaz teması koyu olsa bile açık. `CUSTOM_PAGES` yedeğine (ürün sayfaları) dokunulmadı.
+- Yöntem (`araclar/yukleme.py`): CDP `Fetch` sayfa parçası isteklerini (`*/assets/*Site-*`) bekletir; o sırada ekranda yalnız yedek vardır. 2 sn sonra kare, istekler bırakılır, 3 sn sonra yüklenmiş kare. Önce = değişiklikten önceki derleme (888776f'nin App.jsx'i), sonra = bu dal. Her sayfa x tema (`prefers-color-scheme` açık/koyu) x 390/1440.
+
+| Sayfa | Tema | Yedek önce | Yedek sonra | Yüklenmiş sayfanın üst zemini (sonra) |
+|---|---|---|---|---|
+| /wingwire | açık | #0b0f14 | #f7f5f0 | #f7f5f0 (390), #ebe9e5 (1440, hero ışık gradyanı) |
+| /wingwire | koyu | #0b0f14 | #0b0f14 | #0b0f14 (390), #0a0e13 (1440) |
+| /sesver | açık ve koyu | #0b0f14 | #fbf6ee | #fcf6ed |
+| /titimer | açık ve koyu | #0b0f14 | #f8f7f3 | #f6f6f2 / #f7f6f3 (kâğıt dokusu) |
+
+- /sesver ve /titimer'in yüklenmiş görünümü değişmedi (`araclar/tekrar.py`, `shots/yukleme/tekrar.json`): /sesver hareket azaltmada önce/sonra 0 piksel (390 ve 1440); hareket açıkken fark alt bölgedeki animasyonda ve aynı derlemenin iki açılışı arasındaki farktan büyük değil (ör. 390: önce/sonra 4.116, sonra/sonra 5.139). /titimer'in farkı yalnız `.tt-demo` bölgesinde: canlı sayaç demosu gerçek saate bağlı (geri sayım ve "Bitiş: 17:45/17:46"); aynı derlemenin iki açılışı da aynı bölgede farklı.
+- Konsol hatası: /wingwire, /sesver, /titimer (iki tema, 390 ve 1440, önce ve sonra) ve / (iki tema) 0. `npm run build` başarılı; `npx eslint src/App.jsx src/wingwire-site/` 0 hata, 1 uyarı (önceden var olan `App.jsx:57`).
+- Kareler `shots/yukleme/<sayfa>-<tema>-<genişlik>.png` (12 kare; her biri soldan: önce yedek, sonra yedek, sonra yüklendi), `yukleme.json`, `tekrar.json`.

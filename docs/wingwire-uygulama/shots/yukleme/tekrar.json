@@ -1,0 +1,217 @@
+[
+ {
+  "yol": "/sesver",
+  "genislik": 390,
+  "hareket": "no-preference",
+  "once_sonra": [
+   4116,
+   581,
+   [
+    23,
+    656,
+    366,
+    823
+   ]
+  ],
+  "sonra_sonra2": [
+   5139,
+   1012,
+   [
+    23,
+    657,
+    366,
+    822
+   ]
+  ],
+  "tt_demo": {
+   "once": null,
+   "sonra": null,
+   "sonra2": null
+  }
+ },
+ {
+  "yol": "/sesver",
+  "genislik": 390,
+  "hareket": "reduce",
+  "once_sonra": [
+   0,
+   0,
+   null
+  ],
+  "sonra_sonra2": [
+   0,
+   0,
+   null
+  ],
+  "tt_demo": {
+   "once": null,
+   "sonra": null,
+   "sonra2": null
+  }
+ },
+ {
+  "yol": "/sesver",
+  "genislik": 1440,
+  "hareket": "no-preference",
+  "once_sonra": [
+   1055,
+   280,
+   [
+    422,
+    864,
+    957,
+    900
+   ]
+  ],
+  "sonra_sonra2": [
+   1771,
+   1011,
+   [
+    422,
+    864,
+    957,
+    900
+   ]
+  ],
+  "tt_demo": {
+   "once": null,
+   "sonra": null,
+   "sonra2": null
+  }
+ },
+ {
+  "yol": "/sesver",
+  "genislik": 1440,
+  "hareket": "reduce",
+  "once_sonra": [
+   0,
+   0,
+   null
+  ],
+  "sonra_sonra2": [
+   0,
+   0,
+   null
+  ],
+  "tt_demo": {
+   "once": null,
+   "sonra": null,
+   "sonra2": null
+  }
+ },
+ {
+  "yol": "/titimer",
+  "genislik": 390,
+  "hareket": "no-preference",
+  "once_sonra": [
+   0,
+   0,
+   null
+  ],
+  "sonra_sonra2": [
+   673,
+   418,
+   [
+    77,
+    679,
+    372,
+    844
+   ]
+  ],
+  "tt_demo": {
+   "once": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:33\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:45\n\nMolay\u0131 ba\u015flat\nDurdur",
+   "sonra": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:33\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:45\n\nMolay\u0131 ba\u015flat\nDurdur",
+   "sonra2": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:33\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:45\n\nMolay\u0131 ba\u015flat\nDurdur"
+  }
+ },
+ {
+  "yol": "/titimer",
+  "genislik": 390,
+  "hareket": "reduce",
+  "once_sonra": [
+   9676,
+   1900,
+   [
+    77,
+    679,
+    257,
+    844
+   ]
+  ],
+  "sonra_sonra2": [
+   12376,
+   1927,
+   [
+    78,
+    680,
+    372,
+    844
+   ]
+  ],
+  "tt_demo": {
+   "once": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:33\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:45\n\nMolay\u0131 ba\u015flat\nDurdur",
+   "sonra": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:34\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:45\n\nMolay\u0131 ba\u015flat\nDurdur",
+   "sonra2": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:33\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:45\n\nMolay\u0131 ba\u015flat\nDurdur"
+  }
+ },
+ {
+  "yol": "/titimer",
+  "genislik": 1440,
+  "hareket": "no-preference",
+  "once_sonra": [
+   13464,
+   467,
+   [
+    745,
+    230,
+    1326,
+    779
+   ]
+  ],
+  "sonra_sonra2": [
+   6081,
+   1714,
+   [
+    745,
+    166,
+    1327,
+    798
+   ]
+  ],
+  "tt_demo": {
+   "once": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:32\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:45\n\nMolay\u0131 ba\u015flat\nDurdur",
+   "sonra": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:33\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:46\n\nMolay\u0131 ba\u015flat\nDurdur",
+   "sonra2": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:32\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:46\n\nMolay\u0131 ba\u015flat\nDurdur"
+  }
+ },
+ {
+  "yol": "/titimer",
+  "genislik": 1440,
+  "hareket": "reduce",
+  "once_sonra": [
+   37217,
+   2616,
+   [
+    842,
+    166,
+    1150,
+    798
+   ]
+  ],
+  "sonra_sonra2": [
+   11687,
+   1408,
+   [
+    842,
+    166,
+    1326,
+    798
+   ]
+  ],
+  "tt_demo": {
+   "once": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:33\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:46\n\nMolay\u0131 ba\u015flat\nDurdur",
+   "sonra": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:33\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:46\n\nMolay\u0131 ba\u015flat\nDurdur",
+   "sonra2": "Saya\u00e7\nDers \u00e7al\u0131\u015fma\n\n17:33\n\nOdaklan\u0131yor \u00b7 Blok 1\n\nBiti\u015f: 17:46\n\nMolay\u0131 ba\u015flat\nDurdur"
+  }
+ }
+]

@@ -92,6 +92,15 @@ const STATIC_PAGES = {
 // Bu yollar ana sitenin topbar'ı ve footer'ı OLMADAN, tam sayfa çizilir (ürünün kendi tasarımı).
 const STANDALONE_PAGES = new Set(['/wingwire', '/sesver', '/titimer']);
 
+// Bağımsız sayfanın yükleme yedeği (sayfa parçası inene kadar): sayfanın kendi zemini, açılışta renk sıçraması olmasın.
+// /wingwire açık/koyu temalı, cihaz tercihini izler (WingWireSite.jsx ZEMIN); /sesver (sesver.css --sv-bg) ve /titimer
+// (titimer.css --paper) yalnız açık.
+const STANDALONE_BG = {
+  '/wingwire': () => (window.matchMedia('(prefers-color-scheme: dark)').matches ? '#0B0F14' : '#F7F5F0'),
+  '/sesver': () => '#fbf6ee',
+  '/titimer': () => '#f8f7f3'
+};
+
 // Sondaki eğik çizgiyi at: /titimer/ ile /titimer aynı sayfa. public/titimer/ (gizlilik, destek) klasörü
 // olduğu için GitHub Pages /titimer'ı /titimer/'a yönlendirebilir; 404.html → SPA yine doğru sayfayı bulsun.
 const currentPath = () => {
@@ -134,7 +143,7 @@ export default function App() {
   if (StaticPage && STANDALONE_PAGES.has(path)) {
     return (
       <NavContext.Provider value={navigate}>
-        <Suspense fallback={<div style={{ minHeight: '100vh', background: '#0b0f14' }} />}>
+        <Suspense fallback={<div style={{ minHeight: '100vh', background: STANDALONE_BG[path]() }} />}>
           <StaticPage />
         </Suspense>
       </NavContext.Provider>
