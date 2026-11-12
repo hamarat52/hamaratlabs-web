@@ -1,0 +1,482 @@
+[
+ {
+  "grupAdi": "letmepost'un desteklediği platformlar",
+  "grupRol": "group",
+  "logolar": [
+   {
+    "ad": "Bluesky",
+    "title": "Bluesky",
+    "w": 24,
+    "h": 24,
+    "x": 513,
+    "y": 425,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "Instagram",
+    "title": "Instagram",
+    "w": 24,
+    "h": 24,
+    "x": 555,
+    "y": 425,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "LinkedIn",
+    "title": "LinkedIn",
+    "w": 25.9,
+    "h": 24,
+    "x": 597,
+    "y": 425,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "Facebook",
+    "title": "Facebook",
+    "w": 24,
+    "h": 24,
+    "x": 641,
+    "y": 425,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "Pinterest",
+    "title": "Pinterest",
+    "w": 24,
+    "h": 24,
+    "x": 683,
+    "y": 425,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "Threads",
+    "title": "Threads",
+    "w": 24,
+    "h": 24,
+    "x": 725,
+    "y": 425,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "TikTok",
+    "title": "TikTok",
+    "w": 24,
+    "h": 24,
+    "x": 767,
+    "y": 425,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "X",
+    "title": "X",
+    "w": 24,
+    "h": 24,
+    "x": 809,
+    "y": 425,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "YouTube",
+    "title": "YouTube",
+    "w": 24,
+    "h": 24,
+    "x": 851,
+    "y": 425,
+    "renk": "rgb(32, 40, 50)"
+   }
+  ],
+  "satir": 1,
+  "kutuGorunurYazi": "",
+  "kutu": [
+   513,
+   425,
+   362,
+   24
+  ],
+  "sahibiKutu": [
+   494,
+   410,
+   400,
+   54
+  ],
+  "scrollWidth": 1440,
+  "emDash": 0,
+  "desteklenenYazi": 0,
+  "plYolu": true,
+  "linkedinBoyaliOran": 0.77,
+  "axImgAdlari": [
+   "Bluesky",
+   "Facebook",
+   "Instagram",
+   "LinkedIn",
+   "Pinterest",
+   "Threads",
+   "TikTok",
+   "X",
+   "YouTube"
+  ],
+  "konsol_hata": [],
+  "dis_istek": [],
+  "ad": "logolar-1440-acik"
+ },
+ {
+  "grupAdi": "letmepost'un desteklediği platformlar",
+  "grupRol": "group",
+  "logolar": [
+   {
+    "ad": "Bluesky",
+    "title": "Bluesky",
+    "w": 24,
+    "h": 24,
+    "x": 513,
+    "y": 425,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "Instagram",
+    "title": "Instagram",
+    "w": 24,
+    "h": 24,
+    "x": 555,
+    "y": 425,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "LinkedIn",
+    "title": "LinkedIn",
+    "w": 25.9,
+    "h": 24,
+    "x": 597,
+    "y": 425,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "Facebook",
+    "title": "Facebook",
+    "w": 24,
+    "h": 24,
+    "x": 641,
+    "y": 425,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "Pinterest",
+    "title": "Pinterest",
+    "w": 24,
+    "h": 24,
+    "x": 683,
+    "y": 425,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "Threads",
+    "title": "Threads",
+    "w": 24,
+    "h": 24,
+    "x": 725,
+    "y": 425,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "TikTok",
+    "title": "TikTok",
+    "w": 24,
+    "h": 24,
+    "x": 767,
+    "y": 425,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "X",
+    "title": "X",
+    "w": 24,
+    "h": 24,
+    "x": 809,
+    "y": 425,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "YouTube",
+    "title": "YouTube",
+    "w": 24,
+    "h": 24,
+    "x": 851,
+    "y": 425,
+    "renk": "rgb(245, 241, 232)"
+   }
+  ],
+  "satir": 1,
+  "kutuGorunurYazi": "",
+  "kutu": [
+   513,
+   425,
+   362,
+   24
+  ],
+  "sahibiKutu": [
+   494,
+   410,
+   400,
+   54
+  ],
+  "scrollWidth": 1440,
+  "emDash": 0,
+  "desteklenenYazi": 0,
+  "plYolu": true,
+  "linkedinBoyaliOran": 0.77,
+  "axImgAdlari": [
+   "Bluesky",
+   "Facebook",
+   "Instagram",
+   "LinkedIn",
+   "Pinterest",
+   "Threads",
+   "TikTok",
+   "X",
+   "YouTube"
+  ],
+  "konsol_hata": [],
+  "dis_istek": [],
+  "ad": "logolar-1440-koyu"
+ },
+ {
+  "grupAdi": "letmepost'un desteklediği platformlar",
+  "grupRol": "group",
+  "logolar": [
+   {
+    "ad": "Bluesky",
+    "title": "Bluesky",
+    "w": 22,
+    "h": 22,
+    "x": 72,
+    "y": 435,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "Instagram",
+    "title": "Instagram",
+    "w": 22,
+    "h": 22,
+    "x": 104,
+    "y": 435,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "LinkedIn",
+    "title": "LinkedIn",
+    "w": 23.8,
+    "h": 22,
+    "x": 137,
+    "y": 435,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "Facebook",
+    "title": "Facebook",
+    "w": 22,
+    "h": 22,
+    "x": 171,
+    "y": 435,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "Pinterest",
+    "title": "Pinterest",
+    "w": 22,
+    "h": 22,
+    "x": 203,
+    "y": 435,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "Threads",
+    "title": "Threads",
+    "w": 22,
+    "h": 22,
+    "x": 235,
+    "y": 435,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "TikTok",
+    "title": "TikTok",
+    "w": 22,
+    "h": 22,
+    "x": 267,
+    "y": 435,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "X",
+    "title": "X",
+    "w": 22,
+    "h": 22,
+    "x": 300,
+    "y": 435,
+    "renk": "rgb(32, 40, 50)"
+   },
+   {
+    "ad": "YouTube",
+    "title": "YouTube",
+    "w": 22,
+    "h": 22,
+    "x": 332,
+    "y": 435,
+    "renk": "rgb(32, 40, 50)"
+   }
+  ],
+  "satir": 1,
+  "kutuGorunurYazi": "letmepost\nyerel paylaşım sunucusu",
+  "kutu": [
+   72,
+   435,
+   282,
+   22
+  ],
+  "sahibiKutu": [
+   25,
+   382,
+   340,
+   84
+  ],
+  "scrollWidth": 390,
+  "emDash": 0,
+  "desteklenenYazi": 0,
+  "plYolu": false,
+  "linkedinBoyaliOran": 0.7,
+  "axImgAdlari": [
+   "Bluesky",
+   "Facebook",
+   "Instagram",
+   "LinkedIn",
+   "Pinterest",
+   "Threads",
+   "TikTok",
+   "X",
+   "YouTube"
+  ],
+  "konsol_hata": [],
+  "dis_istek": [],
+  "ad": "logolar-390-acik"
+ },
+ {
+  "grupAdi": "letmepost'un desteklediği platformlar",
+  "grupRol": "group",
+  "logolar": [
+   {
+    "ad": "Bluesky",
+    "title": "Bluesky",
+    "w": 22,
+    "h": 22,
+    "x": 72,
+    "y": 435,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "Instagram",
+    "title": "Instagram",
+    "w": 22,
+    "h": 22,
+    "x": 104,
+    "y": 435,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "LinkedIn",
+    "title": "LinkedIn",
+    "w": 23.8,
+    "h": 22,
+    "x": 137,
+    "y": 435,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "Facebook",
+    "title": "Facebook",
+    "w": 22,
+    "h": 22,
+    "x": 171,
+    "y": 435,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "Pinterest",
+    "title": "Pinterest",
+    "w": 22,
+    "h": 22,
+    "x": 203,
+    "y": 435,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "Threads",
+    "title": "Threads",
+    "w": 22,
+    "h": 22,
+    "x": 235,
+    "y": 435,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "TikTok",
+    "title": "TikTok",
+    "w": 22,
+    "h": 22,
+    "x": 267,
+    "y": 435,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "X",
+    "title": "X",
+    "w": 22,
+    "h": 22,
+    "x": 300,
+    "y": 435,
+    "renk": "rgb(245, 241, 232)"
+   },
+   {
+    "ad": "YouTube",
+    "title": "YouTube",
+    "w": 22,
+    "h": 22,
+    "x": 332,
+    "y": 435,
+    "renk": "rgb(245, 241, 232)"
+   }
+  ],
+  "satir": 1,
+  "kutuGorunurYazi": "letmepost\nyerel paylaşım sunucusu",
+  "kutu": [
+   72,
+   435,
+   282,
+   22
+  ],
+  "sahibiKutu": [
+   25,
+   382,
+   340,
+   84
+  ],
+  "scrollWidth": 390,
+  "emDash": 0,
+  "desteklenenYazi": 0,
+  "plYolu": false,
+  "linkedinBoyaliOran": 0.7,
+  "axImgAdlari": [
+   "Bluesky",
+   "Facebook",
+   "Instagram",
+   "LinkedIn",
+   "Pinterest",
+   "Threads",
+   "TikTok",
+   "X",
+   "YouTube"
+  ],
+  "konsol_hata": [],
+  "dis_istek": [],
+  "ad": "logolar-390-koyu"
+ }
+]

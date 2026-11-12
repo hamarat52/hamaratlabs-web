@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { asset } from '../base';
 import { Link } from '../nav';
 import { motorKur } from './diyagram';
+import PlatformLogolari from './PlatformLogolari';
 import './fonts.css';
 import './WingWireSite.css';
 import icon from './img/icon.webp';
@@ -68,20 +69,6 @@ const IndirSimge = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M12 4v11M7 10.5l5 5 5-5M5 20h14" />
   </svg>
-);
-
-const Platformlar = () => (
-  <span className="pl">
-    <i>Bluesky</i>
-    <i>Instagram</i>
-    <i>LinkedIn</i>
-    <i>Facebook</i>
-    <i>Pinterest</i>
-    <i>Threads</i>
-    <i>TikTok</i>
-    <i>X</i>
-    <i>YouTube</i>
-  </span>
 );
 
 // Şerit etiketleri: motor taşınan türün <span>'ını (ilk üç çocuk) vurgular.
@@ -435,10 +422,9 @@ function Ag({ az }) {
                 <b>Google Drive</b>
                 <span>yedek · arşiv</span>
               </div>
-              <div className="nd nd--b nd--k" data-n="plat">
-                <Ik ad="kure" />
-                <span>desteklenen platformlar</span>
-                <Platformlar />
+              {/* Yusuf (2026-11-12): kutuda yazı yok, yalnız platform logoları; adlar aria-label/title ile */}
+              <div className="nd nd--b nd--k nd--pl" data-n="plat">
+                <PlatformLogolari />
               </div>
             </div>
           </div>
@@ -506,8 +492,7 @@ function Ag({ az }) {
                 <Ik ad="lmp" />
                 <b>letmepost</b>
                 <span>yerel paylaşım sunucusu</span>
-                <span className="s-alt">→ desteklenen platformlar</span>
-                <Platformlar />
+                <PlatformLogolari />
               </li>
               <li>
                 <Ik ad="disk" />

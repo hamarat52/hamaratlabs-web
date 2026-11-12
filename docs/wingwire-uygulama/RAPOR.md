@@ -145,3 +145,45 @@ Farkların nedeni (kareler `shots/esitlik/<an>-<genişlik>-<tema>.png` yan yana,
 - /sesver ve /titimer'in yüklenmiş görünümü değişmedi (`araclar/tekrar.py`, `shots/yukleme/tekrar.json`): /sesver hareket azaltmada önce/sonra 0 piksel (390 ve 1440); hareket açıkken fark alt bölgedeki animasyonda ve aynı derlemenin iki açılışı arasındaki farktan büyük değil (ör. 390: önce/sonra 4.116, sonra/sonra 5.139). /titimer'in farkı yalnız `.tt-demo` bölgesinde: canlı sayaç demosu gerçek saate bağlı (geri sayım ve "Bitiş: 17:45/17:46"); aynı derlemenin iki açılışı da aynı bölgede farklı.
 - Konsol hatası: /wingwire, /sesver, /titimer (iki tema, 390 ve 1440, önce ve sonra) ve / (iki tema) 0. `npm run build` başarılı; `npx eslint src/App.jsx src/wingwire-site/` 0 hata, 1 uyarı (önceden var olan `App.jsx:57`).
 - Kareler `shots/yukleme/<sayfa>-<tema>-<genişlik>.png` (12 kare; her biri soldan: önce yedek, sonra yedek, sonra yüklendi), `yukleme.json`, `tekrar.json`.
+
+## 3. tur: logolar ("desteklenen platformlar" kutusu)
+İş: pm-hamaratlabs, 2026-11-12. Yusuf: "burada desteklenen platformları yazmak yerine sadece o platformların logolarının olması kutunun içerisinde yeterli bence".
+
+### Ne değişti
+- Masaüstü tuvali: letmepost'a bağlı kutuda "desteklenen platformlar" yazısı, küre simgesi ve 9 ad çipi kalktı; yerine yalnız 9 logo (Bluesky, Instagram, LinkedIn, Facebook, Pinterest, Threads, TikTok, X, YouTube), 24 px, tek satır. Kutu ve letmepost → kutu yolu duruyor. Kutu artık üç sütuna gerilmiyor, logolara göre daralıyor (1440'ta 400 px genişlik).
+- Telefon (servis kümesi açılınca): letmepost satırındaki "→ desteklenen platformlar" yazısı ve ad çipleri kalktı; yerine aynı 9 logo, 22 px, tek satır (360 px'te de).
+- Renk: tek renk, `currentColor` = temanın metin rengi (`--metin`, açıkta #202832, koyuda #F5F1E8). Markaların kendi renkleri seçilmedi: X, Threads ve TikTok'un marka rengi siyah (#000000), koyu temada kaybolur; dokuz logodan altısı renkli, üçü siyah karışık bir satır kutunun sakin diliyle uyuşmuyor. Logolar yeniden çizilmedi, oranları korundu.
+- Erişilebilirlik: her logo `role="img"` + `aria-label` (SVG'lerde ayrıca `<title>`, LinkedIn'de `title`). Satır `role="group" aria-label="letmepost'un desteklediği platformlar"`. Erişilebilirlik ağacında 9 adın 9'u "image" olarak var (1440 ve 390, iki tema).
+- Diğer düğümlerin simgeleri (YouTube, GitHub, Google Drive, ElevenLabs, Play, App Store) değişmedi.
+- Bu bilerek onaylı taslaktan bir sapma: `shots/esitlik/` kareleri 2. tur hâlini (ad çipli kutu) gösteriyor, yeniden çekilmedi; logolu kutunun kanıtı `shots/logolar/`.
+- Dosyalar: yeni `src/wingwire-site/PlatformLogolari.jsx`, yeni `src/wingwire-site/img/linkedin-inbug-black.png` (2.508 bayt); `WingWireSite.jsx` (eski `Platformlar` ad çipi bileşeni kaldırıldı, iki yerde `PlatformLogolari`), `WingWireSite.css` (`.pl` çip kuralları yerine `.pl-logo`).
+
+### Logoların kaynağı ve lisansı
+| Logo | Kaynak | Lisans / not |
+|---|---|---|
+| Bluesky, Instagram, Facebook, Pinterest, Threads, TikTok, X, YouTube | Simple Icons 16.37.0, `https://unpkg.com/simple-icons@16.37.0/icons/<ad>.svg` (`bluesky`, `instagram`, `facebook`, `pinterest`, `threads`, `tiktok`, `x`, `youtube`); yol verisi `PlatformLogolari.jsx`'e değiştirilmeden kopyalandı (viewBox 0 0 24 24). Her `d` indirilen dosyayla `grep -F` ile birebir doğrulandı (8/8) | Simple Icons projesi CC0-1.0 (`package.json` "license": "CC0-1.0"). Simple Icons'un DISCLAIMER.md'si: CC0 projeye ait, logoların kendisi markaların ticari markası; kullanım markaların kılavuzlarına tabi. Simple Icons'taki kaynak/kılavuz bağlantıları: Bluesky bsky.social/about/blog/press-faq; Facebook ve Instagram about.meta.com/brand/resources; Threads meta.com/brand/resources/instagram/threads; Pinterest business.pinterest.com/en/brand-guidelines; X about.x.com/en/who-we-are/brand-toolkit; YouTube youtube.com/howyoutubeworks/resources/brand-resources; TikTok tiktok.com |
+| LinkedIn | Simple Icons'ta yok (`icons/linkedin.svg` 404). LinkedIn'in kendi marka sayfası `https://brand.linkedin.com/downloads` → "[in] Logo" (`in-logo.zip`, sha256 32c4b7bb…2a87), `InBug-Black.png` (840x779, sha256 b80ab655…93ca). Marka sayfası yalnız PNG veriyor, SVG yok | LinkedIn Brand and User Agreements'a tabi ("LinkedIn logo © LinkedIn Corporation 2026"). PNG oran korunarak 120x111'e küçültüldü (`sips -Z 120`), yeniden çizilmedi; ® işareti dahil. CSS maskesi olarak kullanılıyor, rengi `currentColor`. 4 KB altı olduğu için Vite derlemede JS'e data URI olarak gömüyor: ayrı istek yok |
+
+Not: marka kılavuzları genelde logonun resmi renkte ya da onaylı tek renk (siyah/beyaz) kullanılmasını ister; burada tema metin rengi kullanılıyor (açıkta neredeyse siyah #202832, koyuda kırık beyaz #F5F1E8). Tam siyah/beyaz istenirse tek satır CSS.
+
+### Ölçümler (gerçek çıktı)
+Komut: `env -u PYTHONPATH /usr/local/bin/python3 -W ignore docs/wingwire-uygulama/araclar/logolar.py http://ww-uygula.localhost:1355 docs/wingwire-uygulama/shots/logolar` (çıktı `shots/logolar/logolar.json`); ara genişlikler `araclar/yokla.py` ile.
+
+| | 1440 açık | 1440 koyu | 390 açık (küme açık) | 390 koyu (küme açık) |
+|---|---|---|---|---|
+| Logo sayısı / satır | 9 / 1 | 9 / 1 | 9 / 1 | 9 / 1 |
+| Logo boyu (LinkedIn genişliği) | 24 px (25,9) | 24 px (25,9) | 22 px (23,8) | 22 px (23,8) |
+| Kutuda görünür yazı | yok | yok | yalnız "letmepost · yerel paylaşım sunucusu" | aynı |
+| LinkedIn maskesi boyalı piksel oranı | 0,77 | 0,77 | 0,70 | 0,70 |
+| Erişilebilir ad (9 logo) | 9/9 | 9/9 | 9/9 | 9/9 |
+| Konsol hatası / dış istek | 0 / 0 | 0 / 0 | 0 / 0 | 0 / 0 |
+| scrollWidth / em dash / "desteklenen platformlar" yazısı | 1440 / 0 / 0 | 1440 / 0 / 0 | 390 / 0 / 0 | 390 / 0 / 0 |
+
+Ara genişlikler (koyu): 360 → sw 360, 9 logo 22 px tek satır, taşan 0; 768 (tuvalin dar akışı) → sw 768, 9 logo 24 px tek satır, taşan 0, yol 15.
+`npm run build` başarılı; `npx eslint src/wingwire-site/ src/App.jsx` 0 hata, 1 uyarı (önceden var olan `App.jsx:57`).
+
+Kareler `docs/wingwire-uygulama/shots/logolar/`: `logolar-1440-acik.png`, `logolar-1440-koyu.png` (letmepost, yol ve kutu), `logolar-390-acik.png`, `logolar-390-koyu.png` (küme açık, letmepost satırı), 2x yoğunluk.
+
+### Zayıf yanlar
+- LinkedIn'in resmi dosyası PNG; maskelendiği için 2x'te keskin, daha yüksek yoğunlukta (3x telefon) kenarları SVG'ler kadar keskin değil (120 px kaynak, 22 px x 3 = 66 px gösterim; yeterli). ® işareti bu boyutta okunmuyor ama dosyanın parçası, çıkarılmadı.
+- Simple Icons logoları kare 24x24 kutuya sığdırılmış hâliyle duruyor; görsel ağırlıkları (ör. X ince, Facebook dolu daire) markalardan geldiği için eşit değil.
