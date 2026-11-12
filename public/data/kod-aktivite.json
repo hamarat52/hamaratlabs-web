@@ -12177,7 +12177,25 @@
     "lines": 38197
   },
   {
+    "repo": "kitabe",
+    "hash": "7031fd80b2",
+    "date": "2026-10-29T00:32:03+03:00",
+    "subject": "sadelestirme: rehber, sürücü ve 98 girdi partisi (Organizatör)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 38197
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "09c3ceffe5",
+    "date": "2026-10-29T00:32:11+03:00",
+    "subject": "sadelestirme: hid karşılaştırması metin",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "kitabe",
     "hash": "09c3ceffe5",
     "date": "2026-10-29T00:32:11+03:00",
     "subject": "sadelestirme: hid karşılaştırması metin",
@@ -12195,7 +12213,25 @@
     "lines": 21
   },
   {
+    "repo": "kitabe",
+    "hash": "4031253b71",
+    "date": "2026-10-29T00:32:21+03:00",
+    "subject": "sadelestirme: orkestratör (2 TR paralel → 1 EN)",
+    "score": 46,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "368f6345e4",
+    "date": "2026-10-29T00:40:06+03:00",
+    "subject": "sadelestirme(tr): parti-049 — cevirmen-tr2",
+    "score": 49,
+    "is_merge": false,
+    "lines": 60
+  },
+  {
+    "repo": "kitabe",
     "hash": "368f6345e4",
     "date": "2026-10-29T00:40:06+03:00",
     "subject": "sadelestirme(tr): parti-049 — cevirmen-tr2",
@@ -12241,6 +12277,15 @@
   },
   {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "b732f6696a",
+    "date": "2026-10-29T00:42:26+03:00",
+    "subject": "sadelestirme(tr): parti-000 — cevirmen-tr1",
+    "score": 50,
+    "is_merge": false,
+    "lines": 71
+  },
+  {
+    "repo": "kitabe",
     "hash": "b732f6696a",
     "date": "2026-10-29T00:42:26+03:00",
     "subject": "sadelestirme(tr): parti-000 — cevirmen-tr1",
@@ -12330,7 +12375,25 @@
     "lines": 71
   },
   {
+    "repo": "kitabe",
+    "hash": "8a12d61249",
+    "date": "2026-10-29T00:54:42+03:00",
+    "subject": "sadelestirme(tr): parti-050 — cevirmen-tr2",
+    "score": 50,
+    "is_merge": false,
+    "lines": 71
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "78b8004560",
+    "date": "2026-10-29T00:55:15+03:00",
+    "subject": "sadelestirme(tr): parti-001 — cevirmen-tr1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
+    "repo": "kitabe",
     "hash": "78b8004560",
     "date": "2026-10-29T00:55:15+03:00",
     "subject": "sadelestirme(tr): parti-001 — cevirmen-tr1",
@@ -12402,6 +12465,15 @@
     "lines": 42
   },
   {
+    "repo": "kitabe",
+    "hash": "7e49aae5d1",
+    "date": "2026-10-29T01:00:28+03:00",
+    "subject": "sadelestirme(tr): parti-051 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 42
+  },
+  {
     "repo": "kitabe-wt-magaza",
     "hash": "fcfd14a794",
     "date": "2026-10-29T01:00:36+03:00",
@@ -12439,6 +12511,15 @@
   },
   {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "cc682af182",
+    "date": "2026-10-29T01:04:08+03:00",
+    "subject": "sadelestirme(tr): parti-002 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "kitabe",
     "hash": "cc682af182",
     "date": "2026-10-29T01:04:08+03:00",
     "subject": "sadelestirme(tr): parti-002 — cevirmen-tr1",
@@ -12492,6 +12573,15 @@
     "lines": 49
   },
   {
+    "repo": "kitabe",
+    "hash": "aaa4b53cea",
+    "date": "2026-10-29T01:07:42+03:00",
+    "subject": "sadelestirme(tr): parti-052 — cevirmen-tr2",
+    "score": 49,
+    "is_merge": false,
+    "lines": 49
+  },
+  {
     "repo": "income-vs-desires-wt-chrome",
     "hash": "201d5fa96c",
     "date": "2026-10-29T01:09:14+03:00",
@@ -12511,6 +12601,15 @@
   },
   {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "3c8341f314",
+    "date": "2026-10-29T01:11:55+03:00",
+    "subject": "sadelestirme(tr): parti-003 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "kitabe",
     "hash": "3c8341f314",
     "date": "2026-10-29T01:11:55+03:00",
     "subject": "sadelestirme(tr): parti-003 — cevirmen-tr1",
@@ -12600,7 +12699,25 @@
     "lines": 48
   },
   {
+    "repo": "kitabe",
+    "hash": "dc30107d2e",
+    "date": "2026-10-29T01:16:58+03:00",
+    "subject": "sadelestirme(tr): parti-053 — cevirmen-tr2",
+    "score": 49,
+    "is_merge": false,
+    "lines": 48
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "1a825a010b",
+    "date": "2026-10-29T01:18:18+03:00",
+    "subject": "sadelestirme(tr): parti-004 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 45
+  },
+  {
+    "repo": "kitabe",
     "hash": "1a825a010b",
     "date": "2026-10-29T01:18:18+03:00",
     "subject": "sadelestirme(tr): parti-004 — cevirmen-tr1",
@@ -12654,7 +12771,25 @@
     "lines": 67
   },
   {
+    "repo": "kitabe",
+    "hash": "a7a4c55e92",
+    "date": "2026-10-29T01:25:05+03:00",
+    "subject": "sadelestirme(tr): parti-054 — cevirmen-tr2",
+    "score": 50,
+    "is_merge": false,
+    "lines": 67
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "6df496a7bd",
+    "date": "2026-10-29T01:25:29+03:00",
+    "subject": "sadelestirme(tr): parti-005 — cevirmen-tr1",
+    "score": 47,
+    "is_merge": false,
+    "lines": 27
+  },
+  {
+    "repo": "kitabe",
     "hash": "6df496a7bd",
     "date": "2026-10-29T01:25:29+03:00",
     "subject": "sadelestirme(tr): parti-005 — cevirmen-tr1",
@@ -12690,7 +12825,25 @@
     "lines": 48
   },
   {
+    "repo": "kitabe",
+    "hash": "280c173768",
+    "date": "2026-10-29T01:32:47+03:00",
+    "subject": "sadelestirme(tr): parti-006 — cevirmen-tr1",
+    "score": 49,
+    "is_merge": false,
+    "lines": 48
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "e8c1fca992",
+    "date": "2026-10-29T01:33:21+03:00",
+    "subject": "sadelestirme(tr): parti-055 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
+    "repo": "kitabe",
     "hash": "e8c1fca992",
     "date": "2026-10-29T01:33:21+03:00",
     "subject": "sadelestirme(tr): parti-055 — cevirmen-tr2",
@@ -12708,7 +12861,25 @@
     "lines": 43
   },
   {
+    "repo": "kitabe",
+    "hash": "e6097e27a1",
+    "date": "2026-10-29T01:38:37+03:00",
+    "subject": "sadelestirme(tr): parti-056 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "5252179804",
+    "date": "2026-10-29T01:41:19+03:00",
+    "subject": "sadelestirme(tr): parti-007 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "kitabe",
     "hash": "5252179804",
     "date": "2026-10-29T01:41:19+03:00",
     "subject": "sadelestirme(tr): parti-007 — cevirmen-tr1",
@@ -12726,7 +12897,25 @@
     "lines": 48
   },
   {
+    "repo": "kitabe",
+    "hash": "60083dbb1b",
+    "date": "2026-10-29T01:43:17+03:00",
+    "subject": "sadelestirme(tr): parti-057 — cevirmen-tr2",
+    "score": 49,
+    "is_merge": false,
+    "lines": 48
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "1cb3b0fb8b",
+    "date": "2026-10-29T01:50:39+03:00",
+    "subject": "sadelestirme(tr): parti-058 — cevirmen-tr2",
+    "score": 50,
+    "is_merge": false,
+    "lines": 65
+  },
+  {
+    "repo": "kitabe",
     "hash": "1cb3b0fb8b",
     "date": "2026-10-29T01:50:39+03:00",
     "subject": "sadelestirme(tr): parti-058 — cevirmen-tr2",
@@ -12754,6 +12943,15 @@
   },
   {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "6803a7beb2",
+    "date": "2026-10-29T01:51:12+03:00",
+    "subject": "sadelestirme(tr): parti-008 — cevirmen-tr1",
+    "score": 47,
+    "is_merge": false,
+    "lines": 30
+  },
+  {
+    "repo": "kitabe",
     "hash": "6803a7beb2",
     "date": "2026-10-29T01:51:12+03:00",
     "subject": "sadelestirme(tr): parti-008 — cevirmen-tr1",
@@ -12807,7 +13005,25 @@
     "lines": 62
   },
   {
+    "repo": "kitabe",
+    "hash": "043b16b2d4",
+    "date": "2026-10-29T01:59:01+03:00",
+    "subject": "sadelestirme(tr): parti-059 — cevirmen-tr2",
+    "score": 49,
+    "is_merge": false,
+    "lines": 62
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "578f32cebf",
+    "date": "2026-10-29T01:59:25+03:00",
+    "subject": "sadelestirme(tr): parti-009 — cevirmen-tr1",
+    "score": 47,
+    "is_merge": false,
+    "lines": 29
+  },
+  {
+    "repo": "kitabe",
     "hash": "578f32cebf",
     "date": "2026-10-29T01:59:25+03:00",
     "subject": "sadelestirme(tr): parti-009 — cevirmen-tr1",
@@ -12879,7 +13095,25 @@
     "lines": 59
   },
   {
+    "repo": "kitabe",
+    "hash": "287cc6861e",
+    "date": "2026-10-29T02:05:49+03:00",
+    "subject": "sadelestirme(tr): parti-060 — cevirmen-tr2",
+    "score": 49,
+    "is_merge": false,
+    "lines": 59
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "33a002233a",
+    "date": "2026-10-29T02:06:21+03:00",
+    "subject": "sadelestirme(tr): parti-010 — cevirmen-tr1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 26
+  },
+  {
+    "repo": "kitabe",
     "hash": "33a002233a",
     "date": "2026-10-29T02:06:21+03:00",
     "subject": "sadelestirme(tr): parti-010 — cevirmen-tr1",
@@ -12897,7 +13131,25 @@
     "lines": 45
   },
   {
+    "repo": "kitabe",
+    "hash": "8725aeb1db",
+    "date": "2026-10-29T02:12:55+03:00",
+    "subject": "sadelestirme(tr): parti-011 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 45
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "ae606cd7b8",
+    "date": "2026-10-29T02:13:41+03:00",
+    "subject": "sadelestirme(tr): parti-061 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
+    "repo": "kitabe",
     "hash": "ae606cd7b8",
     "date": "2026-10-29T02:13:41+03:00",
     "subject": "sadelestirme(tr): parti-061 — cevirmen-tr2",
@@ -12933,7 +13185,25 @@
     "lines": 39
   },
   {
+    "repo": "kitabe",
+    "hash": "0862214a17",
+    "date": "2026-10-29T02:18:22+03:00",
+    "subject": "sadelestirme(tr): parti-012 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "5d1cf2198e",
+    "date": "2026-10-29T02:21:09+03:00",
+    "subject": "sadelestirme(tr): parti-062 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 46
+  },
+  {
+    "repo": "kitabe",
     "hash": "5d1cf2198e",
     "date": "2026-10-29T02:21:09+03:00",
     "subject": "sadelestirme(tr): parti-062 — cevirmen-tr2",
@@ -12961,6 +13231,15 @@
   },
   {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "755dd3e461",
+    "date": "2026-10-29T02:26:36+03:00",
+    "subject": "sadelestirme(tr): parti-013 — cevirmen-tr1",
+    "score": 49,
+    "is_merge": false,
+    "lines": 50
+  },
+  {
+    "repo": "kitabe",
     "hash": "755dd3e461",
     "date": "2026-10-29T02:26:36+03:00",
     "subject": "sadelestirme(tr): parti-013 — cevirmen-tr1",
@@ -13014,6 +13293,15 @@
     "lines": 42
   },
   {
+    "repo": "kitabe",
+    "hash": "b10caa32c6",
+    "date": "2026-10-29T02:41:02+03:00",
+    "subject": "sadelestirme(tr): parti-063 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 42
+  },
+  {
     "repo": "income-vs-desires-wt-chrome",
     "hash": "dccbaab281",
     "date": "2026-10-29T02:42:43+03:00",
@@ -13041,7 +13329,25 @@
     "lines": 47
   },
   {
+    "repo": "kitabe",
+    "hash": "6e6d6d2218",
+    "date": "2026-10-29T02:44:22+03:00",
+    "subject": "sadelestirme(tr): parti-014 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 47
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "0902b413ca",
+    "date": "2026-10-29T02:50:22+03:00",
+    "subject": "sadelestirme(tr): parti-064 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
+    "repo": "kitabe",
     "hash": "0902b413ca",
     "date": "2026-10-29T02:50:22+03:00",
     "subject": "sadelestirme(tr): parti-064 — cevirmen-tr2",
@@ -13059,7 +13365,25 @@
     "lines": 41
   },
   {
+    "repo": "kitabe",
+    "hash": "a9d10068bb",
+    "date": "2026-10-29T02:51:23+03:00",
+    "subject": "sadelestirme(tr): parti-015 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "7196e8ded1",
+    "date": "2026-10-29T02:59:35+03:00",
+    "subject": "sadelestirme(tr): parti-065 — cevirmen-tr2",
+    "score": 49,
+    "is_merge": false,
+    "lines": 49
+  },
+  {
+    "repo": "kitabe",
     "hash": "7196e8ded1",
     "date": "2026-10-29T02:59:35+03:00",
     "subject": "sadelestirme(tr): parti-065 — cevirmen-tr2",
@@ -13077,7 +13401,25 @@
     "lines": 51
   },
   {
+    "repo": "kitabe",
+    "hash": "ef1f226aa7",
+    "date": "2026-10-29T03:01:11+03:00",
+    "subject": "sadelestirme(tr): parti-016 — cevirmen-tr1",
+    "score": 49,
+    "is_merge": false,
+    "lines": 51
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "68dd2bd58d",
+    "date": "2026-10-29T03:07:34+03:00",
+    "subject": "sadelestirme(tr): parti-066 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 47
+  },
+  {
+    "repo": "kitabe",
     "hash": "68dd2bd58d",
     "date": "2026-10-29T03:07:34+03:00",
     "subject": "sadelestirme(tr): parti-066 — cevirmen-tr2",
@@ -13095,7 +13437,25 @@
     "lines": 41
   },
   {
+    "repo": "kitabe",
+    "hash": "f1c4c4e9af",
+    "date": "2026-10-29T03:11:07+03:00",
+    "subject": "sadelestirme(tr): parti-017 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "5cb3e69ac1",
+    "date": "2026-10-29T03:14:16+03:00",
+    "subject": "sadelestirme(tr): parti-067 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 42
+  },
+  {
+    "repo": "kitabe",
     "hash": "5cb3e69ac1",
     "date": "2026-10-29T03:14:16+03:00",
     "subject": "sadelestirme(tr): parti-067 — cevirmen-tr2",
@@ -13113,6 +13473,15 @@
     "lines": 40
   },
   {
+    "repo": "kitabe",
+    "hash": "7074788cf1",
+    "date": "2026-10-29T03:18:09+03:00",
+    "subject": "sadelestirme(tr): parti-018 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "067d80cb8c",
     "date": "2026-10-29T03:21:13+03:00",
@@ -13122,7 +13491,25 @@
     "lines": 30
   },
   {
+    "repo": "kitabe",
+    "hash": "067d80cb8c",
+    "date": "2026-10-29T03:21:13+03:00",
+    "subject": "sadelestirme(tr): parti-019 — cevirmen-tr1",
+    "score": 47,
+    "is_merge": false,
+    "lines": 30
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "2ba704647e",
+    "date": "2026-10-29T03:23:02+03:00",
+    "subject": "sadelestirme(tr): parti-068 — cevirmen-tr2",
+    "score": 49,
+    "is_merge": false,
+    "lines": 48
+  },
+  {
+    "repo": "kitabe",
     "hash": "2ba704647e",
     "date": "2026-10-29T03:23:02+03:00",
     "subject": "sadelestirme(tr): parti-068 — cevirmen-tr2",
@@ -13158,7 +13545,25 @@
     "lines": 37
   },
   {
+    "repo": "kitabe",
+    "hash": "0431707961",
+    "date": "2026-10-29T03:26:46+03:00",
+    "subject": "sadelestirme(tr): parti-069 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 37
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "f780488466",
+    "date": "2026-10-29T03:28:20+03:00",
+    "subject": "sadelestirme(tr): parti-020 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
+    "repo": "kitabe",
     "hash": "f780488466",
     "date": "2026-10-29T03:28:20+03:00",
     "subject": "sadelestirme(tr): parti-020 — cevirmen-tr1",
@@ -13186,6 +13591,15 @@
   },
   {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "31cd01ff2c",
+    "date": "2026-10-29T03:32:24+03:00",
+    "subject": "sadelestirme(tr): parti-070 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
+    "repo": "kitabe",
     "hash": "31cd01ff2c",
     "date": "2026-10-29T03:32:24+03:00",
     "subject": "sadelestirme(tr): parti-070 — cevirmen-tr2",
@@ -13239,7 +13653,25 @@
     "lines": 38
   },
   {
+    "repo": "kitabe",
+    "hash": "6bc504092c",
+    "date": "2026-10-29T03:36:20+03:00",
+    "subject": "sadelestirme(tr): parti-021 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "5835006319",
+    "date": "2026-10-29T03:39:56+03:00",
+    "subject": "sadelestirme(tr): parti-071 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
+    "repo": "kitabe",
     "hash": "5835006319",
     "date": "2026-10-29T03:39:56+03:00",
     "subject": "sadelestirme(tr): parti-071 — cevirmen-tr2",
@@ -13257,7 +13689,25 @@
     "lines": 64
   },
   {
+    "repo": "kitabe",
+    "hash": "902f4f9045",
+    "date": "2026-10-29T03:46:14+03:00",
+    "subject": "sadelestirme(tr): parti-072 — cevirmen-tr2",
+    "score": 50,
+    "is_merge": false,
+    "lines": 64
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "53cd977191",
+    "date": "2026-10-29T03:46:41+03:00",
+    "subject": "sadelestirme(tr): parti-022 — cevirmen-tr1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 24
+  },
+  {
+    "repo": "kitabe",
     "hash": "53cd977191",
     "date": "2026-10-29T03:46:41+03:00",
     "subject": "sadelestirme(tr): parti-022 — cevirmen-tr1",
@@ -13293,7 +13743,25 @@
     "lines": 41
   },
   {
+    "repo": "kitabe",
+    "hash": "13fe78ed0a",
+    "date": "2026-10-29T03:53:28+03:00",
+    "subject": "sadelestirme(tr): parti-023 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "d57631134b",
+    "date": "2026-10-29T03:54:07+03:00",
+    "subject": "sadelestirme(tr): parti-073 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "kitabe",
     "hash": "d57631134b",
     "date": "2026-10-29T03:54:07+03:00",
     "subject": "sadelestirme(tr): parti-073 — cevirmen-tr2",
@@ -13329,7 +13797,25 @@
     "lines": 38
   },
   {
+    "repo": "kitabe",
+    "hash": "1e2f07bacf",
+    "date": "2026-10-29T04:01:31+03:00",
+    "subject": "sadelestirme(tr): parti-074 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "8284266bbb",
+    "date": "2026-10-29T04:03:56+03:00",
+    "subject": "sadelestirme(tr): parti-024 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 45
+  },
+  {
+    "repo": "kitabe",
     "hash": "8284266bbb",
     "date": "2026-10-29T04:03:56+03:00",
     "subject": "sadelestirme(tr): parti-024 — cevirmen-tr1",
@@ -13365,6 +13851,15 @@
     "lines": 40
   },
   {
+    "repo": "kitabe",
+    "hash": "48346b3f3a",
+    "date": "2026-10-29T04:10:14+03:00",
+    "subject": "sadelestirme(tr): parti-075 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "121c252ff7",
     "date": "2026-10-29T04:12:03+03:00",
@@ -13374,7 +13869,25 @@
     "lines": 39
   },
   {
+    "repo": "kitabe",
+    "hash": "121c252ff7",
+    "date": "2026-10-29T04:12:03+03:00",
+    "subject": "sadelestirme(tr): parti-025 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "a08f9ff1ca",
+    "date": "2026-10-29T04:18:39+03:00",
+    "subject": "sadelestirme(tr): parti-076 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "kitabe",
     "hash": "a08f9ff1ca",
     "date": "2026-10-29T04:18:39+03:00",
     "subject": "sadelestirme(tr): parti-076 — cevirmen-tr2",
@@ -13410,6 +13923,15 @@
     "lines": 45
   },
   {
+    "repo": "kitabe",
+    "hash": "80e3920c76",
+    "date": "2026-10-29T04:23:29+03:00",
+    "subject": "sadelestirme(tr): parti-026 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 45
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "cab59b50c0",
     "date": "2026-10-29T04:28:20+03:00",
@@ -13419,7 +13941,25 @@
     "lines": 40
   },
   {
+    "repo": "kitabe",
+    "hash": "cab59b50c0",
+    "date": "2026-10-29T04:28:20+03:00",
+    "subject": "sadelestirme(tr): parti-077 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "0cda87e4ac",
+    "date": "2026-10-29T04:34:12+03:00",
+    "subject": "sadelestirme(tr): parti-027 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 36
+  },
+  {
+    "repo": "kitabe",
     "hash": "0cda87e4ac",
     "date": "2026-10-29T04:34:12+03:00",
     "subject": "sadelestirme(tr): parti-027 — cevirmen-tr1",
@@ -13455,7 +13995,25 @@
     "lines": 36
   },
   {
+    "repo": "kitabe",
+    "hash": "8cb7ffdc18",
+    "date": "2026-10-29T04:40:21+03:00",
+    "subject": "sadelestirme(tr): parti-078 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 36
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "9ac8e8c56a",
+    "date": "2026-10-29T04:41:35+03:00",
+    "subject": "sadelestirme(tr): parti-028 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 36
+  },
+  {
+    "repo": "kitabe",
     "hash": "9ac8e8c56a",
     "date": "2026-10-29T04:41:35+03:00",
     "subject": "sadelestirme(tr): parti-028 — cevirmen-tr1",
@@ -13509,7 +14067,25 @@
     "lines": 41
   },
   {
+    "repo": "kitabe",
+    "hash": "0ee6062d90",
+    "date": "2026-10-29T04:47:32+03:00",
+    "subject": "sadelestirme(tr): parti-079 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "bcf5fc90ce",
+    "date": "2026-10-29T04:52:56+03:00",
+    "subject": "sadelestirme(tr): parti-029 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 47
+  },
+  {
+    "repo": "kitabe",
     "hash": "bcf5fc90ce",
     "date": "2026-10-29T04:52:56+03:00",
     "subject": "sadelestirme(tr): parti-029 — cevirmen-tr1",
@@ -13545,7 +14121,25 @@
     "lines": 44
   },
   {
+    "repo": "kitabe",
+    "hash": "4f42ae3fa0",
+    "date": "2026-10-29T04:56:26+03:00",
+    "subject": "sadelestirme(tr): parti-080 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "1cadaa83a5",
+    "date": "2026-10-29T05:02:09+03:00",
+    "subject": "sadelestirme(tr): parti-081 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "kitabe",
     "hash": "1cadaa83a5",
     "date": "2026-10-29T05:02:09+03:00",
     "subject": "sadelestirme(tr): parti-081 — cevirmen-tr2",
@@ -13581,7 +14175,25 @@
     "lines": 43
   },
   {
+    "repo": "kitabe",
+    "hash": "e7acc47e99",
+    "date": "2026-10-29T05:05:01+03:00",
+    "subject": "sadelestirme(tr): parti-030 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "28edc9616a",
+    "date": "2026-10-29T05:09:12+03:00",
+    "subject": "sadelestirme(tr): parti-082 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 37
+  },
+  {
+    "repo": "kitabe",
     "hash": "28edc9616a",
     "date": "2026-10-29T05:09:12+03:00",
     "subject": "sadelestirme(tr): parti-082 — cevirmen-tr2",
@@ -13599,7 +14211,25 @@
     "lines": 39
   },
   {
+    "repo": "kitabe",
+    "hash": "410e0ce02e",
+    "date": "2026-10-29T05:14:11+03:00",
+    "subject": "sadelestirme(tr): parti-031 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "c55845edc2",
+    "date": "2026-10-29T05:19:46+03:00",
+    "subject": "sadelestirme(tr): parti-083 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
+    "repo": "kitabe",
     "hash": "c55845edc2",
     "date": "2026-10-29T05:19:46+03:00",
     "subject": "sadelestirme(tr): parti-083 — cevirmen-tr2",
@@ -13617,7 +14247,25 @@
     "lines": 39
   },
   {
+    "repo": "kitabe",
+    "hash": "e30940f8ab",
+    "date": "2026-10-29T05:21:55+03:00",
+    "subject": "sadelestirme(tr): parti-032 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "81eb76fb43",
+    "date": "2026-10-29T05:25:53+03:00",
+    "subject": "sadelestirme(tr): parti-084 — cevirmen-tr2",
+    "score": 47,
+    "is_merge": false,
+    "lines": 30
+  },
+  {
+    "repo": "kitabe",
     "hash": "81eb76fb43",
     "date": "2026-10-29T05:25:53+03:00",
     "subject": "sadelestirme(tr): parti-084 — cevirmen-tr2",
@@ -13635,7 +14283,25 @@
     "lines": 43
   },
   {
+    "repo": "kitabe",
+    "hash": "bd9bcc91e3",
+    "date": "2026-10-29T05:30:13+03:00",
+    "subject": "sadelestirme(tr): parti-033 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "ab4fd5706a",
+    "date": "2026-10-29T05:31:55+03:00",
+    "subject": "sadelestirme(tr): parti-085 — cevirmen-tr2",
+    "score": 47,
+    "is_merge": false,
+    "lines": 34
+  },
+  {
+    "repo": "kitabe",
     "hash": "ab4fd5706a",
     "date": "2026-10-29T05:31:55+03:00",
     "subject": "sadelestirme(tr): parti-085 — cevirmen-tr2",
@@ -13653,7 +14319,25 @@
     "lines": 40
   },
   {
+    "repo": "kitabe",
+    "hash": "4f4188bc5b",
+    "date": "2026-10-29T05:38:49+03:00",
+    "subject": "sadelestirme(tr): parti-034 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "3053dfaf08",
+    "date": "2026-10-29T05:40:43+03:00",
+    "subject": "sadelestirme(tr): parti-086 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 47
+  },
+  {
+    "repo": "kitabe",
     "hash": "3053dfaf08",
     "date": "2026-10-29T05:40:43+03:00",
     "subject": "sadelestirme(tr): parti-086 — cevirmen-tr2",
@@ -13671,7 +14355,25 @@
     "lines": 42
   },
   {
+    "repo": "kitabe",
+    "hash": "95d2027dc5",
+    "date": "2026-10-29T05:46:19+03:00",
+    "subject": "sadelestirme(tr): parti-035 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 42
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "0b8e58d674",
+    "date": "2026-10-29T05:50:38+03:00",
+    "subject": "sadelestirme(tr): parti-087 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "kitabe",
     "hash": "0b8e58d674",
     "date": "2026-10-29T05:50:38+03:00",
     "subject": "sadelestirme(tr): parti-087 — cevirmen-tr2",
@@ -13689,7 +14391,25 @@
     "lines": 41
   },
   {
+    "repo": "kitabe",
+    "hash": "c89741cf61",
+    "date": "2026-10-29T05:55:17+03:00",
+    "subject": "sadelestirme(tr): parti-036 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "37259f59c9",
+    "date": "2026-10-29T05:58:38+03:00",
+    "subject": "sadelestirme(tr): parti-088 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 36
+  },
+  {
+    "repo": "kitabe",
     "hash": "37259f59c9",
     "date": "2026-10-29T05:58:38+03:00",
     "subject": "sadelestirme(tr): parti-088 — cevirmen-tr2",
@@ -13707,7 +14427,25 @@
     "lines": 38
   },
   {
+    "repo": "kitabe",
+    "hash": "f6dffe955b",
+    "date": "2026-10-29T06:04:31+03:00",
+    "subject": "sadelestirme(tr): parti-037 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "f4ecc9c326",
+    "date": "2026-10-29T06:07:27+03:00",
+    "subject": "sadelestirme(tr): parti-089 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
+    "repo": "kitabe",
     "hash": "f4ecc9c326",
     "date": "2026-10-29T06:07:27+03:00",
     "subject": "sadelestirme(tr): parti-089 — cevirmen-tr2",
@@ -13725,7 +14463,25 @@
     "lines": 39
   },
   {
+    "repo": "kitabe",
+    "hash": "cf1523326a",
+    "date": "2026-10-29T06:13:32+03:00",
+    "subject": "sadelestirme(tr): parti-038 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "069ca506f4",
+    "date": "2026-10-29T06:16:26+03:00",
+    "subject": "sadelestirme(tr): parti-090 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
+    "repo": "kitabe",
     "hash": "069ca506f4",
     "date": "2026-10-29T06:16:26+03:00",
     "subject": "sadelestirme(tr): parti-090 — cevirmen-tr2",
@@ -13743,7 +14499,25 @@
     "lines": 39
   },
   {
+    "repo": "kitabe",
+    "hash": "b689200ecb",
+    "date": "2026-10-29T06:20:55+03:00",
+    "subject": "sadelestirme(tr): parti-039 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "2d50c990d2",
+    "date": "2026-10-29T06:23:42+03:00",
+    "subject": "sadelestirme(tr): parti-091 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "kitabe",
     "hash": "2d50c990d2",
     "date": "2026-10-29T06:23:42+03:00",
     "subject": "sadelestirme(tr): parti-091 — cevirmen-tr2",
@@ -13761,7 +14535,25 @@
     "lines": 32
   },
   {
+    "repo": "kitabe",
+    "hash": "35535c6ece",
+    "date": "2026-10-29T06:29:56+03:00",
+    "subject": "sadelestirme(tr): parti-040 — cevirmen-tr1",
+    "score": 47,
+    "is_merge": false,
+    "lines": 32
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "78587f4339",
+    "date": "2026-10-29T06:33:17+03:00",
+    "subject": "sadelestirme(tr): parti-092 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 37
+  },
+  {
+    "repo": "kitabe",
     "hash": "78587f4339",
     "date": "2026-10-29T06:33:17+03:00",
     "subject": "sadelestirme(tr): parti-092 — cevirmen-tr2",
@@ -13779,7 +14571,25 @@
     "lines": 33
   },
   {
+    "repo": "kitabe",
+    "hash": "4b78d099d0",
+    "date": "2026-10-29T06:38:00+03:00",
+    "subject": "sadelestirme(tr): parti-041 — cevirmen-tr1",
+    "score": 47,
+    "is_merge": false,
+    "lines": 33
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "cf10360cc2",
+    "date": "2026-10-29T06:42:57+03:00",
+    "subject": "sadelestirme(tr): parti-093 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 36
+  },
+  {
+    "repo": "kitabe",
     "hash": "cf10360cc2",
     "date": "2026-10-29T06:42:57+03:00",
     "subject": "sadelestirme(tr): parti-093 — cevirmen-tr2",
@@ -13797,7 +14607,25 @@
     "lines": 37
   },
   {
+    "repo": "kitabe",
+    "hash": "6bffc81cc0",
+    "date": "2026-10-29T06:48:58+03:00",
+    "subject": "sadelestirme(tr): parti-042 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 37
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "e59e629c2c",
+    "date": "2026-10-29T06:54:56+03:00",
+    "subject": "sadelestirme(tr): parti-094 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 42
+  },
+  {
+    "repo": "kitabe",
     "hash": "e59e629c2c",
     "date": "2026-10-29T06:54:56+03:00",
     "subject": "sadelestirme(tr): parti-094 — cevirmen-tr2",
@@ -13815,7 +14643,25 @@
     "lines": 41
   },
   {
+    "repo": "kitabe",
+    "hash": "751a263603",
+    "date": "2026-10-29T07:00:23+03:00",
+    "subject": "sadelestirme(tr): parti-043 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "d15d3974a6",
+    "date": "2026-10-29T07:04:57+03:00",
+    "subject": "sadelestirme(tr): parti-095 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "kitabe",
     "hash": "d15d3974a6",
     "date": "2026-10-29T07:04:57+03:00",
     "subject": "sadelestirme(tr): parti-095 — cevirmen-tr2",
@@ -13833,7 +14679,25 @@
     "lines": 39
   },
   {
+    "repo": "kitabe",
+    "hash": "127d688261",
+    "date": "2026-10-29T07:09:06+03:00",
+    "subject": "sadelestirme(tr): parti-044 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "879ea7ece9",
+    "date": "2026-10-29T07:13:21+03:00",
+    "subject": "sadelestirme(tr): parti-096 — cevirmen-tr2",
+    "score": 48,
+    "is_merge": false,
+    "lines": 37
+  },
+  {
+    "repo": "kitabe",
     "hash": "879ea7ece9",
     "date": "2026-10-29T07:13:21+03:00",
     "subject": "sadelestirme(tr): parti-096 — cevirmen-tr2",
@@ -13851,7 +14715,25 @@
     "lines": 30
   },
   {
+    "repo": "kitabe",
+    "hash": "8ef41c7197",
+    "date": "2026-10-29T07:18:37+03:00",
+    "subject": "sadelestirme(tr): parti-045 — cevirmen-tr1",
+    "score": 47,
+    "is_merge": false,
+    "lines": 30
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "00bfd60974",
+    "date": "2026-10-29T07:20:46+03:00",
+    "subject": "sadelestirme(tr): parti-097 — cevirmen-tr2",
+    "score": 47,
+    "is_merge": false,
+    "lines": 34
+  },
+  {
+    "repo": "kitabe",
     "hash": "00bfd60974",
     "date": "2026-10-29T07:20:46+03:00",
     "subject": "sadelestirme(tr): parti-097 — cevirmen-tr2",
@@ -13869,7 +14751,25 @@
     "lines": 36
   },
   {
+    "repo": "kitabe",
+    "hash": "891087a699",
+    "date": "2026-10-29T07:27:16+03:00",
+    "subject": "sadelestirme(tr): parti-046 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 36
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "5c8c130140",
+    "date": "2026-10-29T07:36:22+03:00",
+    "subject": "sadelestirme(tr): parti-047 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "kitabe",
     "hash": "5c8c130140",
     "date": "2026-10-29T07:36:22+03:00",
     "subject": "sadelestirme(tr): parti-047 — cevirmen-tr1",
@@ -13887,7 +14787,25 @@
     "lines": 41
   },
   {
+    "repo": "kitabe",
+    "hash": "619f9572b7",
+    "date": "2026-10-29T07:45:27+03:00",
+    "subject": "sadelestirme(tr): parti-048 — cevirmen-tr1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "18ec69e39e",
+    "date": "2026-10-29T07:48:24+03:00",
+    "subject": "sadelestirme(en): parti-000 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "18ec69e39e",
     "date": "2026-10-29T07:48:24+03:00",
     "subject": "sadelestirme(en): parti-000 — cevirmen-en1",
@@ -13905,7 +14823,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "c1657dde8c",
+    "date": "2026-10-29T07:52:07+03:00",
+    "subject": "sadelestirme(en): parti-001 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "b7184dbe5c",
+    "date": "2026-10-29T07:55:07+03:00",
+    "subject": "sadelestirme(en): parti-002 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "b7184dbe5c",
     "date": "2026-10-29T07:55:07+03:00",
     "subject": "sadelestirme(en): parti-002 — cevirmen-en1",
@@ -13923,7 +14859,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "206c69330f",
+    "date": "2026-10-29T07:59:32+03:00",
+    "subject": "sadelestirme(en): parti-003 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "3d1c0d7447",
+    "date": "2026-10-29T08:02:42+03:00",
+    "subject": "sadelestirme(en): parti-004 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "3d1c0d7447",
     "date": "2026-10-29T08:02:42+03:00",
     "subject": "sadelestirme(en): parti-004 — cevirmen-en1",
@@ -13941,7 +14895,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "1955c4a01b",
+    "date": "2026-10-29T08:05:45+03:00",
+    "subject": "sadelestirme(en): parti-005 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "2dc424df74",
+    "date": "2026-10-29T08:09:02+03:00",
+    "subject": "sadelestirme(en): parti-006 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "2dc424df74",
     "date": "2026-10-29T08:09:02+03:00",
     "subject": "sadelestirme(en): parti-006 — cevirmen-en1",
@@ -13959,7 +14931,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "dc532eeaa1",
+    "date": "2026-10-29T08:11:20+03:00",
+    "subject": "sadelestirme(en): parti-007 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "9b85928cb5",
+    "date": "2026-10-29T08:14:15+03:00",
+    "subject": "sadelestirme(en): parti-008 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "9b85928cb5",
     "date": "2026-10-29T08:14:15+03:00",
     "subject": "sadelestirme(en): parti-008 — cevirmen-en1",
@@ -13977,7 +14967,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "3faca6783a",
+    "date": "2026-10-29T08:17:19+03:00",
+    "subject": "sadelestirme(en): parti-009 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "66a4051b3f",
+    "date": "2026-10-29T08:20:14+03:00",
+    "subject": "sadelestirme(en): parti-010 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "66a4051b3f",
     "date": "2026-10-29T08:20:14+03:00",
     "subject": "sadelestirme(en): parti-010 — cevirmen-en1",
@@ -13995,7 +15003,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "c61002ca6e",
+    "date": "2026-10-29T08:22:33+03:00",
+    "subject": "sadelestirme(en): parti-011 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "375430e773",
+    "date": "2026-10-29T08:24:37+03:00",
+    "subject": "sadelestirme(en): parti-012 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "375430e773",
     "date": "2026-10-29T08:24:37+03:00",
     "subject": "sadelestirme(en): parti-012 — cevirmen-en1",
@@ -14013,7 +15039,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "54adb86945",
+    "date": "2026-10-29T08:27:40+03:00",
+    "subject": "sadelestirme(en): parti-013 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "924cc8b0c1",
+    "date": "2026-10-29T08:30:57+03:00",
+    "subject": "sadelestirme(en): parti-014 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "924cc8b0c1",
     "date": "2026-10-29T08:30:57+03:00",
     "subject": "sadelestirme(en): parti-014 — cevirmen-en1",
@@ -14031,7 +15075,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "7ff457f90d",
+    "date": "2026-10-29T08:32:54+03:00",
+    "subject": "sadelestirme(en): parti-015 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "1a43742d2c",
+    "date": "2026-10-29T08:36:25+03:00",
+    "subject": "sadelestirme(en): parti-016 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "1a43742d2c",
     "date": "2026-10-29T08:36:25+03:00",
     "subject": "sadelestirme(en): parti-016 — cevirmen-en1",
@@ -14049,7 +15111,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "e07defea49",
+    "date": "2026-10-29T08:40:48+03:00",
+    "subject": "sadelestirme(en): parti-017 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "a302dc3efb",
+    "date": "2026-10-29T08:43:17+03:00",
+    "subject": "sadelestirme(en): parti-018 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "a302dc3efb",
     "date": "2026-10-29T08:43:17+03:00",
     "subject": "sadelestirme(en): parti-018 — cevirmen-en1",
@@ -14067,7 +15147,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "7903feea92",
+    "date": "2026-10-29T08:45:00+03:00",
+    "subject": "sadelestirme(en): parti-019 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "0c403eeef5",
+    "date": "2026-10-29T08:47:55+03:00",
+    "subject": "sadelestirme(en): parti-020 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "0c403eeef5",
     "date": "2026-10-29T08:47:55+03:00",
     "subject": "sadelestirme(en): parti-020 — cevirmen-en1",
@@ -14085,7 +15183,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "44b5635557",
+    "date": "2026-10-29T08:51:23+03:00",
+    "subject": "sadelestirme(en): parti-021 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "4f385ad09f",
+    "date": "2026-10-29T08:55:53+03:00",
+    "subject": "sadelestirme(en): parti-022 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "4f385ad09f",
     "date": "2026-10-29T08:55:53+03:00",
     "subject": "sadelestirme(en): parti-022 — cevirmen-en1",
@@ -14103,7 +15219,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "ad4d7c0dd5",
+    "date": "2026-10-29T08:57:57+03:00",
+    "subject": "sadelestirme(en): parti-023 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "d1fbd0daf7",
+    "date": "2026-10-29T09:01:26+03:00",
+    "subject": "sadelestirme(en): parti-024 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "d1fbd0daf7",
     "date": "2026-10-29T09:01:26+03:00",
     "subject": "sadelestirme(en): parti-024 — cevirmen-en1",
@@ -14121,7 +15255,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "d7bc37fc5a",
+    "date": "2026-10-29T09:04:47+03:00",
+    "subject": "sadelestirme(en): parti-025 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "8a654cd03d",
+    "date": "2026-10-29T09:09:14+03:00",
+    "subject": "sadelestirme(en): parti-026 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "8a654cd03d",
     "date": "2026-10-29T09:09:14+03:00",
     "subject": "sadelestirme(en): parti-026 — cevirmen-en1",
@@ -14139,7 +15291,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "529ec2d1ff",
+    "date": "2026-10-29T09:13:42+03:00",
+    "subject": "sadelestirme(en): parti-027 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "aae417cde5",
+    "date": "2026-10-29T09:17:32+03:00",
+    "subject": "sadelestirme(en): parti-028 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "aae417cde5",
     "date": "2026-10-29T09:17:32+03:00",
     "subject": "sadelestirme(en): parti-028 — cevirmen-en1",
@@ -14157,7 +15327,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "a4f5f98739",
+    "date": "2026-10-29T09:21:09+03:00",
+    "subject": "sadelestirme(en): parti-029 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "fbd089c33b",
+    "date": "2026-10-29T09:24:26+03:00",
+    "subject": "sadelestirme(en): parti-030 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "fbd089c33b",
     "date": "2026-10-29T09:24:26+03:00",
     "subject": "sadelestirme(en): parti-030 — cevirmen-en1",
@@ -14175,7 +15363,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "b969b959f2",
+    "date": "2026-10-29T09:27:14+03:00",
+    "subject": "sadelestirme(en): parti-031 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "5651c7e51f",
+    "date": "2026-10-29T09:44:10+03:00",
+    "subject": "sadelestirme(en): parti-033 — cevirmen-en1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "kitabe",
     "hash": "5651c7e51f",
     "date": "2026-10-29T09:44:10+03:00",
     "subject": "sadelestirme(en): parti-033 — cevirmen-en1",
@@ -14193,7 +15399,25 @@
     "lines": 5
   },
   {
+    "repo": "kitabe",
+    "hash": "0156d2476a",
+    "date": "2026-10-29T09:46:33+03:00",
+    "subject": "sadelestirme: metinsiz kayıt (EN 'no text') geçerli sayılır; parti-032 EN",
+    "score": 41,
+    "is_merge": false,
+    "lines": 5
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "1547028861",
+    "date": "2026-10-29T09:46:53+03:00",
+    "subject": "sadelestirme(en): parti-034 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "1547028861",
     "date": "2026-10-29T09:46:53+03:00",
     "subject": "sadelestirme(en): parti-034 — cevirmen-en1",
@@ -14211,7 +15435,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "0b9342595b",
+    "date": "2026-10-29T09:49:27+03:00",
+    "subject": "sadelestirme(en): parti-035 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "17eddd5bae",
+    "date": "2026-10-29T09:52:19+03:00",
+    "subject": "sadelestirme(en): parti-036 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "17eddd5bae",
     "date": "2026-10-29T09:52:19+03:00",
     "subject": "sadelestirme(en): parti-036 — cevirmen-en1",
@@ -14247,7 +15489,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "e3575d0362",
+    "date": "2026-10-29T09:55:42+03:00",
+    "subject": "sadelestirme(en): parti-037 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "12472630ee",
+    "date": "2026-10-29T09:58:16+03:00",
+    "subject": "sadelestirme(en): parti-038 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "12472630ee",
     "date": "2026-10-29T09:58:16+03:00",
     "subject": "sadelestirme(en): parti-038 — cevirmen-en1",
@@ -14373,7 +15633,25 @@
     "lines": 40
   },
   {
+    "repo": "kitabe",
+    "hash": "9f2de9e71a",
+    "date": "2026-10-29T10:17:02+03:00",
+    "subject": "sadelestirme(en): parti-040 — cevirmen-en1",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "614a51561b",
+    "date": "2026-10-29T10:19:11+03:00",
+    "subject": "sadelestirme(en): parti-041 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "614a51561b",
     "date": "2026-10-29T10:19:11+03:00",
     "subject": "sadelestirme(en): parti-041 — cevirmen-en1",
@@ -14409,6 +15687,15 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "4afd6aa905",
+    "date": "2026-10-29T10:22:27+03:00",
+    "subject": "sadelestirme(en): parti-042 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-magaza",
     "hash": "2ca36ac2db",
     "date": "2026-10-29T10:22:35+03:00",
@@ -14436,7 +15723,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "fa0d01d75f",
+    "date": "2026-10-29T10:25:22+03:00",
+    "subject": "sadelestirme(en): parti-043 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "f5ed79e134",
+    "date": "2026-10-29T10:29:07+03:00",
+    "subject": "sadelestirme(en): parti-044 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "f5ed79e134",
     "date": "2026-10-29T10:29:07+03:00",
     "subject": "sadelestirme(en): parti-044 — cevirmen-en1",
@@ -14490,7 +15795,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "ab267d82e8",
+    "date": "2026-10-29T10:34:12+03:00",
+    "subject": "sadelestirme(en): parti-045 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "7cf268b985",
+    "date": "2026-10-29T10:36:12+03:00",
+    "subject": "sadelestirme(en): parti-046 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "7cf268b985",
     "date": "2026-10-29T10:36:12+03:00",
     "subject": "sadelestirme(en): parti-046 — cevirmen-en1",
@@ -14508,7 +15831,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "a81c4e99fa",
+    "date": "2026-10-29T10:39:08+03:00",
+    "subject": "sadelestirme(en): parti-047 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "f85541cd8b",
+    "date": "2026-10-29T10:41:41+03:00",
+    "subject": "sadelestirme(en): parti-048 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "f85541cd8b",
     "date": "2026-10-29T10:41:41+03:00",
     "subject": "sadelestirme(en): parti-048 — cevirmen-en1",
@@ -14526,6 +15867,15 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "2a13aadec6",
+    "date": "2026-10-29T10:44:17+03:00",
+    "subject": "sadelestirme(en): parti-049 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "de852279b7",
     "date": "2026-10-29T10:47:25+03:00",
@@ -14535,7 +15885,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "de852279b7",
+    "date": "2026-10-29T10:47:25+03:00",
+    "subject": "sadelestirme(en): parti-050 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "b76f01e4c3",
+    "date": "2026-10-29T10:49:42+03:00",
+    "subject": "sadelestirme(en): parti-051 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "b76f01e4c3",
     "date": "2026-10-29T10:49:42+03:00",
     "subject": "sadelestirme(en): parti-051 — cevirmen-en1",
@@ -14571,7 +15939,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "2bb025eab3",
+    "date": "2026-10-29T10:52:58+03:00",
+    "subject": "sadelestirme(en): parti-052 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "74a5766c00",
+    "date": "2026-10-29T10:56:15+03:00",
+    "subject": "sadelestirme(en): parti-053 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "74a5766c00",
     "date": "2026-10-29T10:56:15+03:00",
     "subject": "sadelestirme(en): parti-053 — cevirmen-en1",
@@ -14589,7 +15975,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "51cfb70e2c",
+    "date": "2026-10-29T10:59:36+03:00",
+    "subject": "sadelestirme(en): parti-054 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "e9284bffb8",
+    "date": "2026-10-29T11:02:42+03:00",
+    "subject": "sadelestirme(en): parti-055 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "e9284bffb8",
     "date": "2026-10-29T11:02:42+03:00",
     "subject": "sadelestirme(en): parti-055 — cevirmen-en1",
@@ -14607,7 +16011,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "1b4d875e8f",
+    "date": "2026-10-29T11:05:04+03:00",
+    "subject": "sadelestirme(en): parti-056 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "846b316fcb",
+    "date": "2026-10-29T11:07:49+03:00",
+    "subject": "sadelestirme(en): parti-057 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "846b316fcb",
     "date": "2026-10-29T11:07:49+03:00",
     "subject": "sadelestirme(en): parti-057 — cevirmen-en1",
@@ -14625,7 +16047,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "d453fca239",
+    "date": "2026-10-29T11:11:16+03:00",
+    "subject": "sadelestirme(en): parti-058 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "bc2854a2e4",
+    "date": "2026-10-29T11:14:19+03:00",
+    "subject": "sadelestirme(en): parti-059 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "bc2854a2e4",
     "date": "2026-10-29T11:14:19+03:00",
     "subject": "sadelestirme(en): parti-059 — cevirmen-en1",
@@ -14643,7 +16083,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "709b796c11",
+    "date": "2026-10-29T11:16:43+03:00",
+    "subject": "sadelestirme(en): parti-060 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "48ec6970cc",
+    "date": "2026-10-29T11:19:26+03:00",
+    "subject": "sadelestirme(en): parti-061 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "48ec6970cc",
     "date": "2026-10-29T11:19:26+03:00",
     "subject": "sadelestirme(en): parti-061 — cevirmen-en1",
@@ -14661,7 +16119,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "2466a276f7",
+    "date": "2026-10-29T11:22:45+03:00",
+    "subject": "sadelestirme(en): parti-062 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "3ab8d890c5",
+    "date": "2026-10-29T11:25:58+03:00",
+    "subject": "sadelestirme(en): parti-063 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "3ab8d890c5",
     "date": "2026-10-29T11:25:58+03:00",
     "subject": "sadelestirme(en): parti-063 — cevirmen-en1",
@@ -14679,7 +16155,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "33a9df54e3",
+    "date": "2026-10-29T11:29:19+03:00",
+    "subject": "sadelestirme(en): parti-064 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "e46079c3a0",
+    "date": "2026-10-29T11:32:47+03:00",
+    "subject": "sadelestirme(en): parti-065 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "e46079c3a0",
     "date": "2026-10-29T11:32:47+03:00",
     "subject": "sadelestirme(en): parti-065 — cevirmen-en1",
@@ -14697,7 +16191,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "9cad055539",
+    "date": "2026-10-29T11:35:53+03:00",
+    "subject": "sadelestirme(en): parti-066 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "39e48d6288",
+    "date": "2026-10-29T11:38:02+03:00",
+    "subject": "sadelestirme(en): parti-067 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "39e48d6288",
     "date": "2026-10-29T11:38:02+03:00",
     "subject": "sadelestirme(en): parti-067 — cevirmen-en1",
@@ -14715,7 +16227,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "78ae11b803",
+    "date": "2026-10-29T11:42:03+03:00",
+    "subject": "sadelestirme(en): parti-068 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "8f38dfb9fe",
+    "date": "2026-10-29T11:43:39+03:00",
+    "subject": "sadelestirme(en): parti-069 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "8f38dfb9fe",
     "date": "2026-10-29T11:43:39+03:00",
     "subject": "sadelestirme(en): parti-069 — cevirmen-en1",
@@ -14733,7 +16263,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "9e21588284",
+    "date": "2026-10-29T11:46:16+03:00",
+    "subject": "sadelestirme(en): parti-070 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "6455c3b161",
+    "date": "2026-10-29T11:48:44+03:00",
+    "subject": "sadelestirme(en): parti-071 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "6455c3b161",
     "date": "2026-10-29T11:48:44+03:00",
     "subject": "sadelestirme(en): parti-071 — cevirmen-en1",
@@ -14751,7 +16299,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "e49e3c997d",
+    "date": "2026-10-29T11:51:03+03:00",
+    "subject": "sadelestirme(en): parti-072 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "dafd177757",
+    "date": "2026-10-29T11:53:06+03:00",
+    "subject": "sadelestirme(en): parti-073 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "dafd177757",
     "date": "2026-10-29T11:53:06+03:00",
     "subject": "sadelestirme(en): parti-073 — cevirmen-en1",
@@ -14769,7 +16335,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "c1a6940ccb",
+    "date": "2026-10-29T11:55:34+03:00",
+    "subject": "sadelestirme(en): parti-074 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "e4dbd12d07",
+    "date": "2026-10-29T11:58:15+03:00",
+    "subject": "sadelestirme(en): parti-075 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "e4dbd12d07",
     "date": "2026-10-29T11:58:15+03:00",
     "subject": "sadelestirme(en): parti-075 — cevirmen-en1",
@@ -14787,7 +16371,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "5479a68bf1",
+    "date": "2026-10-29T12:02:24+03:00",
+    "subject": "sadelestirme(en): parti-076 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "b6ad067db1",
+    "date": "2026-10-29T12:05:21+03:00",
+    "subject": "sadelestirme(en): parti-077 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "b6ad067db1",
     "date": "2026-10-29T12:05:21+03:00",
     "subject": "sadelestirme(en): parti-077 — cevirmen-en1",
@@ -14805,7 +16407,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "18e4b70637",
+    "date": "2026-10-29T12:09:07+03:00",
+    "subject": "sadelestirme(en): parti-078 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "85f9c36a4f",
+    "date": "2026-10-29T12:11:38+03:00",
+    "subject": "sadelestirme(en): parti-079 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "85f9c36a4f",
     "date": "2026-10-29T12:11:38+03:00",
     "subject": "sadelestirme(en): parti-079 — cevirmen-en1",
@@ -14823,7 +16443,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "552b961b16",
+    "date": "2026-10-29T12:13:53+03:00",
+    "subject": "sadelestirme(en): parti-080 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "af988230c0",
+    "date": "2026-10-29T12:16:12+03:00",
+    "subject": "sadelestirme(en): parti-081 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "af988230c0",
     "date": "2026-10-29T12:16:12+03:00",
     "subject": "sadelestirme(en): parti-081 — cevirmen-en1",
@@ -14841,7 +16479,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "676f26e34b",
+    "date": "2026-10-29T12:19:19+03:00",
+    "subject": "sadelestirme(en): parti-082 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "310f1257b7",
+    "date": "2026-10-29T12:23:52+03:00",
+    "subject": "sadelestirme(en): parti-083 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "310f1257b7",
     "date": "2026-10-29T12:23:52+03:00",
     "subject": "sadelestirme(en): parti-083 — cevirmen-en1",
@@ -14859,7 +16515,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "3563c83528",
+    "date": "2026-10-29T12:28:36+03:00",
+    "subject": "sadelestirme(en): parti-084 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "33207fb582",
+    "date": "2026-10-29T12:30:32+03:00",
+    "subject": "sadelestirme(en): parti-085 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "33207fb582",
     "date": "2026-10-29T12:30:32+03:00",
     "subject": "sadelestirme(en): parti-085 — cevirmen-en1",
@@ -14886,6 +16560,15 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "1c9357e884",
+    "date": "2026-10-29T12:33:31+03:00",
+    "subject": "sadelestirme(en): parti-086 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "7ef8f8b301",
     "date": "2026-10-29T12:35:45+03:00",
@@ -14896,6 +16579,15 @@
   },
   {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "e57cbf4f58",
+    "date": "2026-10-29T12:36:10+03:00",
+    "subject": "sadelestirme(en): parti-087 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "e57cbf4f58",
     "date": "2026-10-29T12:36:10+03:00",
     "subject": "sadelestirme(en): parti-087 — cevirmen-en1",
@@ -14922,7 +16614,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "472e1eef22",
+    "date": "2026-10-29T12:38:13+03:00",
+    "subject": "sadelestirme(en): parti-088 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "7a3beedf83",
+    "date": "2026-10-29T12:40:46+03:00",
+    "subject": "sadelestirme(en): parti-089 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "7a3beedf83",
     "date": "2026-10-29T12:40:46+03:00",
     "subject": "sadelestirme(en): parti-089 — cevirmen-en1",
@@ -14949,7 +16659,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "3ce130f7c2",
+    "date": "2026-10-29T12:44:28+03:00",
+    "subject": "sadelestirme(en): parti-090 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "a197a7e781",
+    "date": "2026-10-29T12:47:16+03:00",
+    "subject": "sadelestirme(en): parti-091 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "a197a7e781",
     "date": "2026-10-29T12:47:16+03:00",
     "subject": "sadelestirme(en): parti-091 — cevirmen-en1",
@@ -14967,6 +16695,15 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "c09c9ae87f",
+    "date": "2026-10-29T12:50:04+03:00",
+    "subject": "sadelestirme(en): parti-092 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "2f075587f6",
     "date": "2026-10-29T12:53:22+03:00",
@@ -14976,7 +16713,25 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "2f075587f6",
+    "date": "2026-10-29T12:53:22+03:00",
+    "subject": "sadelestirme(en): parti-093 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "1de15f3b15",
+    "date": "2026-10-29T12:56:41+03:00",
+    "subject": "sadelestirme(en): parti-094 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "kitabe",
     "hash": "1de15f3b15",
     "date": "2026-10-29T12:56:41+03:00",
     "subject": "sadelestirme(en): parti-094 — cevirmen-en1",
@@ -15003,6 +16758,15 @@
     "lines": 20
   },
   {
+    "repo": "kitabe",
+    "hash": "074491977f",
+    "date": "2026-10-29T13:00:23+03:00",
+    "subject": "sadelestirme(en): parti-095 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
     "hash": "12ee15db98",
     "date": "2026-10-29T13:03:18+03:00",
@@ -15021,7 +16785,25 @@
     "lines": 494
   },
   {
+    "repo": "kitabe",
+    "hash": "12ee15db98",
+    "date": "2026-10-29T13:03:18+03:00",
+    "subject": "sadelestirme(en): parti-096 — cevirmen-en1",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
     "repo": "kitabe-wt-sadelestirme",
+    "hash": "da5d96404b",
+    "date": "2026-10-29T13:06:45+03:00",
+    "subject": "sadelestirme(en): parti-097 — cevirmen-en1",
+    "score": 45,
+    "is_merge": false,
+    "lines": 17
+  },
+  {
+    "repo": "kitabe",
     "hash": "da5d96404b",
     "date": "2026-10-29T13:06:45+03:00",
     "subject": "sadelestirme(en): parti-097 — cevirmen-en1",
@@ -28746,6 +30528,15 @@
     "lines": 44
   },
   {
+    "repo": "letmepost-selfhost",
+    "hash": "2fee0d091e",
+    "date": "2026-11-10T02:06:39+03:00",
+    "subject": "fix(api): refresh token on immediate publish & restore schedules on worker boot",
+    "score": 61,
+    "is_merge": false,
+    "lines": 99
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "c200b00d83",
     "date": "2026-11-10T10:28:29+03:00",
@@ -29250,6 +31041,15 @@
     "lines": 0
   },
   {
+    "repo": "wingwire-android",
+    "hash": "a4b24c325e",
+    "date": "2026-11-11T20:37:57+03:00",
+    "subject": "chore(release): 0.3.1 (versionCode 6) — widget teması uygulamayı izler, kilitlenince Konuş görüşmesi biter; hamaratlabs.com/wingwire yayını için arm64 release",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "3465ab00fb",
     "date": "2026-11-11T21:15:29+03:00",
@@ -29392,5 +31192,275 @@
     "score": 89,
     "is_merge": false,
     "lines": 242
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "3071172313",
+    "date": "2026-11-11T23:55:02+03:00",
+    "subject": "feat(art): Evre 04 Konsept B/C/D parity, living street, seated poses, and soft-glow heatmap",
+    "score": 92,
+    "is_merge": false,
+    "lines": 511
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "c2198addd5",
+    "date": "2026-11-12T02:00:55+03:00",
+    "subject": "feat(godot): port complete Pomodoro Restoran to Godot 4.7 + 37 automated tests + Stage 05 devlog",
+    "score": 95,
+    "is_merge": false,
+    "lines": 7772
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "782c08b342",
+    "date": "2026-11-12T02:42:06+03:00",
+    "subject": "docs(hibrit): canlı soru ve onay (op/uçlar, cevap biçimi, güvenlik, RAM ölçümü, Hermes önerileri)",
+    "score": 37,
+    "is_merge": false,
+    "lines": 120
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ef576ca3c3",
+    "date": "2026-11-12T02:42:06+03:00",
+    "subject": "feat(hibrit): Telegram oturumundaki soru ve onay kartları WingWire'da canlı (op: watch, /ww/hybrid/watch + respond)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2609
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "d6fc530300",
+    "date": "2026-11-12T02:44:01+03:00",
+    "subject": "feat(marketing): interactive landing page, 16:9 & 9:16 video pipeline & Turkish social media kit",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2372
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "bf5fc2d196",
+    "date": "2026-11-12T02:44:01+03:00",
+    "subject": "feat(godot): v0.3 freezer/copying desk/achievements, 7 sprites, 14 Vorbis audio assets & 49 tests",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1872
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7e54cd74aa",
+    "date": "2026-11-12T03:06:11+03:00",
+    "subject": "fix(hibrit): köprü stdin'inde aşırı uzun satırın kalanı komut sayılmaz (B3)",
+    "score": 57,
+    "is_merge": false,
+    "lines": 31
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "007da850f2",
+    "date": "2026-11-12T03:06:11+03:00",
+    "subject": "fix(hibrit): izleyici ve sekme tavanı eşzamanlı isteklerde de tutar (B1)",
+    "score": 63,
+    "is_merge": false,
+    "lines": 200
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "277f5c129e",
+    "date": "2026-11-12T11:11:52+03:00",
+    "subject": "fix(art): repair solid tables/chairs/dining wall, add checkered table + standalone wall props, lock 3/4 interior",
+    "score": 67,
+    "is_merge": false,
+    "lines": 552
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8c5752f6d0",
+    "date": "2026-11-12T11:57:27+03:00",
+    "subject": "merge: fix/canli-clarify → main (Telegram oturumundaki soru/onay kartları WingWire'da canlı; B1/B3 düzeltmeleri; siberguvenlik GEÇTİ; Yusuf onayı 12 Kas)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "bff4bfd4c3",
+    "date": "2026-11-12T12:05:30+03:00",
+    "subject": "merge: fix/hemen-yenile → local/selfhost-mac (hemen paylaşımda belirteç yenileme + worker açılışında yenileme takvimini geri kur; siberguvenlik GEÇER 10 Kas; Yusuf kalıcı onayı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "fec7f71f25",
+    "date": "2026-11-12T13:45:56+03:00",
+    "subject": "fix(konus): web Santral ayrı ElevenLabs ajanına bağlanır, override yok; ret nedeni doğru söylenir",
+    "score": 70,
+    "is_merge": false,
+    "lines": 1543
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f1cdabe058",
+    "date": "2026-11-12T13:51:07+03:00",
+    "subject": "merge: fix/santral-web-ajan → main (web Konuş ayrı ElevenLabs ajanına bağlanır, override yok — 1008 reddi biter; bağlantı reddi doğru metinle; siberguvenlik GEÇER; Yusuf kalıcı onayı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "820633272e",
+    "date": "2026-11-12T13:51:07+03:00",
+    "subject": "docs(qa): santral-web-ajan siberguvenlik kontrolü (GEÇER)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 55
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "86f536401a",
+    "date": "2026-11-12T14:37:16+03:00",
+    "subject": "feat(konus-yerel): anahtar yokken dil modeli Hermes üzerinden (kalıcı köprü, @arac protokolü, ısınma); panel yolu söyler",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2617
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "aa66b215e5",
+    "date": "2026-11-12T15:02:52+03:00",
+    "subject": "fix(konus-yerel): Hermes araç kanalı yalnız oturum işaretli satır (B1), ısınmada tavan iadesi yok (B2), tahmin birikimli Hermes oturumunu izler (B3)",
+    "score": 69,
+    "is_merge": false,
+    "lines": 919
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "bb76fc3446",
+    "date": "2026-11-12T15:03:31+03:00",
+    "subject": "docs(qa): yerel-hermes-beyin siberguvenlik 1. tur (ŞARTLI GEÇER, B1)",
+    "score": 31,
+    "is_merge": false,
+    "lines": 105
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "521b06bfd7",
+    "date": "2026-11-12T15:09:35+03:00",
+    "subject": "feat(ayarlar): Model bağlantıları ve Servisler durumu (web ile aynı veri, salt okuma)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1381
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2c062f1111",
+    "date": "2026-11-12T15:09:47+03:00",
+    "subject": "merge: feat/yerel-hermes-beyin → main (Konuş Yerel: anahtar yokken dil modeli Hermes üzerinden — kalıcı köprü, oturum işaretli araç satırı, ısınma; siberguvenlik 1. tur ŞARTLI → B1 kapatıldı → 2. tur GEÇER; Yusuf kalıcı onayı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "849e1ef8da",
+    "date": "2026-11-12T15:09:47+03:00",
+    "subject": "docs(qa): yerel-hermes-beyin siberguvenlik kontrolü (GEÇER)",
+    "score": 31,
+    "is_merge": false,
+    "lines": 93
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "55d8cceb2d",
+    "date": "2026-11-12T15:10:44+03:00",
+    "subject": "chore(release): 0.3.2 (versionCode 7) — Ayarlar'da Model bağlantıları ve Servisler durumu",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "kitabe",
+    "hash": "1cb367efff",
+    "date": "2026-11-12T16:02:28+03:00",
+    "subject": "Merge branch 'feat/sadelestirme'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "kitabe",
+    "hash": "bfe27c181c",
+    "date": "2026-11-12T16:03:24+03:00",
+    "subject": "chore: _gorsel_arsiv yerel dosyalarını git dışı tut",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "09a1dd8818",
+    "date": "2026-11-12T17:05:52+03:00",
+    "subject": "docs(qa): ara-baglam raporu + 1440/390 ekran görüntüleri",
+    "score": 32,
+    "is_merge": false,
+    "lines": 129
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "913ac2592e",
+    "date": "2026-11-12T17:05:52+03:00",
+    "subject": "fix(ara): arama kutusu bulunulan sayfada arar — Ayarlar dizini, Cron ayrı kapsam, sağlamayan sayfa dürüst yer tutucuyla Ajanlar'a",
+    "score": 69,
+    "is_merge": false,
+    "lines": 991
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "16e8227699",
+    "date": "2026-11-12T17:18:49+03:00",
+    "subject": "feat(alt-menu): alt menüde hangi bölümlerin duracağı seçilir, kalanı Diğer kartında",
+    "score": 94,
+    "is_merge": false,
+    "lines": 900
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "20bfc0fcf2",
+    "date": "2026-11-12T17:31:28+03:00",
+    "subject": "chore(release): 0.3.3 (versionCode 8) — alt menü özelleştirme + Diğer kartında bölümler; siberguvenlik GEÇER",
+    "score": 48,
+    "is_merge": false,
+    "lines": 37
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ed2c739c13",
+    "date": "2026-11-12T17:33:10+03:00",
+    "subject": "merge: fix/ara-baglam — arama kutusu bulunulan sayfada arar (Ayarlar araması; tam vitest 4629/4630, tek kırmızı ww-hybrid-watch yük kaynaklı, tek başına 2/3 yeşil)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "aa159073ef",
+    "date": "2026-11-12T17:33:10+03:00",
+    "subject": "docs(qa): ara-baglam siberguvenlik kontrolü (GEÇER)",
+    "score": 26,
+    "is_merge": false,
+    "lines": 25
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5f30ce203b",
+    "date": "2026-11-12T18:36:45+03:00",
+    "subject": "feat(yapilacaklar): Yapılacaklar modülü — üst bar (Ara ⌘K, Yapılacaklar rozeti, Konuş, zil) + sağ panel + tam sayfa (Planlanmış/Tümü/Tamamlanan, ay/hafta takvim), web sohbetinde /me, /ww/yapilacaklar uçları (WW_ALLOW_YAPILACAKLAR[_AJAN] kapıları, atomik yazma), mobil uçlar (mobil-api §14), Hermes eklentisi kaynağı (kurulmadı); tsc 0, vitest 4765/4766, build 0; siberguvenlik ŞARTLI GEÇER → şartlar kapatıldı; Yusuf kalıcı onayı (squash: dal geçmişindeki izole profil adları main'e taşınmasın)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 7331
   }
 ]
