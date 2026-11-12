@@ -166,9 +166,13 @@
 /* kutu logolara göre daralır (üç sütuna gerilmez); .nd > span'ın ikincil rengi logolara geçmesin */
 .wwl .nd--pl { padding: 14px 18px; justify-self: start; }
 .wwl .nd--pl > .pl-logo { color: var(--metin); }
-/* Hermes bağlantılarının logo satırları (HermesLogolari.jsx): aynı tek renk; Gemini CLI resmi PNG'den maske, kare */
+/* Hermes bağlantılarının logo satırları (HermesLogolari.jsx): aynı tek renk. .pl-logo__m: maske logosu (Gemini CLI için yazıldı; Gemini CLI çıktı, şu an kullanan yok) */
 .wwl .nd > .hb-logo { color: var(--metin); gap: 10px 14px; }
 .wwl .pl-logo__m { background: currentColor; -webkit-mask: var(--maske) center / contain no-repeat; mask: var(--maske) center / contain no-repeat; }
+/* CLI'lar: logonun altında komut adı, mono 13 px (telefonda da) */
+.wwl .hb-logo--cli { gap: 10px 22px; align-items: flex-start; }
+.wwl .hb-cli { display: inline-flex; flex-direction: column; align-items: center; gap: 5px; }
+.wwl .hb-cli code { font: 400 13px/1 var(--sistem); color: var(--metin2); background: none; padding: 0; }
 /* CLI'lar: bu makinede kurulu, "yalnız benim kurulumumda" katmanının ilk satırında, Web'in sağında */
 .wwl .grp [data-n="cli"] { grid-column: 7; grid-row: 1; align-self: center; }
 
@@ -271,6 +275,7 @@
 .wwl .s-liste .pl-logo__i { width: 22px; height: 22px; }
 .wwl .s-liste .pl-logo__li { width: calc(22px * 120 / 111); }
 .wwl .s-liste .hb-logo { justify-content: flex-start; gap: 8px 16px; }
+.wwl .s-liste .hb-logo--cli { gap: 8px 22px; }
 .wwl .s-liste li.s-kisa { width: auto; display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px 6px 6px; }
 .wwl .s-liste li.s-kisa > .ik { width: 22px; height: 22px; padding: 4px; }
 

@@ -107,6 +107,7 @@ Farkların nedeni (kareler `shots/esitlik/<an>-<genişlik>-<tema>.png` yan yana,
 - `AppIcon` ve `data.js` `FEATURED` artık WingWire sayfasınca okunmuyor (marka simgesi taslaktaki `icon.webp`). `data.js` WingWire kartına dokunulmadı.
 - `public/fonts/wingwire/` içinde artık hiçbir yerin kullanmadığı 6 dosya: `plus-jakarta-sans-latin(-ext)-500/700-normal.woff2` (4) ve `jetbrains-mono-latin(-ext)-500-normal.woff2` (2), toplam ~66 KB. Yayında indirilmez, yalnız repoda yer tutar; silme onaylı iş.
 - Bugünkü sayfanın içeriği (Neden, Neler yapar, `data.js` `points`, "Bir kanatta telefonun..." diyagramı, "iOS yakında" notu) yeni sayfada yok; taslak bunları içermiyordu.
+- Gemini CLI (5. tur kararıyla diyagramdan çıktı): `src/wingwire-site/img/gemini-cli-maske.png` (2.751 bayt), üretim betiği `docs/wingwire-uygulama/araclar/gemini_cli_maske.py` ve CSS'teki `.pl-logo__m` maske kuralı kullanılmıyor. PNG artık hiçbir yerden içe aktarılmıyor, derlemeye girmiyor (`dist/assets`'te `gemini-cli` adlı dosya yok, WingWire chunk'ında `gemini-cli` izi 0; `SkillsPage` chunk'ındaki tek eşleşme o sayfanın kendi metni). Silinmedi.
 
 ## Kareler
 - `docs/wingwire-uygulama/shots/esitlik/`: 20 yan yana kare (sol taslak, sağ React; başlıkta fark sayısı) ve 20 fark maskesi, `esitlik.json`.
@@ -243,7 +244,28 @@ Yol verisi elle kopyalanmadı: `araclar/hermes_logo_verisi.py` indirilen dosyala
 - 360 px'te Model kutusu "Tailscale · özel ağ" yazısının sağ ucuna 2 px yaklaşıyor; konum ve genişlik onaylı hâlle aynı, bu işte değişmedi.
 - Tuvalde CLI'lar logoları (Claude Code'un piksel figürü, Antigravity kemeri, Gemini CLI kutusu) Model logoları kadar tanınır değil; adlar yalnız ekran okuyucuda ve `title`'da.
 
-## Sorular (4. tur)
-1. geminicli.com 2026-11-12'de "Gemini CLI was replaced by Antigravity" diyor. Gemini CLI diyagramda kalsın mı, yoksa CLI'larda yalnız Claude Code ve agy mi olsun?
-2. Telefonda Model'in alt yazısı onaylı hâliyle ("Hermes'in ayarındaki sağlayıcı") kaldı; "WingWire'ın modeli yok" yalnız masaüstünde. Telefonda da istenirse omurga yaklaşık 40 px uzar. Kabul mü?
-3. CLI'lar tuvalde yalnız logo ve "CLI'lar" yazısıyla duruyor. Hangi logonun hangi araç olduğu ekranda yazmıyor. Logoların altına komut adları (`claude`, `agy`, `gemini`) eklensin mi? 3 kelime artar.
+## Sorular (4. tur) ve kararlar (pm-hamaratlabs, 2026-11-12)
+1. Gemini CLI diyagramda kalsın mı? Karar: çıkar (sitesi "Antigravity ile değiştirildi" diyor, Yusuf'un iş akışı agy; Gemini zaten Model kutusunda). CLI'lar: Claude Code ve agy. Yapıldı (5. tur).
+2. Telefonda Model alt yazısı? Karar: olduğu gibi kalır, diyagram uzamaz.
+3. CLI logolarının altına komut adları? Karar: evet, `claude` ve `agy`, mono, masaüstünde ve telefonda. Yapıldı (5. tur).
+
+## 5. tur: CLI'lar kutusu
+- CLI'lar artık iki: Claude Code ve agy. Her logonun altında terminal komutu mono yazıyla (`claude`, `agy`; 13 px, `--sistem` = WW Mono, ikincil metin rengi), masaüstünde ve telefonda. Logoların ekran okuyucu adları "Claude Code" ve "Antigravity CLI" (komut adı ekranda olduğu için "agy" addan çıktı).
+- Gemini CLI çıktı: `HermesLogolari.jsx` maskeyi artık içe aktarmıyor. Maskesi, betiği ve CSS kuralı silinmedi, "Kaldırılan / kullanılmayan parçalar"da listede.
+- Ölçüm (`araclar/baglantilar.py ... cli`, `shots/hermes-baglantilari/cli.json`):
+
+| | 4. tur | 5. tur |
+|---|---|---|
+| 1440 tuval yüksekliği | 937 px | 955 px (+18; komut satırı CLI kutusunu uzatıyor, o satırın yüksekliği kutudan geliyor. Taslaktaki 929 px'e göre +26) |
+| 390 diyagram kapalı / küme açık | 629 / 1093 px | 629 / 1111 px (CLI satırına komut adları) |
+| 390 ilk bakışta görünen düğüm | 6 | 6 |
+| En küçük yazı: 390 diyagram / 1440 diyagram | 13 / 14 px | 13 / 13 px (1440'ta komut adları 13 px) |
+| scrollWidth 390 / 1440 | 390 / 1440 | 390 / 1440 |
+| konsol hatası / dış istek (iki tema, 1440 ve 390) | 0 / 0 | 0 / 0 |
+| hüzme akan yol (1440) | 17/17 | 17/17 |
+| hareket azaltma: hüzme öğesi | 0 | 0 |
+| görünür kelime 1440 / 390 küme açık | 163 / 165 | 165 / 167 (`claude`, `agy`) |
+
+- `npm run build` başarılı; `npx eslint src/wingwire-site/ src/App.jsx` 0 hata, 1 uyarı (önceden var olan `App.jsx:57`). Em dash 0.
+- Kareler `docs/wingwire-uygulama/shots/hermes-baglantilari/`: `cli-1440-koyu.png`, `cli-390-acik-kume-acik.png`, `cli-390-koyu-kume-acik.png` (istenenler); aynı koşunun yan çıktıları `cli-1440-acik.png`, `cli-390-acik.png`, `cli-390-koyu.png`, `cli-1440-azalt.png`, `cli-390-azalt.png`, `cli.json`.
+- 4. turun "Zayıf yanlar"ındaki "CLI logoları adsız tanınmıyor" maddesi komut adlarıyla giderildi.

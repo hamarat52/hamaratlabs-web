@@ -1,9 +1,9 @@
 import L from './hermesLogoVerisi';
-import geminiCliMaske from './img/gemini-cli-maske.png';
 
-// Hermes Agent'ın bağlantıları (Yusuf, 2026-11-12): modeller (Claude, GPT, Gemini), MCP ve CLI'lar (Claude Code, agy, Gemini CLI).
+// Hermes Agent'ın bağlantıları (Yusuf, 2026-11-12): modeller (Claude, GPT, Gemini), MCP ve CLI'lar (Claude Code, agy).
 // Tek renk currentColor, platform logolarıyla aynı dil. Kaynaklar ve lisanslar: docs/wingwire-uygulama/RAPOR.md "Hermes bağlantıları".
-// Gemini CLI'ın resmi simgesi yalnız renkli PNG: renk atılmış maske (araclar/gemini_cli_maske.py), CSS mask, rengi currentColor.
+// Gemini CLI çıkarıldı (pm-hamaratlabs, 2026-11-12: sitesi "Antigravity ile değiştirildi" diyor, iş akışı agy). Maskesi
+// (img/gemini-cli-maske.png) ve üretim betiği (araclar/gemini_cli_maske.py) duruyor, kullanılmıyor (import yok, derlemeye girmez).
 
 const Svg = ({ id, ad }) => (
   <svg className="pl-logo__i" viewBox={L[id][0]} role="img" aria-label={ad}>
@@ -11,8 +11,6 @@ const Svg = ({ id, ad }) => (
     <path d={L[id][1]} />
   </svg>
 );
-
-const Maske = ({ src, ad }) => <i className="pl-logo__i pl-logo__m" role="img" aria-label={ad} title={ad} style={{ '--maske': `url(${src})` }} />;
 
 export const Modeller = () => (
   <span className="pl-logo hb-logo" role="group" aria-label="Hermes'in bağlanabildiği modeller">
@@ -22,11 +20,18 @@ export const Modeller = () => (
   </span>
 );
 
+// CLI logoları adsız tanınmıyor: her logonun altında terminal komutu, mono
+const Cli = ({ id, ad, komut }) => (
+  <span className="hb-cli">
+    <Svg id={id} ad={ad} />
+    <code>{komut}</code>
+  </span>
+);
+
 export const Clilar = () => (
-  <span className="pl-logo hb-logo" role="group" aria-label="Bu makinede kurulu CLI'lar">
-    <Svg id="claudecode" ad="Claude Code" />
-    <Svg id="agy" ad="agy (Antigravity CLI)" />
-    <Maske src={geminiCliMaske} ad="Gemini CLI" />
+  <span className="pl-logo hb-logo hb-logo--cli" role="group" aria-label="Bu makinede kurulu CLI'lar">
+    <Cli id="claudecode" ad="Claude Code" komut="claude" />
+    <Cli id="agy" ad="Antigravity CLI" komut="agy" />
   </span>
 );
 
