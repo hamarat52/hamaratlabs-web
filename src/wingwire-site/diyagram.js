@@ -78,7 +78,7 @@ export function motorKur(dy, key, { az, durdu: ilkDurdu = false }) {
   /* Kenar: d (yol), yon ileri|iki, kat a|b, k (kaynak düğüm), h (hedef düğüm), cip, tur */
   const KENAR = {
     a() {
-      const tel = n('tel'), her = n('her'), mod = n('mod'), kapi = n('kapi'), web = n('web'), cu = c('u'), cd = c('d'), o = [];
+      const tel = n('tel'), her = n('her'), mod = n('mod'), mcp = n('mcp'), cli = n('cli'), kapi = n('kapi'), web = n('web'), cu = c('u'), cd = c('d'), o = [];
       const svc = ['dep', 'ses', 'lmp', 'yt', 'git', 'play', 'appst'];
       if (!dar.matches) {
         const u1 = P(cu, 'l'), u2 = P(cu, 'r'), d1 = P(cd, 'r'), d2 = P(cd, 'l'), t1 = P(tel, 'r', 0.3), t2 = P(tel, 'r', 0.7), h1 = P(her, 'l', 0.3), h2 = P(her, 'l', 0.62);
@@ -90,8 +90,13 @@ export function motorKur(dy, key, { az, durdu: ilkDurdu = false }) {
         o.push({ ad: 'k', d: 'M' + f(k2) + bez(k2, 'b', w1, 'l', 60), kat: 'b', yon: 'iki', k: kapi, h: web });
         const hb = P(her, 'b'), wt = P(web, 't');
         o.push({ ad: 'hw', d: 'M' + f(hb) + bez(hb, 'b', wt, 't'), kat: 'b', yon: 'iki', k: her, h: web });
-        const hr = P(her, 'r'), ml = P(mod, 'l');
+        const hr = P(her, 'r', 0.3), ml = P(mod, 'l');
         o.push({ ad: 'hm', d: 'M' + f(hr) + bez(hr, 'r', ml, 'l'), kat: 'a', yon: 'iki', k: her, h: mod });
+        /* Hermes bağlantıları: MCP (genel katman, modelin altında) ve CLI'lar (kurulum katmanının ilk satırı, Web'in sağında) */
+        const hr2 = P(her, 'r', 0.72), cl = P(mcp, 'l');
+        o.push({ ad: 'hmcp', d: 'M' + f(hr2) + bez(hr2, 'r', cl, 'l'), kat: 'a', yon: 'iki', k: her, h: mcp });
+        const hb2 = P(her, 'b', 0.86), ct = P(cli, 't');
+        o.push({ ad: 'cli', d: 'M' + f(hb2) + bez(hb2, 'b', ct, 't'), kat: 'b', yon: 'iki', k: her, h: cli });
         const wb = P(web, 'b');
         svc.forEach(id => {
           const e = n(id), et = P(e, 't');
@@ -115,8 +120,10 @@ export function motorKur(dy, key, { az, durdu: ilkDurdu = false }) {
         o.push({ ad: 'k', d: 'M' + f(k1) + bez(k1, 'b', k2, 't', 22), kat: 'b', yon: 'iki', k: kapi, h: web });
         const hx2 = Math.max(H.l + 40, W.l + 26), p1 = [hx2, H.b], p2 = [hx2, W.t];
         o.push({ ad: 'hw', d: 'M' + f(p1) + 'L' + f(p2), kat: 'b', yon: 'iki', k: her, h: web });
-        const M = kut(mod);
+        /* dar ekranda model ve MCP Hermes'in hemen sağında (12 px aralık): model kısa düz yol; MCP Hermes'in altına taşarsa dik yol */
+        const M = kut(mod), Mc = kut(mcp), xm = (H.r + Mc.l) / 2, ym = Math.min(Mc.cy, H.b - 14);
         o.push({ ad: 'hm', d: 'M' + f([H.r, M.cy]) + 'L' + f([M.l, M.cy]), kat: 'a', yon: 'iki', k: her, h: mod });
+        o.push({ ad: 'hmcp', d: 'M' + f([H.r, ym]) + (ym < Mc.cy - 1 ? orto([[H.r, ym], [xm, ym], [xm, Mc.cy], [Mc.l, Mc.cy]], 5) : 'L' + f([Mc.l, ym])), kat: 'a', yon: 'iki', k: her, h: mcp });
         const G = kut(dy.querySelector('.grp')), gx = G.l + 16;
         svc.forEach(id => {
           const e = n(id), E2 = kut(e);
@@ -126,6 +133,9 @@ export function motorKur(dy, key, { az, durdu: ilkDurdu = false }) {
         o.push({ ad: 'pl', d: 'M' + f([x1, Lm.b]) + orto([[x1, Lm.b], [x1, Pl.t + 22], [Pl.l, Pl.t + 22]], 10), kat: 'b', k: n('lmp'), h: n('plat') });
         const Dp = kut(n('dep')), Dv = kut(n('drive')), x2 = Dp.l + 16;
         o.push({ ad: 'dr', d: 'M' + f([x2, Dp.b]) + orto([[x2, Dp.b], [x2, Dv.cy], [Dv.l, Dv.cy]], 10), kat: 'b', k: n('dep'), h: n('drive') });
+        /* CLI'lar dar ekranda grubun sonunda: Hermes'in altından grubun üstüne iner, sağ kenar kanalından (kapı yolunun 9 px içi) CLI'ya */
+        const C = kut(cli), s2 = sag - 9, y0 = G.t - 7, x0 = H.r - 24;
+        o.push({ ad: 'cli', d: 'M' + f([x0, H.b]) + orto([[x0, H.b], [x0, y0], [s2, y0], [s2, C.cy], [C.r, C.cy]], 10), kat: 'b', yon: 'iki', k: her, h: cli });
       }
       return o;
     },

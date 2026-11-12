@@ -187,3 +187,63 @@ Kareler `docs/wingwire-uygulama/shots/logolar/`: `logolar-1440-acik.png`, `logol
 ### Zayıf yanlar
 - LinkedIn'in resmi dosyası PNG; maskelendiği için 2x'te keskin, daha yüksek yoğunlukta (3x telefon) kenarları SVG'ler kadar keskin değil (120 px kaynak, 22 px x 3 = 66 px gösterim; yeterli). ® işareti bu boyutta okunmuyor ama dosyanın parçası, çıkarılmadı.
 - Simple Icons logoları kare 24x24 kutuya sığdırılmış hâliyle duruyor; görsel ağırlıkları (ör. X ince, Facebook dolu daire) markalardan geldiği için eşit değil.
+
+## 4. tur: Hermes bağlantıları (modeller, MCP, CLI'lar)
+İş: pm-hamaratlabs, 2026-11-12. Yusuf: "hermes agenta claude gpt gemini agy gibi model ve mcp'lerin ve cli'ların bağlı olduğunu da gösterebiliriz bence".
+
+### Yerleşim kararı
+- Masaüstü tuvali (1440):
+  - Hermes'in sağındaki sütun ikiye bölündü: üstte Model düğümü (Claude, GPT, Gemini logoları; "Model"; "Hermes'in sağlayıcısı; WingWire'ın modeli yok"), altında "MCP sunucuları" düğümü (MCP logosu). İkisi genel katmanda (düz kenarlı), Hermes'in sağ kenarından iki ayrı yol.
+  - CLI'lar (Claude Code, agy, Gemini CLI logoları; "CLI'lar") "şimdilik yalnız benim kurulumumda" katmanının ilk satırında, WingWire Web'in sağındaki boş hücrede (kesik kenarlı). Bu makinede kurulu oldukları için bu katmanda; Web'e değil Hermes'e bağlı: yol Hermes'in alt kenarından iner.
+  - GPT "benim kurulumumda" denmeden, Hermes'in bağlanabildiği modeller arasında (genel katmanda) duruyor; MCP için isim ya da sayı yok.
+- Dar ekran (621-820): Model ve MCP Hermes'in sağında alt alta (kısa düz yol ve dik yol); CLI'lar grubun sonunda, yolu Hermes'in altından sağ kenar kanalıyla (kapı yolunun 9 px içinden) iner.
+- Telefon (sade düzen 1), ilk bakışta yeni düğüm yok:
+  - Model düğümü aynı yerde ve aynı boyda (150 px); "Model" yazısının yanına üç model logosu (17 px) geldi, alt yazı onaylı hâliyle kaldı ("Hermes'in ayarındaki sağlayıcı").
+  - "MCP sunucuları" Hermes'in kutusunun içinde, ince bir çizgiyle ayrılmış alt satır. Model kutusuna koymak denendi: kutu "mesaj · onay · dosya" şeridinin üstüne biniyordu, kaldırıldı.
+  - CLI'lar servis kümesinde (dokununca açılan liste): "CLI'lar · Hermes terminalden çalıştırır" ve üç logo (22 px). Düğme "8 bağlantı", şeride kendi çizdiğimiz terminal simgesi eklendi; şerit simgeleri 20 → 18 px, böylece şerit önceki genişliğinde kaldı.
+  - Hermes kutusu 33 px uzadı, alt şerit 20 px aşağı alındı; omurga 350 → 366 px.
+- Hüzme: yeni yollarda (masaüstü `hmcp`, `cli`) aynı teknik, yolun kendi kopyasında kayan dash penceresi; 12 sn'lik örneklemede 17 yolun 17'sinde hüzme aktı. Telefonda yeni yol yok.
+- Kelime (sayfanın görünür metni, aynı ölçüm): 1440 158 → 163 (+5: "WingWire'ın modeli yok", "MCP sunucuları", "CLI'lar"); 390 kapalı 129 → 131 ("MCP sunucuları"), küme açık 159 → 165.
+
+### Önce / sonra (gerçek ölçüm, `araclar/baglantilar.py`, `shots/hermes-baglantilari/once.json`, `sonra.json`)
+| | önce | sonra |
+|---|---|---|
+| 1440 tuval yüksekliği | 929 px | 937 px (+8; CLI düğümü katmanın ilk satırını 8 px uzatıyor) |
+| 1440 düğüm / yol | 14 / 15 | 16 / 17 |
+| 390 diyagram (küme kapalı) | 613 px | 629 px (+16) |
+| 390 diyagram (küme açık) | 987 px | 1093 px (+106; CLI satırı ve Hermes'teki MCP satırı) |
+| 390 ilk bakışta görünen düğüm | 6 (mod, tel, her, kapı, web, küme düğmesi) | 6 (aynı) |
+| 390 diyagramdaki en küçük yazı | 13 px | 13 px |
+| scrollWidth 390 / 1440 | 390 / 1440 | 390 / 1440 |
+| konsol hatası / dış istek (iki tema, 1440 ve 390) | 0 / 0 | 0 / 0 |
+| em dash / "Marketing", kablo, fiş | 0 / 0 | 0 / 0 |
+| hareket azaltma: hüzme öğesi / düğüm / logo | 0 / tam | 0 / 16 (390: 6 + liste) / 15 logonun 15'i |
+
+Ara genişlikler: 768 (koyu) scrollWidth 768, 17 yol; 360 (açık, küme açık) scrollWidth 360 (`ara-768-koyu.png`, `ara-360-acik.png`).
+`npm run build` başarılı; `npx eslint src/wingwire-site/ src/App.jsx` 0 hata, 1 uyarı (önceden var olan `App.jsx:57`). WingWire chunk'ı 51.275 bayt (gzip 21.940); eklenen ham veri: logo yolları 6,3 KB, Gemini CLI maskesi 2,7 KB (JS'e gömülü). `CrystalizedBall` izi 0.
+
+### Logoların kaynağı ve lisansı (indirme 2026-11-12)
+| Logo | Kaynak | Lisans / not |
+|---|---|---|
+| Claude, Gemini (Google Gemini), Claude Code, MCP (Model Context Protocol) | Simple Icons 16.37.0, `https://unpkg.com/simple-icons@16.37.0/icons/{claude,googlegemini,claudecode,modelcontextprotocol}.svg`; yol değiştirilmeden, viewBox 0 0 24 24 | CC0-1.0 (proje); logolar markaların ticari markası (Simple Icons DISCLAIMER). Simple Icons'taki kaynaklar: claude.ai, gemini.google.com, code.claude.com, github.com/modelcontextprotocol/docs (logo/light.svg) |
+| GPT (OpenAI Blossom) | Simple Icons'ta OpenAI yok. OpenAI'ın marka sayfası `https://openai.com/brand/` "OpenAI Blossom" görseli: `https://images.ctfassets.net/kftzwdyauwt9/3hUGLn3ypllZ0oa01qOYVq/28e8188e6f11b84c3e876569d492734f/Blossom_Light.svg` (sha256 01485e70…26e2). Dosya yapım ızgarasıyla birlikte; içindeki ikinci dolu yol (tek başına Blossom) değiştirilmeden alındı, viewBox yolun sınır kutusundan (Chrome getBBox) kareye tamamlandı | OpenAI ticari markası, OpenAI Design Guidelines'a tabi. Kılavuz: logoyu değiştirmeden kullan, Blossom'a renk ekleme, OpenAI hizmetiyle doğrudan ilgili yerde kullan, kendi markandan büyük gösterme. Burada tek renk (tema metin rengi), 24 px, Hermes'in bağlanabildiği sağlayıcı olarak. Ekran okuyucu adı "GPT (OpenAI)" |
+| agy (Antigravity CLI) | Simple Icons'ta yok; ayrı bir CLI logosu bulunamadı. Google Antigravity'nin resmi işareti: `https://antigravity.google/favicon.svg` (sha256 de7911c3…f02e). İşaretin şekli tek bir yol (renk katmanlarının maskesi); bu yol değiştirilmeden alındı, renk katmanları atıldı (tek renk) | Google ticari markası. Ekran okuyucu adı "agy (Antigravity CLI)" |
+| Gemini CLI | Simple Icons'ta yok. Resmi simge yalnız renkli PNG: `https://geminicli.com/icon.png` (1645x1645, sha256 351e9f5b…2438; GitHub deposundaki VS Code eklentisi simgesiyle aynı). Şekil çizilmedi: `araclar/gemini_cli_maske.py` renkli pikselleri (çerçeve ve ">") mürekkep, koyu iç dolguyu saydam yapıp 120 px'e küçültür; CSS maskesi, rengi currentColor | Google ticari markası. Not: geminicli.com'da 2026-11-12'de "Gemini CLI was replaced by Antigravity" yazıyor; Yusuf'un makinesinde `gemini` 0.60.0 kurulu olduğu için gösterildi (bkz. Sorular) |
+
+Yol verisi elle kopyalanmadı: `araclar/hermes_logo_verisi.py` indirilen dosyalardan `src/wingwire-site/hermesLogoVerisi.js`'i üretir. Renk: platform logolarıyla aynı karar, tek renk `currentColor`.
+
+### Dosyalar
+- Yeni: `src/wingwire-site/HermesLogolari.jsx`, `src/wingwire-site/hermesLogoVerisi.js` (üretilmiş), `src/wingwire-site/img/gemini-cli-maske.png`; araçlar `baglantilar.py`, `ara_genislik.py`, `hermes_logo_verisi.py`, `gemini_cli_maske.py`.
+- Değişen: `WingWireSite.jsx` (Model düğümü logolu, MCP ve CLI düğümleri, telefonda Hermes'te MCP satırı ve listede CLI'lar, "8 bağlantı"; kullanılmayan `i-mod` simgesi çıktı, `i-cli` eklendi), `WingWireSite.css`, `diyagram.js` (`hmcp` ve `cli` yolları, dar ekranda `hm` ve `hmcp`).
+- Kareler `docs/wingwire-uygulama/shots/hermes-baglantilari/`: `once-*` ve `sonra-*` × `1440-acik`, `1440-koyu`, `390-acik`, `390-koyu`, `390-*-kume-acik`, `*-azalt`; `ara-768-koyu.png`, `ara-360-acik.png` (1,5 MB toplam).
+
+### Zayıf yanlar
+- Telefonda Model'in alt yazısı "WingWire'ın modeli yok" kısmını taşımıyor: 150 px'lik kutuda üç satıra çıkıyor ve şeridin üstüne biniyor; kutu 360 px'te sol üstteki "Tailscale · özel ağ" yazısına dayandığı için genişletilemedi. Masaüstünde var.
+- 360 px'te küme düğmesindeki "8 bağlantı" iki satıra kırılıyor; bu, 7 simgeyle de vardı (şerit genişliği aynı, 158 px). 390'da tek satır.
+- 360 px'te Model kutusu "Tailscale · özel ağ" yazısının sağ ucuna 2 px yaklaşıyor; konum ve genişlik onaylı hâlle aynı, bu işte değişmedi.
+- Tuvalde CLI'lar logoları (Claude Code'un piksel figürü, Antigravity kemeri, Gemini CLI kutusu) Model logoları kadar tanınır değil; adlar yalnız ekran okuyucuda ve `title`'da.
+
+## Sorular (4. tur)
+1. geminicli.com 2026-11-12'de "Gemini CLI was replaced by Antigravity" diyor. Gemini CLI diyagramda kalsın mı, yoksa CLI'larda yalnız Claude Code ve agy mi olsun?
+2. Telefonda Model'in alt yazısı onaylı hâliyle ("Hermes'in ayarındaki sağlayıcı") kaldı; "WingWire'ın modeli yok" yalnız masaüstünde. Telefonda da istenirse omurga yaklaşık 40 px uzar. Kabul mü?
+3. CLI'lar tuvalde yalnız logo ve "CLI'lar" yazısıyla duruyor. Hangi logonun hangi araç olduğu ekranda yazmıyor. Logoların altına komut adları (`claude`, `agy`, `gemini`) eklensin mi? 3 kelime artar.

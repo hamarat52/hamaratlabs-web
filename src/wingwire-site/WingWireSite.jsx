@@ -3,6 +3,7 @@ import { asset } from '../base';
 import { Link } from '../nav';
 import { motorKur } from './diyagram';
 import PlatformLogolari from './PlatformLogolari';
+import { Clilar, McpLogo, Modeller } from './HermesLogolari';
 import './fonts.css';
 import './WingWireSite.css';
 import icon from './img/icon.webp';
@@ -44,7 +45,6 @@ function Simgeler() {
       <symbol id="i-tel" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5" /><path d="M11 18.5h2" /></symbol>
       <symbol id="i-ag" viewBox="0 0 24 24"><path d="M4.5 9.5a11 11 0 0 1 15 0M7.5 12.8a6.6 6.6 0 0 1 9 0" /><circle cx="12" cy="16.6" r="1.5" /></symbol>
       <symbol id="i-her" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="3" /><path d="M7 10l3 2.5L7 15M12.5 15h4.5" /></symbol>
-      <symbol id="i-mod" viewBox="0 0 24 24"><path d="M12 3.5l1.9 5.6 5.6 1.9-5.6 1.9L12 18.5l-1.9-5.6L4.5 11l5.6-1.9z" /></symbol>
       <symbol id="i-web" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2.5" /><path d="M3 9h18M6.2 6.8h.01M8.6 6.8h.01" /></symbol>
       <symbol id="i-kapi" viewBox="0 0 24 24"><path d="M5 20.5V10a7 7 0 0 1 14 0v10.5M3 20.5h18M12 13v3" /></symbol>
       <symbol id="i-ses" viewBox="0 0 24 24"><path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 10.5v3" /></symbol>
@@ -55,6 +55,7 @@ function Simgeler() {
       <symbol id="i-disk" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5" /><path d="M7 14h.01M10 14h.01M14 10h4" /></symbol>
       <symbol id="i-bulut" viewBox="0 0 24 24"><path d="M7 18.5a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 17.8 8.7 4.9 4.9 0 0 1 17 18.5z" /></symbol>
       <symbol id="i-kure" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17M12 3.5c2.6 2.4 2.6 14.6 0 17M12 3.5c-2.6 2.4-2.6 14.6 0 17" /></symbol>
+      <symbol id="i-cli" viewBox="0 0 24 24"><path d="M5 7.5l4.5 4.5L5 16.5M12 17h7" /></symbol>
     </svg>
   );
 }
@@ -364,10 +365,17 @@ function Ag({ az }) {
                 <i>kanban</i>
               </span>
             </div>
-            <div className="nd" data-n="mod">
-              <Ik ad="mod" />
-              <b>Model</b>
-              <span>Hermes'in ayarındaki sağlayıcı</span>
+            {/* Hermes'in bağlantıları (Yusuf, 2026-11-12): model sağlayıcıları ve MCP sunucuları genel katmanda */}
+            <div className="hb-sag">
+              <div className="nd nd--k" data-n="mod">
+                <Modeller />
+                <b>Model</b>
+                <span>Hermes'in sağlayıcısı; WingWire'ın modeli yok</span>
+              </div>
+              <div className="nd" data-n="mcp">
+                <McpLogo />
+                <b>MCP sunucuları</b>
+              </div>
             </div>
             <div className="grp">
               <div className="grp__bas">
@@ -422,6 +430,11 @@ function Ag({ az }) {
                 <b>Google Drive</b>
                 <span>yedek · arşiv</span>
               </div>
+              {/* Hermes bunları terminalden çalıştırır; bu makinede kurulu olanlar, bu yüzden "yalnız benim kurulumumda" katmanında */}
+              <div className="nd nd--b nd--k" data-n="cli">
+                <Clilar />
+                <b>CLI'lar</b>
+              </div>
               {/* Yusuf (2026-11-12): kutuda yazı yok, yalnız platform logoları; adlar aria-label/title ile */}
               <div className="nd nd--b nd--k nd--pl" data-n="plat">
                 <PlatformLogolari />
@@ -441,7 +454,10 @@ function Ag({ az }) {
               Tailscale · özel ağ
             </span>
             <div className="sn sn--yal" data-n="mod" style={{ right: 4, top: 12, width: 150 }}>
-              <b>Model</b>
+              <span className="s-mod">
+                <b>Model</b>
+                <Modeller />
+              </span>
               <span>Hermes'in ayarındaki sağlayıcı</span>
             </div>
             <CipU style={{ '--x': 50, top: 124 }} />
@@ -455,8 +471,13 @@ function Ag({ az }) {
               <b>Hermes Agent</b>
               <span>bilgisayarında</span>
               <span className="s-etk">ajanlar · cron · kanban</span>
+              {/* telefonda MCP ayrı düğüm değil, Hermes'in kutusunda (ilk bakıştaki düğüm sayısı artmasın) */}
+              <span className="s-mcp">
+                <McpLogo />
+                MCP sunucuları
+              </span>
             </div>
-            <CipD style={{ '--x': 50, top: 300 }} />
+            <CipD style={{ '--x': 50, top: 320 }} />
           </div>
           <div className="s-kume">
             <div className="s-sira">
@@ -478,8 +499,9 @@ function Ag({ az }) {
                 <Ik ad="mag" />
                 <Ik ad="mag" />
                 <Ik ad="disk" />
+                <Ik ad="cli" />
               </span>
-              <b>7 bağlantı</b>
+              <b>8 bağlantı</b>
               <span className="s-ac">{acik ? 'Gizle' : 'Göster'}</span>
             </button>
             <ul className="s-liste" id="ww-s1-liste" hidden={!acik}>
@@ -499,6 +521,12 @@ function Ag({ az }) {
                 <b>Depolama</b>
                 <span>yerel klasör · harici disk; yeni sürüm eskisini silmez</span>
                 <span className="s-alt">→ Google Drive · yedek, arşiv</span>
+              </li>
+              <li>
+                <Ik ad="cli" />
+                <b>CLI'lar</b>
+                <span>Hermes terminalden çalıştırır</span>
+                <Clilar />
               </li>
               <li className="s-kisa">
                 <Ik ad="film" />
