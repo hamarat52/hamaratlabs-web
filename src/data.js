@@ -32,7 +32,7 @@ export const FEATURED = [
     name: 'SesVer',
     stage: 'beta',
     lead: 'Ücretsiz, yerel ve açık kaynak Türkçe ses üretimi ve klonlama. Yazdığını kendi bilgisayarında sese çevirir.',
-    points: ['Hazır Türkçe sesler', 'Tarif ederek yeni ses tasarla', 'Kendi sesini klonla', 'Bilgisayarında çalışır, buluta gönderilmez', 'NVIDIA ve AMD ekran kartıyla hızlanır', 'Arayüz Türkçe dahil 11 dilde', 'Ücretsiz ve açık kaynak'],
+    points: ['Hazır Türkçe sesler', 'Tarif ederek yeni ses tasarla', 'Kendi sesini klonla', 'Uzun metinler için üretim kuyruğu, TXT/CSV ile toplu aktarma', 'Bilgisayarında çalışır, buluta gönderilmez', 'NVIDIA ve AMD ekran kartıyla hızlanır', 'Arayüz Türkçe dahil 11 dilde', 'Ücretsiz ve açık kaynak'],
     platform: 'macOS · WINDOWS',
     download: 'https://github.com/hamarat52/sesver',
     downloadLabel: "GitHub'dan indir",
@@ -45,7 +45,7 @@ export const FEATURED = [
     name: 'WingWire',
     stage: 'dev',
     lead: "Kendi yapay zekâ ajanına Android'den bağlan: sohbet et, onay ver, gerekince ajan seni arasın.",
-    points: ['Ajanınla canlı sohbet', 'Oturumlarına telefondan devam et', 'İşlemleri tek dokunuşla onayla', 'Gerekince ajan seni arar'],
+    points: ['Ajanınla canlı sohbet', 'Oturumlarına telefondan devam et', 'İşlemleri tek dokunuşla onayla', 'Gerekince ajan seni arar', "Ana ekran widget'ları: kota, ajanlar, onay, hızlı mesaj"],
     platform: 'ANDROID',
     // Ürünün kendi sitesi (/wingwire). AppPage bu alan varsa ürünün renginde ek bir CTA gösterir.
     visitUrl: '/wingwire',
@@ -64,7 +64,7 @@ export const APPS = [
     internal: true,
     short: 'Ajan ekibini tarayıcıdan yönet',
     lead: "Hermes ajanlarımı tarayıcıdan yöneten panel: kendi Mac'imde çalışır, yalnız özel ağım (tailnet) üzerinden erişilir.",
-    points: ['Ajanlarla sohbet ve gruplar', 'İş ve görev takibi, cron takvimi', 'Tek «Oluştur» ekranından görsel, video ve seslendirmeli video', 'Ses Stüdyosu: seslendirme, diyalog, ses efekti, müzik', 'Telefonu QR kodla eşle (telefon paneli şimdilik yalnız okur)', 'Projeler, paylaşımlar ve sağlık paneli'],
+    points: ['Ajanlarla sohbet ve gruplar', 'İş ve görev takibi, cron takvimi', 'Yapılacaklar: ay ve hafta takvimi, sohbetten /me ile görev ekleme', 'Tek «Oluştur» ekranından görsel, video ve seslendirmeli video', 'Ses Stüdyosu: seslendirme, diyalog, ses efekti, müzik', 'Telefonu QR kodla eşle (telefon paneli şimdilik yalnız okur)', 'Projeler, paylaşımlar ve sağlık paneli'],
     platform: 'WEB · İÇ KULLANIM'
   },
   {
@@ -123,10 +123,11 @@ export const APPS = [
     stage: 'dev',
     short: "İstanbul'u okuyarak gez",
     lead: "İstanbul'daki çeşme, cami ve sebillerin kitabelerini kaynağıyla birlikte okutan, şehri okuyarak gezdiren bir rehber.",
-    points: ['1.957 kitabe kaydı', '839 tarihî yapı', "8.900'ü aşkın fotoğraf, internetsiz"],
+    points: ['1.957 kitabe kaydı', '839 tarihî yapı', "8.900'ü aşkın fotoğraf, internetsiz", "iPhone'da Siri ile yakındaki tarihî yapılar"],
     platform: 'ANDROID · iOS',
     devStep: 4,
-    devNote: "Sürüm 0.1.0 için mağaza paketi hazır: Türkçe ve İngilizce ekran görüntüleri ve açıklamalar tamam. Google Play'e ilk yükleme sırada.",
+    // 0.1.1 (yapı 5) ASC yüklemesi: kitabe 430ae9e (2026-11-11). TestFlight/inceleme durumu repoda yok, yazılmadı.
+    devNote: "iOS sürümü 0.1.1 App Store Connect'e yüklendi, henüz indirilemiyor. Google Play'e ilk yükleme sırada.",
     // Test sürümünden gerçek ekran görüntüleri (docs/screenshots/ içindeki QA setinden).
     screenshots: [
       { src: asset('/kitabe-screens/home.webp'), alt: 'Kitabe ana sayfa: Günün Eseri ve Öne Çıkanlar' },
@@ -174,8 +175,20 @@ export const APPS = [
 
 export const LOG = [
   {
+    tag: 'KASIM 2026 · SESVER',
+    text: 'SesVer 1.4.0 yayında. Uzun metinler üretim kuyruğuyla sırayla seslendiriliyor, TXT ve CSV dosyalarından toplu aktarma var. Ürün sayfasında kısa bir tanıtım videosu var.'
+  },
+  {
+    tag: 'KASIM 2026 · WINGWIRE',
+    text: "Android uygulamasına 8 ana ekran widget'ı geldi. 0.3.3 ile alt menüde hangi bölümlerin duracağı seçilebiliyor, kalanlar Diğer kartında."
+  },
+  {
+    tag: 'KASIM 2026 · KİTABE',
+    text: "iOS sürümü 0.1.1 App Store Connect'e yüklendi. iPhone'da Siri ve Kestirmeler ile yakındaki tarihî yapılar listelenebiliyor."
+  },
+  {
     tag: 'KASIM 2026 · WINGWIRE WEB',
-    text: 'Görsel, video ve seslendirmeli video artık tek bir Oluştur ekranından üretiliyor; Ses Stüdyosu eklendi. Telefon QR kodla eşlenebiliyor, telefon paneli şimdilik yalnız okuyor.'
+    text: 'Yapılacaklar modülü eklendi: ay ve hafta takvimi, sağ panelden hızlı ekleme, sohbetten /me ile görev. Görsel, video ve seslendirmeli video tek bir Oluştur ekranından üretiliyor; Ses Stüdyosu eklendi.'
   },
   {
     tag: 'EKİM 2026 · KİTABE',
