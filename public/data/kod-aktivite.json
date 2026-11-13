@@ -31462,5 +31462,167 @@
     "score": 95,
     "is_merge": false,
     "lines": 7331
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "8344d9468a",
+    "date": "2026-11-13T00:25:59+03:00",
+    "subject": "feat(art): pure standalone 3/4 pixel-art tables, chairs & wall decor suite",
+    "score": 93,
+    "is_merge": false,
+    "lines": 847
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "5a89b05f0c",
+    "date": "2026-11-13T12:39:00+03:00",
+    "subject": "chore(art): add 2x2 asset style comparison board generator script",
+    "score": 51,
+    "is_merge": false,
+    "lines": 88
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "eb16ff0e0e",
+    "date": "2026-11-13T12:53:10+03:00",
+    "subject": "İlk commit: README ve .gitignore",
+    "score": 44,
+    "is_merge": false,
+    "lines": 12
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "fc7b278add",
+    "date": "2026-11-13T14:16:13+03:00",
+    "subject": "Veri katmanı: gerçek kaynaklardan zamanlanmış çekim, SQLite, kaynak tazelik kaydı, iki kapılı helal hesabı",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3486
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "cf3bbe8775",
+    "date": "2026-11-13T14:16:29+03:00",
+    "subject": "Rapor: git kanıtı (commit sonrası durum ve git ls-files)",
+    "score": 49,
+    "is_merge": false,
+    "lines": 59
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "a265be3d57",
+    "date": "2026-11-13T14:21:47+03:00",
+    "subject": "art: unify all interior and storefront sprites around Tarz 1 16-bit pixel art",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1157
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "74707418f7",
+    "date": "2026-11-13T15:10:56+03:00",
+    "subject": "Laboratuvar motoru: dondurulmuş deney kaydı, backtest, ileri test defteri, haftalık özet",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2981
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "0baedac125",
+    "date": "2026-11-13T15:15:52+03:00",
+    "subject": "Laboratuvar raporu ve ilk gerçek çıktılar (deney LAB-20261113-1)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 8515
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "1deb33386e",
+    "date": "2026-11-13T15:46:11+03:00",
+    "subject": "Laboratuvar: her varlık × strateji ayrı cüzdan (Deney 2), toplam görünümleri, ileri test listesi",
+    "score": 59,
+    "is_merge": false,
+    "lines": 899
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "a25a959471",
+    "date": "2026-11-13T15:53:19+03:00",
+    "subject": "Laboratuvar Deney 2 raporu ve çıktıları (LAB-20261113-2)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 10133
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "af91591a67",
+    "date": "2026-11-13T16:12:09+03:00",
+    "subject": "Veri katmanı: Kuveyt Türk kur kaynağı, piyasa ortası yedeği, çapraz kontrol ve kur görünümü",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1201
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "00b442dcf8",
+    "date": "2026-11-13T16:17:58+03:00",
+    "subject": "KT kur raporu (docs/KT-KUR-RAPOR.md)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 411
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "451daf3608",
+    "date": "2026-11-13T16:41:07+03:00",
+    "subject": "fix(konus): Santral Galeri'yi tam okusun — Ses/Arşiv/görüntüleyici/düzenleyici/form ekranları, Oluştur/Yükle düğmeleri (galeri_olustur, galeri_yukle), sol menü projeleri, okunamadı/yükleniyor/boş ayrımı; istem güncel (tsc 0, vitest 4782/4783, build 0, e2e 12/12)",
+    "score": 70,
+    "is_merge": false,
+    "lines": 1347
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "078f7cc6b7",
+    "date": "2026-11-13T16:54:59+03:00",
+    "subject": "fix(konus): güvenlik Ş1/B1 + B4 — izole projedeki açık öğe ve ızgara öğesi Santral'a gitmez",
+    "score": 63,
+    "is_merge": false,
+    "lines": 171
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "c8d8d103f3",
+    "date": "2026-11-13T16:58:08+03:00",
+    "subject": "merge: fix/konus-galeri — Santral Galeri'yi tam okur (Ses/Arşiv/görüntüleyici/formlar), Oluştur/Yükle eylemleri, okunamadı/yükleniyor/boş ayrımı; izole proje süzgeci açık öğe + ızgara; siberguvenlik ŞARTLI GEÇER → Ş1 kapatıldı; tsc 0, vitest 4787/4788, build 0; Yusuf kalıcı onayı",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "51a56ea46b",
+    "date": "2026-11-13T16:58:08+03:00",
+    "subject": "docs(qa): konus-galeri siberguvenlik (ŞARTLI GEÇER → Ş1 kapatıldı)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 52
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "f6d527d45a",
+    "date": "2026-11-13T22:02:01+03:00",
+    "subject": "Panel v1: gerçek veriyle salt okuyan yerel web paneli",
+    "score": 60,
+    "is_merge": false,
+    "lines": 4084
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "879c271e73",
+    "date": "2026-11-13T22:05:23+03:00",
+    "subject": "Panel v1 raporu, ekran görüntüleri ve ölçümler",
+    "score": 58,
+    "is_merge": false,
+    "lines": 727
   }
 ]
