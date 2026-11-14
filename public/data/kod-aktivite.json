@@ -31624,5 +31624,374 @@
     "score": 58,
     "is_merge": false,
     "lines": 727
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ff8a7e342f",
+    "date": "2026-11-14T12:13:52+03:00",
+    "subject": "wip(apk-guncelleme): 429 ile yarıda kalan iş korunuyor (devam edilecek)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2233
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "93c120cc22",
+    "date": "2026-11-14T12:13:53+03:00",
+    "subject": "wip(alt-bar-diger): 429 ile yarıda kalan iş korunuyor (devam edilecek)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 364
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5c284b180b",
+    "date": "2026-11-14T12:16:51+03:00",
+    "subject": "merge: main → feat/apk-guncelleme (Yapılacaklar + fix/konus-galeri; MOBILE_GATE, kapılar, WwErrorCode, F0 belgesi iki taraf da korunarak)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5d37a0e518",
+    "date": "2026-11-14T12:19:08+03:00",
+    "subject": "feat(apk-guncelleme): mobil-api §15, gerçek tarayıcı e2e (5232, 0.3.2→0.3.3 kopyaları + curl SHA-256), 390 kart düzeni, f0 kapı sırası",
+    "score": 89,
+    "is_merge": false,
+    "lines": 242
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "72636bb3dc",
+    "date": "2026-11-14T12:27:28+03:00",
+    "subject": "docs(qa): apk-guncelleme raporu; test(ww-config): allowApkYayin varsayılanı (tsc 0, vitest 4838/4839, build 0, e2e 2/2)",
+    "score": 31,
+    "is_merge": false,
+    "lines": 90
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "971a108fbf",
+    "date": "2026-11-14T12:33:20+03:00",
+    "subject": "feat(alt-bar): «Diğer» sağ üstten alt barın sonuna (ClickUp gibi 9 noktalı öğe + alttan sayfa)",
+    "score": 87,
+    "is_merge": false,
+    "lines": 141
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "d330cd1f05",
+    "date": "2026-11-14T13:54:54+03:00",
+    "subject": "docs(qa): apk-guncelleme siberguvenlik 1. tur (ŞARTLI GEÇER: Ş1 imzacı sabitleme, Ş2 AXML dizgi havuzu, Ş3 kapı yalnız yayın anında)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 58
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "ddfb157c72",
+    "date": "2026-11-14T14:19:42+03:00",
+    "subject": "Veri katmanı: fiyat geçmişi, fon/hisse evreni, temel oranlar, tek sembol taraması",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1789
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "941e3ae06a",
+    "date": "2026-11-14T14:19:54+03:00",
+    "subject": "fix(apk-guncelleme): siberguvenlik şartları Ş1/Ş2 + D2/D4 kapandı, Ş3 belgelendi",
+    "score": 70,
+    "is_merge": false,
+    "lines": 1305
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f9bbac910b",
+    "date": "2026-11-14T14:20:25+03:00",
+    "subject": "wip(guncelleme): uygulama içi güncelleyici — bağlantı kopması ile yarıda kalan iş korunuyor (devam edilecek)",
+    "score": 58,
+    "is_merge": false,
+    "lines": 833
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ab76a8a0f4",
+    "date": "2026-11-14T14:28:50+03:00",
+    "subject": "docs(qa): apk-guncelleme siberguvenlik kontrolü (GEÇER)",
+    "score": 28,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "df563cea0f",
+    "date": "2026-11-14T14:29:07+03:00",
+    "subject": "merge: feat/apk-guncelleme — (siberguvenlik 1. tur ŞARTLI → Ş1/Ş2 kapatıldı → 2. tur GEÇER; Ş3: tarayıcı yayın kapısı canlıda kapalı, yayın CLI) telefon uygulaması güncelleme sunucusu (/ww/mobile/surum, /ww/mobile/apk, Ayarlar › Bağlı istemciler › Telefon uygulaması, WW_ALLOW_APK_YAYIN, saf JS APK imza doğrulaması); tsc 0, vitest 4838/4839, build 0; siberguvenlik GEÇER; Yusuf kalıcı onayı",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "a227bbd2c8",
+    "date": "2026-11-14T14:35:58+03:00",
+    "subject": "feat(guncelleme): güncelleyici ana koda bağlandı (Ajanlar kartı, Hakkında satırları, 6 saat denetimi) + JUnit",
+    "score": 92,
+    "is_merge": false,
+    "lines": 544
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "181c767202",
+    "date": "2026-11-14T14:43:55+03:00",
+    "subject": "Panel: ayrıntı sayfası, arama, Kuveyt Türk fon listesi, izleme ekle/çıkar, Tara",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1994
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "35deed52d9",
+    "date": "2026-11-14T15:13:44+03:00",
+    "subject": "Ayrıntı: Tara sonrası geçmiş/oranlar, ölçüm ve doğrulama araçları, ekran görüntüleri",
+    "score": 58,
+    "is_merge": false,
+    "lines": 718
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "def737f846",
+    "date": "2026-11-14T15:16:05+03:00",
+    "subject": "feat(r2): medya yükleme içerik türü allowlist + koklama/beyan çelişkisi 415, depo tavanı 507 (MEDIA_STORAGE_CAP_BYTES), R2 kullanım freni (%80'de medya alan adı kapanır, yükleme 503), 14 gün saklama; testler 744 geçti",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1413
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "d88fbbcfe8",
+    "date": "2026-11-14T15:18:34+03:00",
+    "subject": "feat(guncelleme): sessiz güncelleme izni, önbellek temizliği, ayrı play derleme dizini; QA sahte /ww/mobile/surum; docs/play/hazirlik.md",
+    "score": 90,
+    "is_merge": false,
+    "lines": 360
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "c18aa2fc19",
+    "date": "2026-11-14T15:21:07+03:00",
+    "subject": "Ayrıntı raporu; fon kategori ortalaması kaldırıldı",
+    "score": 55,
+    "is_merge": false,
+    "lines": 285
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "5dc8d792f9",
+    "date": "2026-11-14T15:35:30+03:00",
+    "subject": "docs(guncelleme): QA raporu + Play hazırlık güncellemesi; play yapısı app/build-play",
+    "score": 37,
+    "is_merge": false,
+    "lines": 141
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "8b0c13b800",
+    "date": "2026-11-14T15:42:10+03:00",
+    "subject": "docs: feat/r2 siberguvenlik 1. tur (ŞARTLI GEÇER: Ş1 dar belirteç, Ş2 Redis kalıcısızlığı, Ş3 413 sahipsiz nesne, Ş4 anahtar kapsamı)",
+    "score": 36,
+    "is_merge": false,
+    "lines": 91
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f7d9142764",
+    "date": "2026-11-14T15:43:08+03:00",
+    "subject": "feat(tailnet-kimlik): tailnet istemcilerinde cihaz kimliği (güvenlik M3)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2046
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "b1685093c6",
+    "date": "2026-11-14T15:46:17+03:00",
+    "subject": "docs(qa): guncelleme siberguvenlik (ŞARTLI GEÇER) + şartın kapanışı",
+    "score": 32,
+    "is_merge": false,
+    "lines": 138
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "c447754fc1",
+    "date": "2026-11-14T15:46:36+03:00",
+    "subject": "chore(release): 0.3.4 (versionCode 9) — alt barda «Diğer», uygulama içi güncelleme; siberguvenlik ŞARTLI GEÇER → Ş1/Ş2 kapatıldı",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "921b360cc0",
+    "date": "2026-11-14T15:57:54+03:00",
+    "subject": "Veri katmanı: fon icazet kaynağı (Kuveyt Türk Portföy sitesi)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1570
+  },
+  {
+    "repo": "pomodoro-restoran",
+    "hash": "c03e5300c8",
+    "date": "2026-11-14T15:58:17+03:00",
+    "subject": "fix: align Tarz 1 3/4 perspective, remove robotics, and declutter exterior/UI",
+    "score": 67,
+    "is_merge": false,
+    "lines": 583
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "7397866cc3",
+    "date": "2026-11-14T16:02:48+03:00",
+    "subject": "fix(r2): siberguvenlik şartları Ş2+Ş3 ve öneriler Ö3/Ö5",
+    "score": 70,
+    "is_merge": false,
+    "lines": 1497
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "04077e393a",
+    "date": "2026-11-14T16:04:38+03:00",
+    "subject": "docs(qa): tailnet-kimlik siberguvenlik 1. tur (ŞARTLI GEÇER: Ş1 tarayıcıdan telefon anahtarı, Ş2 kapı kapalıyken kod üretimi)",
+    "score": 32,
+    "is_merge": false,
+    "lines": 142
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "b268aaa23b",
+    "date": "2026-11-14T16:09:27+03:00",
+    "subject": "Panel: fon rozeti icazet belgesine bağlandı, ayrıntıda belge bölümü",
+    "score": 58,
+    "is_merge": false,
+    "lines": 705
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "e8cc5f8ae1",
+    "date": "2026-11-14T16:10:13+03:00",
+    "subject": "merge: feat/r2 — medya R2 (allowlist, tavan, fren, 14 gün; Redis yeniden bağlanma, 413 temizliği); siberguvenlik 2. tur ŞARTLI (yalnız dar belirteç); derlenmedi, canlıya alma belirtece bağlı",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "letmepost-selfhost",
+    "hash": "0e306a56e1",
+    "date": "2026-11-14T16:10:13+03:00",
+    "subject": "docs: feat/r2 siberguvenlik 2. tur (ŞARTLI GEÇER: yalnız Ş1 canlı belirteç kaldı) + PM notu",
+    "score": 35,
+    "is_merge": false,
+    "lines": 80
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "b926e91a04",
+    "date": "2026-11-14T16:18:34+03:00",
+    "subject": "Fon icazet raporu, ekran görüntüleri, belge ilk sayfa görüntüleri",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1189
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "de55ae55f1",
+    "date": "2026-11-14T16:18:56+03:00",
+    "subject": "fix(tailnet-kimlik): siberguvenlik şartları Ş1 + Ş2/Ö1 kapandı, Ö3 çerez ömrü",
+    "score": 68,
+    "is_merge": false,
+    "lines": 839
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "6293c229e5",
+    "date": "2026-11-14T16:19:32+03:00",
+    "subject": "Altın kuralı: saklama/ödemeye bağlı rozet modülü (helal_altin) ve testler",
+    "score": 59,
+    "is_merge": false,
+    "lines": 952
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7b6d9753c3",
+    "date": "2026-11-14T16:28:34+03:00",
+    "subject": "merge: feat/tailnet-kimlik — tailnet istemcilerinde cihaz kimliği (WW_TAILNET_KIMLIK kapalı gelir; tarayıcı eşleştirme; kod üretimi yalnız iMac); siberguvenlik 1. tur ŞARTLI → 2. tur GEÇER; Yusuf: gerekli önlemleri al",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "997349015e",
+    "date": "2026-11-14T16:28:34+03:00",
+    "subject": "docs(qa): tailnet-kimlik siberguvenlik kontrolü (GEÇER)",
+    "score": 31,
+    "is_merge": false,
+    "lines": 99
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "d60a378fdf",
+    "date": "2026-11-14T16:35:51+03:00",
+    "subject": "Altın kuralı: panel arayüzü (rozet, kural tablosu, dayanak, portföy saklama)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 184
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "22ded51106",
+    "date": "2026-11-14T16:38:49+03:00",
+    "subject": "Altın kuralı: rapor, ekran görüntüleri, ölçüm ve ekran araçları",
+    "score": 58,
+    "is_merge": false,
+    "lines": 699
+  },
+  {
+    "repo": "wingwire-portfoy",
+    "hash": "0a906b0669",
+    "date": "2026-11-14T16:46:13+03:00",
+    "subject": "Merge branch 'feat/altin-kural'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ba744abfe1",
+    "date": "2026-11-14T19:25:15+03:00",
+    "subject": "feat(paylasim-modal): takvimde çip → önizleme penceresi + yayınlanan gönderinin linki",
+    "score": 94,
+    "is_merge": false,
+    "lines": 948
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "09ff14d7b4",
+    "date": "2026-11-14T19:28:49+03:00",
+    "subject": "merge: feat/paylasim-modal — Paylaşımlar takviminde modal + yayınlanan gönderinin linki; siberguvenlik GEÇER; Yusuf geri bildirimi 14 Kas",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "92bd100e25",
+    "date": "2026-11-14T19:28:49+03:00",
+    "subject": "docs(qa): paylasim-modal siberguvenlik kontrolü (GEÇER)",
+    "score": 28,
+    "is_merge": false,
+    "lines": 39
   }
 ]
