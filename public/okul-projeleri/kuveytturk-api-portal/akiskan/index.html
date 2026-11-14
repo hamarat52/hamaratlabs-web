@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kuveyt Türk API Market · Ödeme ve finansman, ürününüzün parçası</title>
+<meta name="description" content="Taslak 1 (Akışkan): Kuveyt Türk ödeme, finansman ve hesap servisleri. Test ortamında başlayın, canlıya katılım bankacılığının güvencesiyle geçin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/ipek-1600.webp" imagesrcset="img/ipek-1600.webp 1600w, img/ipek-2400.webp 2400w, img/ipek-3200.webp 3200w, img/ipek-3840.webp 3840w" imagesizes="(max-width: 760px) 260vw, 112vw">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+
+<header class="nav" id="ust">
+  <div class="nav-in">
+    <a class="wordmark" href="index.html" aria-label="Kuveyt Türk API Market ana sayfa"><b>Kuveyt Türk</b><span>API Market</span></a>
+    <nav class="nav-links" aria-label="Ana menü">
+      <div class="nav-dd">
+        <a href="index.html#urunler" data-en="Products">Ürünler</a>
+        <div class="dd"><div class="dd-in">
+          <a href="urun-odeme.html"><b data-en="Payments">Ödeme</b><span data-en="Online card collection and refunds">Kartla online tahsilat ve iade</span></a>
+          <a href="urun-finansman.html"><b data-en="Financing">Finansman</b><span data-en="Instalment financing at checkout">Sepette taksitli alışveriş finansmanı</span></a>
+          <a href="urun-hesap.html"><b data-en="Account data">Hesap verisi</b><span data-en="Balances and transactions, with consent">İzinle bakiye ve hareketler</span></a>
+        </div></div>
+      </div>
+      <a href="ai.html" data-en="AI setup">Yapay zekâ</a>
+      <a href="vaka.html" data-en="Customers">İş birlikleri</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Dil / Language">
+        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="nav-signin" href="#" data-en="Sign in">Giriş yap</a>
+      <a class="btn btn-sm btn-dark" href="docs.html" data-en="Sandbox">Test ortamı</a>
+    </div>
+    <details class="m-menu">
+      <summary aria-label="Menü"><span></span><span></span></summary>
+      <nav aria-label="Mobil menü">
+        <a href="index.html#urunler" data-en="Products">Ürünler</a>
+        <a class="m-sub" href="urun-odeme.html" data-en="Payments">Ödeme</a>
+        <a class="m-sub" href="urun-finansman.html" data-en="Financing">Finansman</a>
+        <a class="m-sub" href="urun-hesap.html" data-en="Account data">Hesap verisi</a>
+        <a href="ai.html" data-en="AI setup">Yapay zekâ</a>
+        <a href="vaka.html" data-en="Customers">İş birlikleri</a>
+        <a href="docs.html" data-en="Docs">Dokümanlar</a>
+        <a href="#" data-en="Sign in">Giriş yap</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="ana">
+  <!-- 1. HERO: ekranı kaplayan akışkan ipek -->
+  <section class="hero" aria-labelledby="hero-baslik">
+    <div class="hero-visual" aria-hidden="true">
+      <picture>
+        <img id="ipek" src="img/ipek-1600.webp"
+             srcset="img/ipek-1600.webp 1600w, img/ipek-2400.webp 2400w, img/ipek-3200.webp 3200w, img/ipek-3840.webp 3840w"
+             sizes="(max-width: 760px) 260vw, 112vw" alt="" width="3840" height="2143" fetchpriority="high" decoding="async">
+      </picture>
+      <canvas id="akis"></canvas>
+    </div>
+
+    <div class="hero-in">
+      <h1 id="hero-baslik" data-en-html="Payments and financing, a natural part of your product.">Ödeme ve finansman, ürününüzün doğal bir&nbsp;parçası.</h1>
+      <p class="hero-sub" data-en="Start in the sandbox today. Go live with the assurance of participation banking.">Test ortamında bugün başlayın; canlıya katılım bankacılığının güvencesiyle geçin.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark" href="docs.html"><span data-en="Open a sandbox">Test ortamını açın</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a class="btn btn-line" href="#iletisim" data-en="Talk to partnerships">İş birliği için görüşelim</a>
+      </div>
+    </div>
+
+    <!-- 2. Partner şeridi (hero tabanı) -->
+    <div class="partners" aria-label="İş ortakları">
+      <div class="partners-in">
+        <ul class="logos">
+          <li class="logo-real" title="Doğrulanmış iş ortağı: E-ticaret finansmanı">Trendyol</li>
+          <li class="logo-ph" aria-label="Partner logosu, onay bekliyor"><span></span></li>
+          <li class="logo-ph" aria-label="Partner logosu, onay bekliyor"><span></span></li>
+          <li class="logo-ph" aria-label="Partner logosu, onay bekliyor"><span></span></li>
+          <li class="logo-ph hide-sm" aria-label="Partner logosu, onay bekliyor"><span></span></li>
+          <li class="ph-note" data-en="Other logos with partner consent">Diğer logolar partner onayıyla</li>
+        </ul>
+        <p class="partners-fact">
+          <strong data-en="70+ partners, 366 APIs">70+ partner, 366 API</strong>
+          <a href="https://www.kuveytturk.com.tr/hakkimizda/kuveyt-turk-hakkinda/bizden-haberler/kuveyt-turk-is-birligine-en-acik-banka-secildi" target="_blank" rel="noopener" data-en="Kuveyt Türk press release, 2024">Kuveyt Türk 2024 bülteni</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Ürünler -->
+  <section class="products" id="urunler" aria-labelledby="urun-baslik">
+    <div class="wrap">
+      <h2 id="urun-baslik" class="h2" data-en="Three services. One connection.">Üç servis, tek bağlantı.</h2>
+      <div class="cards">
+        <article class="card c-pay">
+          <div class="card-art" aria-hidden="true">
+            <div class="pay-sheet">
+              <div class="ps-row"><span data-en="Order total">Sipariş toplamı</span><b>1.250,00 ₺</b></div>
+              <div class="ps-field"><i class="chip"></i><span>•••• •••• •••• 4021</span></div>
+              <div class="ps-btn" data-en="Pay">Öde</div>
+              <div class="ps-secure"><i></i><span data-en="3D Secure">3D Secure ile</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 data-en="Payments">Ödeme</h3>
+            <p data-en="Collect by card online, by link or in store, and refund in one step.">Kartla, linkle ya da mağazada tahsil edin; iadeyi tek adımda yapın.</p>
+            <p class="ep">digitalPaymentGetToken · digitalPaymentQuery · digitalPaymentDoRefund</p>
+            <a class="more" href="urun-odeme.html" data-en="Payment services →">Ödeme servisleri →</a>
+          </div>
+        </article>
+
+        <article class="card c-fin">
+          <div class="card-art" aria-hidden="true">
+            <div class="fin">
+              <div class="fin-tabs"><span>3</span><span>6</span><span class="on">12</span><span>24</span></div>
+              <div class="fin-amt"><small data-en="Monthly instalment">Aylık taksit</small><b>1.104,00 ₺</b></div>
+              <div class="fin-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="fin-note" data-en="Sample figures">Örnek tutar</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 data-en="Financing">Finansman</h3>
+            <p data-en="Offer instalment shopping financing at checkout, approved in the Kuveyt Türk app.">Sepette taksitli alışveriş finansmanı sunun; onay Kuveyt Türk uygulamasında.</p>
+            <p class="ep">GET /v1/loans · /v1/loans/{projectNumber}/installments</p>
+            <a class="more" href="urun-finansman.html" data-en="Financing services →">Finansman servisleri →</a>
+          </div>
+        </article>
+
+        <article class="card c-acc">
+          <div class="card-art" aria-hidden="true">
+            <div class="acc">
+              <div class="acc-consent"><i></i><span data-en="Consent given · 90 days">İzin verildi · 90 gün</span></div>
+              <ul>
+                <li><span data-en="Incoming transfer">Gelen havale</span><b class="in">+4.800,00 ₺</b></li>
+                <li><span data-en="Virtual POS settlement">Sanal POS tahsilatı</span><b class="in">+1.250,00 ₺</b></li>
+                <li><span data-en="Rent">Kira ödemesi</span><b>−9.500,00 ₺</b></li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 data-en="Account data">Hesap verisi</h3>
+            <p data-en="See balances and transactions with your customer’s consent, ready for reconciliation.">Bakiye ve hareketleri müşterinizin izniyle görün; mutabakat kendiliğinden yapılsın.</p>
+            <p class="ep">GET /v2/accounts/{suffix} · /v3/accounts/{suffix}/transactions</p>
+            <a class="more" href="urun-hesap.html" data-en="Account services →">Hesap servisleri →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Nasıl kurmak istersiniz? -->
+  <section class="setup" id="kurulum" aria-labelledby="kur-baslik">
+    <div class="wrap">
+      <h2 id="kur-baslik" class="h2 center" data-en="How would you like to set up?">Nasıl kurmak istersiniz?</h2>
+      <p class="lead center" data-en="Both paths lead to the same sandbox.">İki yol da aynı test ortamına çıkar.</p>
+
+      <div class="doors" role="tablist" aria-label="Kurulum yolu">
+        <button class="door" role="tab" id="kapi-panel" aria-controls="yol-panel" aria-selected="false" tabindex="-1">
+          <span class="door-art" aria-hidden="true"><span class="art-panel">
+            <span class="dp-top"></span>
+            <span class="dp-side"><i></i><i></i><i></i><i></i></span>
+            <span class="dp-main"><i class="w"></i><i></i><i></i></span>
+          </span></span>
+          <span class="door-txt">
+            <b data-en="Set up in the panel">Panelde kurun</b>
+            <span data-en="A guided setup creates your sandbox app and keys.">Adım adım rehber test uygulamanızı ve anahtarınızı hazırlar.</span>
+          </span>
+        </button>
+        <button class="door" role="tab" id="kapi-ai" aria-controls="yol-ai" aria-selected="true">
+          <span class="door-art art-ai" aria-hidden="true">
+            <span class="ai-box">
+              <span class="ai-line"></span>
+              <span class="ai-line short"></span>
+              <span class="ai-input"><svg viewBox="0 0 20 20"><path d="M10 2l1.6 5.2L17 9l-5.4 1.8L10 16l-1.6-5.2L3 9l5.4-1.8z"/></svg><i></i><em>↑</em></span>
+            </span>
+          </span>
+          <span class="door-txt">
+            <b><span data-en="Start with an AI tool">Yapay zekâ aracıyla başlayın</span> <em class="concept" data-en="Concept">Konsept</em></b>
+            <span data-en="Add Kuveyt Türk to Claude Code, Cursor or Codex. It builds in the sandbox; you approve anything that moves money.">Kuveyt Türk’ü Claude Code, Cursor ya da Codex’e ekleyin. Asistan test ortamında kurar; para hareketini size sorar.</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="path" id="yol-ai" role="tabpanel" aria-labelledby="kapi-ai">
+        <div class="path-head">
+          <div class="tools" role="tablist" aria-label="Araç">
+            <button role="tab" aria-selected="true" data-tool="claude">Claude Code</button>
+            <button role="tab" aria-selected="false" data-tool="cursor">Cursor</button>
+            <button role="tab" aria-selected="false" data-tool="codex">Codex</button>
+            <button role="tab" aria-selected="false" data-tool="chatgpt">ChatGPT</button>
+          </div>
+          <span class="concept" data-en="Concept: not available at Kuveyt Türk today">Konsept: Kuveyt Türk’te bugün yok</span>
+        </div>
+        <div class="prompt">
+          <div class="prompt-bar">
+            <span data-en="Your setup prompt">Kurulum talimatınız</span>
+            <button type="button" class="copy" data-copy="#prompt-text" data-en="Copy">Kopyala</button>
+          </div>
+<pre id="prompt-text" tabindex="0"><span class="pt-cmd" id="tool-cmd">claude mcp add kuveytturk-sandbox</span>
+
+<span data-en="Help me set up Kuveyt Türk in the sandbox.">Kuveyt Türk test ortamında kurulum yapmama yardım et.</span>
+1. <span data-en="List test customers:">Test müşterilerini listele:</span> GET /v1/data/testcustomers
+2. <span data-en="Check the connection:">Bağlantıyı doğrula:</span> GET /v1/fx/rates
+3. <span data-en="Prepare the payment flow:">Ödeme akışını hazırla:</span> POST /v1/vpos/digitalPaymentGetToken
+<span class="pt-rule" data-en="Ask for my approval before any money movement or refund (digitalPaymentDoRefund).">Para hareketi ya da iadeden (digitalPaymentDoRefund) önce mutlaka onayımı iste.</span></pre>
+        </div>
+        <dl class="keys">
+          <div><dt data-en="Sandbox client ID">Test istemci kimliği</dt><dd><code>kt_sandbox_••••••••••••</code></dd></div>
+          <div><dt data-en="Secret">Gizli anahtar</dt><dd><code>••••••••••••••••••••</code></dd></div>
+          <p class="keys-note" data-en="Keys appear after sign-up. Your signing key is never shared with the assistant.">Anahtarlar kayıttan sonra görünür. İmza anahtarınız asistana verilmez.</p>
+        </dl>
+        <a class="more path-more" href="ai.html" data-en="Permission levels and MCP tools →">İzin seviyeleri ve MCP araçları →</a>
+      </div>
+
+      <div class="path" id="yol-panel" role="tabpanel" aria-labelledby="kapi-panel" hidden>
+        <ol class="steps">
+          <li><b data-en="Create an account">Hesap açın</b><span data-en="Email and company details, about two minutes.">E-posta ve şirket bilgisi, yaklaşık iki dakika.</span></li>
+          <li><b data-en="Create a sandbox app">Test uygulaması oluşturun</b><span data-en="Choose the services; keys are generated.">Servisleri seçin, anahtarlar üretilsin.</span></li>
+          <li><b data-en="Make your first call">İlk çağrıyı yapın</b><span><code>GET /v1/fx/rates</code></span></li>
+        </ol>
+        <a class="more path-more" href="docs.html" data-en="Open the quickstart →">Hızlı başlangıcı açın →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Vaka -->
+  <section class="case" id="vaka" aria-labelledby="vaka-baslik">
+    <div class="wrap">
+      <div class="case-card">
+        <div class="case-main">
+          <p class="case-who">Trendyol <span data-en="· E-commerce financing">· E-ticaret finansmanı</span></p>
+          <h2 id="vaka-baslik" data-en="Trendyol shoppers complete purchases with financing, in minutes.">Trendyol müşterileri alışverişini dakikalar içinde finansmanla tamamlıyor.</h2>
+          <a class="more" href="vaka.html" data-en="Read the case →">Vakayı okuyun →</a>
+        </div>
+        <ol class="case-flow">
+          <li><span>1</span><p data-en="At checkout, the shopper enters phone and ID number.">Sepette telefon ve T.C. kimlik numarası girilir.</p></li>
+          <li><span>2</span><p data-en="They pick a term from the offer.">Teklif edilen vadelerden biri seçilir.</p></li>
+          <li><span>3</span><p data-en="The summary and contract are approved in KT Mobile, 24/7.">Özet ve sözleşme KT Mobil’de onaylanır, 7/24.</p></li>
+        </ol>
+        <p class="case-src">
+          <span data-en="Source:">Kaynak:</span> <a href="https://developer.kuveytturk.com.tr/productdetail/financing" target="_blank" rel="noopener">developer.kuveytturk.com.tr/productdetail/financing</a>.
+          <span data-en="Outcome metrics will be added with Trendyol’s approval.">Sonuç metrikleri Trendyol onayıyla eklenecek.</span>
+        </p>
+        <a class="case-alt" href="vaka-muhasebe.html"><em class="ex" data-en="Sample case · fictional company">Örnek vaka · kurgusal kurum</em> <span data-en="An accounting app reconciles with account data →">Bir ön muhasebe yazılımı hesap verisiyle mutabakat yapıyor →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Kapanış -->
+  <section class="close" id="iletisim" aria-labelledby="son-baslik">
+    <div class="wrap close-in">
+      <h2 id="son-baslik" data-en="Take your first test payment today.">İlk test ödemenizi bugün alın.</h2>
+      <div class="hero-cta">
+        <a class="btn btn-cream" href="docs.html"><span data-en="Open a sandbox">Test ortamını açın</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a class="btn btn-line-light" href="#" data-en="Talk to partnerships">İş birliği için görüşelim</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="wordmark" href="index.html"><b>Kuveyt Türk</b><span>API Market</span></a>
+    <nav aria-label="Alt menü">
+      <a href="index.html#urunler" data-en="Products">Ürünler</a>
+      <a href="ai.html" data-en="AI setup">Yapay zekâ</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+      <a href="vaka.html" data-en="Customers">İş birlikleri</a>
+      <a href="#" data-en="Status">Durum</a>
+      <a href="#" data-en="Privacy (KVKK)">KVKK</a>
+      <a href="#" data-en="Contact">İletişim</a>
+    </nav>
+    <p class="foot-legal" data-en="Design draft · Kuveyt Türk Katılım Bankası A.Ş. · AI and MCP features are concepts.">Tasarım taslağı · Kuveyt Türk Katılım Bankası A.Ş. · Yapay zekâ ve MCP bileşenleri konsepttir.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

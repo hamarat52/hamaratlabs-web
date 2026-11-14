@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Örnek vaka · Ön muhasebe · Kuveyt Türk API Market</title>
+<meta name="description" content="Taslak 1 (Akışkan) · Örnek vaka: kurgusal bir ön muhasebe yazılımı hesap verisiyle mutabakatı otomatikleştiriyor. Kurum kurgusal, rakamlar temsilî.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-vaka">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+
+<header class="nav" id="ust">
+  <div class="nav-in">
+    <a class="wordmark" href="index.html" aria-label="Kuveyt Türk API Market ana sayfa"><b>Kuveyt Türk</b><span>API Market</span></a>
+    <nav class="nav-links" aria-label="Ana menü">
+      <div class="nav-dd">
+        <a href="index.html#urunler" data-en="Products">Ürünler</a>
+        <div class="dd"><div class="dd-in">
+          <a href="urun-odeme.html"><b data-en="Payments">Ödeme</b><span data-en="Online card collection and refunds">Kartla online tahsilat ve iade</span></a>
+          <a href="urun-finansman.html"><b data-en="Financing">Finansman</b><span data-en="Instalment financing at checkout">Sepette taksitli alışveriş finansmanı</span></a>
+          <a href="urun-hesap.html"><b data-en="Account data">Hesap verisi</b><span data-en="Balances and transactions, with consent">İzinle bakiye ve hareketler</span></a>
+        </div></div>
+      </div>
+      <a href="ai.html" data-en="AI setup">Yapay zekâ</a>
+      <a href="vaka.html" aria-current="page" data-en="Customers">İş birlikleri</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Dil / Language">
+        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="nav-signin" href="#" data-en="Sign in">Giriş yap</a>
+      <a class="btn btn-sm btn-dark" href="docs.html" data-en="Sandbox">Test ortamı</a>
+    </div>
+    <details class="m-menu">
+      <summary aria-label="Menü"><span></span><span></span></summary>
+      <nav aria-label="Mobil menü">
+        <a href="index.html#urunler" data-en="Products">Ürünler</a>
+        <a class="m-sub" href="urun-odeme.html" data-en="Payments">Ödeme</a>
+        <a class="m-sub" href="urun-finansman.html" data-en="Financing">Finansman</a>
+        <a class="m-sub" href="urun-hesap.html" data-en="Account data">Hesap verisi</a>
+        <a href="ai.html" data-en="AI setup">Yapay zekâ</a>
+        <a href="vaka.html" data-en="Customers">İş birlikleri</a>
+        <a href="docs.html" data-en="Docs">Dokümanlar</a>
+        <a href="#" data-en="Sign in">Giriş yap</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="ana">
+  <section class="sub-hero" aria-labelledby="vaka-baslik">
+    <div class="hero-visual" aria-hidden="true">
+      <picture>
+        <img id="ipek" src="img/ipek-1600.webp"
+             srcset="img/ipek-1600.webp 1600w, img/ipek-2400.webp 2400w, img/ipek-3200.webp 3200w, img/ipek-3840.webp 3840w"
+             sizes="(max-width: 760px) 260vw, 92vw" alt="" width="3840" height="2143" fetchpriority="high" decoding="async">
+      </picture>
+      <canvas id="akis"></canvas>
+    </div>
+    <div class="hero-in">
+      <p class="ex-note"><em class="ex" data-en="Sample case">Örnek vaka</em> <span data-en="The company is fictional and the figures are representative. Not a real partnership; prepared to show the case template.">Kurum kurgusaldır, rakamlar temsilîdir. Gerçek bir iş birliği değildir; vaka şablonunu göstermek için hazırlandı.</span></p>
+      <p class="kicker-row"><b data-en="Sample Accounting Co.">Örnek Ön Muhasebe A.Ş.</b> <span data-en="· fictional · account data">· kurgusal · hesap verisi</span></p>
+      <h1 id="vaka-baslik" data-en="Account activity lands in the books on its own.">Hesap hareketleri, muhasebe kaydına kendiliğinden düşüyor.</h1>
+      <p class="hero-sub" data-en="A fictional accounting app reads its SME customers’ Kuveyt Türk transactions with their consent and matches them to invoices.">Kurgusal bir ön muhasebe yazılımı, KOBİ müşterilerinin Kuveyt Türk hareketlerini onların izniyle okuyor ve faturalarla eşliyor.</p>
+    </div>
+    <div class="facts">
+      <dl>
+        <div><dt data-en="Company">Kurum</dt><dd data-en="Sample Accounting Co. (fictional)">Örnek Ön Muhasebe (kurgusal)</dd></div>
+        <div><dt data-en="Industry">Sektör</dt><dd data-en="SME SaaS · accounting">KOBİ SaaS · ön muhasebe</dd></div>
+        <div><dt data-en="Product">Ürün</dt><dd data-en="Account data">Hesap verisi</dd></div>
+        <div><dt data-en="Consent">İzin</dt><dd>OAuth 2.0 · authorization code</dd></div>
+        <div><dt data-en="Status">Durum</dt><dd class="wait" data-en="Sample case">Örnek vaka</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="metrics" aria-labelledby="sonuc-h">
+    <div class="wrap">
+      <h2 class="h2" id="sonuc-h" data-en="Results, in numbers.">Sonuçlar, rakamlarla.</h2>
+      <div class="metric-row">
+        <div class="metric"><b data-en-html="3 &lt;small&gt;weeks&lt;/small&gt;">3 <small>hafta</small></b><span class="m-lbl" data-en="Time to go live">Canlıya geçiş süresi</span><span class="m-ctx" data-en="From test key to the first live customer">Test anahtarından ilk canlı müşteriye</span><em class="ex" data-en="Sample data">Örnek veri</em></div>
+        <div class="metric"><b data-en="−70%">−%70</b><span class="m-lbl" data-en="Less time on manual reconciliation">Elle mutabakat süresinde azalma</span><span class="m-ctx" data-en="Per customer, per month">Müşteri başına, aylık</span><em class="ex" data-en="Sample data">Örnek veri</em></div>
+        <div class="metric"><b data-en-html="15 &lt;small&gt;min&lt;/small&gt;">15 <small>dk</small></b><span class="m-lbl" data-en="Until a transaction shows in the app">Hareketin panele düşmesi</span><span class="m-ctx" data-en="At the latest, after it posts at the bank">Bankada işlendikten sonra, en geç</span><em class="ex" data-en="Sample data">Örnek veri</em></div>
+        <div class="metric"><b data-en="1,200">1.200</b><span class="m-lbl" data-en="Connected SME accounts">Bağlı KOBİ hesabı</span><span class="m-ctx" data-en="End of the first quarter">İlk çeyrek sonu</span><em class="ex" data-en="Sample data">Örnek veri</em></div>
+      </div>
+      <p class="src-note" data-en="All figures on this page are representative samples. The company is fictional.">Bu sayfadaki tüm rakamlar temsilî örnektir. Kurum kurgusaldır.</p>
+    </div>
+  </section>
+
+  <section class="story" aria-label="Vaka">
+    <div class="wrap story-in">
+      <nav class="toc" aria-label="Bu vakada" data-en-label="In this story">
+        <a href="#sorun" data-en="The problem">Sorun</a>
+        <a href="#cozum" data-en="The solution">Çözüm</a>
+        <a href="#entegrasyon" data-en="Integration">Entegrasyon</a>
+        <a href="#belgeler" data-en="Related docs">İlgili dokümanlar</a>
+      </nav>
+      <div>
+        <article class="chap" id="sorun">
+          <span class="chap-n">01</span>
+          <h2 data-en="A statement downloaded every morning.">Her sabah indirilen bir ekstre.</h2>
+          <div class="ex-block"><p data-en="“Our customers downloaded a statement from the bank every morning and uploaded it to our app by hand. Reconciliation took close to an hour a day.”">“Müşterilerimiz her sabah bankadan ekstre indirip yazılımımıza elle yüklüyordu. Mutabakat günde bir saate yaklaşıyordu.”</p><em class="ex" data-en="Sample text">Örnek metin</em></div>
+        </article>
+
+        <article class="chap" id="cozum">
+          <span class="chap-n">02</span>
+          <h2 data-en="Consent once, then automatic.">Bir kez izin, sonra kendiliğinden.</h2>
+          <ol class="flow5">
+            <li><span class="n">1</span><div><b data-en="Consent">İzin</b><p data-en="The SME signs in on Kuveyt Türk’s screen and allows the app.">KOBİ, Kuveyt Türk ekranında giriş yapar ve yazılıma izin verir.</p><code>authorization code</code></div></li>
+            <li><span class="n">2</span><div><b data-en="Account">Hesap</b><p data-en="The app reads the allowed account’s details.">Yazılım izin verilen hesabın ayrıntısını okur.</p><code>GET /v2/accounts/{suffix}</code></div></li>
+            <li><span class="n">3</span><div><b data-en="Transactions">Hareketler</b><p data-en="New transactions are read at regular intervals.">Yeni hareketler düzenli aralıklarla okunur.</p><code>GET /v3/accounts/{suffix}/transactions</code></div></li>
+            <li><span class="n">4</span><div><b data-en="Receipt and matching">Dekont ve eşleme</b><p data-en="The receipt is fetched and the transaction is matched to an invoice; only mismatches reach a person.">Dekont alınır, hareket faturayla eşlenir; yalnız eşleşmeyenler bir kişiye düşer.</p><code>POST /v2/accounts/transactions/receipts</code></div></li>
+          </ol>
+          <p class="flow-note" data-en="Endpoints are real (API Market Swagger); the company and how it uses them are fictional.">Uç noktalar gerçektir (API Market Swagger); kurum ve kullanım biçimi kurgusaldır.</p>
+        </article>
+
+        <figure class="quote">
+          <blockquote data-en="“Downloading a statement is no longer the accountant’s first job of the day. Now they only look at the few transactions that don’t match.”">“Muhasebecinin sabah ilk işi ekstre indirmek olmaktan çıktı. Artık yalnız eşleşmeyen birkaç harekete bakıyor.”</blockquote>
+          <figcaption><span data-en="Product manager · Sample Accounting Co. (fictional)">Ürün yöneticisi · Örnek Ön Muhasebe (kurgusal)</span><em class="ex" data-en="Sample quote">Örnek alıntı</em></figcaption>
+        </figure>
+
+        <article class="chap" id="entegrasyon">
+          <span class="chap-n">03</span>
+          <h2 data-en="How the integration runs.">Entegrasyon nasıl ilerler.</h2>
+          <p data-en="Same order as the portal’s “Start using” steps. Durations are samples that add up to three weeks.">Portalın “Kullanmaya başlayın” sırası. Süreler, üç haftayı veren örnek değerlerdir.</p>
+          <ol class="int-steps">
+            <li><b data-en="Account">Hesap</b><span class="ok-dur" data-en="Duration: 1 day">Süre: 1 gün</span><em class="ex" data-en="Sample data">Örnek veri</em></li>
+            <li><b data-en="Application">Uygulama</b><span data-en="Account scope and redirect URI.">Hesap kapsamı ve yönlendirme adresi.</span><span class="ok-dur" data-en="Duration: 1 day">Süre: 1 gün</span><em class="ex" data-en="Sample data">Örnek veri</em></li>
+            <li><b data-en="Sandbox testing">Test ortamı</b><span data-en="Tested with test customers.">Test müşterileriyle denenir.</span><span class="ok-dur" data-en="Duration: 2 weeks">Süre: 2 hafta</span><em class="ex" data-en="Sample data">Örnek veri</em></li>
+            <li><b data-en="Go Live">Canlıya geçiş</b><span data-en="Request and approval.">Talep ve onay.</span><span class="ok-dur" data-en="Duration: 4 days">Süre: 4 gün</span><em class="ex" data-en="Sample data">Örnek veri</em></li>
+          </ol>
+        </article>
+
+        <article class="chap" id="belgeler">
+          <span class="chap-n">04</span>
+          <h2 data-en="Related docs.">İlgili dokümanlar.</h2>
+          <div class="rel">
+            <a href="urun-hesap.html"><b data-en="Account data product">Hesap verisi ürünü</b><span>Accounts Information Service</span></a>
+            <a href="docs.html#hesap"><b data-en="Account endpoints">Hesap uç noktaları</b><span>/v3/accounts</span></a>
+            <a href="docs.html#adim-4"><b data-en="Authorization">Yetkilendirme</b><span>authorization code</span></a>
+            <a href="docs.html#adim-5"><b data-en="Signing requests">İstek imzalama</b><span>RSA-SHA256</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-more" aria-labelledby="diger-h">
+    <div class="wrap">
+      <h2 id="diger-h" data-en="More cases">Diğer vakalar</h2>
+      <div class="rel-cards">
+        <a class="rel-card" href="vaka.html">
+          <small><span data-en="Financing · Trendyol">Finansman · Trendyol</span></small>
+          <b data-en="Trendyol shoppers complete purchases with financing, in minutes.">Trendyol müşterileri alışverişini dakikalar içinde finansmanla tamamlıyor.</b>
+          <span data-en="A real partnership; flow from the portal’s Financing page.">Gerçek iş birliği; akış portalın Financing sayfasından.</span>
+          <span class="go" data-en="Read the case →">Vakayı okuyun →</span>
+        </a>
+        <a class="rel-card dark" href="urun-hesap.html">
+          <small data-en="Product">Ürün</small>
+          <b data-en="Account data, with consent">İzinle hesap verisi</b>
+          <span data-en="How it works, use cases and endpoints.">Nasıl çalışır, kullanım senaryoları ve uç noktalar.</span>
+          <span class="go" data-en="Account data →">Hesap verisi →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="close" id="iletisim" aria-labelledby="son-baslik">
+    <div class="wrap close-in">
+      <h2 id="son-baslik" data-en="Building something similar?">Benzer bir şey mi kuruyorsunuz?</h2>
+      <div class="hero-cta">
+        <a class="btn btn-cream" href="docs.html#adim-1"><span data-en="Get a test key">Test anahtarı alın</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a class="btn btn-line-light" href="#" data-en="Talk to sales">Satış ekibiyle görüşün</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="wordmark" href="index.html"><b>Kuveyt Türk</b><span>API Market</span></a>
+    <nav aria-label="Alt menü">
+      <a href="urun-odeme.html" data-en="Payments">Ödeme</a>
+      <a href="urun-finansman.html" data-en="Financing">Finansman</a>
+      <a href="urun-hesap.html" data-en="Account data">Hesap verisi</a>
+      <a href="ai.html" data-en="AI setup">Yapay zekâ</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+      <a href="vaka.html" data-en="Customers">İş birlikleri</a>
+      <a href="#" data-en="Privacy (KVKK)">KVKK</a>
+    </nav>
+    <p class="foot-legal" data-en="Design draft · Kuveyt Türk Katılım Bankası A.Ş. · Sample case: the company, figures, problem text and quote are fictional; endpoints are from the API Market Swagger.">Tasarım taslağı · Kuveyt Türk Katılım Bankası A.Ş. · Örnek vaka: kurum, rakamlar, sorun metni ve alıntı kurgusaldır; uç noktalar API Market Swagger’ından.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

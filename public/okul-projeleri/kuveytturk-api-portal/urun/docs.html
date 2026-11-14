@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hızlı başlangıç · Kuveyt Türk API Market Dokümanları</title>
+<meta name="description" content="Taslak 3 (Ürün) · Dokümantasyon girişi: hesaptan ilk çağrıya, test ortamında altı adım; yanında deneme konsolu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-docs">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+
+<header class="nav solid" id="ust">
+  <a class="wordmark" href="index.html" aria-label="Kuveyt Türk API Market ana sayfa"><span class="wm-dot" aria-hidden="true"></span><b>Kuveyt Türk</b> <span data-en="Docs">Dokümanlar</span></a>
+  <label class="doc-search">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+    <input type="search" placeholder="Dokümanlarda ara" aria-label="Dokümanlarda ara" data-en-label="Search the docs">
+    <kbd>⌘K</kbd>
+  </label>
+  <nav class="nav-links" aria-label="Ana menü">
+    <div class="nav-dd">
+      <a href="index.html#urunler" data-en="Products">Ürünler</a>
+      <div class="dd"><div class="dd-in">
+        <a href="urun-odeme.html"><b data-en="Payments">Ödeme</b><span data-en="Online card collection and refunds">Kartla online tahsilat ve iade</span></a>
+        <a href="urun-finansman.html"><b data-en="Financing">Finansman</b><span data-en="Instalment financing at checkout">Sepette taksitli alışveriş finansmanı</span></a>
+        <a href="urun-hesap.html"><b data-en="Account data">Hesap verisi</b><span data-en="Balances and transactions, with consent">İzinle bakiye ve hareketler</span></a>
+      </div></div>
+    </div>
+    <a href="ai.html" data-en="Set up with AI">Yapay zekâ ile kurulum</a>
+    <a href="vaka.html" data-en="Customers">Müşteriler</a>
+    <a href="docs.html" aria-current="page" data-en="Docs">Dokümanlar</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang" role="group" aria-label="Dil / Language">
+      <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="nav-signin" href="#" data-en="Sign in">Giriş yap</a>
+  </div>
+  <details class="m-menu">
+    <summary aria-label="Menü"><span></span><span></span></summary>
+    <nav aria-label="Mobil menü">
+      <a href="index.html#urunler" data-en="Products">Ürünler</a>
+      <a class="m-sub" href="urun-odeme.html" data-en="Payments">Ödeme</a>
+      <a class="m-sub" href="urun-finansman.html" data-en="Financing">Finansman</a>
+      <a class="m-sub" href="urun-hesap.html" data-en="Account data">Hesap verisi</a>
+      <a href="ai.html" data-en="Set up with AI">Yapay zekâ ile kurulum</a>
+      <a href="vaka.html" data-en="Customers">Müşteriler</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+      <a href="#" data-en="Sign in">Giriş yap</a>
+    </nav>
+  </details>
+</header>
+
+<div class="docs">
+  <aside class="side" aria-label="Doküman menüsü">
+    <details class="side-in" open>
+      <summary data-en="In the docs">Dokümanlarda</summary>
+      <p class="side-h" data-en="Get started">Başlangıç</p>
+      <ul>
+        <li><a href="docs.html" aria-current="page" data-en="Quickstart">Hızlı başlangıç</a></li>
+        <li><a href="#adim-3" data-en="Create an application">Uygulama oluşturma</a></li>
+        <li><a href="#adim-4" data-en="Authorization">Yetkilendirme</a></li>
+        <li><a href="#adim-5" data-en="Signing requests">İstek imzalama</a></li>
+        <li><a href="#canli" data-en="Going live">Canlıya geçiş</a></li>
+      </ul>
+      <p class="side-h" data-en="Products">Ürünler</p>
+      <ul>
+        <li><a href="#odeme" data-en="Payments">Ödeme</a></li>
+        <li><a href="#finansman" data-en="Financing">Finansman</a></li>
+        <li><a href="#hesap" data-en="Account data">Hesap verisi</a></li>
+        <li><a href="#bilgi" data-en="Information services">Bilgi servisleri</a></li>
+      </ul>
+      <p class="side-h" data-en="AI">Yapay zekâ</p>
+      <ul>
+        <li><a href="ai.html"><span data-en="Set up with AI">Yapay zekâ ile kurulum</span> <em class="concept sm" data-en="Concept">Konsept</em></a></li>
+        <li><a href="ai.html#araclar"><span data-en="MCP tools">MCP araçları</span> <em class="concept sm" data-en="Concept">Konsept</em></a></li>
+      </ul>
+      <p class="side-h" data-en="Reference">Referans</p>
+      <ul>
+        <li><a href="#uc-noktalar" data-en="Endpoints">Uç noktalar</a></li>
+        <li><a href="#zarf" data-en="Response envelope">Yanıt zarfı</a></li>
+      </ul>
+    </details>
+  </aside>
+
+  <main id="ana" class="doc">
+    <header class="doc-head">
+      <p class="crumb"><a href="docs.html" data-en="Docs">Dokümanlar</a> <span aria-hidden="true">/</span> <span data-en="Get started">Başlangıç</span></p>
+      <h1 data-en="Quickstart">Hızlı başlangıç</h1>
+      <p class="doc-lead" data-en="From account to first call, six steps in the sandbox. Try the call in the console on the right.">Hesaptan ilk çağrıya, test ortamında altı adım. Çağrıyı sağdaki konsolda deneyin.</p>
+      <div class="ai-hand">
+        <span class="ai-mark" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 1.5l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z"/></svg></span>
+        <p data-en="Give this page to your AI tool.">Bu sayfayı yapay zekâ aracınıza verin.</p>
+        <button type="button" class="copy chip-btn" data-copy=".doc-text" data-en="Copy as Markdown"><span class="copy-label">Markdown olarak kopyala</span></button>
+        <a class="chip-btn" href="#">llms.txt</a>
+        <em class="concept" data-en="Concept">Konsept</em>
+      </div>
+    </header>
+
+    <div class="doc-text">
+    <section class="doc-sec" id="ortamlar" aria-labelledby="ortam-h">
+      <h2 id="ortam-h" data-en="Environments">Ortamlar</h2>
+      <p data-en="Build in the test environment. Production addresses are used only after your Go Live request is approved.">Geliştirmeyi test ortamında yapın. Canlı adresler, canlıya geçiş talebiniz onaylandıktan sonra kullanılır.</p>
+      <div class="env-cards">
+        <div class="env-card test">
+          <p class="env-name"><i></i><span data-en="Test">Test</span></p>
+          <dl><dt data-en="ID server (token)">Kimlik sunucusu (token)</dt><dd><code>prep-identity.kuveytturk.com.tr</code></dd>
+              <dt data-en="API gateway">API ağ geçidi</dt><dd><code>prep-gateway.kuveytturk.com.tr</code></dd></dl>
+        </div>
+        <div class="env-card live">
+          <p class="env-name"><i></i><span data-en="Production">Canlı</span> <small data-en="after Go Live">canlıya geçişten sonra</small></p>
+          <dl><dt data-en="ID server (token)">Kimlik sunucusu (token)</dt><dd><code>identity.kuveytturk.com.tr</code></dd>
+              <dt data-en="API gateway">API ağ geçidi</dt><dd><code>gateway.kuveytturk.com.tr</code></dd></dl>
+        </div>
+      </div>
+      <p class="src-note" data-en="Source: API Market “How to start” page.">Kaynak: API Market “Nasıl başlarım” sayfası.</p>
+    </section>
+
+    <section class="doc-sec" id="adimlar" aria-labelledby="adim-h">
+      <h2 id="adim-h" data-en="Six steps">Altı adım</h2>
+      <ol class="qs">
+        <li id="adim-1">
+          <h3 data-en="Create an account">Hesap açın</h3>
+          <p data-en="Sign up to API Market and sign in. Applications and keys live under your account.">API Market’e kaydolun ve giriş yapın. Uygulamalarınız ve anahtarlarınız bu hesabın altında durur.</p>
+        </li>
+        <li id="adim-2">
+          <h3 data-en="Generate a key pair">Anahtar çifti üretin</h3>
+          <p data-en="A 2048-bit RSA pair. You upload the public key; the private key stays with you and signs every request.">2048 bit RSA çifti. Açık anahtarı yüklersiniz; özel anahtar sizde kalır ve her isteği imzalar.</p>
+<pre class="snip"><code><span class="c"># 2048 bit RSA</span>
+openssl genrsa -out private.pem 2048
+openssl rsa -in private.pem -pubout -out public.crt</code></pre>
+        </li>
+        <li id="adim-3">
+          <h3 data-en="Add an application">Uygulama ekleyin</h3>
+          <p data-en="Applications → Add Application. Choose the product category under Selected Scope, enter your Redirection URI and paste the public key.">Uygulamalar → Uygulama ekle. <em>Selected Scope</em> alanında ürün kategorisini seçin, yönlendirme adresinizi (Redirection URI) yazın ve açık anahtarı yapıştırın.</p>
+        </li>
+        <li id="adim-4">
+          <h3 data-en="Get an access token">Access token alın</h3>
+          <p data-en="Use the Postman template for your API against the test ID server. Information services such as exchange rates work with client credentials; account data needs the customer’s approval (authorization code). Tokens are valid for one hour.">Seçtiğiniz API’nin Postman şablonunu test kimlik sunucusuyla kullanın. Kur ve şube gibi bilgi servisleri <em>client credentials</em> ile çalışır; hesap verisi müşterinin onayını ister (<em>authorization code</em>). Token bir saat geçerlidir.</p>
+        </li>
+        <li id="adim-5">
+          <h3 data-en="Sign the request">İsteği imzalayın</h3>
+          <p data-en="The Signature header carries the RSA-SHA256 signature of the access token plus the query string (GET) or body (POST), base64-encoded. Kuveyt Türk’s Signature Tool does the same on your desktop.">Signature başlığı, access token ile sorgu dizesinin (GET) ya da gövdenin (POST) RSA-SHA256 imzasını base64 olarak taşır. Kuveyt Türk İmza Aracı aynı işi masaüstünde yapar.</p>
+<pre class="snip"><code><span class="k">import</span> { createSign } <span class="k">from</span> <span class="s">"node:crypto"</span>;
+<span class="k">const</span> signer = createSign(<span class="s">"RSA-SHA256"</span>);
+signer.update(accessToken + queryString);
+<span class="k">const</span> signature = signer.sign(privateKey, <span class="s">"base64"</span>);</code></pre>
+          <p class="src-note" data-en="Signing rule from portal documentation; to be re-checked against the live docs before publishing.">İmza kuralı portal dokümanından; yayından önce canlı dokümanla yeniden doğrulanacak.</p>
+        </li>
+        <li id="adim-6">
+          <h3 data-en="Make your first call">İlk çağrıyı yapın</h3>
+          <p data-en="GET /v1/fx/rates returns exchange rates. Every response arrives in the same envelope: data in value, outcome in success, messages in results.">GET /v1/fx/rates döviz kurlarını döndürür. Her yanıt aynı zarfla gelir: veri <code>value</code> içinde, sonuç <code>success</code> alanında, mesajlar <code>results</code> dizisinde.</p>
+        </li>
+      </ol>
+    </section>
+    </div>
+
+    <!-- Deneme konsolu (ürün sahnesi) -->
+    <aside class="console-col" aria-label="Deneme konsolu" data-en-label="Try-it console">
+      <div class="console-stage">
+        <picture class="stage-bg" aria-hidden="true">
+          <img src="img/dalga-1600.webp" srcset="img/dalga-1600.webp 1600w, img/dalga-2560.webp 2560w" sizes="(max-width: 1240px) 200vw, 900px" alt="" width="2560" height="1429">
+        </picture>
+        <div class="console">
+          <div class="cs-top">
+            <span class="env"><i></i><span data-en="Sandbox">Test ortamı</span></span>
+            <span class="cs-live"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a4 4 0 014 4v2h1a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1V9a1 1 0 011-1h1V6a4 4 0 014-4zm0 2a2 2 0 00-2 2v2h4V6a2 2 0 00-2-2z"/></svg><span data-en="Production locked">Canlı kilitli</span></span>
+          </div>
+          <div class="cs-req">
+            <span class="m">GET</span>
+            <code>prep-gateway…/v1/fx/rates</code>
+            <button type="button" class="cs-send" id="gonder" data-en="Send">Gönder</button>
+          </div>
+          <dl class="cs-head">
+            <div><dt>Authorization</dt><dd><code>Bearer ••••••••</code><small data-en="auto">otomatik</small></dd></div>
+            <div><dt>Signature</dt><dd><code>RSA-SHA256 ••••</code><small data-en="auto">otomatik</small></dd></div>
+          </dl>
+          <div class="cs-tabs" role="tablist" data-tabs="kon" aria-label="Konsol">
+            <button role="tab" data-tab="yanit" aria-selected="true" data-en="Response">Yanıt</button>
+            <button role="tab" data-tab="curl" aria-selected="false" tabindex="-1">cURL</button>
+            <button role="tab" data-tab="node" aria-selected="false" tabindex="-1">Node.js</button>
+            <button role="tab" data-tab="py" aria-selected="false" tabindex="-1">Python</button>
+            <button type="button" class="copy cs-copy" data-copy=".console pre[data-tabpanel]" data-en="Copy"><span class="copy-label">Kopyala</span></button>
+          </div>
+          <div class="cs-out ready" id="konsol-yanit" data-tabpanel="kon:yanit">
+            <p class="cs-status" id="zarf"><span class="ok">200 OK</span> <span data-en="Sample response · DataRates">Örnek yanıt · DataRates</span></p>
+<pre data-tabpanel="kon:yanit"><code>{
+  <span class="s">"value"</span>: [ <span class="c">/* DataRatesObject */</span> ],
+  <span class="s">"success"</span>: <span class="k">true</span>,
+  <span class="s">"results"</span>: []
+}</code></pre>
+            <p class="cs-wait" data-en="Sending…">Gönderiliyor…</p>
+          </div>
+<pre data-tabpanel="kon:curl" hidden><code>curl <span class="s">"https://prep-gateway.kuveytturk.com.tr/v1/fx/rates"</span> \
+  -H <span class="s">"Authorization: Bearer $ACCESS_TOKEN"</span> \
+  -H <span class="s">"Signature: $SIGNATURE"</span></code></pre>
+<pre data-tabpanel="kon:node" hidden><code><span class="k">const</span> BASE_URL = <span class="s">"https://prep-gateway.kuveytturk.com.tr"</span>;
+<span class="k">const</span> res = <span class="k">await</span> fetch(<span class="s">`${BASE_URL}/v1/fx/rates`</span>, {
+  headers: {
+    Authorization: <span class="s">`Bearer ${accessToken}`</span>,
+    Signature: signature,
+  },
+});
+<span class="k">const</span> { value, success, results } = <span class="k">await</span> res.json();</code></pre>
+<pre data-tabpanel="kon:py" hidden><code><span class="k">import</span> requests
+
+BASE_URL = <span class="s">"https://prep-gateway.kuveytturk.com.tr"</span>
+r = requests.get(<span class="s">f"{BASE_URL}/v1/fx/rates"</span>,
+    headers={<span class="s">"Authorization"</span>: <span class="s">f"Bearer {access_token}"</span>,
+             <span class="s">"Signature"</span>: signature})
+body = r.json()  <span class="c"># value, success, results</span></code></pre>
+        </div>
+      </div>
+      <p class="code-note" data-en="The console makes no network request; the response is a sample. Fields inside value come from the live Swagger.">Konsol ağ isteği yapmaz; yanıt örnektir. value içindeki alanlar canlı Swagger’dan gelir.</p>
+    </aside>
+
+    <section class="doc-sec" id="uc-noktalar" aria-labelledby="uc-h">
+      <h2 id="uc-h" data-en="Next: pick a product">Sonra: bir ürün seçin</h2>
+      <p data-en="Endpoints as published in the API Market Swagger.">Uç noktalar API Market Swagger’ında yayımlandığı gibi.</p>
+      <div class="ep-grid">
+        <article class="ep-card" id="odeme">
+          <span class="p-ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10h18"/></svg></span>
+          <h3 data-en="Payments">Ödeme</h3>
+          <p data-en="Virtual POS: create a payment, query it, refund it.">Sanal POS: ödeme başlatın, sorgulayın, iade edin.</p>
+          <ul>
+            <li><b class="p">POST</b><code>/v1/vpos/digitalPaymentGetToken</code></li>
+            <li><b class="p">POST</b><code>/v1/vpos/digitalPaymentQuery</code></li>
+            <li><b class="p">POST</b><code>/v1/vpos/digitalPaymentDoRefund</code></li>
+            <li><b class="p">POST</b><code>/v1/vpos/sendDocument</code></li>
+          </ul>
+        </article>
+        <article class="ep-card" id="finansman">
+          <span class="p-ic"><svg viewBox="0 0 24 24"><path d="M4 18V9M10 18V5M16 18v-6M22 18H2"/></svg></span>
+          <h3 data-en="Financing">Finansman</h3>
+          <p data-en="Financing projects, details and instalment plans.">Finansman projeleri, ayrıntı ve taksit planı.</p>
+          <ul>
+            <li><b>GET</b><code>/v1/loans</code></li>
+            <li><b>GET</b><code>/v1/loans/{projectNumber}/info</code></li>
+            <li><b>GET</b><code>/v1/loans/{projectNumber}/installments</code></li>
+          </ul>
+        </article>
+        <article class="ep-card" id="hesap">
+          <span class="p-ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+          <h3 data-en="Account data">Hesap verisi</h3>
+          <p data-en="Account details, transactions and receipts, with the customer’s consent.">Müşterinin izniyle hesap detayı, hareketler ve dekont.</p>
+          <ul>
+            <li><b>GET</b><code>/v2/accounts/{suffix}</code></li>
+            <li><b>GET</b><code>/v3/accounts/{suffix}/transactions</code></li>
+            <li><b class="p">POST</b><code>/v2/accounts/transactions/receipts</code></li>
+            <li><b>GET</b><code>/v1/data/testcustomers</code></li>
+          </ul>
+        </article>
+        <article class="ep-card" id="bilgi">
+          <span class="p-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></svg></span>
+          <h3 data-en="Information services">Bilgi servisleri</h3>
+          <p data-en="Public data such as exchange rates, branches and ATMs.">Kur, şube, ATM gibi herkese açık veriler.</p>
+          <ul>
+            <li><b>GET</b><code>/v1/fx/rates</code></li>
+            <li><b>GET</b><code>/v1/data/branches</code></li>
+            <li><b>GET</b><code>/v1/data/atms</code></li>
+            <li><b>GET</b><code>/v1/data/banks</code></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="doc-sec" id="canli" aria-labelledby="canli-h">
+      <h2 id="canli-h" data-en="Going live">Canlıya geçiş</h2>
+      <p data-en="When testing is done, open Go Live Request Management in your account and create a request. After approval you switch to the production ID server and gateway with the same code.">Testler bitince hesabınızda “Go Live Request Management” ekranından talep oluşturun. Onaydan sonra aynı kodla canlı kimlik sunucusuna ve ağ geçidine geçersiniz.</p>
+      <div class="next-row">
+        <a class="next" href="ai.html"><small data-en="Next">Sıradaki</small><b data-en="Set up with an AI tool">Yapay zekâ aracıyla kurulum</b><em class="concept" data-en="Concept">Konsept</em></a>
+        <a class="next" href="vaka.html"><small data-en="Example">Örnek</small><b data-en="How Trendyol offers financing">Trendyol finansmanı nasıl sunuyor</b></a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="wordmark" href="index.html"><span class="wm-dot" aria-hidden="true"></span><b>Kuveyt Türk</b> <span>API Market</span></a>
+    <nav aria-label="Alt menü">
+      <a href="index.html#urunler" data-en="Products">Ürünler</a>
+      <a href="ai.html" data-en="Set up with AI">Yapay zekâ ile kurulum</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+      <a href="vaka.html" data-en="Customers">Müşteriler</a>
+      <a href="#" data-en="Status">Durum</a>
+      <a href="#" data-en="Privacy (KVKK)">KVKK</a>
+    </nav>
+    <p data-en="Design draft · Kuveyt Türk Katılım Bankası A.Ş. · Addresses and endpoints from the API Market portal and Swagger; the console response is a sample; AI features are concepts.">Tasarım taslağı · Kuveyt Türk Katılım Bankası A.Ş. · Adresler ve uç noktalar API Market portalı ve Swagger’ından; konsol yanıtı örnektir; yapay zekâ bileşenleri konsepttir.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

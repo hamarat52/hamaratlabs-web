@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yapay zekâ ile kurulum · Kuveyt Türk API Market</title>
+<meta name="description" content="Taslak 1 (Akışkan) · Konsept: Kuveyt Türk’ü Claude Code, Cursor, Codex ya da ChatGPT ile test ortamında kurun; para hareketi yalnız sizin onayınızla.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-ai">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+
+<header class="nav" id="ust">
+  <div class="nav-in">
+    <a class="wordmark" href="index.html" aria-label="Kuveyt Türk API Market ana sayfa"><b>Kuveyt Türk</b><span>API Market</span></a>
+    <nav class="nav-links" aria-label="Ana menü">
+      <div class="nav-dd">
+        <a href="index.html#urunler" data-en="Products">Ürünler</a>
+        <div class="dd"><div class="dd-in">
+          <a href="urun-odeme.html"><b data-en="Payments">Ödeme</b><span data-en="Online card collection and refunds">Kartla online tahsilat ve iade</span></a>
+          <a href="urun-finansman.html"><b data-en="Financing">Finansman</b><span data-en="Instalment financing at checkout">Sepette taksitli alışveriş finansmanı</span></a>
+          <a href="urun-hesap.html"><b data-en="Account data">Hesap verisi</b><span data-en="Balances and transactions, with consent">İzinle bakiye ve hareketler</span></a>
+        </div></div>
+      </div>
+      <a href="ai.html" aria-current="page" data-en="AI setup">Yapay zekâ</a>
+      <a href="vaka.html" data-en="Customers">İş birlikleri</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Dil / Language">
+        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="nav-signin" href="#" data-en="Sign in">Giriş yap</a>
+      <a class="btn btn-sm btn-dark" href="docs.html" data-en="Sandbox">Test ortamı</a>
+    </div>
+    <details class="m-menu">
+      <summary aria-label="Menü"><span></span><span></span></summary>
+      <nav aria-label="Mobil menü">
+        <a href="index.html#urunler" data-en="Products">Ürünler</a>
+        <a class="m-sub" href="urun-odeme.html" data-en="Payments">Ödeme</a>
+        <a class="m-sub" href="urun-finansman.html" data-en="Financing">Finansman</a>
+        <a class="m-sub" href="urun-hesap.html" data-en="Account data">Hesap verisi</a>
+        <a href="ai.html" data-en="AI setup">Yapay zekâ</a>
+        <a href="vaka.html" data-en="Customers">İş birlikleri</a>
+        <a href="docs.html" data-en="Docs">Dokümanlar</a>
+        <a href="#" data-en="Sign in">Giriş yap</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="ana">
+  <section class="sub-hero" aria-labelledby="ai-baslik">
+    <div class="hero-visual" aria-hidden="true">
+      <picture>
+        <img id="ipek" src="img/ipek-1600.webp"
+             srcset="img/ipek-1600.webp 1600w, img/ipek-2400.webp 2400w, img/ipek-3200.webp 3200w, img/ipek-3840.webp 3840w"
+             sizes="(max-width: 760px) 260vw, 92vw" alt="" width="3840" height="2143" fetchpriority="high" decoding="async">
+      </picture>
+      <canvas id="akis"></canvas>
+    </div>
+    <div class="hero-in">
+      <p class="kicker-row"><em class="concept" data-en="Concept: proposed feature">Konsept: önerilen özellik</em></p>
+      <h1 id="ai-baslik" data-en="Set up with your AI tool.">Yapay zekâ aracınızla kurun.</h1>
+      <p class="hero-sub" data-en="The assistant builds in the sandbox and asks you before anything moves money.">Asistan test ortamında kurar; para hareketinden önce size sorar.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark" href="#kurulum"><span data-en="Get the prompt">Talimatı alın</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a class="btn btn-line" href="docs.html" data-en="Quickstart without AI">Yapay zekâsız hızlı başlangıç</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- İki kapı -->
+  <section class="ai-sec" id="kurulum" aria-labelledby="kapi-h">
+    <div class="wrap">
+      <p class="say center" id="kapi-h" data-en-html="&lt;b&gt;How would you like to set up?&lt;/b&gt; Pick the path that fits how you work.">
+        <b>Nasıl kurmak istersiniz?</b> Çalışma biçiminize uyan yolu seçin.
+      </p>
+
+      <div class="doors ai-doors" role="tablist" aria-label="Kurulum yolu">
+        <button class="door" role="tab" id="kapi-panel" aria-controls="yol-panel" aria-selected="false" tabindex="-1">
+          <span class="door-art" aria-hidden="true"><span class="art-panel">
+            <span class="dp-top"></span>
+            <span class="dp-side"><i></i><i></i><i></i><i></i></span>
+            <span class="dp-main"><i class="w"></i><i></i><i></i></span>
+          </span></span>
+          <span class="door-txt">
+            <b data-en="Set up in the panel">Panelde kurun</b>
+            <span data-en="A guided setup creates your sandbox app and keys.">Adım adım rehber test uygulamanızı ve anahtarınızı hazırlar.</span>
+          </span>
+        </button>
+        <button class="door" role="tab" id="kapi-ai" aria-controls="yol-ai" aria-selected="true">
+          <span class="door-art art-ai" aria-hidden="true">
+            <span class="ai-box">
+              <span class="ai-line"></span>
+              <span class="ai-line short"></span>
+              <span class="ai-input"><svg viewBox="0 0 20 20"><path d="M10 2l1.6 5.2L17 9l-5.4 1.8L10 16l-1.6-5.2L3 9l5.4-1.8z"/></svg><i></i><em>↑</em></span>
+            </span>
+          </span>
+          <span class="door-txt">
+            <b><span data-en="Start with an AI tool">Yapay zekâ aracıyla başlayın</span> <em class="concept" data-en="Concept">Konsept</em></b>
+            <span data-en="Add Kuveyt Türk to Claude Code, Cursor, Codex or ChatGPT for setup guidance in the sandbox.">Kuveyt Türk’ü Claude Code, Cursor, Codex ya da ChatGPT’ye ekleyin; kurulum test ortamında ilerlesin.</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Yapay zekâ yolu -->
+      <div class="ai-panel" id="yol-ai" role="tabpanel" aria-labelledby="kapi-ai">
+        <p class="say" data-en-html="&lt;b&gt;Let an AI agent set up Kuveyt Türk for you.&lt;/b&gt; Copy the prompt below into your AI coding tool.">
+          <b>Kurulumu bir yapay zekâ aracına yaptırın.</b> Aşağıdaki talimatı kopyalayıp aracınıza yapıştırın.
+        </p>
+
+        <div class="u-tabs" role="tablist" data-tabs="arac" aria-label="Araç">
+          <button role="tab" data-tab="claude" aria-selected="true">Claude Code</button>
+          <button role="tab" data-tab="cursor" aria-selected="false" tabindex="-1">Cursor</button>
+          <button role="tab" data-tab="codex" aria-selected="false" tabindex="-1">Codex</button>
+          <button role="tab" data-tab="chatgpt" aria-selected="false" tabindex="-1">ChatGPT</button>
+        </div>
+
+        <div class="p-head">
+          <b data-en="Your setup prompt">Kurulum talimatınız</b>
+          <button type="button" class="btn-copy copy" data-copy="#talimat"><span class="copy-label" data-en="Copy prompt">Talimatı kopyala</span><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 014 2.5h6.5"/></svg></button>
+        </div>
+        <div class="prompt-box">
+<pre id="talimat" tabindex="0"><span data-tabpanel="arac:claude"><span class="c"><span data-l="tr"># 1) Kuveyt Türk MCP sunucusunu ekleyin (paket adı konsept)</span><span data-l="en"># 1) Add the Kuveyt Türk MCP server (package name is a concept)</span></span>
+<span class="pt-cmd">claude mcp add kt-mcp -e KT_ENV=sandbox -- npx -y {KT_MCP_PAKETI}</span>
+</span><span data-tabpanel="arac:cursor" hidden><span class="c"><span data-l="tr"># 1) .cursor/mcp.json dosyasına ekleyin (paket adı konsept)</span><span data-l="en"># 1) Add to .cursor/mcp.json (package name is a concept)</span></span>
+<span class="pt-cmd">{ "mcpServers": { "kt-mcp": {
+    "command": "npx", "args": ["-y", "{KT_MCP_PAKETI}"],
+    "env": { "KT_ENV": "sandbox" } } } }</span>
+</span><span data-tabpanel="arac:codex" hidden><span class="c"><span data-l="tr"># 1) Kuveyt Türk MCP sunucusunu ekleyin (paket adı konsept)</span><span data-l="en"># 1) Add the Kuveyt Türk MCP server (package name is a concept)</span></span>
+<span class="pt-cmd">codex mcp add kt-mcp --env KT_ENV=sandbox -- npx -y {KT_MCP_PAKETI}</span>
+</span><span data-tabpanel="arac:chatgpt" hidden><span class="c"><span data-l="tr"># 1) Ayarlar → Bağlayıcılar → kt-mcp (test) bağlayıcısını açın (konsept)</span><span data-l="en"># 1) Settings → Connectors → enable kt-mcp (sandbox) (concept)</span></span>
+</span>
+<span class="c"><span data-l="tr"># 2) Bu talimatı yapıştırın</span><span data-l="en"># 2) Paste this prompt</span></span>
+<span data-l="tr">Kuveyt Türk API Market test ortamında kurulum yapmama yardım et.
+
+Ortam
+- API ağ geçidi: https://prep-gateway.kuveytturk.com.tr
+- Kimlik sunucusu: https://prep-identity.kuveytturk.com.tr
+- Yalnız test ortamında çalış; canlı anahtar isteme.
+
+Adımlar
+1. Test müşterilerini listele: GET /v1/data/testcustomers
+2. Bağlantıyı doğrula: GET /v1/fx/rates
+3. Test hesabını oku: GET /v2/accounts/{suffix}
+   Hareketleri listele: GET /v3/accounts/{suffix}/transactions
+4. Ödeme akışını hazırla: POST /v1/vpos/digitalPaymentGetToken
+   Sonucu sorgula: POST /v1/vpos/digitalPaymentQuery
+
+Kurallar
+- Her isteği Signature başlığıyla imzala (RSA-SHA256). Özel anahtarı dosyaya ya da sohbete yazma.
+<span class="pt-rule">- İadeden (POST /v1/vpos/digitalPaymentDoRefund) ve her para hareketinden önce dur, onayımı iste.</span>
+- T.C. kimlik numarasını ve kart bilgisini loglara yazma.</span><span data-l="en">Help me set up Kuveyt Türk API Market in the sandbox.
+
+Environment
+- API gateway: https://prep-gateway.kuveytturk.com.tr
+- ID server: https://prep-identity.kuveytturk.com.tr
+- Work only in the sandbox; never ask for production keys.
+
+Steps
+1. List test customers: GET /v1/data/testcustomers
+2. Check the connection: GET /v1/fx/rates
+3. Read the test account: GET /v2/accounts/{suffix}
+   List transactions: GET /v3/accounts/{suffix}/transactions
+4. Prepare the payment flow: POST /v1/vpos/digitalPaymentGetToken
+   Query the result: POST /v1/vpos/digitalPaymentQuery
+
+Rules
+- Sign every request with the Signature header (RSA-SHA256). Never write the private key to a file or the chat.
+<span class="pt-rule">- Stop and ask for my approval before a refund (POST /v1/vpos/digitalPaymentDoRefund) or any money movement.</span>
+- Never log national ID numbers or card details.</span>
+<span data-tabpanel="arac:claude"><span data-l="tr">- Bu kuralları CLAUDE.md dosyasına kaydet.</span><span data-l="en">- Save these rules to CLAUDE.md.</span></span><span data-tabpanel="arac:cursor" hidden><span data-l="tr">- Bu kuralları .cursor/rules altına kaydet.</span><span data-l="en">- Save these rules under .cursor/rules.</span></span><span data-tabpanel="arac:codex" hidden><span data-l="tr">- Bu kuralları AGENTS.md dosyasına kaydet.</span><span data-l="en">- Save these rules to AGENTS.md.</span></span><span data-tabpanel="arac:chatgpt" hidden><span data-l="tr">- Kodu ben çalıştıracağım; her çağrıyı önce bana göster.</span><span data-l="en">- I will run the code; show me every call first.</span></span></pre>
+        </div>
+        <p class="tool-note" data-tabpanel="arac:claude" data-en="Claude Code keeps the rules in CLAUDE.md and asks before each tool call.">Claude Code kuralları CLAUDE.md’de tutar, her araç çağrısından önce sorar.</p>
+        <p class="tool-note" data-tabpanel="arac:cursor" hidden data-en="Cursor reads project rules from .cursor/rules.">Cursor proje kurallarını .cursor/rules klasöründen okur.</p>
+        <p class="tool-note" data-tabpanel="arac:codex" hidden data-en="Codex reads AGENTS.md in the repository root.">Codex depo kökündeki AGENTS.md dosyasını okur.</p>
+        <p class="tool-note" data-tabpanel="arac:chatgpt" hidden data-en="In ChatGPT you run the code yourself; the connector only reads and prepares.">ChatGPT’de kodu siz çalıştırırsınız; bağlayıcı yalnız okur ve hazırlar.</p>
+
+        <div class="sbx">
+          <h3 data-en="Your sandbox keys for the integration">Kurulum için test anahtarlarınız</h3>
+          <div class="sbx-row"><span data-en="Client ID">İstemci kimliği (Client ID)</span><span class="sbx-val"><code>kt_sandbox_••••••••••••••••</code><button type="button" aria-disabled="true" aria-label="Kopyala (kayıttan sonra)" data-en-label="Copy (after sign-up)"><svg viewBox="0 0 16 16"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 014 2.5h6.5"/></svg></button></span></div>
+          <div class="sbx-row"><span data-en="Client secret">Gizli anahtar (Client secret)</span><span class="sbx-val"><code>••••••••••••••••••••••••••</code><button type="button" aria-disabled="true" aria-label="Kopyala (kayıttan sonra)" data-en-label="Copy (after sign-up)"><svg viewBox="0 0 16 16"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 014 2.5h6.5"/></svg></button></span></div>
+          <p class="sbx-note" data-en="Keys appear here after you register for the sandbox. Your private signing key is never given to the assistant.">Anahtarlar test ortamına kaydolduktan sonra burada görünür. Özel imza anahtarınız asistana verilmez.</p>
+        </div>
+      </div>
+
+      <!-- Panel yolu -->
+      <div class="ai-panel" id="yol-panel" role="tabpanel" aria-labelledby="kapi-panel" hidden>
+        <p class="say" data-en-html="&lt;b&gt;Set up step by step in the panel.&lt;/b&gt; No AI tool needed.">
+          <b>Panelde adım adım kurun.</b> Yapay zekâ aracı gerekmez.
+        </p>
+        <ol class="steps panel-steps">
+          <li><b data-en="Create an account">Hesap açın</b><span data-en="Sign up to API Market and sign in.">API Market’e kaydolun ve giriş yapın.</span></li>
+          <li><b data-en="Add an application">Uygulama ekleyin</b><span data-en="Choose the scope, enter the redirect URI and paste your 2048-bit RSA public key.">Kapsamı seçin, yönlendirme adresini yazın, 2048 bit RSA açık anahtarınızı yapıştırın.</span></li>
+          <li><b data-en="Make your first call">İlk çağrıyı yapın</b><span><code>GET /v1/fx/rates</code></span></li>
+        </ol>
+        <a class="more path-more" href="docs.html" data-en="Open the quickstart →">Hızlı başlangıcı açın →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- İzin seviyeleri -->
+  <section class="ai-sec" id="izinler" aria-labelledby="izin-h">
+    <div class="wrap">
+      <p class="say" id="izin-h" data-en-html="&lt;b&gt;The assistant’s limits are set up front.&lt;/b&gt; Three levels; the third always stays with you.">
+        <b>Asistanın sınırları baştan belli.</b> Üç seviye var; üçüncüsü hep sizde kalır.
+      </p>
+      <div class="levels">
+        <article class="lv">
+          <div class="lv-top"><span class="lv-n">01</span><span class="lv-state on" data-en="On by default">Varsayılan açık</span></div>
+          <div class="lv-meter" aria-hidden="true"><i class="f"></i><i></i><i></i></div>
+          <h3 data-en="Read">Okuma</h3>
+          <p data-en="Exchange rates, branches, test customers, and test account data with consent.">Kur, şube, test müşterileri ve izinli test hesabı verisi.</p>
+          <ul><li>GET /v1/fx/rates</li><li>GET /v1/data/testcustomers</li><li>GET /v3/accounts/{suffix}/transactions</li></ul>
+        </article>
+        <article class="lv">
+          <div class="lv-top"><span class="lv-n">02</span><span class="lv-state opt" data-en="You turn it on">Siz açarsınız</span></div>
+          <div class="lv-meter" aria-hidden="true"><i class="f"></i><i class="f"></i><i></i></div>
+          <h3 data-en="Sandbox write">Test ortamında yazma</h3>
+          <p data-en="Test payment tokens and queries. Locked to prep-gateway; production keys can’t be added.">Test ödeme token’ı ve sorgusu. prep-gateway’e kilitli; canlı anahtar eklenemez.</p>
+          <ul><li>POST /v1/vpos/digitalPaymentGetToken</li><li>POST /v1/vpos/digitalPaymentQuery</li></ul>
+        </article>
+        <article class="lv">
+          <div class="lv-top"><span class="lv-n">03</span><span class="lv-state hum" data-en="Always your approval">Her seferinde onayınız</span></div>
+          <div class="lv-meter" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="h"></i></div>
+          <h3 data-en="Human approval in production">Canlıda insan onayı</h3>
+          <p data-en="Refunds and money movements never run without a person approving. Every call is logged.">İade ve para hareketi, bir kişi onaylamadan çalışmaz. Her çağrı kayda geçer.</p>
+          <ul><li>POST /v1/vpos/digitalPaymentDoRefund</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MCP araçları -->
+  <section class="ai-sec" id="araclar" aria-labelledby="arac-h">
+    <div class="wrap">
+      <p class="say" id="arac-h" data-en-html="&lt;b&gt;MCP tools.&lt;/b&gt; Each tool maps to an endpoint that already exists in API Market.">
+        <b>MCP araçları.</b> Her araç, API Market’te bugün var olan bir uç noktaya karşılık gelir.
+      </p>
+      <div class="mcp">
+        <table>
+          <thead><tr><th data-en="Tool">Araç</th><th data-en="What it does">Ne yapar</th><th data-en="Endpoint">Uç nokta</th><th data-en="Permission">İzin</th></tr></thead>
+          <tbody>
+            <tr><td><code>kt_get_fx_rates</code></td><td data-en="Exchange rates">Döviz kurları</td><td class="ep"><b>GET</b><code>/v1/fx/rates</code></td><td><span class="perm r"><i></i><span data-en="Read">Okuma</span></span></td></tr>
+            <tr><td><code>kt_list_branches</code></td><td data-en="Branches">Şubeler</td><td class="ep"><b>GET</b><code>/v1/data/branches</code></td><td><span class="perm r"><i></i><span data-en="Read">Okuma</span></span></td></tr>
+            <tr><td><code>kt_get_test_customers</code></td><td data-en="Sandbox test customers">Test müşterileri</td><td class="ep"><b>GET</b><code>/v1/data/testcustomers</code></td><td><span class="perm r"><i></i><span data-en="Read">Okuma</span></span></td></tr>
+            <tr><td><code>kt_get_account</code></td><td data-en="Account details">Hesap detayı</td><td class="ep"><b>GET</b><code>/v2/accounts/{suffix}</code></td><td><span class="perm r"><i></i><span data-en="Read">Okuma</span></span></td></tr>
+            <tr><td><code>kt_get_transactions</code></td><td data-en="Account transactions">Hesap hareketleri</td><td class="ep"><b>GET</b><code>/v3/accounts/{suffix}/transactions</code></td><td><span class="perm r"><i></i><span data-en="Read">Okuma</span></span></td></tr>
+            <tr><td><code>kt_get_installments</code></td><td data-en="Financing instalment plan">Finansman taksit planı</td><td class="ep"><b>GET</b><code>/v1/loans/{projectNumber}/installments</code></td><td><span class="perm r"><i></i><span data-en="Read">Okuma</span></span></td></tr>
+            <tr><td><code>kt_vpos_create_token</code></td><td data-en="Start a test payment">Test ödemesi başlatır</td><td class="ep"><b class="p">POST</b><code>/v1/vpos/digitalPaymentGetToken</code></td><td><span class="perm w"><i></i><span data-en="Sandbox write">Test yazma</span></span></td></tr>
+            <tr><td><code>kt_vpos_query_payment</code></td><td data-en="Query a payment">Ödemeyi sorgular</td><td class="ep"><b class="p">POST</b><code>/v1/vpos/digitalPaymentQuery</code></td><td><span class="perm w"><i></i><span data-en="Sandbox write">Test yazma</span></span></td></tr>
+            <tr><td><code>kt_vpos_refund</code></td><td data-en="Refund">İade</td><td class="ep"><b class="p">POST</b><code>/v1/vpos/digitalPaymentDoRefund</code></td><td><span class="perm h"><i></i><span data-en="Your approval">Onayınız</span></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mcp-note" data-en="Tool names are proposals. Endpoints are from the API Market Swagger. Kuveyt Türk does not offer AI or MCP support today.">Araç adları öneridir. Uç noktalar API Market Swagger’ından alındı. Kuveyt Türk’te bugün yapay zekâ ya da MCP desteği yoktur.</p>
+    </div>
+  </section>
+
+  <section class="close" id="iletisim" aria-labelledby="son-baslik">
+    <div class="wrap close-in">
+      <h2 id="son-baslik" data-en="Start in the sandbox, with or without AI.">Test ortamında başlayın, yapay zekâyla ya da onsuz.</h2>
+      <div class="hero-cta">
+        <a class="btn btn-cream" href="docs.html"><span data-en="Open a sandbox">Test ortamını açın</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a class="btn btn-line-light" href="#" data-en="Talk to partnerships">İş birliği için görüşelim</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="wordmark" href="index.html"><b>Kuveyt Türk</b><span>API Market</span></a>
+    <nav aria-label="Alt menü">
+      <a href="index.html#urunler" data-en="Products">Ürünler</a>
+      <a href="ai.html" data-en="AI setup">Yapay zekâ</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+      <a href="vaka.html" data-en="Customers">İş birlikleri</a>
+      <a href="#" data-en="Status">Durum</a>
+      <a href="#" data-en="Privacy (KVKK)">KVKK</a>
+    </nav>
+    <p class="foot-legal" data-en="Design draft · Kuveyt Türk Katılım Bankası A.Ş. · Everything on this page is a proposed feature (concept).">Tasarım taslağı · Kuveyt Türk Katılım Bankası A.Ş. · Bu sayfadaki her şey önerilen özelliktir (konsept).</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

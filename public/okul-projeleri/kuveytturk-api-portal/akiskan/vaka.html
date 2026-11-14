@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-ticaret pazaryeri · Sepette finansman · Kuveyt Türk API Market</title>
+<meta name="description" content="Taslak 1 (Akışkan) · Vaka: E-ticaret pazaryeri ödeme adımında Kuveyt Türk alışveriş finansmanı sunuyor. Rakamlar ve partner alıntısı etiketli örnektir; partner onayıyla gerçek veriyle güncellenecek.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-vaka">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+
+<header class="nav" id="ust">
+  <div class="nav-in">
+    <a class="wordmark" href="index.html" aria-label="Kuveyt Türk API Market ana sayfa"><b>Kuveyt Türk</b><span>API Market</span></a>
+    <nav class="nav-links" aria-label="Ana menü">
+      <div class="nav-dd">
+        <a href="index.html#urunler" data-en="Products">Ürünler</a>
+        <div class="dd"><div class="dd-in">
+          <a href="urun-odeme.html"><b data-en="Payments">Ödeme</b><span data-en="Online card collection and refunds">Kartla online tahsilat ve iade</span></a>
+          <a href="urun-finansman.html"><b data-en="Financing">Finansman</b><span data-en="Instalment financing at checkout">Sepette taksitli alışveriş finansmanı</span></a>
+          <a href="urun-hesap.html"><b data-en="Account data">Hesap verisi</b><span data-en="Balances and transactions, with consent">İzinle bakiye ve hareketler</span></a>
+        </div></div>
+      </div>
+      <a href="ai.html" data-en="AI setup">Yapay zekâ</a>
+      <a href="vaka.html" aria-current="page" data-en="Customers">İş birlikleri</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Dil / Language">
+        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="nav-signin" href="#" data-en="Sign in">Giriş yap</a>
+      <a class="btn btn-sm btn-dark" href="docs.html" data-en="Sandbox">Test ortamı</a>
+    </div>
+    <details class="m-menu">
+      <summary aria-label="Menü"><span></span><span></span></summary>
+      <nav aria-label="Mobil menü">
+        <a href="index.html#urunler" data-en="Products">Ürünler</a>
+        <a class="m-sub" href="urun-odeme.html" data-en="Payments">Ödeme</a>
+        <a class="m-sub" href="urun-finansman.html" data-en="Financing">Finansman</a>
+        <a class="m-sub" href="urun-hesap.html" data-en="Account data">Hesap verisi</a>
+        <a href="ai.html" data-en="AI setup">Yapay zekâ</a>
+        <a href="vaka.html" data-en="Customers">İş birlikleri</a>
+        <a href="docs.html" data-en="Docs">Dokümanlar</a>
+        <a href="#" data-en="Sign in">Giriş yap</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="ana">
+  <section class="sub-hero" aria-labelledby="vaka-baslik">
+    <div class="hero-visual" aria-hidden="true">
+      <picture>
+        <img id="ipek" src="img/ipek-1600.webp"
+             srcset="img/ipek-1600.webp 1600w, img/ipek-2400.webp 2400w, img/ipek-3200.webp 3200w, img/ipek-3840.webp 3840w"
+             sizes="(max-width: 760px) 260vw, 92vw" alt="" width="3840" height="2143" fetchpriority="high" decoding="async">
+      </picture>
+      <canvas id="akis"></canvas>
+    </div>
+    <div class="hero-in">
+      <p class="ex-note"><em class="ex" data-en="Sample data">Örnek veri</em> <span data-en="The figures in this case are representative; they will be replaced with real data once the partner approves.">Bu vakadaki rakamlar temsilîdir; partner onayıyla gerçek verilerle güncellenecektir.</span></p>
+      <p class="kicker-row"><b>E-ticaret pazaryeri</b> <span data-en="· E-commerce financing">· E-ticaret finansmanı</span></p>
+      <h1 id="vaka-baslik" data-en="Financing at checkout, approved in KT Mobile.">Sepette finansman, onay KT Mobil’de.</h1>
+      <p class="hero-sub" data-en="Instead of a card or cash, Marketplace shoppers can pay with Kuveyt Türk shopping financing. It starts on the payment page and ends in the app.">Pazaryeri müşterileri kart ya da nakit yerine Kuveyt Türk alışveriş finansmanıyla ödeyebiliyor. Başvuru ödeme sayfasında başlar, onay uygulamada biter.</p>
+    </div>
+    <div class="facts">
+      <dl>
+        <div><dt data-en="Partner">Partner</dt><dd>E-ticaret pazaryeri</dd></div>
+        <div><dt data-en="Industry">Sektör</dt><dd data-en="E-commerce marketplace">E-ticaret pazaryeri</dd></div>
+        <div><dt data-en="Product">Ürün</dt><dd data-en="Financing · shopping financing">Finansman · alışveriş finansmanı</dd></div>
+        <div><dt data-en="Channel">Kanal</dt><dd data-en="Checkout + KT Mobile">Ödeme sayfası + KT Mobil</dd></div>
+        <div><dt data-en="Status">Durum</dt><dd class="wait" data-en="Awaiting partner approval">Partner onayı bekleniyor</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="metrics" aria-labelledby="sonuc-h">
+    <div class="wrap">
+      <h2 class="h2" id="sonuc-h" data-en="Results, in numbers.">Sonuçlar, rakamlarla.</h2>
+      <div class="metric-row">
+        <div class="metric"><b data-en-html="6 &lt;small&gt;weeks&lt;/small&gt;">6 <small>hafta</small></b><span class="m-lbl" data-en="Time to go live">Canlıya geçiş süresi</span><span class="m-ctx" data-en="From test key to live traffic">Test anahtarından canlı trafiğe</span><em class="ex" data-en="Sample data">Örnek veri</em></div>
+        <div class="metric"><b data-en="+11%">+%11</b><span class="m-lbl" data-en="Conversion lift on large baskets">Yüksek tutarlı sepette dönüşüm artışı</span><span class="m-ctx" data-en="Baskets over ₺5,000, first 6 months">5.000 ₺ üzeri sepetler, ilk 6 ay</span><em class="ex" data-en="Sample data">Örnek veri</em></div>
+        <div class="metric"><b data-en-html="2 &lt;small&gt;min&lt;/small&gt; 40 &lt;small&gt;s&lt;/small&gt;">2 <small>dk</small> 40 <small>sn</small></b><span class="m-lbl" data-en="Average time from application to approval">Başvurudan onaya ortalama süre</span><span class="m-ctx" data-en="From the offer screen to approval in KT Mobile">Teklif ekranından KT Mobil onayına</span><em class="ex" data-en="Sample data">Örnek veri</em></div>
+        <div class="metric"><b data-en-html="₺48 &lt;small&gt;m&lt;/small&gt;">48 <small>mn ₺</small></b><span class="m-lbl" data-en="Monthly financed volume">Aylık finansmanlı işlem hacmi</span><span class="m-ctx" data-en="Sixth month after go-live">Canlıya geçişten sonraki 6. ay</span><em class="ex" data-en="Sample data">Örnek veri</em></div>
+      </div>
+      <p class="src-note" data-en="All four figures are representative samples for layout, not the partner’s data. No result figures have been published; they will be replaced with measurements E-ticaret pazaryeri approves.">Dört rakam da yerleşim için temsilî örnektir, E-ticaret pazaryeri verisi değildir. Hiçbir sonuç rakamı kamuya açıklanmadı; Partnerin onayladığı ölçümlerle değiştirilecek.</p>
+    </div>
+  </section>
+
+  <section class="story" aria-label="Vaka">
+    <div class="wrap story-in">
+      <nav class="toc" aria-label="Bu vakada" data-en-label="In this story">
+        <a href="#sorun" data-en="The problem">Sorun</a>
+        <a href="#cozum" data-en="The solution">Çözüm</a>
+        <a href="#entegrasyon" data-en="Integration">Entegrasyon</a>
+        <a href="#belgeler" data-en="Related docs">İlgili dokümanlar</a>
+      </nav>
+      <div>
+        <article class="chap" id="sorun">
+          <span class="chap-n">01</span>
+          <h2 data-en="Paying for a basket without being sent to a branch.">Sepeti, şubeye gitmeden finanse etmek.</h2>
+          <p data-en="The portal’s framing: give shoppers a way to pay for the items in their basket with the bank’s financing product, besides a card or cash, without sending them to a branch.">Portaldaki çerçeve: sepete eklenen ürünler için kart ya da nakit dışında, bankanın finansman ürünüyle ödeme seçeneği sunmak; müşteriyi şubeye göndermeden.</p>
+          <div class="ex-block"><p data-en="“On large baskets, shoppers whose card limit wasn’t enough left at the payment step. Bank financing needed a branch and paperwork, so it couldn’t be offered in the basket.”">“Yüksek tutarlı sepetlerde kart limiti yetmeyen müşteri ödeme adımında ayrılıyordu. Banka finansmanı şube ve evrak gerektirdiği için sepete bağlanamıyordu.”</p><em class="ex" data-en="Sample text">Örnek metin</em></div>
+        </article>
+
+        <article class="chap" id="cozum">
+          <span class="chap-n">02</span>
+          <h2 data-en="The flow the shopper sees.">Müşterinin gördüğü akış.</h2>
+          <ol class="flow5">
+            <li><span class="n">1</span><div><b data-en="Basket">Sepet</b><p data-en="The shopper adds items and moves to the payment page.">Müşteri ürünleri sepete ekler, ödeme sayfasına geçer.</p></div></li>
+            <li><span class="n">2</span><div><b data-en="Financing offer">Finansman teklifi</b><p data-en="Enters phone and national ID number and sees Kuveyt Türk’s offers.">Telefon ve T.C. kimlik numarasını girer, Kuveyt Türk’ün tekliflerini görür.</p><code>E-commerce Pre-Approved Monthly Payments</code></div></li>
+            <li><span class="n">3</span><div><b data-en="Term and application">Vade ve başvuru</b><p data-en="Chooses a suitable term and applies.">Uygun vadeyi seçer ve başvurur.</p><code>E-commerce Lendings</code></div></li>
+            <li><span class="n">4</span><div><b data-en="Summary in KT Mobile">KT Mobil’de özet</b><p data-en="Is redirected to the app and approves a summary of amount, profit share rate, instalment amount, number of instalments and payment plan.">Uygulamaya yönlendirilir; tutar, kâr payı oranı, taksit tutarı, taksit sayısı ve ödeme planını içeren özeti onaylar.</p></div></li>
+            <li><span class="n">5</span><div><b data-en="Contract approval">Sözleşme onayı</b><p data-en="Reviews and approves the contracts; the application is complete.">Sözleşmeleri inceleyip onaylar; başvuru tamamlanır.</p><code>E-commerce Get Lending Information</code></div></li>
+          </ol>
+          <p class="flow-note" data-en="Per the portal, shoppers complete this 24/7 and within minutes; the structure can vary by partner. The step-to-API mapping is derived from portal descriptions and will be verified.">Portal metnine göre müşteri bu akışı 7/24 ve dakikalar içinde tamamlar; yapı partnere göre değişebilir. Adım ile API eşlemesi portal açıklamalarından çıkarıldı, doğrulanacak.</p>
+        </article>
+
+        <figure class="quote">
+          <blockquote data-en="“We gave shoppers whose card limit wasn’t enough a second way to pay, without leaving checkout. Because approval stays in KT Mobile, we didn’t have to build a separate identity check on our side.”">“Kart limiti yetmeyen müşteriye, ödeme sayfasından çıkmadan ikinci bir yol açtık. Onay KT Mobil’de kaldığı için bizim tarafta ayrı bir kimlik doğrulama adımı kurmamız gerekmedi.”</blockquote>
+          <figcaption><span data-en="E-commerce payments team lead · Partner">E-ticaret ödeme ekibi yöneticisi · Partner</span><em class="ex" data-en="Sample quote">Örnek alıntı</em><span class="src" data-en="Not a real statement; to be replaced with the partner’s written, approved quote.">Gerçek bir beyan değildir; Partnerin yazılı ve onaylı alıntısıyla değiştirilecek.</span></figcaption>
+        </figure>
+
+        <article class="chap" id="entegrasyon">
+          <span class="chap-n">03</span>
+          <h2 data-en="How the integration runs.">Entegrasyon nasıl ilerler.</h2>
+          <p data-en="The steps follow the portal’s “Start using” order. Durations below are samples that add up to the six weeks above.">Adımlar portalın “Kullanmaya başlayın” sırasını izler. Aşağıdaki süreler, yukarıdaki altı haftayla tutarlı örnek değerlerdir.</p>
+          <ol class="int-steps">
+            <li><b data-en="Account">Hesap</b><span class="ok-dur" data-en="Duration: 1 day">Süre: 1 gün</span><em class="ex" data-en="Sample data">Örnek veri</em></li>
+            <li><b data-en="Application">Uygulama</b><span data-en="Financing scope and redirect URI.">Financing kapsamı ve yönlendirme adresi.</span><span class="ok-dur" data-en="Duration: 2 days">Süre: 2 gün</span><em class="ex" data-en="Sample data">Örnek veri</em></li>
+            <li><b data-en="Sandbox testing">Test ortamı</b><span data-en="Financing APIs tested.">Financing API’leri test edilir.</span><span class="ok-dur" data-en="Duration: 4 weeks">Süre: 4 hafta</span><em class="ex" data-en="Sample data">Örnek veri</em></li>
+            <li><b data-en="Go Live">Canlıya geçiş</b><span data-en="Request and approval.">Talep ve onay.</span><span class="ok-dur" data-en="Duration: 1 week">Süre: 1 hafta</span><em class="ex" data-en="Sample data">Örnek veri</em></li>
+          </ol>
+        </article>
+
+        <figure class="quote">
+          <blockquote data-en="“Through the 366 APIs we’ve made available with API Market, we have partnered with more than 70 partners.”">“API Market ile kullanıma sunduğumuz 366 API aracılığıyla 70’in üzerinde partnerle iş birliği yaptık.”</blockquote>
+          <figcaption><span data-en="Aslan Demir, Deputy General Manager responsible for Strategy, Kuveyt Türk">Aslan Demir, Kuveyt Türk Stratejiden Sorumlu Genel Müdür Yardımcısı</span><span class="src"><span data-en="Bank statement, not a partner quote ·">Banka beyanı, partner alıntısı değildir ·</span> <a href="https://www.kuveytturk.com.tr/hakkimizda/kuveyt-turk-hakkinda/bizden-haberler/kuveyt-turk-is-birligine-en-acik-banka-secildi" target="_blank" rel="noopener" data-en="Kuveyt Türk press release, 2024">Kuveyt Türk 2024 bülteni</a></span></figcaption>
+        </figure>
+
+        <article class="chap" id="belgeler">
+          <span class="chap-n">04</span>
+          <h2 data-en="Related docs.">İlgili dokümanlar.</h2>
+          <div class="rel">
+            <a href="urun-finansman.html"><b data-en="Financing product">Finansman ürünü</b><span>Loans/Financing</span></a>
+            <a href="docs.html#finansman"><b data-en="Financing endpoints">Finansman uç noktaları</b><span>/v1/loans</span></a>
+            <a href="docs.html#adim-4"><b data-en="Authorization">Yetkilendirme</b><span>authorization code</span></a>
+            <a href="docs.html#adim-5"><b data-en="Signing requests">İstek imzalama</b><span>RSA-SHA256</span></a>
+            <a href="docs.html#canli"><b data-en="Going live">Canlıya geçiş</b><span>Go Live</span></a>
+          </div>
+          <p class="src-note"><span data-en="Source:">Kaynak:</span> <a href="https://developer.kuveytturk.com.tr/productdetail/financing" target="_blank" rel="noopener">developer.kuveytturk.com.tr/productdetail/financing</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-more" aria-labelledby="diger-h">
+    <div class="wrap">
+      <h2 id="diger-h" data-en="More cases">Diğer vakalar</h2>
+      <div class="rel-cards">
+        <a class="rel-card" href="vaka-muhasebe.html">
+          <small><span data-en="Account data · Accounting software">Hesap verisi · Ön muhasebe yazılımı</span> <em class="ex" data-en="Sample case · fictional company">Örnek vaka · kurgusal kurum</em></small>
+          <b data-en="Account activity lands in the books on its own.">Hesap hareketleri muhasebe kaydına kendiliğinden düşüyor.</b>
+          <span data-en="Template case with a fictional company, to show the format.">Biçimi göstermek için kurgusal kurumla hazırlanmış şablon vaka.</span>
+          <span class="go" data-en="Read the sample case →">Örnek vakayı okuyun →</span>
+        </a>
+        <a class="rel-card dark" href="urun-finansman.html">
+          <small data-en="Product">Ürün</small>
+          <b data-en="Financing at your checkout">Ödeme sayfanızda finansman</b>
+          <span data-en="How it works, use cases and endpoints.">Nasıl çalışır, kullanım senaryoları ve uç noktalar.</span>
+          <span class="go" data-en="Financing →">Finansman →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="close" id="iletisim" aria-labelledby="son-baslik">
+    <div class="wrap close-in">
+      <h2 id="son-baslik" data-en="Planning something similar?">Benzer bir şey mi planlıyorsunuz?</h2>
+      <div class="hero-cta">
+        <a class="btn btn-cream" href="#"><span data-en="Talk to partnerships">İş birliği için görüşelim</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a class="btn btn-line-light" href="docs.html#finansman" data-en="Financing docs">Finansman dokümanları</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="wordmark" href="index.html"><b>Kuveyt Türk</b><span>API Market</span></a>
+    <nav aria-label="Alt menü">
+      <a href="index.html#urunler" data-en="Products">Ürünler</a>
+      <a href="ai.html" data-en="AI setup">Yapay zekâ</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+      <a href="vaka.html" data-en="Customers">İş birlikleri</a>
+      <a href="#" data-en="Status">Durum</a>
+      <a href="#" data-en="Privacy (KVKK)">KVKK</a>
+    </nav>
+    <p class="foot-legal" data-en="Design draft · Kuveyt Türk Katılım Bankası A.Ş. · Flow text from the portal’s Financing page; figures, problem text and partner quote are labelled samples, to be replaced with partner-approved data.">Tasarım taslağı · Kuveyt Türk Katılım Bankası A.Ş. · Akış metni portalın Financing sayfasından; rakamlar, sorun metni ve partner alıntısı etiketli örnektir, partner onaylı veriyle değiştirilecek.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

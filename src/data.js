@@ -269,6 +269,15 @@ export const SCHOOL_PROJECTS = [
       { label: 'Tanıtım', url: '/okul-projeleri/ricambio/' },
       { label: 'Uygulamayı dene', url: '/okul-projeleri/ricambio/app/', note: 'Demo verisiyle, giriş gerekmez' }
     ]
+  },
+  {
+    name: 'Kuveyt Türk API Portal Redesign',
+    lead: 'Kuveyt Türk geliştirici portalı için UX/UI denetimi ve iki yönlü yeniden tasarım: yapay zekâ ile kurulum, ürün ve vaka sayfaları (okul projesi, konsept).',
+    image: { src: asset('/okul-projeleri-screens/kuveytturk-api-portal-720.webp'), srcSet: `${asset('/okul-projeleri-screens/kuveytturk-api-portal-720.webp')} 720w, ${asset('/okul-projeleri-screens/kuveytturk-api-portal-1200.webp')} 1200w`, width: 1200, height: 750, alt: 'Yeniden tasarlanmış API portalının açılışı: ödeme ve onay kartları, "Sandbox anahtarı alın" düğmesi' },
+    links: [
+      // Statik konsept: public/okul-projeleri/kuveytturk-api-portal/ (kaynak: Projeler/kuveytturk-dev-portal-mock/tur2, yayın kopyası noindex + "bağımsız konsept" şeridiyle)
+      { label: 'Projeyi gez', url: '/okul-projeleri/kuveytturk-api-portal/', note: 'Kuveyt Türk ile bağlantısı yoktur' }
+    ]
   }
 ];
 

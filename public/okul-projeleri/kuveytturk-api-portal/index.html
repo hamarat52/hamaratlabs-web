@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kuveyt Türk API Portal Redesign · Okul projesi · hamaratlabs</title>
+<meta name="description" content="Kuveyt Türk geliştirici portalı için bağımsız UX/UI yeniden tasarım konsepti: iki yön, yapay zekâ ile kurulum, ürün ve vaka sayfaları. Okul projesi.">
+<style>
+  :root{--zemin:#f4f1ea;--yazi:#1d1d1b;--soluk:#5c5a55;--vurgu:#0b6e4f;--kart:#fffdf8;--cizgi:#e2ddd2}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--zemin);color:var(--yazi);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+  main{max-width:1120px;margin:0 auto;padding:56px 24px 72px}
+  .ust{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--soluk)}
+  h1{font-size:clamp(32px,5vw,52px);line-height:1.08;margin:10px 0 16px;letter-spacing:-.02em}
+  .giris{max-width:720px;font-size:18px;color:#34322e}
+  .not{margin:22px 0 40px;padding:14px 16px;border:1px solid var(--cizgi);border-radius:10px;background:var(--kart);font-size:14px;color:var(--soluk)}
+  .yonler{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px}
+  .yon{background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+  .yon img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-bottom:1px solid var(--cizgi)}
+  .yon div{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .yon h2{margin:0;font-size:22px}
+  .yon p{margin:0;color:#3d3b37}
+  .linkler{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px 14px;padding-top:6px}
+  .linkler a{color:var(--vurgu);font-weight:600;text-decoration:none}
+  .linkler a.ana{background:var(--vurgu);color:#fff;padding:9px 14px;border-radius:8px}
+  .linkler a:hover{text-decoration:underline}
+  h3{margin:56px 0 12px;font-size:20px}
+  ul.ozet{margin:0;padding-left:20px;color:#34322e}
+  ul.ozet li{margin:6px 0}
+  footer{margin-top:56px;font-size:13px;color:var(--soluk)}
+  footer a{color:var(--soluk)}
+</style>
+</head>
+<body>
+<main>
+  <p class="ust">Okul projesi · konsept tasarım · Kasım 2026</p>
+  <h1>Kuveyt Türk API Portal Redesign</h1>
+  <p class="giris">Kuveyt Türk geliştirici portalını (API Market) baştan sona inceleyip 45 UX/UI bulgusu çıkardım; 12 global ve yerel rakibin yolculuklarını karşılaştırdım. Bu araştırmadan iki tasarım yönü doğdu. İkisi de yapay zekâ ile kurulumu (MCP), ürün sayfalarını ve vaka kurgusunu içeriyor.</p>
+  <p class="not">Bağımsız bir okul projesidir. Kuveyt Türk ile bağlantısı, onayı ya da iş birliği yoktur. Sayfalardaki rakamlar, alıntılar, test anahtarları ve ikinci vaka örnektir; uç nokta adları portalın herkese açık dokümanından alınmıştır.</p>
+
+  <section class="yonler" aria-label="Tasarım yönleri">
+    <article class="yon">
+      <img src="akiskan-hero.webp" width="1200" height="750" alt="Akışkan yönünün açılış ekranı">
+      <div>
+        <h2>Yön 1 · Akışkan</h2>
+        <p>Sakin, kurumsal ve hareketli bir dil. Hero'da yavaş akan ipek doku; ilk buton doğrudan sandbox (test) anahtarına gider.</p>
+        <p class="linkler">
+          <a class="ana" href="akiskan/">Siteyi gez</a>
+          <a href="akiskan/ai.html">Yapay zekâ ile kurulum</a>
+          <a href="akiskan/urun-finansman.html">Ürün sayfası</a>
+          <a href="akiskan/vaka.html">Vaka</a>
+        </p>
+      </div>
+    </article>
+    <article class="yon">
+      <img src="urun-hero.webp" width="1200" height="750" alt="Ürün yönünün açılış ekranı">
+      <div>
+        <h2>Yön 2 · Ürün</h2>
+        <p>Ürünün kendisini gösteren dil. Hero'da gerçek uç noktalarla kurulmuş bir ödeme ve onay sahnesi.</p>
+        <p class="linkler">
+          <a class="ana" href="urun/">Siteyi gez</a>
+          <a href="urun/ai.html">Yapay zekâ ile kurulum</a>
+          <a href="urun/urun-odeme.html">Ürün sayfası</a>
+          <a href="urun/vaka.html">Vaka</a>
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <h3>Neyi çözüyor</h3>
+  <ul class="ozet">
+    <li>Bugünkü portalın ilk butonu bir "tur" başlatıyor ve kontrastı 1,39:1. Yeni yönlerde ilk buton, geliştiricinin asıl hedefine, yani sandbox (test) anahtarına gider.</li>
+    <li>Ürünler teknik başlıklarla değil, iş faydasıyla anlatılır: ödeme, sepette finansman, hesap verisi.</li>
+    <li>Claude Code, Cursor, Codex ve ChatGPT için tek adımda kurulum ekranı, Stripe'ın yaklaşımından ilhamla.</li>
+    <li>Partner logolarının yerine, entegrasyonun nasıl kurulduğunu anlatan vaka sayfaları.</li>
+  </ul>
+
+  <footer>© 2026 hamaratlabs · <a href="/okul-projeleri">Tüm okul projeleri</a></footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ödeme · Kuveyt Türk API Market</title>
+<meta name="description" content="Taslak 3 (Ürün) · Ödeme ürünü: kartla online tahsilat, sonucu sunucudan teyit ve iade. Uç noktalar API Market Swagger'ından.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-urun">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+
+<header class="nav" id="ust">
+  <a class="wordmark" href="index.html" aria-label="Kuveyt Türk API Market ana sayfa"><span class="wm-dot" aria-hidden="true"></span><b>Kuveyt Türk</b> <span>API Market</span></a>
+  <nav class="nav-links" aria-label="Ana menü">
+    <div class="nav-dd cur">
+      <a href="index.html#urunler" data-en="Products">Ürünler</a>
+      <div class="dd"><div class="dd-in">
+        <a href="urun-odeme.html" aria-current="page"><b data-en="Payments">Ödeme</b><span data-en="Online card collection and refunds">Kartla online tahsilat ve iade</span></a>
+        <a href="urun-finansman.html"><b data-en="Financing">Finansman</b><span data-en="Instalment financing at checkout">Sepette taksitli alışveriş finansmanı</span></a>
+        <a href="urun-hesap.html"><b data-en="Account data">Hesap verisi</b><span data-en="Balances and transactions, with consent">İzinle bakiye ve hareketler</span></a>
+      </div></div>
+    </div>
+    <a href="ai.html" data-en="Set up with AI">Yapay zekâ ile kurulum</a>
+    <a href="vaka.html" data-en="Customers">Müşteriler</a>
+    <a href="docs.html" data-en="Docs">Dokümanlar</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang" role="group" aria-label="Dil / Language">
+      <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="nav-signin" href="#" data-en="Sign in">Giriş yap</a>
+  </div>
+  <details class="m-menu">
+    <summary aria-label="Menü"><span></span><span></span></summary>
+    <nav aria-label="Mobil menü">
+      <a href="index.html#urunler" data-en="Products">Ürünler</a>
+      <a class="m-sub" href="urun-odeme.html" data-en="Payments">Ödeme</a>
+      <a class="m-sub" href="urun-finansman.html" data-en="Financing">Finansman</a>
+      <a class="m-sub" href="urun-hesap.html" data-en="Account data">Hesap verisi</a>
+      <a href="ai.html" data-en="Set up with AI">Yapay zekâ ile kurulum</a>
+      <a href="vaka.html" data-en="Customers">Müşteriler</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+      <a href="#" data-en="Sign in">Giriş yap</a>
+    </nav>
+  </details>
+</header>
+
+<main id="ana">
+  <!-- 1. Hero: başlık + ürün sahnesi -->
+  <section class="hero" aria-labelledby="urun-baslik">
+    <div class="hero-head">
+      <p class="hero-kicker"><b class="kick-logo" data-en="Payments">Ödeme</b> <span>Digital Payments</span></p>
+      <h1 id="urun-baslik" data-en-html="Take payments on your site.&lt;br&gt;&lt;span&gt;Refund in one step.&lt;/span&gt;">Ödemeyi sitenizde alın,<br><span>iadeyi tek adımda yapın.</span></h1>
+      <p class="hero-sub" data-en="Your customer pays by card; you confirm the result from your server and refund when needed.">Müşteriniz kartıyla öder; sonucu sunucunuzdan teyit eder, gerektiğinde iade edersiniz.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="docs.html#adim-1" data-en="Get a test key">Test anahtarı alın</a>
+        <a class="btn btn-quiet" href="#iletisim" data-en="Talk to sales">Satış ekibiyle görüşün</a>
+      </div>
+    </div>
+
+    <div class="stage stage-prod" aria-label="Örnek ödeme ekranı ve sunucu günlüğü" data-en-label="Sample checkout and server log">
+      <picture class="stage-bg" aria-hidden="true">
+        <img src="img/dalga-1600.webp" srcset="img/dalga-1600.webp 1600w, img/dalga-2560.webp 2560w" sizes="(max-width: 760px) 200vw, 1280px" alt="" width="2560" height="1429">
+      </picture>
+      <span class="concept on-dark" data-en="Sample screens · amounts are representative">Örnek ekranlar · tutarlar temsilîdir</span>
+      <div class="pscene">
+        <div class="win">
+          <div class="win-bar"><b data-en="Checkout">Ödeme sayfası</b><span class="muted" data-en="Test store">Test mağazası</span></div>
+          <div class="win-body co">
+            <div class="co-total"><small data-en="Total">Toplam</small><strong data-en="₺1,250.00">1.250,00 ₺</strong></div>
+            <ul class="co-lines">
+              <li><span data-en="Linen shirt">Keten gömlek</span><span data-en="₺890.00">890,00 ₺</span></li>
+              <li><span data-en="Canvas tote">Kanvas çanta</span><span data-en="₺360.00">360,00 ₺</span></li>
+            </ul>
+            <div class="co-field"><i class="co-chip"></i><span>•••• •••• •••• 4021</span></div>
+            <div class="co-btn" data-en="Pay ₺1,250.00">1.250,00 ₺ öde</div>
+            <p class="co-note" data-en="Payment step on Kuveyt Türk; details to be confirmed">Ödeme adımı Kuveyt Türk’te; ayrıntı doğrulanacak</p>
+          </div>
+        </div>
+        <div class="win">
+          <div class="win-bar"><b data-en="Your server">Sunucunuz</b><span class="muted" data-en="Call log">Çağrı günlüğü</span></div>
+          <div class="win-body">
+            <p class="log-h" data-en="Order #58213 · sandbox">Sipariş #58213 · test ortamı</p>
+            <ol class="calls">
+              <li class="call"><span class="st"></span><code>digitalPaymentGetToken</code><em class="pill ok">200</em><small>POST /v1/vpos/digitalPaymentGetToken</small></li>
+              <li class="call"><span class="st"></span><code>digitalPaymentQuery</code><em class="pill ok">200</em><small data-en="Payment confirmed">Ödeme doğrulandı</small></li>
+              <li class="call"><span class="st"></span><code>sendDocument</code><em class="pill ok">200</em><small data-en="Document sent">Belge gönderildi</small></li>
+              <li class="call wait"><span class="st"></span><code>digitalPaymentDoRefund</code><em class="pill" data-en="On request">Talep olursa</em><small data-en="Refund, when the customer asks">Müşteri isterse iade</small></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <dl class="facts">
+      <div><dt data-en="Product group">Ürün grubu</dt><dd>Digital Payments</dd></div>
+      <div><dt data-en="Endpoints">Uç nokta</dt><dd data-en="4 · all POST">4 · hepsi POST</dd></div>
+      <div><dt data-en="Authorization">Yetkilendirme</dt><dd data-en="OAuth 2.0 + RSA signature">OAuth 2.0 + RSA imzası</dd></div>
+      <div><dt data-en="Sandbox">Test ortamı</dt><dd>prep-gateway</dd></div>
+      <div><dt data-en="Going live">Canlıya geçiş</dt><dd data-en="Via a Go Live request">Go Live talebiyle</dd></div>
+    </dl>
+  </section>
+
+  <!-- 2. Nasıl çalışır -->
+  <section class="ps" id="nasil" aria-labelledby="nasil-h">
+    <div class="wrap">
+      <h2 class="t" id="nasil-h" data-en="How it works">Nasıl çalışır</h2>
+      <p class="lead" data-en="Four steps, from the order to the refund. Three of them run on your server.">Siparişten iadeye dört adım. Üçü sizin sunucunuzda geçer.</p>
+      <ol class="fcards">
+        <li>
+          <div class="fc-ui dk" aria-hidden="true">
+            <div class="mini-dk"><span><span class="k">POST</span> /v1/vpos/</span><span>digitalPaymentGetToken</span><span class="c">→ 200</span><span><span class="s">"success"</span>: true</span></div>
+          </div>
+          <div class="fc-meta"><span class="n">1</span><span class="fc-who" data-en="Your server">Sunucunuz</span></div>
+          <h3 data-en="Start the payment">Ödemeyi başlatın</h3>
+          <p data-en="Request a payment token for the order from your server.">Sipariş için sunucunuzdan ödeme token’ı alırsınız.</p>
+          <code>digitalPaymentGetToken</code>
+        </li>
+        <li>
+          <div class="fc-ui" aria-hidden="true">
+            <div class="mini-co">
+              <div class="r"><span data-en="Total">Toplam</span><b>1.250,00 ₺</b></div>
+              <div class="fl">•••• 4021</div>
+              <div class="bt" data-en="Pay">Öde</div>
+            </div>
+          </div>
+          <div class="fc-meta"><span class="n">2</span><span class="fc-who" data-en="Customer">Müşteri</span></div>
+          <h3 data-en="The customer pays">Müşteri öder</h3>
+          <p data-en="They complete the card payment in Kuveyt Türk’s payment step.">Kuveyt Türk ödeme adımında kartıyla ödemeyi tamamlar.</p>
+        </li>
+        <li>
+          <div class="fc-ui" aria-hidden="true">
+            <ul class="mini-calls"><li><span class="st"></span><code>digitalPaymentQuery</code></li><li><span class="st"></span><code data-en="success: true">success: true</code></li></ul>
+          </div>
+          <div class="fc-meta"><span class="n">3</span><span class="fc-who" data-en="Your server">Sunucunuz</span></div>
+          <h3 data-en="Confirm the result">Sonucu teyit edin</h3>
+          <p data-en="Don’t rely on the browser redirect alone; confirm with a query.">Yalnız tarayıcı yönlendirmesine güvenmeyin; sorguyla doğrulayın.</p>
+          <code>digitalPaymentQuery</code>
+        </li>
+        <li>
+          <div class="fc-ui" aria-hidden="true">
+            <div class="mini-ap-card"><b data-en="Refund request">İade talebi</b><small>digitalPaymentDoRefund</small><span class="mini-ap"><i data-en="Cancel">Vazgeç</i><b data-en="Refund">İade et</b></span></div>
+          </div>
+          <div class="fc-meta"><span class="n">4</span><span class="fc-who" data-en="Your server">Sunucunuz</span></div>
+          <h3 data-en="Document and refund">Belge ve iade</h3>
+          <p data-en="Send the document for the order; refund when a customer asks.">Siparişin belgesini gönderin; müşteri isterse iade edin.</p>
+          <code>sendDocument · digitalPaymentDoRefund</code>
+        </li>
+      </ol>
+      <p class="src-note" data-en="Amounts on the screens are samples. Step order follows the Digital Payments group in Swagger; the customer payment screen details will be confirmed with the product team.">Ekranlardaki tutarlar örnektir. Adım sırası Swagger’daki Digital Payments grubunu izler; müşterinin gördüğü ödeme ekranının ayrıntısı ürün ekibiyle doğrulanacak.</p>
+    </div>
+  </section>
+
+  <!-- 3. Kullanım senaryoları -->
+  <section class="ps" aria-labelledby="senaryo-h">
+    <div class="wrap">
+      <h2 class="t" id="senaryo-h" data-en="Where it fits">Nerede işe yarar</h2>
+      <div class="uses">
+        <article class="use">
+          <span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 8H6.2"/><circle cx="9.5" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg></span>
+          <small data-en="E-commerce">E-ticaret</small>
+          <h3 data-en="Card payment on your own checkout">Kendi ödeme sayfanızda kartla tahsilat</h3>
+          <p data-en="The payment result is written to the order record by query, not by redirect.">Ödeme sonucu sipariş kaydınıza yönlendirmeyle değil, sorguyla yazılır.</p>
+        </article>
+        <article class="use">
+          <span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9.5V20h16V9.5"/><path d="M3 9.5l1.6-5.5h14.8L21 9.5a2.6 2.6 0 0 1-4.5 1.6 2.6 2.6 0 0 1-4.5 0 2.6 2.6 0 0 1-4.5 0A2.6 2.6 0 0 1 3 9.5z"/><path d="M10 20v-5h4v5"/></svg></span>
+          <small data-en="Marketplace">Pazaryeri</small>
+          <h3 data-en="A payment and refund record per order">Sipariş başına ödeme ve iade kaydı</h3>
+          <p data-en="Customer service refunds with a single call, without opening a separate screen.">Müşteri hizmetleri iadeyi ayrı bir ekran açmadan tek çağrıyla yapar.</p>
+        </article>
+        <article class="use">
+          <span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-13.7 5.6M4 12a8 8 0 0 1 13.7-5.6"/><path d="M18 3v3.6h-3.6M6 21v-3.6h3.6"/></svg></span>
+          <small data-en="SaaS and digital services">SaaS ve dijital hizmet</small>
+          <h3 data-en="Plan purchases and renewals">Paket satın alma ve yenileme</h3>
+          <p data-en="Each renewal is a new payment; the document goes out in the same flow.">Her yenileme yeni bir ödemedir; belge aynı akışta gönderilir.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Geliştiriciler için -->
+  <section class="ps" id="gelistirici" aria-labelledby="dev-h">
+    <div class="wrap dev-in">
+      <div>
+        <h2 class="t" id="dev-h" data-en="Four calls, one signing rule.">Dört çağrı, tek imza kuralı.</h2>
+        <p class="lead" data-en="The whole flow is four POST calls from your server. Every response arrives in the same envelope: value, success, results.">Akışın tamamı sunucunuzdan yapılan dört POST çağrısı. Her yanıt aynı zarfla gelir: value, success, results.</p>
+        <ul class="ep-rows">
+          <li><b class="p">POST</b><code>/v1/vpos/digitalPaymentGetToken</code><span data-en="Get a token for the payment">Ödeme için token al</span></li>
+          <li><b class="p">POST</b><code>/v1/vpos/digitalPaymentQuery</code><span data-en="Query the payment result">Ödeme sonucunu sorgula</span></li>
+          <li><b class="p">POST</b><code>/v1/vpos/sendDocument</code><span data-en="Send a document for the payment">Ödeme için belge gönder</span></li>
+          <li><b class="p">POST</b><code>/v1/vpos/digitalPaymentDoRefund</code><span data-en="Refund">İade et</span></li>
+        </ul>
+        <a class="more" href="docs.html#odeme" data-en="Payment docs →">Ödeme dokümanları →</a>
+      </div>
+      <div>
+        <div class="console-stage">
+          <picture class="stage-bg" aria-hidden="true">
+            <img src="img/dalga-1600.webp" srcset="img/dalga-1600.webp 1600w, img/dalga-2560.webp 2560w" sizes="(max-width: 1100px) 200vw, 900px" alt="" width="2560" height="1429" loading="lazy">
+          </picture>
+          <div class="console">
+            <div class="cs-top">
+              <span class="env"><i></i><span data-en="Sandbox">Test ortamı</span></span>
+              <span class="cs-live"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a4 4 0 014 4v2h1a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1V9a1 1 0 011-1h1V6a4 4 0 014-4zm0 2a2 2 0 00-2 2v2h4V6a2 2 0 00-2-2z"/></svg><span data-en="Production locked">Canlı kilitli</span></span>
+            </div>
+            <div class="cs-req">
+              <span class="m">POST</span>
+              <code>/v1/vpos/digitalPaymentGetToken</code>
+              <button type="button" class="cs-send" id="gonder" data-en="Send">Gönder</button>
+            </div>
+            <dl class="cs-head">
+              <div><dt>Authorization</dt><dd><code>Bearer ••••••••</code><small data-en="auto">otomatik</small></dd></div>
+              <div><dt>Signature</dt><dd><code>RSA-SHA256 ••••</code><small data-en="auto">otomatik</small></dd></div>
+            </dl>
+            <div class="cs-tabs" role="tablist" data-tabs="kon" aria-label="Konsol">
+              <button role="tab" data-tab="yanit" aria-selected="true" data-en="Response">Yanıt</button>
+              <button role="tab" data-tab="curl" aria-selected="false" tabindex="-1">cURL</button>
+              <button role="tab" data-tab="node" aria-selected="false" tabindex="-1">Node.js</button>
+              <button type="button" class="copy cs-copy" data-copy=".console pre[data-tabpanel]" data-en="Copy"><span class="copy-label">Kopyala</span></button>
+            </div>
+            <div class="cs-out ready" id="konsol-yanit" data-tabpanel="kon:yanit">
+              <p class="cs-status"><span class="ok">200 OK</span> <span data-en="Sample response · PostDigitalPaymentGetTokenBodyResponse">Örnek yanıt · PostDigitalPaymentGetTokenBodyResponse</span></p>
+<pre data-tabpanel="kon:yanit"><code>{
+  <span class="s">"value"</span>: { <span class="c">/* PostDigitalPaymentGetTokenBodyResponse */</span> },
+  <span class="s">"success"</span>: <span class="k">true</span>,
+  <span class="s">"results"</span>: []
+}</code></pre>
+              <p class="cs-wait" data-en="Sending…">Gönderiliyor…</p>
+            </div>
+<pre data-tabpanel="kon:curl" hidden><code><span class="c"># BASE_URL=https://prep-gateway.kuveytturk.com.tr</span>
+curl -X POST <span class="s">"$BASE_URL/v1/vpos/digitalPaymentGetToken"</span> \
+  -H <span class="s">"Authorization: Bearer ***"</span> \
+  -H <span class="s">"Signature: $SIGNATURE"</span> \
+  -H <span class="s">"Content-Type: application/json"</span> \
+  -d @get-token.json  <span class="c"># PostDigitalPaymentGetTokenBody</span></code></pre>
+<pre data-tabpanel="kon:node" hidden><code><span class="k">const</span> res = <span class="k">await</span> fetch(<span class="s">`${BASE_URL}/v1/vpos/digitalPaymentGetToken`</span>, {
+  method: <span class="s">"POST"</span>,
+  headers: { Authorization: <span class="s">`Bearer ${token}`</span>, Signature: signature,
+             <span class="s">"Content-Type"</span>: <span class="s">"application/json"</span> },
+  body,  <span class="c">// PostDigitalPaymentGetTokenBody</span>
+});</code></pre>
+          </div>
+        </div>
+        <p class="code-note" data-en="The console makes no network request; the response is a sample. Path and model names are from Swagger; body fields are not invented.">Konsol ağ isteği yapmaz; yanıt örnektir. Yol ve model adları Swagger’dan; gövde alanları uydurulmadı.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Yapay zekâ ile kurulum -->
+  <section class="ps" aria-labelledby="ai-h">
+    <div class="wrap">
+      <div class="ai-band">
+        <div>
+          <span class="concept" data-en="Concept: not available at Kuveyt Türk today">Konsept: Kuveyt Türk’te bugün yok</span>
+          <h2 id="ai-h" data-en="Set it up with your AI tool.">Yapay zekâ aracınızla kurun.</h2>
+          <p data-en="Your assistant builds the payment flow in the sandbox. Steps that move money, like refunds, wait for your approval.">Asistanınız ödeme akışını test ortamında kurar. İade gibi para hareketi olan adımlar sizin onayınızı bekler.</p>
+          <a class="more" href="ai.html" data-en="Set up with AI →">Yapay zekâ ile kurulum →</a>
+        </div>
+        <div class="prompt">
+          <div class="prompt-bar"><code>kt-mcp</code><span class="concept" data-en="suggestion">öneri</span></div>
+<pre><span class="c"># Claude Code</span>
+<span class="pt-cmd">claude mcp add kt-mcp -e KT_ENV=sandbox -- npx -y {KT_MCP_PAKETI}</span>
+
+<span class="c" data-en="# Prompt"># İstem</span>
+<span class="pt-rule" data-en="“Set up Kuveyt Türk payments for my store in the sandbox. Ask me before digitalPaymentDoRefund.”">“Mağazama Kuveyt Türk ödemesini test ortamında kur. digitalPaymentDoRefund’dan önce bana sor.”</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Güvenlik -->
+  <section class="ps" aria-labelledby="guven-h">
+    <div class="wrap">
+      <h2 class="t" id="guven-h" data-en="Security, by design">Güvenlik, kurulumun parçası</h2>
+      <div class="sec-grid">
+        <div class="sg"><span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span><b>OAuth 2.0</b><p data-en="Every call carries a token issued to the app you create in API Market.">Her çağrı, API Market’te oluşturduğunuz uygulamaya verilen token’la yapılır.</p></div>
+        <div class="sg"><span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 16l9.5-9.5a2.1 2.1 0 0 1 3 3L9 19H6z"/></svg></span><b data-en="Signed requests">İmzalı istek</b><p data-en="Each request carries an RSA-SHA256 signature made with your 2048-bit key. The private key stays with you.">Her istek, 2048 bit RSA anahtarınızla atılan RSA-SHA256 imzası taşır. Özel anahtar sizde kalır.</p></div>
+        <div class="sg"><span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/></svg></span><b data-en="Separate sandbox">Ayrı test ortamı</b><p data-en="Separate identity and gateway addresses for testing; no real money moves.">Test için ayrı kimlik ve ağ geçidi adresleri; gerçek para hareket etmez.</p></div>
+        <div class="sg"><span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><b data-en="Short-lived tokens">Kısa ömürlü token</b><p data-en="An access token is valid for one hour.">Access token bir saat geçerlidir.</p></div>
+        <div class="sg"><span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><b data-en="Controlled go-live">Kontrollü canlıya geçiş</b><p data-en="You move to production addresses after your Go Live request is approved.">Canlı adreslere Go Live talebiniz onaylandıktan sonra geçersiniz.</p></div>
+      </div>
+      <p class="src-note" data-en="Source: API Market “How to start” page and Swagger. For licensing and compliance questions, talk to the partnerships team.">Kaynak: API Market “How to start” sayfası ve Swagger. Lisans ve uyum soruları için iş birliği ekibiyle görüşün.</p>
+    </div>
+  </section>
+
+  <!-- 7. İlgili -->
+  <section class="ps-rel" aria-labelledby="ilgili-h">
+    <div class="wrap">
+      <h2 class="t" id="ilgili-h" data-en="Next">Sonraki adım</h2>
+      <div class="rel-cards">
+        <a class="rel-card" href="vaka.html">
+          <small><span data-en="Case · Trendyol">Vaka · Trendyol</span></small>
+          <b data-en="At Trendyol’s checkout, financing sits next to the card.">Trendyol’un ödeme adımında finansman, kartın yanında.</b>
+          <span data-en="The same checkout, with a second way to pay.">Aynı ödeme sayfası, ikinci bir ödeme yoluyla.</span>
+          <span class="rc-go" data-en="Read the case →">Vakayı okuyun →</span>
+        </a>
+        <a class="rel-card dark" href="docs.html#odeme">
+          <small data-en="Docs">Dokümanlar</small>
+          <b data-en="Payment endpoints and the quickstart">Ödeme uç noktaları ve hızlı başlangıç</b>
+          <span><code>/v1/vpos/*</code></span>
+          <span class="rc-go" data-en="Open the docs →">Dokümanları açın →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="close" id="iletisim" aria-labelledby="son-baslik">
+    <div class="close-card">
+      <picture class="close-bg" aria-hidden="true">
+        <img src="img/camkart-1200.webp" srcset="img/camkart-1200.webp 1200w, img/camkart-2400.webp 2400w, img/camkart-3000.webp 3000w" sizes="(max-width: 760px) 200vw, 1280px" alt="" width="3000" height="1674" loading="lazy">
+      </picture>
+      <div class="close-text">
+        <h2 id="son-baslik" data-en="Take your first test payment this week.">İlk test ödemenizi bu hafta alın.</h2>
+        <div class="cta">
+          <a class="btn btn-primary" href="docs.html#adim-1" data-en="Get a test key">Test anahtarı alın</a>
+          <a class="btn btn-quiet" href="#" data-en="Talk to sales">Satış ekibiyle görüşün</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="wordmark" href="index.html"><span class="wm-dot" aria-hidden="true"></span><b>Kuveyt Türk</b> <span>API Market</span></a>
+    <nav aria-label="Alt menü">
+      <a href="urun-odeme.html" data-en="Payments">Ödeme</a>
+      <a href="urun-finansman.html" data-en="Financing">Finansman</a>
+      <a href="urun-hesap.html" data-en="Account data">Hesap verisi</a>
+      <a href="ai.html" data-en="Set up with AI">Yapay zekâ ile kurulum</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+      <a href="vaka.html" data-en="Customers">Müşteriler</a>
+      <a href="#" data-en="Privacy (KVKK)">KVKK</a>
+    </nav>
+    <p data-en="Design draft · Kuveyt Türk Katılım Bankası A.Ş. · Endpoints from the API Market Swagger; screens and amounts are samples; AI and MCP features are concepts.">Tasarım taslağı · Kuveyt Türk Katılım Bankası A.Ş. · Uç noktalar API Market Swagger’ından; ekranlar ve tutarlar örnektir; yapay zekâ ve MCP bileşenleri konsepttir.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

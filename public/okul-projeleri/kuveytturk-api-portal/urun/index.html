@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kuveyt Türk API Market · Yapay zekâ kursun, onayı siz verin</title>
+<meta name="description" content="Taslak 3 (Ürün): Asistanınız ödeme akışını test ortamında hazırlar; para hareketi yalnız sizin onayınızla gerçekleşir.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+
+<header class="nav" id="ust">
+  <a class="wordmark" href="index.html" aria-label="Kuveyt Türk API Market ana sayfa"><span class="wm-dot" aria-hidden="true"></span><b>Kuveyt Türk</b> <span>API Market</span></a>
+  <nav class="nav-links" aria-label="Ana menü">
+    <div class="nav-dd">
+      <a href="index.html#urunler" data-en="Products">Ürünler</a>
+      <div class="dd"><div class="dd-in">
+        <a href="urun-odeme.html"><b data-en="Payments">Ödeme</b><span data-en="Online card collection and refunds">Kartla online tahsilat ve iade</span></a>
+        <a href="urun-finansman.html"><b data-en="Financing">Finansman</b><span data-en="Instalment financing at checkout">Sepette taksitli alışveriş finansmanı</span></a>
+        <a href="urun-hesap.html"><b data-en="Account data">Hesap verisi</b><span data-en="Balances and transactions, with consent">İzinle bakiye ve hareketler</span></a>
+      </div></div>
+    </div>
+    <a href="ai.html" data-en="Set up with AI">Yapay zekâ ile kurulum</a>
+    <a href="vaka.html" data-en="Customers">Müşteriler</a>
+    <a href="docs.html" data-en="Docs">Dokümanlar</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang" role="group" aria-label="Dil / Language">
+      <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="nav-signin" href="#" data-en="Sign in">Giriş yap</a>
+  </div>
+  <details class="m-menu">
+    <summary aria-label="Menü"><span></span><span></span></summary>
+    <nav aria-label="Mobil menü">
+      <a href="index.html#urunler" data-en="Products">Ürünler</a>
+      <a class="m-sub" href="urun-odeme.html" data-en="Payments">Ödeme</a>
+      <a class="m-sub" href="urun-finansman.html" data-en="Financing">Finansman</a>
+      <a class="m-sub" href="urun-hesap.html" data-en="Account data">Hesap verisi</a>
+      <a href="ai.html" data-en="Set up with AI">Yapay zekâ ile kurulum</a>
+      <a href="vaka.html" data-en="Customers">Müşteriler</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+      <a href="#" data-en="Sign in">Giriş yap</a>
+    </nav>
+  </details>
+</header>
+
+<main id="ana">
+  <!-- 1. HERO: başlık üstte, büyük ürün sahnesi altta -->
+  <section class="hero" aria-labelledby="hero-baslik">
+    <div class="hero-head">
+      <h1 id="hero-baslik" data-en-html="Let AI build it.&lt;br&gt;&lt;span&gt;You approve.&lt;/span&gt;">Yapay zekâ kursun,<br><span>onayı siz verin.</span></h1>
+      <p class="hero-sub" data-en="Your assistant prepares it in the sandbox. Money only moves with your approval.">Asistanınız test ortamında hazırlar; para yalnız sizin onayınızla hareket eder.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="docs.html" data-en="Get a sandbox key">Sandbox anahtarı alın</a>
+        <a class="btn btn-quiet" href="#iletisim" data-en="Talk to partnerships">İş birliği için görüşelim</a>
+      </div>
+    </div>
+
+    <div class="stage" aria-label="Örnek asistan oturumu (konsept)">
+      <picture class="stage-bg" aria-hidden="true">
+        <img src="img/dalga-1600.webp" srcset="img/dalga-1600.webp 1600w, img/dalga-2560.webp 2560w" sizes="(max-width: 760px) 200vw, 1280px" alt="" width="2560" height="1429">
+      </picture>
+      <span class="concept on-dark" data-en="Concept · sample session">Konsept · örnek oturum</span>
+
+      <div class="scene">
+      <div class="window" id="sahne">
+        <!-- Sol: asistan -->
+        <div class="pane chat">
+          <div class="pane-head">
+            <span class="ai-mark" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 1.5l2 6.5 6.5 2-6.5 2-2 6.5-2-6.5-6.5-2 6.5-2z"/></svg></span>
+            <b data-en="Assistant">Asistan</b>
+            <span class="env"><i></i><span data-en="Sandbox">Test ortamı</span></span>
+          </div>
+          <div class="msgs">
+            <p class="msg user" data-en="Prepare a ₺1,250 test payment for my store and set up refunds too.">Mağazam için 1.250 TL’lik test ödemesi hazırla, iade akışını da kur.</p>
+            <p class="msg bot" data-seq data-en="Working in the sandbox. I’ll ask for your approval on any step that moves money.">Test ortamında hazırlıyorum. Para hareketi olan adımlarda onayınızı alacağım.</p>
+            <ol class="calls">
+              <li class="call" data-seq data-step="1"><span class="st"></span><code>kt_get_test_customers</code><small>GET /v1/data/testcustomers</small></li>
+              <li class="call" data-seq data-step="2"><span class="st"></span><code>kt_vpos_create_token</code><small>POST /v1/vpos/digitalPaymentGetToken</small></li>
+              <li class="call wait" data-seq data-step="3" id="iade-satiri"><span class="st"></span><code>kt_vpos_refund</code><small>POST /v1/vpos/digitalPaymentDoRefund</small><em class="pill" data-en="Awaiting approval">Onay bekliyor</em></li>
+            </ol>
+          </div>
+          <div class="composer"><span data-en="Ask anything…">Bir şey sorun…</span><i aria-hidden="true">↑</i></div>
+        </div>
+
+        <!-- Sağ: hazırlanan ödeme -->
+        <div class="pane preview">
+          <div class="pane-head">
+            <b data-en="Payment draft">Ödeme taslağı</b>
+            <span class="muted" data-en="Test store · checkout preview">Test mağazası · ödeme sayfası önizlemesi</span>
+          </div>
+          <div class="pay">
+            <div class="pay-total">
+              <small data-en="Total">Toplam</small>
+              <strong data-en="₺1,250.00">1.250,00 ₺</strong>
+            </div>
+            <ul class="pay-lines">
+              <li><span data-en="Linen shirt">Keten gömlek</span><span data-en="₺890.00">890,00 ₺</span></li>
+              <li><span data-en="Canvas tote">Kanvas çanta</span><span data-en="₺360.00">360,00 ₺</span></li>
+            </ul>
+            <div class="pay-methods">
+              <label class="pm on"><i></i><span data-en="Card">Kartla öde</span><small>3D Secure</small></label>
+              <label class="pm"><i></i><span data-en="Shopping financing">Alışveriş finansmanı</span><small data-en="Approval in KT Mobile">KT Mobil’de onay</small></label>
+            </div>
+            <div class="pay-btn" data-en="Pay ₺1,250.00">1.250,00 ₺ öde</div>
+            <p class="pay-token"><span data-en="Token">Token</span> <code>tok_test_••••••a91c</code> · <span data-en="valid 15 min">15 dk geçerli</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Onay kartı -->
+      <div class="approve" id="onay" data-seq data-approve data-target="#iade-satiri" role="group" aria-labelledby="onay-baslik">
+        <div class="ap-top">
+          <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 2a4 4 0 014 4v2h1a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1V9a1 1 0 011-1h1V6a4 4 0 014-4zm0 2a2 2 0 00-2 2v2h4V6a2 2 0 00-2-2z"/></svg></span>
+          <b id="onay-baslik" data-en="Awaiting your approval">Onayınız bekleniyor</b>
+        </div>
+        <p class="ap-body" data-en-html="The assistant wants to start a &lt;b&gt;₺250.00 test refund&lt;/b&gt;.">Asistan <b>250,00 ₺ test iadesi</b> başlatmak istiyor.</p>
+        <p class="ap-meta"><code>digitalPaymentDoRefund</code> · <span data-en="Sandbox">Test ortamı</span></p>
+        <div class="ap-actions">
+          <button type="button" class="ap-no" data-en="Cancel">Vazgeç</button>
+          <button type="button" class="ap-yes" data-en="Approve">Onayla</button>
+        </div>
+        <p class="ap-result" aria-live="polite"></p>
+      </div>
+      </div>
+    </div>
+
+    <!-- 2. Partner şeridi -->
+    <div class="partners" aria-label="İş ortakları">
+      <span class="p-real">Trendyol</span>
+      <span class="p-ph" aria-label="Partner logosu, onay bekliyor"></span>
+      <span class="p-ph" aria-label="Partner logosu, onay bekliyor"></span>
+      <span class="p-ph hide-sm" aria-label="Partner logosu, onay bekliyor"></span>
+      <span class="p-ph hide-sm" aria-label="Partner logosu, onay bekliyor"></span>
+      <span class="p-fact"><b data-en="70+ partners, 366 APIs">70+ partner, 366 API</b> · <a href="https://www.kuveytturk.com.tr/hakkimizda/kuveyt-turk-hakkinda/bizden-haberler/kuveyt-turk-is-birligine-en-acik-banka-secildi" target="_blank" rel="noopener" data-en="Kuveyt Türk press release, 2024">Kuveyt Türk 2024 bülteni</a> · <span data-en="other logos with partner consent">diğer logolar partner onayıyla</span></span>
+    </div>
+  </section>
+
+  <!-- 3. Nasıl çalışır (MCP sade) -->
+  <section class="how" id="nasil" aria-labelledby="nasil-baslik">
+    <div class="wrap">
+      <div class="how-head">
+        <h2 id="nasil-baslik" data-en="Three steps. The last one is always yours.">Üç adım. Sonuncusu hep sizin.</h2>
+        <span class="concept" data-en="Concept: not available at Kuveyt Türk today">Konsept: Kuveyt Türk’te bugün yok</span>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="n">1</span>
+          <h3 data-en="Connect">Bağlayın</h3>
+          <p data-en="Add Kuveyt Türk to Claude Code, Cursor or Codex with one line.">Kuveyt Türk’ü tek satırla Claude Code, Cursor ya da Codex’e ekleyin.</p>
+          <code class="line">claude mcp add kt-mcp -- npx -y {KT_MCP_PAKETI}</code>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <h3 data-en="Ask">İsteyin</h3>
+          <p data-en="Describe what you want to build in your own words. It works only in the sandbox.">Ne kurmak istediğinizi kendi cümlelerinizle anlatın. Asistan yalnız test ortamında çalışır.</p>
+          <span class="say" data-en="“Add financing to checkout.”">“Sepete finansman seçeneği ekle.”</span>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <h3 data-en="Approve">Onaylayın</h3>
+          <p data-en="Refunds and money movements never run without your approval.">İade ve para hareketi, onayınız olmadan asla çalışmaz.</p>
+          <span class="mini-ap"><i data-en="Cancel">Vazgeç</i><b data-en="Approve">Onayla</b></span>
+        </li>
+      </ol>
+
+      <div class="tools">
+        <div class="tool-col">
+          <h4><i class="dot g"></i><span data-en="Reads">Okur</span></h4>
+          <ul>
+            <li><code>kt_get_fx_rates</code><small>GET /v1/fx/rates</small></li>
+            <li><code>kt_list_branches</code><small>GET /v1/data/branches</small></li>
+            <li><code>kt_get_test_customers</code><small>GET /v1/data/testcustomers</small></li>
+            <li><code>kt_get_account</code><small>GET /v2/accounts/{suffix}</small></li>
+            <li><code>kt_get_transactions</code><small>GET /v3/accounts/{suffix}/transactions</small></li>
+          </ul>
+        </div>
+        <div class="tool-col">
+          <h4><i class="dot b"></i><span data-en="Runs test transactions">Test işlemi yapar</span></h4>
+          <ul>
+            <li><code>kt_vpos_create_token</code><small>POST /v1/vpos/digitalPaymentGetToken</small></li>
+            <li><code>kt_vpos_query_payment</code><small>POST /v1/vpos/digitalPaymentQuery</small></li>
+          </ul>
+        </div>
+        <div class="tool-col">
+          <h4><i class="dot o"></i><span data-en="Asks for approval">Onay ister</span></h4>
+          <ul>
+            <li><code>kt_vpos_refund</code><small>POST /v1/vpos/digitalPaymentDoRefund</small></li>
+          </ul>
+          <p class="tool-note" data-en="Production keys can’t be added to the assistant. Personal data is masked before it reaches the model.">Canlı anahtar asistana eklenemez. Kişisel veri modele ulaşmadan maskelenir.</p>
+          <a class="more" href="ai.html#araclar" data-en="All tools and permissions →">Tüm araçlar ve izinler →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Ürünler -->
+  <section class="products" id="urunler" aria-labelledby="urun-baslik">
+    <div class="wrap">
+      <h2 id="urun-baslik" data-en="What your assistant can set up">Asistanınızın kurabilecekleri</h2>
+      <div class="prod">
+        <a href="urun-odeme.html" class="p">
+          <span class="p-ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10h18"/></svg></span>
+          <h3 data-en="Payments">Ödeme</h3>
+          <p data-en="Card collection online and in store, refunds included.">Online ve mağazada kartla tahsilat, iade dahil.</p>
+        </a>
+        <a href="urun-finansman.html" class="p">
+          <span class="p-ic"><svg viewBox="0 0 24 24"><path d="M4 18V9M10 18V5M16 18v-6M22 18H2"/></svg></span>
+          <h3 data-en="Financing">Finansman</h3>
+          <p data-en="Instalment shopping financing at checkout.">Sepette taksitli alışveriş finansmanı.</p>
+        </a>
+        <a href="urun-hesap.html" class="p">
+          <span class="p-ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+          <h3 data-en="Account data">Hesap verisi</h3>
+          <p data-en="Balances and transactions with customer consent.">Müşteri izniyle bakiye ve hareketler.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Vaka: Trendyol akışı -->
+  <section class="case" id="vaka" aria-labelledby="vaka-baslik">
+    <div class="wrap case-in">
+      <div class="case-text">
+        <p class="kicker">Trendyol</p>
+        <h2 id="vaka-baslik" data-en="Financing at checkout, approved in minutes.">Sepette finansman, dakikalar içinde onaylı.</h2>
+        <p data-en="Trendyol shoppers choose Kuveyt Türk financing at checkout and approve it in KT Mobile, 24/7.">Trendyol müşterileri sepette Kuveyt Türk finansmanını seçer ve KT Mobil’de onaylar. 7/24.</p>
+        <p class="src"><span data-en="Source:">Kaynak:</span> <a href="https://developer.kuveytturk.com.tr/productdetail/financing" target="_blank" rel="noopener">developer.kuveytturk.com.tr</a> · <span data-en="Outcome metrics with Trendyol’s approval.">Sonuç metrikleri Trendyol onayıyla.</span></p>
+        <a class="more" href="vaka.html" data-en="Read the case →">Vakayı okuyun →</a>
+        <br><a class="case-alt" href="vaka-muhasebe.html"><em class="ex" data-en="Sample case · fictional company">Örnek vaka · kurgusal kurum</em> <span data-en="An accounting app reconciles with account data →">Bir ön muhasebe yazılımı hesap verisiyle mutabakat yapıyor →</span></a>
+      </div>
+      <ol class="flow" aria-label="Akış">
+        <li class="phone">
+          <div class="ph-screen">
+            <small data-en="Cart">Sepet</small>
+            <b>4.800,00 ₺</b>
+            <span class="field" data-en="Phone number">Telefon numarası</span>
+            <span class="field" data-en="ID number">T.C. kimlik no</span>
+            <span class="go" data-en="Apply">Başvur</span>
+          </div>
+          <p data-en="Phone and ID at checkout">Sepette telefon ve kimlik</p>
+        </li>
+        <li class="phone">
+          <div class="ph-screen">
+            <small data-en="Choose a term">Vade seçin</small>
+            <span class="opt">3 <i data-en="months">ay</i></span>
+            <span class="opt on">6 <i data-en="months">ay</i></span>
+            <span class="opt">12 <i data-en="months">ay</i></span>
+            <span class="note" data-en="Sample screen">Örnek ekran</span>
+          </div>
+          <p data-en="Pick a term">Vade seçimi</p>
+        </li>
+        <li class="phone">
+          <div class="ph-screen ph-kt">
+            <small>KT Mobil</small>
+            <span class="okc" aria-hidden="true">✓</span>
+            <b data-en="Contract approved">Sözleşme onaylandı</b>
+            <span class="note" data-en="Sample screen">Örnek ekran</span>
+          </div>
+          <p data-en="Approve in KT Mobile">KT Mobil’de onay</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6. Kapanış -->
+  <section class="close" id="iletisim" aria-labelledby="son-baslik">
+    <div class="close-card">
+      <picture class="close-bg" aria-hidden="true">
+        <img src="img/camkart-1200.webp" srcset="img/camkart-1200.webp 1200w, img/camkart-2400.webp 2400w, img/camkart-3000.webp 3000w" sizes="(max-width: 760px) 200vw, 1280px" alt="" width="3000" height="1674" loading="lazy">
+      </picture>
+      <div class="close-text">
+        <h2 data-en="The sandbox is ready when you are.">Test ortamı hazır. Siz de hazırsanız.</h2>
+        <div class="cta">
+          <a class="btn btn-primary" href="docs.html" data-en="Get a sandbox key">Sandbox anahtarı alın</a>
+          <a class="btn btn-quiet" href="#" data-en="Talk to partnerships">İş birliği için görüşelim</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="wordmark" href="index.html"><span class="wm-dot" aria-hidden="true"></span><b>Kuveyt Türk</b> <span>API Market</span></a>
+    <nav aria-label="Alt menü">
+      <a href="index.html#urunler" data-en="Products">Ürünler</a>
+      <a href="ai.html" data-en="Set up with AI">Yapay zekâ ile kurulum</a>
+      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+      <a href="vaka.html" data-en="Customers">Müşteriler</a>
+      <a href="#" data-en="Status">Durum</a>
+      <a href="#" data-en="Privacy (KVKK)">KVKK</a>
+      <a href="#" data-en="Contact">İletişim</a>
+    </nav>
+    <p data-en="Design draft · Kuveyt Türk Katılım Bankası A.Ş. · The assistant, MCP tools and approval card are concepts.">Tasarım taslağı · Kuveyt Türk Katılım Bankası A.Ş. · Asistan, MCP araçları ve onay kartı konsepttir.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
