@@ -72,8 +72,9 @@ export const APPS = [
     stage: 'beta',
     short: 'Fiyatı çalışma saatine çevir',
     lead: 'Gezinirken gördüğün fiyatları, maaşına göre kaç saat çalışman gerektiğine çevirir.',
-    points: ['"500 TL" yerine "1,8 saat" yazar', 'Rakama tıklayınca orijinal fiyat geri gelir', 'Saatlik ücretini kendin girersin', 'Giderleri TL, dolar, euro veya sterlin olarak gir', 'İstersen fiyatı, giderlerden sonra kalan maaşına göre hesaplar'],
+    points: ['"500 TL" yerine "1,8 saat" yazar', 'Rakama tıklayınca orijinal fiyat geri gelir', 'Saatlik ücretini kendin girersin', 'Giderleri TL, dolar, euro veya sterlin olarak gir', 'İstersen fiyatı, giderlerden sonra kalan maaşına göre hesaplar', "Safari sürümü (Mac, iPhone, iPad) App Store Connect'e yüklendi, henüz yayında değil"],
     platform: 'CHROME · SAFARI · WEB',
+    // Safari 0.1.0: income-vs-desires 287b21a (macOS yapı 1) ve 8f4320d (iOS yapı 2), 2026-11-08. İncelemeye gönderilmedi.
     // Chrome Web Store taslağı için çekilen gerçek ekranlar (income-vs-desires repo, store-assets/).
     screenshots: [
       { src: asset('/ivd-screens/trendyol.webp'), alt: "Trendyol'da ayakkabı fiyatları gün olarak: 2 gün, 2,6 gün" },
@@ -90,7 +91,7 @@ export const APPS = [
     visitAccent: 'linear-gradient(135deg, #C2451F 0%, #962D12 100%)'
   },
   {
-    // Durum ve özellikler pm-titimer'dan (2026-11-01): sürüm 0.1.0+1, release yapılandırması hazır, henüz test kanalı yok.
+    // Durum ve özellikler pm-titimer'dan (2026-11-01): sürüm 0.1.0+1, release yapılandırması hazır; 2026-11-08'de iOS TestFlight (dahili).
     // "Aynı anda birden çok sayaç" ve ayrı "ters sayaç" iddiaları yanlıştı (README: aynı anda tek sayaç); kaldırıldı.
     name: 'tiTimer',
     stage: 'dev',
@@ -104,8 +105,9 @@ export const APPS = [
       'Günlük rapor ve haftalık başlık dağılımı'
     ],
     platform: 'ANDROID · iOS',
-    devStep: 3,
-    devNote: 'Geliştirme sürüyor; ilk sürüm (0.1.0) mağaza hazırlığında. Henüz test kanalı açılmadı.',
+    // iOS 0.1.0 (1) TestFlight'a yüklendi, yalnız iPhone, dahili test: titimer 341c7af (2026-11-08), ios/yuklenen-yapilar.txt.
+    devStep: 4,
+    devNote: "İlk sürüm (0.1.0) iPhone için TestFlight'a yüklendi, şimdilik yalnız iç denemede. Android sürümü mağaza hazırlığında. Henüz indirilemiyor.",
     // Gerçek uygulama ağacından üretilen mağaza ekranları (titimer repo: store/ortak/ekran, Android 1080x2400).
     screenshots: [
       { src: asset('/titimer-screens/ana-sayfa.webp'), alt: 'tiTimer ana sayfa: Odak alanların halkaları' },
@@ -179,8 +181,16 @@ export const LOG = [
     text: 'SesVer 1.4.0 yayında. Uzun metinler üretim kuyruğuyla sırayla seslendiriliyor, TXT ve CSV dosyalarından toplu aktarma var. Ürün sayfasında kısa bir tanıtım videosu var.'
   },
   {
+    tag: 'KASIM 2026 · TITIMER',
+    text: "İlk iPhone sürümü (0.1.0) TestFlight'a yüklendi, şimdilik yalnız iç denemede. Android sürümü mağaza hazırlığında."
+  },
+  {
+    tag: 'KASIM 2026 · INCOME VS DESIRES',
+    text: "Safari sürümü 0.1.0 Mac ve iPhone/iPad için App Store Connect'e yüklendi. Henüz incelemeye gönderilmedi, App Store'da yok."
+  },
+  {
     tag: 'KASIM 2026 · WINGWIRE',
-    text: "Android uygulamasına 8 ana ekran widget'ı geldi. 0.3.3 ile alt menüde hangi bölümlerin duracağı seçilebiliyor, kalanlar Diğer kartında."
+    text: "Android uygulamasına 8 ana ekran widget'ı geldi. 0.3.3 ile alt menüde hangi bölümlerin duracağı seçilebiliyor. 0.3.4'te Diğer menüsü alt barın sonuna taşındı, uygulama içi güncelleme eklendi."
   },
   {
     tag: 'KASIM 2026 · KİTABE',
@@ -188,7 +198,7 @@ export const LOG = [
   },
   {
     tag: 'KASIM 2026 · WINGWIRE WEB',
-    text: 'Yapılacaklar modülü eklendi: ay ve hafta takvimi, sağ panelden hızlı ekleme, sohbetten /me ile görev. Görsel, video ve seslendirmeli video tek bir Oluştur ekranından üretiliyor; Ses Stüdyosu eklendi.'
+    text: 'Yapılacaklar modülü eklendi: ay ve hafta takvimi, sağ panelden hızlı ekleme, sohbetten /me ile görev. Paylaşımlar takviminde gönderiye tıklayınca önizleme açılıyor, yayınlanan gönderinin linki görünüyor. Görsel, video ve seslendirmeli video tek bir Oluştur ekranından üretiliyor; Ses Stüdyosu eklendi.'
   },
   {
     tag: 'EKİM 2026 · KİTABE',

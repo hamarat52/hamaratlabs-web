@@ -9,7 +9,7 @@ import './titimer.css';
 // Görsel dil uygulamanın bugünkü hâlinden alınır (titimer repo: lib/app_theme.dart, lib/design/*):
 // kâğıt zemin + suluboya lekeler, Kalam (el yazısı başlık) + Nunito (gövde), teal/mercan, halka sayaçlar, maskot Titi.
 // Ekran görüntüleri gerçek uygulama ağacından üretilen mağaza setidir (store/ortak/ekran, 2026-11-01).
-// Durum bilgisi pm-titimer'dan: sürüm 0.1.0+1, release yapılandırması hazır, henüz test kanalı yok. Tarih verilmez.
+// Durum bilgisi pm-titimer'dan: iOS 0.1.0 (1) TestFlight'a yüklendi, yalnız iPhone, dahili test (titimer 341c7af). Tarih verilmez.
 
 const TITLE = 'tiTimer: Odaklan. Mola ver. Tekrarla.';
 const DESC = 'Neye ne kadar zaman ayırdığını sakin biçimde gösteren, tamamen telefonunda çalışan odak ve mola sayacı.';
@@ -191,7 +191,7 @@ const REPORT_NOTES = [
 ];
 
 const STEPS = ['Fikir', 'Tasarım', 'Yapım', 'İç deneme', 'Açık beta', 'Yayın'];
-const CURRENT_STEP = 3; // data.js → tiTimer.devStep ile aynı
+const CURRENT_STEP = 4; // data.js → tiTimer.devStep ile aynı
 
 export default function TiTimerSite() {
   useEffect(() => {
@@ -238,7 +238,7 @@ export default function TiTimerSite() {
             <div className="tt-hero__copy">
               <p className="tt-status">
                 <i aria-hidden="true" />
-                Geliştirmede · ilk sürüm mağaza hazırlığında
+                Geliştirmede · iPhone sürümü iç denemede
               </p>
               <h1>
                 Odaklan.
@@ -445,7 +445,7 @@ export default function TiTimerSite() {
             <p className="tt-kicker">Ne zaman?</p>
             <h2 id="tt-when-h">Henüz mağazada değil.</h2>
             <p>
-              tiTimer geliştirme aşamasında; ilk sürüm (0.1.0) mağaza hazırlığında. Tarih vermiyorum.
+              tiTimer geliştirme aşamasında. İlk sürüm (0.1.0) iPhone için TestFlight'ta iç denemede, Android sürümü mağaza hazırlığında. Tarih vermiyorum.
             </p>
             <ol className="tt-steps" aria-label={`Aşama ${CURRENT_STEP} / ${STEPS.length}: ${STEPS[CURRENT_STEP - 1]}`}>
               {STEPS.map((s, i) => {
