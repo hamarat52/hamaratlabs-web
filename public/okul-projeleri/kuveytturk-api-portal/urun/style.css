@@ -924,3 +924,27 @@ html[lang="en"] [data-l="tr"], html:not([lang="en"]) [data-l="en"] { display: no
 /* ödül satırı (boş logo yer tutucularının yerine; kaynak: Kuveyt Türk 2024 bülteni) */
 .partners .award { font-size: 12.5px; color: var(--ink-3); padding-left: 14px; border-left: 1px solid var(--line); line-height: 1.3; }
 .partners .award b { color: var(--ink); font-weight: 600; margin-right: 4px; }
+
+/* Telefon çerçevesi yerine modül kartları (Yusuf, 2026-11-16: küçük telefon çerçevesine büyük arayüz sığdırma yok).
+   Masaüstü: çerçevesiz kart, sabit telefon oranı yok. Mobil: tek sütun, tam genişlik, okunur boyut. */
+.ph-screen,
+.phones .ph-screen { aspect-ratio: auto; min-height: 0; border-radius: 16px; border: 1px solid rgba(15,36,29,.10);
+  box-shadow: 0 18px 40px -26px rgba(11,26,21,.45); padding: 20px; font-size: 13.5px; gap: 10px; }
+.phones .ph-screen { border-color: rgba(255,255,255,.10); box-shadow: 0 24px 50px -28px rgba(0,0,0,.7); }
+.ph-screen .go, .ph-screen .note { margin-top: 6px; }
+.ph-kt .okc, .phones .okc { margin-top: 10px; }
+@media (max-width: 760px) {
+  .flow, .phones { grid-template-columns: 1fr; gap: 12px; }
+  .flow { padding: 16px; }
+  .phones { padding: 0 16px; }
+  .ph-screen, .phones .ph-screen { padding: 18px; font-size: 14px; border-radius: 14px;
+    box-shadow: 0 12px 28px -20px rgba(11,26,21,.45); }
+  .phones .ph-screen { box-shadow: 0 16px 34px -22px rgba(0,0,0,.7); }
+  .ph-screen > b, .phones .ph-screen > b { font-size: 20px; }
+  .field, .opt { padding: 10px 12px; font-size: 14px; }
+  .opt { font-size: 15px; }
+  .okc { width: 44px; height: 44px; font-size: 20px; }
+  .ph-kt > b, .phones .ph-kt > b { font-size: 16px; }
+  .phone > p, .phones .phone > p { font-size: 13px; margin-top: 8px; flex-direction: row; text-align: left; justify-content: flex-start; }
+  .phone { text-align: left; }
+}
