@@ -11,3 +11,7 @@
   Content-Type: text/markdown; charset=utf-8
 /okul-projeleri/kuveytturk-api-portal/*.pdf
   X-Robots-Tag: noindex
+
+# Fibi sunumunun PDF'i: tanıtım sayfasından indirilir, arama sonuçlarına girmez (sunum sayfası da noindex)
+/okul-projeleri/fibi/*.pdf
+  X-Robots-Tag: noindex
