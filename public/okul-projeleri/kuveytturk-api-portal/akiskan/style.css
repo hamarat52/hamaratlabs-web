@@ -775,3 +775,8 @@ html[lang="en"] [data-l="tr"], html:not([lang="en"]) [data-l="en"] { display: no
 .award { display: flex; flex-direction: column; gap: 2px; padding-left: 18px; border-left: 1px solid var(--line); line-height: 1.25; }
 .award b { font-size: 14px; font-weight: 600; color: var(--ink); letter-spacing: -.01em; }
 .award span { font-size: 12px; color: var(--ink-3); }
+
+/* hero kopyala düğmesi <button> (Yusuf: "Talimatı alın" anlaşılmıyor) */
+button.btn { border: 0; font: inherit; cursor: pointer; }
+.btn.btn-dark.copy { background: var(--green); color: #f6f1e6; font-size: 16.5px; padding: 0 26px; border-radius: 999px; }
+.btn.btn-dark.copy:hover { background: #0a2f24; }

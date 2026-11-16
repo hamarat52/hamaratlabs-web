@@ -948,3 +948,8 @@ html[lang="en"] [data-l="tr"], html:not([lang="en"]) [data-l="en"] { display: no
   .phone > p, .phones .phone > p { font-size: 13px; margin-top: 8px; flex-direction: row; text-align: left; justify-content: flex-start; }
   .phone { text-align: left; }
 }
+
+/* hero kopyala düğmesi <button> (Yusuf: "Talimatı alın" anlaşılmıyor) */
+button.btn { border: 0; font: inherit; cursor: pointer; }
+.btn.btn-primary.copy { background: var(--green); color: #fff; }
+.btn.btn-primary.copy:hover { background: #0a2f24; }
