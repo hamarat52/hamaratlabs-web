@@ -9,3 +9,5 @@
   Cache-Control: no-cache
 /okul-projeleri/kuveytturk-api-portal/docs/*.md
   Content-Type: text/markdown; charset=utf-8
+/okul-projeleri/kuveytturk-api-portal/*.pdf
+  X-Robots-Tag: noindex
