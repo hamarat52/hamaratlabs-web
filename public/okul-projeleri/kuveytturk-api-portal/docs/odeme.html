@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ödeme | Kuveyt Türk Docs</title>
+<meta name="description" content="Sanal POS (vpos) uç noktaları: ödeme başlatma (digitalPaymentGetToken), sorgulama, belge gönderme ve iade. İade öncesi insan onayı.">
+<link rel="alternate" type="text/markdown" href="odeme.md" title="Markdown">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e3b2e'/%3E%3Cpath d='M10 9v14M10 16l8-7M12.5 14l6.5 9' stroke='%23fbfaf6' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kt.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body class="docs" data-md="odeme.md">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html" aria-label="Kuveyt Türk Developers Docs ana sayfa"><b>Kuveyt Türk</b><span class="sep sep-1" aria-hidden="true">·</span><span class="b-dev">Developers</span><span class="sep" aria-hidden="true">·</span><span class="b-docs">Docs</span></a>
+    <span class="ver" title="API sürümü (örnek)" data-en="v1 (sample)">v1 (örnek)</span>
+    <button type="button" class="search-btn" data-search aria-label="Dokümanlarda ara (Cmd K)" data-en-label="Search the docs (Cmd K)"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span data-en="Search the docs">Dokümanlarda ara</span><kbd class="kbd-k">⌘K</kbd></button>
+    <div class="top-right">
+      <div class="lang hide-m" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      <a class="top-link hide-m" href="../hesap/giris.html" data-auth-link data-panel-href="../hesap/panel.html" data-en="Sign in">Giriş yap</a>
+      <a class="btn btn-primary btn-sm hide-m" href="kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="Download AI package (.zip)">AI paketini indir (.zip)</span></a>
+      <button type="button" class="icon-btn" data-search aria-label="Ara" data-en-label="Search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4.5 4.5"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="subbar">
+<button type="button" class="sb-menu" data-mp-open aria-controls="mpanel" aria-label="Menüyü aç: Ürünler" data-en-label="Open menu: Products"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/></svg><b data-en="Menu">Menü</b><span class="sb-sec">· Ürünler</span></button>
+<details class="sb-toc"><summary><span data-en="On this page">Bu sayfada</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></summary><ul class="sb-toc-list"><li><a href="#akis"><span data-en-html="Flow">Akış</span></a></li><li><a href="#vpos-token"><span data-en-html="Start a payment">Ödeme başlatın</span></a></li><li><a href="#vpos-query"><span data-en-html="Query a payment">Ödemeyi sorgulayın</span></a></li><li><a href="#vpos-doc"><span data-en-html="Send a document">Belge gönderin</span></a></li><li><a href="#vpos-refund"><span data-en-html="Refund a payment">İade edin</span></a></li></ul></details>
+</div>
+<div class="d-shell">
+<aside class="d-side"><nav aria-label="Doküman menüsü" data-en-label="Docs menu"><p class="side-h" data-en-html="Get started">Başlangıç</p>
+<ul class="side-list">
+<li><a href="index.html"><span data-en-html="Overview">Genel bakış</span></a>
+</li>
+<li><a href="hizli-baslangic.html"><span data-en-html="Quickstart">Hızlı başlangıç</span></a>
+</li>
+<li><a href="kurulum-adimlari.html"><span data-en-html="Setup steps">Kurulum adımları</span></a>
+</li>
+<li><a href="ortamlar.html"><span data-en-html="Environments: sandbox and production">Ortamlar: test ve canlı</span></a>
+</li>
+<li><a href="test-musterileri.html"><span data-en-html="Test customers">Test müşterileri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Authentication">Kimlik doğrulama</p>
+<ul class="side-list">
+<li><a href="uygulama-ve-anahtarlar.html"><span data-en-html="Applications and keys">Uygulama ve anahtarlar</span></a>
+</li>
+<li><a href="istek-imzalama.html"><span data-en-html="Signing requests">İstek imzalama</span></a>
+</li>
+<li><a href="canliya-gecis.html"><span data-en-html="Going live">Canlıya geçiş</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Products">Ürünler</p>
+<ul class="side-list">
+<li><a href="odeme.html" aria-current="page"><span data-en-html="Payments">Ödeme</span></a>
+<ul class="side-sub"><li><a href="#akis"><span data-en-html="Flow">Akış</span></a></li><li><a href="#vpos-token"><span class="m m-post">POST</span><span data-en-html="Start a payment">Ödeme başlatın</span></a></li><li><a href="#vpos-query"><span class="m m-post">POST</span><span data-en-html="Query a payment">Ödemeyi sorgulayın</span></a></li><li><a href="#vpos-doc"><span class="m m-post">POST</span><span data-en-html="Send a document">Belge gönderin</span></a></li><li><a href="#vpos-refund"><span class="m m-post">POST</span><span data-en-html="Refund a payment">İade edin</span></a></li></ul>
+</li>
+<li><a href="finansman.html"><span data-en-html="Financing">Finansman</span></a>
+</li>
+<li><a href="hesap-verisi.html"><span data-en-html="Account data">Hesap verisi</span></a>
+</li>
+<li><a href="bilgi-servisleri.html"><span data-en-html="Information services">Bilgi servisleri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="AI">Yapay zekâ</p>
+<ul class="side-list">
+<li><a href="yapay-zeka-ile-kurulum.html"><span data-en-html="Set up with AI">Yapay zekâ ile kurulum</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="mcp-araclari.html"><span data-en-html="MCP tools">MCP araçları</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="ai-paketi.html"><span data-en-html="AI package">AI paketi</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Reference">Referans</p>
+<ul class="side-list">
+<li><a href="uc-noktalar.html"><span data-en-html="Endpoints">Uç noktalar</span></a>
+</li>
+<li><a href="yanit-zarfi.html"><span data-en-html="Response envelope">Yanıt zarfı</span></a>
+</li>
+<li><a href="hata-kodlari.html"><span data-en-html="Error codes">Hata kodları</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+<li><a href="degisiklik-gunlugu.html"><span data-en-html="Changelog">Değişiklik günlüğü</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+</ul><div class="side-foot"><span data-en-html="All pages: &lt;a href=&quot;llms.txt&quot;&gt;llms.txt&lt;/a&gt;">Tüm sayfalar: <a href="llms.txt">llms.txt</a></span></div></nav></aside>
+<main id="ana" class="d-main is-ref">
+<article class="d-art">
+<div class="crumbrow"><p class="crumb"><a href="index.html">Docs</a><span class="sl" aria-hidden="true">/</span><span data-en-html="Products">Ürünler</span><span class="sl" aria-hidden="true">/</span><span data-en-html="Payments">Ödeme</span></p>
+<div class="pcopy">
+  <button type="button" data-pcopy><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy page">Sayfayı kopyala</span></button>
+  <button type="button" class="pc-more" aria-haspopup="true" aria-expanded="false" aria-controls="pc-menu" aria-label="Diğer seçenekler" data-en-label="More options"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+  <div class="pc-menu" id="pc-menu" hidden>
+    <button type="button" data-pcopy><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><b data-en="Copy as Markdown">Markdown olarak kopyala</b><small data-en="For your AI tool">Yapay zekâ aracınız için</small></button>
+    <a href="odeme.md"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4z"/><path d="M6.5 8.5h3M6.5 11h3"/></svg><b data-en="Open as .md">.md olarak aç</b><small>odeme.md</small></a>
+    <a href="https://claude.ai/new" data-ai-open="claude" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v10h10v-3M9 2.5h4.5V7M13.5 2.5 7 9"/></svg><b data-en="Open in Claude">Claude'da aç</b><small data-en="Asks about this page">Bu sayfa hakkında sorar</small></a>
+    <a href="https://chatgpt.com/" data-ai-open="chatgpt" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v10h10v-3M9 2.5h4.5V7M13.5 2.5 7 9"/></svg><b data-en="Open in ChatGPT">ChatGPT'de aç</b><small data-en="Asks about this page">Bu sayfa hakkında sorar</small></a>
+  </div>
+</div></div>
+<h1 data-en-html="Payments">Ödeme</h1>
+<p class="lead" data-en-html="Start a virtual POS payment, query it, send a document and refund it. Four endpoints, all POST.">Sanal POS ile ödeme başlatın, sonucunu sorgulayın, belge gönderin ve iade edin. Dört uç nokta, hepsi POST.</p>
+<p class="meta" data-en="Last updated: 16 November 2026. API version v1 (sample).">Son güncelleme: 16 Kasım 2026. API sürümü v1 (örnek).</p>
+<div class="note note-uyari"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3 18 17H2z"/><path d="M10 8.5v4M10 14.6v.1"/></svg><div><p data-en-html="Refunds and money movements can have irreversible results. When working with an AI tool, require a person&#x27;s approval before these calls.">İade ve her para hareketi geri alınamaz sonuç doğurabilir. Yapay zekâ aracıyla çalışıyorsanız bu çağrılardan önce bir kişinin onayını isteyin.</p></div></div>
+<h2 id="akis" data-en-html="Flow&lt;a class=&quot;hlink&quot; href=&quot;#akis&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Akış<a class="hlink" href="#akis" aria-label="Bağlantı">#</a></h2>
+<ol><li data-en-html="Start the payment with &lt;code&gt;digitalPaymentGetToken&lt;/code&gt;."><code>digitalPaymentGetToken</code> ile ödeme başlatılır.</li><li data-en-html="The customer completes the payment step (redirect details in Swagger and the portal docs).">Müşteri ödeme adımını tamamlar (yönlendirme ayrıntısı Swagger ve portal dokümanında).</li><li data-en-html="Query the result with &lt;code&gt;digitalPaymentQuery&lt;/code&gt;."><code>digitalPaymentQuery</code> ile sonuç sorgulanır.</li><li data-en-html="Send a document with &lt;code&gt;sendDocument&lt;/code&gt; if needed.">Gerekirse <code>sendDocument</code> ile belge gönderilir.</li><li data-en-html="Refund with &lt;code&gt;digitalPaymentDoRefund&lt;/code&gt;, after approval.">İade <code>digitalPaymentDoRefund</code> ile, onaydan sonra yapılır.</li></ol>
+<section class="ep" aria-labelledby="vpos-token">
+<div class="ep-doc">
+<h2 id="vpos-token" data-en-html="Start a payment&lt;a class=&quot;hlink&quot; href=&quot;#vpos-token&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Ödeme başlatın<a class="hlink" href="#vpos-token" aria-label="Bağlantı">#</a></h2>
+<p class="ep-line"><span class="m m-post">POST</span><code>/v1/vpos/digitalPaymentGetToken</code></p>
+<p data-en-html="Gets a token for a virtual POS payment. This is the first step of the payment flow; the body follows &lt;code&gt;PostDigitalPaymentGetTokenBody&lt;/code&gt;.">Sanal POS ödemesi için token alır. Ödeme akışının ilk adımıdır; gövde <code>PostDigitalPaymentGetTokenBody</code> modelindedir.</p>
+<dl class="dl-kv">
+<dt data-en-html="Auth">Yetki</dt><dd data-en-html="the flow in the portal&#x27;s Postman template (not verified in this draft)">portaldaki Postman şablonundaki akış (bu taslakta doğrulanmadı)</dd>
+<dt data-en-html="Request body">İstek gövdesi</dt><dd><code>PostDigitalPaymentGetTokenBody</code></dd>
+<dt data-en-html="Response">Yanıt</dt><dd data-en-html="&lt;code&gt;value&lt;/code&gt;, &lt;code&gt;success&lt;/code&gt;, &lt;code&gt;results&lt;/code&gt; envelope; &lt;a href=&quot;yanit-zarfi.html&quot;&gt;Response envelope&lt;/a&gt;"><code>value</code>, <code>success</code>, <code>results</code> zarfı; <a href="yanit-zarfi.html">Yanıt zarfı</a></dd>
+</dl>
+</div>
+<div class="ep-code"><div class="cb">
+<p class="cb-head"><span class="m m-post">POST</span><code>/v1/vpos/digitalPaymentGetToken</code></p>
+<div class="cb-bar">
+<div class="cb-tabs" role="tablist" aria-label="Dil" data-en-label="Language">
+<button type="button" role="tab" data-code="curl" aria-selected="true">cURL</button>
+<button type="button" role="tab" data-code="node" aria-selected="false" tabindex="-1">Node.js</button>
+<button type="button" role="tab" data-code="py" aria-selected="false" tabindex="-1">Python</button>
+<button type="button" role="tab" data-code="cs" aria-selected="false" tabindex="-1">C#</button>
+</div>
+<button type="button" class="cb-copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy">Kopyala</span></button>
+</div>
+<pre data-code="curl"><code>curl -X POST <span class="s">"{BASE_URL}/v1/vpos/digitalPaymentGetToken"</span> \
+  -H <span class="s">"Authorization: Bearer $KT_ACCESS_TOKEN"</span> \
+  -H <span class="s">"Signature: $KT_SIGNATURE"</span> \
+  -H <span class="s">"Content-Type: application/json"</span> \
+  -d @istek.json  <span class="c"># PostDigitalPaymentGetTokenBody</span></code></pre>
+<pre data-code="node" hidden><code>const BASE_URL = process.env.KT_BASE_URL; <span class="c">// {BASE_URL}</span>
+const path = <span class="s">"/v1/vpos/digitalPaymentGetToken"</span>;
+
+const res = await fetch(BASE_URL + path, {
+  method: <span class="s">"POST"</span>,
+  headers: {
+    Authorization: <span class="s">`Bearer ${accessToken}`</span>,
+    Signature: signature, <span class="c">// istek-imzalama.md</span>
+    <span class="s">"Content-Type"</span>: <span class="s">"application/json"</span>,
+  },
+  body: JSON.stringify(istek), <span class="c">// PostDigitalPaymentGetTokenBody</span>
+});
+const { value, success, results } = await res.json();</code></pre>
+<pre data-code="py" hidden><code>import os
+import requests
+
+BASE_URL = os.environ[<span class="s">"KT_BASE_URL"</span>]  <span class="c"># {BASE_URL}</span>
+
+r = requests.post(
+    f<span class="s">"{BASE_URL}/v1/vpos/digitalPaymentGetToken"</span>,
+    headers={<span class="s">"Authorization"</span>: f<span class="s">"Bearer {access_token}"</span>,
+             <span class="s">"Signature"</span>: signature},
+    json=istek,  <span class="c"># PostDigitalPaymentGetTokenBody</span>
+)
+body = r.json()  <span class="c"># value, success, results</span></code></pre>
+<pre data-code="cs" hidden><code>using System.Net.Http.Headers;
+
+var http = new HttpClient { BaseAddress = new Uri(baseUrl) }; <span class="c">// {BASE_URL}</span>
+var req = new HttpRequestMessage(HttpMethod.Post, <span class="s">"/v1/vpos/digitalPaymentGetToken"</span>);
+req.Headers.Authorization = new AuthenticationHeaderValue(<span class="s">"Bearer"</span>, accessToken);
+req.Headers.Add(<span class="s">"Signature"</span>, signature);
+req.Content = new StringContent(istekJson, Encoding.UTF8, <span class="s">"application/json"</span>); <span class="c">// PostDigitalPaymentGetTokenBody</span>
+var res = await http.SendAsync(req);
+var json = await res.Content.ReadAsStringAsync(); <span class="c">// value, success, results</span></code></pre>
+<div class="cb-resp"><p class="cb-resp-bar"><span class="st-ok">200</span><span class="ornek-chip" data-en="Sample response">Örnek yanıt</span></p>
+<pre><code>{
+  <span class="s">"value"</span>: { <span class="c">/* PostDigitalPaymentGetTokenBodyResponse */</span> },
+  <span class="s">"success"</span>: true,
+  <span class="s">"results"</span>: []
+}</code></pre></div>
+</div></div>
+</section>
+<section class="ep" aria-labelledby="vpos-query">
+<div class="ep-doc">
+<h2 id="vpos-query" data-en-html="Query a payment&lt;a class=&quot;hlink&quot; href=&quot;#vpos-query&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Ödemeyi sorgulayın<a class="hlink" href="#vpos-query" aria-label="Bağlantı">#</a></h2>
+<p class="ep-line"><span class="m m-post">POST</span><code>/v1/vpos/digitalPaymentQuery</code></p>
+<p data-en-html="Queries the result of a payment. If a payment or refund call got no answer, check the state with this before retrying.">Başlatılan ödemenin sonucunu sorgular. Bir ödeme ya da iade çağrısı yanıtsız kaldıysa yeniden denemeden önce bununla durumu kontrol edin.</p>
+<dl class="dl-kv">
+<dt data-en-html="Auth">Yetki</dt><dd data-en-html="the flow in the portal&#x27;s Postman template (not verified in this draft)">portaldaki Postman şablonundaki akış (bu taslakta doğrulanmadı)</dd>
+<dt data-en-html="Request body">İstek gövdesi</dt><dd data-en-html="Request schema in Swagger">Swagger'daki istek şeması</dd>
+<dt data-en-html="Response">Yanıt</dt><dd data-en-html="&lt;code&gt;value&lt;/code&gt;, &lt;code&gt;success&lt;/code&gt;, &lt;code&gt;results&lt;/code&gt; envelope; &lt;a href=&quot;yanit-zarfi.html&quot;&gt;Response envelope&lt;/a&gt;"><code>value</code>, <code>success</code>, <code>results</code> zarfı; <a href="yanit-zarfi.html">Yanıt zarfı</a></dd>
+</dl>
+</div>
+<div class="ep-code"><div class="cb">
+<p class="cb-head"><span class="m m-post">POST</span><code>/v1/vpos/digitalPaymentQuery</code></p>
+<div class="cb-bar">
+<div class="cb-tabs" role="tablist" aria-label="Dil" data-en-label="Language">
+<button type="button" role="tab" data-code="curl" aria-selected="true">cURL</button>
+<button type="button" role="tab" data-code="node" aria-selected="false" tabindex="-1">Node.js</button>
+<button type="button" role="tab" data-code="py" aria-selected="false" tabindex="-1">Python</button>
+<button type="button" role="tab" data-code="cs" aria-selected="false" tabindex="-1">C#</button>
+</div>
+<button type="button" class="cb-copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy">Kopyala</span></button>
+</div>
+<pre data-code="curl"><code>curl -X POST <span class="s">"{BASE_URL}/v1/vpos/digitalPaymentQuery"</span> \
+  -H <span class="s">"Authorization: Bearer $KT_ACCESS_TOKEN"</span> \
+  -H <span class="s">"Signature: $KT_SIGNATURE"</span> \
+  -H <span class="s">"Content-Type: application/json"</span> \
+  -d @istek.json  <span class="c"># gövde şeması Swagger'da</span></code></pre>
+<pre data-code="node" hidden><code>const BASE_URL = process.env.KT_BASE_URL; <span class="c">// {BASE_URL}</span>
+const path = <span class="s">"/v1/vpos/digitalPaymentQuery"</span>;
+
+const res = await fetch(BASE_URL + path, {
+  method: <span class="s">"POST"</span>,
+  headers: {
+    Authorization: <span class="s">`Bearer ${accessToken}`</span>,
+    Signature: signature, <span class="c">// istek-imzalama.md</span>
+    <span class="s">"Content-Type"</span>: <span class="s">"application/json"</span>,
+  },
+  body: JSON.stringify(istek), <span class="c">// gövde şeması Swagger'da</span>
+});
+const { value, success, results } = await res.json();</code></pre>
+<pre data-code="py" hidden><code>import os
+import requests
+
+BASE_URL = os.environ[<span class="s">"KT_BASE_URL"</span>]  <span class="c"># {BASE_URL}</span>
+
+r = requests.post(
+    f<span class="s">"{BASE_URL}/v1/vpos/digitalPaymentQuery"</span>,
+    headers={<span class="s">"Authorization"</span>: f<span class="s">"Bearer {access_token}"</span>,
+             <span class="s">"Signature"</span>: signature},
+    json=istek,  <span class="c"># gövde şeması Swagger'da</span>
+)
+body = r.json()  <span class="c"># value, success, results</span></code></pre>
+<pre data-code="cs" hidden><code>using System.Net.Http.Headers;
+
+var http = new HttpClient { BaseAddress = new Uri(baseUrl) }; <span class="c">// {BASE_URL}</span>
+var req = new HttpRequestMessage(HttpMethod.Post, <span class="s">"/v1/vpos/digitalPaymentQuery"</span>);
+req.Headers.Authorization = new AuthenticationHeaderValue(<span class="s">"Bearer"</span>, accessToken);
+req.Headers.Add(<span class="s">"Signature"</span>, signature);
+req.Content = new StringContent(istekJson, Encoding.UTF8, <span class="s">"application/json"</span>); <span class="c">// gövde şeması Swagger'da</span>
+var res = await http.SendAsync(req);
+var json = await res.Content.ReadAsStringAsync(); <span class="c">// value, success, results</span></code></pre>
+<div class="cb-resp"><p class="cb-resp-bar"><span class="st-ok">200</span><span class="ornek-chip" data-en="Sample response">Örnek yanıt</span></p>
+<pre><code>{
+  <span class="s">"value"</span>: { <span class="c">/* alanlar Swagger'daki yanıt şemasında */</span> },
+  <span class="s">"success"</span>: true,
+  <span class="s">"results"</span>: []
+}</code></pre></div>
+</div></div>
+</section>
+<section class="ep" aria-labelledby="vpos-doc">
+<div class="ep-doc">
+<h2 id="vpos-doc" data-en-html="Send a document&lt;a class=&quot;hlink&quot; href=&quot;#vpos-doc&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Belge gönderin<a class="hlink" href="#vpos-doc" aria-label="Bağlantı">#</a></h2>
+<p class="ep-line"><span class="m m-post">POST</span><code>/v1/vpos/sendDocument</code></p>
+<p data-en-html="Sends a payment-related document (named sendDocument in Swagger). Body and response fields are in Swagger and are not invented here.">Ödemeyle ilgili belge gönderimi (Swagger'daki adıyla sendDocument). Gövde ve yanıt alanları Swagger'da; burada uydurulmadı.</p>
+<dl class="dl-kv">
+<dt data-en-html="Auth">Yetki</dt><dd data-en-html="the flow in the portal&#x27;s Postman template (not verified in this draft)">portaldaki Postman şablonundaki akış (bu taslakta doğrulanmadı)</dd>
+<dt data-en-html="Request body">İstek gövdesi</dt><dd data-en-html="Request schema in Swagger">Swagger'daki istek şeması</dd>
+<dt data-en-html="Response">Yanıt</dt><dd data-en-html="&lt;code&gt;value&lt;/code&gt;, &lt;code&gt;success&lt;/code&gt;, &lt;code&gt;results&lt;/code&gt; envelope; &lt;a href=&quot;yanit-zarfi.html&quot;&gt;Response envelope&lt;/a&gt;"><code>value</code>, <code>success</code>, <code>results</code> zarfı; <a href="yanit-zarfi.html">Yanıt zarfı</a></dd>
+</dl>
+</div>
+<div class="ep-code"><div class="cb">
+<p class="cb-head"><span class="m m-post">POST</span><code>/v1/vpos/sendDocument</code></p>
+<div class="cb-bar">
+<div class="cb-tabs" role="tablist" aria-label="Dil" data-en-label="Language">
+<button type="button" role="tab" data-code="curl" aria-selected="true">cURL</button>
+<button type="button" role="tab" data-code="node" aria-selected="false" tabindex="-1">Node.js</button>
+<button type="button" role="tab" data-code="py" aria-selected="false" tabindex="-1">Python</button>
+<button type="button" role="tab" data-code="cs" aria-selected="false" tabindex="-1">C#</button>
+</div>
+<button type="button" class="cb-copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy">Kopyala</span></button>
+</div>
+<pre data-code="curl"><code>curl -X POST <span class="s">"{BASE_URL}/v1/vpos/sendDocument"</span> \
+  -H <span class="s">"Authorization: Bearer $KT_ACCESS_TOKEN"</span> \
+  -H <span class="s">"Signature: $KT_SIGNATURE"</span> \
+  -H <span class="s">"Content-Type: application/json"</span> \
+  -d @istek.json  <span class="c"># gövde şeması Swagger'da</span></code></pre>
+<pre data-code="node" hidden><code>const BASE_URL = process.env.KT_BASE_URL; <span class="c">// {BASE_URL}</span>
+const path = <span class="s">"/v1/vpos/sendDocument"</span>;
+
+const res = await fetch(BASE_URL + path, {
+  method: <span class="s">"POST"</span>,
+  headers: {
+    Authorization: <span class="s">`Bearer ${accessToken}`</span>,
+    Signature: signature, <span class="c">// istek-imzalama.md</span>
+    <span class="s">"Content-Type"</span>: <span class="s">"application/json"</span>,
+  },
+  body: JSON.stringify(istek), <span class="c">// gövde şeması Swagger'da</span>
+});
+const { value, success, results } = await res.json();</code></pre>
+<pre data-code="py" hidden><code>import os
+import requests
+
+BASE_URL = os.environ[<span class="s">"KT_BASE_URL"</span>]  <span class="c"># {BASE_URL}</span>
+
+r = requests.post(
+    f<span class="s">"{BASE_URL}/v1/vpos/sendDocument"</span>,
+    headers={<span class="s">"Authorization"</span>: f<span class="s">"Bearer {access_token}"</span>,
+             <span class="s">"Signature"</span>: signature},
+    json=istek,  <span class="c"># gövde şeması Swagger'da</span>
+)
+body = r.json()  <span class="c"># value, success, results</span></code></pre>
+<pre data-code="cs" hidden><code>using System.Net.Http.Headers;
+
+var http = new HttpClient { BaseAddress = new Uri(baseUrl) }; <span class="c">// {BASE_URL}</span>
+var req = new HttpRequestMessage(HttpMethod.Post, <span class="s">"/v1/vpos/sendDocument"</span>);
+req.Headers.Authorization = new AuthenticationHeaderValue(<span class="s">"Bearer"</span>, accessToken);
+req.Headers.Add(<span class="s">"Signature"</span>, signature);
+req.Content = new StringContent(istekJson, Encoding.UTF8, <span class="s">"application/json"</span>); <span class="c">// gövde şeması Swagger'da</span>
+var res = await http.SendAsync(req);
+var json = await res.Content.ReadAsStringAsync(); <span class="c">// value, success, results</span></code></pre>
+<div class="cb-resp"><p class="cb-resp-bar"><span class="st-ok">200</span><span class="ornek-chip" data-en="Sample response">Örnek yanıt</span></p>
+<pre><code>{
+  <span class="s">"value"</span>: { <span class="c">/* alanlar Swagger'daki yanıt şemasında */</span> },
+  <span class="s">"success"</span>: true,
+  <span class="s">"results"</span>: []
+}</code></pre></div>
+</div></div>
+</section>
+<section class="ep" aria-labelledby="vpos-refund">
+<div class="ep-doc">
+<h2 id="vpos-refund" data-en-html="Refund a payment&lt;a class=&quot;hlink&quot; href=&quot;#vpos-refund&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">İade edin<a class="hlink" href="#vpos-refund" aria-label="Bağlantı">#</a></h2>
+<p class="ep-line"><span class="m m-post">POST</span><code>/v1/vpos/digitalPaymentDoRefund</code></p>
+<p data-en-html="Refunds a payment. This moves money: require a person&#x27;s approval before this call, in your code and in AI tools.">Bir ödemeyi iade eder. Para hareketi doğurur: kodunuzda ve yapay zekâ araçlarında bu çağrıdan önce bir kişinin onayını isteyin.</p>
+<dl class="dl-kv">
+<dt data-en-html="Auth">Yetki</dt><dd data-en-html="the flow in the portal&#x27;s Postman template (not verified in this draft)">portaldaki Postman şablonundaki akış (bu taslakta doğrulanmadı)</dd>
+<dt data-en-html="Request body">İstek gövdesi</dt><dd data-en-html="Request schema in Swagger">Swagger'daki istek şeması</dd>
+<dt data-en-html="Response">Yanıt</dt><dd data-en-html="&lt;code&gt;value&lt;/code&gt;, &lt;code&gt;success&lt;/code&gt;, &lt;code&gt;results&lt;/code&gt; envelope; &lt;a href=&quot;yanit-zarfi.html&quot;&gt;Response envelope&lt;/a&gt;"><code>value</code>, <code>success</code>, <code>results</code> zarfı; <a href="yanit-zarfi.html">Yanıt zarfı</a></dd>
+</dl>
+<div class="note note-uyari"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3 18 17H2z"/><path d="M10 8.5v4M10 14.6v.1"/></svg><div><p data-en-html="&lt;b&gt;Human approval:&lt;/b&gt; never run this call in an automated flow without a person approving."><b>İnsan onayı:</b> bu çağrıyı otomatik akışta kişi onayı olmadan çalıştırmayın.</p></div></div>
+</div>
+<div class="ep-code"><div class="cb">
+<p class="cb-head"><span class="m m-post">POST</span><code>/v1/vpos/digitalPaymentDoRefund</code></p>
+<div class="cb-bar">
+<div class="cb-tabs" role="tablist" aria-label="Dil" data-en-label="Language">
+<button type="button" role="tab" data-code="curl" aria-selected="true">cURL</button>
+<button type="button" role="tab" data-code="node" aria-selected="false" tabindex="-1">Node.js</button>
+<button type="button" role="tab" data-code="py" aria-selected="false" tabindex="-1">Python</button>
+<button type="button" role="tab" data-code="cs" aria-selected="false" tabindex="-1">C#</button>
+</div>
+<button type="button" class="cb-copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy">Kopyala</span></button>
+</div>
+<pre data-code="curl"><code>curl -X POST <span class="s">"{BASE_URL}/v1/vpos/digitalPaymentDoRefund"</span> \
+  -H <span class="s">"Authorization: Bearer $KT_ACCESS_TOKEN"</span> \
+  -H <span class="s">"Signature: $KT_SIGNATURE"</span> \
+  -H <span class="s">"Content-Type: application/json"</span> \
+  -d @istek.json  <span class="c"># gövde şeması Swagger'da</span></code></pre>
+<pre data-code="node" hidden><code>const BASE_URL = process.env.KT_BASE_URL; <span class="c">// {BASE_URL}</span>
+const path = <span class="s">"/v1/vpos/digitalPaymentDoRefund"</span>;
+
+const res = await fetch(BASE_URL + path, {
+  method: <span class="s">"POST"</span>,
+  headers: {
+    Authorization: <span class="s">`Bearer ${accessToken}`</span>,
+    Signature: signature, <span class="c">// istek-imzalama.md</span>
+    <span class="s">"Content-Type"</span>: <span class="s">"application/json"</span>,
+  },
+  body: JSON.stringify(istek), <span class="c">// gövde şeması Swagger'da</span>
+});
+const { value, success, results } = await res.json();</code></pre>
+<pre data-code="py" hidden><code>import os
+import requests
+
+BASE_URL = os.environ[<span class="s">"KT_BASE_URL"</span>]  <span class="c"># {BASE_URL}</span>
+
+r = requests.post(
+    f<span class="s">"{BASE_URL}/v1/vpos/digitalPaymentDoRefund"</span>,
+    headers={<span class="s">"Authorization"</span>: f<span class="s">"Bearer {access_token}"</span>,
+             <span class="s">"Signature"</span>: signature},
+    json=istek,  <span class="c"># gövde şeması Swagger'da</span>
+)
+body = r.json()  <span class="c"># value, success, results</span></code></pre>
+<pre data-code="cs" hidden><code>using System.Net.Http.Headers;
+
+var http = new HttpClient { BaseAddress = new Uri(baseUrl) }; <span class="c">// {BASE_URL}</span>
+var req = new HttpRequestMessage(HttpMethod.Post, <span class="s">"/v1/vpos/digitalPaymentDoRefund"</span>);
+req.Headers.Authorization = new AuthenticationHeaderValue(<span class="s">"Bearer"</span>, accessToken);
+req.Headers.Add(<span class="s">"Signature"</span>, signature);
+req.Content = new StringContent(istekJson, Encoding.UTF8, <span class="s">"application/json"</span>); <span class="c">// gövde şeması Swagger'da</span>
+var res = await http.SendAsync(req);
+var json = await res.Content.ReadAsStringAsync(); <span class="c">// value, success, results</span></code></pre>
+<div class="cb-resp"><p class="cb-resp-bar"><span class="st-ok">200</span><span class="ornek-chip" data-en="Sample response">Örnek yanıt</span></p>
+<pre><code>{
+  <span class="s">"value"</span>: { <span class="c">/* alanlar Swagger'daki yanıt şemasında */</span> },
+  <span class="s">"success"</span>: true,
+  <span class="s">"results"</span>: []
+}</code></pre></div>
+</div></div>
+</section>
+<nav class="pn" aria-label="Önceki ve sonraki sayfa" data-en-label="Previous and next page"><a href="canliya-gecis.html"><small data-en="Previous">Önceki</small><span data-en-html="Going live">Canlıya geçiş</span></a><a class="nx" href="finansman.html"><small data-en="Next">Sonraki</small><span data-en-html="Financing">Finansman</span></a></nav>
+</article>
+</main>
+</div>
+<footer class="foot"><div class="foot-in">
+  <nav aria-label="Alt menü" data-en-label="Footer menu">
+    <a href="../kurulum/" data-en="Setup wizard">Kurulum sihirbazı</a>
+    <a href="../hesap/giris.html" data-en="Sign in">Giriş yap</a>
+    <a href="llms.txt">llms.txt</a>
+    <a href="kuveytturk-api-ai-paketi.zip" download data-en="AI package (.zip)">AI paketi (.zip)</a>
+    <a href="../akiskan/index.html" data-en="API Market (Fluid)">API Market (Akışkan)</a>
+    <a href="../urun/index.html" data-en="API Market (Product)">API Market (Ürün)</a>
+  </nav>
+  <p data-en="Design draft. Endpoints from the API Market Swagger; AI features are concepts.">Tasarım taslağı. Uç noktalar API Market Swagger'ından; yapay zekâ bileşenleri konsepttir.</p>
+</div></footer>
+<div class="mpanel" id="mpanel" role="dialog" aria-modal="true" aria-label="Doküman menüsü" data-en-label="Docs menu" hidden>
+  <div class="mp-top"><b data-en="Menu">Menü</b><button type="button" class="mp-close"><span data-en="Close">Kapat</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15"/></svg></button></div>
+  <div class="mp-body">
+    <div class="mp-actions">
+      <button type="button" class="btn btn-quiet" data-search><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span data-en="Search the docs">Dokümanlarda ara</span></button>
+      <a class="btn btn-primary" href="kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="Download AI package (.zip)">AI paketini indir (.zip)</span></a>
+      <div class="mp-row"><a class="top-link" href="../hesap/giris.html" data-auth-link data-panel-href="../hesap/panel.html" data-en="Sign in">Giriş yap</a>
+        <div class="lang" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div></div>
+    </div>
+    <nav aria-label="Bölümler" data-en-label="Sections"><p class="side-h" data-en-html="Get started">Başlangıç</p>
+<ul class="side-list">
+<li><a href="index.html"><span data-en-html="Overview">Genel bakış</span></a>
+</li>
+<li><a href="hizli-baslangic.html"><span data-en-html="Quickstart">Hızlı başlangıç</span></a>
+</li>
+<li><a href="kurulum-adimlari.html"><span data-en-html="Setup steps">Kurulum adımları</span></a>
+</li>
+<li><a href="ortamlar.html"><span data-en-html="Environments: sandbox and production">Ortamlar: test ve canlı</span></a>
+</li>
+<li><a href="test-musterileri.html"><span data-en-html="Test customers">Test müşterileri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Authentication">Kimlik doğrulama</p>
+<ul class="side-list">
+<li><a href="uygulama-ve-anahtarlar.html"><span data-en-html="Applications and keys">Uygulama ve anahtarlar</span></a>
+</li>
+<li><a href="istek-imzalama.html"><span data-en-html="Signing requests">İstek imzalama</span></a>
+</li>
+<li><a href="canliya-gecis.html"><span data-en-html="Going live">Canlıya geçiş</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Products">Ürünler</p>
+<ul class="side-list">
+<li><a href="odeme.html" aria-current="page"><span data-en-html="Payments">Ödeme</span></a>
+</li>
+<li><a href="finansman.html"><span data-en-html="Financing">Finansman</span></a>
+</li>
+<li><a href="hesap-verisi.html"><span data-en-html="Account data">Hesap verisi</span></a>
+</li>
+<li><a href="bilgi-servisleri.html"><span data-en-html="Information services">Bilgi servisleri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="AI">Yapay zekâ</p>
+<ul class="side-list">
+<li><a href="yapay-zeka-ile-kurulum.html"><span data-en-html="Set up with AI">Yapay zekâ ile kurulum</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="mcp-araclari.html"><span data-en-html="MCP tools">MCP araçları</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="ai-paketi.html"><span data-en-html="AI package">AI paketi</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Reference">Referans</p>
+<ul class="side-list">
+<li><a href="uc-noktalar.html"><span data-en-html="Endpoints">Uç noktalar</span></a>
+</li>
+<li><a href="yanit-zarfi.html"><span data-en-html="Response envelope">Yanıt zarfı</span></a>
+</li>
+<li><a href="hata-kodlari.html"><span data-en-html="Error codes">Hata kodları</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+<li><a href="degisiklik-gunlugu.html"><span data-en-html="Changelog">Değişiklik günlüğü</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+</ul></nav>
+  </div>
+</div>
+<script src="assets/arama.js"></script>
+<script src="assets/kt.js"></script>
+</body>
+</html>

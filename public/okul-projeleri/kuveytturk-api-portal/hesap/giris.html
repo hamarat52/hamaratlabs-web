@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giriş yapın | Kuveyt Türk Developers</title>
+<meta name="description" content="Örnek giriş akışı. Yazdığınız şifre saklanmaz ve hiçbir yere gönderilmez.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e3b2e'/%3E%3Cpath d='M10 9v14M10 16l8-7M12.5 14l6.5 9' stroke='%23fbfaf6' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../docs/assets/kt.css">
+<link rel="stylesheet" href="hesap.css">
+</head>
+<body data-sayfa="giris">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+<header class="top simple">
+  <div class="top-in">
+    <a class="brand" href="../docs/index.html" aria-label="Kuveyt Türk Developers dokümanlar"><b>Kuveyt Türk</b><span class="sep sep-1" aria-hidden="true">·</span><span class="b-dev">Developers</span></a>
+    <div class="top-right">
+      <a class="top-link" href="../docs/index.html" data-en="Docs">Dokümanlar</a>
+      <a class="top-link" href="kayit.html" data-en="Sign up">Kayıt ol</a>
+      <div class="lang" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+    </div>
+  </div>
+</header>
+
+<main id="ana" class="auth">
+  <section class="auth-side" aria-label="Panelde ne var" data-en-label="What's in the dashboard">
+    <div class="auth-side-in">
+      <h2 data-en="Your apps, keys and Go Live status in one place.">Uygulamalarınız, anahtarlarınız ve canlıya geçiş durumunuz tek yerde.</h2>
+      <ul class="as-list">
+        <li data-en-html="&lt;b&gt;Applications.&lt;/b&gt; What you created in the setup wizard."><b>Uygulamalar.</b> Kurulum sihirbazında oluşturduklarınız.</li>
+        <li data-en-html="&lt;b&gt;Sandbox keys.&lt;/b&gt; Always masked; the secret is shown only once."><b>Test anahtarları.</b> Hep maskeli; gizli anahtar yalnız bir kez gösterilir.</li>
+        <li data-en-html="&lt;b&gt;Go Live request.&lt;/b&gt; Status of your move to production."><b>Canlıya geçiş talebi.</b> Canlı ortama geçişinizin durumu.</li>
+      </ul>
+      <p class="as-foot" data-en-html="New here? &lt;a href=&quot;../kurulum/&quot;&gt;Setup wizard&lt;/a&gt;">Yeni misiniz? <a href="../kurulum/">Kurulum sihirbazı</a></p>
+    </div>
+  </section>
+
+  <section class="auth-main">
+    <div class="auth-in">
+      <p class="demo-note"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v4M8 5v.1"/></svg><span data-en="Sample flow · the password is not stored or sent">Örnek akış · şifre saklanmaz, gönderilmez</span></p>
+      <form id="giris-form" novalidate autocomplete="off" aria-labelledby="g-h1">
+        <h1 id="g-h1" tabindex="-1" data-en="Sign in">Giriş yapın</h1>
+        <p class="auth-lead" data-en="Sign in to manage your applications and sandbox keys.">Uygulamalarınızı ve test anahtarlarınızı yönetmek için giriş yapın.</p>
+        <div class="field">
+          <label for="g-mail" data-en="Email">E-posta</label>
+          <input type="email" id="g-mail" autocomplete="off" inputmode="email" aria-describedby="e-gmail" placeholder="ad@sirket.com" data-en-ph="name@company.com">
+          <p class="err" id="e-gmail" role="alert"></p>
+        </div>
+        <div class="field">
+          <div class="row-between"><label for="g-pw" data-en="Password">Şifre</label><button type="button" class="linkish" id="unuttum" aria-expanded="false" aria-controls="unuttum-bilgi" data-en="Forgot password?">Şifremi unuttum</button></div>
+          <div class="pw">
+            <input type="password" id="g-pw" autocomplete="off" aria-describedby="e-gpw help-gpw">
+            <button type="button" id="pw-goster" aria-pressed="false" data-en="Show">Göster</button>
+          </div>
+          <p class="help" id="help-gpw" data-en="Sample flow: what you type is not stored and not sent anywhere.">Örnek akış: yazdığınız şifre saklanmaz ve hiçbir yere gönderilmez.</p>
+          <p class="err" id="e-gpw" role="alert"></p>
+        </div>
+        <div class="info-box" id="unuttum-bilgi" hidden>
+          <p data-en-html="&lt;b&gt;Sample:&lt;/b&gt; in the real portal you would get a reset link by email. Nothing is sent here."><b>Örnek:</b> gerçek portalda e-postanıza bir sıfırlama bağlantısı gelir. Burada hiçbir şey gönderilmez.</p>
+        </div>
+        <button type="submit" class="btn btn-primary wide" id="g-btn"><span data-en="Sign in">Giriş yap</span></button>
+        <p class="auth-alt" data-en-html="No account yet? &lt;a href=&quot;kayit.html&quot;&gt;Create one&lt;/a&gt;">Hesabınız yok mu? <a href="kayit.html">Hesap açın</a></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script src="../docs/assets/kt.js"></script>
+<script src="hesap.js"></script>
+</body>
+</html>

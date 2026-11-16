@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel | Kuveyt Türk Developers</title>
+<meta name="description" content="Örnek geliştirici paneli: uygulamalarım, maskeli test anahtarları, son istekler (örnek) ve canlıya geçiş talebi (örnek durum).">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e3b2e'/%3E%3Cpath d='M10 9v14M10 16l8-7M12.5 14l6.5 9' stroke='%23fbfaf6' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../docs/assets/kt.css">
+<link rel="stylesheet" href="hesap.css">
+</head>
+<body data-sayfa="panel">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+<header class="top simple">
+  <div class="top-in">
+    <a class="brand" href="../docs/index.html" aria-label="Kuveyt Türk Developers dokümanlar"><b>Kuveyt Türk</b><span class="sep sep-1" aria-hidden="true">·</span><span class="b-dev">Developers</span></a>
+    <div class="top-right">
+      <a class="top-link" href="../docs/index.html" data-en="Docs">Dokümanlar</a>
+      <button type="button" class="btn btn-text btn-sm" id="cikis" hidden data-en="Sign out">Çıkış yap</button>
+      <div class="lang" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+    </div>
+  </div>
+</header>
+
+<main id="ana">
+  <!-- Oturum yoksa -->
+  <section class="pn-gate" id="pn-gate" hidden aria-labelledby="gate-h">
+    <p class="demo-note"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v4M8 5v.1"/></svg><span data-en="Sample dashboard">Örnek panel</span></p>
+    <h1 id="gate-h" data-en="You're not signed in">Oturum açık değil</h1>
+    <p data-en="Sign in or create an account to see your applications and sandbox keys. You can also look around with a sample account.">Uygulamalarınızı ve test anahtarlarınızı görmek için giriş yapın ya da hesap açın. Örnek hesapla da gezebilirsiniz.</p>
+    <div class="pn-actions">
+      <a class="btn btn-primary" href="giris.html" data-en="Sign in">Giriş yap</a>
+      <a class="btn btn-quiet" href="kayit.html" data-en="Create an account">Hesap aç</a>
+      <button type="button" class="btn btn-text" id="ornek-ac" data-en="Open with a sample account">Örnek hesapla aç</button>
+    </div>
+  </section>
+
+  <div class="pn-shell" id="pn" hidden>
+    <nav class="pn-nav" aria-label="Panel bölümleri" data-en-label="Dashboard sections">
+      <ul>
+        <li><a href="#uygulamalar" class="on" data-en="Applications">Uygulamalarım</a></li>
+        <li><a href="#anahtarlar" data-en="Sandbox keys">Test anahtarları</a></li>
+        <li><a href="#istekler" data-en="Recent requests">Son istekler</a></li>
+        <li><a href="#canli" data-en="Go Live">Canlıya geçiş</a></li>
+      </ul>
+    </nav>
+    <div class="pn-main">
+      <header class="pn-head">
+        <div>
+          <span class="env-badge" data-en="Sandbox">Test ortamı</span>
+          <h1 id="pn-merhaba">Merhaba</h1>
+          <p id="pn-mail"></p>
+        </div>
+        <div class="pn-actions">
+          <a class="btn btn-primary" href="../kurulum/?yeni=1"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg><span data-en="New application">Yeni uygulama</span></a>
+          <a class="btn btn-quiet" href="../docs/kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="AI package (.zip)">AI paketi (.zip)</span></a>
+        </div>
+      </header>
+
+      <section class="pn-sec" id="uygulamalar" aria-labelledby="uyg-h">
+        <h2 id="uyg-h" data-en="Applications">Uygulamalarım</h2>
+        <p data-en="Applications you created in the setup wizard. Stored only in this browser.">Kurulum sihirbazında oluşturduğunuz uygulamalar. Yalnız bu tarayıcıda tutulur.</p>
+        <div id="apps"></div>
+      </section>
+
+      <section class="pn-sec" id="anahtarlar" aria-labelledby="key-h">
+        <h2 id="key-h" data-en="Sandbox keys">Test anahtarları</h2>
+        <p data-en="Keys are always masked here. The client secret was shown once, when it was created.">Anahtarlar burada hep maskeli. Gizli anahtar yalnız oluşturulduğu an bir kez gösterildi.</p>
+        <div id="keys"></div>
+      </section>
+
+      <section class="pn-sec" id="istekler" aria-labelledby="ist-h">
+        <h2 id="ist-h"><span data-en="Recent requests">Son istekler</span> <span class="tag tag-ornek" data-en="Sample">Örnek</span></h2>
+        <p data-en="Sample rows with real endpoints. In a real dashboard this list would come from gateway logs.">Gerçek uç noktalarla örnek satırlar. Gerçek panelde bu liste ağ geçidi kayıtlarından gelir.</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <thead><tr><th data-en="Time">Saat</th><th data-en="Request">İstek</th><th data-en="Status">Durum</th><th class="hide-s" data-en="Note">Not</th></tr></thead>
+          <tbody>
+            <tr><td>10:42</td><td><span class="m m-get">GET</span><code>/v1/fx/rates</code></td><td><span class="st st-200">200</span></td><td class="hide-s" data-en="First request from the wizard">Sihirbazdaki ilk istek</td></tr>
+            <tr><td>10:41</td><td><span class="m m-get">GET</span><code>/v1/fx/rates</code></td><td><span class="st st-401">401</span></td><td class="hide-s" data-en="Token expired (sample)">Token süresi dolmuş (örnek)</td></tr>
+            <tr><td>10:38</td><td><span class="m m-get">GET</span><code>/v1/data/testcustomers</code></td><td><span class="st st-200">200</span></td><td class="hide-s" data-en="Test customer list">Test müşteri listesi</td></tr>
+            <tr><td>10:35</td><td><span class="m m-post">POST</span><code>/v1/vpos/digitalPaymentGetToken</code></td><td><span class="st st-200">200</span></td><td class="hide-s" data-en="Test payment">Test ödemesi</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section class="pn-sec" id="canli" aria-labelledby="canli-h">
+        <h2 id="canli-h"><span data-en="Go Live request">Canlıya geçiş talebi</span> <span class="tag tag-ornek" data-en="Sample status">Örnek durum</span></h2>
+        <p data-en-html="Requests go through Go Live Request Management. Checklist: &lt;a href=&quot;../docs/canliya-gecis.html&quot;&gt;Going live&lt;/a&gt;">Talep, Go Live Request Management üzerinden açılır. Kontrol listesi: <a href="../docs/canliya-gecis.html">Canlıya geçiş</a></p>
+        <ol class="golive" id="golive"></ol>
+        <div class="pn-actions"><button type="button" class="btn btn-quiet" id="talep" data-en="Create request (sample)">Talep oluştur (örnek)</button></div>
+        <p class="help" id="talep-not" aria-live="polite"></p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="foot"><div class="foot-in">
+  <nav aria-label="Alt menü" data-en-label="Footer menu">
+    <a href="../docs/index.html" data-en="Docs">Dokümanlar</a>
+    <a href="../kurulum/" data-en="Setup wizard">Kurulum sihirbazı</a>
+    <a href="../docs/canliya-gecis.html" data-en="Going live">Canlıya geçiş</a>
+  </nav>
+  <p data-en="Design draft. Sample dashboard: data stays in this browser.">Tasarım taslağı. Örnek panel: veriler bu tarayıcıda kalır.</p>
+</div></footer>
+
+<script src="../docs/assets/kt.js"></script>
+<script src="hesap.js"></script>
+</body>
+</html>

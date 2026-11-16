@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kurulum sihirbazı | Kuveyt Türk Developers</title>
+<meta name="description" content="Örnek akış: hesap, uygulama, test ortamı anahtarları, ilk istek ve yapay zekâ kurulumu beş adımda. Gerçek hesap açılmaz, ağ isteği gönderilmez.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e3b2e'/%3E%3Cpath d='M10 9v14M10 16l8-7M12.5 14l6.5 9' stroke='%23fbfaf6' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../docs/assets/kt.css">
+<link rel="stylesheet" href="kurulum.css">
+</head>
+<body class="wz-page">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+
+<header class="top simple">
+  <div class="top-in">
+    <a class="brand" href="../docs/index.html" aria-label="Kuveyt Türk Developers dokümanlar"><b>Kuveyt Türk</b><span class="sep sep-1" aria-hidden="true">·</span><span class="b-dev">Developers</span></a>
+    <div class="top-right">
+      <a class="top-link" href="../docs/index.html" data-en="Docs">Dokümanlar</a>
+      <a class="top-link" href="../hesap/giris.html" data-auth-link data-panel-href="../hesap/panel.html" data-en="Sign in">Giriş yap</a>
+      <div class="lang" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+    </div>
+  </div>
+</header>
+
+<main id="ana" class="wz">
+  <div class="wz-in">
+    <div class="wz-head">
+      <p class="demo-note"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v4M8 5v.1"/></svg><span data-en="Sample flow · no real account is created">Örnek akış · gerçek hesap açılmaz</span></p>
+      <h1 data-en="Set up the sandbox">Test ortamını kurun</h1>
+      <p class="wz-sub" data-en="Account, application, sandbox keys and a first request. Nothing leaves this browser.">Hesap, uygulama, test anahtarları ve ilk istek. Hiçbir bilgi bu tarayıcıdan çıkmaz.</p>
+    </div>
+
+    <nav class="wz-steps" aria-label="Kurulum adımları" data-en-label="Setup steps">
+      <ol>
+        <li><button type="button" data-go="1"><span class="n">1</span><span class="t" data-en="Account">Hesap</span></button></li>
+        <li><button type="button" data-go="2"><span class="n">2</span><span class="t" data-en="Application">Uygulama</span></button></li>
+        <li><button type="button" data-go="3"><span class="n">3</span><span class="t" data-en="Sandbox keys">Test anahtarları</span></button></li>
+        <li><button type="button" data-go="4"><span class="n">4</span><span class="t" data-en="First request">İlk istek</span></button></li>
+        <li><button type="button" data-go="5"><span class="n">5</span><span class="t" data-en="Done">Bitti</span></button></li>
+      </ol>
+    </nav>
+    <div class="wz-mprog" aria-hidden="true"><p><b id="mp-n">1/5</b> <span id="mp-t">Hesap</span></p><div class="wz-bar"><i id="mp-bar"></i></div></div>
+
+    <div class="wz-grid">
+      <form class="wz-card" id="wz-form" novalidate autocomplete="off">
+        <p class="wz-count" id="wz-count" aria-live="polite">Adım 1/5</p>
+
+        <!-- 1. Hesap -->
+        <section class="wz-step" data-step="1" aria-labelledby="h-1">
+          <h2 id="h-1" tabindex="-1" data-en="Start with your account">Hesabınızla başlayın</h2>
+          <div id="acct-on" hidden>
+            <p class="wz-lead" data-en="You're signed in. Applications and keys you create here go under this account.">Giriş yaptınız. Burada oluşturacağınız uygulama ve anahtarlar bu hesabın altında durur.</p>
+            <div class="acct">
+              <span class="acct-av" id="acct-av" aria-hidden="true">D</span>
+              <span><b id="acct-ad">Deniz</b><span id="acct-mail">deniz@ornek.example</span></span>
+            </div>
+          </div>
+          <div id="acct-off">
+            <p class="wz-lead" data-en="Applications and keys live under an account. Create one, or try the flow with a sample account.">Uygulamalar ve anahtarlar bir hesabın altında durur. Hesap açın ya da akışı örnek hesapla deneyin.</p>
+            <fieldset class="choice" aria-describedby="err-1">
+              <legend class="sr" data-en="How do you want to continue?">Nasıl devam etmek istersiniz?</legend>
+              <label class="check big"><input type="radio" name="hesap" value="kayit"><span><b data-en="Create an account first">Önce hesap açın</b><span data-en="Takes you to sign-up; you come back to step 2.">Kayıt sayfasına gider; dönüşte 2. adımdan devam edersiniz.</span></span></label>
+              <label class="check big"><input type="radio" name="hesap" value="ornek"><span><b data-en="Continue with a sample account">Örnek hesapla devam et</b><span data-en="No sign-up. Uses deneme@ornek.example.">Kayıt yok. deneme@ornek.example adı kullanılır.</span></span></label>
+            </fieldset>
+            <div class="acct-links" id="acct-links" hidden>
+              <a class="btn btn-primary" href="../hesap/kayit.html" data-en="Create an account">Hesap aç</a>
+              <a class="btn btn-quiet" href="../hesap/giris.html?next=kurulum" data-en="I have an account">Hesabım var, giriş yap</a>
+            </div>
+          </div>
+          <p class="err" id="err-1" role="alert"></p>
+        </section>
+
+        <!-- 2. Uygulama -->
+        <section class="wz-step" data-step="2" aria-labelledby="h-2" hidden>
+          <h2 id="h-2" tabindex="-1" data-en="Describe your application">Uygulamanızı tanımlayın</h2>
+          <p class="wz-lead" data-en="Each integration is an application. Your choice here decides the sample request in step 4.">Her entegrasyon bir uygulamadır. Buradaki seçim 4. adımdaki örnek isteği belirler.</p>
+          <div class="field">
+            <label for="app-ad" data-en="Application name">Uygulama adı</label>
+            <input type="text" id="app-ad" name="ad" maxlength="40" aria-describedby="err-ad help-ad" placeholder="Örn. Mağaza ödeme entegrasyonu" data-en-ph="e.g. Store payment integration">
+            <p class="help" id="help-ad" data-en="3 to 40 characters. Only you see it.">3 ile 40 karakter. Yalnız siz görürsünüz.</p>
+            <p class="err" id="err-ad" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="app-ac"><span data-en="Description">Açıklama</span> <span class="opt" data-en="(optional)">(isteğe bağlı)</span></label>
+            <textarea id="app-ac" name="aciklama" maxlength="160" aria-describedby="help-ac"></textarea>
+            <p class="help" id="help-ac"><span id="ac-say">0</span>/160</p>
+          </div>
+          <fieldset class="field choice" aria-describedby="err-amac">
+            <legend class="lbl" data-en="What will you use it for? You can pick more than one.">Kullanım amacı (birden çok seçebilirsiniz)</legend>
+            <div class="choice-grid">
+              <label class="check"><input type="checkbox" name="amac" value="odeme"><span><b data-en="Payments">Ödeme</b><span data-en="Virtual POS: start, query, refund">Sanal POS: başlatma, sorgu, iade</span></span></label>
+              <label class="check"><input type="checkbox" name="amac" value="finansman"><span><b data-en="Financing">Finansman</b><span data-en="Instalment plans at checkout">Sepette taksitli finansman</span></span></label>
+              <label class="check"><input type="checkbox" name="amac" value="hesap"><span><b data-en="Account data">Hesap verisi</b><span data-en="Balances and transactions, with consent">İzinle hesap ve hareketler</span></span></label>
+              <label class="check"><input type="checkbox" name="amac" value="bilgi"><span><b data-en="Information services">Bilgi servisleri</b><span data-en="Rates, branches, ATMs">Kur, şube, ATM</span></span></label>
+            </div>
+            <p class="err" id="err-amac" role="alert"></p>
+          </fieldset>
+        </section>
+
+        <!-- 3. Test anahtarları -->
+        <section class="wz-step" data-step="3" aria-labelledby="h-3" hidden>
+          <h2 id="h-3" tabindex="-1" data-en="Your sandbox keys">Test ortamı anahtarlarınız</h2>
+          <div class="gen" id="gen" aria-live="polite">
+            <p class="gen-h" data-en="Creating sandbox keys">Test anahtarları oluşturuluyor</p>
+            <ul class="gen-list">
+              <li data-g="1"><i aria-hidden="true"></i><span data-en="Saving the application">Uygulama kaydediliyor</span></li>
+              <li data-g="2"><i aria-hidden="true"></i><span data-en="Creating client ID">Client ID oluşturuluyor</span></li>
+              <li data-g="3"><i aria-hidden="true"></i><span data-en="Creating client secret">Client secret oluşturuluyor</span></li>
+            </ul>
+          </div>
+          <div id="keys" hidden>
+            <p class="wz-lead" data-en="Use these to get a token on the sandbox ID server. The values are generated in your browser for this sample and are not real.">Bunlarla test kimlik sunucusundan token alırsınız. Bu örnekte değerler tarayıcınızda üretildi; gerçek değildir.</p>
+            <div class="key-row">
+              <span class="k-lbl">Client ID</span>
+              <code class="k-val" id="k-id">kt_sandbox_••••</code>
+              <span class="k-act">
+                <button type="button" class="btn btn-quiet btn-sm" data-reveal="id" aria-pressed="false" data-en="Show">Göster</button>
+                <button type="button" class="btn btn-quiet btn-sm" data-kcopy="id" data-en="Copy"><span class="copy-label">Kopyala</span></button>
+              </span>
+            </div>
+            <div class="key-row">
+              <span class="k-lbl">Client secret</span>
+              <code class="k-val" id="k-sec">••••••••••••••••</code>
+              <span class="k-act" id="sec-act">
+                <button type="button" class="btn btn-quiet btn-sm" data-reveal="sec" aria-pressed="false" data-en="Show">Göster</button>
+                <button type="button" class="btn btn-quiet btn-sm" data-kcopy="sec" data-en="Copy"><span class="copy-label">Kopyala</span></button>
+              </span>
+            </div>
+            <div class="note note-uyari" id="sec-warn"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3 18 17H2z"/><path d="M10 8.5v4M10 14.6v.1"/></svg><div><p data-en-html="&lt;b&gt;The secret will not be shown again.&lt;/b&gt; Store it in a password manager or secrets vault before you continue. Never paste it into code, a chat or a log.">
+              <b>Gizli anahtar bir daha gösterilmeyecek.</b> Devam etmeden önce bir parola yöneticisine ya da gizli anahtar kasasına kaydedin. Koda, sohbete ya da log'a yapıştırmayın.</p></div></div>
+            <p class="sec-gone" id="sec-gone" hidden data-en="The secret was shown only when it was created. If you lost it, create a new one (sample).">Gizli anahtar yalnız oluşturulduğunda gösterildi. Kaybettiyseniz yenisini oluşturun (örnek).</p>
+            <button type="button" class="btn btn-text" id="regen" hidden data-en="Create a new secret (sample)">Yeni gizli anahtar oluştur (örnek)</button>
+            <label class="check" id="saved-wrap"><input type="checkbox" id="saved" aria-describedby="err-3"><span><b data-en="I've stored the client secret safely">Gizli anahtarı güvenli bir yere kaydettim</b></span></label>
+            <p class="err" id="err-3" role="alert"></p>
+
+            <h3 class="wz-h3"><span data-en="Test customer">Test müşterisi</span> <span class="tag tag-ornek" data-en="Sample">Örnek</span></h3>
+            <dl class="kv">
+              <dt data-en="Customer no">Müşteri no</dt><dd><code>{test_musteri_no}</code></dd>
+              <dt data-en="Account suffix">Hesap eki</dt><dd><code>{suffix}</code></dd>
+              <dt data-en="Real list">Gerçek liste</dt><dd><a href="../docs/test-musterileri.html#testcustomers"><code>GET /v1/data/testcustomers</code></a></dd>
+            </dl>
+          </div>
+        </section>
+
+        <!-- 4. İlk istek -->
+        <section class="wz-step" data-step="4" aria-labelledby="h-4" hidden>
+          <h2 id="h-4" tabindex="-1" data-en="Send your first request">İlk isteğinizi gönderin</h2>
+          <p class="wz-lead" data-en="A real endpoint for the product you chose. The send button makes no network request; it shows a sample response.">Seçtiğiniz ürün için gerçek bir uç nokta. Gönder düğmesi ağ isteği yapmaz; örnek bir yanıt gösterir.</p>
+          <div class="seg" role="tablist" aria-label="Ürün" data-en-label="Product" id="urun-sekme"></div>
+          <div id="istek"></div>
+          <div class="send-row">
+            <button type="button" class="btn btn-primary" id="gonder"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5"/></svg><span data-en="Send request (sample)">İsteği gönder (örnek)</span></button>
+            <span class="send-st" id="send-st" aria-live="polite"></span>
+          </div>
+          <div id="yanit" hidden></div>
+          <p class="err" id="err-4" role="alert"></p>
+        </section>
+
+        <!-- 5. Bitti -->
+        <section class="wz-step" data-step="5" aria-labelledby="h-5" hidden>
+          <h2 id="h-5" tabindex="-1" data-en="Your sandbox is ready">Test ortamınız hazır</h2>
+          <p class="wz-lead" id="bitti-ozet">Uygulamanız ve test anahtarlarınız hazır.</p>
+          <div class="done-grid">
+            <div class="done-card">
+              <b data-en="Copy setup prompt">Kurulum promptunu kopyala</b>
+              <span data-en="The AI setup prompt plus the endpoints of the products you picked. Paste it into Claude Code, Cursor or Codex.">Yapay zekâ kurulum talimatı ve seçtiğiniz ürünlerin uç noktaları. Claude Code, Cursor ya da Codex'e yapıştırın.</span>
+              <button type="button" class="btn btn-primary" id="prompt-kopyala"><span class="copy-label" data-en="Copy setup prompt">Kurulum promptunu kopyala</span></button>
+            </div>
+            <div class="done-card">
+              <b data-en="Download AI package (.zip)">AI paketini indir (.zip)</b>
+              <span data-en="Every doc as Markdown, starting with AGENTS.md. Unzip it into docs/kuveytturk.">Tüm dokümanlar Markdown olarak, AGENTS.md ile başlar. docs/kuveytturk klasörüne açın.</span>
+              <a class="btn btn-quiet" href="../docs/kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="Download .zip">.zip indir</span></a>
+            </div>
+            <div class="done-card">
+              <b data-en="Go to the docs">Dokümanlara git</b>
+              <span data-en="Endpoints, signing and going live, with code in four languages.">Uç noktalar, imzalama ve canlıya geçiş; dört dilde kod.</span>
+              <a class="btn btn-quiet" id="docs-link" href="../docs/index.html" data-en="Open the docs">Dokümanları aç</a>
+            </div>
+          </div>
+          <details class="prompt-pre">
+            <summary data-en="Show the prompt">Promptu göster</summary>
+            <pre id="prompt"></pre>
+          </details>
+          <p class="done-more"><a href="../hesap/panel.html" data-en="Open your dashboard">Panelinize gidin</a> <button type="button" class="btn btn-text" id="sifirla" data-en="Start over">Baştan başla</button></p>
+        </section>
+
+        <div class="wz-nav">
+          <button type="button" class="btn btn-quiet" id="geri"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5 5.5 8 10 12.5"/></svg><span data-en="Back">Geri</span></button>
+          <button type="submit" class="btn btn-primary" id="ileri"><span id="ileri-t" data-en="Next">İleri</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+        </div>
+      </form>
+
+      <aside class="wz-aside" aria-labelledby="ozet-h">
+        <h2 id="ozet-h" data-en="Summary">Özet</h2>
+        <dl class="sum">
+          <dt data-en="Account">Hesap</dt><dd id="s-hesap" data-bos>Henüz yok</dd>
+          <dt data-en="Application">Uygulama</dt><dd id="s-app" data-bos>Henüz yok</dd>
+          <dt data-en="Products">Ürünler</dt><dd id="s-urun" data-bos>Henüz yok</dd>
+          <dt data-en="Sandbox keys">Test anahtarları</dt><dd id="s-key" data-bos>Henüz yok</dd>
+          <dt data-en="First request">İlk istek</dt><dd id="s-istek" data-bos>Henüz yok</dd>
+        </dl>
+        <p class="sum-note" data-en="Stored only in this browser (localStorage). Nothing is sent.">Yalnız bu tarayıcıda (localStorage) tutulur. Hiçbir şey gönderilmez.</p>
+        <p class="sum-note"><a href="../docs/kurulum-adimlari.html" data-en="These steps in the docs">Bu adımlar dokümanda</a></p>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="foot"><div class="foot-in">
+  <nav aria-label="Alt menü" data-en-label="Footer menu">
+    <a href="../docs/index.html" data-en="Docs">Dokümanlar</a>
+    <a href="../docs/kurulum-adimlari.html" data-en="Setup steps">Kurulum adımları</a>
+    <a href="../hesap/giris.html" data-en="Sign in">Giriş yap</a>
+  </nav>
+  <p data-en="Design draft. Sample flow: no account is created and no request is sent.">Tasarım taslağı. Örnek akış: hesap açılmaz, istek gönderilmez.</p>
+</div></footer>
+
+<script src="../docs/assets/kt.js"></script>
+<script src="sihirbaz.js"></script>
+</body>
+</html>

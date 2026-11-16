@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İstek imzalama | Kuveyt Türk Docs</title>
+<meta name="description" content="Signature başlığı: access token ile sorgu dizesinin (GET) ya da gövdenin (POST) RSA-SHA256 imzası, base64. Node.js, Python, C# ve openssl örnekleri.">
+<link rel="alternate" type="text/markdown" href="istek-imzalama.md" title="Markdown">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e3b2e'/%3E%3Cpath d='M10 9v14M10 16l8-7M12.5 14l6.5 9' stroke='%23fbfaf6' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kt.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body class="docs" data-md="istek-imzalama.md">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html" aria-label="Kuveyt Türk Developers Docs ana sayfa"><b>Kuveyt Türk</b><span class="sep sep-1" aria-hidden="true">·</span><span class="b-dev">Developers</span><span class="sep" aria-hidden="true">·</span><span class="b-docs">Docs</span></a>
+    <span class="ver" title="API sürümü (örnek)" data-en="v1 (sample)">v1 (örnek)</span>
+    <button type="button" class="search-btn" data-search aria-label="Dokümanlarda ara (Cmd K)" data-en-label="Search the docs (Cmd K)"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span data-en="Search the docs">Dokümanlarda ara</span><kbd class="kbd-k">⌘K</kbd></button>
+    <div class="top-right">
+      <div class="lang hide-m" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      <a class="top-link hide-m" href="../hesap/giris.html" data-auth-link data-panel-href="../hesap/panel.html" data-en="Sign in">Giriş yap</a>
+      <a class="btn btn-primary btn-sm hide-m" href="kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="Download AI package (.zip)">AI paketini indir (.zip)</span></a>
+      <button type="button" class="icon-btn" data-search aria-label="Ara" data-en-label="Search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4.5 4.5"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="subbar">
+<button type="button" class="sb-menu" data-mp-open aria-controls="mpanel" aria-label="Menüyü aç: Kimlik doğrulama" data-en-label="Open menu: Authentication"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/></svg><b data-en="Menu">Menü</b><span class="sb-sec">· Kimlik doğrulama</span></button>
+<details class="sb-toc"><summary><span data-en="On this page">Bu sayfada</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></summary><ul class="sb-toc-list"><li><a href="#kural"><span data-en-html="What gets signed">İmzalanan metin</span></a></li><li><a href="#kod"><span data-en-html="Code samples">Kod örnekleri</span></a></li><li><a href="#hatalar"><span data-en-html="Common mistakes">Sık yapılan hatalar</span></a></li><li><a href="#test-vektorleri"><span data-en-html="Test vectors">Test vektörleri</span></a></li></ul></details>
+</div>
+<div class="d-shell">
+<aside class="d-side"><nav aria-label="Doküman menüsü" data-en-label="Docs menu"><p class="side-h" data-en-html="Get started">Başlangıç</p>
+<ul class="side-list">
+<li><a href="index.html"><span data-en-html="Overview">Genel bakış</span></a>
+</li>
+<li><a href="hizli-baslangic.html"><span data-en-html="Quickstart">Hızlı başlangıç</span></a>
+</li>
+<li><a href="kurulum-adimlari.html"><span data-en-html="Setup steps">Kurulum adımları</span></a>
+</li>
+<li><a href="ortamlar.html"><span data-en-html="Environments: sandbox and production">Ortamlar: test ve canlı</span></a>
+</li>
+<li><a href="test-musterileri.html"><span data-en-html="Test customers">Test müşterileri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Authentication">Kimlik doğrulama</p>
+<ul class="side-list">
+<li><a href="uygulama-ve-anahtarlar.html"><span data-en-html="Applications and keys">Uygulama ve anahtarlar</span></a>
+</li>
+<li><a href="istek-imzalama.html" aria-current="page"><span data-en-html="Signing requests">İstek imzalama</span></a>
+</li>
+<li><a href="canliya-gecis.html"><span data-en-html="Going live">Canlıya geçiş</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Products">Ürünler</p>
+<ul class="side-list">
+<li><a href="odeme.html"><span data-en-html="Payments">Ödeme</span></a>
+</li>
+<li><a href="finansman.html"><span data-en-html="Financing">Finansman</span></a>
+</li>
+<li><a href="hesap-verisi.html"><span data-en-html="Account data">Hesap verisi</span></a>
+</li>
+<li><a href="bilgi-servisleri.html"><span data-en-html="Information services">Bilgi servisleri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="AI">Yapay zekâ</p>
+<ul class="side-list">
+<li><a href="yapay-zeka-ile-kurulum.html"><span data-en-html="Set up with AI">Yapay zekâ ile kurulum</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="mcp-araclari.html"><span data-en-html="MCP tools">MCP araçları</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="ai-paketi.html"><span data-en-html="AI package">AI paketi</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Reference">Referans</p>
+<ul class="side-list">
+<li><a href="uc-noktalar.html"><span data-en-html="Endpoints">Uç noktalar</span></a>
+</li>
+<li><a href="yanit-zarfi.html"><span data-en-html="Response envelope">Yanıt zarfı</span></a>
+</li>
+<li><a href="hata-kodlari.html"><span data-en-html="Error codes">Hata kodları</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+<li><a href="degisiklik-gunlugu.html"><span data-en-html="Changelog">Değişiklik günlüğü</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+</ul><div class="side-foot"><span data-en-html="All pages: &lt;a href=&quot;llms.txt&quot;&gt;llms.txt&lt;/a&gt;">Tüm sayfalar: <a href="llms.txt">llms.txt</a></span></div></nav></aside>
+<main id="ana" class="d-main">
+<article class="d-art">
+<div class="crumbrow"><p class="crumb"><a href="index.html">Docs</a><span class="sl" aria-hidden="true">/</span><span data-en-html="Authentication">Kimlik doğrulama</span><span class="sl" aria-hidden="true">/</span><span data-en-html="Signing requests">İstek imzalama</span></p>
+<div class="pcopy">
+  <button type="button" data-pcopy><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy page">Sayfayı kopyala</span></button>
+  <button type="button" class="pc-more" aria-haspopup="true" aria-expanded="false" aria-controls="pc-menu" aria-label="Diğer seçenekler" data-en-label="More options"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+  <div class="pc-menu" id="pc-menu" hidden>
+    <button type="button" data-pcopy><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><b data-en="Copy as Markdown">Markdown olarak kopyala</b><small data-en="For your AI tool">Yapay zekâ aracınız için</small></button>
+    <a href="istek-imzalama.md"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4z"/><path d="M6.5 8.5h3M6.5 11h3"/></svg><b data-en="Open as .md">.md olarak aç</b><small>istek-imzalama.md</small></a>
+    <a href="https://claude.ai/new" data-ai-open="claude" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v10h10v-3M9 2.5h4.5V7M13.5 2.5 7 9"/></svg><b data-en="Open in Claude">Claude'da aç</b><small data-en="Asks about this page">Bu sayfa hakkında sorar</small></a>
+    <a href="https://chatgpt.com/" data-ai-open="chatgpt" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v10h10v-3M9 2.5h4.5V7M13.5 2.5 7 9"/></svg><b data-en="Open in ChatGPT">ChatGPT'de aç</b><small data-en="Asks about this page">Bu sayfa hakkında sorar</small></a>
+  </div>
+</div></div>
+<h1 data-en-html="Signing requests">İstek imzalama</h1>
+<p class="lead" data-en-html="Every request is signed with the &lt;code&gt;Signature&lt;/code&gt; header: the base64 RSA-SHA256 signature of the access token plus the query string (GET) or the body (POST).">Her istek <code>Signature</code> başlığıyla imzalanır. İmza, access token ile sorgu dizesinin (GET) ya da gövdenin (POST) RSA-SHA256 imzasının base64 halidir.</p>
+<p class="meta" data-en="Last updated: 16 November 2026. API version v1 (sample).">Son güncelleme: 16 Kasım 2026. API sürümü v1 (örnek).</p>
+<div class="note note-ornek"><span class="tag tag-ornek" data-en="Sample">Örnek</span><div><p data-en-html="The signing rule comes from the portal docs; to be re-checked against the live docs before publishing.">İmza kuralı portal dokümanından alındı; yayından önce canlı dokümanla yeniden doğrulanacak.</p></div></div>
+<h2 id="kural" data-en-html="What gets signed&lt;a class=&quot;hlink&quot; href=&quot;#kural&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">İmzalanan metin<a class="hlink" href="#kural" aria-label="Bağlantı">#</a></h2>
+<div class="tbl-wrap"><table class="tbl"><thead><tr><th data-en-html="Method">Metot</th><th data-en-html="Signed text">İmzalanan metin</th></tr></thead><tbody><tr><td>GET</td><td data-en-html="access token + query string">access token + sorgu dizesi</td></tr><tr><td>POST</td><td data-en-html="access token + request body (the exact JSON text you send)">access token + istek gövdesi (gönderilen JSON metni, birebir)</td></tr></tbody></table></div>
+<p data-en-html="Algorithm RSA-SHA256, key your 2048-bit RSA private key, output base64. Kuveyt Türk&#x27;s Signature Tool does the same on your desktop; compare your code&#x27;s output with it.">Algoritma RSA-SHA256, anahtar 2048 bit RSA özel anahtarınız, çıktı base64. Kuveyt Türk İmza Aracı aynı hesabı masaüstünde yapar; kendi kodunuzun çıktısını onunla karşılaştırın.</p>
+<h2 id="kod" data-en-html="Code samples&lt;a class=&quot;hlink&quot; href=&quot;#kod&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Kod örnekleri<a class="hlink" href="#kod" aria-label="Bağlantı">#</a></h2>
+<div class="cb">
+<div class="cb-bar">
+<div class="cb-tabs" role="tablist" aria-label="Dil" data-en-label="Language">
+<button type="button" role="tab" data-code="node" aria-selected="true">Node.js</button>
+<button type="button" role="tab" data-code="py" aria-selected="false" tabindex="-1">Python</button>
+<button type="button" role="tab" data-code="cs" aria-selected="false" tabindex="-1">C#</button>
+<button type="button" role="tab" data-code="bash" aria-selected="false" tabindex="-1">Terminal</button>
+</div>
+<button type="button" class="cb-copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy">Kopyala</span></button>
+</div>
+<pre data-code="node"><code>import { createSign } from <span class="s">"node:crypto"</span>;
+
+<span class="c">// GET: accessToken + queryString, POST: accessToken + gövde</span>
+const signer = createSign(<span class="s">"RSA-SHA256"</span>);
+signer.update(accessToken + queryString);
+const signature = signer.sign(privateKey, <span class="s">"base64"</span>);</code></pre>
+<pre data-code="py" hidden><code>import base64
+from cryptography.hazmat.primitives import hashes, serialization
+from cryptography.hazmat.primitives.asymmetric import padding
+
+with open(<span class="s">"private.pem"</span>, <span class="s">"rb"</span>) as f:
+    key = serialization.load_pem_private_key(f.read(), password=None)
+
+metin = access_token + query_string  <span class="c"># POST: access_token + govde</span>
+imza = key.sign(metin.encode(<span class="s">"utf-8"</span>), padding.PKCS1v15(), hashes.SHA256())
+signature = base64.b64encode(imza).decode()</code></pre>
+<pre data-code="cs" hidden><code>using System.Security.Cryptography;
+using System.Text;
+
+using var rsa = RSA.Create();
+rsa.ImportFromPem(File.ReadAllText(<span class="s">"private.pem"</span>));
+var metin = accessToken + queryString; <span class="c">// POST: accessToken + gövde</span>
+var imza = rsa.SignData(Encoding.UTF8.GetBytes(metin), HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+var signature = Convert.ToBase64String(imza);</code></pre>
+<pre data-code="bash" hidden><code>printf '%s' <span class="s">"$KT_ACCESS_TOKEN$QUERY"</span> \
+  | openssl dgst -sha256 -sign private.pem \
+  | base64 | tr -d '\n'</code></pre>
+</div>
+<h2 id="hatalar" data-en-html="Common mistakes&lt;a class=&quot;hlink&quot; href=&quot;#hatalar&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Sık yapılan hatalar<a class="hlink" href="#hatalar" aria-label="Bağlantı">#</a></h2>
+<ul><li data-en-html="Re-formatting the body after signing (spaces, key order). Send exactly the text you signed.">Gövdeyi imzaladıktan sonra yeniden biçimlendirmek (boşluk, alan sırası). İmzaladığınız metni birebir gönderin.</li><li data-en-html="A different character encoding. Use UTF-8.">Farklı karakter kodlaması. UTF-8 kullanın.</li><li data-en-html="Whether the leading &lt;code&gt;?&lt;/code&gt; of the query string is included. To be confirmed.">Sorgu dizesinin başındaki <code>?</code> işaretini dahil edip etmemek. Kural doğrulanacak.</li><li data-en-html="Signing with an expired token. Tokens last one hour.">Süresi dolmuş token ile imzalamak. Token bir saat geçerlidir.</li></ul>
+<h2 id="test-vektorleri" data-en-html="Test vectors&lt;a class=&quot;hlink&quot; href=&quot;#test-vektorleri&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Test vektörleri<a class="hlink" href="#test-vektorleri" aria-label="Bağlantı">#</a></h2>
+<div class="note note-ornek"><span class="tag tag-ornek" data-en="Sample">Örnek</span><div><p data-en-html="Recommended: the real docs should publish test vectors (input, expected intermediate text, expected base64 output). This draft has no real key, so no vectors.">Önerilen: gerçek dokümanda girdi, beklenen ara metin ve beklenen base64 çıktıdan oluşan test vektörleri yayımlanmalı. Bu taslakta gerçek anahtar olmadığı için vektör yok.</p></div></div>
+<nav class="pn" aria-label="Önceki ve sonraki sayfa" data-en-label="Previous and next page"><a href="uygulama-ve-anahtarlar.html"><small data-en="Previous">Önceki</small><span data-en-html="Applications and keys">Uygulama ve anahtarlar</span></a><a class="nx" href="canliya-gecis.html"><small data-en="Next">Sonraki</small><span data-en-html="Going live">Canlıya geçiş</span></a></nav>
+</article>
+<aside class="d-toc" aria-label="Bu sayfada" data-en-label="On this page">
+<p data-en="On this page">Bu sayfada</p><ul><li><a href="#kural"><span data-en-html="What gets signed">İmzalanan metin</span></a></li><li><a href="#kod"><span data-en-html="Code samples">Kod örnekleri</span></a></li><li><a href="#hatalar"><span data-en-html="Common mistakes">Sık yapılan hatalar</span></a></li><li><a href="#test-vektorleri"><span data-en-html="Test vectors">Test vektörleri</span></a></li></ul>
+<div class="toc-md"><span data-en-html="This page as Markdown: &lt;a href=&quot;istek-imzalama.md&quot;&gt;istek-imzalama.md&lt;/a&gt;">Bu sayfa Markdown olarak: <a href="istek-imzalama.md">istek-imzalama.md</a></span><br><span data-en="About 677 tokens">Yaklaşık 677 token</span></div>
+</aside>
+</main>
+</div>
+<footer class="foot"><div class="foot-in">
+  <nav aria-label="Alt menü" data-en-label="Footer menu">
+    <a href="../kurulum/" data-en="Setup wizard">Kurulum sihirbazı</a>
+    <a href="../hesap/giris.html" data-en="Sign in">Giriş yap</a>
+    <a href="llms.txt">llms.txt</a>
+    <a href="kuveytturk-api-ai-paketi.zip" download data-en="AI package (.zip)">AI paketi (.zip)</a>
+    <a href="../akiskan/index.html" data-en="API Market (Fluid)">API Market (Akışkan)</a>
+    <a href="../urun/index.html" data-en="API Market (Product)">API Market (Ürün)</a>
+  </nav>
+  <p data-en="Design draft. Endpoints from the API Market Swagger; AI features are concepts.">Tasarım taslağı. Uç noktalar API Market Swagger'ından; yapay zekâ bileşenleri konsepttir.</p>
+</div></footer>
+<div class="mpanel" id="mpanel" role="dialog" aria-modal="true" aria-label="Doküman menüsü" data-en-label="Docs menu" hidden>
+  <div class="mp-top"><b data-en="Menu">Menü</b><button type="button" class="mp-close"><span data-en="Close">Kapat</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15"/></svg></button></div>
+  <div class="mp-body">
+    <div class="mp-actions">
+      <button type="button" class="btn btn-quiet" data-search><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span data-en="Search the docs">Dokümanlarda ara</span></button>
+      <a class="btn btn-primary" href="kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="Download AI package (.zip)">AI paketini indir (.zip)</span></a>
+      <div class="mp-row"><a class="top-link" href="../hesap/giris.html" data-auth-link data-panel-href="../hesap/panel.html" data-en="Sign in">Giriş yap</a>
+        <div class="lang" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div></div>
+    </div>
+    <nav aria-label="Bölümler" data-en-label="Sections"><p class="side-h" data-en-html="Get started">Başlangıç</p>
+<ul class="side-list">
+<li><a href="index.html"><span data-en-html="Overview">Genel bakış</span></a>
+</li>
+<li><a href="hizli-baslangic.html"><span data-en-html="Quickstart">Hızlı başlangıç</span></a>
+</li>
+<li><a href="kurulum-adimlari.html"><span data-en-html="Setup steps">Kurulum adımları</span></a>
+</li>
+<li><a href="ortamlar.html"><span data-en-html="Environments: sandbox and production">Ortamlar: test ve canlı</span></a>
+</li>
+<li><a href="test-musterileri.html"><span data-en-html="Test customers">Test müşterileri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Authentication">Kimlik doğrulama</p>
+<ul class="side-list">
+<li><a href="uygulama-ve-anahtarlar.html"><span data-en-html="Applications and keys">Uygulama ve anahtarlar</span></a>
+</li>
+<li><a href="istek-imzalama.html" aria-current="page"><span data-en-html="Signing requests">İstek imzalama</span></a>
+</li>
+<li><a href="canliya-gecis.html"><span data-en-html="Going live">Canlıya geçiş</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Products">Ürünler</p>
+<ul class="side-list">
+<li><a href="odeme.html"><span data-en-html="Payments">Ödeme</span></a>
+</li>
+<li><a href="finansman.html"><span data-en-html="Financing">Finansman</span></a>
+</li>
+<li><a href="hesap-verisi.html"><span data-en-html="Account data">Hesap verisi</span></a>
+</li>
+<li><a href="bilgi-servisleri.html"><span data-en-html="Information services">Bilgi servisleri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="AI">Yapay zekâ</p>
+<ul class="side-list">
+<li><a href="yapay-zeka-ile-kurulum.html"><span data-en-html="Set up with AI">Yapay zekâ ile kurulum</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="mcp-araclari.html"><span data-en-html="MCP tools">MCP araçları</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="ai-paketi.html"><span data-en-html="AI package">AI paketi</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Reference">Referans</p>
+<ul class="side-list">
+<li><a href="uc-noktalar.html"><span data-en-html="Endpoints">Uç noktalar</span></a>
+</li>
+<li><a href="yanit-zarfi.html"><span data-en-html="Response envelope">Yanıt zarfı</span></a>
+</li>
+<li><a href="hata-kodlari.html"><span data-en-html="Error codes">Hata kodları</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+<li><a href="degisiklik-gunlugu.html"><span data-en-html="Changelog">Değişiklik günlüğü</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+</ul></nav>
+  </div>
+</div>
+<script src="assets/arama.js"></script>
+<script src="assets/kt.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Değişiklik günlüğü | Kuveyt Türk Docs</title>
+<meta name="description" content="Doküman ve API değişiklikleri (örnek kayıtlar): ilk doküman sürümü, sürüm notu biçimi ve hesap hareketleri v2/v3 notu.">
+<link rel="alternate" type="text/markdown" href="degisiklik-gunlugu.md" title="Markdown">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e3b2e'/%3E%3Cpath d='M10 9v14M10 16l8-7M12.5 14l6.5 9' stroke='%23fbfaf6' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kt.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body class="docs" data-md="degisiklik-gunlugu.md">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html" aria-label="Kuveyt Türk Developers Docs ana sayfa"><b>Kuveyt Türk</b><span class="sep sep-1" aria-hidden="true">·</span><span class="b-dev">Developers</span><span class="sep" aria-hidden="true">·</span><span class="b-docs">Docs</span></a>
+    <span class="ver" title="API sürümü (örnek)" data-en="v1 (sample)">v1 (örnek)</span>
+    <button type="button" class="search-btn" data-search aria-label="Dokümanlarda ara (Cmd K)" data-en-label="Search the docs (Cmd K)"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span data-en="Search the docs">Dokümanlarda ara</span><kbd class="kbd-k">⌘K</kbd></button>
+    <div class="top-right">
+      <div class="lang hide-m" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      <a class="top-link hide-m" href="../hesap/giris.html" data-auth-link data-panel-href="../hesap/panel.html" data-en="Sign in">Giriş yap</a>
+      <a class="btn btn-primary btn-sm hide-m" href="kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="Download AI package (.zip)">AI paketini indir (.zip)</span></a>
+      <button type="button" class="icon-btn" data-search aria-label="Ara" data-en-label="Search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4.5 4.5"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="subbar">
+<button type="button" class="sb-menu" data-mp-open aria-controls="mpanel" aria-label="Menüyü aç: Referans" data-en-label="Open menu: Reference"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/></svg><b data-en="Menu">Menü</b><span class="sb-sec">· Referans</span></button>
+<details class="sb-toc"><summary><span data-en="On this page">Bu sayfada</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></summary><ul class="sb-toc-list"><li><a href="#2026-11-16"><span data-en-html="16 November 2026">16 Kasım 2026</span></a></li><li><a href="#bicim"><span data-en-html="Release note format">Sürüm notu biçimi</span></a></li><li><a href="#hareketler"><span data-en-html="Account transactions: v2 and v3">Hesap hareketleri: v2 ve v3</span></a></li></ul></details>
+</div>
+<div class="d-shell">
+<aside class="d-side"><nav aria-label="Doküman menüsü" data-en-label="Docs menu"><p class="side-h" data-en-html="Get started">Başlangıç</p>
+<ul class="side-list">
+<li><a href="index.html"><span data-en-html="Overview">Genel bakış</span></a>
+</li>
+<li><a href="hizli-baslangic.html"><span data-en-html="Quickstart">Hızlı başlangıç</span></a>
+</li>
+<li><a href="kurulum-adimlari.html"><span data-en-html="Setup steps">Kurulum adımları</span></a>
+</li>
+<li><a href="ortamlar.html"><span data-en-html="Environments: sandbox and production">Ortamlar: test ve canlı</span></a>
+</li>
+<li><a href="test-musterileri.html"><span data-en-html="Test customers">Test müşterileri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Authentication">Kimlik doğrulama</p>
+<ul class="side-list">
+<li><a href="uygulama-ve-anahtarlar.html"><span data-en-html="Applications and keys">Uygulama ve anahtarlar</span></a>
+</li>
+<li><a href="istek-imzalama.html"><span data-en-html="Signing requests">İstek imzalama</span></a>
+</li>
+<li><a href="canliya-gecis.html"><span data-en-html="Going live">Canlıya geçiş</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Products">Ürünler</p>
+<ul class="side-list">
+<li><a href="odeme.html"><span data-en-html="Payments">Ödeme</span></a>
+</li>
+<li><a href="finansman.html"><span data-en-html="Financing">Finansman</span></a>
+</li>
+<li><a href="hesap-verisi.html"><span data-en-html="Account data">Hesap verisi</span></a>
+</li>
+<li><a href="bilgi-servisleri.html"><span data-en-html="Information services">Bilgi servisleri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="AI">Yapay zekâ</p>
+<ul class="side-list">
+<li><a href="yapay-zeka-ile-kurulum.html"><span data-en-html="Set up with AI">Yapay zekâ ile kurulum</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="mcp-araclari.html"><span data-en-html="MCP tools">MCP araçları</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="ai-paketi.html"><span data-en-html="AI package">AI paketi</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Reference">Referans</p>
+<ul class="side-list">
+<li><a href="uc-noktalar.html"><span data-en-html="Endpoints">Uç noktalar</span></a>
+</li>
+<li><a href="yanit-zarfi.html"><span data-en-html="Response envelope">Yanıt zarfı</span></a>
+</li>
+<li><a href="hata-kodlari.html"><span data-en-html="Error codes">Hata kodları</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+<li><a href="degisiklik-gunlugu.html" aria-current="page"><span data-en-html="Changelog">Değişiklik günlüğü</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+</ul><div class="side-foot"><span data-en-html="All pages: &lt;a href=&quot;llms.txt&quot;&gt;llms.txt&lt;/a&gt;">Tüm sayfalar: <a href="llms.txt">llms.txt</a></span></div></nav></aside>
+<main id="ana" class="d-main">
+<article class="d-art">
+<div class="crumbrow"><p class="crumb"><a href="index.html">Docs</a><span class="sl" aria-hidden="true">/</span><span data-en-html="Reference">Referans</span><span class="sl" aria-hidden="true">/</span><span data-en-html="Changelog">Değişiklik günlüğü</span></p>
+<div class="pcopy">
+  <button type="button" data-pcopy><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy page">Sayfayı kopyala</span></button>
+  <button type="button" class="pc-more" aria-haspopup="true" aria-expanded="false" aria-controls="pc-menu" aria-label="Diğer seçenekler" data-en-label="More options"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+  <div class="pc-menu" id="pc-menu" hidden>
+    <button type="button" data-pcopy><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><b data-en="Copy as Markdown">Markdown olarak kopyala</b><small data-en="For your AI tool">Yapay zekâ aracınız için</small></button>
+    <a href="degisiklik-gunlugu.md"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4z"/><path d="M6.5 8.5h3M6.5 11h3"/></svg><b data-en="Open as .md">.md olarak aç</b><small>degisiklik-gunlugu.md</small></a>
+    <a href="https://claude.ai/new" data-ai-open="claude" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v10h10v-3M9 2.5h4.5V7M13.5 2.5 7 9"/></svg><b data-en="Open in Claude">Claude'da aç</b><small data-en="Asks about this page">Bu sayfa hakkında sorar</small></a>
+    <a href="https://chatgpt.com/" data-ai-open="chatgpt" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v10h10v-3M9 2.5h4.5V7M13.5 2.5 7 9"/></svg><b data-en="Open in ChatGPT">ChatGPT'de aç</b><small data-en="Asks about this page">Bu sayfa hakkında sorar</small></a>
+  </div>
+</div></div>
+<h1 data-en-html="Changelog &lt;span class=&quot;tag tag-ornek&quot; data-en=&quot;Sample&quot;&gt;Sample&lt;/span&gt;">Değişiklik günlüğü <span class="tag tag-ornek" data-en="Sample">Örnek</span></h1>
+<p class="lead" data-en-html="Docs and API changes. Entries on this page are samples.">Doküman ve API değişiklikleri. Bu sayfadaki kayıtlar örnektir.</p>
+<p class="meta" data-en="Last updated: 16 November 2026. API version v1 (sample).">Son güncelleme: 16 Kasım 2026. API sürümü v1 (örnek).</p>
+<h2 id="2026-11-16" data-en-html="16 November 2026&lt;a class=&quot;hlink&quot; href=&quot;#2026-11-16&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">16 Kasım 2026<a class="hlink" href="#2026-11-16" aria-label="Bağlantı">#</a></h2>
+<ul><li data-en-html="Docs site first version (draft): per-page .md, &lt;code&gt;llms.txt&lt;/code&gt;, AI package (.zip).">Doküman sitesi ilk sürüm (taslak): sayfa başına .md, <code>llms.txt</code>, AI paketi (.zip).</li><li data-en-html="Setup wizard and sample sign-in/sign-up flow added.">Kurulum sihirbazı ve örnek giriş/kayıt akışı eklendi.</li></ul>
+<h2 id="bicim" data-en-html="Release note format&lt;a class=&quot;hlink&quot; href=&quot;#bicim&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Sürüm notu biçimi<a class="hlink" href="#bicim" aria-label="Bağlantı">#</a></h2>
+<div class="tbl-wrap"><table class="tbl"><thead><tr><th data-en-html="Date">Tarih</th><th data-en-html="Type">Tür</th><th data-en-html="Change">Değişiklik</th></tr></thead><tbody><tr><td><code>{tarih}</code></td><td data-en-html="New">Yeni</td><td data-en-html="&lt;code&gt;{endpoint}&lt;/code&gt; added."><code>{uç nokta}</code> eklendi.</td></tr><tr><td><code>{tarih}</code></td><td data-en-html="Breaking">Kırıcı</td><td data-en-html="&lt;code&gt;{field}&lt;/code&gt; renamed; migration window &lt;code&gt;{period}&lt;/code&gt;."><code>{alan}</code> adı değişti; geçiş süresi <code>{süre}</code>.</td></tr><tr><td><code>{tarih}</code></td><td data-en-html="Deprecated">Kullanımdan kalkıyor</td><td data-en-html="&lt;code&gt;{endpoint}&lt;/code&gt; ends on &lt;code&gt;{date}&lt;/code&gt;."><code>{uç nokta}</code> için son tarih <code>{tarih}</code>.</td></tr></tbody></table></div>
+<h2 id="hareketler" data-en-html="Account transactions: v2 and v3&lt;a class=&quot;hlink&quot; href=&quot;#hareketler&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Hesap hareketleri: v2 ve v3<a class="hlink" href="#hareketler" aria-label="Bağlantı">#</a></h2>
+<p data-en-html="Swagger lists both &lt;code&gt;GET /v2/accounts/{suffix}/transactions&lt;/code&gt; and &lt;code&gt;GET /v3/accounts/{suffix}/transactions&lt;/code&gt;. Which one is recommended and the old version&#x27;s timeline are to be confirmed.">Swagger'da <code>GET /v2/accounts/{suffix}/transactions</code> ve <code>GET /v3/accounts/{suffix}/transactions</code> birlikte listeli. Hangisinin önerildiği ve eski sürümün takvimi doğrulanacak.</p>
+<nav class="pn" aria-label="Önceki ve sonraki sayfa" data-en-label="Previous and next page"><a href="hata-kodlari.html"><small data-en="Previous">Önceki</small><span data-en-html="Error codes">Hata kodları</span></a></nav>
+</article>
+<aside class="d-toc" aria-label="Bu sayfada" data-en-label="On this page">
+<p data-en="On this page">Bu sayfada</p><ul><li><a href="#2026-11-16"><span data-en-html="16 November 2026">16 Kasım 2026</span></a></li><li><a href="#bicim"><span data-en-html="Release note format">Sürüm notu biçimi</span></a></li><li><a href="#hareketler"><span data-en-html="Account transactions: v2 and v3">Hesap hareketleri: v2 ve v3</span></a></li></ul>
+<div class="toc-md"><span data-en-html="This page as Markdown: &lt;a href=&quot;degisiklik-gunlugu.md&quot;&gt;degisiklik-gunlugu.md&lt;/a&gt;">Bu sayfa Markdown olarak: <a href="degisiklik-gunlugu.md">degisiklik-gunlugu.md</a></span><br><span data-en="About 247 tokens">Yaklaşık 247 token</span></div>
+</aside>
+</main>
+</div>
+<footer class="foot"><div class="foot-in">
+  <nav aria-label="Alt menü" data-en-label="Footer menu">
+    <a href="../kurulum/" data-en="Setup wizard">Kurulum sihirbazı</a>
+    <a href="../hesap/giris.html" data-en="Sign in">Giriş yap</a>
+    <a href="llms.txt">llms.txt</a>
+    <a href="kuveytturk-api-ai-paketi.zip" download data-en="AI package (.zip)">AI paketi (.zip)</a>
+    <a href="../akiskan/index.html" data-en="API Market (Fluid)">API Market (Akışkan)</a>
+    <a href="../urun/index.html" data-en="API Market (Product)">API Market (Ürün)</a>
+  </nav>
+  <p data-en="Design draft. Endpoints from the API Market Swagger; AI features are concepts.">Tasarım taslağı. Uç noktalar API Market Swagger'ından; yapay zekâ bileşenleri konsepttir.</p>
+</div></footer>
+<div class="mpanel" id="mpanel" role="dialog" aria-modal="true" aria-label="Doküman menüsü" data-en-label="Docs menu" hidden>
+  <div class="mp-top"><b data-en="Menu">Menü</b><button type="button" class="mp-close"><span data-en="Close">Kapat</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15"/></svg></button></div>
+  <div class="mp-body">
+    <div class="mp-actions">
+      <button type="button" class="btn btn-quiet" data-search><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span data-en="Search the docs">Dokümanlarda ara</span></button>
+      <a class="btn btn-primary" href="kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="Download AI package (.zip)">AI paketini indir (.zip)</span></a>
+      <div class="mp-row"><a class="top-link" href="../hesap/giris.html" data-auth-link data-panel-href="../hesap/panel.html" data-en="Sign in">Giriş yap</a>
+        <div class="lang" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div></div>
+    </div>
+    <nav aria-label="Bölümler" data-en-label="Sections"><p class="side-h" data-en-html="Get started">Başlangıç</p>
+<ul class="side-list">
+<li><a href="index.html"><span data-en-html="Overview">Genel bakış</span></a>
+</li>
+<li><a href="hizli-baslangic.html"><span data-en-html="Quickstart">Hızlı başlangıç</span></a>
+</li>
+<li><a href="kurulum-adimlari.html"><span data-en-html="Setup steps">Kurulum adımları</span></a>
+</li>
+<li><a href="ortamlar.html"><span data-en-html="Environments: sandbox and production">Ortamlar: test ve canlı</span></a>
+</li>
+<li><a href="test-musterileri.html"><span data-en-html="Test customers">Test müşterileri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Authentication">Kimlik doğrulama</p>
+<ul class="side-list">
+<li><a href="uygulama-ve-anahtarlar.html"><span data-en-html="Applications and keys">Uygulama ve anahtarlar</span></a>
+</li>
+<li><a href="istek-imzalama.html"><span data-en-html="Signing requests">İstek imzalama</span></a>
+</li>
+<li><a href="canliya-gecis.html"><span data-en-html="Going live">Canlıya geçiş</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Products">Ürünler</p>
+<ul class="side-list">
+<li><a href="odeme.html"><span data-en-html="Payments">Ödeme</span></a>
+</li>
+<li><a href="finansman.html"><span data-en-html="Financing">Finansman</span></a>
+</li>
+<li><a href="hesap-verisi.html"><span data-en-html="Account data">Hesap verisi</span></a>
+</li>
+<li><a href="bilgi-servisleri.html"><span data-en-html="Information services">Bilgi servisleri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="AI">Yapay zekâ</p>
+<ul class="side-list">
+<li><a href="yapay-zeka-ile-kurulum.html"><span data-en-html="Set up with AI">Yapay zekâ ile kurulum</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="mcp-araclari.html"><span data-en-html="MCP tools">MCP araçları</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="ai-paketi.html"><span data-en-html="AI package">AI paketi</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Reference">Referans</p>
+<ul class="side-list">
+<li><a href="uc-noktalar.html"><span data-en-html="Endpoints">Uç noktalar</span></a>
+</li>
+<li><a href="yanit-zarfi.html"><span data-en-html="Response envelope">Yanıt zarfı</span></a>
+</li>
+<li><a href="hata-kodlari.html"><span data-en-html="Error codes">Hata kodları</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+<li><a href="degisiklik-gunlugu.html" aria-current="page"><span data-en-html="Changelog">Değişiklik günlüğü</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+</ul></nav>
+  </div>
+</div>
+<script src="assets/arama.js"></script>
+<script src="assets/kt.js"></script>
+</body>
+</html>

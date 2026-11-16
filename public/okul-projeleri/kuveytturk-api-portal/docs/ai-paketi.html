@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI paketi | Kuveyt Türk Docs</title>
+<meta name="description" content="Tüm dokümanlar tek zip&#x27;te: AGENTS.md, konu konu Markdown, örnek OpenAPI şeması, cURL örnekleri ve sha256&#x27;lı manifest. Projeye docs/kuveytturk olarak açılır.">
+<link rel="alternate" type="text/markdown" href="ai-paketi.md" title="Markdown">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e3b2e'/%3E%3Cpath d='M10 9v14M10 16l8-7M12.5 14l6.5 9' stroke='%23fbfaf6' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kt.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body class="docs" data-md="ai-paketi.md">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html" aria-label="Kuveyt Türk Developers Docs ana sayfa"><b>Kuveyt Türk</b><span class="sep sep-1" aria-hidden="true">·</span><span class="b-dev">Developers</span><span class="sep" aria-hidden="true">·</span><span class="b-docs">Docs</span></a>
+    <span class="ver" title="API sürümü (örnek)" data-en="v1 (sample)">v1 (örnek)</span>
+    <button type="button" class="search-btn" data-search aria-label="Dokümanlarda ara (Cmd K)" data-en-label="Search the docs (Cmd K)"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span data-en="Search the docs">Dokümanlarda ara</span><kbd class="kbd-k">⌘K</kbd></button>
+    <div class="top-right">
+      <div class="lang hide-m" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      <a class="top-link hide-m" href="../hesap/giris.html" data-auth-link data-panel-href="../hesap/panel.html" data-en="Sign in">Giriş yap</a>
+      <a class="btn btn-primary btn-sm hide-m" href="kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="Download AI package (.zip)">AI paketini indir (.zip)</span></a>
+      <button type="button" class="icon-btn" data-search aria-label="Ara" data-en-label="Search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4.5 4.5"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="subbar">
+<button type="button" class="sb-menu" data-mp-open aria-controls="mpanel" aria-label="Menüyü aç: Yapay zekâ" data-en-label="Open menu: AI"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/></svg><b data-en="Menu">Menü</b><span class="sb-sec">· Yapay zekâ</span></button>
+<details class="sb-toc"><summary><span data-en="On this page">Bu sayfada</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></summary><ul class="sb-toc-list"><li><a href="#neden"><span data-en-html="Why not one huge file">Neden tek dev dosya değil</span></a></li><li><a href="#icerik"><span data-en-html="Contents">İçindekiler</span></a></li><li><a href="#projeye-ekle"><span data-en-html="Add it to your project">Projeye ekleme</span></a></li><li><a href="#prompt"><span data-en-html="Paste this into Claude Code">Claude Code'a şunu yapıştır</span></a></li><li><a href="#diger-araclar"><span data-en-html="In other tools">Diğer araçlarda</span></a></li><li><a href="#guncellik"><span data-en-html="Freshness and integrity">Güncellik ve doğrulama</span></a></li><li><a href="#tek-sayfa"><span data-en-html="If one page is enough">Tek sayfa yeterliyse</span></a></li></ul></details>
+</div>
+<div class="d-shell">
+<aside class="d-side"><nav aria-label="Doküman menüsü" data-en-label="Docs menu"><p class="side-h" data-en-html="Get started">Başlangıç</p>
+<ul class="side-list">
+<li><a href="index.html"><span data-en-html="Overview">Genel bakış</span></a>
+</li>
+<li><a href="hizli-baslangic.html"><span data-en-html="Quickstart">Hızlı başlangıç</span></a>
+</li>
+<li><a href="kurulum-adimlari.html"><span data-en-html="Setup steps">Kurulum adımları</span></a>
+</li>
+<li><a href="ortamlar.html"><span data-en-html="Environments: sandbox and production">Ortamlar: test ve canlı</span></a>
+</li>
+<li><a href="test-musterileri.html"><span data-en-html="Test customers">Test müşterileri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Authentication">Kimlik doğrulama</p>
+<ul class="side-list">
+<li><a href="uygulama-ve-anahtarlar.html"><span data-en-html="Applications and keys">Uygulama ve anahtarlar</span></a>
+</li>
+<li><a href="istek-imzalama.html"><span data-en-html="Signing requests">İstek imzalama</span></a>
+</li>
+<li><a href="canliya-gecis.html"><span data-en-html="Going live">Canlıya geçiş</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Products">Ürünler</p>
+<ul class="side-list">
+<li><a href="odeme.html"><span data-en-html="Payments">Ödeme</span></a>
+</li>
+<li><a href="finansman.html"><span data-en-html="Financing">Finansman</span></a>
+</li>
+<li><a href="hesap-verisi.html"><span data-en-html="Account data">Hesap verisi</span></a>
+</li>
+<li><a href="bilgi-servisleri.html"><span data-en-html="Information services">Bilgi servisleri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="AI">Yapay zekâ</p>
+<ul class="side-list">
+<li><a href="yapay-zeka-ile-kurulum.html"><span data-en-html="Set up with AI">Yapay zekâ ile kurulum</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="mcp-araclari.html"><span data-en-html="MCP tools">MCP araçları</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="ai-paketi.html" aria-current="page"><span data-en-html="AI package">AI paketi</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Reference">Referans</p>
+<ul class="side-list">
+<li><a href="uc-noktalar.html"><span data-en-html="Endpoints">Uç noktalar</span></a>
+</li>
+<li><a href="yanit-zarfi.html"><span data-en-html="Response envelope">Yanıt zarfı</span></a>
+</li>
+<li><a href="hata-kodlari.html"><span data-en-html="Error codes">Hata kodları</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+<li><a href="degisiklik-gunlugu.html"><span data-en-html="Changelog">Değişiklik günlüğü</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+</ul><div class="side-foot"><span data-en-html="All pages: &lt;a href=&quot;llms.txt&quot;&gt;llms.txt&lt;/a&gt;">Tüm sayfalar: <a href="llms.txt">llms.txt</a></span></div></nav></aside>
+<main id="ana" class="d-main">
+<article class="d-art">
+<div class="crumbrow"><p class="crumb"><a href="index.html">Docs</a><span class="sl" aria-hidden="true">/</span><span data-en-html="AI">Yapay zekâ</span><span class="sl" aria-hidden="true">/</span><span data-en-html="AI package">AI paketi</span></p>
+<div class="pcopy">
+  <button type="button" data-pcopy><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy page">Sayfayı kopyala</span></button>
+  <button type="button" class="pc-more" aria-haspopup="true" aria-expanded="false" aria-controls="pc-menu" aria-label="Diğer seçenekler" data-en-label="More options"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+  <div class="pc-menu" id="pc-menu" hidden>
+    <button type="button" data-pcopy><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><b data-en="Copy as Markdown">Markdown olarak kopyala</b><small data-en="For your AI tool">Yapay zekâ aracınız için</small></button>
+    <a href="ai-paketi.md"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4z"/><path d="M6.5 8.5h3M6.5 11h3"/></svg><b data-en="Open as .md">.md olarak aç</b><small>ai-paketi.md</small></a>
+    <a href="https://claude.ai/new" data-ai-open="claude" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v10h10v-3M9 2.5h4.5V7M13.5 2.5 7 9"/></svg><b data-en="Open in Claude">Claude'da aç</b><small data-en="Asks about this page">Bu sayfa hakkında sorar</small></a>
+    <a href="https://chatgpt.com/" data-ai-open="chatgpt" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v10h10v-3M9 2.5h4.5V7M13.5 2.5 7 9"/></svg><b data-en="Open in ChatGPT">ChatGPT'de aç</b><small data-en="Asks about this page">Bu sayfa hakkında sorar</small></a>
+  </div>
+</div></div>
+<h1 data-en-html="AI package">AI paketi</h1>
+<p class="lead" data-en-html="Every doc in one zip, ready for AI tools: Markdown split by topic starting with AGENTS.md, a sample OpenAPI schema and cURL examples.">Tüm dokümanlar yapay zekâ araçlarının okuyacağı biçimde tek zip'te: AGENTS.md ile başlayan, konu konu ayrılmış Markdown dosyaları, örnek OpenAPI şeması ve cURL örnekleri.</p>
+<p class="meta" data-en="Last updated: 16 November 2026. API version v1 (sample).">Son güncelleme: 16 Kasım 2026. API sürümü v1 (örnek).</p>
+<div class="dl"><div><b data-en-html="kuveytturk-api-ai-paketi.zip">kuveytturk-api-ai-paketi.zip</b><span data-en-html="25 files, 36 KB, about 23,963 tokens. API v1 (sample), 16 November 2026.">25 dosya, 36 KB, yaklaşık 23.963 token. API v1 (örnek), 16 Kasım 2026.</span></div><a class="btn btn-primary" href="kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en-html="Download AI package (.zip)">AI paketini indir (.zip)</span></a></div>
+<h2 id="neden" data-en-html="Why not one huge file&lt;a class=&quot;hlink&quot; href=&quot;#neden&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Neden tek dev dosya değil<a class="hlink" href="#neden" aria-label="Bağlantı">#</a></h2>
+<p data-en-html="Many doc sites ship everything in one &lt;code&gt;llms-full.txt&lt;/code&gt;. Given whole to an AI tool, it fills the context window, raises cost and adds unrelated products that increase the risk of wrong answers.">Birçok doküman sitesi tüm içeriği tek bir <code>llms-full.txt</code> dosyasında verir. Bu dosya bir yapay zekâ aracına bütün olarak verildiğinde bağlam penceresini doldurur, maliyeti artırır ve ilgisiz ürünler yüzünden yanlış cevap riskini büyütür.</p>
+<p data-en-html="The package is made of small files. The agent reads AGENTS.md first, then opens only the file it needs. &lt;code&gt;manifest.json&lt;/code&gt; gives each file&#x27;s approximate token count so the agent can decide what to open.">Paket küçük dosyalardan oluşur. Ajan önce AGENTS.md'yi okur, sonra yalnız işine yarayan dosyayı açar. <code>manifest.json</code> her dosyanın yaklaşık token sayısını verir; ajan neyi açacağına buna bakarak karar verebilir.</p>
+<h2 id="icerik" data-en-html="Contents&lt;a class=&quot;hlink&quot; href=&quot;#icerik&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">İçindekiler<a class="hlink" href="#icerik" aria-label="Bağlantı">#</a></h2>
+<pre class="tree" aria-label="Zip içeriği">kuveytturk-api-ai-paketi/
+├── AGENTS.md  <span class="c"># ajan için kök harita ve kurallar; buradan başlayın</span>
+├── README.md  <span class="c"># Claude Code, Cursor ya da Codex'e tanıtma</span>
+├── manifest.json  <span class="c"># sürüm, tarih, dosya listesi, sha256, yaklaşık token</span>
+├── llms.txt  <span class="c"># tüm dosyaların kısa açıklamalı listesi</span>
+├── guides/
+│   ├── ai-paketi.md
+│   ├── canliya-gecis.md
+│   ├── genel-bakis.md
+│   ├── hizli-baslangic.md
+│   ├── istek-imzalama.md
+│   ├── kurulum-adimlari.md
+│   ├── mcp-araclari.md
+│   ├── ortamlar.md
+│   ├── test-musterileri.md
+│   ├── uygulama-ve-anahtarlar.md
+│   └── yapay-zeka-ile-kurulum.md
+├── products/
+│   ├── bilgi-servisleri.md
+│   ├── finansman.md
+│   ├── hesap-verisi.md
+│   └── odeme.md
+├── reference/
+│   ├── changelog.md  <span class="c"># örnek değişiklik günlüğü</span>
+│   ├── endpoints.md  <span class="c"># 19 uç noktanın tam listesi</span>
+│   ├── errors.md  <span class="c"># örnek hata durumları</span>
+│   └── yanit-zarfi.md
+├── openapi/
+│   └── kuveytturk-ornek.openapi.yaml  <span class="c"># yalnız gerçek uç nokta yolları; şemalar örnek</span>
+└── examples/
+    └── curl.md  <span class="c"># 19 uç nokta için cURL iskeleti</span></pre>
+<h2 id="projeye-ekle" data-en-html="Add it to your project&lt;a class=&quot;hlink&quot; href=&quot;#projeye-ekle&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Projeye ekleme<a class="hlink" href="#projeye-ekle" aria-label="Bağlantı">#</a></h2>
+<div class="cb">
+<div class="cb-bar">
+<span class="cb-title">Terminal</span>
+<button type="button" class="cb-copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy">Kopyala</span></button>
+</div>
+<pre data-code="bash"><code>curl -L https://hamaratlabs.com/okul-projeleri/kuveytturk-api-portal/docs/kuveytturk-api-ai-paketi.zip -o kt.zip &amp;&amp; unzip kt.zip -d docs/kuveytturk</code></pre>
+</div>
+<p data-en-html="The package unzips into &lt;code&gt;docs/kuveytturk/&lt;/code&gt; at your project root. &lt;code&gt;https://hamaratlabs.com/okul-projeleri/kuveytturk-api-portal/docs&lt;/code&gt; is a placeholder for the docs site&#x27;s address.">Paket proje kökünde <code>docs/kuveytturk/</code> klasörüne açılır. <code>https://hamaratlabs.com/okul-projeleri/kuveytturk-api-portal/docs</code> doküman sitesinin yayın adresi için yer tutucudur.</p>
+<h2 id="prompt" data-en-html="Paste this into Claude Code&lt;a class=&quot;hlink&quot; href=&quot;#prompt&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Claude Code'a şunu yapıştır<a class="hlink" href="#prompt" aria-label="Bağlantı">#</a></h2>
+<div class="cb">
+<div class="cb-bar">
+<span class="cb-title">Prompt</span>
+<button type="button" class="cb-copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy">Kopyala</span></button>
+</div>
+<pre data-code="text"><code>docs/kuveytturk/AGENTS.md dosyasını oku ve oradaki kurallarla çalış.
+Kuveyt Türk API entegrasyonunu test ortamında kur.
+Uç nokta yollarını yalnız docs/kuveytturk/reference/endpoints.md ve
+docs/kuveytturk/openapi/kuveytturk-ornek.openapi.yaml dosyalarından al;
+listede olmayan bir uç nokta yazma.
+Anahtarları ortam değişkeninden oku (KT_BASE_URL, KT_CLIENT_ID, KT_CLIENT_SECRET);
+koda, log'a ya da sohbete yazma.
+İade dahil her para hareketinden önce dur ve onayımı iste.</code></pre>
+</div>
+<h2 id="diger-araclar" data-en-html="In other tools&lt;a class=&quot;hlink&quot; href=&quot;#diger-araclar&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Diğer araçlarda<a class="hlink" href="#diger-araclar" aria-label="Bağlantı">#</a></h2>
+<div class="tbl-wrap"><table class="tbl"><thead><tr><th data-en-html="Tool">Araç</th><th data-en-html="How to point it at the package">Nasıl tanıtılır</th></tr></thead><tbody><tr><td>Claude Code</td><td data-en-html="Add the line &lt;code&gt;@docs/kuveytturk/AGENTS.md&lt;/code&gt; to CLAUDE.md at the project root.">Proje kökündeki CLAUDE.md'ye <code>@docs/kuveytturk/AGENTS.md</code> satırını ekleyin.</td></tr><tr><td>Cursor</td><td data-en-html="Add a rule under &lt;code&gt;.cursor/rules&lt;/code&gt;: “For Kuveyt Türk work, read docs/kuveytturk/AGENTS.md first.”"><code>.cursor/rules</code> altına bir kural: “Kuveyt Türk işlerinde önce docs/kuveytturk/AGENTS.md dosyasını oku.”</td></tr><tr><td>Codex</td><td data-en-html="Add the same pointer to the root AGENTS.md.">Kökteki AGENTS.md'ye aynı yönlendirmeyi ekleyin.</td></tr><tr><td>ChatGPT</td><td data-en-html="Upload the zip to the chat and ask it to start from AGENTS.md.">Zip'i sohbete yükleyin ve AGENTS.md'den başlamasını isteyin.</td></tr></tbody></table></div>
+<h2 id="guncellik" data-en-html="Freshness and integrity&lt;a class=&quot;hlink&quot; href=&quot;#guncellik&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Güncellik ve doğrulama<a class="hlink" href="#guncellik" aria-label="Bağlantı">#</a></h2>
+<p data-en-html="Every .md carries &lt;code&gt;api_version&lt;/code&gt; and &lt;code&gt;last_updated&lt;/code&gt; in its YAML header. Check the files against the sha256 values in &lt;code&gt;manifest.json&lt;/code&gt;.">Her .md dosyası YAML başlığında <code>api_version</code> ve <code>last_updated</code> taşır. <code>manifest.json</code> içindeki sha256 değerleriyle dosyaların değişmediğini doğrulayabilirsiniz.</p>
+<div class="cb">
+<div class="cb-bar">
+<span class="cb-title">Terminal</span>
+<button type="button" class="cb-copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy">Kopyala</span></button>
+</div>
+<pre data-code="bash"><code>shasum -a 256 docs/kuveytturk/guides/hizli-baslangic.md</code></pre>
+</div>
+<h2 id="tek-sayfa" data-en-html="If one page is enough&lt;a class=&quot;hlink&quot; href=&quot;#tek-sayfa&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Tek sayfa yeterliyse<a class="hlink" href="#tek-sayfa" aria-label="Bağlantı">#</a></h2>
+<p data-en-html="The &lt;b&gt;Copy page&lt;/b&gt; menu at the top right of every page copies it as Markdown or opens it in Claude and ChatGPT. All pages are listed in &lt;a href=&quot;llms.txt&quot;&gt;llms.txt&lt;/a&gt;.">Her sayfanın sağ üstündeki <b>Sayfayı kopyala</b> menüsü o sayfayı Markdown olarak kopyalar ya da Claude ve ChatGPT'de açar. Tüm sayfaların listesi <a href="llms.txt">llms.txt</a> dosyasında.</p>
+<nav class="pn" aria-label="Önceki ve sonraki sayfa" data-en-label="Previous and next page"><a href="mcp-araclari.html"><small data-en="Previous">Önceki</small><span data-en-html="MCP tools">MCP araçları</span></a><a class="nx" href="uc-noktalar.html"><small data-en="Next">Sonraki</small><span data-en-html="Endpoints">Uç noktalar</span></a></nav>
+</article>
+<aside class="d-toc" aria-label="Bu sayfada" data-en-label="On this page">
+<p data-en="On this page">Bu sayfada</p><ul><li><a href="#neden"><span data-en-html="Why not one huge file">Neden tek dev dosya değil</span></a></li><li><a href="#icerik"><span data-en-html="Contents">İçindekiler</span></a></li><li><a href="#projeye-ekle"><span data-en-html="Add it to your project">Projeye ekleme</span></a></li><li><a href="#prompt"><span data-en-html="Paste this into Claude Code">Claude Code'a şunu yapıştır</span></a></li><li><a href="#diger-araclar"><span data-en-html="In other tools">Diğer araçlarda</span></a></li><li><a href="#guncellik"><span data-en-html="Freshness and integrity">Güncellik ve doğrulama</span></a></li><li><a href="#tek-sayfa"><span data-en-html="If one page is enough">Tek sayfa yeterliyse</span></a></li></ul>
+<div class="toc-md"><span data-en-html="This page as Markdown: &lt;a href=&quot;ai-paketi.md&quot;&gt;ai-paketi.md&lt;/a&gt;">Bu sayfa Markdown olarak: <a href="ai-paketi.md">ai-paketi.md</a></span><br><span data-en="About 969 tokens">Yaklaşık 969 token</span></div>
+</aside>
+</main>
+</div>
+<footer class="foot"><div class="foot-in">
+  <nav aria-label="Alt menü" data-en-label="Footer menu">
+    <a href="../kurulum/" data-en="Setup wizard">Kurulum sihirbazı</a>
+    <a href="../hesap/giris.html" data-en="Sign in">Giriş yap</a>
+    <a href="llms.txt">llms.txt</a>
+    <a href="kuveytturk-api-ai-paketi.zip" download data-en="AI package (.zip)">AI paketi (.zip)</a>
+    <a href="../akiskan/index.html" data-en="API Market (Fluid)">API Market (Akışkan)</a>
+    <a href="../urun/index.html" data-en="API Market (Product)">API Market (Ürün)</a>
+  </nav>
+  <p data-en="Design draft. Endpoints from the API Market Swagger; AI features are concepts.">Tasarım taslağı. Uç noktalar API Market Swagger'ından; yapay zekâ bileşenleri konsepttir.</p>
+</div></footer>
+<div class="mpanel" id="mpanel" role="dialog" aria-modal="true" aria-label="Doküman menüsü" data-en-label="Docs menu" hidden>
+  <div class="mp-top"><b data-en="Menu">Menü</b><button type="button" class="mp-close"><span data-en="Close">Kapat</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15"/></svg></button></div>
+  <div class="mp-body">
+    <div class="mp-actions">
+      <button type="button" class="btn btn-quiet" data-search><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span data-en="Search the docs">Dokümanlarda ara</span></button>
+      <a class="btn btn-primary" href="kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="Download AI package (.zip)">AI paketini indir (.zip)</span></a>
+      <div class="mp-row"><a class="top-link" href="../hesap/giris.html" data-auth-link data-panel-href="../hesap/panel.html" data-en="Sign in">Giriş yap</a>
+        <div class="lang" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div></div>
+    </div>
+    <nav aria-label="Bölümler" data-en-label="Sections"><p class="side-h" data-en-html="Get started">Başlangıç</p>
+<ul class="side-list">
+<li><a href="index.html"><span data-en-html="Overview">Genel bakış</span></a>
+</li>
+<li><a href="hizli-baslangic.html"><span data-en-html="Quickstart">Hızlı başlangıç</span></a>
+</li>
+<li><a href="kurulum-adimlari.html"><span data-en-html="Setup steps">Kurulum adımları</span></a>
+</li>
+<li><a href="ortamlar.html"><span data-en-html="Environments: sandbox and production">Ortamlar: test ve canlı</span></a>
+</li>
+<li><a href="test-musterileri.html"><span data-en-html="Test customers">Test müşterileri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Authentication">Kimlik doğrulama</p>
+<ul class="side-list">
+<li><a href="uygulama-ve-anahtarlar.html"><span data-en-html="Applications and keys">Uygulama ve anahtarlar</span></a>
+</li>
+<li><a href="istek-imzalama.html"><span data-en-html="Signing requests">İstek imzalama</span></a>
+</li>
+<li><a href="canliya-gecis.html"><span data-en-html="Going live">Canlıya geçiş</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Products">Ürünler</p>
+<ul class="side-list">
+<li><a href="odeme.html"><span data-en-html="Payments">Ödeme</span></a>
+</li>
+<li><a href="finansman.html"><span data-en-html="Financing">Finansman</span></a>
+</li>
+<li><a href="hesap-verisi.html"><span data-en-html="Account data">Hesap verisi</span></a>
+</li>
+<li><a href="bilgi-servisleri.html"><span data-en-html="Information services">Bilgi servisleri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="AI">Yapay zekâ</p>
+<ul class="side-list">
+<li><a href="yapay-zeka-ile-kurulum.html"><span data-en-html="Set up with AI">Yapay zekâ ile kurulum</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="mcp-araclari.html"><span data-en-html="MCP tools">MCP araçları</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="ai-paketi.html" aria-current="page"><span data-en-html="AI package">AI paketi</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Reference">Referans</p>
+<ul class="side-list">
+<li><a href="uc-noktalar.html"><span data-en-html="Endpoints">Uç noktalar</span></a>
+</li>
+<li><a href="yanit-zarfi.html"><span data-en-html="Response envelope">Yanıt zarfı</span></a>
+</li>
+<li><a href="hata-kodlari.html"><span data-en-html="Error codes">Hata kodları</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+<li><a href="degisiklik-gunlugu.html"><span data-en-html="Changelog">Değişiklik günlüğü</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+</ul></nav>
+  </div>
+</div>
+<script src="assets/arama.js"></script>
+<script src="assets/kt.js"></script>
+</body>
+</html>

@@ -28,14 +28,14 @@
     </div>
     <a href="ai.html" data-en="Set up with AI">Yapay zekâ ile kurulum</a>
     <a href="vaka.html" data-en="Customers">Müşteriler</a>
-    <a href="docs.html" data-en="Docs">Dokümanlar</a>
+    <a href="../docs/" data-en="Docs">Dokümanlar</a>
   </nav>
   <div class="nav-right">
     <div class="lang" role="group" aria-label="Dil / Language">
       <button type="button" data-lang="tr" aria-pressed="true">TR</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
-    <a class="nav-signin" href="#" data-en="Sign in">Giriş yap</a>
+    <a class="nav-signin" href="../hesap/giris.html" data-en="Sign in">Giriş yap</a>
   </div>
   <details class="m-menu">
     <summary aria-label="Menü"><span></span><span></span></summary>
@@ -46,8 +46,8 @@
       <a class="m-sub" href="urun-hesap.html"><span class="m-ic"><svg class="m-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5 12 4l9 5.5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20.5h18"/></svg></span><span data-en="Account data">Hesap verisi</span></a>
       <a class="m-top" href="ai.html"><span class="m-ic"><svg class="m-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9L12 17.5l-1.9-5.1L5 10.5l5.1-1.9z"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span><span data-en="Set up with AI">Yapay zekâ ile kurulum</span></a>
       <a class="m-top" href="vaka.html"><span class="m-ic"><svg class="m-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.8a3.5 3.5 0 0 1 0 6.4M18.5 14.8c1.7.8 2.7 2.5 3 5.2"/></svg></span><span data-en="Customers">Müşteriler</span></a>
-      <a class="m-top" href="docs.html"><span class="m-ic"><svg class="m-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l4.5 4.5v14.5H6z"/><path d="M14 2.5V7h4.5M9 12h6M9 16h6"/></svg></span><span data-en="Docs">Dokümanlar</span></a>
-      <a class="m-cta" href="#"><span class="m-ic"><svg class="m-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3.5h4.5a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H14"/><path d="M3.5 12h11M10.5 8l4 4-4 4"/></svg></span><span data-en="Sign in">Giriş yap</span></a>
+      <a class="m-top" href="../docs/"><span class="m-ic"><svg class="m-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l4.5 4.5v14.5H6z"/><path d="M14 2.5V7h4.5M9 12h6M9 16h6"/></svg></span><span data-en="Docs">Dokümanlar</span></a>
+      <a class="m-cta" href="../hesap/giris.html"><span class="m-ic"><svg class="m-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3.5h4.5a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H14"/><path d="M3.5 12h11M10.5 8l4 4-4 4"/></svg></span><span data-en="Sign in">Giriş yap</span></a>
     </nav>
   </details>
 </header>
@@ -60,7 +60,7 @@
       <h1 id="urun-baslik" data-en-html="Take payments on your site.&lt;br&gt;&lt;span&gt;Refund in one step.&lt;/span&gt;">Ödemeyi sitenizde alın,<br><span>iadeyi tek adımda yapın.</span></h1>
       <p class="hero-sub" data-en="Your customer pays by card; you confirm the result from your server and refund when needed.">Müşteriniz kartıyla öder; sonucu sunucunuzdan teyit eder, gerektiğinde iade edersiniz.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="docs.html#adim-1" data-en="Get a test key">Test anahtarı alın</a>
+        <a class="btn btn-primary" href="../kurulum/" data-en="Get a test key">Test anahtarı alın</a>
         <a class="btn btn-quiet" href="#iletisim" data-en="Talk to sales">Satış ekibiyle görüşün</a>
       </div>
     </div>
@@ -197,7 +197,7 @@
           <li><b class="p">POST</b><code>/v1/vpos/sendDocument</code><span data-en="Send a document for the payment">Ödeme için belge gönder</span></li>
           <li><b class="p">POST</b><code>/v1/vpos/digitalPaymentDoRefund</code><span data-en="Refund">İade et</span></li>
         </ul>
-        <a class="more" href="docs.html#odeme" data-en="Payment docs →">Ödeme dokümanları →</a>
+        <a class="more" href="../docs/odeme.html" data-en="Payment docs →">Ödeme dokümanları →</a>
       </div>
       <div>
         <div class="console-stage">
@@ -300,7 +300,7 @@ curl -X POST <span class="s">"$BASE_URL/v1/vpos/digitalPaymentGetToken"</span> \
           <span data-en="The same checkout, with a second way to pay.">Aynı ödeme sayfası, ikinci bir ödeme yoluyla.</span>
           <span class="rc-go" data-en="Read the case →">Vakayı okuyun →</span>
         </a>
-        <a class="rel-card dark" href="docs.html#odeme">
+        <a class="rel-card dark" href="../docs/odeme.html">
           <small data-en="Docs">Dokümanlar</small>
           <b data-en="Payment endpoints and the quickstart">Ödeme uç noktaları ve hızlı başlangıç</b>
           <span><code>/v1/vpos/*</code></span>
@@ -318,7 +318,7 @@ curl -X POST <span class="s">"$BASE_URL/v1/vpos/digitalPaymentGetToken"</span> \
       <div class="close-text">
         <h2 id="son-baslik" data-en="Take your first test payment this week.">İlk test ödemenizi bu hafta alın.</h2>
         <div class="cta">
-          <a class="btn btn-primary" href="docs.html#adim-1" data-en="Get a test key">Test anahtarı alın</a>
+          <a class="btn btn-primary" href="../kurulum/" data-en="Get a test key">Test anahtarı alın</a>
           <a class="btn btn-quiet" href="#" data-en="Talk to sales">Satış ekibiyle görüşün</a>
         </div>
       </div>
@@ -334,7 +334,7 @@ curl -X POST <span class="s">"$BASE_URL/v1/vpos/digitalPaymentGetToken"</span> \
       <a href="urun-finansman.html" data-en="Financing">Finansman</a>
       <a href="urun-hesap.html" data-en="Account data">Hesap verisi</a>
       <a href="ai.html" data-en="Set up with AI">Yapay zekâ ile kurulum</a>
-      <a href="docs.html" data-en="Docs">Dokümanlar</a>
+      <a href="../docs/" data-en="Docs">Dokümanlar</a>
       <a href="vaka.html" data-en="Customers">Müşteriler</a>
       <a href="#" data-en="Privacy (KVKK)">KVKK</a>
     </nav>

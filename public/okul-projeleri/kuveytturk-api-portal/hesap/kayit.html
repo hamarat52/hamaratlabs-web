@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hesap açın | Kuveyt Türk Developers</title>
+<meta name="description" content="Örnek kayıt akışı: e-posta, doğrulama kodu, rol ve amaç. Gerçek hesap açılmaz, hiçbir bilgi gönderilmez.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e3b2e'/%3E%3Cpath d='M10 9v14M10 16l8-7M12.5 14l6.5 9' stroke='%23fbfaf6' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../docs/assets/kt.css">
+<link rel="stylesheet" href="hesap.css">
+</head>
+<body data-sayfa="kayit">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+<header class="top simple">
+  <div class="top-in">
+    <a class="brand" href="../docs/index.html" aria-label="Kuveyt Türk Developers dokümanlar"><b>Kuveyt Türk</b><span class="sep sep-1" aria-hidden="true">·</span><span class="b-dev">Developers</span></a>
+    <div class="top-right">
+      <a class="top-link" href="../docs/index.html" data-en="Docs">Dokümanlar</a>
+      <a class="top-link" href="giris.html" data-en="Sign in">Giriş yap</a>
+      <div class="lang" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+    </div>
+  </div>
+</header>
+
+<main id="ana" class="auth">
+  <section class="auth-side" aria-label="Hesapla ne gelir" data-en-label="What an account gives you">
+    <div class="auth-side-in">
+      <h2 data-en="Start in the sandbox with one account.">Test ortamına tek bir hesapla başlayın.</h2>
+      <ul class="as-list">
+        <li data-en-html="&lt;b&gt;Sandbox first.&lt;/b&gt; Production opens only after Go Live approval."><b>Önce test ortamı.</b> Canlı ortam, canlıya geçiş onayından sonra açılır.</li>
+        <li data-en-html="&lt;b&gt;Keys under your account.&lt;/b&gt; Applications, client IDs and sandbox keys in one place."><b>Anahtarlar hesabınızda.</b> Uygulamalar, client ID ve test anahtarları tek yerde.</li>
+        <li data-en-html="&lt;b&gt;19 endpoints in the docs.&lt;/b&gt; Payments, financing, account data and information services."><b>Dokümanda 19 uç nokta.</b> Ödeme, finansman, hesap verisi ve bilgi servisleri.</li>
+      </ul>
+      <p class="as-foot" data-en-html="Read first? &lt;a href=&quot;../docs/hizli-baslangic.html&quot;&gt;Quickstart&lt;/a&gt;">Önce okumak mı istersiniz? <a href="../docs/hizli-baslangic.html">Hızlı başlangıç</a></p>
+    </div>
+  </section>
+
+  <section class="auth-main">
+    <div class="auth-in">
+      <p class="demo-note"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v4M8 5v.1"/></svg><span data-en="Sample flow · nothing is sent">Örnek akış · hiçbir bilgi gönderilmez</span></p>
+      <div class="auth-prog" aria-hidden="true"><ol><li class="on"></li><li></li><li></li><li></li></ol><span id="prog-t">Adım 1/4</span></div>
+
+      <!-- 1. Bilgiler -->
+      <form class="k-stage" data-k="1" novalidate autocomplete="off" aria-labelledby="k-h1">
+        <h1 id="k-h1" tabindex="-1" data-en="Create your developer account">Geliştirici hesabı açın</h1>
+        <p class="auth-lead" data-en="We'll send a 6-digit code to verify your email (sample).">E-postanızı doğrulamak için 6 haneli bir kod göndereceğiz (örnek).</p>
+        <div class="field">
+          <label for="k-mail" data-en="Work email">İş e-postası</label>
+          <input type="email" id="k-mail" autocomplete="off" inputmode="email" aria-describedby="e-mail" placeholder="ad@sirket.com" data-en-ph="name@company.com">
+          <p class="err" id="e-mail" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="k-ad" data-en="Full name">Ad soyad</label>
+          <input type="text" id="k-ad" autocomplete="off" aria-describedby="e-ad">
+          <p class="err" id="e-ad" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="k-sirket"><span data-en="Company">Şirket</span> <span class="opt" data-en="(optional)">(isteğe bağlı)</span></label>
+          <input type="text" id="k-sirket" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-primary wide" data-en="Send verification code">Doğrulama kodu gönder</button>
+        <p class="auth-alt" data-en-html="Already have an account? &lt;a href=&quot;giris.html&quot;&gt;Sign in&lt;/a&gt;">Hesabınız var mı? <a href="giris.html">Giriş yapın</a></p>
+      </form>
+
+      <!-- 2. Kod -->
+      <form class="k-stage" data-k="2" novalidate autocomplete="off" aria-labelledby="k-h2" hidden>
+        <h1 id="k-h2" tabindex="-1" data-en="Check your email">E-postanızı kontrol edin</h1>
+        <p class="auth-lead" id="kod-lead">Doğrulama kodu gönderildi (örnek).</p>
+        <div class="info-box"><p data-en-html="&lt;b&gt;Sample flow:&lt;/b&gt; no email was sent. Any 6 digits work.">
+          <b>Örnek akış:</b> e-posta gönderilmedi. Herhangi bir kod çalışır.</p></div>
+        <fieldset class="otp" id="otp" aria-describedby="e-kod">
+          <legend class="sr" data-en="6-digit code">6 haneli kod</legend>
+          <input type="text" inputmode="numeric" maxlength="1" aria-label="1. hane" autocomplete="off">
+          <input type="text" inputmode="numeric" maxlength="1" aria-label="2. hane" autocomplete="off">
+          <input type="text" inputmode="numeric" maxlength="1" aria-label="3. hane" autocomplete="off">
+          <input type="text" inputmode="numeric" maxlength="1" aria-label="4. hane" autocomplete="off">
+          <input type="text" inputmode="numeric" maxlength="1" aria-label="5. hane" autocomplete="off">
+          <input type="text" inputmode="numeric" maxlength="1" aria-label="6. hane" autocomplete="off">
+        </fieldset>
+        <p class="err" id="e-kod" role="alert"></p>
+        <div class="row-between" style="margin: 8px 0 14px">
+          <button type="button" class="linkish" id="kod-tekrar" disabled>Kodu yeniden gönder (30)</button>
+          <button type="button" class="linkish" id="mail-degistir" data-en="Change email">E-postayı değiştir</button>
+        </div>
+        <button type="submit" class="btn btn-primary wide" data-en="Verify">Doğrula</button>
+      </form>
+
+      <!-- 3. Rol ve amaç -->
+      <form class="k-stage" data-k="3" novalidate autocomplete="off" aria-labelledby="k-h3" hidden>
+        <h1 id="k-h3" tabindex="-1" data-en="Tell us how you'll use it">Nasıl kullanacağınızı seçin</h1>
+        <p class="auth-lead" data-en="This tailors the docs and the setup wizard. You can change it later.">Dokümanları ve kurulum sihirbazını buna göre hazırlarız. Sonra değiştirebilirsiniz.</p>
+        <fieldset class="radio-list" aria-describedby="e-rol">
+          <legend data-en="Your role">Rolünüz</legend>
+          <label class="check"><input type="radio" name="rol" value="gelistirici"><span><b data-en="Developer">Geliştirici</b></span></label>
+          <label class="check"><input type="radio" name="rol" value="urun"><span><b data-en="Product or project manager">Ürün ya da proje yöneticisi</b></span></label>
+          <label class="check"><input type="radio" name="rol" value="yonetici"><span><b data-en="Founder or executive">Kurucu ya da yönetici</b></span></label>
+          <label class="check"><input type="radio" name="rol" value="diger"><span><b data-en="Other">Diğer</b></span></label>
+        </fieldset>
+        <p class="err" id="e-rol" role="alert"></p>
+        <fieldset class="amac" aria-describedby="e-amac">
+          <legend data-en="What will you build? Pick one or more.">Ne geliştireceksiniz? Bir ya da daha fazlasını seçin.</legend>
+          <div class="grid">
+            <label class="check"><input type="checkbox" name="amac" value="odeme"><span><b data-en="Payments">Ödeme</b></span></label>
+            <label class="check"><input type="checkbox" name="amac" value="finansman"><span><b data-en="Financing">Finansman</b></span></label>
+            <label class="check"><input type="checkbox" name="amac" value="hesap"><span><b data-en="Account data">Hesap verisi</b></span></label>
+            <label class="check"><input type="checkbox" name="amac" value="bilgi"><span><b data-en="Information services">Bilgi servisleri</b></span></label>
+          </div>
+        </fieldset>
+        <p class="err" id="e-amac" role="alert"></p>
+        <button type="submit" class="btn btn-primary wide" style="margin-top: 18px" data-en="Create account">Hesabı oluştur</button>
+      </form>
+
+      <!-- 4. Hazır -->
+      <section class="k-stage" data-k="4" aria-labelledby="k-h4" hidden>
+        <h1 id="k-h4" tabindex="-1" data-en="Your account is ready">Hesabınız hazır</h1>
+        <p class="auth-lead" data-en="Next, create an application and get sandbox keys.">Sırada uygulama oluşturmak ve test anahtarlarını almak var.</p>
+        <div class="ready">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+          <dl id="hazir-dl"></dl>
+        </div>
+        <a class="btn btn-primary wide" id="sihirbaza" href="../kurulum/?adim=2" data-en="Create an application">Uygulama oluşturmaya geç</a>
+        <p class="redir" id="redir" aria-live="polite"></p>
+        <button type="button" class="linkish" id="kal" data-en="Stay here">Burada kal</button>
+      </section>
+    </div>
+  </section>
+</main>
+
+<script src="../docs/assets/kt.js"></script>
+<script src="hesap.js"></script>
+</body>
+</html>

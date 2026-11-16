@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kurulum adımları | Kuveyt Türk Docs</title>
+<meta name="description" content="Kurulum sihirbazının doküman karşılığı: hesap, uygulama, test ortamı anahtarları ve ilk istek. Her adım sihirbazda da yapılabilir.">
+<link rel="alternate" type="text/markdown" href="kurulum-adimlari.md" title="Markdown">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e3b2e'/%3E%3Cpath d='M10 9v14M10 16l8-7M12.5 14l6.5 9' stroke='%23fbfaf6' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kt.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body class="docs" data-md="kurulum-adimlari.md">
+<div style="position:sticky;top:0;z-index:9999;background:#1d1d1b;color:#f4f1ea;font:500 13px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Bağımsız okul projesi · konsept tasarım. Kuveyt Türk ile bağlantısı yoktur; rakamlar ve alıntılar örnektir. <a href="/okul-projeleri/kuveytturk-api-portal/" style="color:#c8e86b">Projeye dön</a></div>
+<a class="skip" href="#ana" data-en="Skip to content">İçeriğe geç</a>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html" aria-label="Kuveyt Türk Developers Docs ana sayfa"><b>Kuveyt Türk</b><span class="sep sep-1" aria-hidden="true">·</span><span class="b-dev">Developers</span><span class="sep" aria-hidden="true">·</span><span class="b-docs">Docs</span></a>
+    <span class="ver" title="API sürümü (örnek)" data-en="v1 (sample)">v1 (örnek)</span>
+    <button type="button" class="search-btn" data-search aria-label="Dokümanlarda ara (Cmd K)" data-en-label="Search the docs (Cmd K)"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span data-en="Search the docs">Dokümanlarda ara</span><kbd class="kbd-k">⌘K</kbd></button>
+    <div class="top-right">
+      <div class="lang hide-m" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      <a class="top-link hide-m" href="../hesap/giris.html" data-auth-link data-panel-href="../hesap/panel.html" data-en="Sign in">Giriş yap</a>
+      <a class="btn btn-primary btn-sm hide-m" href="kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="Download AI package (.zip)">AI paketini indir (.zip)</span></a>
+      <button type="button" class="icon-btn" data-search aria-label="Ara" data-en-label="Search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4.5 4.5"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="subbar">
+<button type="button" class="sb-menu" data-mp-open aria-controls="mpanel" aria-label="Menüyü aç: Başlangıç" data-en-label="Open menu: Get started"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/></svg><b data-en="Menu">Menü</b><span class="sb-sec">· Başlangıç</span></button>
+<details class="sb-toc"><summary><span data-en="On this page">Bu sayfada</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></summary><ul class="sb-toc-list"><li><a href="#adim-1"><span data-en-html="1. Account">1. Hesap</span></a></li><li><a href="#adim-2"><span data-en-html="2. Create an application">2. Uygulama oluşturun</span></a></li><li><a href="#adim-3"><span data-en-html="3. Get sandbox keys">3. Test anahtarlarını alın</span></a></li><li><a href="#adim-4"><span data-en-html="4. Send your first request">4. İlk isteği gönderin</span></a></li><li><a href="#bitince"><span data-en-html="When the wizard is done">Sihirbaz bitince</span></a></li></ul></details>
+</div>
+<div class="d-shell">
+<aside class="d-side"><nav aria-label="Doküman menüsü" data-en-label="Docs menu"><p class="side-h" data-en-html="Get started">Başlangıç</p>
+<ul class="side-list">
+<li><a href="index.html"><span data-en-html="Overview">Genel bakış</span></a>
+</li>
+<li><a href="hizli-baslangic.html"><span data-en-html="Quickstart">Hızlı başlangıç</span></a>
+</li>
+<li><a href="kurulum-adimlari.html" aria-current="page"><span data-en-html="Setup steps">Kurulum adımları</span></a>
+</li>
+<li><a href="ortamlar.html"><span data-en-html="Environments: sandbox and production">Ortamlar: test ve canlı</span></a>
+</li>
+<li><a href="test-musterileri.html"><span data-en-html="Test customers">Test müşterileri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Authentication">Kimlik doğrulama</p>
+<ul class="side-list">
+<li><a href="uygulama-ve-anahtarlar.html"><span data-en-html="Applications and keys">Uygulama ve anahtarlar</span></a>
+</li>
+<li><a href="istek-imzalama.html"><span data-en-html="Signing requests">İstek imzalama</span></a>
+</li>
+<li><a href="canliya-gecis.html"><span data-en-html="Going live">Canlıya geçiş</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Products">Ürünler</p>
+<ul class="side-list">
+<li><a href="odeme.html"><span data-en-html="Payments">Ödeme</span></a>
+</li>
+<li><a href="finansman.html"><span data-en-html="Financing">Finansman</span></a>
+</li>
+<li><a href="hesap-verisi.html"><span data-en-html="Account data">Hesap verisi</span></a>
+</li>
+<li><a href="bilgi-servisleri.html"><span data-en-html="Information services">Bilgi servisleri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="AI">Yapay zekâ</p>
+<ul class="side-list">
+<li><a href="yapay-zeka-ile-kurulum.html"><span data-en-html="Set up with AI">Yapay zekâ ile kurulum</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="mcp-araclari.html"><span data-en-html="MCP tools">MCP araçları</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="ai-paketi.html"><span data-en-html="AI package">AI paketi</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Reference">Referans</p>
+<ul class="side-list">
+<li><a href="uc-noktalar.html"><span data-en-html="Endpoints">Uç noktalar</span></a>
+</li>
+<li><a href="yanit-zarfi.html"><span data-en-html="Response envelope">Yanıt zarfı</span></a>
+</li>
+<li><a href="hata-kodlari.html"><span data-en-html="Error codes">Hata kodları</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+<li><a href="degisiklik-gunlugu.html"><span data-en-html="Changelog">Değişiklik günlüğü</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+</ul><div class="side-foot"><span data-en-html="All pages: &lt;a href=&quot;llms.txt&quot;&gt;llms.txt&lt;/a&gt;">Tüm sayfalar: <a href="llms.txt">llms.txt</a></span></div></nav></aside>
+<main id="ana" class="d-main">
+<article class="d-art">
+<div class="crumbrow"><p class="crumb"><a href="index.html">Docs</a><span class="sl" aria-hidden="true">/</span><span data-en-html="Get started">Başlangıç</span><span class="sl" aria-hidden="true">/</span><span data-en-html="Setup steps">Kurulum adımları</span></p>
+<div class="pcopy">
+  <button type="button" data-pcopy><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span class="copy-label" data-en="Copy page">Sayfayı kopyala</span></button>
+  <button type="button" class="pc-more" aria-haspopup="true" aria-expanded="false" aria-controls="pc-menu" aria-label="Diğer seçenekler" data-en-label="More options"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+  <div class="pc-menu" id="pc-menu" hidden>
+    <button type="button" data-pcopy><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><b data-en="Copy as Markdown">Markdown olarak kopyala</b><small data-en="For your AI tool">Yapay zekâ aracınız için</small></button>
+    <a href="kurulum-adimlari.md"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4z"/><path d="M6.5 8.5h3M6.5 11h3"/></svg><b data-en="Open as .md">.md olarak aç</b><small>kurulum-adimlari.md</small></a>
+    <a href="https://claude.ai/new" data-ai-open="claude" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v10h10v-3M9 2.5h4.5V7M13.5 2.5 7 9"/></svg><b data-en="Open in Claude">Claude'da aç</b><small data-en="Asks about this page">Bu sayfa hakkında sorar</small></a>
+    <a href="https://chatgpt.com/" data-ai-open="chatgpt" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v10h10v-3M9 2.5h4.5V7M13.5 2.5 7 9"/></svg><b data-en="Open in ChatGPT">ChatGPT'de aç</b><small data-en="Asks about this page">Bu sayfa hakkında sorar</small></a>
+  </div>
+</div></div>
+<h1 data-en-html="Setup steps">Kurulum adımları</h1>
+<p class="lead" data-en-html="The written version of the setup wizard: account, application, sandbox keys and first request. You can do the same steps in the wizard.">Kurulum sihirbazının doküman karşılığı: hesap, uygulama, test anahtarları ve ilk istek. Aynı adımları sihirbazda ileri ileri yapabilirsiniz.</p>
+<p class="meta" data-en="Last updated: 16 November 2026. API version v1 (sample).">Son güncelleme: 16 Kasım 2026. API sürümü v1 (örnek).</p>
+<div class="note note-ornek"><span class="tag tag-ornek" data-en="Sample">Örnek</span><div><p data-en-html="The wizard is a sample flow: no real account is created, no network request is sent, and what you enter stays in this browser (localStorage).">Sihirbaz örnek bir akıştır: gerçek hesap açılmaz, ağ isteği gönderilmez, girdiğiniz bilgiler yalnız bu tarayıcıda (localStorage) tutulur.</p></div></div>
+<div class="dl"><div><b data-en-html="Setup wizard">Kurulum sihirbazı</b><span data-en-html="Five steps, keyboard friendly.">Beş adım, klavyeyle de kullanılır.</span></div><a class="btn btn-primary" href="../kurulum/"><span data-en-html="Open the wizard">Sihirbazı aç</span></a></div>
+<h2 id="adim-1" data-en-html="1. Account&lt;a class=&quot;hlink&quot; href=&quot;#adim-1&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">1. Hesap<a class="hlink" href="#adim-1" aria-label="Bağlantı">#</a></h2>
+<div class="scr-step"><div><p data-en-html="If you are signed in, the wizard recognises your account. Otherwise you can &lt;a href=&quot;../hesap/kayit.html&quot;&gt;create an account&lt;/a&gt; or continue with a sample account. Applications and keys live under the account.">Giriş yaptıysanız sihirbaz hesabınızı tanır ve devam eder. Yapmadıysanız iki yol var: <a href="../hesap/kayit.html">hesap açın</a> ya da örnek hesapla devam edin. Uygulamalar ve anahtarlar hesabın altında durur.</p></div><div class="scr" role="img" aria-label="Kurulum sihirbazı, Adım 1/5: Hesap (örnek ekran)"><div class="scr-h"><span>Adım 1/5</span><span>Hesap</span></div><div class="scr-bar"><i style="width:20%"></i></div><b class="t">Hesabınızla başlayın</b><span class="opt"><i></i>Önce hesap açın</span><span class="opt on"><i></i>Örnek hesapla devam et</span><span class="f"><small>Örnek hesap</small>deneme@ornek.example</span><div class="act"><span>Geri</span><span class="p">İleri</span></div></div></div>
+<h2 id="adim-2" data-en-html="2. Create an application&lt;a class=&quot;hlink&quot; href=&quot;#adim-2&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">2. Uygulama oluşturun<a class="hlink" href="#adim-2" aria-label="Bağlantı">#</a></h2>
+<div class="scr-step"><div><p data-en-html="Give the app a name and a short description, then choose its purpose: Payments, Financing, Account data, Information services. You can pick several; the choice maps to &lt;b&gt;Selected Scope&lt;/b&gt; in the portal and decides the sample request in step 4.">Uygulamaya bir ad ve kısa açıklama verin, kullanım amacını seçin: Ödeme, Finansman, Hesap verisi, Bilgi servisleri. Birden çok seçebilirsiniz; seçim portaldaki <b>Selected Scope</b> alanına karşılık gelir ve sonraki adımdaki örnek isteği belirler.</p></div><div class="scr" role="img" aria-label="Kurulum sihirbazı, Adım 2/5: Uygulama (örnek ekran)"><div class="scr-h"><span>Adım 2/5</span><span>Uygulama</span></div><div class="scr-bar"><i style="width:40%"></i></div><b class="t">Uygulamanızı tanımlayın</b><span class="f"><small>Uygulama adı</small>Mağaza ödeme entegrasyonu</span><span class="opt on"><i></i>Ödeme</span><span class="opt"><i></i>Finansman</span><span class="opt"><i></i>Hesap verisi</span><span class="opt on"><i></i>Bilgi servisleri</span><div class="act"><span>Geri</span><span class="p">İleri</span></div></div></div>
+<h2 id="adim-3" data-en-html="3. Get sandbox keys&lt;a class=&quot;hlink&quot; href=&quot;#adim-3&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">3. Test anahtarlarını alın<a class="hlink" href="#adim-3" aria-label="Bağlantı">#</a></h2>
+<div class="scr-step"><div><p data-en-html="A sandbox client ID and client secret are created. The secret is shown once on this screen; store it safely. The wizard also shows a sample test customer; the real list comes from &lt;code&gt;GET /v1/data/testcustomers&lt;/code&gt;. More: &lt;a href=&quot;uygulama-ve-anahtarlar.html&quot;&gt;Applications and keys&lt;/a&gt;, &lt;a href=&quot;test-musterileri.html&quot;&gt;Test customers&lt;/a&gt;">Test ortamı için client ID ve client secret oluşur. Secret yalnız bu ekranda bir kez gösterilir; güvenli bir yere kaydedin. Sihirbaz ayrıca örnek bir test müşterisi gösterir; gerçek liste <code>GET /v1/data/testcustomers</code> ile gelir. Ayrıntı: <a href="uygulama-ve-anahtarlar.html">Uygulama ve anahtarlar</a>, <a href="test-musterileri.html">Test müşterileri</a></p></div><div class="scr" role="img" aria-label="Kurulum sihirbazı, Adım 3/5: Test anahtarları (örnek ekran)"><div class="scr-h"><span>Adım 3/5</span><span>Test anahtarları</span></div><div class="scr-bar"><i style="width:60%"></i></div><b class="t">Test ortamı anahtarlarınız hazır</b><span class="f"><small>Client ID</small><code>kt_sandbox_••••••••</code></span><span class="f"><small>Client secret</small><code>••••••••••••••••</code></span><span class="opt"><i></i>Gizli anahtarı güvenli bir yere kaydettim</span><div class="act"><span>Geri</span><span class="p">İleri</span></div></div></div>
+<h2 id="adim-4" data-en-html="4. Send your first request&lt;a class=&quot;hlink&quot; href=&quot;#adim-4&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">4. İlk isteği gönderin<a class="hlink" href="#adim-4" aria-label="Bağlantı">#</a></h2>
+<div class="scr-step"><div><p data-en-html="A cURL and Node.js sample is prepared with a real endpoint for the product you chose. The send button in the wizard makes no network request; it shows a sample 200 response.">Seçtiğiniz ürüne göre gerçek bir uç nokta ile cURL ve Node.js örneği hazırlanır. Sihirbazdaki gönder düğmesi ağ isteği yapmaz; örnek bir 200 yanıtı gösterir.</p></div><div class="scr" role="img" aria-label="Kurulum sihirbazı, Adım 4/5: İlk istek (örnek ekran)"><div class="scr-h"><span>Adım 4/5</span><span>İlk istek</span></div><div class="scr-bar"><i style="width:80%"></i></div><b class="t">İlk isteğinizi gönderin</b><span class="f"><small>İstek</small><code>GET {BASE_URL}/v1/fx/rates</code></span><span class="f"><small>Örnek yanıt</small><code>200 OK</code></span><div class="act"><span>Geri</span><span class="p">İleri</span></div></div></div>
+<div class="tbl-wrap"><table class="tbl"><thead><tr><th data-en-html="Product">Ürün</th><th data-en-html="First request">İlk istek</th><th data-en-html="Why">Neden</th></tr></thead><tbody><tr><td data-en-html="Payments">Ödeme</td><td><code>POST /v1/vpos/digitalPaymentGetToken</code></td><td data-en-html="Starts a test payment; no money moves.">Test ödemesi başlatır; para hareketi yok.</td></tr><tr><td data-en-html="Financing">Finansman</td><td><code>GET /v1/loans</code></td><td data-en-html="Read only.">Yalnız okur.</td></tr><tr><td data-en-html="Account data">Hesap verisi</td><td><code>GET /v2/accounts/{suffix}</code></td><td data-en-html="Reads the test customer&#x27;s account.">Test müşterisinin hesabını okur.</td></tr><tr><td data-en-html="Information services">Bilgi servisleri</td><td><code>GET /v1/fx/rates</code></td><td data-en-html="Touches no customer data.">Müşteri verisine dokunmaz.</td></tr></tbody></table></div>
+<h2 id="bitince" data-en-html="When the wizard is done&lt;a class=&quot;hlink&quot; href=&quot;#bitince&quot; aria-label=&quot;Link&quot;&gt;#&lt;/a&gt;">Sihirbaz bitince<a class="hlink" href="#bitince" aria-label="Bağlantı">#</a></h2>
+<ul><li data-en-html="&lt;b&gt;Copy setup prompt:&lt;/b&gt; a prompt prepared with the endpoints of your products. &lt;a href=&quot;yapay-zeka-ile-kurulum.html&quot;&gt;Set up with AI&lt;/a&gt;"><b>Kurulum promptunu kopyala:</b> seçtiğiniz ürünlerin uç noktalarıyla hazırlanmış talimat. <a href="yapay-zeka-ile-kurulum.html">Yapay zekâ ile kurulum</a></li><li data-en-html="&lt;b&gt;Download AI package (.zip):&lt;/b&gt; every doc as Markdown. &lt;a href=&quot;ai-paketi.html&quot;&gt;AI package&lt;/a&gt;"><b>AI paketini indir (.zip):</b> dokümanların tamamı Markdown olarak. <a href="ai-paketi.html">AI paketi</a></li><li data-en-html="&lt;b&gt;Dashboard:&lt;/b&gt; your apps, masked keys and Go Live status. &lt;a href=&quot;../hesap/panel.html&quot;&gt;Sample dashboard&lt;/a&gt;"><b>Panel:</b> uygulamalarınız, maskeli anahtarlar ve canlıya geçiş durumu. <a href="../hesap/panel.html">Örnek panel</a></li></ul>
+<nav class="pn" aria-label="Önceki ve sonraki sayfa" data-en-label="Previous and next page"><a href="hizli-baslangic.html"><small data-en="Previous">Önceki</small><span data-en-html="Quickstart">Hızlı başlangıç</span></a><a class="nx" href="ortamlar.html"><small data-en="Next">Sonraki</small><span data-en-html="Environments: sandbox and production">Ortamlar: test ve canlı</span></a></nav>
+</article>
+<aside class="d-toc" aria-label="Bu sayfada" data-en-label="On this page">
+<p data-en="On this page">Bu sayfada</p><ul><li><a href="#adim-1"><span data-en-html="1. Account">1. Hesap</span></a></li><li><a href="#adim-2"><span data-en-html="2. Create an application">2. Uygulama oluşturun</span></a></li><li><a href="#adim-3"><span data-en-html="3. Get sandbox keys">3. Test anahtarlarını alın</span></a></li><li><a href="#adim-4"><span data-en-html="4. Send your first request">4. İlk isteği gönderin</span></a></li><li><a href="#bitince"><span data-en-html="When the wizard is done">Sihirbaz bitince</span></a></li></ul>
+<div class="toc-md"><span data-en-html="This page as Markdown: &lt;a href=&quot;kurulum-adimlari.md&quot;&gt;kurulum-adimlari.md&lt;/a&gt;">Bu sayfa Markdown olarak: <a href="kurulum-adimlari.md">kurulum-adimlari.md</a></span><br><span data-en="About 775 tokens">Yaklaşık 775 token</span></div>
+</aside>
+</main>
+</div>
+<footer class="foot"><div class="foot-in">
+  <nav aria-label="Alt menü" data-en-label="Footer menu">
+    <a href="../kurulum/" data-en="Setup wizard">Kurulum sihirbazı</a>
+    <a href="../hesap/giris.html" data-en="Sign in">Giriş yap</a>
+    <a href="llms.txt">llms.txt</a>
+    <a href="kuveytturk-api-ai-paketi.zip" download data-en="AI package (.zip)">AI paketi (.zip)</a>
+    <a href="../akiskan/index.html" data-en="API Market (Fluid)">API Market (Akışkan)</a>
+    <a href="../urun/index.html" data-en="API Market (Product)">API Market (Ürün)</a>
+  </nav>
+  <p data-en="Design draft. Endpoints from the API Market Swagger; AI features are concepts.">Tasarım taslağı. Uç noktalar API Market Swagger'ından; yapay zekâ bileşenleri konsepttir.</p>
+</div></footer>
+<div class="mpanel" id="mpanel" role="dialog" aria-modal="true" aria-label="Doküman menüsü" data-en-label="Docs menu" hidden>
+  <div class="mp-top"><b data-en="Menu">Menü</b><button type="button" class="mp-close"><span data-en="Close">Kapat</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15"/></svg></button></div>
+  <div class="mp-body">
+    <div class="mp-actions">
+      <button type="button" class="btn btn-quiet" data-search><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span data-en="Search the docs">Dokümanlarda ara</span></button>
+      <a class="btn btn-primary" href="kuveytturk-api-ai-paketi.zip" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span data-en="Download AI package (.zip)">AI paketini indir (.zip)</span></a>
+      <div class="mp-row"><a class="top-link" href="../hesap/giris.html" data-auth-link data-panel-href="../hesap/panel.html" data-en="Sign in">Giriş yap</a>
+        <div class="lang" role="group" aria-label="Dil / Language"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div></div>
+    </div>
+    <nav aria-label="Bölümler" data-en-label="Sections"><p class="side-h" data-en-html="Get started">Başlangıç</p>
+<ul class="side-list">
+<li><a href="index.html"><span data-en-html="Overview">Genel bakış</span></a>
+</li>
+<li><a href="hizli-baslangic.html"><span data-en-html="Quickstart">Hızlı başlangıç</span></a>
+</li>
+<li><a href="kurulum-adimlari.html" aria-current="page"><span data-en-html="Setup steps">Kurulum adımları</span></a>
+</li>
+<li><a href="ortamlar.html"><span data-en-html="Environments: sandbox and production">Ortamlar: test ve canlı</span></a>
+</li>
+<li><a href="test-musterileri.html"><span data-en-html="Test customers">Test müşterileri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Authentication">Kimlik doğrulama</p>
+<ul class="side-list">
+<li><a href="uygulama-ve-anahtarlar.html"><span data-en-html="Applications and keys">Uygulama ve anahtarlar</span></a>
+</li>
+<li><a href="istek-imzalama.html"><span data-en-html="Signing requests">İstek imzalama</span></a>
+</li>
+<li><a href="canliya-gecis.html"><span data-en-html="Going live">Canlıya geçiş</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Products">Ürünler</p>
+<ul class="side-list">
+<li><a href="odeme.html"><span data-en-html="Payments">Ödeme</span></a>
+</li>
+<li><a href="finansman.html"><span data-en-html="Financing">Finansman</span></a>
+</li>
+<li><a href="hesap-verisi.html"><span data-en-html="Account data">Hesap verisi</span></a>
+</li>
+<li><a href="bilgi-servisleri.html"><span data-en-html="Information services">Bilgi servisleri</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="AI">Yapay zekâ</p>
+<ul class="side-list">
+<li><a href="yapay-zeka-ile-kurulum.html"><span data-en-html="Set up with AI">Yapay zekâ ile kurulum</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="mcp-araclari.html"><span data-en-html="MCP tools">MCP araçları</span><span class="tag tag-konsept" data-en="Concept">Konsept</span></a>
+</li>
+<li><a href="ai-paketi.html"><span data-en-html="AI package">AI paketi</span></a>
+</li>
+</ul>
+<p class="side-h" data-en-html="Reference">Referans</p>
+<ul class="side-list">
+<li><a href="uc-noktalar.html"><span data-en-html="Endpoints">Uç noktalar</span></a>
+</li>
+<li><a href="yanit-zarfi.html"><span data-en-html="Response envelope">Yanıt zarfı</span></a>
+</li>
+<li><a href="hata-kodlari.html"><span data-en-html="Error codes">Hata kodları</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+<li><a href="degisiklik-gunlugu.html"><span data-en-html="Changelog">Değişiklik günlüğü</span><span class="tag tag-ornek" data-en="Sample">Örnek</span></a>
+</li>
+</ul></nav>
+  </div>
+</div>
+<script src="assets/arama.js"></script>
+<script src="assets/kt.js"></script>
+</body>
+</html>

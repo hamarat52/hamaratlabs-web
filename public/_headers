@@ -3,3 +3,9 @@
 # (Alan adındaki 4 saatlik Browser Cache TTL eski sketch.js'in telefonda kalmasına yol açıyordu, 2026-11-05.)
 /oyunlar/*
   Cache-Control: no-cache
+
+# Kuveyt Türk okul projesi: sık güncelleniyor, eski CSS/JS telefonda kalmasın; .md dosyaları metin olarak açılsın
+/okul-projeleri/kuveytturk-api-portal/*
+  Cache-Control: no-cache
+/okul-projeleri/kuveytturk-api-portal/docs/*.md
+  Content-Type: text/markdown; charset=utf-8

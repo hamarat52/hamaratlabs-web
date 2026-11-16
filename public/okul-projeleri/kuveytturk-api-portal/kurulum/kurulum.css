@@ -1,0 +1,122 @@
+/* Kurulum sihirbazı. Belirteçler ../docs/assets/kt.css :root içinde. */
+.wz { padding: 36px 24px 88px; }
+.wz-in { max-width: 1120px; margin: 0 auto; }
+.wz-head h1 { margin: 14px 0 0; font-size: clamp(28px, 3vw, 36px); line-height: 1.15; font-weight: 600; letter-spacing: -.025em; }
+.wz-sub { margin: 8px 0 0; font-size: 17px; color: var(--ink-2); max-width: 60ch; }
+
+/* Adım göstergesi */
+.wz-steps { margin: 28px 0 22px; }
+.wz-steps ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.wz-steps li { position: relative; }
+.wz-steps button { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 48px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); text-align: left; cursor: pointer; font-size: 14.5px; color: var(--ink-2); transition: border-color .15s ease, background-color .15s ease; }
+.wz-steps button:hover:not(:disabled) { border-color: var(--ink-3); }
+.wz-steps button:disabled { cursor: not-allowed; background: var(--paper); color: var(--ink-3); }
+.wz-steps .n { flex: none; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--paper-2); color: var(--ink-2); font-weight: 600; font-size: 13px; }
+.wz-steps .t { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wz-steps button.done .n { background: var(--green-tint); color: var(--green); }
+.wz-steps button[aria-current="step"] { border-color: var(--green); box-shadow: inset 0 0 0 1px var(--green); color: var(--ink); font-weight: 500; }
+.wz-steps button[aria-current="step"] .n { background: var(--green); color: var(--paper); }
+.wz-mprog { display: none; margin: 20px 0 14px; }
+.wz-mprog p { margin: 0 0 8px; font-size: 14.5px; color: var(--ink-2); }
+.wz-mprog b { color: var(--ink); }
+.wz-bar { height: 4px; border-radius: 2px; background: var(--cream); overflow: hidden; }
+.wz-bar i { display: block; height: 100%; width: 20%; background: var(--green-2); transition: width .3s var(--ease); }
+
+/* Kart + özet */
+.wz-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; align-items: start; }
+.wz-card { padding: 26px 30px 24px; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
+.wz-count { margin: 0 0 6px; font-size: 13.5px; color: var(--ink-3); }
+.wz-step h2 { margin: 0; font-size: 24px; line-height: 1.25; font-weight: 600; letter-spacing: -.015em; }
+.wz-step h2:focus { outline: none; }
+.wz-step h2:focus-visible { outline: none; }
+.wz-lead { margin: 8px 0 20px; color: var(--ink-2); max-width: 62ch; }
+.wz-h3 { margin: 26px 0 8px; font-size: 16px; font-weight: 600; }
+.choice { margin: 0 0 6px; padding: 0; border: 0; display: grid; gap: 10px; min-width: 0; }
+.choice legend.lbl { padding: 0; margin-bottom: 8px; font-size: 14.5px; font-weight: 500; }
+.choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.check.big { padding: 14px 16px; }
+.acct-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.acct { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); }
+.acct-av { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--green); color: var(--paper); font-weight: 600; }
+.acct b { display: block; font-weight: 600; }
+.acct b + span { font-size: 14.5px; color: var(--ink-3); }
+.err:not(:empty) { margin-top: 10px; }
+
+/* Anahtar üretimi */
+.gen { padding: 18px 0 6px; }
+.gen-h { margin: 0 0 12px; font-weight: 500; }
+.gen-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.gen-list li { display: flex; align-items: center; gap: 10px; color: var(--ink-3); }
+.gen-list i { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--line-2); flex: none; }
+.gen-list li.on { color: var(--ink); }
+.gen-list li.on i { border-color: var(--green-2); border-right-color: transparent; animation: don .7s linear infinite; }
+.gen-list li.ok { color: var(--ink); }
+.gen-list li.ok i { border-color: var(--green-2); background: var(--green-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E") center / 12px no-repeat; }
+@keyframes don { to { transform: rotate(360deg); } }
+#keys .note { margin: 14px 0 12px; }
+.sec-gone { margin: 12px 0 0; font-size: 14.5px; color: var(--ink-2); }
+#regen { margin: 4px 0 8px -10px; }
+#saved-wrap { margin-top: 4px; }
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 18px; margin: 0; font-size: 14.5px; }
+.kv dt { color: var(--ink-3); }
+.kv dd { margin: 0; }
+.kv a { color: var(--green-2); }
+
+/* İlk istek */
+.seg { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.seg button { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border: 1px solid var(--line-2); border-radius: 999px; background: var(--white); font-size: 14.5px; cursor: pointer; }
+.seg button[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.seg .sent { font: 600 11px/1 var(--mono); padding: 3px 5px; border-radius: 4px; background: var(--green-tint); color: var(--green); }
+#istek .cb { margin: 0; }
+.wz-doclink { margin: 8px 0 0; font-size: 14px; }
+.wz-doclink a { color: var(--green-2); text-underline-offset: 3px; }
+.send-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 16px 0 0; }
+.send-st { font-size: 14px; color: var(--ink-3); }
+#yanit .cb { margin: 14px 0 0; }
+
+/* Bitti */
+.done-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.done-card { display: flex; flex-direction: column; gap: 8px; padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
+.done-card b { font-weight: 600; font-size: 16px; }
+.done-card > span { font-size: 14px; color: var(--ink-2); flex: 1; }
+.done-card .btn { width: 100%; }
+.prompt-pre { margin-top: 16px; }
+.prompt-pre summary { display: inline-flex; align-items: center; min-height: 44px; cursor: pointer; font-size: 14.5px; color: var(--green-2); }
+.prompt-pre pre { margin: 6px 0 0; padding: 14px 16px; max-height: 320px; overflow: auto; border-radius: 10px; background: var(--code-bg); color: var(--code-ink); font-size: 12.8px; line-height: 1.6; white-space: pre-wrap; }
+.done-more { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; margin: 16px 0 0; font-size: 14.5px; }
+.done-more a { color: var(--green-2); text-underline-offset: 3px; }
+
+/* Gezinme */
+.wz-nav { display: flex; align-items: center; gap: 10px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }
+.wz-nav #ileri { margin-left: auto; }
+.btn[aria-disabled="true"] { opacity: .55; }
+
+/* Özet */
+.wz-aside { position: sticky; top: calc(var(--top-h) + 24px); padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper-2); }
+.wz-aside h2 { margin: 0 0 12px; font-size: 16px; font-weight: 600; }
+.sum { margin: 0; display: grid; gap: 4px; }
+.sum dt { font-size: 13px; color: var(--ink-3); }
+.sum dd { margin: 0 0 10px; font-size: 14.5px; overflow-wrap: anywhere; }
+.sum dd[data-bos] { color: var(--ink-3); }
+.sum-note { margin: 10px 0 0; font-size: 13px; color: var(--ink-3); }
+.sum-note a { color: var(--green-2); text-underline-offset: 3px; }
+
+@media (max-width: 980px) {
+  .wz-grid { grid-template-columns: minmax(0, 1fr); }
+  .wz-aside { position: static; }
+  .done-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .wz { padding: 20px 16px 64px; }
+  .wz-steps { display: none; }
+  .wz-mprog { display: block; }
+  .wz-card { padding: 20px 16px; border-radius: 12px; }
+  .choice-grid { grid-template-columns: minmax(0, 1fr); }
+  .wz-nav .btn { flex: 1; }
+  .wz-nav #ileri { margin-left: 0; }
+  .wz-step h2 { font-size: 22px; }
+  .cb-head code { font-size: 12px; }
+  .top.simple .top-right .top-link:first-child { display: none; }
+  .key-row { grid-template-columns: minmax(0, 1fr); }
+  .key-row .k-act .btn { flex: 1; }
+}

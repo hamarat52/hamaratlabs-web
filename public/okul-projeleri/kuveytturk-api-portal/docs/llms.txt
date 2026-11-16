@@ -1,0 +1,41 @@
+# Kuveyt Türk API Dokümanları (tasarım taslağı)
+
+> Kuveyt Türk API Market için doküman sitesi taslağı. Her sayfanın Markdown karşılığı vardır. API sürümü v1 (örnek), son güncelleme 2026-11-16. Uç noktalar API Market Swagger'ından; yapay zekâ bileşenleri konsepttir.
+
+## Başlangıç
+
+- [Genel bakış](index.md): Kuveyt Türk API Market dokümanlarına giriş: test ortamında ilk istek, kurulum sihirbazı, dört ürün alanı ve yapay zekâ araçları için tek zip.
+- [Hızlı başlangıç](hizli-baslangic.md): Hesaptan ilk çağrıya altı adım: hesap, RSA anahtar çifti, uygulama, access token, imza ve GET /v1/fx/rates ile ilk istek.
+- [Kurulum adımları](kurulum-adimlari.md): Kurulum sihirbazının doküman karşılığı: hesap, uygulama, test ortamı anahtarları ve ilk istek. Her adım sihirbazda da yapılabilir.
+- [Ortamlar: test ve canlı](ortamlar.md): Test ve canlı ortamın kimlik sunucusu ve API ağ geçidi adresleri, {BASE_URL} kullanımı ve iki ortam arasındaki farklar.
+- [Test müşterileri](test-musterileri.md): Test ortamında gerçek müşteri yerine kullanılan test müşterileri: GET /v1/data/testcustomers ile listeleme ve hesap verisi uç noktalarıyla deneme.
+
+## Kimlik doğrulama
+
+- [Uygulama ve anahtarlar](uygulama-ve-anahtarlar.md): Uygulama oluşturma (Selected Scope, Redirection URI, 2048 bit RSA açık anahtar), client ID ve secret, access token akışları ve anahtar saklama kuralları.
+- [İstek imzalama](istek-imzalama.md): Signature başlığı: access token ile sorgu dizesinin (GET) ya da gövdenin (POST) RSA-SHA256 imzası, base64. Node.js, Python, C# ve openssl örnekleri.
+- [Canlıya geçiş](canliya-gecis.md): Canlıya geçiş talebi (Go Live Request Management), göndermeden önce önerilen kontrol listesi ve onaydan sonra yapılacak değişiklikler.
+
+## Ürünler
+
+- [Ödeme](odeme.md): Sanal POS (vpos) uç noktaları: ödeme başlatma (digitalPaymentGetToken), sorgulama, belge gönderme ve iade. İade öncesi insan onayı.
+- [Finansman](finansman.md): Sepette taksitli alışveriş finansmanı: GET /v1/loans, finansman ayrıntısı ve taksit planı; portaldaki E-commerce finansman servis adları.
+- [Hesap verisi](hesap-verisi.md): Müşteri izniyle (authorization code) hesap detayı, hesap hareketleri (v2 ve v3) ve dekont uç noktaları.
+- [Bilgi servisleri](bilgi-servisleri.md): Herkese açık veriler: döviz kurları (GET /v1/fx/rates), döviz cinsleri, şubeler, bankalar ve şubeleri, ATM'ler, finansman verisi. Client credentials.
+
+## Yapay zekâ
+
+- [Yapay zekâ ile kurulum](yapay-zeka-ile-kurulum.md): Kuveyt Türk'ü Claude Code, Cursor, Codex ya da ChatGPT ile test ortamında kurma talimatı (konsept). Para hareketinden önce insan onayı.
+- [MCP araçları](mcp-araclari.md): Önerilen Kuveyt Türk MCP sunucusunun araçları (konsept): her araç API Market'te var olan bir uç noktaya karşılık gelir; izin seviyeleri.
+- [AI paketi](ai-paketi.md): Tüm dokümanlar tek zip'te: AGENTS.md, konu konu Markdown, örnek OpenAPI şeması, cURL örnekleri ve sha256'lı manifest. Projeye docs/kuveytturk olarak açılır.
+
+## Referans
+
+- [Uç noktalar](uc-noktalar.md): API Market Swagger'ında yayımlanan 19 uç noktanın tam listesi, metot ve ürün alanıyla. Bu listede olmayan yol bu dokümanda yoktur.
+- [Yanıt zarfı](yanit-zarfi.md): Her yanıtın ortak zarfı: value (veri), success (sonuç) ve results (mesajlar). Başarılı ve başarısız örnekler, okuma kodu.
+- [Hata kodları](hata-kodlari.md): Örnek hata durumları ve çözümleri: 400, 401, imza hatası, 403, 404, 429 (rate limit {değer}), 5xx; ödeme çağrılarında güvenli yeniden deneme.
+- [Değişiklik günlüğü](degisiklik-gunlugu.md): Doküman ve API değişiklikleri (örnek kayıtlar): ilk doküman sürümü, sürüm notu biçimi ve hesap hareketleri v2/v3 notu.
+
+## Ek dosyalar
+
+- [kuveytturk-api-ai-paketi.zip](kuveytturk-api-ai-paketi.zip): Tüm .md dosyaları, AGENTS.md, manifest, örnek OpenAPI ve cURL örnekleri tek zip'te
