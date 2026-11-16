@@ -176,3 +176,19 @@
   if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(canvas);
   requestAnimationFrame(loop);
 })();
+
+/* Mobil menü: tam ekran katman (header'daki backdrop-filter fixed konumu bozduğu için nav body'ye taşınır) */
+(function () {
+  var d = document.querySelector('details.m-menu'); if (!d) return;
+  var nav = d.querySelector('nav'); if (!nav || document.querySelector('.m-full')) return;
+  var full = document.createElement('div'); full.className = 'm-full'; full.setAttribute('role', 'dialog'); full.setAttribute('aria-modal', 'true');
+  full.innerHTML = '<div class="m-full-top"><b>Kuveyt Türk</b><button type="button" class="m-close" aria-label="Menüyü kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>';
+  full.appendChild(nav); document.body.appendChild(full);
+  function kapat() { d.open = false; document.body.classList.remove('m-open'); }
+  d.addEventListener('toggle', function () { document.body.classList.toggle('m-open', d.open); });
+  full.querySelector('.m-close').addEventListener('click', kapat);
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) kapat(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') kapat(); });
+})();
+
+(function () { var s = document.querySelector("body > div[style*=\"position:sticky\"]"); if (!s) return; function o() { document.documentElement.style.setProperty("--serit-h", s.offsetHeight + "px"); } o(); window.addEventListener("resize", o); })();
