@@ -31194,6 +31194,15 @@
     "lines": 242
   },
   {
+    "repo": "hamaratlabs-web",
+    "hash": "888776fe2d",
+    "date": "2026-11-11T23:51:00+03:00",
+    "subject": "chore(aktivite): günlük kod aktivite verisi güncellendi (2026-11-11)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1423
+  },
+  {
     "repo": "pomodoro-restoran",
     "hash": "3071172313",
     "date": "2026-11-11T23:55:02+03:00",
@@ -31401,6 +31410,15 @@
     "lines": 4
   },
   {
+    "repo": "hamaratlabs-web",
+    "hash": "de1700cc10",
+    "date": "2026-11-12T17:03:20+03:00",
+    "subject": "chore(tiktok-app): TikTok geliştirici URL prefix doğrulama dosyası",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "09a1dd8818",
     "date": "2026-11-12T17:05:52+03:00",
@@ -31426,6 +31444,15 @@
     "score": 94,
     "is_merge": false,
     "lines": 900
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "76643ed0f2",
+    "date": "2026-11-12T17:20:41+03:00",
+    "subject": "feat(poster): Hamaratlabs Poster tanıtım, gizlilik ve kullanım şartları sayfaları (YouTube API Services açıklamalarıyla; yayın PM onayında)",
+    "score": 88,
+    "is_merge": false,
+    "lines": 158
   },
   {
     "repo": "wingwire-android",
@@ -31462,6 +31489,15 @@
     "score": 95,
     "is_merge": false,
     "lines": 7331
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "63f66db04f",
+    "date": "2026-11-12T23:50:51+03:00",
+    "subject": "chore(aktivite): günlük kod aktivite verisi güncellendi (2026-11-12)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2108
   },
   {
     "repo": "pomodoro-restoran",
@@ -31626,6 +31662,15 @@
     "lines": 727
   },
   {
+    "repo": "hamaratlabs-web",
+    "hash": "f847eda815",
+    "date": "2026-11-13T23:50:50+03:00",
+    "subject": "chore(aktivite): günlük kod aktivite verisi güncellendi (2026-11-13)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 162
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "ff8a7e342f",
     "date": "2026-11-14T12:13:52+03:00",
@@ -31788,6 +31833,15 @@
     "lines": 285
   },
   {
+    "repo": "hamaratlabs-web",
+    "hash": "c49e7f0999",
+    "date": "2026-11-14T15:29:18+03:00",
+    "subject": "chore(gsc): Google Search Console doğrulama dosyası (YouTube API marka doğrulaması için)",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
     "repo": "wingwire-android",
     "hash": "5dc8d792f9",
     "date": "2026-11-14T15:35:30+03:00",
@@ -31896,6 +31950,15 @@
     "lines": 80
   },
   {
+    "repo": "hamaratlabs-web",
+    "hash": "9a4ac708a1",
+    "date": "2026-11-14T16:18:22+03:00",
+    "subject": "feat(poster): resmi \"Developed with YouTube\" logosu (YouTube API marka kurallarına uygun, YouTube'a bağlantılı)",
+    "score": 72,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
     "repo": "wingwire-portfoy",
     "hash": "b926e91a04",
     "date": "2026-11-14T16:18:34+03:00",
@@ -31921,6 +31984,15 @@
     "score": 59,
     "is_merge": false,
     "lines": 952
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "2ae007d54e",
+    "date": "2026-11-14T16:27:40+03:00",
+    "subject": "fix(tiktok-app): uygulama adı Hamaratlabs Poster (dış görünür sayfalarda Hermes adı kullanılmaz)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 18
   },
   {
     "repo": "wingwire-app-web",
@@ -31968,6 +32040,15 @@
     "lines": 0
   },
   {
+    "repo": "hamaratlabs-web",
+    "hash": "d508b9c200",
+    "date": "2026-11-14T18:31:29+03:00",
+    "subject": "feat(okul-projeleri): Kuveyt Türk API Portal Redesign konsepti (iki yön, noindex mock sayfaları, bağımsız konsept şeridi)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 6775
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "ba744abfe1",
     "date": "2026-11-14T19:25:15+03:00",
@@ -31993,5 +32074,221 @@
     "score": 28,
     "is_merge": false,
     "lines": 39
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "d34f7b8b95",
+    "date": "2026-11-14T23:50:50+03:00",
+    "subject": "chore(aktivite): günlük kod aktivite verisi güncellendi (2026-11-14)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 369
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "4d2b417e68",
+    "date": "2026-11-16T10:20:24+03:00",
+    "subject": "fix(kuveytturk-api-portal): ödeme kartı eğik açısı kaldırıldı",
+    "score": 49,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "4cb1a70bf2",
+    "date": "2026-11-16T10:23:44+03:00",
+    "subject": "fix(kuveytturk-api-portal): boş partner logo yer tutucuları yerine doğrulanmış ödül satırı",
+    "score": 56,
+    "is_merge": false,
+    "lines": 24
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "06705b2c4a",
+    "date": "2026-11-16T10:27:23+03:00",
+    "subject": "fix(kuveytturk-api-portal): telefon çerçeveleri modül kartlarına çevrildi, mobilde tek sütun",
+    "score": 56,
+    "is_merge": false,
+    "lines": 24
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "92bee8588b",
+    "date": "2026-11-16T10:31:30+03:00",
+    "subject": "fix(kuveytturk-api-portal): 'Talimatı alın' yerine tek tıkla 'Kurulum promptunu kopyala'",
+    "score": 54,
+    "is_merge": false,
+    "lines": 14
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "942db1da04",
+    "date": "2026-11-16T10:37:48+03:00",
+    "subject": "feat(kuveytturk-api-portal): mobilde tam ekran ikonlu menü; proje şeridi üst menüyü örtmüyor",
+    "score": 90,
+    "is_merge": false,
+    "lines": 338
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "fa6c3b8294",
+    "date": "2026-11-16T10:40:42+03:00",
+    "subject": "fix(kuveytturk-api-portal): finansman akışında mini telefon çerçevesi karta çevrildi",
+    "score": 54,
+    "is_merge": false,
+    "lines": 14
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "0f808bd4dd",
+    "date": "2026-11-16T11:45:59+03:00",
+    "subject": "feat(kuveytturk-api-portal): doküman sitesi + AI paketi zip, kurulum sihirbazı, örnek giriş/kayıt/panel",
+    "score": 95,
+    "is_merge": false,
+    "lines": 10755
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "14f789b84e",
+    "date": "2026-11-16T14:46:48+03:00",
+    "subject": "feat(yapilacaklar): web ile aynı liste — akıllı kutular, hızlı ekleme, düzenleme, /me kartı (§14)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2650
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "6d6f6d625d",
+    "date": "2026-11-16T14:50:22+03:00",
+    "subject": "docs(qa): yapilacaklar siberguvenlik (ŞARTLI GEÇER: yalnız sürüm satırları + aynı imza) + şartın kapanışı",
+    "score": 29,
+    "is_merge": false,
+    "lines": 57
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "58c2767f17",
+    "date": "2026-11-16T14:50:25+03:00",
+    "subject": "chore(release): 0.3.5 (versionCode 10) — Yapılacaklar (web ile aynı liste, /me); siberguvenlik ŞARTLI GEÇER → şart kapatıldı",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "fa165ebd12",
+    "date": "2026-11-16T18:09:12+03:00",
+    "subject": "fix(kuveytturk-api-portal): mobil tam ekran menü masaüstünde biçimsiz görünüyordu, yalnız mobilde",
+    "score": 53,
+    "is_merge": false,
+    "lines": 10
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "fa53145d07",
+    "date": "2026-11-16T18:22:14+03:00",
+    "subject": "feat(kuveytturk-api-portal): UX/UI rapor PDF'i indirilebilir; tanıtım görselleri güncel",
+    "score": 80,
+    "is_merge": false,
+    "lines": 19
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "a5fdbe2c1e",
+    "date": "2026-11-16T18:43:08+03:00",
+    "subject": "fix(kuveytturk-api-portal): raporda token bulgusu düzeltildi (Postman rehberi, şiddet 2)",
+    "score": 45,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "akce",
+    "hash": "040b1b6aaf",
+    "date": "2026-11-16T18:48:55+03:00",
+    "subject": "Tanıtım: kapanışa 'Sunumu indir (PDF)' ikincil düğmesi (hamaratlabs.com/okul-projeleri/fibi/fibi-sunum.pdf, 14 slayt); sunum sayfasının kendisine bağlantı yok. tanitim-statik çıktısı yalnız bu düğmeyle farklı, varlıklar aynı",
+    "score": 45,
+    "is_merge": false,
+    "lines": 19
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "26e5c3cb2f",
+    "date": "2026-11-16T18:49:19+03:00",
+    "subject": "feat(okul-projeleri): Fibi sunumunun PDF'i (14 slayt) ve tanıtımda 'Sunumu indir (PDF)' düğmesi (Fibi feat/tanitim-sunum-pdf 040b1b6); PDF noindex, sunum sayfasına bağlantı yok",
+    "score": 77,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "53a221c46a",
+    "date": "2026-11-16T19:06:46+03:00",
+    "subject": "feat(alt-bar): ClickUp ilhamı — Diğer küçük kart, seçilen bölüm 9 noktanın yerinde (simge + ˄), ayrı «+» düğmesi",
+    "score": 94,
+    "is_merge": false,
+    "lines": 1133
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "e5ff2fb343",
+    "date": "2026-11-16T19:20:57+03:00",
+    "subject": "docs(qa): alt-bar-clickup raporu — konsept kararları (+ barın yanında, kart hafif karartmalı), emülatör kanıtı, 1461 test",
+    "score": 32,
+    "is_merge": false,
+    "lines": 142
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "33fa181703",
+    "date": "2026-11-16T19:24:17+03:00",
+    "subject": "chore(release): 0.3.6 (versionCode 11) — alt bar ClickUp ilhamı (Diğer kartı, seçilen bölüm barda, «+»); siberguvenlik GEÇER",
+    "score": 49,
+    "is_merge": false,
+    "lines": 60
+  },
+  {
+    "repo": "akce",
+    "hash": "a7035f287b",
+    "date": "2026-11-16T19:33:52+03:00",
+    "subject": "Altın Günü iki usul: \"Bankada biriktir\" (yeni, varsayılan) ve \"Sırayla al\" (klasik)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2749
+  },
+  {
+    "repo": "akce",
+    "hash": "869f423d02",
+    "date": "2026-11-16T19:50:13+03:00",
+    "subject": "Altın Günü bankada biriktir: teslim raporu ve görseller",
+    "score": 54,
+    "is_merge": false,
+    "lines": 215
+  },
+  {
+    "repo": "akce",
+    "hash": "25369eb14c",
+    "date": "2026-11-16T19:51:26+03:00",
+    "subject": "Merge branch 'feat/tanitim-sunum-pdf'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "akce",
+    "hash": "52a8753187",
+    "date": "2026-11-16T19:51:26+03:00",
+    "subject": "Merge branch 'feat/altin-banka'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "06468d76a6",
+    "date": "2026-11-16T19:58:52+03:00",
+    "subject": "feat(okul-projeleri): Fibi Altın Günü 'Bankada biriktir' usulü: tanıtım kopyası (akce main 25369eb), sunum slayt 2, 3, 11 (feat/sunum 96cdf1d) ve PDF yeniden yakalandı",
+    "score": 83,
+    "is_merge": false,
+    "lines": 37
   }
 ]
