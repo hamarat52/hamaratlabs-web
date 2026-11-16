@@ -770,3 +770,8 @@ html[lang="en"] [data-l="tr"], html:not([lang="en"]) [data-l="en"] { display: no
 .metric em.ex { margin-top: auto; }
 .case-alt { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: -8px; text-decoration: none; font-size: 15.5px; color: var(--ink-2); }
 .case-alt:hover span { color: var(--green-2); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ödül satırı (boş logo yer tutucularının yerine; kaynak: Kuveyt Türk 2024 bülteni) */
+.award { display: flex; flex-direction: column; gap: 2px; padding-left: 18px; border-left: 1px solid var(--line); line-height: 1.25; }
+.award b { font-size: 14px; font-weight: 600; color: var(--ink); letter-spacing: -.01em; }
+.award span { font-size: 12px; color: var(--ink-3); }
