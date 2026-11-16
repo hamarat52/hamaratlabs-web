@@ -978,3 +978,8 @@ button.btn { border: 0; font: inherit; cursor: pointer; }
 
 /* Bağımsız proje şeridi üstteki menüyü örtmesin */
 .nav:not(.solid) { top: var(--serit-h, 0px); }
+
+/* m-full masaüstü: menü katmanı yalnız mobilde (900px üstü hiç görünmez) */
+.m-full { display: none; }
+@media (min-width: 901px) { .m-full, body.m-open .m-full { display: none !important; } body.m-open { overflow: auto; } }
+.m-full .m-ico { width: 22px; height: 22px; }
