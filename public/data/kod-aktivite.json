@@ -32290,5 +32290,338 @@
     "score": 83,
     "is_merge": false,
     "lines": 37
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "96bbfe61e5",
+    "date": "2026-11-16T23:50:45+03:00",
+    "subject": "chore(aktivite): günlük kod aktivite verisi güncellendi (2026-11-16)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 297
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "cc9c94552f",
+    "date": "2026-11-17T11:15:09+03:00",
+    "subject": "docs(qa): arti-kaldir raporu — emülatör kanıtı (açık+koyu), tercih temizliği, 1462 test",
+    "score": 31,
+    "is_merge": false,
+    "lines": 90
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "43c6ffbce9",
+    "date": "2026-11-17T11:15:09+03:00",
+    "subject": "fix(alt-bar): ayrı «+» düğmesi ve Ayarlar › Alt menü anahtarı kaldırıldı; bar yine tam genişlik kapsül",
+    "score": 67,
+    "is_merge": false,
+    "lines": 509
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "e0fc74cae6",
+    "date": "2026-11-17T11:16:54+03:00",
+    "subject": "chore(release): 0.3.7 (versionCode 12) — alt bardaki «+» kaldırıldı (Yusuf); siberguvenlik GEÇER",
+    "score": 48,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
+    "repo": "akce",
+    "hash": "eb4540bd18",
+    "date": "2026-11-17T12:30:24+03:00",
+    "subject": "Tanıtım: Videolar bölümü (iki YouTube videosu, tıklayınca yüklenen kapak)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 312
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "333912f883",
+    "date": "2026-11-17T12:30:45+03:00",
+    "subject": "feat(okul-projeleri): Fibi tanıtımına Videolar bölümü (akce feat/tanitim-video eb4540b)",
+    "score": 83,
+    "is_merge": false,
+    "lines": 42
+  },
+  {
+    "repo": "akce",
+    "hash": "e48b51654f",
+    "date": "2026-11-17T12:32:43+03:00",
+    "subject": "Asistan Altın Günü: kalan altın günü sayısı ve aylar tek kaynaktan",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1610
+  },
+  {
+    "repo": "akce",
+    "hash": "a90bdfc49b",
+    "date": "2026-11-17T12:33:21+03:00",
+    "subject": "Merge branch 'fix/asistan-altin'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "akce",
+    "hash": "b495143c1e",
+    "date": "2026-11-17T12:44:43+03:00",
+    "subject": "Merge branch 'feat/tanitim-video'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "eb263ca008",
+    "date": "2026-11-17T12:47:06+03:00",
+    "subject": "fix(alt-bar): alt barda en çok 4 öğe (3 bölüm + Diğer) — MAX_BAR_ITEMS tek sabit; TooMany/dipnot metni, yap_note; eski 5'li tercih ilk 3'e iner; emülatör kanıtı (açık+koyu), 1465 test",
+    "score": 66,
+    "is_merge": false,
+    "lines": 455
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "c4e7820f6e",
+    "date": "2026-11-17T12:48:46+03:00",
+    "subject": "chore(release): 0.3.8 (versionCode 13) — alt barda en çok 4 öğe (3 bölüm + Diğer; Yusuf); siberguvenlik GEÇER",
+    "score": 48,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
+    "repo": "akce",
+    "hash": "11c12ccd14",
+    "date": "2026-11-17T13:44:41+03:00",
+    "subject": "Next.js 16.4.5: GHSA-mfr8-8qww-v76h güvenlik güncellemesi",
+    "score": 58,
+    "is_merge": false,
+    "lines": 688
+  },
+  {
+    "repo": "kader",
+    "hash": "c862e6401e",
+    "date": "2026-11-17T18:30:07+03:00",
+    "subject": "KADER: zip'ten gelen ilk hali (tasarim, konsept, taslak, araclar)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3948
+  },
+  {
+    "repo": "kader",
+    "hash": "729c74ba0a",
+    "date": "2026-11-17T18:45:52+03:00",
+    "subject": "KADER: oynanabilir CPC surumu (ara teslim): build.py, src/kader.bas.src, cpcrun test araci, playtest",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1524
+  },
+  {
+    "repo": "kader",
+    "hash": "10a6cb3593",
+    "date": "2026-11-17T18:52:42+03:00",
+    "subject": "yuz secimi, 5 yeni 2000'ler olayi, begeni ruzgari, kilim duzeltmesi, coklu hayat testi",
+    "score": 51,
+    "is_merge": false,
+    "lines": 113
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "67585fdff0",
+    "date": "2026-11-17T19:00:08+03:00",
+    "subject": "feat(okul-projeleri): KADER tanıtım sayfası (İngilizce, sunum modu, CPC MODE 1 görsel dili, kuklacı eli sahnesi) ve Okul Projeleri kartı",
+    "score": 93,
+    "is_merge": false,
+    "lines": 752
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "e4dd7d05ea",
+    "date": "2026-11-17T19:03:21+03:00",
+    "subject": "fix(kader): künyeye CPC ROM fontu için Amstrad atfı (siberguvenlik koşulu)",
+    "score": 49,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "8f6873810c",
+    "date": "2026-11-17T19:05:57+03:00",
+    "subject": "fix(kader): ses düğmesindeki nota simgesi",
+    "score": 45,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "kader",
+    "hash": "e9902e495d",
+    "date": "2026-11-17T19:06:55+03:00",
+    "subject": "kapsam testi (test kancasi, coverage.py), olay pencereleri genisletildi",
+    "score": 50,
+    "is_merge": false,
+    "lines": 67
+  },
+  {
+    "repo": "kader",
+    "hash": "867e3d6e97",
+    "date": "2026-11-17T19:16:18+03:00",
+    "subject": "portreler ham string olarak (aninda yukleme), regress.py, README.txt",
+    "score": 55,
+    "is_merge": false,
+    "lines": 287
+  },
+  {
+    "repo": "kader",
+    "hash": "395ebc48bf",
+    "date": "2026-11-17T19:25:30+03:00",
+    "subject": "dist paketi: README, CREDITS, ekran goruntuleri, zip; kilim baklava deseni",
+    "score": 48,
+    "is_merge": false,
+    "lines": 38
+  },
+  {
+    "repo": "kader",
+    "hash": "7274d66599",
+    "date": "2026-11-17T19:29:08+03:00",
+    "subject": "begeni ruzgari iki yonlu (yil zari), sakin yil metinleri, RAPOR taslagi",
+    "score": 50,
+    "is_merge": false,
+    "lines": 74
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "8e96faa9e0",
+    "date": "2026-11-17T19:32:08+03:00",
+    "subject": "feat(kader): el görseli yandan görünüm (Yusuf düzeltmesi): kukla yok, 4 ip dither ile soluyor, kesik yüzük parmağı ipsiz; 3. bölüm metni ve kesitleri, başlık ve kart görseli yeni ele geçti",
+    "score": 88,
+    "is_merge": false,
+    "lines": 156
+  },
+  {
+    "repo": "kader",
+    "hash": "bef3b458c8",
+    "date": "2026-11-17T19:33:10+03:00",
+    "subject": "ekran goruntuleri son build'den",
+    "score": 35,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "e78c83fa57",
+    "date": "2026-11-17T19:44:32+03:00",
+    "subject": "feat(kader): el görseli taslak 3: insan oranlı parmaklar (boğum, kıvrım, tırnak), kesik yüzük parmağı kendi şeridinde net güdük ve açık renk kesit; 3. bölüm kesitleri, başlık ve kart görseli",
+    "score": 79,
+    "is_merge": false,
+    "lines": 14
+  },
+  {
+    "repo": "kader",
+    "hash": "dff8f92414",
+    "date": "2026-11-17T19:52:42+03:00",
+    "subject": "464 (BASIC 1.0) uyumu: yuz ekrani parca parca yazdirma; saglik/ruh hali dengesi; 464 RAM enjeksiyon testi",
+    "score": 48,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "55e01e1deb",
+    "date": "2026-11-17T19:55:36+03:00",
+    "subject": "fix(alt-bar): Material'in gri durum katmanı (ripple/basılı/hover/odak hapı) alt barda ve Diğer kartında kalktı — seçili parıltı aynen; basma: kısa küçülme + parıltı anlık belirir, klavye odağı ince halka (SoftPress); 1470 test",
+    "score": 66,
+    "is_merge": false,
+    "lines": 434
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f0eb17e526",
+    "date": "2026-11-17T19:59:15+03:00",
+    "subject": "docs(qa): alt-bar-efekt RAPOR — önce/sonra basılı çekimler (açık+koyu), Diğer kartı, klavye odağı, piksel ölçümü; konsept A (uygulandı) / B",
+    "score": 32,
+    "is_merge": false,
+    "lines": 134
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "2b8ecfc6b7",
+    "date": "2026-11-17T20:00:46+03:00",
+    "subject": "chore(release): 0.3.9 (versionCode 14) — alt barda varsayılan basma/hover efekti kaldırıldı (Yusuf); siberguvenlik GEÇER",
+    "score": 49,
+    "is_merge": false,
+    "lines": 54
+  },
+  {
+    "repo": "kader",
+    "hash": "442aed1885",
+    "date": "2026-11-17T20:02:15+03:00",
+    "subject": "son paket: README 464 durumu, RAPOR, ekran goruntuleri, zip",
+    "score": 50,
+    "is_merge": false,
+    "lines": 78
+  },
+  {
+    "repo": "kader",
+    "hash": "afc1072b87",
+    "date": "2026-11-17T20:03:28+03:00",
+    "subject": "RAPOR: zip uctan uca kontrol",
+    "score": 41,
+    "is_merge": false,
+    "lines": 5
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "15a83cfa44",
+    "date": "2026-11-17T20:53:29+03:00",
+    "subject": "feat(kader): DSK ve tam paket indirme, 8 emülatör ekranı (kader afc1072); hero ve 3. bölümde elin ince (640x400) sürümü, kesik parmakta açık renk kesit",
+    "score": 84,
+    "is_merge": false,
+    "lines": 61
+  },
+  {
+    "repo": "kader",
+    "hash": "915afc6d00",
+    "date": "2026-11-17T22:46:16+03:00",
+    "subject": "v2 cesitlilik: veri gudumlu olay motoru (olaylar diskte, on yil dosyalari), 82 olay, 62 kucuk olay, 45 tohum; 464+DDI-1 testi; regresyon 20/20",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3548
+  },
+  {
+    "repo": "kader",
+    "hash": "cb60ade99d",
+    "date": "2026-11-17T22:50:38+03:00",
+    "subject": "v2 paket: dist/ guncellendi (regresyon 20/20, 6128+464), eski paket dist/v1, dist-v2, RAPOR-cesitlilik",
+    "score": 57,
+    "is_merge": false,
+    "lines": 502
+  },
+  {
+    "repo": "kader",
+    "hash": "a76fccf4e0",
+    "date": "2026-11-17T23:27:05+03:00",
+    "subject": "tur 3: metin varyantlari 2->4 (1392), kucuk anlar 62->142, KADERSRC.ASC diskten cikti; regresyon 19/19; dist guncellendi, tur 2 paketi dist/v2",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1228
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "5dff9235df",
+    "date": "2026-11-17T23:40:43+03:00",
+    "subject": "feat(kader): oyunun 3. sürümü (kader a76fccf): DSK ve zip güncellendi, 8 yeni emülatör ekranı (emulator-v3/), sayılar (82 olay, 142 küçük an, sonuç başına 4 metin, 45 yankı) ve 6128/464 test ifadesi",
+    "score": 82,
+    "is_merge": false,
+    "lines": 34
+  },
+  {
+    "repo": "kader",
+    "hash": "291fd523e7",
+    "date": "2026-11-17T23:42:11+03:00",
+    "subject": "durum: 23:42 karari",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
   }
 ]
