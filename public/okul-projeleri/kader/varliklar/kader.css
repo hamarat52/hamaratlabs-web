@@ -1,0 +1,211 @@
+/* KADER tanıtım sayfası. Her ekranın kendi 4 rengi var (CPC MODE 1 gibi). */
+@font-face {
+  font-family: 'KaderCPC';
+  src: url('/okul-projeleri/kader/varliklar/kader-cpc.woff2') format('woff2');
+  font-display: block;
+}
+:root {
+  --lacivert: #000080; --beyaz: #ffffff; --camgobegi: #00ffff; --turuncu: #ff8000;
+  --siyah: #000000; --kirmizi: #ff0000; --krem: #ffff80;
+  --u: 16px; /* bir CPC karakteri = 8 piksel; 2x */
+}
+* { box-sizing: border-box; }
+html { scroll-snap-type: y proximity; scroll-behavior: auto; background: var(--lacivert); }
+@media (min-width: 900px) and (min-height: 620px) { html { scroll-snap-type: y mandatory; } }
+body {
+  margin: 0; font-family: 'KaderCPC', ui-monospace, monospace; font-size: var(--u); line-height: 1.25;
+  -webkit-font-smoothing: none; font-smooth: never; text-rendering: optimizeSpeed;
+  color: var(--beyaz); background: var(--lacivert);
+}
+img, video, canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
+a { color: inherit; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 2px dashed currentColor; outline-offset: 3px; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* ---------------------------------------------------------------- üst çubuk */
+.ust {
+  position: fixed; inset: 0 0 auto 0; z-index: 10; display: flex; align-items: center; gap: 16px;
+  padding: 10px 16px; color: var(--beyaz); mix-blend-mode: difference; pointer-events: none;
+}
+.ust > * { pointer-events: auto; }
+.ust a { text-decoration: none; }
+.ust a:hover { text-decoration: underline; }
+.ust .bosluk { flex: 1; }
+.ust button, .ust span, .ust a { white-space: nowrap; }
+.ust button { padding: 4px 6px; }
+#noktalar {
+  position: fixed; right: 12px; top: 50%; transform: translateY(-50%); z-index: 10;
+  display: flex; flex-direction: column; gap: 10px; mix-blend-mode: difference;
+}
+#noktalar button { width: 12px; height: 12px; border: 2px solid #fff; padding: 0; position: relative; }
+#noktalar button::after { content: ''; position: absolute; inset: -8px; }
+#noktalar button[aria-current='true'] { background: #fff; }
+
+/* ---------------------------------------------------------------- ekranlar */
+.ekran {
+  position: relative; min-height: 100vh; min-height: 100svh; scroll-snap-align: start;
+  display: grid; place-items: center; padding: 72px 56px 56px; overflow: hidden;
+  --z: var(--lacivert); --m: var(--beyaz); --i: var(--camgobegi); --v: var(--turuncu);
+  background: var(--z); color: var(--m);
+}
+.p-oyun { --z: var(--siyah); --m: var(--beyaz); --i: var(--camgobegi); --v: var(--turuncu); }
+.p-kilim { --z: var(--siyah); --m: var(--krem); --i: var(--lacivert); --v: var(--kirmizi); }
+.ic { width: min(1180px, 100%); }
+h1, h2, h3, p { margin: 0; font-weight: normal; }
+h2 { font-size: calc(var(--u) * 2); line-height: 1.15; color: var(--v); margin-bottom: 24px; }
+.ikincil { color: var(--i); }
+.vurgu { color: var(--v); }
+.p-kilim .ikincil { color: var(--krem); opacity: 1; }
+p + p { margin-top: 12px; }
+.metin { max-width: 34em; }
+.etiket { color: var(--i); font-size: var(--u); margin-bottom: 16px; }
+
+/* yazı efekti */
+.gz { opacity: 0; }
+.yaziyor > [aria-hidden]::after { content: '\2588'; color: var(--v); animation: imlec 0.5s steps(1) infinite; }
+@keyframes imlec { 50% { opacity: 0; } }
+
+/* ---------------------------------------------------------------- 1. kahraman */
+#giris { padding-top: 44px; padding-bottom: 44px; }
+#giris .ic { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; height: calc(100svh - 88px); }
+#giris h1 { font-size: calc(var(--u) * 8); line-height: 1; color: var(--turuncu); letter-spacing: 0; }
+#giris .motto { margin-top: 32px; font-size: calc(var(--u) * 1.5); }
+.satir { display: block; }
+#giris .alt { margin-top: 32px; color: var(--camgobegi); }
+.sahne-kutu { position: relative; height: 100%; width: min(42vw, 560px); }
+canvas.sahne { display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.ipucu { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: var(--camgobegi); white-space: nowrap; }
+.ipucu kbd { font: inherit; color: var(--beyaz); }
+.ipucu .dokun { display: none; }
+@media (hover: none) { .ipucu .tus { display: none; } .ipucu .dokun { display: inline; } #tamekran { display: none; } }
+
+/* ---------------------------------------------------------------- 2. kelime */
+#kelime .soz { font-size: calc(var(--u) * 6); line-height: 1; color: var(--kirmizi); }
+#kelime .okunus { color: var(--krem); margin: 12px 0 40px; }
+#kelime .metin { font-size: calc(var(--u) * 1.5); }
+#kelime .metin .son { color: var(--kirmizi); margin-top: 28px; }
+.kilim-serit {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 80px; display: flex; gap: 0; justify-content: center;
+  background: var(--krem); border-top: 8px solid var(--kirmizi); overflow: hidden;
+}
+.kilim-serit img { height: 72px; width: auto; flex: none; }
+.ekran.goruldu .kilim-serit img { animation: dokun 0.4s steps(4) both; }
+@keyframes dokun { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+
+/* ---------------------------------------------------------------- 3. ipler */
+#ipler .ic { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 56px; align-items: center; }
+.kesitler { display: grid; grid-template-columns: repeat(2, auto); gap: 24px; }
+.kesit { position: relative; --k: 5; }
+.kesit .resim {
+  width: calc(56px * var(--k)); height: calc(56px * var(--k));
+  background: var(--lacivert) url('/okul-projeleri/kader/varliklar/el-320.png') no-repeat;
+  background-size: calc(320px * var(--k)) calc(200px * var(--k));
+  image-rendering: pixelated; border: 2px solid var(--camgobegi);
+}
+.kesit.parmak .resim { background-position: calc(-114px * var(--k)) calc(-42px * var(--k)); }
+.kesit.kol .resim { background-position: calc(-124px * var(--k)) calc(-112px * var(--k)); }
+.kesit .isaret {
+  position: absolute; border: 2px solid var(--turuncu); animation: imlec 0.8s steps(1) infinite;
+}
+.kesit.parmak .isaret { left: calc((136 - 114) * var(--k) * 1px); top: calc((52 - 42) * var(--k) * 1px); width: calc(16 * var(--k) * 1px); height: calc(22 * var(--k) * 1px); }
+.kesit.kol .isaret { left: calc((136 - 124) * var(--k) * 1px); top: calc((131 - 112) * var(--k) * 1px); width: calc(16 * var(--k) * 1px); height: calc(26 * var(--k) * 1px); }
+.ekran:not(.aktif) .kesit .isaret { animation: none; }
+.kesit p { margin-top: 10px; color: var(--camgobegi); }
+#ipler .metin { font-size: calc(var(--u) * 1.5); }
+#ipler .soru { margin-top: 32px; color: var(--camgobegi); }
+
+/* ---------------------------------------------------------------- 4. kader seçimi */
+#kader .ic { display: grid; grid-template-columns: minmax(0, 560px) minmax(0, 1fr); gap: 48px; align-items: start; }
+.kart { border: 4px solid var(--camgobegi); padding: 16px 20px; }
+.kart + .kart { margin-top: 16px; }
+.kart .k-baslik { color: var(--camgobegi); margin-bottom: 12px; }
+.kart.karar { border-color: var(--camgobegi); }
+.kart.karar .k-baslik { color: var(--turuncu); }
+.kart .niyet { color: var(--camgobegi); margin-top: 12px; }
+.secim { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; }
+.secim button { padding: 6px 4px; color: var(--beyaz); display: inline-flex; gap: 12px; align-items: center; min-height: 44px; }
+.secim button .n { color: var(--turuncu); }
+.secim button:hover, .secim button[aria-pressed="true"] { background: var(--turuncu); color: var(--siyah); }
+.secim button[aria-pressed='true'] .n { color: var(--siyah); }
+#zar { width: 32px; height: 32px; display: inline-block; }
+#zar rect.pip { display: none; }
+#zar[data-yuz='1'] .p1, #zar[data-yuz='2'] .p2, #zar[data-yuz='3'] .p3, #zar[data-yuz='4'] .p4, #zar[data-yuz='5'] .p5, #zar[data-yuz='6'] .p6 { display: inline; }
+#sonuc { min-height: 120px; margin-top: 16px; }
+#sonuc .s-baslik, #sonuc .s-zar { color: var(--turuncu); }
+#sonuc .s-etki { color: var(--camgobegi); }
+#sonuc .s-not { color: var(--turuncu); margin-top: 16px; }
+#sonuc p + p { margin-top: 6px; }
+.ilke { font-size: calc(var(--u) * 1.5); margin-top: 28px; }
+.ilke span { display: block; }
+.ilke .ikincil { color: var(--camgobegi); }
+figure { margin: 0; }
+figure video, figure img { display: block; width: 100%; height: auto; border: 0; background: #000; }
+figcaption { margin-top: 8px; color: var(--i); }
+
+/* ---------------------------------------------------------------- 5. DNA */
+.ikili { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 8px; }
+.ikili p { margin-top: 14px; }
+
+/* ---------------------------------------------------------------- 6. kilim */
+#kilim .ic { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+#kilim h2 { color: var(--kirmizi); }
+#kilim .metin p { color: var(--krem); }
+.motifler { display: grid; grid-template-columns: repeat(4, minmax(0, 150px)); gap: 18px 22px; margin-top: 32px; justify-content: start; }
+.motifler figure { display: grid; justify-items: start; }
+.motifler img { width: auto; height: 48px; background: var(--krem); }
+.motifler figcaption { color: var(--krem); margin-top: 6px; }
+.motifler figcaption b { color: var(--kirmizi); font-weight: normal; display: block; }
+
+/* ---------------------------------------------------------------- 7. CPC */
+.ozellik { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 8px 0 32px; }
+.ozellik div { border: 4px solid var(--camgobegi); padding: 12px; }
+.ozellik b { display: block; color: var(--turuncu); font-weight: normal; font-size: calc(var(--u) * 1.5); margin-bottom: 6px; }
+.ekranlar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ekranlar img { width: 100%; height: auto; display: block; }
+
+/* ---------------------------------------------------------------- 8. künye */
+#kunye .ic { text-align: center; display: grid; justify-items: center; gap: 0; }
+#kunye .logo { width: min(640px, 80vw); height: auto; }
+#kunye .ekip { font-size: calc(var(--u) * 2); color: var(--turuncu); margin-top: 32px; }
+#kunye .kisi { font-size: calc(var(--u) * 1.5); margin-top: 8px; }
+#kunye .claude { color: var(--camgobegi); margin-top: 24px; }
+#kunye .yarisma { margin-top: 8px; }
+.indir { display: inline-block; margin-top: 32px; padding: 14px 22px; background: var(--turuncu); color: var(--lacivert); text-decoration: none; }
+.indir:hover { background: var(--beyaz); }
+.indir.bekliyor { background: none; color: var(--camgobegi); border: 4px solid var(--camgobegi); }
+.altbilgi { margin-top: 40px; color: var(--camgobegi); }
+.altbilgi a { color: var(--beyaz); }
+
+/* ---------------------------------------------------------------- dar ekran */
+@media (max-width: 1100px) {
+  :root { --u: 16px; }
+  #giris h1 { font-size: calc(var(--u) * 6); }
+  .ozellik { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .ekran { padding: 64px 20px 48px; place-items: start center; }
+  #giris .ic { grid-template-columns: 1fr; height: auto; gap: 8px; }
+  #giris .sahne-kutu { order: -1; width: 100%; height: 52svh; }
+  #giris h1 { font-size: calc(var(--u) * 4); }
+  #giris .motto { font-size: var(--u); margin-top: 16px; }
+  #giris .alt { margin-top: 16px; }
+  h2 { font-size: calc(var(--u) * 1.5); }
+  #kelime .soz { font-size: calc(var(--u) * 4); }
+  #kelime .metin, #ipler .metin, .ilke { font-size: var(--u); }
+  #ipler .ic, #kader .ic, #kilim .ic, .ikili { grid-template-columns: 1fr; gap: 28px; }
+  .kesit { --k: 3; } .kesitler { gap: 12px; }
+  .ekranlar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .motifler { grid-template-columns: repeat(2, auto); }
+  .kilim-serit { height: 56px; }
+  .kilim-serit img { height: 48px; }
+  #noktalar { display: none; }
+  .ozellik b { font-size: var(--u); }
+  .ozellik div { padding: 10px; border-width: 2px; }
+  .ust { gap: 12px; padding: 8px 12px; }
+  .ipucu { display: none; }
+  #kelime { padding-bottom: 96px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kesit .isaret, .yaziyor > [aria-hidden]::after { animation: none; }
+}

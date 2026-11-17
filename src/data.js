@@ -252,6 +252,15 @@ export const INSPIRATION = [
 // note: düğmenin altındaki küçük not. image: public/okul-projeleri-screens/ altındaki gerçek ekran görüntüsü.
 export const SCHOOL_PROJECTS = [
   {
+    name: 'KADER',
+    lead: 'Amstrad CPC için bir hayat simülasyonu. Oyuncu karakteri yönetmez, kaderi oynar: niyet karakterin, sonuç kaderin (retroISTANBUL 2026).',
+    image: { src: asset('/okul-projeleri-screens/kader-640.webp'), srcSet: `${asset('/okul-projeleri-screens/kader-640.webp')} 640w, ${asset('/okul-projeleri-screens/kader-1280.webp')} 1280w`, width: 1280, height: 800, alt: 'KADER başlık görseli: yüzük parmağı kesik bir kuklacı eli dört iple bir kuklayı tutuyor, kuklanın bir kolu serbest' },
+    links: [
+      // Statik tanıtım (İngilizce, sunum modu): public/okul-projeleri/kader/. Oyun repo: ~/Desktop/Projeler/kader
+      { label: 'Tanıtım', url: '/okul-projeleri/kader/' }
+    ]
+  },
+  {
     name: 'Fibi',
     lead: 'Yapay zekâ asistanlı kişisel finans ve birikim uygulaması (okul projesi, konsept).',
     image: { src: asset('/okul-projeleri-screens/fibi-pano-720.webp'), srcSet: `${asset('/okul-projeleri-screens/fibi-pano-720.webp')} 720w, ${asset('/okul-projeleri-screens/fibi-pano-1200.webp')} 1200w`, width: 1200, height: 750, alt: 'Fibi uygulamasının ana panosu: asistan önerisi, birikim hesabı, kampanyalar (örnek verilerle)' },

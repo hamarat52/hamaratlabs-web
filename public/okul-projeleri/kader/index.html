@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KADER · a life simulation for the Amstrad CPC</title>
+<meta name="description" content="KADER is a life simulation for the Amstrad CPC. You do not play God, you play fate: the character decides what to do, you decide how it ends. retroISTANBUL 2026.">
+<link rel="canonical" href="https://hamaratlabs.com/okul-projeleri/kader/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KADER · a life simulation for the Amstrad CPC">
+<meta property="og:description" content="A life is not in your hands. All you hold are coincidences.">
+<meta property="og:url" content="https://hamaratlabs.com/okul-projeleri/kader/">
+<meta property="og:image" content="https://hamaratlabs.com/okul-projeleri/kader/varliklar/kader-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000080">
+<link rel="icon" href="/okul-projeleri/kader/varliklar/el-sprite.png">
+<link rel="preload" href="/okul-projeleri/kader/varliklar/kader-cpc.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/okul-projeleri/kader/varliklar/kader.css?v=1">
+</head>
+<body>
+<header class="ust">
+  <a href="https://hamaratlabs.com/okul-projeleri">hamaratlabs</a>
+  <span class="bosluk"></span>
+  <span id="sayac" aria-live="off">01/08</span>
+  <button id="ses" type="button" aria-pressed="true" aria-label="Sound" title="Sound (M)">♪ ON</button>
+  <button id="tamekran" type="button" title="Full screen (F)">FULL</button>
+</header>
+<nav id="noktalar" aria-label="Sections"></nav>
+
+<main>
+<!-- 1 -->
+<section class="ekran p-menu" id="giris" aria-label="KADER">
+  <div class="ic">
+    <div>
+      <h1>KADER</h1>
+      <p class="motto" data-yaz="16"><span class="satir">a life is not in your hands.</span><span class="satir ikincil">all you hold are coincidences.</span></p>
+      <p class="alt">A life simulation for the Amstrad CPC.</p>
+    </div>
+    <div class="sahne-kutu">
+      <canvas class="sahne" width="128" height="200" role="img" aria-label="A puppeteer's hand holds a puppet by four strings. Its ring finger is missing, so one of the puppet's arms has no string and moves on its own."></canvas>
+    </div>
+  </div>
+  <p class="ipucu"><span class="tus"><kbd>→</kbd> or <kbd>space</kbd></span><span class="dokun">scroll</span></p>
+</section>
+
+<!-- 2 -->
+<section class="ekran p-kilim" id="kelime" aria-label="The word kader">
+  <div class="ic">
+    <p class="soz" lang="tr">kader</p>
+    <p class="okunus">ka·der · Turkish</p>
+    <div class="metin" data-yaz="16">
+      <p>In Turkish, kader means it is already known where a life will arrive.</p>
+      <p>Every decision, every reaction, everything that will happen.</p>
+      <p class="son">And still, the choice is yours.</p>
+    </div>
+  </div>
+  <div class="kilim-serit" aria-hidden="true">
+    <img src="/okul-projeleri/kader/varliklar/motif/su-yolu.png" alt="" width="48" height="32">
+    <img src="/okul-projeleri/kader/varliklar/motif/goz.png" alt="" width="48" height="48">
+    <img src="/okul-projeleri/kader/varliklar/motif/kirik-baklava.png" alt="" width="48" height="56">
+    <img src="/okul-projeleri/kader/varliklar/motif/elibelinde.png" alt="" width="48" height="48">
+    <img src="/okul-projeleri/kader/varliklar/motif/ev.png" alt="" width="48" height="48">
+    <img src="/okul-projeleri/kader/varliklar/motif/bereket.png" alt="" width="48" height="32">
+    <img src="/okul-projeleri/kader/varliklar/motif/yildiz.png" alt="" width="48" height="40">
+    <img src="/okul-projeleri/kader/varliklar/motif/hayat-agaci.png" alt="" width="64" height="72">
+    <img src="/okul-projeleri/kader/varliklar/motif/su-yolu.png" alt="" width="48" height="32">
+    <img src="/okul-projeleri/kader/varliklar/motif/goz.png" alt="" width="48" height="48">
+    <img src="/okul-projeleri/kader/varliklar/motif/kirik-baklava.png" alt="" width="48" height="56">
+    <img src="/okul-projeleri/kader/varliklar/motif/elibelinde.png" alt="" width="48" height="48">
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="ekran p-menu" id="ipler" aria-label="The missing finger">
+  <div class="ic">
+    <div class="kesitler">
+      <figure class="kesit parmak">
+        <div class="resim" role="img" aria-label="Close-up: the ring finger ends in a clean cut and has no string."></div>
+        <span class="isaret" aria-hidden="true"></span>
+        <p>no finger, no string</p>
+      </figure>
+      <figure class="kesit kol">
+        <div class="resim" role="img" aria-label="Close-up: the puppet's free arm rests on its hip."></div>
+        <span class="isaret" aria-hidden="true"></span>
+        <p>a free arm</p>
+      </figure>
+    </div>
+    <div>
+      <h2>Fate holds the strings.<br>Not all of them.</h2>
+      <div class="metin" data-yaz="16">
+        <p>One finger of the hand is missing. The arm it would pull moves on its own.</p>
+        <p class="soru">Free will or fate? Every culture asks. KADER lets you play the question.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="ekran p-oyun" id="kader" aria-label="You play fate, not God">
+  <div class="ic">
+    <div>
+      <h2>You play fate, not God.</h2>
+      <div class="kart">
+        <p class="k-baslik">ERASMUS SCHOLARSHIP</p>
+        <p>KOK applied. Excited, but very scared. A partner is waiting at home.</p>
+        <p class="niyet">&gt; the outcome is in fate's hands</p>
+      </div>
+      <div class="kart karar">
+        <p class="k-baslik">FATE</p>
+        <div class="secim" role="group" aria-label="Choose the outcome">
+          <button type="button" data-n="1" aria-pressed="false"><span class="n">1</span> WON</button>
+          <button type="button" data-n="2" aria-pressed="false"><span class="n">2</span> LOST</button>
+          <button type="button" data-n="3" aria-pressed="false" aria-label="3: leave it to the die (50%)"><span class="n">3</span>
+            <svg id="zar" data-yuz="5" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges">
+              <rect x="1" y="1" width="14" height="14" fill="#fff"/>
+              <rect x="1" y="1" width="1" height="1" fill="#000"/><rect x="14" y="1" width="1" height="1" fill="#000"/>
+              <rect x="1" y="14" width="1" height="1" fill="#000"/><rect x="14" y="14" width="1" height="1" fill="#000"/>
+              <rect class="pip p2 p3 p4 p5 p6" x="3" y="3" width="2" height="2" fill="#000"/>
+              <rect class="pip p4 p5 p6" x="11" y="3" width="2" height="2" fill="#000"/>
+              <rect class="pip p6" x="3" y="7" width="2" height="2" fill="#000"/>
+              <rect class="pip p1 p3 p5" x="7" y="7" width="2" height="2" fill="#000"/>
+              <rect class="pip p6" x="11" y="7" width="2" height="2" fill="#000"/>
+              <rect class="pip p4 p5 p6" x="3" y="11" width="2" height="2" fill="#000"/>
+              <rect class="pip p2 p3 p4 p5 p6" x="11" y="11" width="2" height="2" fill="#000"/>
+            </svg>
+          </button>
+        </div>
+        <div id="sonuc" aria-live="polite"></div>
+      </div>
+    </div>
+    <div>
+      <p class="ilke"><span class="satir">The intention belongs to the character.</span><span class="satir ikincil">The outcome belongs to fate.</span></p>
+      <p class="ilke" style="font-size: var(--u)">The die is always 50%.</p>
+      <figure style="margin-top: 32px">
+        <video src="/okul-projeleri/kader/varliklar/anim/10_kader_karar.mp4" poster="/okul-projeleri/kader/varliklar/ekran/10_kader_karar.webp" width="768" height="464" muted loop playsinline preload="metadata" aria-label="Concept animation: the choice moves to 3, the die spins, the outcome appears and the small corner die plants a seed."></video>
+        <figcaption>concept animation: the outcome screen</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="ekran p-oyun" id="dna" aria-label="Hidden DNA, seeds and echoes">
+  <div class="ic">
+    <h2>You get to know them the way you get to know anyone.</h2>
+    <div class="ikili">
+      <figure>
+        <img src="/okul-projeleri/kader/varliklar/ekran/6_dna_acildi.webp" width="768" height="464" loading="lazy" alt="Game screen: a gene opens. DNA OPENED: CURIOSITY 8 of 9, because the character took a risk three times.">
+        <p>Six genes, all hidden at first. They open as the character acts.</p>
+      </figure>
+      <figure>
+        <img src="/okul-projeleri/kader/varliklar/ekran/7_yanki.webp" width="768" height="464" loading="lazy" alt="Game screen: an ECHO banner shows that a job offer in 2014 grew from a coincidence added in 2004.">
+        <p>Events plant seeds. Years later an ECHO shows which moment shaped today.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="ekran p-kilim" id="kilim" aria-label="The life kilim">
+  <div class="ic">
+    <figure>
+      <video src="/okul-projeleri/kader/varliklar/anim/13_hayat_kilimi.mp4" poster="/okul-projeleri/kader/varliklar/ekran/13_hayat_kilimi.webp" width="768" height="464" muted loop playsinline preload="metadata" aria-label="Animation: a life is woven into a kilim and scrolls down; milestones such as FIRST LOVE appear with the age."></video>
+    </figure>
+    <div>
+      <h2>Every life weaves a kilim.</h2>
+      <div class="metin" data-yaz="16">
+        <p>When a life ends, it scrolls past as a kilim. Each milestone becomes a motif.</p>
+      </div>
+      <div class="motifler">
+        <figure><img src="/okul-projeleri/kader/varliklar/motif/goz.png" alt="" width="48" height="48"><figcaption><b>eye</b>love</figcaption></figure>
+        <figure><img src="/okul-projeleri/kader/varliklar/motif/kirik-baklava.png" alt="" width="48" height="56"><figcaption><b>broken diamond</b>loss</figcaption></figure>
+        <figure><img src="/okul-projeleri/kader/varliklar/motif/elibelinde.png" alt="" width="48" height="48"><figcaption><b>elibelinde</b>strength</figcaption></figure>
+        <figure><img src="/okul-projeleri/kader/varliklar/motif/su-yolu.png" alt="" width="48" height="32"><figcaption><b>water path</b>journey</figcaption></figure>
+        <figure><img src="/okul-projeleri/kader/varliklar/motif/ev.png" alt="" width="48" height="48"><figcaption><b>house</b>home</figcaption></figure>
+        <figure><img src="/okul-projeleri/kader/varliklar/motif/bereket.png" alt="" width="48" height="32"><figcaption><b>bereket</b>children</figcaption></figure>
+        <figure><img src="/okul-projeleri/kader/varliklar/motif/yildiz.png" alt="" width="48" height="40"><figcaption><b>star</b>pride</figcaption></figure>
+        <figure><img src="/okul-projeleri/kader/varliklar/motif/hayat-agaci.png" alt="" width="64" height="72"><figcaption><b>tree of life</b>the end</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="ekran p-menu" id="cpc" aria-label="Built for the Amstrad CPC">
+  <div class="ic">
+    <h2>Built for the Amstrad CPC.</h2>
+    <div class="ozellik">
+      <div><b>MODE 1</b>320×200</div>
+      <div><b>4 colours</b>per screen</div>
+      <div><b>ROM font</b>the CPC's own characters</div>
+      <div><b>AY-3-8912</b>sound chip</div>
+    </div>
+    <div class="ekranlar">
+      <img src="/okul-projeleri/kader/varliklar/ekran/1_baslik.webp" width="768" height="464" loading="lazy" alt="Title screen: KADER, mode select, DNA helices on both sides.">
+      <img src="/okul-projeleri/kader/varliklar/ekran/2_dna.webp" width="768" height="464" loading="lazy" alt="DNA select: KIVILCIM and KOK, all genes hidden.">
+      <img src="/okul-projeleri/kader/varliklar/ekran/3_2000ler.webp" width="768" height="464" loading="lazy" alt="Game screen: 2004, age 22, an event card and fate actions.">
+      <img src="/okul-projeleri/kader/varliklar/ekran/8_yuz_olustur.webp" width="768" height="464" loading="lazy" alt="Face builder: hair, face, eyes, brows, mouth, mark, nose and skin tone. The die gives a random face.">
+      <img src="/okul-projeleri/kader/varliklar/ekran/10_kader_karar.webp" width="768" height="464" loading="lazy" alt="Outcome screen: 1 WON, 2 LOST, 3 and a die.">
+      <img src="/okul-projeleri/kader/varliklar/ekran/4_soyut.webp" width="768" height="464" loading="lazy" alt="Abstract mode: a cell among threats, chances and coincidences, no text.">
+    </div>
+    <p class="etiket" id="ekran-notu" style="margin-top:12px">concept screens, drawn with the CPC ROM font</p>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="ekran p-menu" id="kunye" aria-label="Credits">
+  <div class="ic">
+    <img class="logo" src="/okul-projeleri/kader/varliklar/kader-baslik-320.png" width="320" height="200" alt="KADER title image: the hand with the missing ring finger and the puppet.">
+    <p class="ekip">Tulip / Aşko Kuşko</p>
+    <p class="kisi">Süeda &amp; Yusuf</p>
+    <p class="claude">designed with Claude (Anthropic)</p>
+    <p class="yarisma">retroISTANBUL 2026</p>
+    <span class="indir bekliyor" id="indir">disk image: coming soon</span>
+    <p class="altbilgi"><a href="https://hamaratlabs.com/okul-projeleri">hamaratlabs.com</a> · school projects</p>
+  </div>
+</section>
+</main>
+
+<script>window.KADER_EL = {"n": 24, "w": 128, "h": 200, "x0": 96, "kareler": [{"serce": [29.0, 84.9], "orta": [60.0, 105.6], "isaret": [80.67, 97.09], "bas": [105.0, 77.2]}, {"serce": [28.93, 83.8], "orta": [60.0, 105.45], "isaret": [81.29, 96.38], "bas": [104.52, 77.41]}, {"serce": [28.88, 82.78], "orta": [60.01, 105.03], "isaret": [81.85, 95.72], "bas": [104.08, 77.61]}, {"serce": [28.86, 81.91], "orta": [60.03, 104.45], "isaret": [82.31, 95.14], "bas": [103.69, 77.77]}, {"serce": [28.85, 81.24], "orta": [60.04, 103.88], "isaret": [82.65, 94.7], "bas": [103.4, 77.89]}, {"serce": [28.84, 80.82], "orta": [60.05, 103.45], "isaret": [82.86, 94.41], "bas": [103.21, 77.96]}, {"serce": [28.84, 80.67], "orta": [60.05, 103.3], "isaret": [82.93, 94.32], "bas": [103.15, 77.99]}, {"serce": [28.84, 80.82], "orta": [60.05, 103.45], "isaret": [82.86, 94.41], "bas": [103.21, 77.96]}, {"serce": [28.85, 81.24], "orta": [60.04, 103.88], "isaret": [82.65, 94.7], "bas": [103.4, 77.89]}, {"serce": [28.86, 81.91], "orta": [60.03, 104.45], "isaret": [82.31, 95.14], "bas": [103.69, 77.77]}, {"serce": [28.88, 82.78], "orta": [60.01, 105.03], "isaret": [81.85, 95.72], "bas": [104.08, 77.61]}, {"serce": [28.93, 83.8], "orta": [60.0, 105.45], "isaret": [81.29, 96.38], "bas": [104.52, 77.41]}, {"serce": [29.0, 84.9], "orta": [60.0, 105.6], "isaret": [80.67, 97.09], "bas": [105.0, 77.2]}, {"serce": [29.28, 84.95], "orta": [60.0, 105.45], "isaret": [80.03, 97.79], "bas": [104.88, 75.72]}, {"serce": [29.54, 85.0], "orta": [60.01, 105.03], "isaret": [79.41, 98.42], "bas": [104.73, 74.35]}, {"serce": [29.77, 85.04], "orta": [60.03, 104.45], "isaret": [78.86, 98.96], "bas": [104.57, 73.18]}, {"serce": [29.94, 85.07], "orta": [60.04, 103.88], "isaret": [78.43, 99.37], "bas": [104.44, 72.29]}, {"serce": [30.05, 85.08], "orta": [60.05, 103.45], "isaret": [78.15, 99.63], "bas": [104.35, 71.73]}, {"serce": [30.09, 85.09], "orta": [60.05, 103.3], "isaret": [78.06, 99.72], "bas": [104.32, 71.54]}, {"serce": [30.05, 85.08], "orta": [60.05, 103.45], "isaret": [78.15, 99.63], "bas": [104.35, 71.73]}, {"serce": [29.94, 85.07], "orta": [60.04, 103.88], "isaret": [78.43, 99.37], "bas": [104.44, 72.29]}, {"serce": [29.77, 85.04], "orta": [60.03, 104.45], "isaret": [78.86, 98.96], "bas": [104.57, 73.18]}, {"serce": [29.54, 85.0], "orta": [60.01, 105.02], "isaret": [79.41, 98.42], "bas": [104.73, 74.35]}, {"serce": [29.28, 84.95], "orta": [60.0, 105.45], "isaret": [80.03, 97.79], "bas": [104.88, 75.72]}]};</script>
+<script src="/okul-projeleri/kader/varliklar/kader.js?v=1" defer></script>
+</body>
+</html>
