@@ -15,7 +15,8 @@ EMULATOR
   Files: cpc.js, cpc.wasm.
   ALTERED VERSION: in chips-test examples/emus/cpc.c and fibs.ts the KC Compact
   ROMs and the 'kccompact' machine type were removed, and the status bar under
-  the screen is hidden unless the URL has the 'statusbar' argument. Nothing else
+  the screen is hidden (only shown with a 'statusbar' URL argument, which this
+  page does not pass). Nothing else
   was changed. The full change is in chips-test.patch next to this file.
   This is not the original program by Andre Weissflog.
 

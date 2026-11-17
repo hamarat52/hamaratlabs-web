@@ -4,10 +4,9 @@
    - Üst sayfa ekran tuşlarını ve sesi window.kaderTus / window.kaderSes ile yönetir (aynı köken). */
 (() => {
   const DISK = '/okul-projeleri/kader/kader.dsk';
-  if (!new URLSearchParams(location.search).has('file')) {
-    const q = `?file=${encodeURIComponent(DISK)}&input=${encodeURIComponent('run"kader\n')}`;
-    history.replaceState(null, '', location.pathname + q);
-  }
+  // Adres parametreleri her zaman sabitlenir: başka disk ya da başka komut verilemez.
+  const q = `?file=${encodeURIComponent(DISK)}&input=${encodeURIComponent('run"kader\n')}`;
+  if (location.search !== q) history.replaceState(null, '', location.pathname + q);
 
   window.Module = {
     canvas: document.getElementById('canvas'),
