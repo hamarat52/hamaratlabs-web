@@ -1,0 +1,55 @@
+diff --git a/examples/emus/cpc.c b/examples/emus/cpc.c
+index 54ec81e..992e72b 100644
+--- a/examples/emus/cpc.c
++++ b/examples/emus/cpc.c
+@@ -1,3 +1,4 @@
++// ALTERED VERSION of floooh/chips-test examples/emus/cpc.c (9e9c330): KC Compact ROMs and type removed, status bar hidden by default.
+ /*
+     cpc.c
+ 
+@@ -129,10 +130,7 @@ cpc_desc_t cpc_desc(cpc_type_t type, cpc_joystick_type_t joy_type) {
+                 .basic = { .ptr=dump_cpc6128_basic_bin, .size= sizeof(dump_cpc6128_basic_bin) },
+                 .amsdos = { .ptr=dump_cpc6128_amsdos_bin, .size=sizeof(dump_cpc6128_amsdos_bin) }
+             },
+-            .kcc = {
+-                .os = { .ptr=dump_kcc_os_bin, .size=sizeof(dump_kcc_os_bin) },
+-                .basic = { .ptr=dump_kcc_bas_bin, .size=sizeof(dump_kcc_bas_bin) }
+-            },
++            // ALTERED for hamaratlabs.com/okul-projeleri/kader: KC Compact ROMs removed from this build
+         },
+         #if defined(CHIPS_USE_UI)
+         .debug = ui_cpc_get_debug(&state.ui),
+@@ -148,8 +146,7 @@ void app_init(void) {
+     if (sargs_exists("type")) {
+         if (sargs_equals("type", "cpc464")) {
+             type = CPC_TYPE_464;
+-        } else if (sargs_equals("type", "kccompact")) {
+-            type = CPC_TYPE_KCCOMPACT;
++        // ALTERED: 'kccompact' type removed (no KC Compact ROMs in this build)
+         }
+     }
+     cpc_joystick_type_t joy_type = CPC_JOYSTICK_NONE;
+@@ -270,7 +267,8 @@ void app_frame(void) {
+     const uint64_t emu_start_time = stm_now();
+     state.ticks = cpc_exec(&state.cpc, state.frame_time_us);
+     state.emu_time_ms = stm_ms(stm_since(emu_start_time));
+-    draw_status_bar();
++    // ALTERED: status bar only with the "statusbar" URL argument
++    if (sargs_exists("statusbar")) { draw_status_bar(); }
+     gfx_draw(cpc_display_info(&state.cpc));
+     handle_file_loading();
+     send_keybuf_input();
+diff --git a/fibs.ts b/fibs.ts
+index cd9d73b..8671917 100644
+--- a/fibs.ts
++++ b/fibs.ts
+@@ -251,8 +251,7 @@ function addRoms(b: Builder) {
+             'cpc6128_basic.bin',
+             'cpc6128_os.bin',
+             'cpc6128_amsdos.bin',
+-            'kcc_os.bin',
+-            'kcc_bas.bin',
++            // ALTERED: kcc_os.bin, kcc_bas.bin removed
+         ],
+         kc85: [
+             'caos22.852',

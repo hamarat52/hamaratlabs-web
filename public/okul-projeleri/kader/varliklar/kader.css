@@ -167,7 +167,44 @@ figcaption { margin-top: 8px; color: var(--i); }
 .ekranlar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .ekranlar img { width: 100%; height: auto; display: block; }
 
-/* ---------------------------------------------------------------- 8. künye */
+/* ---------------------------------------------------------------- 8. tarayıcıda oyna */
+#oyna .ic { display: grid; justify-items: center; }
+#oyna h2 { justify-self: stretch; }
+.oyun { width: min(100%, max(320px, calc((100svh - 300px) * 4 / 3))); outline: none; }
+.oyun-ekran { position: relative; aspect-ratio: 4 / 3; background: #000; box-shadow: 0 0 0 4px var(--camgobegi); }
+.oyun-ekran iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; background: #000; }
+.oyun-kapak { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0.3; }
+.oyun-baslat { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap; }
+.oyun-alt { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 16px; }
+.oyun-alt .etiket { margin: 0; }
+.oyun-tam { color: var(--camgobegi); padding: 8px 4px; min-height: 44px; white-space: nowrap; }
+.oyun-dugmeler { display: flex; gap: 16px; }
+.oyun-tuslar { display: none; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+.oyun-tuslar button {
+  min-height: 48px; box-shadow: inset 0 0 0 4px var(--camgobegi); color: var(--beyaz);
+  touch-action: manipulation; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+}
+.oyun-tuslar button:active, .oyun-tuslar button.basili { background: var(--turuncu); color: var(--siyah); box-shadow: none; }
+.oyun-tuslar .genis { grid-column: span 2; }
+.oyun-ipucu { margin-top: 12px; color: var(--camgobegi); justify-self: stretch; text-align: center; }
+.oyun-ipucu .dokun { display: none; }
+@media (hover: none), (max-width: 700px) {
+  .oyun.basladi .oyun-tuslar { display: grid; }
+  .oyun-ipucu .tus { display: none; }
+  .oyun-ipucu .dokun { display: inline; }
+}
+.oyun:fullscreen, .oyun.tam {
+  position: fixed; inset: 0; z-index: 30; width: 100%; height: 100%; max-width: none;
+  display: flex; flex-direction: column; background: #000; padding: 8px 8px max(8px, env(safe-area-inset-bottom));
+}
+.oyun:fullscreen .oyun-ekran, .oyun.tam .oyun-ekran { flex: 1; aspect-ratio: auto; box-shadow: none; }
+.oyun:fullscreen .oyun-alt, .oyun.tam .oyun-alt { margin-top: 8px; justify-content: flex-end; }
+.oyun:fullscreen .oyun-alt .etiket, .oyun.tam .oyun-alt .etiket { display: none; }
+@media (max-width: 700px) { .oyun-alt { flex-direction: column; align-items: stretch; gap: 4px; } .oyun-dugmeler { align-self: flex-end; } }
+.oyun:fullscreen .oyun-tuslar, .oyun.tam .oyun-tuslar { margin-top: 8px; }
+html.oyun-tam-acik { overflow: hidden; }
+
+/* ---------------------------------------------------------------- 9. künye */
 #kunye .ic { text-align: center; display: grid; justify-items: center; gap: 0; }
 #kunye .logo { width: min(576px, 80vw); height: auto; }
 #kunye .ekip { font-size: calc(var(--u) * 2); color: var(--turuncu); margin-top: 24px; }

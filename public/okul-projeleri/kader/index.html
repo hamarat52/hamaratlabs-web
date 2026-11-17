@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#000080">
 <link rel="icon" href="/okul-projeleri/kader/varliklar/el-sprite.png">
 <link rel="preload" href="/okul-projeleri/kader/varliklar/kader-cpc.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/okul-projeleri/kader/varliklar/kader.css?v=5">
+<link rel="stylesheet" href="/okul-projeleri/kader/varliklar/kader.css?v=6">
 </head>
 <body>
 <header class="ust">
@@ -211,6 +211,32 @@
 </section>
 
 <!-- 8 -->
+<section class="ekran p-oyun" id="oyna" aria-label="Play KADER in the browser">
+  <div class="ic">
+    <h2>Play it here.</h2>
+    <div class="oyun" id="oyun" tabindex="-1">
+      <div class="oyun-ekran" id="oyun-ekran">
+        <img class="oyun-kapak" src="/okul-projeleri/kader/varliklar/emulator-v3/1_title_baslik.webp" width="768" height="544" loading="lazy" alt="">
+        <button class="indir oyun-baslat" id="oyun-baslat" type="button">PLAY IN BROWSER</button>
+      </div>
+      <div class="oyun-tuslar" id="oyun-tuslar" role="group" aria-label="Game keys">
+        <button type="button" data-tus="1">1</button>
+        <button type="button" data-tus="2">2</button>
+        <button type="button" data-tus="3">3</button>
+        <button type="button" data-tus="4">4</button>
+        <button type="button" data-tus=" " class="genis">SPACE</button>
+        <button type="button" data-tus="Enter" class="genis">RETURN</button>
+      </div>
+      <div class="oyun-alt">
+        <p class="etiket" id="oyun-durum" aria-live="polite">the real disc in an Amstrad CPC 6128 emulator · loading takes about 30 seconds, like a real disc</p>
+        <span class="oyun-dugmeler"><button class="oyun-tam" id="oyun-yeniden" type="button" hidden>RESTART</button><button class="oyun-tam" id="oyun-tam" type="button" hidden>FULL SCREEN</button></span>
+      </div>
+    </div>
+    <p class="oyun-ipucu"><span class="tus">keys 1 2 3 4, SPACE and RETURN · Esc goes back to the page</span><span class="dokun">play with the keys under the screen</span></p>
+  </div>
+</section>
+
+<!-- 9 -->
 <section class="ekran p-menu" id="kunye" aria-label="Credits">
   <div class="ic">
     <img class="logo" src="/okul-projeleri/kader/varliklar/kader-baslik-320.png" width="320" height="200" alt="KADER title image: a puppeteer's hand with a cut ring finger, holding four strings that fade into the dark.">
@@ -221,12 +247,13 @@
     <p class="indirler"><a class="indir" id="indir" href="/okul-projeleri/kader/kader.dsk?v=3" download="kader.dsk">download kader.dsk</a><a class="indir ikinci" href="/okul-projeleri/kader/KADER_retroISTANBUL2026.zip?v=3" download="KADER_retroISTANBUL2026.zip">full package (.zip)</a></p>
     <p class="calistir">Amstrad CPC 6128, or CPC 464 with DDI-1 · RUN"KADER</p>
     <p class="altbilgi"><a href="https://hamaratlabs.com/okul-projeleri">hamaratlabs.com</a> · school projects</p>
-    <p class="atif">CPC ROM font © Amstrad / Locomotive Software. Amstrad have kindly given their permission for the redistribution of their copyrighted material but retain that copyright.</p>
+    <p class="atif">Play in browser: tiny8bit CPC emulator by Andre Weissflog (floooh/chips, zlib licence), built by us with the KC Compact ROMs removed · <a href="/okul-projeleri/kader/oyna/CREDITS.txt">emulator credits</a></p>
+    <p class="atif">CPC ROM font and the CPC ROMs in the emulator © Amstrad / Locomotive Software. Amstrad have kindly given their permission for the redistribution of their copyrighted material but retain that copyright.</p>
   </div>
 </section>
 </main>
 
 <script>window.KADER_EL = {"n": 24, "w": 400, "h": 400, "kareler": [{"bas": [214.83, 172.78], "isaret": [129.59, 163.3], "orta": [121.43, 131.13], "serce": [156.31, 61.65]}, {"bas": [215.19, 173.15], "isaret": [129.49, 162.82], "orta": [120.9, 130.12], "serce": [156.39, 62.21]}, {"bas": [215.63, 173.61], "isaret": [129.56, 162.59], "orta": [120.36, 128.97], "serce": [156.39, 62.58]}, {"bas": [216.12, 174.13], "isaret": [129.8, 162.63], "orta": [119.87, 127.75], "serce": [156.31, 62.72]}, {"bas": [216.61, 174.66], "isaret": [130.2, 162.92], "orta": [119.44, 126.55], "serce": [156.16, 62.61]}, {"bas": [217.09, 175.17], "isaret": [130.72, 163.45], "orta": [119.11, 125.46], "serce": [155.94, 62.28]}, {"bas": [217.5, 175.63], "isaret": [131.35, 164.17], "orta": [118.89, 124.56], "serce": [155.69, 61.73]}, {"bas": [217.83, 176.01], "isaret": [132.03, 165.03], "orta": [118.79, 123.9], "serce": [155.42, 61.01]}, {"bas": [218.05, 176.29], "isaret": [132.73, 165.98], "orta": [118.81, 123.54], "serce": [155.15, 60.15]}, {"bas": [218.14, 176.45], "isaret": [133.4, 166.95], "orta": [118.95, 123.49], "serce": [154.9, 59.23]}, {"bas": [218.1, 176.48], "isaret": [133.99, 167.87], "orta": [119.21, 123.76], "serce": [154.69, 58.3]}, {"bas": [217.92, 176.38], "isaret": [134.46, 168.7], "orta": [119.56, 124.33], "serce": [154.54, 57.42]}, {"bas": [217.63, 176.15], "isaret": [134.77, 169.37], "orta": [120.0, 125.16], "serce": [154.44, 56.67]}, {"bas": [217.23, 175.8], "isaret": [134.9, 169.84], "orta": [120.5, 126.18], "serce": [154.4, 56.1]}, {"bas": [216.77, 175.36], "isaret": [134.83, 170.09], "orta": [121.02, 127.33], "serce": [154.42, 55.73]}, {"bas": [216.28, 174.85], "isaret": [134.57, 170.1], "orta": [121.53, 128.52], "serce": [154.49, 55.61]}, {"bas": [215.79, 174.31], "isaret": [134.14, 169.85], "orta": [122.0, 129.68], "serce": [154.62, 55.73]}, {"bas": [215.33, 173.77], "isaret": [133.57, 169.36], "orta": [122.39, 130.73], "serce": [154.79, 56.08]}, {"bas": [214.94, 173.28], "isaret": [132.9, 168.67], "orta": [122.67, 131.61], "serce": [154.99, 56.65]}, {"bas": [214.63, 172.87], "isaret": [132.19, 167.81], "orta": [122.81, 132.26], "serce": [155.23, 57.38]}, {"bas": [214.43, 172.58], "isaret": [131.49, 166.84], "orta": [122.8, 132.63], "serce": [155.48, 58.24]}, {"bas": [214.35, 172.41], "isaret": [130.84, 165.84], "orta": [122.63, 132.7], "serce": [155.73, 59.15]}, {"bas": [214.39, 172.39], "isaret": [130.29, 164.87], "orta": [122.33, 132.46], "serce": [155.97, 60.06]}, {"bas": [214.55, 172.52], "isaret": [129.86, 164.0], "orta": [121.92, 131.93], "serce": [156.17, 60.91]}]};</script>
-<script src="/okul-projeleri/kader/varliklar/kader.js?v=4" defer></script>
+<script src="/okul-projeleri/kader/varliklar/kader.js?v=5" defer></script>
 </body>
 </html>

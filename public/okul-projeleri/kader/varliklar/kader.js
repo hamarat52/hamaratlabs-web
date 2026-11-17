@@ -16,7 +16,7 @@
     sesDugme.textContent = ses ? '♪ ON' : '♪ OFF';
     sesDugme.setAttribute('aria-pressed', String(ses));
   }
-  function sesAc(v) { ses = v; localStorage.setItem('kader-ses', v ? '1' : '0'); sesYaz(); }
+  function sesAc(v) { ses = v; localStorage.setItem('kader-ses', v ? '1' : '0'); sesYaz(); oyunSes(); }
   sesDugme.addEventListener('click', () => sesAc(!ses));
   sesYaz();
   function nota(frek, bas, sure, hacim = 0.05) {
@@ -243,6 +243,84 @@
     tur();
   }
   document.querySelectorAll('.secim button').forEach((b) => b.addEventListener('click', () => sec(+b.dataset.n)));
+
+  /* ---------------------------------------------------------------- tarayıcıda oyna (emülatör yalnız tıklayınca yüklenir) */
+  function oyunPencere() {
+    const f = document.querySelector('#oyun-ekran iframe');
+    try { return f && f.contentWindow; } catch { return null; }
+  }
+  function oyunSes() {
+    const w = oyunPencere();
+    if (w && w.kaderSes) w.kaderSes(ses);
+  }
+  const oyun = document.getElementById('oyun');
+  const oyunEkran = document.getElementById('oyun-ekran');
+  const oyunDurum = document.getElementById('oyun-durum');
+  const oyunTam = document.getElementById('oyun-tam');
+  const oyunYeniden = document.getElementById('oyun-yeniden');
+  oyunYeniden.addEventListener('click', () => {
+    const f = oyunEkran.querySelector('iframe');
+    if (!f) return;
+    f.src = '/okul-projeleri/kader/oyna/';
+    oyunDurum.textContent = 'starting again · loading the disc, about 30 seconds';
+  });
+  const DOKUN = matchMedia('(hover: none), (max-width: 700px)');
+  function oyunOdak() {
+    const f = oyunEkran.querySelector('iframe');
+    if (!f || DOKUN.matches) return;
+    f.focus();
+    try { f.contentWindow.focus(); } catch { /* aynı köken; olmazsa tıklama yeter */ }
+  }
+  document.getElementById('oyun-baslat').addEventListener('click', () => {
+    const f = document.createElement('iframe');
+    f.src = '/okul-projeleri/kader/oyna/';
+    f.title = 'KADER running in an Amstrad CPC emulator';
+    f.allow = 'fullscreen; autoplay';
+    f.addEventListener('load', () => { oyunSes(); oyunOdak(); });
+    oyunEkran.replaceChildren(f);
+    oyun.classList.add('basladi');
+    oyunTam.hidden = false;
+    oyunYeniden.hidden = false;
+    oyunDurum.textContent = DOKUN.matches
+      ? 'loading the disc · about 30 seconds · then tap the keys'
+      : 'loading the disc · about 30 seconds · the keyboard now goes to the game';
+  });
+  window.addEventListener('message', (e) => {
+    if (e.origin !== location.origin || !e.data || typeof e.data.kader !== 'string') return;
+    if (e.data.kader === 'cik') {
+      if (oyun.classList.contains('tam')) { oyun.classList.remove('tam'); oyunTamYaz(); }
+      const f = oyunEkran.querySelector('iframe');
+      if (f) f.blur();
+      window.focus();
+      oyun.focus({ preventScroll: true });
+      oyunDurum.textContent = 'back on the page · click the screen to play on';
+    } else if (e.data.kader === 'odak') {
+      oyunDurum.textContent = DOKUN.matches ? 'the game has the keys' : 'the keyboard goes to the game · Esc goes back to the page';
+    }
+  });
+  document.querySelectorAll('#oyun-tuslar button').forEach((b) => {
+    b.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      const w = oyunPencere();
+      if (w && w.kaderTus) w.kaderTus(b.dataset.tus);
+      oyunDurum.textContent = 'the real disc in an Amstrad CPC 6128 emulator';
+      b.classList.add('basili'); setTimeout(() => b.classList.remove('basili'), 120);
+    });
+    b.addEventListener('click', (e) => e.preventDefault());
+  });
+  function oyunTamYaz() {
+    const acik = document.fullscreenElement === oyun || oyun.classList.contains('tam');
+    oyunTam.textContent = acik ? 'EXIT' : 'FULL SCREEN';
+    document.documentElement.classList.toggle('oyun-tam-acik', oyun.classList.contains('tam'));
+  }
+  oyunTam.addEventListener('click', () => {
+    if (document.fullscreenElement === oyun) { document.exitFullscreen(); return; }
+    if (oyun.classList.contains('tam')) { oyun.classList.remove('tam'); oyunTamYaz(); return; }
+    if (oyun.requestFullscreen && document.fullscreenEnabled) {
+      oyun.requestFullscreen().then(oyunOdak).catch(() => { oyun.classList.add('tam'); oyunTamYaz(); });
+    } else { oyun.classList.add('tam'); oyunTamYaz(); }
+  });
+  document.addEventListener('fullscreenchange', () => { oyunTamYaz(); if (document.fullscreenElement === oyun) oyunOdak(); });
 
   etkinlestir(0);
 })();

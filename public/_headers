@@ -15,3 +15,14 @@
 # Fibi sunumunun PDF'i: tanıtım sayfasından indirilir, arama sonuçlarına girmez (sunum sayfası da noindex)
 /okul-projeleri/fibi/*.pdf
   X-Robots-Tag: noindex
+
+# KADER tarayıcıda oyna: emülatör ve oyun diski güncellenebilir; tarayıcı her açılışta sorsun (değişmediyse 304).
+# Emülatör sayfası arama sonuçlarına girmez; yalnız aynı kökenden çerçevelenebilir.
+/okul-projeleri/kader/oyna/*
+  Cache-Control: no-cache
+  X-Robots-Tag: noindex
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; base-uri 'none'; form-action 'none'
+/okul-projeleri/kader/oyna/*.wasm
+  Content-Type: application/wasm
+/okul-projeleri/kader/kader.dsk
+  Cache-Control: no-cache
