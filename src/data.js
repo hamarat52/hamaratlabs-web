@@ -178,7 +178,7 @@ export const APPS = [
 export const LOG = [
   {
     tag: 'KASIM 2026 · SESVER',
-    text: 'SesVer 1.4.0 yayında. Uzun metinler üretim kuyruğuyla sırayla seslendiriliyor, TXT ve CSV dosyalarından toplu aktarma var. Ürün sayfasında kısa bir tanıtım videosu var.'
+    text: 'SesVer 1.4.0 yayında. Uzun metinler üretim kuyruğuyla sırayla seslendiriliyor, TXT ve CSV dosyalarından toplu aktarma var. Açılışta tıklayınca geçilen kısa bir karşılama ekranı geliyor, çalışma alanı daha geniş. Ürün sayfasında kısa bir tanıtım videosu var.'
   },
   {
     tag: 'KASIM 2026 · TITIMER',
@@ -190,7 +190,7 @@ export const LOG = [
   },
   {
     tag: 'KASIM 2026 · WINGWIRE',
-    text: "Android uygulamasına 8 ana ekran widget'ı geldi. 0.3.3 ile alt menüde hangi bölümlerin duracağı seçilebiliyor. 0.3.4'te Diğer menüsü alt barın sonuna taşındı, uygulama içi güncelleme eklendi."
+    text: "Android uygulamasına 8 ana ekran widget'ı geldi. 0.3.3 ile alt menüde hangi bölümlerin duracağı seçilebiliyor. 0.3.4'te Diğer menüsü alt barın sonuna taşındı, uygulama içi güncelleme eklendi. 0.3.5 ile web'deki Yapılacaklar listesi telefona geldi: hızlı ekleme ve düzenleme. 0.3.6'da alt bar yenilendi, seçilen bölüm barda duruyor, ayrı bir «+» düğmesi var."
   },
   {
     tag: 'KASIM 2026 · KİTABE',
