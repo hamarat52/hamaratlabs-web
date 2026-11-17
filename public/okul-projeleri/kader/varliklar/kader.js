@@ -146,12 +146,14 @@
 
     const set = (x, y, c) => { if (x >= 0 && y >= 0 && x < W && y < H) pix[y * W + x] = c; };
     // ipler: uçtan aşağı iner, CPC 4 renkte dither ile solar (beyaz > camgöbeği > seyrek nokta > boşluk)
+    const OLC = H / 200; // ince ızgara: taban 320x200 sahnesine göre ölçek
     function ipRenk(y) {
-      if (y < 112) return WH;
-      if (y < 136) return CY;
-      if (y < 158) return y % 2 === 0 ? CY : BG;
-      if (y < 180) return y % 4 === 0 ? CY : BG;
-      if (y < 194) return y % 8 === 0 ? CY : BG;
+      const yb = y / OLC;
+      if (yb < 112) return WH;
+      if (yb < 136) return CY;
+      if (yb < 158) return y % 2 === 0 ? CY : BG;
+      if (yb < 180) return y % 4 === 0 ? CY : BG;
+      if (yb < 194) return y % 8 === 0 ? CY : BG;
       return BG;
     }
     const IPLER = ['serce', 'orta', 'isaret', 'bas'];
@@ -163,7 +165,7 @@
       const A = KARE.kareler[kare];
       IPLER.forEach((k) => {
         const ux = A[k][0]; const uy = Math.round(A[k][1]);
-        const sal = AZ ? 0 : 1.6 * Math.sin(t * 1.1 + FAZ[k]) + 0.6 * Math.sin(t * 2.3 + FAZ[k] * 2);
+        const sal = AZ ? 0 : OLC * (1.6 * Math.sin(t * 1.1 + FAZ[k]) + 0.6 * Math.sin(t * 2.3 + FAZ[k] * 2));
         for (let y = uy; y < H; y += 1) {
           const f = (y - uy) / (H - uy);
           set(Math.round(ux + sal * f * f), y, ipRenk(y));
@@ -181,7 +183,7 @@
     // tam sayı ölçek: pikseller eşit kalsın
     function olcekle() {
       const kutu = cv.parentElement.getBoundingClientRect();
-      const k = Math.max(1, Math.floor(Math.min(kutu.height / H, kutu.width / (W - 40)))); // soldaki 40 px boş, taşabilir
+      const k = Math.max(1, Math.floor(Math.min(kutu.height / H, kutu.width / (W * 0.8)))); // soldaki beşte bir boş, taşabilir
       cv.style.width = `${W * k}px`; cv.style.height = `${H * k}px`;
     }
     new ResizeObserver(olcekle).observe(cv.parentElement);

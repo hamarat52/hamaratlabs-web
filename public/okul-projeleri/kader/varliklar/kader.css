@@ -97,10 +97,10 @@ canvas.sahne { display: block; position: absolute; right: 0; top: 50%; transform
 /* ---------------------------------------------------------------- 3. ipler */
 #ipler .ic { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 56px; align-items: center; }
 .kesitler { display: grid; grid-template-columns: repeat(2, auto); gap: 24px; }
-.kesit { position: relative; --k: 5; }
+.kesit { position: relative; --k: 6; }
 .kesit .resim {
   width: calc(56px * var(--k)); height: calc(56px * var(--k));
-  background: var(--lacivert) url('/okul-projeleri/kader/varliklar/el-320.png') no-repeat;
+  background: var(--lacivert) url('/okul-projeleri/kader/varliklar/el-ince-640.png') no-repeat;
   background-size: calc(320px * var(--k)) calc(200px * var(--k));
   image-rendering: pixelated; border: 2px solid var(--camgobegi);
 }
@@ -109,7 +109,7 @@ canvas.sahne { display: block; position: absolute; right: 0; top: 50%; transform
 .kesit .isaret {
   position: absolute; border: 2px solid var(--turuncu); animation: imlec 0.8s steps(1) infinite;
 }
-.kesit.parmak .isaret { left: calc(16 * var(--k) * 1px); top: calc(22 * var(--k) * 1px); width: calc(19 * var(--k) * 1px); height: calc(14 * var(--k) * 1px); }
+.kesit.parmak .isaret { left: calc(14 * var(--k) * 1px); top: calc(22 * var(--k) * 1px); width: calc(21 * var(--k) * 1px); height: calc(14 * var(--k) * 1px); }
 .kesit.ip .isaret { left: calc(31 * var(--k) * 1px); top: calc(4 * var(--k) * 1px); width: calc(14 * var(--k) * 1px); height: calc(48 * var(--k) * 1px); border-style: dashed; }
 .ekran:not(.aktif) .kesit .isaret { animation: none; }
 .kesit p { margin-top: 10px; color: var(--camgobegi); }
@@ -163,7 +163,7 @@ figcaption { margin-top: 8px; color: var(--i); }
 .ozellik { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 8px 0 32px; }
 .ozellik div { border: 4px solid var(--camgobegi); padding: 12px; }
 .ozellik b { display: block; color: var(--turuncu); font-weight: normal; font-size: calc(var(--u) * 1.5); margin-bottom: 6px; }
-.ekranlar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ekranlar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .ekranlar img { width: 100%; height: auto; display: block; }
 
 /* ---------------------------------------------------------------- 8. künye */
@@ -175,7 +175,10 @@ figcaption { margin-top: 8px; color: var(--i); }
 #kunye .yarisma { margin-top: 8px; }
 .indir { display: inline-block; margin-top: 24px; padding: 14px 22px; background: var(--turuncu); color: var(--lacivert); text-decoration: none; }
 .indir:hover { background: var(--beyaz); }
-.indir.bekliyor { background: none; color: var(--camgobegi); border: 4px solid var(--camgobegi); }
+.indirler { display: flex; flex-wrap: wrap; gap: 0 16px; justify-content: center; }
+.indir.ikinci { background: none; color: var(--camgobegi); box-shadow: inset 0 0 0 4px var(--camgobegi); }
+.indir.ikinci:hover { background: var(--camgobegi); color: var(--lacivert); }
+#kunye .calistir { margin-top: 12px; color: var(--camgobegi); }
 .altbilgi { margin-top: 28px; color: var(--camgobegi); }
 .altbilgi a { color: var(--beyaz); }
 .atif { margin-top: 16px; max-width: 46em; font-family: ui-monospace, monospace; font-size: 12px; line-height: 1.4; color: var(--camgobegi); opacity: 0.85; }
