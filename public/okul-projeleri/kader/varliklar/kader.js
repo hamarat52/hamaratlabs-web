@@ -144,92 +144,31 @@
     let hazir = false;
     sprite.onload = () => { hazir = true; ciz(0); };
 
-    const set = (x, y, c) => { x = Math.round(x); y = Math.round(y); if (x >= 0 && y >= 0 && x < W && y < H) pix[y * W + x] = c; };
-    function cizgi(a, b, c, w = 1) {
-      const n = Math.ceil(Math.max(Math.abs(b[0] - a[0]), Math.abs(b[1] - a[1]))) + 1;
-      const lo = -Math.floor(w / 2); const hi = w - Math.floor(w / 2);
-      for (let i = 0; i <= n; i += 1) {
-        const t = i / n; const x = Math.round(a[0] + (b[0] - a[0]) * t); const y = Math.round(a[1] + (b[1] - a[1]) * t);
-        for (let dx = lo; dx < hi; dx += 1) for (let dy = lo; dy < hi; dy += 1) set(x + dx, y + dy, c);
-      }
+    const set = (x, y, c) => { if (x >= 0 && y >= 0 && x < W && y < H) pix[y * W + x] = c; };
+    // ipler: uçtan aşağı iner, CPC 4 renkte dither ile solar (beyaz > camgöbeği > seyrek nokta > boşluk)
+    function ipRenk(y) {
+      if (y < 112) return WH;
+      if (y < 136) return CY;
+      if (y < 158) return y % 2 === 0 ? CY : BG;
+      if (y < 180) return y % 4 === 0 ? CY : BG;
+      if (y < 194) return y % 8 === 0 ? CY : BG;
+      return BG;
     }
-    function disk(cx, cy, r, c) {
-      for (let y = Math.floor(cy - r - 1); y <= cy + r + 1; y += 1) {
-        for (let x = Math.floor(cx - r - 1); x <= cx + r + 1; x += 1) {
-          if ((x - cx) ** 2 + (y - cy) ** 2 <= r * r + 0.5) set(x, y, c);
-        }
-      }
-    }
-    // iki kemikli ters kinematik: omuz/kalça s, hedef t, uzunluklar a b, dirsek yönü yon (+1 sağa, -1 sola)
-    function ik(s, t, a, b, yon) {
-      let dx = t[0] - s[0]; let dy = t[1] - s[1];
-      let d = Math.hypot(dx, dy);
-      const dmax = a + b - 0.01; const dmin = Math.abs(a - b) + 0.5;
-      if (d > dmax) { dx *= dmax / d; dy *= dmax / d; d = dmax; }
-      if (d < dmin) { dx *= dmin / d; dy *= dmin / d; d = dmin; }
-      const al = Math.acos(Math.min(1, Math.max(-1, (a * a + d * d - b * b) / (2 * a * d))));
-      const taban = Math.atan2(dy, dx);
-      const c1 = taban + al; const c2 = taban - al;
-      const e1 = [s[0] + a * Math.cos(c1), s[1] + a * Math.sin(c1)];
-      const e2 = [s[0] + a * Math.cos(c2), s[1] + a * Math.sin(c2)];
-      const dirsek = (yon > 0 ? (e1[0] > e2[0]) : (e1[0] < e2[0])) ? e1 : e2;
-      return [dirsek, [s[0] + dx, s[1] + dy]];
-    }
-    const yumusak = (x) => x * x * (3 - 2 * x);
-    // serbest kol: kendi döngüsü (elin döngüsüyle eşleşmez)
-    function serbestKol(t, omuz) {
-      const P = 9.0; const u = (t % P) / P;
-      const bel = [1, 17]; const yukari = [-3, -19];
-      let h;
-      if (u < 0.30) h = bel;
-      else if (u < 0.40) { const k = yumusak((u - 0.30) / 0.10); h = [bel[0] + (yukari[0] - bel[0]) * k, bel[1] + (yukari[1] - bel[1]) * k]; }
-      else if (u < 0.75) { h = [yukari[0] - 3 * Math.sin((u - 0.40) * 2 * Math.PI * 5), yukari[1] + 1.5 * Math.abs(Math.sin((u - 0.40) * 2 * Math.PI * 5))]; }
-      else if (u < 0.85) { const k = yumusak((u - 0.75) / 0.10); h = [yukari[0] + (bel[0] - yukari[0]) * k, yukari[1] + (bel[1] - yukari[1]) * k]; }
-      else h = bel;
-      return ik(omuz, [omuz[0] + h[0], omuz[1] + h[1]], 10.5, 10.5, -1);
-    }
+    const IPLER = ['serce', 'orta', 'isaret', 'bas'];
+    const FAZ = { serce: 0, orta: 1.9, isaret: 3.3, bas: 4.6 };
     function ciz(t) {
       if (!hazir) return;
       pix.fill(BG);
-      const kare = AZ ? 0 : Math.floor(t * 6) % KARE.n;
-      const sx = AZ ? 0 : Math.round(2 * Math.sin(t * 0.7));
-      const sy = AZ ? 0 : Math.round(1.5 * Math.sin(t * 0.9 + 1));
+      const kare = AZ ? 0 : Math.floor(t * 5) % KARE.n;
       const A = KARE.kareler[kare];
-      const uc = (k) => [A[k][0] + sx, A[k][1] + sy];
-      const salin = AZ ? 0 : 1.2 * Math.sin(t * 1.3);
-      // gövde orta parmağın ipine asılı
-      const o = uc('orta');
-      const bas = [o[0] - 1 + salin, o[1] + 18.5];
-      const om = { l: [bas[0] - 7, bas[1] + 12], r: [bas[0] + 7, bas[1] + 12] };
-      const ka = { l: [bas[0] - 4, bas[1] + 33], r: [bas[0] + 4, bas[1] + 33] };
-      // sağ el işaret parmağının ipinde
-      const i = uc('isaret');
-      const [dsR, elR] = ik(om.r, [i[0], i[1] + 25], 10.4, 10.8, +1);
-      // ayaklar serçe ve başparmağın iplerinde (ip boyları sabit)
-      const s = uc('serce'); const b = uc('bas');
-      const [dzL, ayL] = ik(ka.l, [s[0] + 22, s[1] + 97.5], 12.6, 13, -1);
-      const [dzR, ayR] = ik(ka.r, [b[0] - 36, b[1] + 104.8], 12.6, 13, +1);
-      const [dsL, elL] = AZ ? ik(om.l, [om.l[0] + 1, om.l[1] + 17], 10.5, 10.5, -1) : serbestKol(t, om.l);
-      // ipler (önce, kuklanın ve elin arkasında)
-      cizgi(s, ayL, WH); cizgi(o, [bas[0], bas[1] - 5], WH); cizgi(i, elR, WH); cizgi(b, ayR, WH);
-      // bacaklar
-      cizgi(ka.l, dzL, CY, 3); cizgi(dzL, ayL, CY, 3); cizgi(ka.r, dzR, CY, 3); cizgi(dzR, ayR, CY, 3);
-      // gövde
-      for (let y = Math.round(om.l[1]); y <= Math.round(ka.l[1]); y += 1) {
-        const k = (y - om.l[1]) / (ka.l[1] - om.l[1]);
-        const xa = om.l[0] + (ka.l[0] - 1 - om.l[0]) * k; const xb = om.r[0] + (ka.r[0] + 1 - om.r[0]) * k;
-        for (let x = Math.round(xa); x <= Math.round(xb); x += 1) set(x, y, CY);
-      }
-      // kollar
-      cizgi(om.l, dsL, CY, 2); cizgi(dsL, elL, CY, 2); cizgi(om.r, dsR, CY, 2); cizgi(dsR, elR, CY, 2);
-      disk(elL[0], elL[1], 1.6, WH); disk(elR[0], elR[1], 1.6, WH);
-      set(dsL[0], dsL[1], WH); set(dsR[0], dsR[1], WH); set(dzL[0], dzL[1], WH); set(dzR[0], dzR[1], WH);
-      cizgi([ayL[0] - 3, ayL[1]], ayL, WH, 2); cizgi(ayR, [ayR[0] + 3, ayR[1]], WH, 2);
-      // boyun ve baş
-      cizgi([bas[0], bas[1] + 5], [bas[0], om.l[1]], WH, 2);
-      disk(bas[0], bas[1], 5.5, WH);
-      set(bas[0] - 2, bas[1], BG); set(bas[0] + 2, bas[1], BG);
-      // piksel tamponu -> tuval
+      IPLER.forEach((k) => {
+        const ux = A[k][0]; const uy = Math.round(A[k][1]);
+        const sal = AZ ? 0 : 1.6 * Math.sin(t * 1.1 + FAZ[k]) + 0.6 * Math.sin(t * 2.3 + FAZ[k] * 2);
+        for (let y = uy; y < H; y += 1) {
+          const f = (y - uy) / (H - uy);
+          set(Math.round(ux + sal * f * f), y, ipRenk(y));
+        }
+      });
       const d = img.data;
       for (let p = 0; p < W * H; p += 1) {
         const c = pix[p]; const q = p * 4;
@@ -237,12 +176,12 @@
       }
       ctx.clearRect(0, 0, W, H);
       ctx.putImageData(img, 0, 0);
-      ctx.drawImage(sprite, kare * W, 0, W, H, sx, sy, W, H);
+      ctx.drawImage(sprite, kare * W, 0, W, H, 0, 0, W, H);
     }
     // tam sayı ölçek: pikseller eşit kalsın
     function olcekle() {
       const kutu = cv.parentElement.getBoundingClientRect();
-      const k = Math.max(1, Math.floor(Math.min(kutu.height / H, kutu.width / W)));
+      const k = Math.max(1, Math.floor(Math.min(kutu.height / H, kutu.width / (W - 40)))); // soldaki 40 px boş, taşabilir
       cv.style.width = `${W * k}px`; cv.style.height = `${H * k}px`;
     }
     new ResizeObserver(olcekle).observe(cv.parentElement);

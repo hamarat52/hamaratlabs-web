@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#000080">
 <link rel="icon" href="/okul-projeleri/kader/varliklar/el-sprite.png">
 <link rel="preload" href="/okul-projeleri/kader/varliklar/kader-cpc.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/okul-projeleri/kader/varliklar/kader.css?v=1">
+<link rel="stylesheet" href="/okul-projeleri/kader/varliklar/kader.css?v=2">
 </head>
 <body>
 <header class="ust">
@@ -39,7 +39,7 @@
       <p class="alt">A life simulation for the Amstrad CPC.</p>
     </div>
     <div class="sahne-kutu">
-      <canvas class="sahne" width="128" height="200" role="img" aria-label="A puppeteer's hand holds a puppet by four strings. Its ring finger is missing, so one of the puppet's arms has no string and moves on its own."></canvas>
+      <canvas class="sahne" width="200" height="200" role="img" aria-label="A puppeteer's hand, seen from the side, holds four strings that fall and fade into the dark. Its ring finger is cut short and holds no string."></canvas>
     </div>
   </div>
   <p class="ipucu"><span class="tus"><kbd>→</kbd> or <kbd>space</kbd></span><span class="dokun">scroll</span></p>
@@ -77,20 +77,21 @@
   <div class="ic">
     <div class="kesitler">
       <figure class="kesit parmak">
-        <div class="resim" role="img" aria-label="Close-up: the ring finger ends in a clean cut and has no string."></div>
+        <div class="resim" role="img" aria-label="Close-up: the ring finger ends in a clean cut."></div>
         <span class="isaret" aria-hidden="true"></span>
-        <p>no finger, no string</p>
+        <p>a cut finger</p>
       </figure>
-      <figure class="kesit kol">
-        <div class="resim" role="img" aria-label="Close-up: the puppet's free arm rests on its hip."></div>
+      <figure class="kesit ip">
+        <div class="resim" role="img" aria-label="Close-up: four strings hang from the hand, with an empty place where the fifth would be."></div>
         <span class="isaret" aria-hidden="true"></span>
-        <p>a free arm</p>
+        <p>a missing string</p>
       </figure>
     </div>
     <div>
       <h2>Fate holds the strings.<br>Not all of them.</h2>
       <div class="metin" data-yaz="16">
-        <p>One finger of the hand is missing. The arm it would pull moves on its own.</p>
+        <p>One finger is cut. It holds no string.</p>
+        <p class="vurgu">That missing string is your own will.</p>
         <p class="soru">Free will or fate? Every culture asks. KADER lets you play the question.</p>
       </div>
     </div>
@@ -208,7 +209,7 @@
 <!-- 8 -->
 <section class="ekran p-menu" id="kunye" aria-label="Credits">
   <div class="ic">
-    <img class="logo" src="/okul-projeleri/kader/varliklar/kader-baslik-320.png" width="320" height="200" alt="KADER title image: the hand with the missing ring finger and the puppet.">
+    <img class="logo" src="/okul-projeleri/kader/varliklar/kader-baslik-320.png" width="320" height="200" alt="KADER title image: a puppeteer's hand with a cut ring finger, holding four strings that fade into the dark.">
     <p class="ekip">Tulip / Aşko Kuşko</p>
     <p class="kisi">Süeda &amp; Yusuf</p>
     <p class="claude">designed with Claude (Anthropic)</p>
@@ -220,7 +221,7 @@
 </section>
 </main>
 
-<script>window.KADER_EL = {"n": 24, "w": 128, "h": 200, "x0": 96, "kareler": [{"serce": [29.0, 84.9], "orta": [60.0, 105.6], "isaret": [80.67, 97.09], "bas": [105.0, 77.2]}, {"serce": [28.93, 83.8], "orta": [60.0, 105.45], "isaret": [81.29, 96.38], "bas": [104.52, 77.41]}, {"serce": [28.88, 82.78], "orta": [60.01, 105.03], "isaret": [81.85, 95.72], "bas": [104.08, 77.61]}, {"serce": [28.86, 81.91], "orta": [60.03, 104.45], "isaret": [82.31, 95.14], "bas": [103.69, 77.77]}, {"serce": [28.85, 81.24], "orta": [60.04, 103.88], "isaret": [82.65, 94.7], "bas": [103.4, 77.89]}, {"serce": [28.84, 80.82], "orta": [60.05, 103.45], "isaret": [82.86, 94.41], "bas": [103.21, 77.96]}, {"serce": [28.84, 80.67], "orta": [60.05, 103.3], "isaret": [82.93, 94.32], "bas": [103.15, 77.99]}, {"serce": [28.84, 80.82], "orta": [60.05, 103.45], "isaret": [82.86, 94.41], "bas": [103.21, 77.96]}, {"serce": [28.85, 81.24], "orta": [60.04, 103.88], "isaret": [82.65, 94.7], "bas": [103.4, 77.89]}, {"serce": [28.86, 81.91], "orta": [60.03, 104.45], "isaret": [82.31, 95.14], "bas": [103.69, 77.77]}, {"serce": [28.88, 82.78], "orta": [60.01, 105.03], "isaret": [81.85, 95.72], "bas": [104.08, 77.61]}, {"serce": [28.93, 83.8], "orta": [60.0, 105.45], "isaret": [81.29, 96.38], "bas": [104.52, 77.41]}, {"serce": [29.0, 84.9], "orta": [60.0, 105.6], "isaret": [80.67, 97.09], "bas": [105.0, 77.2]}, {"serce": [29.28, 84.95], "orta": [60.0, 105.45], "isaret": [80.03, 97.79], "bas": [104.88, 75.72]}, {"serce": [29.54, 85.0], "orta": [60.01, 105.03], "isaret": [79.41, 98.42], "bas": [104.73, 74.35]}, {"serce": [29.77, 85.04], "orta": [60.03, 104.45], "isaret": [78.86, 98.96], "bas": [104.57, 73.18]}, {"serce": [29.94, 85.07], "orta": [60.04, 103.88], "isaret": [78.43, 99.37], "bas": [104.44, 72.29]}, {"serce": [30.05, 85.08], "orta": [60.05, 103.45], "isaret": [78.15, 99.63], "bas": [104.35, 71.73]}, {"serce": [30.09, 85.09], "orta": [60.05, 103.3], "isaret": [78.06, 99.72], "bas": [104.32, 71.54]}, {"serce": [30.05, 85.08], "orta": [60.05, 103.45], "isaret": [78.15, 99.63], "bas": [104.35, 71.73]}, {"serce": [29.94, 85.07], "orta": [60.04, 103.88], "isaret": [78.43, 99.37], "bas": [104.44, 72.29]}, {"serce": [29.77, 85.04], "orta": [60.03, 104.45], "isaret": [78.86, 98.96], "bas": [104.57, 73.18]}, {"serce": [29.54, 85.0], "orta": [60.01, 105.02], "isaret": [79.41, 98.42], "bas": [104.73, 74.35]}, {"serce": [29.28, 84.95], "orta": [60.0, 105.45], "isaret": [80.03, 97.79], "bas": [104.88, 75.72]}]};</script>
-<script src="/okul-projeleri/kader/varliklar/kader.js?v=1" defer></script>
+<script>window.KADER_EL = {"n": 24, "w": 200, "h": 200, "kareler": [{"bas": [104.42, 92.48], "isaret": [62.11, 86.19], "orta": [50.66, 65.13], "serce": [68.37, 34.21]}, {"bas": [104.09, 92.13], "isaret": [62.62, 86.77], "orta": [50.99, 65.76], "serce": [68.22, 33.42]}, {"bas": [103.68, 91.68], "isaret": [62.95, 87.18], "orta": [51.39, 66.55], "serce": [68.13, 32.77]}, {"bas": [103.25, 91.17], "isaret": [63.06, 87.39], "orta": [51.85, 67.45], "serce": [68.1, 32.32]}, {"bas": [102.81, 90.62], "isaret": [62.96, 87.39], "orta": [52.35, 68.39], "serce": [68.12, 32.09]}, {"bas": [102.39, 90.07], "isaret": [62.65, 87.18], "orta": [52.84, 69.31], "serce": [68.19, 32.11]}, {"bas": [102.02, 89.56], "isaret": [62.15, 86.76], "orta": [53.3, 70.15], "serce": [68.3, 32.37]}, {"bas": [101.73, 89.14], "isaret": [61.51, 86.15], "orta": [53.68, 70.86], "serce": [68.46, 32.85]}, {"bas": [101.52, 88.83], "isaret": [60.78, 85.38], "orta": [53.95, 71.39], "serce": [68.66, 33.52]}, {"bas": [101.41, 88.65], "isaret": [60.03, 84.5], "orta": [54.08, 71.72], "serce": [68.89, 34.32]}, {"bas": [101.4, 88.63], "isaret": [59.3, 83.56], "orta": [54.05, 71.82], "serce": [69.16, 35.2]}, {"bas": [101.5, 88.76], "isaret": [58.64, 82.64], "orta": [53.88, 71.69], "serce": [69.45, 36.09]}, {"bas": [101.69, 89.03], "isaret": [58.1, 81.8], "orta": [53.57, 71.33], "serce": [69.73, 36.94]}, {"bas": [101.98, 89.42], "isaret": [57.7, 81.11], "orta": [53.16, 70.77], "serce": [69.98, 37.69]}, {"bas": [102.34, 89.9], "isaret": [57.46, 80.63], "orta": [52.68, 70.02], "serce": [70.17, 38.29]}, {"bas": [102.76, 90.43], "isaret": [57.37, 80.4], "orta": [52.17, 69.15], "serce": [70.27, 38.72]}, {"bas": [103.21, 90.97], "isaret": [57.45, 80.43], "orta": [51.67, 68.2], "serce": [70.28, 38.93]}, {"bas": [103.65, 91.5], "isaret": [57.69, 80.72], "orta": [51.22, 67.25], "serce": [70.2, 38.93]}, {"bas": [104.06, 91.97], "isaret": [58.09, 81.25], "orta": [50.84, 66.35], "serce": [70.02, 38.71]}, {"bas": [104.4, 92.35], "isaret": [58.62, 81.96], "orta": [50.55, 65.59], "serce": [69.77, 38.27]}, {"bas": [104.64, 92.63], "isaret": [59.26, 82.8], "orta": [50.36, 65.01], "serce": [69.47, 37.65]}, {"bas": [104.77, 92.79], "isaret": [59.99, 83.7], "orta": [50.28, 64.65], "serce": [69.15, 36.88]}, {"bas": [104.78, 92.82], "isaret": [60.74, 84.61], "orta": [50.31, 64.56], "serce": [68.85, 36.01]}, {"bas": [104.66, 92.71], "isaret": [61.47, 85.45], "orta": [50.44, 64.72], "serce": [68.58, 35.1]}]};</script>
+<script src="/okul-projeleri/kader/varliklar/kader.js?v=2" defer></script>
 </body>
 </html>

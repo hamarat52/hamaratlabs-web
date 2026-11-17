@@ -254,7 +254,7 @@ export const SCHOOL_PROJECTS = [
   {
     name: 'KADER',
     lead: 'Amstrad CPC için bir hayat simülasyonu. Oyuncu karakteri yönetmez, kaderi oynar: niyet karakterin, sonuç kaderin (retroISTANBUL 2026).',
-    image: { src: asset('/okul-projeleri-screens/kader-640.webp'), srcSet: `${asset('/okul-projeleri-screens/kader-640.webp')} 640w, ${asset('/okul-projeleri-screens/kader-1280.webp')} 1280w`, width: 1280, height: 800, alt: 'KADER başlık görseli: yüzük parmağı kesik bir kuklacı eli dört iple bir kuklayı tutuyor, kuklanın bir kolu serbest' },
+    image: { src: asset('/okul-projeleri-screens/kader-640.webp'), srcSet: `${asset('/okul-projeleri-screens/kader-640.webp')} 640w, ${asset('/okul-projeleri-screens/kader-1280.webp')} 1280w`, width: 1280, height: 800, alt: 'KADER başlık görseli: yandan görünen, yüzük parmağı kesik bir kuklacı eli; dört ip aşağı inip karanlıkta soluyor' },
     links: [
       // Statik tanıtım (İngilizce, sunum modu): public/okul-projeleri/kader/. Oyun repo: ~/Desktop/Projeler/kader
       { label: 'Tanıtım', url: '/okul-projeleri/kader/' }
