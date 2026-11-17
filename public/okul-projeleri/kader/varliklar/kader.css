@@ -104,13 +104,13 @@ canvas.sahne { display: block; position: absolute; right: 0; top: 50%; transform
   background-size: calc(320px * var(--k)) calc(200px * var(--k));
   image-rendering: pixelated; border: 2px solid var(--camgobegi);
 }
-.kesit.parmak .resim { background-position: calc(-180px * var(--k)) calc(-14px * var(--k)); }
-.kesit.ip .resim { background-position: calc(-170px * var(--k)) calc(-96px * var(--k)); }
+.kesit.parmak .resim { background-position: calc(-189px * var(--k)) calc(-9px * var(--k)); }
+.kesit.ip .resim { background-position: calc(-174px * var(--k)) calc(-92px * var(--k)); }
 .kesit .isaret {
   position: absolute; border: 2px solid var(--turuncu); animation: imlec 0.8s steps(1) infinite;
 }
-.kesit.parmak .isaret { left: calc(20 * var(--k) * 1px); top: calc(17 * var(--k) * 1px); width: calc(15 * var(--k) * 1px); height: calc(14 * var(--k) * 1px); }
-.kesit.ip .isaret { left: calc(30 * var(--k) * 1px); top: calc(4 * var(--k) * 1px); width: calc(12 * var(--k) * 1px); height: calc(48 * var(--k) * 1px); border-style: dashed; }
+.kesit.parmak .isaret { left: calc(16 * var(--k) * 1px); top: calc(22 * var(--k) * 1px); width: calc(19 * var(--k) * 1px); height: calc(14 * var(--k) * 1px); }
+.kesit.ip .isaret { left: calc(31 * var(--k) * 1px); top: calc(4 * var(--k) * 1px); width: calc(14 * var(--k) * 1px); height: calc(48 * var(--k) * 1px); border-style: dashed; }
 .ekran:not(.aktif) .kesit .isaret { animation: none; }
 .kesit p { margin-top: 10px; color: var(--camgobegi); }
 #ipler .metin { font-size: calc(var(--u) * 1.5); }
