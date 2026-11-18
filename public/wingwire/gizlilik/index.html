@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WingWire: Gizlilik</title><meta name="robots" content="index,follow">
+<style>body{font:16px/1.6 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif;max-width:720px;margin:0 auto;padding:32px 20px;color:#202832;background:#F7F5F0}h1{font-size:28px;line-height:1.25}h2{font-size:20px;margin-top:28px}a{color:#1F5CFF}ul{padding-left:22px}li{margin:4px 0}nav{font-size:14px;margin-bottom:24px}@media (prefers-color-scheme: dark){body{color:#F5F1E8;background:#0B0F14}a{color:#5A86FF}}</style>
+</head><body><nav><a href="/wingwire">WingWire</a> · <a href="/wingwire/gizlilik/">Türkçe</a> · <a href="/wingwire/privacy/">English</a></nav>
+<h1>WingWire Gizlilik</h1>
+<p>Bu metin WingWire Android uygulamasının 0.1.1 sürümünü anlatır. Bu sitedeki indirme bağlantısı bu sürümü indirir. Metin, uygulamanın kodu ve indirilen dosyanın kendisi 18 Kasım 2026&#x27;da incelenerek yazıldı. Uygulama değişirse bu metin de güncellenir.</p>
+<p>WingWire, kendi bilgisayarında çalışan Hermes Agent&#x27;a Android telefonundan bağlanmanı sağlar. Hamarat Labs (Yusuf Hamarat) geliştirir. Bu sürümde uygulamanın arayüzü İngilizcedir. Aşağıda ekran ve ayar adları uygulamadaki gibi yazıldı.</p>
+<h2>Kısaca</h2>
+<ul>
+<li>WingWire&#x27;ın hesabı, kaydı ya da sunucusu yok. Uygulama güncelleme denetimi de yapmaz.</li>
+<li>Mesajların, fotoğrafların ve onayların telefonundan doğrudan kendi bilgisayarındaki Hermes&#x27;e gider. Hamarat Labs bunları görmez, almaz, saklamaz.</li>
+<li>Uygulamada analitik, reklam ya da çökme raporlama yok. Uygulama Hamarat Labs&#x27;a cihaz ya da kullanım bilgisi göndermez.</li>
+</ul>
+<h2>Uygulama nereye bağlanır</h2>
+<ul>
+<li>Senin girdiğin Hermes adresi. Ajanlar, sohbetler, Insights, Cron, Galeri ve Kanban verisi buradan okunur. Mesajların ve Galeri&#x27;de videolara yazdığın notlar buraya gider. Genel internet adreslerine yalnız şifreli bağlantı (HTTPS) kurulur. Şifresiz bağlantıya yalnız ev ağı ve Tailscale adreslerinde izin verilir.</li>
+<li>Tailscale. Bağlantı ekranındaki &quot;Embedded Tailscale&quot; anahtarını açarsan uygulama kendi içindeki Tailscale&#x27;i başlatır. Hermes adresin bir Tailscale adresiyse (&quot;.ts.net&quot; ile biter ya da 100. ile başlar) anahtar kapalı olsa da başlatır. Bu durumda telefonun Tailscale ağına &quot;wingwire-android&quot; adıyla bir cihaz olarak kaydolur. Tailscale&#x27;in koordinasyon sunucusuna bağlanır, gerekirse Tailscale&#x27;in röle sunucularını kullanır. Bu bağlantı Tailscale&#x27;in gizlilik politikasına tabidir. Tailscale&#x27;in günlük yükleme özelliği uygulamada derlemeden çıkarılmıştır.</li>
+<li>Telefonunun ses servisleri, yalnız kullandığında. Sesle yazma Android&#x27;in konuşma tanıma servisini, sesli okuma telefonunun metin okuma motorunu kullanır. Telefonunda cihaz içi tanıma varsa önce o seçilir. Yoksa servis sağlayıcın (çoğunlukla Google) sesi kendi sunucusunda işleyebilir.</li>
+<li>Settings ekranındaki bağlantılar (kaynak kod, lisans, dontkillmyapp.com) yalnız dokunduğunda tarayıcında açılır.</li>
+<li>Bunların dışında uygulama başka bir sunucuya bağlanmaz. Google Play services kullanılmaz.</li>
+</ul>
+<h2>Bildirimler</h2>
+<ul>
+<li>Bildirimler Google&#x27;ın bildirim servisiyle değil, uygulamanın bilgisayarınla kurduğu kendi bağlantısıyla gelir. Bu bağlantıyı açık tutmak için Hermes&#x27;e bağlıyken telefonunda kalıcı bir &quot;WingWire · linked to Hermes&quot; bildirimi görünür. Bu bildirim açık sohbetin başlığını gösterebilir.</li>
+<li>Ajan işini bitirince gelen bildirim cevabın başını gösterir. Kilit ekranında ne görüneceği telefonunun bildirim ayarına bağlıdır. Onay isteği bildirimi kilit ekranında yalnız &quot;Hermes onay bekliyor&quot; der. Onay vermek için telefonun kilidini açman gerekir (Android 12 ve üstü).</li>
+</ul>
+<h2>Ring me</h2>
+<ul>
+<li>Settings ekranındaki &quot;Ring me when Hermes finishes or needs me&quot; ayarı ilk kurulumda açıktır. Uygulama arka plandayken ajan işini bitirirse ya da onay isterse telefonunda tam ekran bir &quot;Hermes is calling&quot; araması çıkar. Bu bir telefon araması değildir, hat ve numara kullanılmaz. Arama ekranında cevabın ya da komutun ilk satırı görünür, ekran kilitliyken de. Ayarı kapatırsan yalnız bildirim gelir.</li>
+<li>Aramayı açarsan cevap telefonunun metin okuma motoruyla sesli okunur. Sen de sesle cevap yazdırabilirsin. Yazdırdığın cevap sen göndermeden gitmez.</li>
+</ul>
+<h2>Telefonda ne saklanır</h2>
+<ul>
+<li>Hermes adresin.</li>
+<li>Kullanıcı adın ve şifren, Android Keystore&#x27;daki dışa aktarılamayan bir anahtarla şifrelenmiş olarak.</li>
+<li>Oturum çerezleri yalnız bellekte tutulur.</li>
+<li>Sohbet geçmişin telefona kaydedilmez. Her açılışta bilgisayarından okunur.</li>
+<li>Ayarlar, gönderilmemiş taslak mesajlar, sabitlediğin ajanlar ve model favorileri uygulamanın kendi depolama alanında durur. Galeri videolarının küçük resimleri, uygulamadan kamerayla çektiğin fotoğraflar ve gömülü Tailscale&#x27;in cihaz anahtarları da orada durur. Bunlar ayrıca şifrelenmez. Telefondaki başka uygulamalar onlara erişemez.</li>
+<li>Uygulama telefonunun ortak klasörlerine dosya yazmaz.</li>
+<li>Uygulama verisi Google bulut yedeğine alınmaz.</li>
+</ul>
+<h2>Ses ve fotoğraf</h2>
+<ul>
+<li>Uygulama sesini kaydetmez ve saklamaz. Sesle yazdığın metin yazma alanına düşer, sen göndermeden gitmez.</li>
+<li>Sohbete eklediğin fotoğraflar telefonda küçültülür ve konum (EXIF) bilgisi silinerek gönderilir.</li>
+</ul>
+<h2>Cihaz günlüğü</h2>
+<ul>
+<li>Uygulama günlük kaydı göndermez. Hata ayıklama için telefonun sistem günlüğüne kısa kayıtlar yazar. Bu kayıtlarda sesle yazdığın metin ve mesajların ya da onay bekleyen komutların ilk karakterleri bulunabilir. Şifren ve oturum bilgilerin bu kayıtlara yazılmaz. Telefondaki başka uygulamalar bu kayıtları okuyamaz. Yalnız telefonuna USB hata ayıklamayla bağlanan bir bilgisayar görebilir.</li>
+</ul>
+<h2>İzinler</h2>
+<ul>
+<li>İnternet ve ağ durumu: bilgisayarına bağlanmak için.</li>
+<li>Bildirimler: ajan mesajları, onay istekleri ve Ring me araması için. Android 13 ve üstünde uygulama açılınca sorulur.</li>
+<li>Mikrofon: sesle yazma ve Ring me aramasında konuşma için. İlk kullanımda sorulur. Yalnız sesle yazarken ya da arama ekranında konuşurken kullanılır.</li>
+<li>Kendi aramalarını yönetme ve tam ekran bildirim: Ring me&#x27;nin gelen arama ekranı için. Bu bir telefon araması değildir, hat kullanılmaz.</li>
+<li>Ön plan servisi ve telefonu uyanık tutma: uygulama kapalıyken bağlantıyı açık tutmak ve ajan çalışırken bağlantının kopmaması için.</li>
+<li>Konum, kişiler, kamera ve galeri okuma izni istenmez. Fotoğrafı Android&#x27;in fotoğraf seçicisiyle sen seçersin. Fotoğraf çekmek için telefonunun kamera uygulaması açılır.</li>
+<li>Telefonun izin listesinde Yakındaki cihazlar (Bluetooth) ve ses ayarlarını değiştirme izinleri de görünebilir. Bunlar Android&#x27;in arama kütüphanesinden gelir. Uygulama bu izinleri senden istemez.</li>
+</ul>
+<h2>Silme</h2>
+<ul>
+<li>Settings &gt; &quot;Switch Hermes / Sign out&quot; kayıtlı Hermes adresini, kullanıcı adını ve şifreyi siler. Taslaklar, sabitlemeler, model favorileri, Galeri küçük resimleri ve gömülü Tailscale&#x27;in durumu telefonda kalır.</li>
+<li>Uygulamayı silince telefondaki bütün WingWire verisi silinir.</li>
+<li>Gömülü Tailscale cihazın Tailscale yönetim panelinde kalır. Oradan kaldırabilirsin.</li>
+<li>Bilgisayarındaki sohbetleri ve dosyaları Hermes Agent tutar. Onları sen yönetirsin.</li>
+</ul>
+<h2>İletişim</h2>
+<ul>
+<li>Soruların için: <a href="https://vialess.me/yusuf-hamarat" rel="noopener">https://vialess.me/yusuf-hamarat</a></li>
+</ul>
+</body></html>

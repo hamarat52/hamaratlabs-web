@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WingWire: Privacy</title><meta name="robots" content="index,follow">
+<style>body{font:16px/1.6 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif;max-width:720px;margin:0 auto;padding:32px 20px;color:#202832;background:#F7F5F0}h1{font-size:28px;line-height:1.25}h2{font-size:20px;margin-top:28px}a{color:#1F5CFF}ul{padding-left:22px}li{margin:4px 0}nav{font-size:14px;margin-bottom:24px}@media (prefers-color-scheme: dark){body{color:#F5F1E8;background:#0B0F14}a{color:#5A86FF}}</style>
+</head><body><nav><a href="/wingwire">WingWire</a> · <a href="/wingwire/gizlilik/">Türkçe</a> · <a href="/wingwire/privacy/">English</a></nav>
+<h1>WingWire Privacy</h1>
+<p>This page describes version 0.1.1 of the WingWire Android app. The download link on this site installs this version. It was written by reviewing the app&#x27;s code and the downloadable file itself on 18 November 2026. When the app changes, this page is updated.</p>
+<p>WingWire connects your Android phone to Hermes Agent running on your own computer. It is made by Hamarat Labs (Yusuf Hamarat).</p>
+<h2>In short</h2>
+<ul>
+<li>WingWire has no account, no sign-up and no server of its own. The app does not check for updates either.</li>
+<li>Your messages, photos and approvals go from your phone straight to Hermes on your own computer. Hamarat Labs does not see, receive or store them.</li>
+<li>The app has no analytics, no ads and no crash reporting. It sends no device or usage information to Hamarat Labs.</li>
+</ul>
+<h2>What the app connects to</h2>
+<ul>
+<li>The Hermes address you enter. Agents, chats, Insights, Cron, Gallery and Kanban data are read from it. Your messages, and the notes you write on Gallery videos, go to it. Public internet addresses are reached only over an encrypted connection (HTTPS). Unencrypted connections are allowed only to home network and Tailscale addresses.</li>
+<li>Tailscale. If you turn on &quot;Embedded Tailscale&quot; on the connect screen, the app starts its built-in Tailscale. If your Hermes address is a Tailscale address (ending in &quot;.ts.net&quot; or starting with 100.), it starts even with the switch off. Your phone then joins your Tailscale network as a device named &quot;wingwire-android&quot;. It connects to Tailscale&#x27;s coordination server and may use Tailscale relay servers. That connection is covered by Tailscale&#x27;s privacy policy. Tailscale&#x27;s log upload is compiled out of the app.</li>
+<li>Your phone&#x27;s speech services, only when you use them. Dictation uses Android&#x27;s speech recognition service and read aloud uses your phone&#x27;s text to speech engine. If your phone offers on-device recognition, that is chosen first. Otherwise your speech provider (usually Google) may process audio on its servers.</li>
+<li>Links in Settings (source code, license, dontkillmyapp.com) open in your browser only when you tap them.</li>
+<li>Apart from these, the app connects to no other server. Google Play services are not used.</li>
+</ul>
+<h2>Notifications</h2>
+<ul>
+<li>Notifications do not come through Google&#x27;s push service. They arrive over the app&#x27;s own connection to your computer. To keep that connection open, a persistent &quot;WingWire · linked to Hermes&quot; notification is shown while you are connected. It may show the title of the open chat.</li>
+<li>When an agent finishes, the notification shows the start of its reply. What appears on the lock screen depends on your phone&#x27;s notification settings. An approval request shows only &quot;Hermes onay bekliyor&quot; (&quot;Hermes is waiting for approval&quot;) on the lock screen. Approving requires unlocking the phone (Android 12 and later).</li>
+</ul>
+<h2>Ring me</h2>
+<ul>
+<li>The &quot;Ring me when Hermes finishes or needs me&quot; setting is on by default. When the app is in the background and an agent finishes or asks for approval, a full screen &quot;Hermes is calling&quot; call appears on your phone. This is not a phone call and does not use your phone line or number. The call screen shows the first line of the reply or command, also on the lock screen. Turn the setting off to get a notification only.</li>
+<li>If you answer, the reply is read aloud by your phone&#x27;s text to speech engine, and you can dictate an answer. Your answer is not sent until you send it.</li>
+</ul>
+<h2>What is stored on your phone</h2>
+<ul>
+<li>Your Hermes address.</li>
+<li>Your username and password, encrypted with a non-exportable key in the Android Keystore.</li>
+<li>Session cookies are kept in memory only.</li>
+<li>Your chat history is not saved on the phone. It is read from your computer each time.</li>
+<li>Settings, unsent drafts, pinned agents and model favourites are kept in the app&#x27;s private storage. Gallery video thumbnails, photos you take from inside the app and embedded Tailscale&#x27;s device keys are kept there too. They are not separately encrypted. Other apps on the phone cannot read them.</li>
+<li>The app does not write files to your phone&#x27;s shared folders.</li>
+<li>App data is not included in Google cloud backup.</li>
+</ul>
+<h2>Voice and photos</h2>
+<ul>
+<li>The app does not record or store your voice. Dictated text lands in the message field and is not sent until you send it.</li>
+<li>Photos you add to a chat are resized on the phone and sent with location (EXIF) data removed.</li>
+</ul>
+<h2>Device log</h2>
+<ul>
+<li>The app does not send logs anywhere. For troubleshooting it writes short entries to the phone&#x27;s system log. These entries may contain dictated text and the first characters of messages or of commands waiting for approval. Your password and session details are not written to them. Other apps on the phone cannot read this log. Only a computer connected to your phone with USB debugging can see it.</li>
+</ul>
+<h2>Permissions</h2>
+<ul>
+<li>Internet and network state: to connect to your computer.</li>
+<li>Notifications: for agent messages, approval requests and Ring me calls. On Android 13 and later you are asked when you open the app.</li>
+<li>Microphone: for dictation and for talking during a Ring me call. You are asked on first use. It is used only while you dictate or talk on the call screen.</li>
+<li>Managing its own calls and full screen notifications: for the Ring me incoming call screen. This is not a phone call and does not use your phone line.</li>
+<li>Foreground service and keeping the phone awake: to keep the connection open while the app is closed and while an agent is working.</li>
+<li>The app does not ask for location, contacts, camera or photo library access. You pick photos with Android&#x27;s photo picker. Taking a photo opens your phone&#x27;s camera app.</li>
+<li>Your phone&#x27;s permission list may also show Nearby devices (Bluetooth) and change audio settings. These come from Android&#x27;s calling library. The app does not ask you for them.</li>
+</ul>
+<h2>Deleting</h2>
+<ul>
+<li>Settings &gt; &quot;Switch Hermes / Sign out&quot; removes the saved Hermes address, username and password. Drafts, pins, model favourites, Gallery thumbnails and embedded Tailscale&#x27;s state stay on the phone.</li>
+<li>Uninstalling the app removes all WingWire data from your phone.</li>
+<li>Your embedded Tailscale device stays in your Tailscale admin console. You can remove it there.</li>
+<li>Chats and files on your computer are kept by Hermes Agent. You manage them.</li>
+</ul>
+<h2>Contact</h2>
+<ul>
+<li>Questions: <a href="https://vialess.me/yusuf-hamarat" rel="noopener">https://vialess.me/yusuf-hamarat</a></li>
+</ul>
+</body></html>
