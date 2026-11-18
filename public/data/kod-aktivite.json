@@ -32623,5 +32623,554 @@
     "score": 39,
     "is_merge": false,
     "lines": 2
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "623b8cc205",
+    "date": "2026-11-17T23:50:44+03:00",
+    "subject": "chore(aktivite): günlük kod aktivite verisi güncellendi (2026-11-17)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 333
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "eeef0e4eff",
+    "date": "2026-11-18T00:45:15+03:00",
+    "subject": "feat(kader): tarayıcıda oyna bölümü (CPC 6128 emülatörü, tıklayınca yüklenir)",
+    "score": 91,
+    "is_merge": false,
+    "lines": 452
+  },
+  {
+    "repo": "hamaratlabs-web",
+    "hash": "f77efd2853",
+    "date": "2026-11-18T00:49:04+03:00",
+    "subject": "fix(kader): emülatör sayfası URL parametrelerini her zaman sabit disk ve RUN\"KADER ile ezer (siberguvenlik 6, bulgu 2)",
+    "score": 54,
+    "is_merge": false,
+    "lines": 12
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "aabd585253",
+    "date": "2026-11-18T12:34:20+03:00",
+    "subject": "feat(alt-bar): Diğer'e basınca alt barın kapsülü yukarı genişler (ClickUp) — ayrı kart yok, tek yüzey: ızgara üstte, bar satırı yerinde; 260/220 ms tween, ekranın ortasını geçmez, karartma panelin altında; MoreCard → MorePanel (MoreGrid); 1478 test",
+    "score": 92,
+    "is_merge": false,
+    "lines": 531
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "a29a2c65eb",
+    "date": "2026-11-18T12:48:55+03:00",
+    "subject": "docs(qa): bar-genisleme raporu + konsept (A ayraçsız uygulandı)",
+    "score": 27,
+    "is_merge": false,
+    "lines": 34
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "0916208e90",
+    "date": "2026-11-18T12:51:00+03:00",
+    "subject": "chore(release): 0.3.10 (versionCode 15) — Diğer'e basınca alt bar yukarı genişler (ClickUp; Yusuf); siberguvenlik GEÇER",
+    "score": 47,
+    "is_merge": false,
+    "lines": 31
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "cf5b6c8ed3",
+    "date": "2026-11-18T13:06:48+03:00",
+    "subject": "docs(qa): bar-genisleme tam RAPOR (PM ara raporunun yerine) — ölçümler, release duman testi, yatay üst sınır + kaydırma, video kare ölçümü; acilis.mp4; QA/bar-genisleme-yatay.sh",
+    "score": 33,
+    "is_merge": false,
+    "lines": 158
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "3ede07ab57",
+    "date": "2026-11-18T14:26:31+03:00",
+    "subject": "docs(ayarlar-analiz): Ayarlar UX + UI analizi, 3 yönlü mock (A grup listesi önerilen)",
+    "score": 45,
+    "is_merge": false,
+    "lines": 1680
+  },
+  {
+    "repo": "cep-zeka-lab",
+    "hash": "a83a887c9e",
+    "date": "2026-11-18T14:29:38+03:00",
+    "subject": "Cep Zekâ Lab: Flutter cihaz içi yapay zekâ test uygulaması (LiteRT-LM + Gemma)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 5065
+  },
+  {
+    "repo": "cep-zeka-lab",
+    "hash": "810d82fbd0",
+    "date": "2026-11-18T15:00:10+03:00",
+    "subject": "Gemma 3 1B emülatör QA, şema minLength, Pomodoro yedek istemi; RAPOR güncel",
+    "score": 50,
+    "is_merge": false,
+    "lines": 64
+  },
+  {
+    "repo": "cep-zeka-lab",
+    "hash": "48c041296e",
+    "date": "2026-11-18T15:13:35+03:00",
+    "subject": "Gemma 3 1B ve HF anahtarı kaldırıldı; varsayılan ve önerilen model Gemma 4 E2B",
+    "score": 54,
+    "is_merge": false,
+    "lines": 205
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "120848890c",
+    "date": "2026-11-18T15:32:00+03:00",
+    "subject": "feat(ayarlar): Ayarlar normal sayfa + Control Center tarzı 4 karo + grup listesi ve alt sayfalar",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2835
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "3f2bb3bd90",
+    "date": "2026-11-18T15:40:05+03:00",
+    "subject": "docs(qa): ayarlar-sayfa siberguvenlik (GEÇER)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 51
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "168767de11",
+    "date": "2026-11-18T15:59:35+03:00",
+    "subject": "chore(release): 0.3.11 (versionCode 16) — Ayarlar normal sayfa: üstte Control Center tarzı 4 karo, altında gruplar",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "4ee8e4788d",
+    "date": "2026-11-18T16:22:09+03:00",
+    "subject": "fix(alt-bar): her an tek seçili öğe — Diğer paneli açıkken bulunulan bölümün parıltısı söner",
+    "score": 63,
+    "is_merge": false,
+    "lines": 192
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "2d2f3654ca",
+    "date": "2026-11-18T16:25:41+03:00",
+    "subject": "docs(ekle-analiz): Ekle sayfası UX/UI analizi + 3 yön mock (A kompakt karo, B son fotoğraflar, C açılır cam menü), açık+koyu PNG",
+    "score": 42,
+    "is_merge": false,
+    "lines": 590
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "0e393210eb",
+    "date": "2026-11-18T16:35:18+03:00",
+    "subject": "feat(ayarlar): Ayarlar iki bölme — Control Center karoları (Koyu tema, Servisler, Bağlantı, Anahtarlar) + telefonla aynı gruplar, derin bağlantılar korunur, 390 taşma düzeltmesi; analiz + mock docs/ayarlar-analiz; tam vitest 5119/5121 (voice-studio-ui yük kaynaklı), siberguvenlik ŞARTLI GEÇER → şart kapatıldı (squash: izole profil adlı PNG geçmişe girmedi); Yusuf: A",
+    "score": 95,
+    "is_merge": false,
+    "lines": 6736
+  },
+  {
+    "repo": "cep-zeka-lab",
+    "hash": "755047c803",
+    "date": "2026-11-18T16:37:45+03:00",
+    "subject": "Gemma 4 E2B emülatör QA (yalnız Gemma 4 sürümü); RAPOR, teslim sha256",
+    "score": 54,
+    "is_merge": false,
+    "lines": 228
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "334a3606ae",
+    "date": "2026-11-18T16:41:58+03:00",
+    "subject": "docs(qa): tek-secili RAPOR + emülatör ekran görüntüleri (açık+koyu); QA betiği panel açılış beklemesi ve karo sayımı",
+    "score": 31,
+    "is_merge": false,
+    "lines": 110
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "4a91f656ab",
+    "date": "2026-11-18T16:43:42+03:00",
+    "subject": "chore(release): 0.3.12 (versionCode 17) — Alt barda panel açıkken tek seçili öğe",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "49a5e9006a",
+    "date": "2026-11-18T16:43:42+03:00",
+    "subject": "docs(qa): tek-secili siberguvenlik (GEÇER)",
+    "score": 27,
+    "is_merge": false,
+    "lines": 31
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "e9bb05cc44",
+    "date": "2026-11-18T17:30:18+03:00",
+    "subject": "feat(ayarlar): Bağlı istemciler özeti, Hakkında grubu, Anahtarlar'da izole profil rozetleri gizli",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1405
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a020467620",
+    "date": "2026-11-18T17:38:46+03:00",
+    "subject": "docs(qa): ayarlar-kucuk siberguvenlik kontrolü (GEÇER)",
+    "score": 28,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7f302cbb9c",
+    "date": "2026-11-18T17:38:47+03:00",
+    "subject": "merge: fix/ayarlar-kucuk — Bağlı istemciler özeti, Hakkında grubu, Anahtarlar'da izole profil rozetleri gizli; tam vitest 5160/5162 (hybrid-mode yük kaynaklı, yük ~400, tek başına 3/3 yeşil); siberguvenlik GEÇER; Yusuf: evet",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "eee60102f7",
+    "date": "2026-11-18T18:59:55+03:00",
+    "subject": "docs(sozlesme): indirmede kalite seçimi — shared/download-quality.ts + mobil-api §16 + MOBILE_GATE satırları",
+    "score": 41,
+    "is_merge": false,
+    "lines": 438
+  },
+  {
+    "repo": "mashuk-bridal-web",
+    "hash": "a7dadfb7e1",
+    "date": "2026-11-18T19:03:40+03:00",
+    "subject": "Baslangic: is tanimi ve profil ekran goruntusu",
+    "score": 48,
+    "is_merge": false,
+    "lines": 41
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ca2700510f",
+    "date": "2026-11-18T19:13:28+03:00",
+    "subject": "feat(sunucu): indirme kalite varyantları — ffmpeg H.264/AAC +faststart, tekilleştirme, kuyruk 1, disk eşiği, LRU önbellek; /ww/prefs/download",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1430
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a9702130c7",
+    "date": "2026-11-18T19:22:11+03:00",
+    "subject": "feat(galeri): İndir ▾ kalite menüsü — görüntüleyici oku, telefon/kart ⋯ penceresi, Hazırlanıyor %, bitince otomatik indirme, son seçim",
+    "score": 93,
+    "is_merge": false,
+    "lines": 769
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "7d2ec019ba",
+    "date": "2026-11-18T19:34:03+03:00",
+    "subject": "wip(indirme): oturum 'Operation interrupted: waiting for model response' ile yarıda kaldı; yarım iş korunuyor",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1926
+  },
+  {
+    "repo": "mashuk-bridal-web",
+    "hash": "1d5637c2cf",
+    "date": "2026-11-18T19:41:16+03:00",
+    "subject": "Ara kayit: Instagram gorselleri, kaynak listesi, font ve cekim araclari",
+    "score": 55,
+    "is_merge": false,
+    "lines": 334
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "a59e441d85",
+    "date": "2026-11-18T19:46:04+03:00",
+    "subject": "qa(indirme): sahte §16 uçları (variants, cancel, prefs/download, ?quality=), büyük medya ve yavaş indirme seçenekleri",
+    "score": 36,
+    "is_merge": false,
+    "lines": 415
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "6fa454964d",
+    "date": "2026-11-18T19:46:04+03:00",
+    "subject": "fix(indirme): formatBytesTr testi web örnekleriyle birebir; görüntüleyicide hazırlanırken de kaydet kapalı",
+    "score": 54,
+    "is_merge": false,
+    "lines": 11
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "05ae58c070",
+    "date": "2026-11-18T19:47:47+03:00",
+    "subject": "test(e2e): indirme kalitesi — 1440 menü 720p, kart ⋯ penceresi, 390 pencere 480p, ortak son seçim; QA görüntüleri",
+    "score": 54,
+    "is_merge": false,
+    "lines": 216
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2287b015fd",
+    "date": "2026-11-18T19:47:47+03:00",
+    "subject": "fix(sunucu): kalite varyant yöneticisi ilk istekte kurulur — config'siz deps ile medya kaydı düşmüyor",
+    "score": 56,
+    "is_merge": false,
+    "lines": 22
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "6dbaf9088f",
+    "date": "2026-11-18T19:48:30+03:00",
+    "subject": "docs(qa): indirme-kalite RAPOR.md — doğrulama sayıları, PM kırmızısının kök nedeni, bulunan hata, kapı gerekçesi",
+    "score": 30,
+    "is_merge": false,
+    "lines": 79
+  },
+  {
+    "repo": "mashuk-bridal-web",
+    "hash": "e4368de7d1",
+    "date": "2026-11-18T19:50:43+03:00",
+    "subject": "Taslak A (Dergi): ana sayfa + Lavinya yazi sayfasi, ortak iskelet",
+    "score": 57,
+    "is_merge": false,
+    "lines": 535
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "c8c05c3862",
+    "date": "2026-11-18T19:52:05+03:00",
+    "subject": "fix(indirme): ilerleme metni Türkçe boyutla (web ile aynı), seçenek okuma bildirim açmaz, «Galeriye kaydedildi» sessiz",
+    "score": 56,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "9f595c81e0",
+    "date": "2026-11-18T19:55:30+03:00",
+    "subject": "merge: feat/indirme-kalite — indirmede kalite seçimi (ffmpeg varyantları, önbellek, ilerleme; web Galeri İndir menüsü; mobil sözleşme); siberguvenlik GEÇER; Yusuf: indirme UX",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "6b8d303a89",
+    "date": "2026-11-18T19:55:30+03:00",
+    "subject": "docs(qa): indirme-kalite siberguvenlik kontrolü (GEÇER)",
+    "score": 30,
+    "is_merge": false,
+    "lines": 75
+  },
+  {
+    "repo": "mashuk-bridal-web",
+    "hash": "18374b5f45",
+    "date": "2026-11-18T20:11:05+03:00",
+    "subject": "Asama 1: B (Gul Defteri) ve C (Sessiz Couture) taslaklari, teslim gorselleri ve rapor",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1476
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "5a42554a49",
+    "date": "2026-11-18T20:14:46+03:00",
+    "subject": "docs(sesli-mod): UX-UI analizi, durum dili ve A/B/C mock'ları (telefon + web, açık/koyu)",
+    "score": 45,
+    "is_merge": false,
+    "lines": 2263
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "c494653ad7",
+    "date": "2026-11-18T20:22:29+03:00",
+    "subject": "merge: docs/sesli-mod-analiz — sesli mod UX-UI analizi ve A/B/C mock'ları (yalnız docs; karar Yusuf'ta)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "106660060d",
+    "date": "2026-11-18T20:33:25+03:00",
+    "subject": "docs(qa): indirme — emülatör kanıtı (açık+koyu, kaydet.mp4), QA/indirme.sh, RAPOR; 1527 test yeşil, assembleRelease OK",
+    "score": 35,
+    "is_merge": false,
+    "lines": 277
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "ab8cf7b281",
+    "date": "2026-11-18T20:36:15+03:00",
+    "subject": "chore(release): 0.3.13 (versionCode 18) — Galeriye kaydet, bildirimde ilerleme, kalite seçimi",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "5d032274a1",
+    "date": "2026-11-18T20:36:15+03:00",
+    "subject": "docs(qa): indirme siberguvenlik (GEÇER)",
+    "score": 30,
+    "is_merge": false,
+    "lines": 71
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "a0bfbaa13a",
+    "date": "2026-11-18T20:39:46+03:00",
+    "subject": "merge: feat/indirme — 0.3.13 Galeriye kaydet, bildirimde ilerleme, kalite seçimi; siberguvenlik GEÇER",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "4d32238cf6",
+    "date": "2026-11-18T21:02:35+03:00",
+    "subject": "feat(galeri): proje açılır seçicisi — tek hap + alt sayfa (arama, tür bölümleri), filtreler sabit iki satır",
+    "score": 93,
+    "is_merge": false,
+    "lines": 748
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "485a7bab1e",
+    "date": "2026-11-18T21:14:23+03:00",
+    "subject": "docs(qa): proje-secici raporu, karşılaştırma/konsept görselleri, secim.mp4, QA betikleri",
+    "score": 34,
+    "is_merge": false,
+    "lines": 215
+  },
+  {
+    "repo": "veri-duzeni",
+    "hash": "0a9b9d7e2d",
+    "date": "2026-11-18T21:30:16+03:00",
+    "subject": "docs(kopya-korumasi): rapor docs/kopya-korumasi-rapor.md (gercek veri salt okuma check: 2 kopya cifti, hiz olcumu, guncellenecek repo disi rehber dosyalari, WingWire etkisi, acik sorular)",
+    "score": 37,
+    "is_merge": false,
+    "lines": 133
+  },
+  {
+    "repo": "veri-duzeni",
+    "hash": "cbab8d7375",
+    "date": "2026-11-18T21:30:16+03:00",
+    "subject": "feat(kopya-korumasi): register / version add ayni sha256'yi reddeder, vd check duplicates uyarir",
+    "score": 92,
+    "is_merge": false,
+    "lines": 504
+  },
+  {
+    "repo": "veri-duzeni",
+    "hash": "b324f23ffd",
+    "date": "2026-11-18T21:31:22+03:00",
+    "subject": "merge: feat/kopya-korumasi — register/version add aynı sha256'yı reddeder (--allow-duplicate), vd check kopyaları listeler; 262 test yeşil; Yusuf: 'versiyonlar ayrık ayrık'",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "b5e692e3e0",
+    "date": "2026-11-18T21:41:50+03:00",
+    "subject": "docs(qa): proje-secici siberguvenlik ŞARTLI GEÇER + şartın kapanışı (Yusuf kabulü)",
+    "score": 27,
+    "is_merge": false,
+    "lines": 35
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "311eccddfd",
+    "date": "2026-11-18T21:41:54+03:00",
+    "subject": "chore(release): 0.3.14 (versionCode 19) — Galeri: proje seçimi açılır menü",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "6a1349d1c6",
+    "date": "2026-11-18T22:13:39+03:00",
+    "subject": "docs(ayarlar-alt): emülatör ölçümü (8 sayfa, açık+koyu) + A/B/C mock'ları ve karşılaştırma",
+    "score": 45,
+    "is_merge": false,
+    "lines": 3433
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "50c915f07d",
+    "date": "2026-11-18T22:17:33+03:00",
+    "subject": "docs(ayarlar-alt): analiz.md — PM gözlem doğrulaması, ölçüm, sayfa×sorun, ortak kurallar, Sistem tema, öneri B",
+    "score": 39,
+    "is_merge": false,
+    "lines": 260
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "5f41eaf083",
+    "date": "2026-11-18T22:18:36+03:00",
+    "subject": "merge: docs/ayarlar-alt-analiz — Ayarlar alt sayfaları UX-UI analizi, ölçüm ve A/B/C mock'ları (yalnız docs; karar Yusuf'ta)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "beyzadem-bridal-web",
+    "hash": "895b035e29",
+    "date": "2026-11-18T22:19:43+03:00",
+    "subject": "Baslangic: is tanimi ve profil ekran goruntusu",
+    "score": 48,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "beyzadem-bridal-web",
+    "hash": "e7793cfd4c",
+    "date": "2026-11-18T22:32:08+03:00",
+    "subject": "Ara kayit: Instagram gorselleri (girissiz), kaynak listesi, fontlar ve araclar",
+    "score": 58,
+    "is_merge": false,
+    "lines": 785
+  },
+  {
+    "repo": "beyzadem-bridal-web",
+    "hash": "875e431c55",
+    "date": "2026-11-18T22:40:47+03:00",
+    "subject": "Taslak v1 (Monogram): ana sayfa + lacivert kaftan sayfasi, ortak iskelet ve paketleme",
+    "score": 59,
+    "is_merge": false,
+    "lines": 1071
+  },
+  {
+    "repo": "beyzadem-bridal-web",
+    "hash": "dcd602d523",
+    "date": "2026-11-18T22:46:34+03:00",
+    "subject": "Taslak v2 (Gece): ana sayfa + lacivert kaftan sayfasi, boncuk sacak ureteci",
+    "score": 59,
+    "is_merge": false,
+    "lines": 880
+  },
+  {
+    "repo": "beyzadem-bridal-web",
+    "hash": "c10b5c8262",
+    "date": "2026-11-18T22:57:29+03:00",
+    "subject": "Asama 1: v3 (Atolye) taslagi, B ve C icin BD monogram, teslim gorselleri, olcum araclari ve rapor",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1435
   }
 ]
