@@ -1,0 +1,43 @@
+/* Üç taslağın ortak iskeleti (her taslak klasörüne araclar/paketle.mjs kopyalar; kaynak: taslaklar/_ortak/).
+   Sıfırlama, sabit alt randevu çubuğu, menü, yatay şerit, görünürlük ve hareket kuralları.
+   Renk ve yazı her taslağın kendi CSS'inde: --zemin, --murekkep, --vurgu, --cubuk-zemin, --cubuk-yazi. */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; background: var(--zemin); color: var(--murekkep); -webkit-font-smoothing: antialiased; padding-bottom: calc(76px + env(safe-area-inset-bottom)); overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3, p, figure, ol, ul, dl, dd, blockquote { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+.gizli { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 2px solid var(--vurgu); outline-offset: 3px; }
+.simge { width: 20px; height: 20px; flex: none; }
+
+/* Menü: <details> ile, JS gerekmez. */
+.menu { position: relative; }
+.menu > summary { list-style: none; cursor: pointer; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.menu > summary::-webkit-details-marker { display: none; }
+.menu__panel { position: absolute; left: 0; top: calc(100% + 8px); z-index: 30; min-width: 232px; padding: 8px 0; }
+.menu__panel a { display: flex; align-items: center; min-height: 48px; padding: 0 20px; text-decoration: none; }
+
+/* Sabit alt çubuk: başparmak bölgesinde iki eylem. */
+.alt-bar { position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: var(--cubuk-zemin); color: var(--cubuk-yazi); }
+.alt-bar a { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; }
+.alt-bar__ara { min-width: 92px; padding: 0 16px; }
+@media (min-width: 900px) {
+  body { padding-bottom: 0; }
+  .alt-bar { left: auto; right: 28px; bottom: 28px; width: 420px; box-shadow: 0 10px 40px rgb(0 0 0 / .18); }
+}
+
+/* Yatay kayan şerit: kaydırma çubuğu gizli, yapışmalı. */
+[data-yatay] { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+[data-yatay]::-webkit-scrollbar { display: none; }
+[data-yatay] > * { scroll-snap-align: start; flex: none; }
+
+/* Hareket yalnız kullanıcı hareket azaltmayı seçmediyse ve JS çalıştıysa (html.hareket). */
+@media (prefers-reduced-motion: no-preference) {
+  html.hareket .belir { opacity: 0; transform: translateY(16px); transition: opacity .9s ease, transform .9s cubic-bezier(.2, .7, .2, 1); }
+  html.hareket .belir.gorundu { opacity: 1; transform: none; }
+  html { scroll-behavior: smooth; }
+}
