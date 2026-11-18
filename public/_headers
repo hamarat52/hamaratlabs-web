@@ -26,3 +26,7 @@
   Content-Type: application/wasm
 /okul-projeleri/kader/kader.dsk
   Cache-Control: no-cache
+
+# Ma'shuk taslak sayfaları (v1/v2/v3): listelenmemiş önizleme, arama sonuçlarına girmez.
+/mashuk/*
+  X-Robots-Tag: noindex
