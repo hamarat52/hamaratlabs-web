@@ -122,7 +122,7 @@
 .wwl .nd b { font: 600 16px/1.25 var(--urun); }
 .wwl .nd > span { font-size: 14px; line-height: 1.35; color: var(--metin2); }
 /* ww-mono: taslakta .mono; ana sitenin genel .mono kuralı (12 px, 700, harf aralığı) sızmasın diye sayfaya özgü ad */
-.wwl .nd .ww-mono { font-family: var(--sistem); }
+.wwl .nd .ww-mono { font-family: var(--sistem); white-space: nowrap; font-size: 13px; letter-spacing: -.02em; }
 .wwl .nd--b { border-style: dashed; border-color: color-mix(in srgb, var(--ikincil) 60%, transparent); }
 .wwl .nd--b > .ik { background: color-mix(in srgb, var(--ikincil) 13%, var(--yuzey)); color: var(--ikincil); }
 .wwl .nd.vurdu { border-color: var(--canli); box-shadow: 0 0 0 4px color-mix(in srgb, var(--canli) 22%, transparent), 0 10px 26px -10px var(--canli); }
