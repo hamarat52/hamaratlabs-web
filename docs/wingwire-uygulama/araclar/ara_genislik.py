@@ -1,5 +1,5 @@
 import base64, io, json, os, sys, time
-sys.path.insert(0, '/Users/hamaratbey/Desktop/Projeler/hamaratlabs-web/.worktrees/ww-landing-uygula/docs/wingwire-uygulama/araclar')
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from PIL import Image
 from cdp_ortak import Tarayici
 OUT = sys.argv[1]

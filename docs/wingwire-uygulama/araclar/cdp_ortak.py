@@ -4,7 +4,8 @@ import websocket
 from PIL import Image
 
 CH = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-PROF = '/Users/hamaratbey/.hermes/profiles/webdev/cache/scratch/wwuyg/prof'
+import os, tempfile
+PROF = os.environ.get('CDP_PROF') or os.path.join(os.environ.get('TMPDIR') or tempfile.gettempdir(), 'wwuyg-prof')
 
 # Elle sürülen saat: requestAnimationFrame ve performance.now sayfa yüklenmeden önce değiştirilir; __adim(k, dt) k kare ilerletir.
 # Taslak ve React motoru aynı tohumla aynı kare sayısında aynı hüzme konumunu verir (setTimeout, CSS geçişi ve WAAPI gerçek saatte).
