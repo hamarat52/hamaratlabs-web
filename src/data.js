@@ -64,7 +64,7 @@ export const APPS = [
     internal: true,
     short: 'Ajan ekibini tarayıcıdan yönet',
     lead: "Hermes ajanlarımı tarayıcıdan yöneten panel: kendi Mac'imde çalışır, yalnız özel ağım (tailnet) üzerinden erişilir.",
-    points: ['Ajanlarla sohbet ve gruplar', 'İş ve görev takibi, cron takvimi', 'Yapılacaklar: ay ve hafta takvimi, sohbetten /me ile görev ekleme', 'Tek «Oluştur» ekranından görsel, video ve seslendirmeli video', 'Ses Stüdyosu: seslendirme, diyalog, ses efekti, müzik', 'Telefonu QR kodla eşle (telefon paneli şimdilik yalnız okur)', 'Projeler, paylaşımlar ve sağlık paneli'],
+    points: ['Ajanlarla sohbet ve gruplar', 'İş ve görev takibi, cron takvimi', 'Yapılacaklar: ay ve hafta takvimi, sohbetten /me ile görev ekleme', 'Galeriden indirirken kalite seçimi (videoda 1080p, 720p, 480p)', 'Tek «Oluştur» ekranından görsel, video ve seslendirmeli video', 'Ses Stüdyosu: seslendirme, diyalog, ses efekti, müzik', 'Telefonu QR kodla eşle (telefon paneli şimdilik yalnız okur)', 'Projeler, paylaşımlar ve sağlık paneli'],
     platform: 'WEB · İÇ KULLANIM'
   },
   {
@@ -190,7 +190,7 @@ export const LOG = [
   },
   {
     tag: 'KASIM 2026 · WINGWIRE',
-    text: "Android uygulamasına 8 ana ekran widget'ı geldi. 0.3.3 ile alt menüde hangi bölümlerin duracağı seçilebiliyor. 0.3.4'te Diğer menüsü alt barın sonuna taşındı, uygulama içi güncelleme eklendi. 0.3.5 ile web'deki Yapılacaklar listesi telefona geldi: hızlı ekleme ve düzenleme. 0.3.6'da alt bar yenilendi, seçilen bölüm barda duruyor, ayrı bir «+» düğmesi var."
+    text: "Android uygulamasına 8 ana ekran widget'ı geldi. 0.3.3 ile alt menüde hangi bölümlerin duracağı seçilebiliyor. 0.3.4'te Diğer menüsü alt barın sonuna taşındı, uygulama içi güncelleme eklendi. 0.3.5 ile web'deki Yapılacaklar listesi telefona geldi: hızlı ekleme ve düzenleme. 0.3.6 ile 0.3.10 arasında alt bar sadeleşti: en çok dört öğe var, «Diğer»e basınca bar yukarı doğru açılıyor. 0.3.11'de Ayarlar yenilendi: üstte dört hızlı karo (Koyu tema, Servisler, Bağlantı, Anahtarlar), altında gruplanmış liste. 0.3.13 ile medya indirirken kalite seçiliyor, dosya doğrudan Galeriye kaydediliyor, ilerleme bildirimde görünüyor."
   },
   {
     tag: 'KASIM 2026 · KİTABE',
@@ -198,7 +198,7 @@ export const LOG = [
   },
   {
     tag: 'KASIM 2026 · WINGWIRE WEB',
-    text: 'Yapılacaklar modülü eklendi: ay ve hafta takvimi, sağ panelden hızlı ekleme, sohbetten /me ile görev. Paylaşımlar takviminde gönderiye tıklayınca önizleme açılıyor, yayınlanan gönderinin linki görünüyor. Görsel, video ve seslendirmeli video tek bir Oluştur ekranından üretiliyor; Ses Stüdyosu eklendi.'
+    text: 'Yapılacaklar modülü eklendi: ay ve hafta takvimi, sağ panelden hızlı ekleme, sohbetten /me ile görev. Paylaşımlar takviminde gönderiye tıklayınca önizleme açılıyor, yayınlanan gönderinin linki görünüyor. Görsel, video ve seslendirmeli video tek bir Oluştur ekranından üretiliyor; Ses Stüdyosu eklendi. Ayarlar telefonla aynı düzene geçti: dört hızlı karo ve gruplar. Galerideki İndir menüsünden kalite seçiliyor.'
   },
   {
     tag: 'EKİM 2026 · KİTABE',
