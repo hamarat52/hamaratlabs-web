@@ -33172,5 +33172,194 @@
     "score": 60,
     "is_merge": false,
     "lines": 1435
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "0d57794b95",
+    "date": "2026-11-18T23:44:37+03:00",
+    "subject": "fix(ayarlar): Hakkında, Görünüm, Sohbet sunuş düzeltmeleri",
+    "score": 66,
+    "is_merge": false,
+    "lines": 384
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f7fc984e77",
+    "date": "2026-11-19T00:00:17+03:00",
+    "subject": "docs(qa): ayarlar-uc-sayfa — önce/sonra emülatör kanıtı, karşılaştırma, RAPOR",
+    "score": 40,
+    "is_merge": false,
+    "lines": 2491
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "c3b1aa59e7",
+    "date": "2026-11-19T00:00:17+03:00",
+    "subject": "fix(ayarlar): Sohbet açıklamaları büyük yazıda kesilmesin (maxLines yok)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "63fe89f9e2",
+    "date": "2026-11-19T00:00:26+03:00",
+    "subject": "docs(qa): ayarlar-uc-sayfa RAPOR — diff özeti",
+    "score": 21,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "b190749ba8",
+    "date": "2026-11-19T00:02:44+03:00",
+    "subject": "chore(release): 0.3.15 (versionCode 20) — Ayarlar: Hakkında, Görünüm, Sohbet sayfalarında küçük düzeltmeler",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "7202895e0d",
+    "date": "2026-11-19T00:02:44+03:00",
+    "subject": "docs(qa): ayarlar-uc-sayfa siberguvenlik (GEÇER)",
+    "score": 26,
+    "is_merge": false,
+    "lines": 23
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f3c4cb9304",
+    "date": "2026-11-19T10:25:00+03:00",
+    "subject": "docs(sesli-buton): Santral yüzen butonu — etkileşimli prototip, yörünge varyantları, video/PNG, notlar",
+    "score": 45,
+    "is_merge": false,
+    "lines": 1435
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "6caa625aa9",
+    "date": "2026-11-19T20:00:56+03:00",
+    "subject": "docs(sesli-buton): yörünge v2 — 3 konsept (köşe yayları, genişleyen halkalar, girdap), buzlu perde, video/PNG, notlar",
+    "score": 41,
+    "is_merge": false,
+    "lines": 425
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "1485bb8e06",
+    "date": "2026-11-19T20:24:49+03:00",
+    "subject": "feat(sohbet): Ekle (ataç) sayfası Telegram tarzı — Galeri ızgarası + Dosya sekmesi",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1499
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "ecef34d320",
+    "date": "2026-11-19T20:31:32+03:00",
+    "subject": "docs(sesli-buton): yörünge v3 — gece perdesi, yıldız alanı ve gezegenler (3a güneş sistemi, 3b geniş yaylar), iki satırlı altyazı, video/PNG, notlar",
+    "score": 42,
+    "is_merge": false,
+    "lines": 507
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "955b629a82",
+    "date": "2026-11-19T20:46:51+03:00",
+    "subject": "docs(qa): ekle-telegram RAPOR + araştırma notu, karşılaştırma/ekran ızgaraları, akis.mp4, QA betikleri",
+    "score": 35,
+    "is_merge": false,
+    "lines": 322
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "d7149371f7",
+    "date": "2026-11-19T20:50:39+03:00",
+    "subject": "chore(release): 0.3.16 (versionCode 21) — Sohbet: Telegram tarzı ekle sayfası (galeri ızgarası, kamera, dosya)",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "01ae949791",
+    "date": "2026-11-19T20:50:39+03:00",
+    "subject": "docs(qa): ekle-telegram siberguvenlik (GEÇER)",
+    "score": 30,
+    "is_merge": false,
+    "lines": 65
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "697dffd987",
+    "date": "2026-11-19T21:14:20+03:00",
+    "subject": "docs(sesli-buton): yörünge v4 — yalnız yıldızlı uzak uzay akışı, 13 ajan durumu UX (ux.md, durum ızgaraları, 4+1 video, sahne #v=4, Compose notu, duman testi)",
+    "score": 45,
+    "is_merge": false,
+    "lines": 1156
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "bf2359a868",
+    "date": "2026-11-19T21:42:17+03:00",
+    "subject": "merge: docs/sesli-buton — Santral yüzen buton tasarımı; v4 yıldız akışı + 13 durum UX (Yusuf onayı); yalnız docs",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "b6863e860c",
+    "date": "2026-11-19T22:00:09+03:00",
+    "subject": "feat(sesli-buton): Santral yüzen butonu — bas-konuş durum makinesi, yıldız akışı (OLED gece), ajan kartları, onay/sustur bağları",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2159
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "dc3119bbb9",
+    "date": "2026-11-19T22:22:20+03:00",
+    "subject": "feat(sesli-buton): araç sürerken düşünüyor, kart «Oturumu aç», OLED perde açık temada da ≤#05; QA: emülatör video, koyu/açık durumlar, kare süresi, RAPOR",
+    "score": 92,
+    "is_merge": false,
+    "lines": 548
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "78ae335348",
+    "date": "2026-11-19T22:29:26+03:00",
+    "subject": "docs(qa): sesli-buton siberguvenlik 1. tur (ŞARTLI GEÇER, Ş-1 sıcak pencere)",
+    "score": 30,
+    "is_merge": false,
+    "lines": 73
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "17d3807e77",
+    "date": "2026-11-19T22:44:11+03:00",
+    "subject": "fix(sesli-buton): Ş-1 sıcak pencere denetleyicide (arka plan = bitir, buton ekrandan çıkınca mikrofon kapanır); bas-konuşta açılış cümlesi susturulur; eller serbestte ekran açık; B-2 susturma hatası hattı bitirir; B-4 onay kartı 400 ms; RAPOR 2. tur",
+    "score": 67,
+    "is_merge": false,
+    "lines": 589
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "903e8593ab",
+    "date": "2026-11-19T22:47:46+03:00",
+    "subject": "chore(release): 0.3.17 (versionCode 22) — Santral yüzen butonu: basılı tut konuş, yıldız akışı",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "e7b9af3a19",
+    "date": "2026-11-19T22:47:46+03:00",
+    "subject": "docs(qa): sesli-buton-app siberguvenlik (GEÇER)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 51
   }
 ]
