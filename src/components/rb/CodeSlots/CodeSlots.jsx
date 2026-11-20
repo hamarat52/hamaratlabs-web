@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
+// eslint-disable-next-line no-unused-vars -- `motion` JSX içinde <motion.div> olarak kullanılıyor
 import { animate, motion, motionValue, useMotionValue, useReducedMotion, useTransform } from 'motion/react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Tick02Icon } from '@hugeicons/core-free-icons';
@@ -81,7 +82,6 @@ export default function CodeSlots({
       mvs: Array.from({ length }, (_, i) => motionValue(slotsRef.current[i] ? 1 : 0)),
       drops: Array.from({ length }, () => motionValue(statusRef.current === 'success' ? 1 : 0))
     }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [length]
   );
   const { mvs, drops } = springs;

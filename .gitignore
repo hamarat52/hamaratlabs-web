@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+# Yerel Cloudflare Pages sunucusunun (wrangler pages dev) geçici klasörü
+.wrangler
 
 # Build öncesi üretilen optimize görseller (scripts/optimize-images.mjs)
 public/ilham/opt/

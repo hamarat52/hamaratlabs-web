@@ -691,7 +691,7 @@ function createEngine({ root, canvas, button, cursor, ramp, props }) {
     if (floatOk) {
       try {
         sim = createSim(gl);
-      } catch (err) {
+      } catch {
         sim = null;
       }
     }
@@ -1558,7 +1558,7 @@ function createEngine({ root, canvas, button, cursor, ramp, props }) {
     root.dataset.dragging = '';
     try {
       root.setPointerCapture(e.pointerId);
-    } catch {}
+    } catch { /* işaretçi yakalama desteklenmiyorsa önemsiz */ }
     aim();
   };
 
@@ -1568,7 +1568,7 @@ function createEngine({ root, canvas, button, cursor, ramp, props }) {
     delete root.dataset.dragging;
     try {
       root.releasePointerCapture(e.pointerId);
-    } catch {}
+    } catch { /* işaretçi yakalama desteklenmiyorsa önemsiz */ }
     s.phase = 'hover';
     s.pt = 0;
     s.alt = s.y;

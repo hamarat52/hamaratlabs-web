@@ -130,7 +130,7 @@ export default function WakeSlider({
     pointerId.current = e.pointerId;
     try {
       e.currentTarget.setPointerCapture(e.pointerId);
-    } catch {}
+    } catch { /* işaretçi yakalama desteklenmiyorsa önemsiz */ }
     rootRef.current?.removeAttribute('data-instant');
     handleRef.current?.focus({ preventScroll: true });
     commitFromX(e.clientX);
@@ -142,7 +142,7 @@ export default function WakeSlider({
     if (e.pointerId !== pointerId.current) return;
     try {
       e.currentTarget.releasePointerCapture(e.pointerId);
-    } catch {}
+    } catch { /* işaretçi yakalama desteklenmiyorsa önemsiz */ }
     pointerId.current = null;
   };
   const onKeyDown = e => {

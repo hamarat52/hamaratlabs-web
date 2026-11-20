@@ -470,7 +470,7 @@ export default function ShareSling({
     const below = ringR + 36;
     el.style.top = `${c.cy + below + h + EDGE <= c.vh ? below : -(below + h)}px`;
     el.style.marginLeft = `${edgeShift(c.cx, el.offsetWidth, c.vw)}px`;
-  }, [toast.show, toast.msg, ringR]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [toast.show, toast.msg, ringR]);
 
   // Açıkken / not görünürken sayfa kayar ya da boyut değişirse katman takip etsin.
   const following = phase !== 'idle' || toast.show;
@@ -483,7 +483,7 @@ export default function ShareSling({
       window.removeEventListener('scroll', on, true);
       window.removeEventListener('resize', on);
     };
-  }, [following]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [following]);
 
   const open = phase === 'reveal' || phase === 'armed' || phase === 'fired';
   const pulling = phase === 'held' || phase === 'reveal' || phase === 'armed';

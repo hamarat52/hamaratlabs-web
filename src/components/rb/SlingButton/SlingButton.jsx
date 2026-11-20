@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import {
   animate,
+  // eslint-disable-next-line no-unused-vars -- `motion` JSX içinde <motion.x> olarak kullanılıyor
   motion,
   useMotionTemplate,
   useMotionValue,
@@ -233,7 +234,7 @@ export default function SlingButton({
     };
     try {
       e.currentTarget.setPointerCapture(e.pointerId);
-    } catch {}
+    } catch { /* işaretçi yakalama desteklenmiyorsa önemsiz */ }
     setHeld(true);
   };
   const onPointerMove = e => {
@@ -270,7 +271,7 @@ export default function SlingButton({
     skipClick.current = true;
     try {
       padRef.current?.releasePointerCapture(pointerId);
-    } catch {}
+    } catch { /* işaretçi yakalama desteklenmiyorsa önemsiz */ }
     const d = Math.hypot(px.get(), py.get());
     const p = d / ARM;
     const { ux, uy } = dir.current;

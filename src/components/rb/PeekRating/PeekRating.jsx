@@ -143,7 +143,7 @@ export default function PeekRating({
     rootRef.current?.removeAttribute('data-instant');
     try {
       e.currentTarget.setPointerCapture(e.pointerId);
-    } catch {}
+    } catch { /* işaretçi yakalama desteklenmiyorsa önemsiz */ }
     st.current.pointerId = e.pointerId;
     st.current.pressing = true;
     measure();
