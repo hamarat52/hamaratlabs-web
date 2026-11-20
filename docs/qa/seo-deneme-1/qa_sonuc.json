@@ -1,0 +1,333 @@
+{
+ "karsilastirma": [
+  {
+   "surum": "once",
+   "rota": "/uretiyorum",
+   "w": 1280,
+   "scrollHeight": 4692,
+   "h1": [
+    "Üretiyorum"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "once",
+   "rota": "/okul-projeleri",
+   "w": 1280,
+   "scrollHeight": 2617,
+   "h1": [
+    "Okul Projeleri"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "once",
+   "rota": "/uretiyorum/titimer",
+   "w": 1280,
+   "scrollHeight": 3076,
+   "h1": [
+    "tiTimer"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "once",
+   "rota": "/oneriyorum",
+   "w": 1280,
+   "scrollHeight": 1955,
+   "h1": [
+    "Öneriyorum"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "once",
+   "rota": "/ogretici",
+   "w": 1280,
+   "scrollHeight": 1625,
+   "h1": [
+    "Öğretici"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "once",
+   "rota": "/boyle-yok",
+   "w": 1280,
+   "scrollHeight": 1461,
+   "h1": [
+    "404"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/uretiyorum",
+   "w": 1280,
+   "scrollHeight": 4692,
+   "h1": [
+    "Üretiyorum"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/okul-projeleri",
+   "w": 1280,
+   "scrollHeight": 2617,
+   "h1": [
+    "Okul Projeleri"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/uretiyorum/titimer",
+   "w": 1280,
+   "scrollHeight": 3076,
+   "h1": [
+    "tiTimer"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/oneriyorum",
+   "w": 1280,
+   "scrollHeight": 1955,
+   "h1": [
+    "Öneriyorum"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/ogretici",
+   "w": 1280,
+   "scrollHeight": 1625,
+   "h1": [
+    "Öğretici"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/boyle-yok",
+   "w": 1280,
+   "scrollHeight": 1461,
+   "h1": [
+    "404"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "once",
+   "rota": "/uretiyorum",
+   "w": 390,
+   "scrollHeight": 5775,
+   "h1": [
+    "Üretiyorum"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "once",
+   "rota": "/okul-projeleri",
+   "w": 390,
+   "scrollHeight": 3349,
+   "h1": [
+    "Okul Projeleri"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "once",
+   "rota": "/uretiyorum/titimer",
+   "w": 390,
+   "scrollHeight": 3887,
+   "h1": [
+    "tiTimer"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "once",
+   "rota": "/oneriyorum",
+   "w": 390,
+   "scrollHeight": 2934,
+   "h1": [
+    "Öneriyorum"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "once",
+   "rota": "/ogretici",
+   "w": 390,
+   "scrollHeight": 1476,
+   "h1": [
+    "Öğretici"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "once",
+   "rota": "/boyle-yok",
+   "w": 390,
+   "scrollHeight": 1513,
+   "h1": [
+    "404"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/uretiyorum",
+   "w": 390,
+   "scrollHeight": 5775,
+   "h1": [
+    "Üretiyorum"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/okul-projeleri",
+   "w": 390,
+   "scrollHeight": 3349,
+   "h1": [
+    "Okul Projeleri"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/uretiyorum/titimer",
+   "w": 390,
+   "scrollHeight": 3887,
+   "h1": [
+    "tiTimer"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/oneriyorum",
+   "w": 390,
+   "scrollHeight": 2934,
+   "h1": [
+    "Öneriyorum"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/ogretici",
+   "w": 390,
+   "scrollHeight": 1476,
+   "h1": [
+    "Öğretici"
+   ],
+   "prerender_gorunur": false
+  },
+  {
+   "surum": "sonra",
+   "rota": "/boyle-yok",
+   "w": 390,
+   "scrollHeight": 1513,
+   "h1": [
+    "404"
+   ],
+   "prerender_gorunur": false
+  }
+ ],
+ "hesap": [
+  {
+   "w": 390,
+   "durum": "varsayılan 50.000 TL, 40 saat, 2.499 TL",
+   "hourly": "₺288,46",
+   "note": "bir saatin · ayda ortalama 173 saat çalışıyorsun",
+   "commute": null,
+   "price": "8 saat 40 dakika",
+   "priceNote": "saatlik ücretinle çalışma · 1,1 gün",
+   "sw": 390,
+   "cw": 390,
+   "h1": 1
+  },
+  {
+   "w": 390,
+   "durum": "35.000 TL, 45 saat, yol 90 dk x 5 gün, 12.999 TL",
+   "hourly": "₺179,49",
+   "note": "bir saatin · ayda ortalama 195 saat çalışıyorsun",
+   "commute": "yol dahil ₺153,85 · haftada 52,5 saat işe ayırıyorsun",
+   "price": "84 saat 30 dakika",
+   "priceNote": "yol dahil saatlik ücretinle çalışma · 8 gün",
+   "sw": 390,
+   "cw": 390,
+   "h1": 1,
+   "salaryField": "35.000",
+   "priceField": "12.999"
+  },
+  {
+   "w": 390,
+   "durum": "maaş boş",
+   "hourly": "·",
+   "note": "maaşı ve haftalık saati doldur",
+   "commute": null,
+   "price": "·",
+   "priceNote": "önce saatlik ücretin hesaplansın",
+   "sw": 390,
+   "cw": 390,
+   "h1": 1
+  },
+  {
+   "w": 1280,
+   "durum": "varsayılan 50.000 TL, 40 saat, 2.499 TL",
+   "hourly": "₺288,46",
+   "note": "bir saatin · ayda ortalama 173 saat çalışıyorsun",
+   "commute": null,
+   "price": "8 saat 40 dakika",
+   "priceNote": "saatlik ücretinle çalışma · 1,1 gün",
+   "sw": 1280,
+   "cw": 1280,
+   "h1": 1
+  },
+  {
+   "w": 1280,
+   "durum": "35.000 TL, 45 saat, yol 90 dk x 5 gün, 12.999 TL",
+   "hourly": "₺179,49",
+   "note": "bir saatin · ayda ortalama 195 saat çalışıyorsun",
+   "commute": "yol dahil ₺153,85 · haftada 52,5 saat işe ayırıyorsun",
+   "price": "84 saat 30 dakika",
+   "priceNote": "yol dahil saatlik ücretinle çalışma · 8 gün",
+   "sw": 1280,
+   "cw": 1280,
+   "h1": 1,
+   "salaryField": "35.000",
+   "priceField": "12.999"
+  },
+  {
+   "w": 1280,
+   "durum": "maaş boş",
+   "hourly": "·",
+   "note": "maaşı ve haftalık saati doldur",
+   "commute": null,
+   "price": "·",
+   "priceNote": "önce saatlik ücretin hesaplansın",
+   "sw": 1280,
+   "cw": 1280,
+   "h1": 1
+  }
+ ],
+ "hatalar": {
+  "once-1280": [],
+  "sonra-1280": [],
+  "once-390": [],
+  "sonra-390": [],
+  "hesap-390": [],
+  "hesap-1280": []
+ },
+ "blog_link": [
+  "http://hamaratlabs-seo.localhost:1355/income-vs-desires/saatlik-ucret-hesaplama"
+ ]
+}

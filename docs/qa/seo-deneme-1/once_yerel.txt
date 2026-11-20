@@ -1,0 +1,31 @@
+URL 28 | iç link 6 | kırık 0
+!! /  h1 sayısı 0
+!! /uretiyorum  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /paylasiyorum  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /anlatiyorum  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /oneriyorum  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /okul-projeleri  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /skills  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /okul-projeleri/fibi/  canonical yok; og:image yok
+!! /okul-projeleri/kader/  desc uzun 161
+!! /okul-projeleri/kuveytturk-api-portal/  canonical yok; og:image yok
+!! /income-vs-desires/  title uzun 68; og:image yok
+!! /income-vs-desires/blog/  og:image yok
+!! /income-vs-desires/blog/durtusel-alisveristen-kurtulmak  title uzun 82; og:image yok
+!! /income-vs-desires/blog/kira-maasin-yuzde-kaci-olmali  title uzun 72; og:image yok
+!! /income-vs-desires/blog/saatlik-ucret-nasil-hesaplanir  title uzun 75; og:image yok
+!! /income-vs-desires/destek  og:image yok
+!! /income-vs-desires/en/privacy  og:image yok
+!! /income-vs-desires/en/support  og:image yok
+!! /income-vs-desires/gizlilik  og:image yok
+!! /okul-projeleri/ricambio/  canonical yok; h1 sayısı 0; og:image yok
+!! /uretiyorum/income-vs-desires  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /uretiyorum/titimer  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /uretiyorum/dusen-top  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /sesver  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /wingwire  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /titimer  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /ogretici  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+!! /ogretici/motion-video  canonical farklı https://hamaratlabs.com/; h1 sayısı 0
+çift title ['hamaratlabs']
+çift desc ['Ürettiğim, anlattığım ve paylaştığım laboratuvar. Yusuf Hamarat']
