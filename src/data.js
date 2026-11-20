@@ -155,6 +155,8 @@ export const APPS = [
     name: 'Düşen Top',
     stage: 'beta',
     short: 'Tavandaki dikenlerden kaçıp platformların arasından düştüğün piksel arcade oyunu',
+    // Arama sonucu başlığı (short 65 karakteri aşıyor; metin short + points'teki "Tarayıcıda oynanır"dan).
+    seoTitle: 'Düşen Top: tarayıcıda oynanan piksel arcade oyunu',
     lead: 'Platformlar yukarı çıkıyor, dikenler tavanda bekliyor. Boşluklardan aşağı kaçar, eşya toplar, rekorunu kovalarsın. Skor arttıkça dünyanın rengi değişir, zaman geçtikçe oyun hızlanır.',
     points: [
       'Telefonda dokunarak, bilgisayarda ok tuşlarıyla',

@@ -5,6 +5,7 @@ import { Link } from '../nav';
 import { asset } from '../base';
 import { DEFAULT_LANG, LANGS, LangContext, initialLang, isRtl, loadDict, makeT, saveLang, useI18n } from './i18n';
 import './sesver.css';
+import { PAGE_META } from '../seo/routeMeta';
 
 // SesVer'in kendi sitesi (/sesver). Ana sitenin topbar/footer'ı olmadan tam sayfa çizilir (App.jsx → STANDALONE_PAGES).
 // Kimlik WingWire'ın tersi: krem zemin, koyu metin, turuncu vurgu, klon için mor; hareket yaylanan/organik.
@@ -12,7 +13,8 @@ import './sesver.css';
 //  - prefers-reduced-motion: reduce → scroll bağlı hareketler kapanır, CSS dalga animasyonları durur.
 //  - Ses örnekleri: VideoGen üretti (22 Ekim), Yusuf dinleyip onayladı. public/audio/sesver/*.mp3.
 
-const TITLE = 'SesVer · Yazdığın, kendi bilgisayarında sese dönüşsün';
+// Başlık src/seo/routeMeta.js'te (ön-render edilen <title> ile aynı kalsın diye tek kaynak).
+const TITLE = PAGE_META['/sesver'].title;
 const BG = '#fbf6ee';
 const GITHUB = 'https://github.com/hamarat52/sesver';
 // İndirme adresleri sürümsüz (releases/latest/download): yeni sürüm çıkınca kendiliğinden güncel kalır.

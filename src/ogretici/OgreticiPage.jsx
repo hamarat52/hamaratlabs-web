@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from '../nav';
 import { asset } from '../base';
 import { POSTS, postBySlug } from './posts';
+import { seoTitle } from '../seo/routeMeta';
 import './Ogretici.css';
 
 // Yazı metinleri (src/ogretici/yazilar/<slug>.md) bu parçaya ham metin olarak gömülür.
@@ -212,7 +213,7 @@ function Post({ post }) {
   let firstFig = true;
   useEffect(() => {
     const prev = document.title;
-    document.title = `${post.title} · hamaratlabs`;
+    document.title = seoTitle(post.title);
     return () => {
       document.title = prev;
     };

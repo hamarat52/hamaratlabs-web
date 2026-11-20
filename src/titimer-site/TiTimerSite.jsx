@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from '../nav';
 import { asset } from '../base';
 import { LINKS } from '../data';
+import { PAGE_META } from '../seo/routeMeta';
 import Titi from './Titi';
 import './titimer.css';
 
@@ -11,8 +12,8 @@ import './titimer.css';
 // Ekran görüntüleri gerçek uygulama ağacından üretilen mağaza setidir (store/ortak/ekran, 2026-11-01).
 // Durum bilgisi pm-titimer'dan: iOS 0.1.0 (1) TestFlight'a yüklendi, yalnız iPhone, dahili test (titimer 341c7af). Tarih verilmez.
 
-const TITLE = 'tiTimer: Odaklan. Mola ver. Tekrarla.';
-const DESC = 'Neye ne kadar zaman ayırdığını sakin biçimde gösteren, tamamen telefonunda çalışan odak ve mola sayacı.';
+// Başlık ve açıklama src/seo/routeMeta.js'te (ön-render edilen <head> ile aynı kalsın diye tek kaynak).
+const { title: TITLE, description: DESC } = PAGE_META['/titimer'];
 const shot = name => asset(`/titimer-screens/${name}.webp`);
 
 const pad = n => String(n).padStart(2, '0');

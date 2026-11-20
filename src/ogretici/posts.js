@@ -10,6 +10,9 @@ export const POSTS = [
     slug: 'motion-video',
     title: 'Nasıl Yaptık: "Bu Motion Videolar Aslında Video Değil"',
     sub: 'Kod → görünmez tarayıcı → 683 kare → MP4',
+    // Arama sonucu ve paylaşım önizlemesi için kısa özet (yazının ilk paragrafından; src/seo/routeMeta.js 160 karaktere kırpar).
+    description:
+      "Opus 5.5'in bir video üretme modeli yok. Yaptığı şey, size bir web sitesi kodu yazmak. O site bir animasyon oynatıyor, biz de o animasyonu kare kare fotoğraflayıp videoya çeviriyoruz.",
     kind: 'NASIL YAPTIK',
     date: 'EKİM 2026',
     cover: '/ogretici/motion-video/v05_kontak.jpg',

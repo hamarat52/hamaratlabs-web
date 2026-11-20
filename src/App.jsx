@@ -18,6 +18,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 // WebGL'siz yedek galeri ogl içermez (küçük); error boundary'nin chunk yüklenemese de gösterebilmesi için ana pakette.
 import FlexCarouselFallback from './components/rb/FlexCarousel/FlexCarouselFallback';
 import { POSTS } from './ogretici/posts';
+import { HOME_META, NOT_FOUND_META, SITE, metaForPath } from './seo/routeMeta';
 // Telefon düzeni (620 px altı; masaüstü ve tablet etkilenmez). Bkz. docs/mobil-son-raporu.md
 import './mobil.css';
 
@@ -129,6 +130,43 @@ function usePath() {
   return [path, navigate];
 }
 
+// <head> eşitleme. İlk yüklemede sunucudan gelen <head> zaten doğru (scripts/prerender-routes.mjs her rotaya kendi
+// title/description/canonical'ını yazar); site içi gezinmede aynı bilgiler src/seo/routeMeta.js'ten güncellenir.
+// Kendi başlığını kendisi koyan sayfalarda (meta.manages) o alanlara dokunulmaz.
+const SEO_DATA = { FEATURED, APPS, SERIES, TOOLS, SCHOOL_PROJECTS, LINKS, POSTS, STAGE_LABELS: STAGE, slugOf };
+const setHead = (selector, attr, value) => document.head.querySelector(selector)?.setAttribute(attr, value);
+
+function useHeadSync(path, notFound) {
+  useEffect(() => {
+    // Bilinmeyen yol: Cloudflare Pages SPA kipinde 200 döner; arama motoru bu adresi dizine eklemesin.
+    const robots = document.head.querySelector('meta[name="robots"][data-spa]');
+    if (notFound && !robots) {
+      const el = document.createElement('meta');
+      el.name = 'robots';
+      el.content = 'noindex';
+      el.setAttribute('data-spa', '');
+      document.head.appendChild(el);
+    } else if (!notFound && robots) robots.remove();
+
+    // İlk açılışta da çalışır: ön-render edilmiş sayfalarda aynı değerleri yazar (zararsız); ön-render edilmemiş
+    // rotalarda (ör. sitemap dışı /uretiyorum/sesver, /aktivite) ana sayfa yedeğinden gelen <head>'i düzeltir.
+    const meta = metaForPath(path, SEO_DATA);
+    const fallback = notFound ? NOT_FOUND_META : HOME_META;
+    const manages = meta?.manages || [];
+    const canonical = path === '/' ? `${SITE}/` : `${SITE}${path}`;
+    if (!manages.includes('title')) {
+      document.title = meta?.title || fallback.title;
+      setHead('meta[property="og:title"]', 'content', meta?.title || fallback.title);
+    }
+    if (!manages.includes('description')) {
+      setHead('meta[name="description"]', 'content', meta?.description || fallback.description);
+      setHead('meta[property="og:description"]', 'content', meta?.description || fallback.description);
+    }
+    setHead('link[rel="canonical"]', 'href', canonical);
+    setHead('meta[property="og:url"]', 'content', canonical);
+  }, [path, notFound]);
+}
+
 
 export default function App() {
   const [path, navigate] = usePath();
@@ -140,6 +178,9 @@ export default function App() {
   // /ogretici → liste (slug null), /ogretici/<slug> → yazı. Sondaki eğik çizgi yok sayılır.
   const ogretici =
     path === '/ogretici' || path.startsWith('/ogretici/') ? { slug: path.slice('/ogretici/'.length).replace(/\/$/, '') || null } : null;
+  // Aşağıdaki render dallarının hiçbiri tutmuyorsa NotFoundPage çizilir.
+  const notFound = !StaticPage && !ogretici && !appMatch && !page && path !== '/';
+  useHeadSync(path, notFound);
   if (StaticPage && STANDALONE_PAGES.has(path)) {
     return (
       <NavContext.Provider value={navigate}>

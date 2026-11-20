@@ -4,6 +4,7 @@ import { Link } from '../nav';
 import { motorKur } from './diyagram';
 import PlatformLogolari from './PlatformLogolari';
 import { Clilar, McpLogo, Modeller } from './HermesLogolari';
+import { PAGE_META } from '../seo/routeMeta';
 import './fonts.css';
 import './WingWireSite.css';
 import icon from './img/icon.webp';
@@ -31,8 +32,7 @@ import paylasKoyu from './img/u-paylas-koyu.webp';
 
 // Android APK: public/downloads/'taki dosyayla aynı kalmalı (bkz. o klasördeki README.md). Sürüm şu an güncellenmiyor.
 const APK_URL = asset('/downloads/wingwire-0.1.1.apk');
-const TITLE = 'WingWire · Masadan kalk';
-const DESC = 'Bilgisayarındaki Hermes Agent için Android uygulaması.';
+const { title: TITLE, description: DESC } = PAGE_META['/wingwire'];
 const ZEMIN = { acik: '#F7F5F0', koyu: '#0B0F14' };
 
 const ilkTema = () => (matchMedia('(prefers-color-scheme: dark)').matches ? 'koyu' : 'acik');

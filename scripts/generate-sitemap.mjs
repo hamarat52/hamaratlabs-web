@@ -1,75 +1,21 @@
 // Build sonrası: dist/sitemap.xml ve robots.txt'teki sitemap referansını üretir.
-// Google'ın siteyi keşfetmesini hızlandırmak için (domain yeni, sitemap hiç yoktu).
-// Ürün listesi src/data.js'ten (FEATURED + APPS) otomatik okunur, elle güncelleme
-// gerekmez — yeni ürün eklendikçe sitemap kendiliğinden büyür.
-import { mkdirSync, readFileSync, writeFileSync, appendFileSync, existsSync, readdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+// Adres listesi scripts/site-urls.mjs'ten gelir (ön-render betiği prerender-routes.mjs ile aynı kaynak):
+// ürünler src/data.js'ten, öğretici yazıları src/ogretici/posts.js'ten, statik sayfalar public/ altından
+// kendiliğinden okunur; yeni ürün ya da sayfa eklendikçe sitemap kendiliğinden büyür.
+import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { ROOT, loadSiteData, siteUrls } from './site-urls.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const distDir = path.join(__dirname, '..', 'dist');
-const SITE = 'https://hamaratlabs.com';
-
-const dataSrc = readFileSync(path.join(__dirname, '..', 'src', 'data.js'), 'utf8');
-
-// data.js'i modül olarak import etmek yerine (ESM uzantısız import'lar Vite dışında
-// kırılıyor) ham metinden regex ile ürün adlarını ve visitUrl'lerini çıkar.
-const slugOf = name =>
-  name.toLowerCase().replace(/ı/g, 'i').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-
-const nameRe = /name:\s*'([^']+)'[\s\S]{0,40}?short:\s*'([^']*)'/g;
-const allApps = [];
-let m;
-while ((m = nameRe.exec(dataSrc))) {
-  if (m[2] !== '[Kısa açıklama]') allApps.push({ name: m[1] });
-}
-const visitRe = /visitUrl:\s*'(\/[^']*)'/g;
-const standaloneUrls = [];
-while ((m = visitRe.exec(dataSrc))) standaloneUrls.push(m[1]);
-
+const distDir = path.join(ROOT, 'dist');
+const site = await loadSiteData();
+const SITE = site.seo.SITE;
+const { spa, files, lastmod } = siteUrls(site);
+const urls = [...new Set([...spa, ...files])];
 const today = new Date().toISOString().slice(0, 10);
-
-// /skills kataloğu: lastmod = katalog verisinin oluşturulma tarihi (src/data/skills.json → meta.olusturma).
-// Aynı ilke: modül olarak import etme, ham metinden regex ile oku. Dosya yoksa /skills eklenmez.
-const skillsPath = path.join(__dirname, '..', 'src', 'data', 'skills.json');
-const skillsLastmod = existsSync(skillsPath)
-  ? (/"olusturma"\s*:\s*"(\d{4}-\d{2}-\d{2})"/.exec(readFileSync(skillsPath, 'utf8').slice(0, 2000)) || [])[1] || today
-  : null;
-const lastmodOf = { '/skills': skillsLastmod };
-
-// Sabit sayfalar + ürün detay sayfaları (/uretiyorum/<slug>, sadece gerçek ürünler
-// — 'idea' aşamasındaki placeholder'lar [Kısa açıklama] gibi dolgu metin taşıyorsa atla).
-const staticUrls = ['/', '/uretiyorum', '/paylasiyorum', '/anlatiyorum', '/oneriyorum', '/okul-projeleri', ...(skillsLastmod ? ['/skills'] : [])];
-// Okul Projeleri altındaki statik tanıtım sayfaları (public/okul-projeleri/<ad>/index.html) varsa kendiliğinden eklenir.
-const schoolDir = path.join(__dirname, '..', 'public', 'okul-projeleri');
-if (existsSync(schoolDir)) {
-  for (const d of readdirSync(schoolDir, { withFileTypes: true })) {
-    if (d.isDirectory() && existsSync(path.join(schoolDir, d.name, 'index.html'))) staticUrls.push(`/okul-projeleri/${d.name}/`);
-  }
-}
-// Income vs Desires'ın düz HTML sitesi (public/income-vs-desires/, IVD reposundan kopya; 2026-11-08'de GitHub Pages'ten taşındı).
-// Cloudflare Pages .html'siz adresle sunar (destek.html -> /income-vs-desires/destek), sitemap'e de öyle girer.
-const ivdDir = path.join(__dirname, '..', 'public', 'income-vs-desires');
-const ivdPages = (dir, rel = '') => readdirSync(dir, { withFileTypes: true }).flatMap(d =>
-  d.isDirectory() ? ivdPages(path.join(dir, d.name), `${rel}${d.name}/`)
-    : d.name.endsWith('.html') ? [`/income-vs-desires/${rel}${d.name.replace(/(^|\/)?index\.html$/, '').replace(/\.html$/, '')}`] : []);
-if (existsSync(ivdDir)) staticUrls.push(...ivdPages(ivdDir).sort());
-// CI'da dist'e başka repolardan kopyalanan Okul Projeleri sayfaları (bkz. .github/workflows/deploy.yml).
-staticUrls.push('/okul-projeleri/ricambio/');
-const appUrls = allApps.map(a => `/uretiyorum/${slugOf(a.name)}`);
-
-// Öğretici yazıları: src/ogretici/posts.js içindeki `slug: '...'` satırları (ham metinden, aynı nedenle).
-const postsSrc = readFileSync(path.join(__dirname, '..', 'src', 'ogretici', 'posts.js'), 'utf8');
-const postUrls = ['/ogretici'];
-const slugRe = /^\s*slug:\s*'([^']+)'/gm;
-while ((m = slugRe.exec(postsSrc))) postUrls.push(`/ogretici/${m[1]}`);
-
-const urls = [...new Set([...staticUrls, ...appUrls, ...standaloneUrls, ...postUrls])];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `  <url>\n    <loc>${SITE}${u}</loc>\n    <lastmod>${lastmodOf[u] || today}</lastmod>\n  </url>`).join('\n')}
+${urls.map(u => `  <url>\n    <loc>${SITE}${u}</loc>\n    <lastmod>${lastmod[u] || today}</lastmod>\n  </url>`).join('\n')}
 </urlset>
 `;
 

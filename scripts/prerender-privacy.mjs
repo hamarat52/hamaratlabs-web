@@ -60,7 +60,7 @@ const PRIVACY_CONTENT = `
 let html = readFileSync(indexPath, 'utf8');
 
 // <title> ve description'ı /privacy'ye uygun hale getir.
-html = html.replace(/<title>.*?<\/title>/, '<title>Gizlilik Politikası — hamaratlabs</title>');
+html = html.replace(/<title>.*?<\/title>/, '<title>Gizlilik Politikası · hamaratlabs</title>');
 html = html.replace(
   /<meta name="description" content=".*?" \/>/,
   '<meta name="description" content="hamaratlabs.com kişisel asistan uygulaması için gizlilik politikası." />'

@@ -19,12 +19,12 @@ import {
   YoutubeIcon
 } from '@hugeicons/core-free-icons';
 import { Link } from './nav';
+import { PAGE_META } from './seo/routeMeta';
 import DATA from './data/skills.json';
 import './SkillsPage.css';
 
-const TITLE = 'Skills & Araçlar — HamaratLabs';
-const DESCRIPTION =
-  'HamaratLabs araç kataloğu: yapay zekâ uygulamaları, modeller, kütüphaneler, CLI ve skill’ler. Kategori, lisans, fiyat, GitHub yıldızları ve deneme sonuçlarıyla.';
+// Başlık ve açıklama src/seo/routeMeta.js'te (ön-render edilen <head> ile aynı kalsın diye tek kaynak).
+const { title: TITLE, description: DESCRIPTION } = PAGE_META['/skills'];
 const PAGE_URL = 'https://hamaratlabs.com/skills';
 const PAGE = 24;
 
