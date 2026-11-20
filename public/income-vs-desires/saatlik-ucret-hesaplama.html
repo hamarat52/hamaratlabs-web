@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Saatlik ücret hesaplama: maaşın saatte kaç TL? | IncomeVsDesires</title>
+    <meta
+      name="description"
+      content="Aylık net maaşını ve haftalık çalışma saatini yaz, saatlik net ücretini gör. Yol süresini ekle, bir fiyatın kaç saatlik çalışma olduğunu hesapla. Ücretsiz."
+    />
+    <link rel="canonical" href="https://hamaratlabs.com/income-vs-desires/saatlik-ucret-hesaplama" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="IncomeVsDesires" />
+    <meta property="og:title" content="Saatlik ücret hesaplama: maaşın saatte kaç TL?" />
+    <meta
+      property="og:description"
+      content="Net maaşını ve haftalık çalışma saatini yaz, saatlik ücretini ve bir fiyatın kaç saatlik çalışma olduğunu gör."
+    />
+    <meta property="og:url" content="https://hamaratlabs.com/income-vs-desires/saatlik-ucret-hesaplama" />
+    <meta property="og:image" content="https://hamaratlabs.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Saatlik net ücret nasıl hesaplanır?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aylık net maaş, bir ayda fiilen çalışılan saate bölünür. Haftalık saatten gidince bir ay ortalama 52 ÷ 12 ≈ 4,33 hafta sayılır: saatlik ücret = net maaş ÷ (haftalık saat × 52 ÷ 12). Örneğin 50.000 TL net maaş ve haftada 40 saat için sonuç yaklaşık 288,46 TL'dir."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bordrodaki saatlik ücret neden farklı çıkıyor?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bordro hesabı ayı 30 gün, günü 7,5 saat kabul eder ve maaşı 225 saate böler; hafta tatili ve genel tatiller de bu sayıya dahildir. Bu hesaplayıcı ise bir saatinin kaç para ettiğini fiilen çalıştığın saatle hesaplar. İki sayı farklı soruların cevabıdır."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Girdiğim maaş bir yere gönderiliyor mu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hayır. Hesap bu sayfadaki JavaScript ile tamamen tarayıcında yapılır; form hiçbir sunucuya gönderilmez ve girdiğin değerler kaydedilmez. Sayfayı kapattığında kaybolur."
+            }
+          }
+        ]
+      }
+    </script>
+    <script src="./theme.js"></script>
+
+    <style>
+      /* Bu sayfaya özgü küçük eklemeler; geri kalan her şey style.css'teki "mesai kartı" dili. */
+      .tool-head {
+        padding-block: clamp(36px, 6vw, 64px) 8px;
+      }
+      .tool {
+        border-top: 0;
+        padding-top: 28px;
+      }
+      .optional {
+        border: 1px dashed var(--rule);
+        padding: 14px 14px 0;
+        margin: 4px 0 20px;
+      }
+      .optional legend {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0 6px;
+      }
+      .result + .result {
+        margin-top: 18px;
+      }
+      .result-sub {
+        margin-top: 10px;
+        font-family: var(--mono);
+        font-size: 14px;
+        color: var(--stamp);
+      }
+      .price-box h2 {
+        font-size: clamp(20px, 2.6vw, 26px);
+      }
+      .formula {
+        margin: 24px 0 0;
+        padding: 4px 0 4px 18px;
+        border-left: 2px solid var(--stamp);
+        font-family: var(--mono);
+        font-size: 14px;
+        color: var(--ink);
+        max-width: 56ch;
+      }
+      .formula p {
+        margin: 0 0 6px;
+      }
+      .info {
+        padding-block: 0;
+      }
+      .faq h3 {
+        margin-top: 28px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip" href="#main">İçeriğe geç</a>
+
+    <header class="wrap topbar">
+      <a class="brand" href="./">income<span>vs</span>desires</a>
+      <nav class="topnav">
+        <a href="./blog/">Yazılar</a>
+        <a href="./#kur" style="color: var(--stamp)">Kur →</a>
+        <button type="button" class="theme-toggle" aria-label="Karanlık görünüme geç" aria-pressed="false">☾</button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="wrap tool-head">
+        <p class="eyebrow"><span>Ücretsiz hesaplayıcı</span></p>
+        <h1 style="font-size: clamp(30px, 5vw, 48px)">Saatlik ücret hesaplama</h1>
+        <p class="lede">
+          Aylık net maaşını ve haftada kaç saat çalıştığını yaz; bir saatinin
+          kaç TL ettiğini gör. İstersen yol süresini de ekle, sonra bir fiyatın
+          sana kaç saatlik çalışmaya mal olduğunu hesapla.
+        </p>
+        <p class="hero-note">Hesap tarayıcında yapılır · hiçbir veri gönderilmez</p>
+      </section>
+
+      <section class="section tool" id="hesapla" aria-label="Hesaplayıcı">
+        <div class="wrap">
+          <form id="hourlyForm" class="calc" novalidate>
+            <div>
+              <label class="field">
+                <span>Aylık net maaş (TL)</span>
+                <input type="text" id="salary" inputmode="numeric" autocomplete="off" value="50000" />
+              </label>
+
+              <label class="field">
+                <span>Haftalık çalışma saati</span>
+                <input type="number" id="weeklyHours" min="1" max="100" step="any" inputmode="decimal" value="40" />
+              </label>
+
+              <fieldset class="optional">
+                <legend>Yol süresi (isteğe bağlı)</legend>
+                <div class="field-row">
+                  <label class="field" style="flex: 1">
+                    <span>Günlük yol (dk)</span>
+                    <input type="number" id="commuteMinutes" min="0" max="600" step="any" inputmode="numeric" placeholder="0" />
+                  </label>
+                  <label class="field" style="flex: 1">
+                    <span>Gün / hafta</span>
+                    <input type="number" id="daysPerWeek" min="1" max="7" step="1" inputmode="numeric" value="5" />
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="result" aria-live="polite">
+                <div class="result-figure" id="hourly">₺288,46</div>
+                <div class="result-label" id="hourlyNote">bir saatin · ayda ortalama 173 saat çalışıyorsun</div>
+                <div class="result-sub" id="commuteRow" hidden><span id="hourlyCommute"></span></div>
+              </div>
+            </div>
+
+            <div class="price-box">
+              <h2>Bu fiyat kaç saatlik çalışma?</h2>
+              <label class="field">
+                <span>Ürün fiyatı (TL)</span>
+                <input type="text" id="price" inputmode="numeric" autocomplete="off" value="2499" />
+              </label>
+              <div class="result" aria-live="polite">
+                <div class="result-figure" id="priceHours">8 saat 40 dakika</div>
+                <div class="result-label" id="priceNote">saatlik ücretinle çalışma · 1,1 gün</div>
+              </div>
+
+              <div class="formula" aria-label="Formül">
+                <p>aylık saat = haftalık saat × 52 ÷ 12</p>
+                <p>saatlik ücret = net maaş ÷ aylık saat</p>
+                <p>çalışma süresi = fiyat ÷ saatlik ücret</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap"><div class="article info">
+          <h2 style="margin-top: 0">Formül: maaşın saatte kaç TL ediyor?</h2>
+          <p>
+            Saatlik net ücret, aylık net maaşının bir ayda fiilen çalıştığın
+            saate bölünmesiyle bulunur. Haftalık saatten aylık saate geçmek için
+            yılın 52 haftası 12 aya bölünür; bir ay ortalama 52 ÷ 12 ≈ 4,33
+            haftadır.
+          </p>
+          <blockquote>Saatlik ücret = net maaş ÷ (haftalık saat × 52 ÷ 12)</blockquote>
+          <p>
+            Örnek: 50.000 TL net maaş, haftada 40 saat. Aylık saat 40 × 52 ÷ 12
+            ≈ 173,33; saatlik ücret 50.000 ÷ 173,33 ≈ <strong>288,46 TL</strong>.
+            2.499 TL'lik bir ürün bu durumda 2.499 ÷ 288,46 ≈ 8,66 saat, yani
+            yaklaşık <strong>8 saat 40 dakika</strong> çalışma demek.
+          </p>
+          <p>
+            <strong>Yol süresi:</strong> Günlük gidiş-dönüş süresini girersen
+            haftalık saate (dakika ÷ 60 × haftada işe gidilen gün) eklenir ve
+            ikinci bir, yol dahil saatlik ücret görürsün. Yolu saymak isteğe
+            bağlı; işin olmasa o yolda olmazdın diye ekleyen de var, eklemeyen de.
+          </p>
+          <p>
+            Bordrodaki 225 saatle, kendi zamanını ölçtüğün 176 saat arasındaki
+            farkı
+            <a href="./blog/saatlik-ucret-nasil-hesaplanir">Saatlik ücret nasıl hesaplanır?</a>
+            yazısı anlatıyor. Oradaki 176 saat ayda 22 iş günü varsayımından
+            gelir; haftalık 40 saatten gidince ayda ortalama 173,3 saat çıkar.
+          </p>
+
+          <div class="callout">
+            <p>
+              Her fiyatı tek tek hesaplamak istemiyorsan:
+              <a href="./">IncomeVsDesires</a> tarayıcı eklentisi internetteki
+              fiyatları kendiliğinden çalışma süresine çevirir.
+              <a href="/uretiyorum/income-vs-desires">Ürün sayfası</a> ·
+              <a href="./#kur">Kurulum</a>
+            </p>
+          </div>
+
+          <section class="faq" aria-labelledby="sss">
+            <h2 id="sss">Sık sorulanlar</h2>
+
+            <h3>Saatlik net ücret nasıl hesaplanır?</h3>
+            <p>
+              Aylık net maaş, bir ayda fiilen çalışılan saate bölünür. Haftalık
+              saatten gidince bir ay ortalama 52 ÷ 12 ≈ 4,33 hafta sayılır:
+              saatlik ücret = net maaş ÷ (haftalık saat × 52 ÷ 12). Örneğin
+              50.000 TL net maaş ve haftada 40 saat için sonuç yaklaşık
+              288,46 TL'dir.
+            </p>
+
+            <h3>Bordrodaki saatlik ücret neden farklı çıkıyor?</h3>
+            <p>
+              Bordro hesabı ayı 30 gün, günü 7,5 saat kabul eder ve maaşı 225
+              saate böler; hafta tatili ve genel tatiller de bu sayıya dahildir.
+              Bu hesaplayıcı ise bir saatinin kaç para ettiğini fiilen çalıştığın
+              saatle hesaplar. İki sayı farklı soruların cevabıdır.
+            </p>
+
+            <h3>Girdiğim maaş bir yere gönderiliyor mu?</h3>
+            <p>
+              Hayır. Hesap bu sayfadaki JavaScript ile tamamen tarayıcında
+              yapılır; form hiçbir sunucuya gönderilmez ve girdiğin değerler
+              kaydedilmez. Sayfayı kapattığında kaybolur.
+            </p>
+          </section>
+
+          <hr style="border: 0; border-top: 1px solid var(--rule); margin: 48px 0 24px" />
+
+          <p class="meta">Devamı</p>
+          <ul>
+            <li><a href="./blog/saatlik-ucret-nasil-hesaplanir">Saatlik ücret nasıl hesaplanır? 225 saat mi, 176 saat mi?</a></li>
+            <li><a href="./blog/kira-maasin-yuzde-kaci-olmali">Kira maaşın yüzde kaçı olmalı? Yüzdeyi bırak, güne bak</a></li>
+          </ul>
+        </div></div>
+      </section>
+    </main>
+
+    <footer class="section foot">
+      <div class="wrap foot-grid">
+        <div>
+          <strong>IncomeVsDesires</strong>
+          Fiyatları mesaine çevirir.
+        </div>
+        <div>
+          <strong>Site</strong>
+          <a href="./">Ana sayfa</a>
+          <a href="./blog/">Yazılar</a>
+          <a href="./saatlik-ucret-hesaplama">Saatlik ücret hesaplama</a>
+          <a href="./gizlilik">Gizlilik</a>
+        </div>
+        <div>
+          <strong>hamaratlabs</strong>
+          <a href="/">hamaratlabs.com</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./calc.js"></script>
+    <script src="./saatlik.js"></script>
+  </body>
+</html>

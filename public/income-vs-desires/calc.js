@@ -27,6 +27,10 @@
 
   // --- 2. Hesaplayıcı -------------------------------------------------------
 
+  // Aynı biçimlendirme ve süre kurallarını başka sayfalar da kullansın
+  // (saatlik-ucret-hesaplama.html → saatlik.js). Fonksiyonlar aşağıda tanımlı, yukarı taşınır.
+  window.IVDCalc = { attachThousandSeparator, duration, number, money, positive };
+
   const form = document.getElementById('calcForm');
   if (!form) return;
 
