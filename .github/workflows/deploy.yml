@@ -55,6 +55,8 @@ jobs:
           mkdir -p dist/okul-projeleri/ricambio/app
           cp -r _ricambio/landing/dist/. dist/okul-projeleri/ricambio/
           cp -r _ricambio/platform/dist-site/. dist/okul-projeleri/ricambio/app/
+      # RICAMBIO landing'in yayın kopyasına canonical ve (ham HTML'de yoksa) <h1> ekle (SEO; kaynak repo değişmez).
+      - run: node scripts/seo-ricambio.mjs
       # dist/404.html KOYMA: Cloudflare Pages kökte 404.html görmezse SPA kipine geçer,
       # /uretiyorum/sesver gibi derin rotalar soğuk açılışta 200 döner. Statik dosyalar önceliklidir.
       - name: Cloudflare Pages'e yayınla
