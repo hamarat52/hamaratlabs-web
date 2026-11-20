@@ -33361,5 +33361,689 @@
     "score": 29,
     "is_merge": false,
     "lines": 51
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "a3e08bc18d",
+    "date": "2026-11-20T09:56:08+03:00",
+    "subject": "docs(dusunuyor-alt): «Düşünüyor» görseli için analiz + 3 alternatif (D1 sakin halka, D2 nefes, D3 içteki takımyıldız) — PNG, 4 sn döngü MP4, karşılaştırma, ölçüm",
+    "score": 41,
+    "is_merge": false,
+    "lines": 374
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "0025aa195d",
+    "date": "2026-11-20T10:03:23+03:00",
+    "subject": "fix(sesli-buton): yüzen buton 60 → 48 dp, dokunma alanı 64 dp, alt çubuktan 12 dp yukarıda",
+    "score": 58,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "6cc8e2c8bf",
+    "date": "2026-11-20T10:03:23+03:00",
+    "subject": "fix(sesli-buton): sıcak pencere sayacı 20-19 zıplaması — SDK'nın her veri mesajında tekrarladığı aynı mod etkinlik sayılmaz",
+    "score": 62,
+    "is_merge": false,
+    "lines": 135
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "4fcb7e905b",
+    "date": "2026-11-20T10:04:43+03:00",
+    "subject": "docs(qa): sesli-buton-duzelt — sayaç kök nedeni (SDK mod yankısı), önce/sonra kayıt, boyut karşılaştırması, RAPOR",
+    "score": 36,
+    "is_merge": false,
+    "lines": 439
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "e97aefee2b",
+    "date": "2026-11-20T10:07:37+03:00",
+    "subject": "chore(release): 0.3.18 (versionCode 23) — Santral: sıcak pencere sayacı düzeltmesi + buton boyutu",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "61af41ec00",
+    "date": "2026-11-20T10:07:37+03:00",
+    "subject": "docs(qa): sesli-buton-duzelt siberguvenlik (GEÇER)",
+    "score": 30,
+    "is_merge": false,
+    "lines": 82
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "a4b97e5dfa",
+    "date": "2026-11-20T10:35:04+03:00",
+    "subject": "docs(qa): oran-konsept — 3 konsept emülatör çekimi, karşılaştırma, ölçüm, RAPOR (öneri K2; Yusuf: K2, feat/baslik-durum'da uygulandı). Konsept kodu (f720ae0, canlı anahtar) bilinçli olarak main'e alınmadı",
+    "score": 36,
+    "is_merge": false,
+    "lines": 393
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "a68776145a",
+    "date": "2026-11-20T10:35:36+03:00",
+    "subject": "docs(dusunuyor-alt/uzay): «Düşünüyor» butonun içi küçük uzay — U1 sakin süzülen yıldızlar, U2 ortadan dışa akış; yakın plan 4 sn döngüler, Ajanlar ekranında akış videoları, karşılaştırma, ölçüm, Compose notu",
+    "score": 45,
+    "is_merge": false,
+    "lines": 1373
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "476b1e674e",
+    "date": "2026-11-20T10:37:36+03:00",
+    "subject": "merge: docs/dusunuyor-alt — «Düşünüyor» alternatifleri; Yusuf: yuvarlağın içi uzay (U1/U2); yalnız docs",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "veri-duzeni",
+    "hash": "c9df9fade7",
+    "date": "2026-11-20T10:42:19+03:00",
+    "subject": "feat(project): proje logosu — vd project logo set|clear",
+    "score": 93,
+    "is_merge": false,
+    "lines": 668
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "15f4b98140",
+    "date": "2026-11-20T10:50:10+03:00",
+    "subject": "docs(izleme-analiz): video izleme ekranı UX analizi + 3 alternatif mock (A Fotoğraflar, B Reels, C Sinema+Ayrıntılar), karşılaştırma",
+    "score": 45,
+    "is_merge": false,
+    "lines": 1577
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "16b676e463",
+    "date": "2026-11-20T10:52:14+03:00",
+    "subject": "merge: docs/izleme-analiz — video izleme ekranı analizi + A/B/C mock; Yusuf: B; yalnız docs",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "377968ecb7",
+    "date": "2026-11-20T11:14:57+03:00",
+    "subject": "feat(baslik-durum): durum dairesi, Konuş hapı kalkar, Galeri liste/ikon segment, Santral hapları + U1 uzay + K2 oran",
+    "score": 93,
+    "is_merge": false,
+    "lines": 828
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "54f2c90245",
+    "date": "2026-11-20T11:40:57+03:00",
+    "subject": "docs(beni-ara-analiz): «Beni ara» neden aramıyor — kök neden (kod kanıtı), Ayarlar › Beni ara mock'u (S1–S3 + yerleşim, açık/koyu), uygulama planı + /ww/prefs/ring sözleşme taslağı",
+    "score": 43,
+    "is_merge": false,
+    "lines": 817
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "bd3d30bece",
+    "date": "2026-11-20T11:41:53+03:00",
+    "subject": "merge: docs/beni-ara-analiz — Beni ara kök neden + Ayarlar mock + plan; yalnız docs",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "36e4b10eef",
+    "date": "2026-11-20T11:46:46+03:00",
+    "subject": "feat/proje-logo: proje logoları — vd logo alanı, /ww/projects logo + GET /ww/projects/:slug/logo (telefona salt okuma), Logo alanı, seçicilerde logo/monogram; yükleme kapısı WW_ALLOW_PROJECT_LOGO kapalı. siber ŞARTLI GEÇER → Ş1 kapatıldı (adaylar.md repodan çıktı, squash). WebDev: tam vitest 5262/5264 (kırmızı vd kopya-koruması fixture, dal dışı)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2021
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "a709d7e83f",
+    "date": "2026-11-20T12:59:32+03:00",
+    "subject": "docs(beni-ara-v2): kompakt Beni ara ayar mock'u — K1 ön ayarlar, K2 özet satırları, K3 çipler (açık/koyu, alt sayfalar, ayar eksik uyarısı), karşılaştırma (v1 1409 dp → 332–435 dp, dokunuş tablosu), notlar: öneri K3; yalnız docs",
+    "score": 43,
+    "is_merge": false,
+    "lines": 776
+  },
+  {
+    "repo": "veri-duzeni",
+    "hash": "358471f40c",
+    "date": "2026-11-20T13:02:55+03:00",
+    "subject": "feat(project): status alani - vd project set ile guvenli degisim + vd check uyarisi",
+    "score": 88,
+    "is_merge": false,
+    "lines": 195
+  },
+  {
+    "repo": "veri-duzeni",
+    "hash": "2de6208136",
+    "date": "2026-11-20T13:04:03+03:00",
+    "subject": "merge: feat/proje-status — vd project set status alanı (şema enum doğrulama) + vd check project_status_warnings; 281 test; Yusuf kararı: Pomodoro iskelet",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "4fea409e25",
+    "date": "2026-11-20T13:08:22+03:00",
+    "subject": "merge: docs/beni-ara-v2 — kompakt Beni ara mock'u (K1/K2/K3); Yusuf: K3 (çipler) uygun; yalnız docs",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "3bf4202e2c",
+    "date": "2026-11-20T13:09:19+03:00",
+    "subject": "docs(qa/baslik-durum): emülatör kanıtı (açık+koyu, üç durum, ipucu, Galeri önce/sonra, Santral U1), karsilastirma.png, RAPOR; Santral QA betiklerinde K2 buton merkezi (975,2069)",
+    "score": 40,
+    "is_merge": false,
+    "lines": 352
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "a5ed5b5598",
+    "date": "2026-11-20T13:09:19+03:00",
+    "subject": "fix(baslik-durum): durum dairesi ve tür segmenti TalkBack/uiautomator'da tek düğüm; ipucu dairenin yanında, şeridin üstüne binmez",
+    "score": 56,
+    "is_merge": false,
+    "lines": 23
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "e6b4537af9",
+    "date": "2026-11-20T13:13:16+03:00",
+    "subject": "merge: main → feat/baslik-durum (yalnız docs: oran-konsept, beni-ara-v2)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "71326d34fb",
+    "date": "2026-11-20T13:13:16+03:00",
+    "subject": "docs(qa/baslik-durum): siberguvenlik kontrolü — GEÇER",
+    "score": 34,
+    "is_merge": false,
+    "lines": 49
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "1776caeefd",
+    "date": "2026-11-20T13:13:17+03:00",
+    "subject": "chore(release): 0.3.19 (versionCode 24) — başlıkta durum dairesi, Konuş hapı kalktı, Galeri liste kesilmesi + ikonlu tür seçimi, Santral hapları kalktı + U1 uzay, alt çubuk K2 (56 dp); siberguvenlik GEÇER",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "c176764729",
+    "date": "2026-11-20T13:14:40+03:00",
+    "subject": "feat(beni-ara): sözleşme — shared/ringPrefs.ts + /ww/prefs/ring telefon kapısı + mobil-api §18",
+    "score": 91,
+    "is_merge": false,
+    "lines": 449
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "34880e6347",
+    "date": "2026-11-20T13:18:04+03:00",
+    "subject": "feat(beni-ara): GET/PUT /ww/prefs/ring uçları (<WW_DATA_DIR>/prefs/ring.json)",
+    "score": 89,
+    "is_merge": false,
+    "lines": 226
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "065d57d098",
+    "date": "2026-11-20T13:19:12+03:00",
+    "subject": "feat(beni-ara): activity oturumuna id (kalıcı oturum kimliği) + kaynak_kodu (ham Hermes source)",
+    "score": 83,
+    "is_merge": false,
+    "lines": 47
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "508cabab76",
+    "date": "2026-11-20T13:34:22+03:00",
+    "subject": "feat(beni-ara): web Ayarlar › Bildirimler › «Beni ara» (K3 çiplerin masaüstü karşılığı)",
+    "score": 93,
+    "is_merge": false,
+    "lines": 831
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "2031361969",
+    "date": "2026-11-20T13:40:53+03:00",
+    "subject": "feat(izleme-b): video görüntüleyici B (Reels tarzı) — tam ekran, dokun=duraklat, çift dokun ±10 sn, basılı tut 2×, sağ eylem sütunu, Web sürüm geçişi, ≤%8 kırpmada doldur/aksi sığdır, 3 sn'de sönme (TalkBack'te yok), her temada koyu; Compose UI testleri (Robolectric); fake_ww --izleme; indirme.sh ⋯ yolu",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2045
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7f42c777c2",
+    "date": "2026-11-20T13:49:16+03:00",
+    "subject": "test(beni-ara): e2e (gerçek /ww/prefs/ring + fake ajan çipleri, 1440/390) + QA raporu + görseller + curl kanıtı",
+    "score": 56,
+    "is_merge": false,
+    "lines": 394
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5c51f547d3",
+    "date": "2026-11-20T13:58:31+03:00",
+    "subject": "merge: feat/beni-ara — /ww/prefs/ring (telefon+web ortak Beni ara tercihleri), activity id + kaynak_kodu, web Ayarlar › Bildirimler › Beni ara (K3); siberguvenlik GEÇER; Yusuf: K3",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "cb6a86f4b1",
+    "date": "2026-11-20T13:58:31+03:00",
+    "subject": "docs(qa/beni-ara): siberguvenlik kontrolü — GEÇER (N1-N3 şartsız öneri)",
+    "score": 34,
+    "is_merge": false,
+    "lines": 61
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "37793d1d5e",
+    "date": "2026-11-20T14:10:58+03:00",
+    "subject": "test(photogen): sahte agy her çağrıda farklı bayt üretir; vd kopya korumasını belgeleyen test",
+    "score": 47,
+    "is_merge": false,
+    "lines": 34
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "9c47c5e2ac",
+    "date": "2026-11-20T14:10:58+03:00",
+    "subject": "fix(agents/activity): oturumlar[].id çıktıda SESSION_KEY_RE ile süzülür (siberguvenlik N1)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 22
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7e6d5292ad",
+    "date": "2026-11-20T14:10:58+03:00",
+    "subject": "test(photogen): sahte agy her çağrıda farklı bayt üretir; vd kopya korumasını belgeleyen test",
+    "score": 47,
+    "is_merge": false,
+    "lines": 34
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "57745b878b",
+    "date": "2026-11-20T14:15:12+03:00",
+    "subject": "fix(izleme-b): emülatör bulguları — seek bitene kadar eski konum yoklanmaz (+10/−10 0:00'a düşüyordu; MediaPlaybackSeekTest), görüntüleyici etiketleri uiautomator'da (testTagsAsResourceId), sütun etiketi TalkBack'te tek okunur, Sürüm etiketi «v6»",
+    "score": 61,
+    "is_merge": false,
+    "lines": 87
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "5880454dd6",
+    "date": "2026-11-20T14:16:57+03:00",
+    "subject": "fix(alt-çubuk): seçili gösterge net hap (56×32, ikon merkezinde) + çubuğun altında içerik görünmez (alt şerit) — docs/qa/navbar-oran kesin hatalar a/c",
+    "score": 62,
+    "is_merge": false,
+    "lines": 135
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "33908034e4",
+    "date": "2026-11-20T14:16:59+03:00",
+    "subject": "docs(qa/izleme-b): emülatör kanıtı (release + debug çekimleri, akis.mp4, karşılaştırma), çekim/kayıt betikleri, RAPOR",
+    "score": 40,
+    "is_merge": false,
+    "lines": 278
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "91944d6d8c",
+    "date": "2026-11-20T14:21:40+03:00",
+    "subject": "merge: fix/photogen-test-id — activity oturum id biçim süzgeci (siber N1); siberguvenlik GEÇER",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "404ad67309",
+    "date": "2026-11-20T14:21:40+03:00",
+    "subject": "docs(qa/activity-id): siberguvenlik — GEÇER",
+    "score": 33,
+    "is_merge": false,
+    "lines": 37
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "5d2649b7ef",
+    "date": "2026-11-20T14:28:04+03:00",
+    "subject": "fix(izleme-b): PM kararı — proje satırı oynatıcıdan kalktı (yalnız ⋯ › Ayrıntılar); açık hâlde başlık + çipler (durum, sürüm, süre); UI testi güncellendi",
+    "score": 58,
+    "is_merge": false,
+    "lines": 43
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "dfd3173143",
+    "date": "2026-11-20T14:32:10+03:00",
+    "subject": "fix(alt-çubuk): cam tonu yoğun (0,86 / 0,80) — arkadaki avatar rengi çubuğun sol ucunu boyamıyor (docs/qa/navbar-oran a)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 24
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "8b3c43fcb0",
+    "date": "2026-11-20T14:33:01+03:00",
+    "subject": "fix(alt-çubuk): alt şerit çubuk boyu + 12 dp yumuşak solar (yüzen kapsülün yanlarında da satırlar dağınık durmaz)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 15
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "d7171646ef",
+    "date": "2026-11-20T14:56:58+03:00",
+    "subject": "docs(qa/izleme-b): PM kararları — RAPOR §6 yanıtlar, §7 proje satırı kalktı (1646 test yeşil, release), rel-dokununca + karşılaştırma yeniden çekildi",
+    "score": 33,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f3e02ec2d8",
+    "date": "2026-11-20T14:57:48+03:00",
+    "subject": "docs(soru-kuyrugu): Aşama 0a Hermes ölçümü (D1, D2, D3', D4')",
+    "score": 45,
+    "is_merge": false,
+    "lines": 1339
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f09622e070",
+    "date": "2026-11-20T15:01:28+03:00",
+    "subject": "chore(release): 0.3.20 (versionCode 25) — Reels tarzı video izleme ekranı (B): tam ekran, sağ eylem sütunu, sürüm seçici, çift dokun ±10 sn, basılı tut 2×; siberguvenlik GEÇER",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "de9bf8565a",
+    "date": "2026-11-20T15:01:28+03:00",
+    "subject": "docs(qa/izleme-b): siberguvenlik kontrolü — GEÇER",
+    "score": 34,
+    "is_merge": false,
+    "lines": 63
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f7768a9afd",
+    "date": "2026-11-20T15:05:52+03:00",
+    "subject": "test(sorular): soru kuyruğu sözleşme testleri (kırmızı) + fikstür + sahte hermes --resume",
+    "score": 59,
+    "is_merge": false,
+    "lines": 1042
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2bf1563f9b",
+    "date": "2026-11-20T15:25:08+03:00",
+    "subject": "feat(sorular): soru kuyruğu sunucusu: şema, depo, girişler, sınıflandırıcı, uçlar, toplu resume teslimi",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2381
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "eb24efef2c",
+    "date": "2026-11-20T15:29:27+03:00",
+    "subject": "docs(qa/soru-turu): e2e sonrası /ww/sorular yanıtı (fikstür veri, 1440)",
+    "score": 20,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "a6a4af10e9",
+    "date": "2026-11-20T15:30:45+03:00",
+    "subject": "merge: fix/navbar-kesin-hatalar → feat/navbar-n3 (gösterge hapı, alt şerit, cam tonu)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "689bb93247",
+    "date": "2026-11-20T17:18:38+03:00",
+    "subject": "feat(alt-çubuk): N3 tümleşik — Santral çubuğun yuvasında; eşit padding tek yerden (LiquidTabBarDefaults: dış 12, iç 8, aralık 8, yuva/buton 48, çubuk 64); halka iç payda; liste payı 88; Diğer açıkken yuva sekmelere geçer; QA buton koordinatları (964, 2221)",
+    "score": 92,
+    "is_merge": false,
+    "lines": 587
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "b2e4892b10",
+    "date": "2026-11-20T17:22:09+03:00",
+    "subject": "test(alt-çubuk): N3 eşit padding Compose UI testi (Robolectric, 411 dp): dış 12/12/12, iç 8/8, aralık 8, eşit yuva, Diğer açıkken yuva sekmelere geçer",
+    "score": 52,
+    "is_merge": false,
+    "lines": 129
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "9a4cd0d10f",
+    "date": "2026-11-20T17:25:20+03:00",
+    "subject": "feat(soru-turu): Santral soru ajanı, oturum ucu {tur:\"soru\"}, istemci soru turu ve Panel satırı",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1657
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "314adbc01f",
+    "date": "2026-11-20T17:26:50+03:00",
+    "subject": "docs(composer-analiz): yazma alanı UX analizi — 12 tespit, C1/C2/C3 mock (7 hâl, açık+koyu), karşılaştırma + ölçüm; öneri C3",
+    "score": 45,
+    "is_merge": false,
+    "lines": 1678
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "45a24d1c84",
+    "date": "2026-11-20T17:49:01+03:00",
+    "subject": "docs(qa/navbar-n3): eşit padding ölçümü (piksel taraması, açık+koyu: dış 12,19×3, iç 8,00, aralık 8,00, fark 0,00 — GEÇER), karşılaştırma, emülatör görüntüleri, rapor",
+    "score": 44,
+    "is_merge": false,
+    "lines": 891
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "2da35199f9",
+    "date": "2026-11-20T17:54:36+03:00",
+    "subject": "chore(release): 0.3.21 (versionCode 26) — alt çubuk N3: Santral çubuğun içinde, eşit padding (12/8/8 dp), net seçili hap, çubuk altında içerik yok; siberguvenlik GEÇER",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "5a175b6edb",
+    "date": "2026-11-20T17:54:36+03:00",
+    "subject": "docs(qa/navbar-n3): siberguvenlik kontrolü — GEÇER",
+    "score": 33,
+    "is_merge": false,
+    "lines": 40
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "e8bb08ad17",
+    "date": "2026-11-20T18:00:27+03:00",
+    "subject": "test(soru-turu): ortak teyit vektörleri, runner/denetleyici testleri, e2e (kesinti + tam tur), kuru fark, belge §9",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2219
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "cac3e2321e",
+    "date": "2026-11-20T18:12:31+03:00",
+    "subject": "merge: docs/soru-dogrulama — Aşama 0a Hermes ölçümü (D1-D4') belgesi + kanıtlar",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "d4d44ec392",
+    "date": "2026-11-20T18:18:01+03:00",
+    "subject": "docs(qa/soru-turu): siberguvenlik — ŞARTLI GEÇER (Ş1 izole profil reddi yazma ucunda)",
+    "score": 34,
+    "is_merge": false,
+    "lines": 55
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "aaec6f65c4",
+    "date": "2026-11-20T18:22:46+03:00",
+    "subject": "docs(soru-kuyrugu): kanca yükü alıntısında ev yolu ~ ile (siberguvenlik O4)",
+    "score": 24,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5eb288046d",
+    "date": "2026-11-20T18:22:46+03:00",
+    "subject": "fix(orch): izole profil reddi yazma ucunda (siberguvenlik Ş1 + D1)",
+    "score": 61,
+    "is_merge": false,
+    "lines": 92
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "49f1089ab3",
+    "date": "2026-11-20T18:25:12+03:00",
+    "subject": "merge: feat/soru-turu — Santral soru turu Aşama 0a+1: soru kuyruğu sunucusu (/ww/sorular), oturum başına tek resume teslimi, Santral soru ajanı (kod; ElevenLabs kurulumu bekliyor), web sesli soru turu + Panel satırı; orch izole profil reddi (Ş1+D1); siberguvenlik GEÇER",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7df9a508d3",
+    "date": "2026-11-20T18:25:12+03:00",
+    "subject": "docs(qa/soru-turu): siberguvenlik Ş1 kapanış — GEÇER",
+    "score": 33,
+    "is_merge": false,
+    "lines": 36
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "dd4c4690e1",
+    "date": "2026-11-20T18:37:36+03:00",
+    "subject": "fix(orch): izole profil işleri GET /ww/orch/jobs'ta listelenmez, kimlikleri 404",
+    "score": 58,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "167a5b322f",
+    "date": "2026-11-20T18:37:36+03:00",
+    "subject": "fix(sorular): uzman tek seferlik «Sorular» kuyruğa girmez + 7 gün bayatlık",
+    "score": 66,
+    "is_merge": false,
+    "lines": 395
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "0ceaf2865e",
+    "date": "2026-11-20T18:43:49+03:00",
+    "subject": "fix(sorular): aynı oturumun daha yeni «Sorular» mesajı eski bekleyenlerin yerine geçer",
+    "score": 63,
+    "is_merge": false,
+    "lines": 176
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "0e73523fd0",
+    "date": "2026-11-20T18:48:26+03:00",
+    "subject": "merge: fix/soru-suzgec — soru kuyruğu: uzman tek seferlik sorular girmez, 7 gün bayatlık, yeni Sorular eskileri kapatır; orch iş listesinde izole süzgeci; siberguvenlik GEÇER",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b98cb81c6a",
+    "date": "2026-11-20T18:48:26+03:00",
+    "subject": "docs(qa/soru-suzgec): siberguvenlik — GEÇER",
+    "score": 32,
+    "is_merge": false,
+    "lines": 34
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "a6cde29966",
+    "date": "2026-11-20T20:18:46+03:00",
+    "subject": "merge: docs/composer-analiz — yazma alanı UX analizi + C1/C2/C3 mock; Yusuf: C3; yalnız docs",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "3831a8a1fa",
+    "date": "2026-11-20T21:05:01+03:00",
+    "subject": "feat(sorular): Aşama 2 telefon sözleşmesi — arama kararı (/ww/sorular/ozet), arama kaydı (/ww/sorular/arama), MOBILE_GATE faz 1, onaya telefondan yalnız ret, ringPrefs.soruTuru, /ww/prefs/konus, {tur:\"soru\"} telefon oturumu, Ayarlar › Beni ara › Soru turu",
+    "score": 95,
+    "is_merge": false,
+    "lines": 2289
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8d70d6db39",
+    "date": "2026-11-20T21:06:55+03:00",
+    "subject": "docs(qa/soru-asama2): RAPOR + curl kanıtı (3831a8a) + 1440/390 görüntüleri",
+    "score": 38,
+    "is_merge": false,
+    "lines": 163
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "15bd911f4a",
+    "date": "2026-11-20T21:20:10+03:00",
+    "subject": "merge: feat/soru-asama2 — soru turu Aşama 2: telefon sözleşmesi (/ww/sorular/ozet, /ww/sorular/arama, MOBILE_GATE), ringPrefs.soruTuru, /ww/prefs/konus, oturum {tur}, web Beni ara Soru turu + son arama; siberguvenlik GEÇER",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f451a87a66",
+    "date": "2026-11-20T21:20:10+03:00",
+    "subject": "docs(qa/soru-asama2): siberguvenlik — GEÇER",
+    "score": 34,
+    "is_merge": false,
+    "lines": 48
   }
 ]
