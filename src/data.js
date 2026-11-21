@@ -190,7 +190,7 @@ export const LOG = [
   },
   {
     tag: 'KASIM 2026 · WINGWIRE',
-    text: "Android uygulamasına 8 ana ekran widget'ı geldi. 0.3.3 ile alt menüde hangi bölümlerin duracağı seçilebiliyor. 0.3.4'te Diğer menüsü alt barın sonuna taşındı, uygulama içi güncelleme eklendi. 0.3.5 ile web'deki Yapılacaklar listesi telefona geldi: hızlı ekleme ve düzenleme. 0.3.6 ile 0.3.10 arasında alt bar sadeleşti: en çok dört öğe var, «Diğer»e basınca bar yukarı doğru açılıyor. 0.3.11'de Ayarlar yenilendi: üstte dört hızlı karo (Koyu tema, Servisler, Bağlantı, Anahtarlar), altında gruplanmış liste. 0.3.13 ile medya indirirken kalite seçiliyor, dosya doğrudan Galeriye kaydediliyor, ilerleme bildirimde görünüyor."
+    text: "Android uygulamasına 8 ana ekran widget'ı geldi. 0.3.3 ile alt menüde hangi bölümlerin duracağı seçilebiliyor. 0.3.4'te Diğer menüsü alt barın sonuna taşındı, uygulama içi güncelleme eklendi. 0.3.5 ile web'deki Yapılacaklar listesi telefona geldi: hızlı ekleme ve düzenleme. 0.3.6 ile 0.3.10 arasında alt bar sadeleşti: en çok dört öğe var, «Diğer»e basınca bar yukarı doğru açılıyor. 0.3.11'de Ayarlar yenilendi: üstte dört hızlı karo (Koyu tema, Servisler, Bağlantı, Anahtarlar), altında gruplanmış liste. 0.3.13 ile medya indirirken kalite seçiliyor, dosya doğrudan Galeriye kaydediliyor, ilerleme bildirimde görünüyor. 0.3.16 ile sohbetteki ataç düğmesi galeri ızgarası ve dosya sekmesi olan bir ekleme sayfası açıyor. 0.3.17'de Santral'a yüzen bir sesli buton geldi: basılı tutup konuşuluyor, beklerken yıldız akışı oynuyor. 0.3.20 ile videolar Reels tarzı tam ekran izleniyor: çift dokunuşla 10 sn ileri ya da geri, basılı tutunca 2 kat hız. 0.3.21'de Santral alt çubuğun içine yerleşti."
   },
   {
     tag: 'KASIM 2026 · KİTABE',
