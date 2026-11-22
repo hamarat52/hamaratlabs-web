@@ -1,5 +1,5 @@
 // CI'da (deploy.yml) RICAMBIO kopyalandıktan sonra çalışır: dist/okul-projeleri/ricambio/index.html'e
-// canonical ekler ve ham HTML'de <h1> yoksa #root içine sayfanın kendi başlığıyla bir <h1> koyar.
+// canonical ve paylaşım kartı (og:image, twitter:card) ekler ve ham HTML'de <h1> yoksa #root içine sayfanın kendi başlığıyla bir <h1> koyar.
 // RICAMBIO landing'i ayrı bir repodan (hamarat52/ricambio-landing, güvenlik kontrollü sabit commit) derlendiği
 // için o repoya dokunmadan yayın kopyası burada düzeltilir. React (createRoot) mount olunca #root'un içini
 // kendi içeriğiyle değiştirir; <h1> yalnız JS çalıştırmayan tarayıcılar ve ham HTML okuyan araçlar içindir.
@@ -23,6 +23,19 @@ const changes = [];
 if (!/<link[^>]+rel=["']canonical["']/i.test(html)) {
   html = html.replace(/<\/head>/i, () => `  <link rel="canonical" href="${CANONICAL}" />\n  </head>`);
   changes.push('canonical');
+}
+
+// Paylaşım kartı: public/og/ricambio.png (scripts/generate-og-cards.mjs üretir, bu repoda sabit dosya).
+if (!/property=["']og:image["']/i.test(html)) {
+  const og = [
+    '<meta property="og:image" content="https://hamaratlabs.com/og/ricambio.png" />',
+    '<meta property="og:image:width" content="1200" />',
+    '<meta property="og:image:height" content="630" />',
+    '<meta property="og:image:alt" content="RICAMBIO: parts that no longer exist, made again" />',
+  ];
+  if (!/name=["']twitter:card["']/i.test(html)) og.push('<meta name="twitter:card" content="summary_large_image" />');
+  html = html.replace(/<\/head>/i, () => '  ' + og.join('\n    ') + '\n  </head>');
+  changes.push('og:image');
 }
 
 if (!/<h1[\s>]/i.test(html)) {

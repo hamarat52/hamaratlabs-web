@@ -1,6 +1,6 @@
 # SEO denemesi 1: hamaratlabs.com
 
-Tarih: 2026-11-20 (inceleme düzeltmeleri 2026-11-21) · Dal: `seo/deneme-1` (şu an origin/main `999463f` üzerine yeniden kurulmuş; ilk taban `ee8e2e6`) · Worktree: `.worktrees/seo-deneme-1`
+Tarih: 2026-11-20 (inceleme düzeltmeleri 2026-11-21, paylaşım resimleri 2026-11-22) · Dal: `seo/deneme-1` (şu an origin/main `999463f` üzerine yeniden kurulmuş; ilk taban `ee8e2e6`) · Worktree: `.worktrees/seo-deneme-1`
 Durum: dalda commit'li, **push / merge / deploy yapılmadı** (Yusuf onayı ve PM'in yayını bekleniyor).
 
 Sürümler: Vite 6.4.4, React 19.3.1, react-dom 19.3.1 (package.json: `vite ^6.3.5`, `react ^19.1.0`). Yerel Node 20.18.0, CI Node 22.
@@ -20,6 +20,7 @@ Dal sonradan origin/main üzerine yeniden kurulduğu için hash'ler ilk rapordak
 | `3f78b6b` | İnceleme 2 ve 3: `/uretiyorum/sesver`, `/uretiyorum/wingwire`, `/aktivite` ön-render + sitemap; FEATURED null korunması |
 | `eda0d31` | İnceleme 4: geçersiz `/ogretici/<slug>` için noindex + "Sayfa bulunamadı" |
 | (bu güncelleme) | Rapor: "Bağımsız inceleme düzeltmeleri" bölümü + kanıtlar |
+| (paylaşım resimleri commit'i) | 12 statik sayfa + hesaplayıcıya sayfaya özel og:image kartları, etiketler, RICAMBIO CI betiği, rapor bölümü ve kanıtlar |
 
 ## Ne yapıldı
 
@@ -107,7 +108,7 @@ Ekran görüntüleri (`docs/qa/seo-deneme-1/`):
 
 ## Yayından sonra kontrol edilecekler (PM için)
 - Canlıda `curl -s https://hamaratlabs.com/wingwire | grep -o '<title>[^<]*'` ve canonical; `/uretiyorum/` 308 → `/uretiyorum` (yerel wrangler ile doğrulandı, canlı Cloudflare Pages'te bir kez bakılmalı).
-- CI log'unda `seo-ricambio: canonical + h1 eklendi.` satırı.
+- CI log'unda `seo-ricambio: canonical + og:image + h1 eklendi.` satırı (paylaşım resimlerinden önce `canonical + h1`).
 - Search Console'da sitemap'i yeniden gönderme ve 3-4 ürün URL'i için "URL denetimi".
 
 ## Bağımsız inceleme düzeltmeleri (2026-11-21)
@@ -140,8 +141,49 @@ Ekran görüntüleri (`docs/qa/seo-deneme-1/`):
 
 Not: dal, raporun ilk sürümünden sonra origin/main'e yeniden kurulmuş (yeni WingWire sitesi "Masadan kalk" geldi); routeMeta'daki `/wingwire` başlık/açıklaması o sırada yeni siteye göre güncellenmiş. Bu açıklamada ürün gereği bir ajan çerçevesinin adı geçiyor; bu yasak yalnız hesaplayıcı sayfası (İş C) içindi, o sayfada geçmiyor.
 
+## Paylaşım resimleri (2026-11-22)
+
+Haberci'nin canlı sağlık kontrolündeki 12 sayfada `og:image` yoktu; hesaplayıcı sayfası da sitenin genel görselini kullanıyordu. Hepsine sayfaya özel 1200x630 PNG kart ve etiketler eklendi.
+
+**Kartlar** (`public/og/*.png`, 13 dosya, sabit dosya olarak commit'li):
+
+| Sayfa | Kart | Metin kaynağı | Görsel / palet |
+|---|---|---|---|
+| `/income-vs-desires/` | `income-vs-desires.png` | h1 (iki satır), `<title>`'ın ikinci yarısı, description'ın son cümlesi | IVD "mesai kartı" dili: kağıt zemin + cetvel çizgileri, monospace, mühür kırmızısı; ürün ikonu (yeşil cam terazi, income-vs-desires repo `store/_src/icon/icons.mjs` chrome varyantı) ve `income<span>vs</span>desires` markası |
+| `/income-vs-desires/blog/` | `income-vs-desires-blog.png` | h1 + `<title>`, üst etiket menüdeki "Yazılar" | aynı |
+| 3 blog yazısı | her biri kendi kartı | h1 + yazının tarih/süre satırı | aynı |
+| `/income-vs-desires/saatlik-ucret-hesaplama` | `income-vs-desires-saatlik-ucret-hesaplama.png` (genel `og-image.png` yerine) | `<title>` | aynı |
+| destek, gizlilik, en/support, en/privacy | her biri kendi kartı | h1 + meta description + "Son güncelleme" satırı (EN sayfalarda İngilizce) | aynı |
+| `/okul-projeleri/fibi/` | `fibi.png` | h1 ("Paranın resmi," / "tek bakışta."), üst etiket "Okul projesi, örnek verilerle çalışır", description'ın ilk cümlesi | sayfanın hero'su: mavi-lacivert degrade, açık yeşil vurgu, Figtree; sayfadaki ikon, pano ve telefon ekran görüntüsü, maskot |
+| `/okul-projeleri/kuveytturk-api-portal/` | `kuveytturk-api-portal.png` | h1, üst etiket ("Okul projesi · konsept tasarım · Kasım 2026"), sayfanın notunun ilk iki cümlesi ("Bağımsız bir okul projesidir. Kuveyt Türk ile bağlantısı, onayı ya da iş birliği yoktur.") | sayfanın kendi paleti: krem zemin, koyu yeşil; Geist (tasarımların fontu); iki yönün hero görselleri; tasarımlardaki "Kuveyt Türk · API Market" yazı markası |
+| `/okul-projeleri/ricambio/` | `ricambio.png` | yayındaki `<title>` ("RICAMBIO: parts that no longer exist, made again"; sayfa İngilizce) | landing'in kendi paleti (gri-mavi kağıt, siyah, petrol mavisi), Archivo Black + JetBrains Mono, favicon'daki logo, okul projeleri vitrinindeki landing ekran görüntüsü |
+
+Kuveyt Türk: sayfada ve tasarımlarda grafik logo yok, yalnız yazı markası var; kartta da o kullanıldı, sayfada olmayan gerçek banka logosu eklenmedi. "Okul projesi" ve "bağımsız, bağlantısı/onayı/iş birliği yok" ibareleri kartta ve `og:image:alt`'ta duruyor.
+
+**Üretim:** `npm run og:kartlar` (`scripts/generate-og-cards.mjs`). Yöntem `generate-og-image.mjs` ile aynı (sharp + SVG). Fark: sharp'ın metin motoru macOS'ta yalnız sistem fontlarını görüyor (font dosyası verilince sessizce Helvetica'ya düşüyor, denendi), bu yüzden yazılar opentype.js (yeni geliştirme bağımlılığı, MIT, bağımlılıksız) ile sayfaların kendi fontlarından SVG yoluna çevriliyor. Fontlar `scripts/og-kartlar/fontlar/` altında: Google Fonts'un OFL değişken TTF'lerinden sabit ağırlık + Latin/Latin Genişletilmiş alt kümesi, adları "OG ..." olarak değiştirilmiş, lisansları yanında (`og_fontlar.py` nasıl üretildiğini yazıyor). Kart metinleri betik çalışırken sayfaların HTML'inden okunuyor (title, h1, .meta, description); RICAMBIO landing'i CI'da başka repodan geldiği için onun başlığı betikte sabit ve kaynağı yorumda. Build zincirine bağlanmadı: CI çıktısı makineye göre değişmesin, kartlar incelenip commit'lensin diye. Çıktı belirlenimci (iki çalıştırmanın md5'leri aynı).
+
+Bulunan iki opentype.js hatası ve çözümü: `getPath` Figtree'de bazı GPOS kerning çiftlerinde ("Pa") ve Geist'te bazı gliflerde ("v") `NaN` koordinat yazıyor, librsvg yolu orada kesiyor (kartlarda başlığın yarısı görünmüyordu). Glifler tek tek, ham komutlarından yerleştiriliyor; kerning `Number.isFinite` ile süzülüyor; yolda `NaN` kalırsa betik hata veriyor. Archivo'nun `ccmp` biçimini desteklemediği için font alt kümelerinde yalnız `kern` ve `liga` tutuldu.
+
+**Etiketler:** her sayfada `og:image` (mutlak `https://hamaratlabs.com/og/<ad>.png`), `og:image:width` 1200, `og:image:height` 630, `og:image:alt` (sayfanın dilinde) ve `twitter:card=summary_large_image` (yoksa eklendi; `index.html` ve hesaplayıcıda zaten vardı).
+- IVD sayfaları: `<link rel="stylesheet">` öncesine blok olarak.
+- Fibi (`public/okul-projeleri/fibi/index.html`, Next.js dışa aktarımı tek satır) ve Kuveyt Türk: yalnız `</head>` öncesine ekleme, başka hiçbir şey değişmedi (diff: Fibi 1 satır, KT +5 satır).
+- RICAMBIO: `scripts/seo-ricambio.mjs` kopyadan sonra `og:image` yoksa ekliyor (CI'da artık `seo-ricambio: canonical + og:image + h1 eklendi.` yazması beklenir).
+
+**Doğrulama**
+- `npm run lint`: çıkış 0, 0 hata, 3 uyarı (değişmedi, dokunulmayan `src/` dosyalarında). `npm run build`: çıkış 0, kartlar `dist/og/` altında.
+- saglik_yerel.py (`docs/qa/seo-deneme-1/og_sonra_yerel.txt`, `wrangler pages dev` + RICAMBIO'nun canlı kopyası üzerinde `seo-ricambio.mjs`): 33 URL, **33 sorunsuz**, `og:image yok` 0 (önceki turda 12), çift title/description 0, kırık iç link 0.
+- `docs/qa/seo-deneme-1/og_dogrula.py` → `og_kart_dogrulama.txt`: 13 sayfanın her birinde tek `og:image`, mutlak `/og/` adresi, boyut etiketleri, alt, twitter:card; görsel yerel sunucudan 200, `image/png`, PIL ile 1200x630. 13 sayfa, sorunlu 0.
+- RICAMBIO CI benzetimi (`og_ricambio_ci_benzetim.txt`): canonical ve h1'i çıkarılmış ham landing'de betik `canonical + og:image + h1 eklendi`, ikinci çalıştırmada `değişiklik gerekmedi`.
+- Kontak föyü: `docs/qa/seo-deneme-1/og-kartlar.jpg` (13 kart, altlarında sayfa yolu). Kartlar ayrıca tam boyutta gözle kontrol edildi (Türkçe karakterler, taşma, çakışma).
+- Kart boyutları: IVD 47-60 KB, Fibi 281 KB, Kuveyt Türk 240 KB, RICAMBIO 273 KB.
+
+**Yayından sonra (PM / Haberci):**
+- `curl -sI https://hamaratlabs.com/og/fibi.png` 200 + `content-type: image/png`; saglik.py canlıda `og:image yok` 0.
+- Bir iki sayfayı paylaşım önizleme aracında (ör. LinkedIn Post Inspector, opengraph.xyz) açıp kartın geldiğini görmek; platformlar eski önbelleği bir süre tutabilir.
+- Fibi tanıtımı akce/Fibi reposundan dışa aktarılıp kopyalanıyor; bir sonraki kopyada `</head>` öncesindeki 5 etiket kaybolur. Kalıcı çözüm Fibi reposunun `metadata`'sına eklemek (bu işin kapsamı dışında, o repoya dokunulmadı).
+
 ## Açık sorular / kapsam dışı bırakılanlar
-1. **og:image yok (12 sayfa):** IVD sayfaları, fibi, kuveytturk, ricambio. Ürüne özel görsel yoktu, bu turda eklenmedi (hesaplayıcıda sitenin genel görseli kullanıldı). IVD için ayrı bir OG görseli üretilsin mi?
+1. ~~**og:image yok (12 sayfa):** IVD sayfaları, fibi, kuveytturk, ricambio. Ürüne özel görsel yoktu, bu turda eklenmedi (hesaplayıcıda sitenin genel görseli kullanıldı). IVD için ayrı bir OG görseli üretilsin mi?~~ Yapıldı, bkz. "Paylaşım resimleri".
 2. ~~`/uretiyorum/sesver` ve `/uretiyorum/wingwire` sitemap'te yok~~ Evet kabul edildi, eklendi (yukarıdaki "Bağımsız inceleme düzeltmeleri" bölümü).
 3. **`/uretiyorum/kitabe` sitemap'e yeni girdi** (eski regex hatası düzeltilince). Kitabe "Geliştirmede"; indekslenmesi istenmiyorsa söyle.
 4. **Yumuşak 404:** bilinmeyen yollar hâlâ HTTP 200 (Cloudflare SPA kipi); yalnız istemcide noindex ekleniyor. Gerçek 404 için `404.html` gerekir ama deploy.yml notuna göre o zaman derin rotalar soğuk açılışta 404 olur. Bu turda dokunulmadı.

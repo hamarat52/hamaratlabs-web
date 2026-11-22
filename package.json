@@ -9,6 +9,7 @@
     "prebuild": "node scripts/optimize-images.mjs",
     "build": "vite build && node scripts/prerender-privacy.mjs && node scripts/prerender-routes.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-og-image.mjs",
     "lint": "eslint .",
+    "og:kartlar": "node scripts/generate-og-cards.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -30,6 +31,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "opentype.js": "^2.0.0",
     "sharp": "^0.35.5",
     "vite": "^6.3.5"
   }

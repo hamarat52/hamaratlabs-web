@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="1024" height="1024">
+<defs>
+  <clipPath id="sq-chrome"><path d="M39.898 0L60.102 0C71.59 0 77.335 0 82.515 1.709L83.518 1.955C90.269 4.412 95.588 9.731 98.045 16.482C100 22.665 100 28.41 100 39.898L100 60.102C100 71.59 100 77.335 98.291 82.515L98.045 83.518C95.588 90.269 90.269 95.588 83.518 98.045C77.335 100 71.59 100 60.102 100L39.898 100C28.41 100 22.665 100 17.485 98.291L16.482 98.045C9.731 95.588 4.412 90.269 1.955 83.518C0 77.335 0 71.59 0 60.102L0 39.898C0 28.41 0 22.665 1.709 17.485L1.955 16.482C4.412 9.731 9.731 4.412 16.482 1.955C22.665 0 28.41 0 39.898 0Z"/></clipPath>
+  <linearGradient id="bg-chrome" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#56e397"/><stop offset="0.66" stop-color="#0c9a6c"/><stop offset="1" stop-color="#0d7253"/>
+  </linearGradient>
+  <radialGradient id="halo-chrome" cx="0.5" cy="0.48" r="0.42">
+    <stop offset="0" stop-color="#fffdf8" stop-opacity="0.34"/><stop offset="1" stop-color="#fffdf8" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="sheen-chrome" cx="0.4" cy="0" r="0.75">
+    <stop offset="0" stop-color="#fff" stop-opacity="0.42"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="rim-chrome" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0.7"/><stop offset="0.45" stop-color="#fff" stop-opacity="0.06"/><stop offset="1" stop-color="#fff" stop-opacity="0.3"/>
+  </linearGradient>
+  <linearGradient id="body-chrome" gradientUnits="userSpaceOnUse" x1="0" y1="4" x2="0" y2="46">
+    <stop offset="0" stop-color="#fffdf8" stop-opacity="0.98"/><stop offset="1" stop-color="#b0f1cb" stop-opacity="0.9"/>
+  </linearGradient>
+  <filter id="grain-chrome" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0.2 0 0 0 -0.08"/>
+  </filter>
+  <filter id="glass-chrome" filterUnits="userSpaceOnUse" x="-10" y="-10" width="68" height="72" color-interpolation-filters="sRGB">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.7" result="b"/>
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.6" result="sb"/>
+    <feOffset in="sb" dy="3" result="so"/>
+    <feFlood flood-color="#0d7253" flood-opacity="0.55"/>
+    <feComposite in2="so" operator="in" result="shadow"/>
+    <feSpecularLighting in="b" surfaceScale="3.6" specularConstant="1.3" specularExponent="18" lighting-color="#fff" result="sp">
+      <feDistantLight azimuth="240" elevation="38"/>
+    </feSpecularLighting>
+    <feComposite in="sp" in2="SourceAlpha" operator="in" result="spec"/>
+    <feOffset in="b" dy="-1.9" result="bu"/>
+    <feComposite in="SourceAlpha" in2="bu" operator="out" result="bottomEdge"/>
+    <feFlood flood-color="#0c9a6c" flood-opacity="0.6"/>
+    <feComposite in2="bottomEdge" operator="in" result="bottomShade"/>
+    <feOffset in="b" dy="1.3" result="bd"/>
+    <feComposite in="SourceAlpha" in2="bd" operator="out" result="topEdge"/>
+    <feFlood flood-color="#fff" flood-opacity="0.95"/>
+    <feComposite in2="topEdge" operator="in" result="topLight"/>
+    <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/><feMergeNode in="bottomShade"/><feMergeNode in="topLight"/><feMergeNode in="spec"/></feMerge>
+  </filter>
+  <filter id="drop-chrome" x="-20%" y="-20%" width="140%" height="150%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="0"/>
+    <feOffset dy="0.9"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="mshadow" x="-20%" y="-20%" width="140%" height="150%"><feGaussianBlur stdDeviation="1.6"/></filter>
+</defs>
+
+<g transform="translate(0 0) scale(1)">
+  <g clip-path="url(#sq-chrome)">
+         <rect width="100" height="100" fill="url(#bg-chrome)"/>
+         <rect width="100" height="100" fill="url(#halo-chrome)"/>
+         <rect width="100" height="100" filter="url(#grain-chrome)"/>
+         <ellipse cx="44" cy="-4" rx="80" ry="44" fill="url(#sheen-chrome)"/>
+         <path d="M39.898 0L60.102 0C71.59 0 77.335 0 82.515 1.709L83.518 1.955C90.269 4.412 95.588 9.731 98.045 16.482C100 22.665 100 28.41 100 39.898L100 60.102C100 71.59 100 77.335 98.291 82.515L98.045 83.518C95.588 90.269 90.269 95.588 83.518 98.045C77.335 100 71.59 100 60.102 100L39.898 100C28.41 100 22.665 100 17.485 98.291L16.482 98.045C9.731 95.588 4.412 90.269 1.955 83.518C0 77.335 0 71.59 0 60.102L0 39.898C0 28.41 0 22.665 1.709 17.485L1.955 16.482C4.412 9.731 9.731 4.412 16.482 1.955C22.665 0 28.41 0 39.898 0Z" fill="none" stroke="url(#rim-chrome)" stroke-width="2.2"/>
+       </g>
+  <g transform="translate(20 18) scale(1.25)"><g filter="url(#glass-chrome)" fill="url(#body-chrome)" color="#fffdf8" stroke="none">
+  <circle cx="24" cy="8.5" r="3.6"/>
+  <rect x="22" y="9" width="4" height="31" rx="2"/>
+  <path d="M12 45C12 39.5 16.5 37 24 37S36 39.5 36 45Z"/>
+  <rect x="5" y="13.5" width="38" height="4.2" rx="2.1"/>
+  <path d="M8.5 16 3.5 29M8.5 16 13.5 29M39.5 16 34.5 29M39.5 16 44.5 29" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M2 28.5H15A6.5 6.5 0 0 1 2 28.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M33 28.5H46A6.5 6.5 0 0 1 33 28.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></g></g>
+</g>
+</svg>

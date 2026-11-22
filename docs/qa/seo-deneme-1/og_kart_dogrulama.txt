@@ -1,0 +1,53 @@
+OK /okul-projeleri/fibi/
+   og:image https://hamaratlabs.com/og/fibi.png (200, image/png, (1200, 630), 280 KB)
+   alt: Fibi: Paranın resmi, tek bakışta. Okul projesi, örnek verilerle çalışır
+   twitter:card summary_large_image
+OK /okul-projeleri/kuveytturk-api-portal/
+   og:image https://hamaratlabs.com/og/kuveytturk-api-portal.png (200, image/png, (1200, 630), 240 KB)
+   alt: Kuveyt Türk API Portal Redesign: bağımsız bir okul projesi; Kuveyt Türk ile bağlantısı, onayı ya da iş birliği yoktur
+   twitter:card summary_large_image
+OK /okul-projeleri/ricambio/
+   og:image https://hamaratlabs.com/og/ricambio.png (200, image/png, (1200, 630), 273 KB)
+   alt: RICAMBIO: parts that no longer exist, made again
+   twitter:card summary_large_image
+OK /income-vs-desires/
+   og:image https://hamaratlabs.com/og/income-vs-desires.png (200, image/png, (1200, 630), 51 KB)
+   alt: IncomeVsDesires: 500 TL değil, 1 saat 46 dakika. Fiyatı çalışma saatine çeviren Chrome eklentisi
+   twitter:card summary_large_image
+OK /income-vs-desires/blog/
+   og:image https://hamaratlabs.com/og/income-vs-desires-blog.png (200, image/png, (1200, 630), 49 KB)
+   alt: IncomeVsDesires yazıları: Parayı zamana çevirerek bakmak
+   twitter:card summary_large_image
+OK /income-vs-desires/blog/durtusel-alisveristen-kurtulmak
+   og:image https://hamaratlabs.com/og/income-vs-desires-durtusel-alisveristen-kurtulmak.png (200, image/png, (1200, 630), 59 KB)
+   alt: IncomeVsDesires yazısı: Dürtüsel alışverişi bırakmanın en sıkıcı ama en işe yarayan yolu
+   twitter:card summary_large_image
+OK /income-vs-desires/blog/kira-maasin-yuzde-kaci-olmali
+   og:image https://hamaratlabs.com/og/income-vs-desires-kira-maasin-yuzde-kaci-olmali.png (200, image/png, (1200, 630), 56 KB)
+   alt: IncomeVsDesires yazısı: Kira maaşın yüzde kaçı olmalı? Yüzdeyi bırak, güne bak
+   twitter:card summary_large_image
+OK /income-vs-desires/blog/saatlik-ucret-nasil-hesaplanir
+   og:image https://hamaratlabs.com/og/income-vs-desires-saatlik-ucret-nasil-hesaplanir.png (200, image/png, (1200, 630), 56 KB)
+   alt: IncomeVsDesires yazısı: Saatlik ücret nasıl hesaplanır? 225 saat mi, 176 saat mi?
+   twitter:card summary_large_image
+OK /income-vs-desires/destek
+   og:image https://hamaratlabs.com/og/income-vs-desires-destek.png (200, image/png, (1200, 630), 47 KB)
+   alt: IncomeVsDesires: Destek
+   twitter:card summary_large_image
+OK /income-vs-desires/gizlilik
+   og:image https://hamaratlabs.com/og/income-vs-desires-gizlilik.png (200, image/png, (1200, 630), 55 KB)
+   alt: IncomeVsDesires: Gizlilik politikası
+   twitter:card summary_large_image
+OK /income-vs-desires/en/privacy
+   og:image https://hamaratlabs.com/og/income-vs-desires-en-privacy.png (200, image/png, (1200, 630), 55 KB)
+   alt: IncomeVsDesires: Privacy policy
+   twitter:card summary_large_image
+OK /income-vs-desires/en/support
+   og:image https://hamaratlabs.com/og/income-vs-desires-en-support.png (200, image/png, (1200, 630), 47 KB)
+   alt: IncomeVsDesires: Support
+   twitter:card summary_large_image
+OK /income-vs-desires/saatlik-ucret-hesaplama
+   og:image https://hamaratlabs.com/og/income-vs-desires-saatlik-ucret-hesaplama.png (200, image/png, (1200, 630), 52 KB)
+   alt: IncomeVsDesires: Saatlik ücret hesaplama, maaşın saatte kaç TL?
+   twitter:card summary_large_image
+13 sayfa, sorunlu 0
