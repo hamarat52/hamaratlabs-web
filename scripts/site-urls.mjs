@@ -57,6 +57,8 @@ export function siteUrls({ data, seo }) {
     ...(hasSkills ? ['/skills'] : []),
     ...products,
     ...standalone,
+    // /aktivite: her sayfanın footer'ında linkli kod aktivite haritası (veri çalışırken çekilir).
+    '/aktivite',
     '/ogretici',
     ...data.POSTS.map(p => `/ogretici/${p.slug}`)
   ];

@@ -81,11 +81,13 @@ export function clipText(text, max = DESC_MAX) {
 // "a, b ve c"
 const joinTr = items => (items.length < 2 ? items.join('') : `${items.slice(0, -1).join(', ')} ve ${items[items.length - 1]}`);
 
-// Sitemap'e giren ürün detay sayfaları: gerçek kısa açıklaması olan, iç kullanım olmayan ürünler.
-export const listedProducts = ({ FEATURED, APPS }) => [...FEATURED, ...APPS].filter(a => !isPlaceholder(a.short) && !a.internal);
-
 // Sitede gerçek içeriği olan ürünler (fikir aşamasındaki dolgu kartlar ve iç araçlar hariç).
 const realProducts = ({ FEATURED, APPS }) => [...FEATURED, ...APPS].filter(a => !isPlaceholder(a.lead) && !a.internal);
+
+// Sitemap'e giren ve ön-render edilen ürün detay sayfaları (/uretiyorum/<slug>): gerçek içeriği olan bütün ürünler.
+// Mağaza kartları bu sayfalara link verir. Eskiden `short` alanı şarttı; FEATURED'daki SesVer ve WingWire'da `short`
+// olmadığı için sayfaları sitemap'e girmiyor, canlıda ana sayfa <head>'iyle açılıyordu.
+export const listedProducts = data => realProducts(data);
 
 // Ürüne verilecek iç bağlantı: kendi detay sayfası sitemap'teyse o, değilse ürünün kendi sitesi.
 function productHref(app, data) {
@@ -225,16 +227,18 @@ export function metaForPath(path, data) {
   }
 
   if (path === '/sesver') {
+    // Metinler: SesVerSite.jsx → Hero. data.js kaydı yoksa (ad değişirse) hero metniyle devam edilir.
     const app = data.FEATURED.find(a => a.name === 'SesVer');
+    const lead =
+      'SesVer metnini kendi bilgisayarında doğal Türkçe sese çevirir. Hazır seslerden seç, tarif ederek yeni bir ses tasarla ya da kendi sesini klonla. Hesap yok, API anahtarı yok, bulut yok.';
     return base(path, {
       title: PAGE_META[path].title,
-      description: clipText(app.lead),
+      description: clipText(app?.lead || lead),
       manages: ['title'],
-      // Metinler: SesVerSite.jsx → Hero
       h1: 'Yazdığın, sese dönüşsün.',
-      lead: 'SesVer metnini kendi bilgisayarında doğal Türkçe sese çevirir. Hazır seslerden seç, tarif ederek yeni bir ses tasarla ya da kendi sesini klonla. Hesap yok, API anahtarı yok, bulut yok.',
-      points: app.points,
-      links: app.download ? [{ href: app.download, label: app.downloadLabel || 'İndir', external: true }] : [],
+      lead,
+      points: app?.points || [],
+      links: app?.download ? [{ href: app.download, label: app.downloadLabel || 'İndir', external: true }] : [],
       theme: { bg: '#fbf6ee', fg: '#231a14' } // sesver.css --sv-bg, --sv-ink
     });
   }
@@ -244,11 +248,22 @@ export function metaForPath(path, data) {
       title: PAGE_META[path].title,
       description: PAGE_META[path].description,
       manages: ['title', 'description'],
-      // Metinler: WingWireSite.jsx → h1, lead (data.js)
+      // Metinler: WingWireSite.jsx → h1, lead (data.js; kayıt yoksa hero alt yazısı)
       h1: 'Masadan kalk.',
-      lead: app.lead,
-      points: app.points,
+      lead: app?.lead || 'Ajanın bilgisayarında çalışmaya devam eder. Haberi cebine gelir.',
+      points: app?.points || [],
       theme: { bg: '#0b0f14', fg: '#f5f1e8' } // WingWireSite.css --bg, --ink
+    });
+  }
+  if (path === '/aktivite') {
+    // Metinler: AktiviteHaritasi.jsx → akh__head. Sayfa kendi başlığını koymaz; App.jsx useHeadSync bunu kullanır.
+    const lead = 'Yazdığım kodun haritası. Uzaktan yalnızca büyük işler görünür; yakınlaştıkça küçük adımlar da ortaya çıkar.';
+    return base(path, {
+      title: seoTitle('Aktivite Haritası: yazdığım kodun haritası'),
+      description: clipText(lead),
+      h1: 'Aktivite Haritası',
+      lead,
+      back: { href: '/', label: '← ANA SAYFA' }
     });
   }
   if (path === '/titimer') {
