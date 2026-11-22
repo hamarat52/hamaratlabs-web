@@ -1,0 +1,3 @@
+düz metin   : <head><title>x</title></head><div id="root"><h1>Fiyat <div id="root"></div> ve  ile $ deneme</h1></div>
+fonksiyon   : <head><title>x</title></head><div id="root"><h1>Fiyat $& ve $' ile $$ deneme</h1></div>
+fonksiyon metni aynen taşıyor mu: true | düz metin taşıyor mu: false

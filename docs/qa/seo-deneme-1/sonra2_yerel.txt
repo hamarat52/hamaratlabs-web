@@ -1,0 +1,36 @@
+URL 33 | iç link 25 | kırık 0
+OK /
+OK /uretiyorum
+OK /paylasiyorum
+OK /anlatiyorum
+OK /oneriyorum
+OK /okul-projeleri
+OK /skills
+OK /uretiyorum/sesver
+OK /uretiyorum/wingwire
+OK /uretiyorum/income-vs-desires
+OK /uretiyorum/titimer
+OK /uretiyorum/kitabe
+OK /uretiyorum/dusen-top
+OK /sesver
+OK /wingwire
+OK /titimer
+OK /aktivite
+OK /ogretici
+OK /ogretici/motion-video
+!! /okul-projeleri/fibi/  og:image yok
+OK /okul-projeleri/kader/
+!! /okul-projeleri/kuveytturk-api-portal/  og:image yok
+!! /income-vs-desires/  og:image yok
+!! /income-vs-desires/blog/  og:image yok
+!! /income-vs-desires/blog/durtusel-alisveristen-kurtulmak  og:image yok
+!! /income-vs-desires/blog/kira-maasin-yuzde-kaci-olmali  og:image yok
+!! /income-vs-desires/blog/saatlik-ucret-nasil-hesaplanir  og:image yok
+!! /income-vs-desires/destek  og:image yok
+!! /income-vs-desires/en/privacy  og:image yok
+!! /income-vs-desires/en/support  og:image yok
+!! /income-vs-desires/gizlilik  og:image yok
+OK /income-vs-desires/saatlik-ucret-hesaplama
+!! /okul-projeleri/ricambio/  og:image yok
+çift title []
+çift desc []

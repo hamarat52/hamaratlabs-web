@@ -1,0 +1,33 @@
+== https://hamaratlabs.com/uretiyorum/sesver
+HTTP 200  md5 481f3eec3667a091487cfdb36c2ac2df
+<title>hamaratlabs</title>
+<meta name="description" content="Ürettiğim, anlattığım ve paylaştığım laboratuvar. Yusuf Hamarat'ın uygulamaları, eğitici içerikleri ve paylaşımları."
+<link rel="canonical" href="https://hamaratlabs.com/"
+== http://hamaratlabs-seo.localhost:1355/uretiyorum/sesver
+HTTP 200  md5 1b853bd491d86a14764b778c214bee3b
+<title>SesVer · hamaratlabs</title>
+<meta name="description" content="Ücretsiz, yerel ve açık kaynak Türkçe ses üretimi ve klonlama. Yazdığını kendi bilgisayarında sese çevirir. Durum: Açık beta."
+<link rel="canonical" href="https://hamaratlabs.com/uretiyorum/sesver"
+<h1>SesVer</h1>
+== https://hamaratlabs.com/uretiyorum/wingwire
+HTTP 200  md5 481f3eec3667a091487cfdb36c2ac2df
+<title>hamaratlabs</title>
+<meta name="description" content="Ürettiğim, anlattığım ve paylaştığım laboratuvar. Yusuf Hamarat'ın uygulamaları, eğitici içerikleri ve paylaşımları."
+<link rel="canonical" href="https://hamaratlabs.com/"
+== http://hamaratlabs-seo.localhost:1355/uretiyorum/wingwire
+HTTP 200  md5 85da94f844a542aa80c8984099f1b41e
+<title>WingWire · hamaratlabs</title>
+<meta name="description" content="Kendi yapay zekâ ajanına Android'den bağlan: sohbet et, onay ver, gerekince ajan seni arasın. Durum: Geliştirmede."
+<link rel="canonical" href="https://hamaratlabs.com/uretiyorum/wingwire"
+<h1>WingWire</h1>
+== https://hamaratlabs.com/aktivite
+HTTP 200  md5 481f3eec3667a091487cfdb36c2ac2df
+<title>hamaratlabs</title>
+<meta name="description" content="Ürettiğim, anlattığım ve paylaştığım laboratuvar. Yusuf Hamarat'ın uygulamaları, eğitici içerikleri ve paylaşımları."
+<link rel="canonical" href="https://hamaratlabs.com/"
+== http://hamaratlabs-seo.localhost:1355/aktivite
+HTTP 200  md5 0bf77ddbb45336b70f168112b440f6bc
+<title>Aktivite Haritası: yazdığım kodun haritası · hamaratlabs</title>
+<meta name="description" content="Yazdığım kodun haritası. Uzaktan yalnızca büyük işler görünür; yakınlaştıkça küçük adımlar da ortaya çıkar."
+<link rel="canonical" href="https://hamaratlabs.com/aktivite"
+<h1>Aktivite Haritası</h1>

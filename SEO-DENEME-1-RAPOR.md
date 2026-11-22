@@ -1,19 +1,25 @@
 # SEO denemesi 1: hamaratlabs.com
 
-Tarih: 2026-11-20 · Dal: `seo/deneme-1` (origin/main `ee8e2e6` tabanlı) · Worktree: `.worktrees/seo-deneme-1`
+Tarih: 2026-11-20 (inceleme düzeltmeleri 2026-11-21) · Dal: `seo/deneme-1` (şu an origin/main `999463f` üzerine yeniden kurulmuş; ilk taban `ee8e2e6`) · Worktree: `.worktrees/seo-deneme-1`
 Durum: dalda commit'li, **push / merge / deploy yapılmadı** (Yusuf onayı ve PM'in yayını bekleniyor).
 
 Sürümler: Vite 6.4.4, React 19.3.1, react-dom 19.3.1 (package.json: `vite ^6.3.5`, `react ^19.1.0`). Yerel Node 20.18.0, CI Node 22.
 
 ## Commit'ler
 
+Dal sonradan origin/main üzerine yeniden kurulduğu için hash'ler ilk rapordakinden farklı; aşağıdakiler güncel.
+
 | Hash | Ne |
 |---|---|
-| `4e08a4e` | İş A: rota başına ön-render edilmiş head + içerik, ortak adres listesi, site içi head eşitleme |
-| `6aebd2e` | İş B: fibi / kuveytturk canonical, RICAMBIO canonical + h1 (CI betiği), kısa title'lar, KADER description |
-| `e5725ce` | `npm run lint` hatasız (yapılandırma + src/components küçük temizlik) |
-| `6174640` | İş C: `/income-vs-desires/saatlik-ucret-hesaplama` hesaplayıcı sayfası |
-| (bu rapor) | Rapor + `docs/qa/seo-deneme-1/` kanıt dosyaları |
+| `ba9d54b` | İş A: rota başına ön-render edilmiş head + içerik, ortak adres listesi, site içi head eşitleme |
+| `0d13e8a` | İş B: fibi / kuveytturk canonical, RICAMBIO canonical + h1 (CI betiği), kısa title'lar, KADER description |
+| `8bd66de` | `npm run lint` hatasız (yapılandırma + src/components küçük temizlik) |
+| `5745080` | İş C: `/income-vs-desires/saatlik-ucret-hesaplama` hesaplayıcı sayfası |
+| `1b1e519` | Rapor + `docs/qa/seo-deneme-1/` kanıt dosyaları |
+| `044f702` | İnceleme 1: String.replace fonksiyon biçimi |
+| `3f78b6b` | İnceleme 2 ve 3: `/uretiyorum/sesver`, `/uretiyorum/wingwire`, `/aktivite` ön-render + sitemap; FEATURED null korunması |
+| `eda0d31` | İnceleme 4: geçersiz `/ogretici/<slug>` için noindex + "Sayfa bulunamadı" |
+| (bu güncelleme) | Rapor: "Bağımsız inceleme düzeltmeleri" bölümü + kanıtlar |
 
 ## Ne yapıldı
 
@@ -104,9 +110,39 @@ Ekran görüntüleri (`docs/qa/seo-deneme-1/`):
 - CI log'unda `seo-ricambio: canonical + h1 eklendi.` satırı.
 - Search Console'da sitemap'i yeniden gönderme ve 3-4 ürün URL'i için "URL denetimi".
 
+## Bağımsız inceleme düzeltmeleri (2026-11-21)
+
+İnceleme: Gemini 4 Neon, doğrulama: Haberci. Dört bulgunun dördü de uygulandı.
+
+| # | Bulgu | Düzeltme | Commit |
+|---|---|---|---|
+| 1 | `swap()` ve `#root` / `</head>` eklemelerinde ikinci argüman düz metin; metinde `$&`, `` $` ``, `$'`, `$$` geçerse String.replace bunları desen sayar, HTML bozulur | Hepsi `() => metin` biçimine çevrildi: `prerender-routes.mjs` (swap + 2 ekleme), aynı sorun taşıyan `seo-ricambio.mjs` (2) ve `prerender-privacy.mjs` (#root) | `044f702` |
+| 2 | `/uretiyorum/sesver`, `/uretiyorum/wingwire` (kartlardan linkli) ve `/aktivite` (footer'da linkli) ön-render edilmiyor, canlıda ana sayfa head'iyle 200 dönüyor | `listedProducts` artık `short` alanı istemiyor (gerçek içeriği olan bütün ürünler); `/aktivite` için routeMeta + sitemap girdisi. Ön-render 16 → 19 sayfa, sitemap 30 → 33 URL | `3f78b6b` |
+| 3 | routeMeta `/sesver` ve `/wingwire` dallarında `data.FEATURED.find(...)` null kontrolü yok | `app?.` korunması; kayıt yoksa bileşendeki hero metniyle devam eder, build kırılmaz | `3f78b6b` |
+| 4 | Geçersiz `/ogretici/<slug>`'da notFound false, noindex yok, kendine canonical | App.jsx: geçersiz slug bulunamayan sayfa sayılır (liste görünümü aynı kalır); head'de noindex, başlık "Sayfa bulunamadı · hamaratlabs". Bulunamayan sayfalarda canonical artık kaldırılıyor, geçerli rotaya dönünce yeniden ekleniyor | `eda0d31` |
+
+**Bulgu 1 kanıtı** (`docs/qa/seo-deneme-1/replace_kanit.txt`): aynı şablona `Fiyat $& ve $' ile $$` metni eklenince düz metin biçimi `<div id="root">`'u metnin içine kopyalayıp `$'`'yu silerken fonksiyon biçimi metni aynen taşıyor (`fonksiyon: true | düz metin: false`). Bugünkü metinlerin hiçbirinde `$` yok, yani canlıyı etkileyen bir bozulma yoktu; risk ileride eklenecek fiyat/komut metinleri içindi.
+
+**Canonical kararı (`/uretiyorum/sesver` → kendine, `/sesver`'a değil):** iki sayfanın içeriği aynı değil. Mağaza sayfası (AppPage) data.js'teki kısa tanım, 7 maddelik özellik listesi, indirme düğmesi, beğeni/paylaşım ve yorumlardan oluşan bir ürün kartı. `/sesver` ayrı metinlerle yazılmış (h1 "Yazdığın, sese dönüşsün.", farklı lead), ses örnekleri, kurulum ve 11 dilli bir tanıtım sitesi. data.js'teki lead ve maddeler SesVerSite.jsx'te geçmiyor (grep: 0). WingWire'da da aynı: yeni `/wingwire` "Masadan kalk." sitesi data.js metnini kullanmıyor (grep: 0). Canonical yalnız kopya ya da kopyaya çok yakın sayfalar için doğru; burada `/sesver`'a canonical vermek mağaza sayfasının yorumlarını ve kendi içeriğini dizinden düşürür. Kendine canonical verildi; arama sonucunda karışmasınlar diye başlık ve açıklama da farklı (`SesVer · hamaratlabs` + "Durum: Açık beta." / `SesVer · Yazdığın, kendi bilgisayarında sese dönüşsün`), mağaza sayfası ön-render içeriğinde ürün sitesine link veriyor.
+
+**Doğrulama**
+- `npm run lint`: çıkış 0, 0 hata, 3 uyarı (değişmedi). `npm run build`: çıkış 0, `prerender-routes: 19 sayfa yazıldı`, `dist/sitemap.xml oluşturuldu (33 url)`.
+- saglik_yerel.py (`docs/qa/seo-deneme-1/sonra2_yerel.txt`): 33 URL, 21 sorunsuz, 12 sorun (hepsi önceden bilinen statik sayfa og:image eksikliği), çift title / description 0, kırık iç link 0. Üç yeni rota `OK`.
+- Ham HTML (curl, `docs/qa/seo-deneme-1/ham_html_inceleme.txt`):
+
+| Rota | Canlı | Yerel (bu dal) |
+|---|---|---|
+| `/uretiyorum/sesver` | 200 · md5 `481f3eec…` (ana sayfa dosyası) · `hamaratlabs` · canonical `/` · h1 yok | 200 · md5 `1b853bd4…` · `SesVer · hamaratlabs` · canonical `https://hamaratlabs.com/uretiyorum/sesver` · `<h1>SesVer</h1>` |
+| `/uretiyorum/wingwire` | 200 · md5 `481f3eec…` (aynı) · `hamaratlabs` · canonical `/` | 200 · md5 `85da94f8…` · `WingWire · hamaratlabs` · canonical `https://hamaratlabs.com/uretiyorum/wingwire` · `<h1>WingWire</h1>` |
+| `/aktivite` | 200 · md5 `481f3eec…` (aynı) · `hamaratlabs` · canonical `/` | 200 · md5 `0bf77ddb…` · `Aktivite Haritası: yazdığım kodun haritası · hamaratlabs` · canonical `https://hamaratlabs.com/aktivite` · `<h1>Aktivite Haritası</h1>` |
+
+- Tarayıcıda, JS çalışırken (`docs/qa/seo-deneme-1/inceleme_tarayici.json`): `/ogretici/boyle-yazi-yok` başlık "Sayfa bulunamadı · hamaratlabs", robots noindex, canonical yok, liste görünümü aynı. Oradan geçerli yazıya tıklayınca canonical geri geliyor, noindex kalkıyor. `/boyle-yok` aynı davranış. Üç yeni rotada başlık/canonical ön-render ile aynı, ön-render bloğu görünmüyor, konsol hatası 0.
+
+Not: dal, raporun ilk sürümünden sonra origin/main'e yeniden kurulmuş (yeni WingWire sitesi "Masadan kalk" geldi); routeMeta'daki `/wingwire` başlık/açıklaması o sırada yeni siteye göre güncellenmiş. Bu açıklamada ürün gereği bir ajan çerçevesinin adı geçiyor; bu yasak yalnız hesaplayıcı sayfası (İş C) içindi, o sayfada geçmiyor.
+
 ## Açık sorular / kapsam dışı bırakılanlar
 1. **og:image yok (12 sayfa):** IVD sayfaları, fibi, kuveytturk, ricambio. Ürüne özel görsel yoktu, bu turda eklenmedi (hesaplayıcıda sitenin genel görseli kullanıldı). IVD için ayrı bir OG görseli üretilsin mi?
-2. **`/uretiyorum/sesver` ve `/uretiyorum/wingwire` sitemap'te yok** (öncesinde de yoktu: FEATURED kayıtlarında `short` alanı yok). Ürünlerin asıl sayfası `/sesver`, `/wingwire` sitemap'te. Mağaza detay sayfaları da eklensin mi?
+2. ~~`/uretiyorum/sesver` ve `/uretiyorum/wingwire` sitemap'te yok~~ Evet kabul edildi, eklendi (yukarıdaki "Bağımsız inceleme düzeltmeleri" bölümü).
 3. **`/uretiyorum/kitabe` sitemap'e yeni girdi** (eski regex hatası düzeltilince). Kitabe "Geliştirmede"; indekslenmesi istenmiyorsa söyle.
 4. **Yumuşak 404:** bilinmeyen yollar hâlâ HTTP 200 (Cloudflare SPA kipi); yalnız istemcide noindex ekleniyor. Gerçek 404 için `404.html` gerekir ama deploy.yml notuna göre o zaman derin rotalar soğuk açılışta 404 olur. Bu turda dokunulmadı.
 5. **`/privacy`** canonical `/privacy` ama sunucu `/privacy/`'ye 308 yapıyor (önceden de böyle, sitemap'te değil). Aynı `privacy.html` yöntemine taşınsın mı?
