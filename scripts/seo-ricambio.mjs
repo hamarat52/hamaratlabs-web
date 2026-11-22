@@ -21,7 +21,7 @@ let html = readFileSync(file, 'utf8');
 const changes = [];
 
 if (!/<link[^>]+rel=["']canonical["']/i.test(html)) {
-  html = html.replace(/<\/head>/i, `  <link rel="canonical" href="${CANONICAL}" />\n  </head>`);
+  html = html.replace(/<\/head>/i, () => `  <link rel="canonical" href="${CANONICAL}" />\n  </head>`);
   changes.push('canonical');
 }
 
@@ -29,9 +29,10 @@ if (!/<h1[\s>]/i.test(html)) {
   const title = (/<title>([\s\S]*?)<\/title>/i.exec(html) || [])[1]?.trim();
   if (!title) throw new Error('seo-ricambio: <title> bulunamadı, <h1> metni çıkarılamadı.');
   if (!html.includes('<div id="root"></div>')) throw new Error('seo-ricambio: boş <div id="root"></div> bulunamadı.');
+  // Fonksiyon biçimi: başlıkta $&, $` gibi diziler String.replace deseni sayılmasın.
   html = html.replace(
     '<div id="root"></div>',
-    `<div id="root"><h1 style="font-family:system-ui,sans-serif;font-size:28px;padding:24px;margin:0">${title}</h1></div>`
+    () => `<div id="root"><h1 style="font-family:system-ui,sans-serif;font-size:28px;padding:24px;margin:0">${title}</h1></div>`
   );
   changes.push('h1');
 }

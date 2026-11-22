@@ -31,7 +31,8 @@ const escText = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').repl
 function swap(html, re, replacement, what) {
   const hits = html.match(new RegExp(re.source, 'g')) || [];
   if (hits.length !== 1) throw new Error(`prerender-routes: şablonda "${what}" ${hits.length} kez bulundu (1 bekleniyordu).`);
-  return html.replace(re, replacement);
+  // Fonksiyon biçimi: değiştirilecek metinde $&, $`, $', $$ geçerse String.replace onları desen saymasın.
+  return html.replace(re, () => replacement);
 }
 
 function applyHead(template, meta) {
@@ -123,8 +124,8 @@ for (const route of spa) {
   if (route.startsWith('/ogretici/')) meta.ogType = 'article';
 
   let html = applyHead(template, meta)
-    .replace('<div id="root"></div>', `<div id="root">${renderBody(meta)}</div>`)
-    .replace('</head>', `    ${JS_GUARD}\n  </head>`);
+    .replace('<div id="root"></div>', () => `<div id="root">${renderBody(meta)}</div>`)
+    .replace('</head>', () => `    ${JS_GUARD}\n  </head>`);
   let file;
   if (route === '/') {
     file = indexPath;

@@ -69,7 +69,7 @@ html = html.replace(/<link rel="canonical" href=".*?" \/>/, '<link rel="canonica
 html = html.replace(/<meta property="og:url" content=".*?" \/>/, '<meta property="og:url" content="https://hamaratlabs.com/privacy" />');
 
 // #root içini prerender edilmiş içerikle doldur (React mount olunca üzerine yazar).
-html = html.replace('<div id="root"></div>', `<div id="root">${PRIVACY_CONTENT}</div>`);
+html = html.replace('<div id="root"></div>', () => `<div id="root">${PRIVACY_CONTENT}</div>`);
 
 const privacyDir = path.join(distDir, 'privacy');
 mkdirSync(privacyDir, { recursive: true });
