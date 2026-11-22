@@ -35008,5 +35008,23 @@
     "score": 27,
     "is_merge": false,
     "lines": 27
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "68de479803",
+    "date": "2026-11-22T23:30:06+03:00",
+    "subject": "feat(kota): kompakt Kotalar tablosu, tek aktif hap ve haftalık dolu Claude kuralı",
+    "score": 92,
+    "is_merge": false,
+    "lines": 611
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2bc395591e",
+    "date": "2026-11-22T23:30:39+03:00",
+    "subject": "feat(kota): kompakt Kotalar tablosu, tek aktif hap ve haftalık dolu Claude kuralı (siber onaylı)",
+    "score": 85,
+    "is_merge": true,
+    "lines": 0
   }
 ]
