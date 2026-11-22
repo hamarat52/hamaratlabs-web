@@ -20,7 +20,7 @@ Dal sonradan origin/main üzerine yeniden kurulduğu için hash'ler ilk rapordak
 | `3f78b6b` | İnceleme 2 ve 3: `/uretiyorum/sesver`, `/uretiyorum/wingwire`, `/aktivite` ön-render + sitemap; FEATURED null korunması |
 | `eda0d31` | İnceleme 4: geçersiz `/ogretici/<slug>` için noindex + "Sayfa bulunamadı" |
 | (bu güncelleme) | Rapor: "Bağımsız inceleme düzeltmeleri" bölümü + kanıtlar |
-| (paylaşım resimleri commit'i) | 12 statik sayfa + hesaplayıcıya sayfaya özel og:image kartları, etiketler, RICAMBIO CI betiği, rapor bölümü ve kanıtlar |
+| `dc7d49e` | Paylaşım resimleri: 12 statik sayfa + hesaplayıcıya sayfaya özel og:image kartları, etiketler, RICAMBIO CI betiği, rapor bölümü ve kanıtlar |
 
 ## Ne yapıldı
 
