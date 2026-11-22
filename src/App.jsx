@@ -149,8 +149,9 @@ function useHeadSync(path, notFound) {
     } else if (!notFound && robots) robots.remove();
 
     // İlk açılışta da çalışır: ön-render edilmiş sayfalarda aynı değerleri yazar (zararsız); ön-render edilmemiş
-    // rotalarda (ör. sitemap dışı /uretiyorum/sesver, /aktivite) ana sayfa yedeğinden gelen <head>'i düzeltir.
-    const meta = metaForPath(path, SEO_DATA);
+    // rotalarda ana sayfa yedeğinden gelen <head>'i düzeltir. Bulunamayan sayfada (bilinmeyen yol ya da geçersiz
+    // /ogretici/<slug>) başlık "Sayfa bulunamadı" olur ve canonical kaldırılır (noindex sayfa kendini kanonik göstermez).
+    const meta = notFound ? null : metaForPath(path, SEO_DATA);
     const fallback = notFound ? NOT_FOUND_META : HOME_META;
     const manages = meta?.manages || [];
     const canonical = path === '/' ? `${SITE}/` : `${SITE}${path}`;
@@ -162,7 +163,16 @@ function useHeadSync(path, notFound) {
       setHead('meta[name="description"]', 'content', meta?.description || fallback.description);
       setHead('meta[property="og:description"]', 'content', meta?.description || fallback.description);
     }
-    setHead('link[rel="canonical"]', 'href', canonical);
+    let link = document.head.querySelector('link[rel="canonical"]');
+    if (notFound) link?.remove();
+    else {
+      if (!link) {
+        link = document.createElement('link');
+        link.rel = 'canonical';
+        document.head.appendChild(link);
+      }
+      link.href = canonical;
+    }
     setHead('meta[property="og:url"]', 'content', canonical);
   }, [path, notFound]);
 }
@@ -178,8 +188,10 @@ export default function App() {
   // /ogretici → liste (slug null), /ogretici/<slug> → yazı. Sondaki eğik çizgi yok sayılır.
   const ogretici =
     path === '/ogretici' || path.startsWith('/ogretici/') ? { slug: path.slice('/ogretici/'.length).replace(/\/$/, '') || null } : null;
-  // Aşağıdaki render dallarının hiçbiri tutmuyorsa NotFoundPage çizilir.
-  const notFound = !StaticPage && !ogretici && !appMatch && !page && path !== '/';
+  // Aşağıdaki render dallarının hiçbiri tutmuyorsa NotFoundPage çizilir. Geçersiz /ogretici/<slug> listeye düşer
+  // (OgreticiPage kısa not gösterir) ama arama motoru için bulunamayan sayfa sayılır: noindex + "Sayfa bulunamadı".
+  const badPost = Boolean(ogretici?.slug) && !POSTS.some(p => p.slug === ogretici.slug);
+  const notFound = badPost || (!StaticPage && !ogretici && !appMatch && !page && path !== '/');
   useHeadSync(path, notFound);
   if (StaticPage && STANDALONE_PAGES.has(path)) {
     return (
