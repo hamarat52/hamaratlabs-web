@@ -34,3 +34,7 @@
 # Beyzadem taslak sayfaları (v1/v2/v3): listelenmemiş önizleme, arama sonuçlarına girmez.
 /beyzadem/*
   X-Robots-Tag: noindex
+
+# Fibi sunumu: sık güncelleniyor, eski JS/CSS (adsız hash yok) 4 saat tarayıcıda kalmasın.
+/okul-projeleri/fibi/sunum/*
+  Cache-Control: no-cache
