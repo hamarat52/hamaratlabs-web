@@ -33877,6 +33877,15 @@
   },
   {
     "repo": "wingwire-android",
+    "hash": "4686c07aa8",
+    "date": "2026-11-20T17:50:59+03:00",
+    "subject": "docs(sesli-buton/ses-tepkisi): «sesin duyuluyor» tepkisi — A Yıldız seli / B Canlı yazı / C İçe dalga mock'ları, ses gelmiyor durumu, seçenek + karşılaştırma görselleri, web Konuş eşi; öneri A",
+    "score": 44,
+    "is_merge": false,
+    "lines": 973
+  },
+  {
+    "repo": "wingwire-android",
     "hash": "2da35199f9",
     "date": "2026-11-20T17:54:36+03:00",
     "subject": "chore(release): 0.3.21 (versionCode 26) — alt çubuk N3: Santral çubuğun içinde, eşit padding (12/8/8 dp), net seçili hap, çubuk altında içerik yok; siberguvenlik GEÇER",
@@ -34642,6 +34651,15 @@
   },
   {
     "repo": "wingwire-app-web",
+    "hash": "a3a0f54135",
+    "date": "2026-11-21T13:51:08+03:00",
+    "subject": "docs(tek-kanal): envanter, plan, riskler ve ana oturum önerisi (WebDev, fable)",
+    "score": 42,
+    "is_merge": false,
+    "lines": 527
+  },
+  {
+    "repo": "wingwire-app-web",
     "hash": "414ff86703",
     "date": "2026-11-21T14:10:07+03:00",
     "subject": "feat(kota): AGY, Fable (model bazlı) ve CLAUDE_500_API kota gösterimi",
@@ -35010,6 +35028,60 @@
     "lines": 27
   },
   {
+    "repo": "wingwire-android",
+    "hash": "a77328a286",
+    "date": "2026-11-22T15:49:05+03:00",
+    "subject": "docs(qa): kota-kompakt emülatör kanıtı, mock karşılaştırması ve rapor",
+    "score": 30,
+    "is_merge": false,
+    "lines": 66
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "6c8f42f6e1",
+    "date": "2026-11-22T15:49:05+03:00",
+    "subject": "feat(kota): kompakt Kotalar görünümü, yalnız aktif hap ve haftalık dolu Claude kuralı",
+    "score": 91,
+    "is_merge": false,
+    "lines": 367
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "c62fd736fe",
+    "date": "2026-11-22T15:54:20+03:00",
+    "subject": "docs(qa): kota-kompakt gerçek emülatör ekran ve 4x2 widget görüntüleri",
+    "score": 19,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "e78cd838a4",
+    "date": "2026-11-22T15:58:07+03:00",
+    "subject": "docs(qa): kota-kompakt doğrulanmış Model bağlantıları, 4x2 widget ve mock karşılaştırması",
+    "score": 25,
+    "is_merge": false,
+    "lines": 15
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "7b4d51f152",
+    "date": "2026-11-22T21:54:23+03:00",
+    "subject": "docs(qa): kota-kompakt dogrulanmis gercek emulator ekran ve 4x2 widget goruntuleri",
+    "score": 15,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "4360aed285",
+    "date": "2026-11-22T22:00:37+03:00",
+    "subject": "docs(qa): kota-kompakt gercek Model baglantilari, 4x2 Kota widget ve rapor",
+    "score": 26,
+    "is_merge": false,
+    "lines": 21
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "68de479803",
     "date": "2026-11-22T23:30:06+03:00",
@@ -35026,5 +35098,356 @@
     "score": 85,
     "is_merge": true,
     "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7f969ae2ab",
+    "date": "2026-11-23T21:41:20+03:00",
+    "subject": "feat(rezerv): sözleşme — GET/PUT /ww/claude/rezerv, Rezerv* tipleri + validateRezerv, MOBILE_GATE faz 1, mobil-api §20",
+    "score": 89,
+    "is_merge": false,
+    "lines": 249
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2e3c64b5a9",
+    "date": "2026-11-23T21:46:19+03:00",
+    "subject": "feat(rezerv): sunucu — GET/PUT /ww/claude/rezerv (ayar + varsayılan, son.json kalanı, auth.json yalnız etiket+soğuma, log kanıtı; atomik yazma, kapı, sembolik bağ reddi) + testler",
+    "score": 93,
+    "is_merge": false,
+    "lines": 749
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7dcaed2798",
+    "date": "2026-11-23T21:50:35+03:00",
+    "subject": "feat(rezerv): arayüz — Ayarlar › Claude kullanımı › Haftalık rezerv (kalan, eşik, durum, kaydet, salt okunur) + testler",
+    "score": 91,
+    "is_merge": false,
+    "lines": 484
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "2bccf46791",
+    "date": "2026-11-23T21:55:23+03:00",
+    "subject": "feat(rezerv): Claude haftalık rezerv eşiği telefonda — Model bağlantıları › Haftalık rezerv: iki hesabın eşiği, haftalık kalanı, durumu (açık / rezerv nedeniyle kapalı + açılma / bilinmiyor) ve eşiği değiştirme (GET/PUT /ww/claude/rezerv, mobil-api §20); telefon tarafı 0-100 tam sayı doğrulaması, 400/403/409/423 Türkçe; testler + sahte sunucu ucu",
+    "score": 94,
+    "is_merge": false,
+    "lines": 1007
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "e567cce8aa",
+    "date": "2026-11-23T22:02:28+03:00",
+    "subject": "feat(rezerv): durum satırında model sayısı ayrı satır; QA kanıtları, ekran görüntüleri ve RAPOR",
+    "score": 89,
+    "is_merge": false,
+    "lines": 231
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a31454a7a7",
+    "date": "2026-11-23T22:02:34+03:00",
+    "subject": "test(rezerv): model sayısı ayrı satır beklentisi",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "4101e3cb75",
+    "date": "2026-11-23T22:20:06+03:00",
+    "subject": "docs(qa): rezerv-esik emülatör kanıtı (açık + koyu, sahte sunucu), çekim betikleri, RAPOR",
+    "score": 34,
+    "is_merge": false,
+    "lines": 240
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "719a3662ac",
+    "date": "2026-11-23T22:20:06+03:00",
+    "subject": "fix(rezerv): emülatör turundan — kapalı model sayısı ayrı satır (web gibi), %0 notu, düzenleyici odaklı + değer seçili, 423 sonrası düzenleyici kapanır, hizalama",
+    "score": 60,
+    "is_merge": false,
+    "lines": 68
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f7474ef7f7",
+    "date": "2026-11-23T22:26:20+03:00",
+    "subject": "docs(qa): rezerv-esik siberguvenlik (GEÇER)",
+    "score": 28,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "91cba795d2",
+    "date": "2026-11-23T22:26:20+03:00",
+    "subject": "docs(qa): rezerv-esik siberguvenlik (GEÇER)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 54
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "d9b0181660",
+    "date": "2026-11-23T23:36:31+03:00",
+    "subject": "feat(rezerv): esik onayi diyalogu, guncel not ve 0.3.29 (34)",
+    "score": 88,
+    "is_merge": false,
+    "lines": 158
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a802400ca5",
+    "date": "2026-11-23T23:40:05+03:00",
+    "subject": "test(rezerv): 2. tur testlerinde sozdizimi duzeltmesi ve mesaj bekleme",
+    "score": 57,
+    "is_merge": false,
+    "lines": 528
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "86cab7ddee",
+    "date": "2026-11-23T23:41:45+03:00",
+    "subject": "test(rezerv): claude-rezerv.test.ts icindeki string kacislarinin duzeltilmesi",
+    "score": 44,
+    "is_merge": false,
+    "lines": 12
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5fea1b8338",
+    "date": "2026-11-23T23:43:15+03:00",
+    "subject": "test(rezerv): betik yaziminda String.fromCharCode(10) ile temiz satir sonu",
+    "score": 43,
+    "is_merge": false,
+    "lines": 10
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "8b37da5a78",
+    "date": "2026-11-23T23:47:34+03:00",
+    "subject": "test(rezerv): test betiginde chr(10) ile string kacisi saglamlastirildi",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7462ecaf7c",
+    "date": "2026-11-23T23:47:54+03:00",
+    "subject": "test(rezerv): python dosya yaziminda print(..., file=fh) kullanimi",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5d1edf1109",
+    "date": "2026-11-24T00:10:09+03:00",
+    "subject": "docs(rezerv): 2. tur QA raporu ve 1440/390 px onay ekrani kanitlari",
+    "score": 32,
+    "is_merge": false,
+    "lines": 32
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "2a31f8fd04",
+    "date": "2026-11-24T09:46:02+03:00",
+    "subject": "merge: docs/ses-tepkisi-mock — sesin duyuluyor A/B/C konseptleri ve web eşi",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "c9efe75a0e",
+    "date": "2026-11-24T09:46:02+03:00",
+    "subject": "merge: docs/kanal-plan — tek kanal envanter, plan ve riskler",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "3f38a151be",
+    "date": "2026-11-24T09:51:53+03:00",
+    "subject": "Merge branch 'main' into feat/kota-kompakt",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "4fd759a9ab",
+    "date": "2026-11-24T09:55:17+03:00",
+    "subject": "docs(qa): kota-kompakt siberguvenlik (GEÇER)",
+    "score": 30,
+    "is_merge": false,
+    "lines": 69
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "d00acb886a",
+    "date": "2026-11-24T09:55:18+03:00",
+    "subject": "chore(release): 0.3.30 (versionCode 35) — Kompakt Kotalar görünümü, yalnız aktif hap, haftalık dolu Claude kuralı ve Claude rezerv eşiği birleştirmesi.",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "fdb6a7401d",
+    "date": "2026-11-24T11:12:20+03:00",
+    "subject": "fix(widget): kota renk eşiği tek kural — WidgetFormat.level KotaKaynaklar.ton'dan türer (%70-99 sarı, ≥%100 kırmızı); kullanılmayan kt_leg_crit kaldırıldı; 85/99 beklentileri ve eşik tablo testi",
+    "score": 61,
+    "is_merge": false,
+    "lines": 91
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f4e837dfce",
+    "date": "2026-11-24T11:13:57+03:00",
+    "subject": "docs(qa): widget-esik — emülatör QA (açık/koyu Model bağlantıları + 4×2 Kota widget'ı, karşılaştırma), fake_ww kotabc-esik modu, rapor",
+    "score": 37,
+    "is_merge": false,
+    "lines": 517
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "2916943149",
+    "date": "2026-11-24T11:16:05+03:00",
+    "subject": "chore(release): 0.3.31 (versionCode 36) — Kota widget'ı ekranla aynı renk kuralında: %70-99 sarı, kırmızı yalnız Dolu (%100).",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "199b364767",
+    "date": "2026-11-24T11:16:05+03:00",
+    "subject": "docs(qa): widget-esik siberguvenlik (GEÇER)",
+    "score": 28,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "5aebf3b9af",
+    "date": "2026-11-24T11:28:05+03:00",
+    "subject": "refactor(widget): üretimde çağrılmayan eski «Hat» zincirini sil",
+    "score": 55,
+    "is_merge": false,
+    "lines": 346
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f354d06e73",
+    "date": "2026-11-24T11:41:25+03:00",
+    "subject": "fix(ui): Model bağlantıları'nda tek başlık dili — Haftalık rezerv ve Profiller Kotalar grup başlığı stilinde",
+    "score": 60,
+    "is_merge": false,
+    "lines": 79
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f438f18ed6",
+    "date": "2026-11-24T11:44:09+03:00",
+    "subject": "docs(qa): temizlik-baslik — grep kanıtı, emülatör QA (açık/koyu Model bağlantıları 3 kare + 4×2 Kota widget'ı, once-sonra, widget piksel farkı), rapor",
+    "score": 37,
+    "is_merge": false,
+    "lines": 637
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "6a6f7fc04f",
+    "date": "2026-11-24T11:50:46+03:00",
+    "subject": "chore(release): 0.3.32 (versionCode 37) — Model bağlantıları'nda tek başlık dili (Haftalık rezerv ve Profiller, Kotalar başlıklarıyla aynı); widget'ta kullanılmayan eski kod temizlendi.",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "aab9c5f73a",
+    "date": "2026-11-24T11:50:46+03:00",
+    "subject": "docs(qa): temizlik-baslik siberguvenlik (GEÇER)",
+    "score": 27,
+    "is_merge": false,
+    "lines": 34
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "3215da8729",
+    "date": "2026-11-24T12:33:51+03:00",
+    "subject": "feat(sesli-buton): Santral «seni duyuyor» tepkisi — A Yıldız seli",
+    "score": 92,
+    "is_merge": false,
+    "lines": 530
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ca7d208aec",
+    "date": "2026-11-24T12:43:48+03:00",
+    "subject": "feat(konus): Santral «seni duyuyor» tepkisi — ajan olaylari + web Konus paneli",
+    "score": 93,
+    "is_merge": false,
+    "lines": 836
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "b2e58d1eff",
+    "date": "2026-11-24T12:55:03+03:00",
+    "subject": "docs(qa): ses-tepkisi PM denetimi — 07/11 kanıtı düzeltildi",
+    "score": 27,
+    "is_merge": false,
+    "lines": 33
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f05dbcd86f",
+    "date": "2026-11-24T13:29:24+03:00",
+    "subject": "fix(tema): koyu temada donuk \"Sessize al\" butonu — PM gorsel denetimi",
+    "score": 67,
+    "is_merge": false,
+    "lines": 585
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "fe06e9cc87",
+    "date": "2026-11-24T13:33:12+03:00",
+    "subject": "docs(qa): ses-tepkisi siberguvenlik kontrolü (GEÇER)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 61
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "7e4e90d5d0",
+    "date": "2026-11-24T13:34:15+03:00",
+    "subject": "merge: Santral «seni duyuyor» tepkisi (feat/ses-tepkisi)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b5f694262f",
+    "date": "2026-11-24T13:34:15+03:00",
+    "subject": "docs(qa): ses-tepkisi siberguvenlik kontrolü (GEÇER)",
+    "score": 31,
+    "is_merge": false,
+    "lines": 87
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "3b0d203f12",
+    "date": "2026-11-24T13:35:21+03:00",
+    "subject": "chore(release): 0.3.33 (versionCode 38) — Santral seni duyuyor: konuşurken yıldızlar ve buton mavi yanar; 2 sn ses gelmezse «Sesin gelmiyor» uyarısı",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
   }
 ]
