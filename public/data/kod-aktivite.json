@@ -31329,6 +31329,42 @@
     "lines": 55
   },
   {
+    "repo": "sesver",
+    "hash": "efeb11792a",
+    "date": "2026-11-12T14:20:49+03:00",
+    "subject": "chore(surum): 1.4.1; CHANGELOG ve README (kaldirirken Sakla, guncellemede yeniden inmez)",
+    "score": 45,
+    "is_merge": false,
+    "lines": 16
+  },
+  {
+    "repo": "sesver",
+    "hash": "d672eaaa3e",
+    "date": "2026-11-12T14:20:49+03:00",
+    "subject": "ci(windows): sakla ile kaldirma/yeniden kurulum testi ve paketlerin yeniden inmedigi olcumu",
+    "score": 53,
+    "is_merge": false,
+    "lines": 202
+  },
+  {
+    "repo": "sesver",
+    "hash": "0deab711a7",
+    "date": "2026-11-12T14:20:49+03:00",
+    "subject": "feat(windows): kaldirirken indirilen bilesenleri (python-embed, .venv) saklama secenegi",
+    "score": 89,
+    "is_merge": false,
+    "lines": 271
+  },
+  {
+    "repo": "sesver",
+    "hash": "b2eb3321a5",
+    "date": "2026-11-12T14:20:49+03:00",
+    "subject": "feat(app): ilk uretim iletisi model durumuna gore, ham ilerleme satiri yok; adaylarda sure, degistirilebilir seed, tek aday yeniden uretme, sade kartlar",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1315
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "86f536401a",
     "date": "2026-11-12T14:37:16+03:00",
@@ -31336,6 +31372,33 @@
     "score": 95,
     "is_merge": false,
     "lines": 2617
+  },
+  {
+    "repo": "sesver",
+    "hash": "70492ee754",
+    "date": "2026-11-12T14:39:03+03:00",
+    "subject": "feat: 1.4.1 geri bildirimleri: guncellemeleri simdi denetle, dil secici etiketi, uretim dili ipucu, efekt girisi, model kutucugu, em dash 0",
+    "score": 93,
+    "is_merge": false,
+    "lines": 851
+  },
+  {
+    "repo": "sesver",
+    "hash": "953f781a5f",
+    "date": "2026-11-12T14:50:52+03:00",
+    "subject": "fix(windows): Inno 'Invalid section tag' (SesVer.iss:1561); [Code] statik denetimi",
+    "score": 61,
+    "is_merge": false,
+    "lines": 88
+  },
+  {
+    "repo": "sesver",
+    "hash": "58f26bfcaf",
+    "date": "2026-11-12T14:56:57+03:00",
+    "subject": "fix(guncelleme): release baglantisi tam eslesmeyle denetlenir (siberguvenlik 1.4.1 N1)",
+    "score": 61,
+    "is_merge": false,
+    "lines": 99
   },
   {
     "repo": "wingwire-app-web",
@@ -31437,6 +31500,24 @@
     "lines": 991
   },
   {
+    "repo": "sesver",
+    "hash": "f97d8b75e1",
+    "date": "2026-11-12T17:14:40+03:00",
+    "subject": "chore(surum): 1.4.2 (mikrofonla kayit)",
+    "score": 43,
+    "is_merge": false,
+    "lines": 10
+  },
+  {
+    "repo": "sesver",
+    "hash": "79544bbe3c",
+    "date": "2026-11-12T17:14:40+03:00",
+    "subject": "feat(ses-olustur): Kaydi yukleyin adiminda mikrofonla kayit (Windows CI duman testi dahil)",
+    "score": 94,
+    "is_merge": false,
+    "lines": 1147
+  },
+  {
     "repo": "wingwire-android",
     "hash": "16e8227699",
     "date": "2026-11-12T17:18:49+03:00",
@@ -31482,6 +31563,33 @@
     "lines": 25
   },
   {
+    "repo": "sesver",
+    "hash": "f5e2ed5cdf",
+    "date": "2026-11-12T17:42:30+03:00",
+    "subject": "feat(ses-klonlama): Referans ses alanina mikrofonla kayit",
+    "score": 92,
+    "is_merge": false,
+    "lines": 573
+  },
+  {
+    "repo": "sesver",
+    "hash": "284e33ba4f",
+    "date": "2026-11-12T18:01:34+03:00",
+    "subject": "fix(ci): mikrofon-duman ortami WINDOWS_BASLAT.bat /yalniz-kurulum ile kurulur",
+    "score": 63,
+    "is_merge": false,
+    "lines": 160
+  },
+  {
+    "repo": "sesver",
+    "hash": "5a98462625",
+    "date": "2026-11-12T18:20:37+03:00",
+    "subject": "feat(gizlilik): mikrofon kayitlari ve yuklemeler gecici klasorde birikmesin",
+    "score": 93,
+    "is_merge": false,
+    "lines": 656
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "5f30ce203b",
     "date": "2026-11-12T18:36:45+03:00",
@@ -31489,6 +31597,42 @@
     "score": 95,
     "is_merge": false,
     "lines": 7331
+  },
+  {
+    "repo": "sesver",
+    "hash": "5e3ac569a0",
+    "date": "2026-11-12T20:02:45+03:00",
+    "subject": "fix(ci): mikrofon-duman WebView2 bayraklari HKLM ilkesiyle; bekleme ve UTF-8 cikti",
+    "score": 66,
+    "is_merge": false,
+    "lines": 380
+  },
+  {
+    "repo": "sesver",
+    "hash": "8bd4fff70d",
+    "date": "2026-11-12T20:38:27+03:00",
+    "subject": "fix(windows): Kurulumu durdur surec agacini yeniden denemeli sonlandirir",
+    "score": 65,
+    "is_merge": false,
+    "lines": 286
+  },
+  {
+    "repo": "sesver",
+    "hash": "3f4a1ab590",
+    "date": "2026-11-12T20:58:28+03:00",
+    "subject": "fix(guvenlik): siberguvenlik D1-D4 (kurulum durdurma koku, PID yeniden kullanimi, yetim, gecici izinler)",
+    "score": 65,
+    "is_merge": false,
+    "lines": 330
+  },
+  {
+    "repo": "sesver",
+    "hash": "31b6d9521b",
+    "date": "2026-11-12T21:09:42+03:00",
+    "subject": "fix(ci): D1/D3 senaryosunda python bosluksuz kod ve cagri oncesi duzenek denetimi",
+    "score": 59,
+    "is_merge": false,
+    "lines": 57
   },
   {
     "repo": "hamaratlabs-web",
@@ -32652,6 +32796,15 @@
     "lines": 12
   },
   {
+    "repo": "kitabe",
+    "hash": "c197ed4b86",
+    "date": "2026-11-18T12:30:43+03:00",
+    "subject": "feat(widget): widget paket verisi + dokunuş yönlendirmesi (Dart)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 3515
+  },
+  {
     "repo": "wingwire-android",
     "hash": "aabd585253",
     "date": "2026-11-18T12:34:20+03:00",
@@ -32688,6 +32841,24 @@
     "lines": 158
   },
   {
+    "repo": "kitabe",
+    "hash": "e5260c5e48",
+    "date": "2026-11-18T13:11:58+03:00",
+    "subject": "feat(widget/ios): WidgetKit uzantısı: Günün kitabesi + Yakınımda",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1639
+  },
+  {
+    "repo": "kitabe",
+    "hash": "6af1510d99",
+    "date": "2026-11-18T13:34:07+03:00",
+    "subject": "feat(widget/android): Günün kitabesi App Widget (2x2 / 4x2 / 4x3)",
+    "score": 94,
+    "is_merge": false,
+    "lines": 949
+  },
+  {
     "repo": "wingwire-android",
     "hash": "3ede07ab57",
     "date": "2026-11-18T14:26:31+03:00",
@@ -32704,6 +32875,51 @@
     "score": 60,
     "is_merge": false,
     "lines": 5065
+  },
+  {
+    "repo": "kitabe",
+    "hash": "411d5a95b1",
+    "date": "2026-11-18T14:30:13+03:00",
+    "subject": "fix(widget): Android çizimi arka planda (ANR), konum yedeği, iOS kanıt görüntüleri",
+    "score": 59,
+    "is_merge": false,
+    "lines": 62
+  },
+  {
+    "repo": "kitabe",
+    "hash": "cbcc68cc8d",
+    "date": "2026-11-18T14:39:19+03:00",
+    "subject": "fix(widget/android): orta düzen yalnız ≥300 dp genişlikte; tarih/atıf kesilmez",
+    "score": 55,
+    "is_merge": false,
+    "lines": 15
+  },
+  {
+    "repo": "kitabe",
+    "hash": "545e06b239",
+    "date": "2026-11-18T14:43:41+03:00",
+    "subject": "fix(widget/android): maxResizeWidth kaldırıldı; telefonda 4×2/4×3'e büyüyebilsin",
+    "score": 52,
+    "is_merge": false,
+    "lines": 6
+  },
+  {
+    "repo": "kitabe",
+    "hash": "0a4f99592b",
+    "date": "2026-11-18T14:49:03+03:00",
+    "subject": "docs(widget): Android ekran kanıtları (2×2/4×2/4×3, TR/EN, açık/koyu, dokunuş)",
+    "score": 20,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "kitabe",
+    "hash": "f7d7cdc1c4",
+    "date": "2026-11-18T14:51:36+03:00",
+    "subject": "docs(widget): rapor (kabul ölçütleri, kanıtlar, Apple/Play adımları, açık sorular)",
+    "score": 39,
+    "is_merge": false,
+    "lines": 228
   },
   {
     "repo": "cep-zeka-lab",
@@ -32814,6 +33030,24 @@
     "lines": 31
   },
   {
+    "repo": "kitabe",
+    "hash": "fc46e1253d",
+    "date": "2026-11-18T16:44:29+03:00",
+    "subject": "feat(widget): kaynak satırı ve konum notu widget'tan kaldırıldı (Yusuf kararı)",
+    "score": 92,
+    "is_merge": false,
+    "lines": 556
+  },
+  {
+    "repo": "kitabe",
+    "hash": "f17e144924",
+    "date": "2026-11-18T17:10:26+03:00",
+    "subject": "docs(widget): Android ekranları kaynak satırı olmadan yeniden çekildi",
+    "score": 20,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "e9bb05cc44",
     "date": "2026-11-18T17:30:18+03:00",
@@ -32821,6 +33055,24 @@
     "score": 95,
     "is_merge": false,
     "lines": 1405
+  },
+  {
+    "repo": "kitabe",
+    "hash": "c8d14d3316",
+    "date": "2026-11-18T17:36:31+03:00",
+    "subject": "docs(widget): iOS ekranları ve rapor kaynak satırı kararına göre güncellendi",
+    "score": 36,
+    "is_merge": false,
+    "lines": 102
+  },
+  {
+    "repo": "kitabe",
+    "hash": "e1120e9bd0",
+    "date": "2026-11-18T17:36:44+03:00",
+    "subject": "docs(widget): rapor commit listesi",
+    "score": 25,
+    "is_merge": false,
+    "lines": 3
   },
   {
     "repo": "wingwire-app-web",
@@ -33462,6 +33714,24 @@
     "lines": 1577
   },
   {
+    "repo": "kitabe",
+    "hash": "b1b98f6708",
+    "date": "2026-11-20T10:50:13+03:00",
+    "subject": "feat(widget/android): Yakınımda widget'ı (son konum, arka plan izni yok; yenile uygulamayı açar)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1461
+  },
+  {
+    "repo": "kitabe",
+    "hash": "4068796784",
+    "date": "2026-11-20T10:50:13+03:00",
+    "subject": "feat(widget/android): Yakınımda sıralaması Kotlin'de (NearbyCore karşılığı, Siri altın dosyasıyla test)",
+    "score": 91,
+    "is_merge": false,
+    "lines": 425
+  },
+  {
     "repo": "wingwire-android",
     "hash": "16b676e463",
     "date": "2026-11-20T10:52:14+03:00",
@@ -33478,6 +33748,42 @@
     "score": 93,
     "is_merge": false,
     "lines": 828
+  },
+  {
+    "repo": "kitabe",
+    "hash": "ceaeab924b",
+    "date": "2026-11-20T11:15:45+03:00",
+    "subject": "fix(widget/android): paket klasörü listelenmez (AssetManager kilidi → ANR); yenile haritada eski odağı kaldırır; EN 'Last location'",
+    "score": 60,
+    "is_merge": false,
+    "lines": 65
+  },
+  {
+    "repo": "kitabe",
+    "hash": "df058fefba",
+    "date": "2026-11-20T11:37:51+03:00",
+    "subject": "test: Keşif 'Arşivden' testi sabit günle (bugüne bağlıydı; 2026-11-20'de tabanda da kırılıyordu)",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "kitabe",
+    "hash": "7c41225ba3",
+    "date": "2026-11-20T11:37:52+03:00",
+    "subject": "docs(widget): Android Yakınımda ekranları (2×2/4×2, TR/EN, açık/koyu, boş durumlar, dokunuş, yenile)",
+    "score": 20,
+    "is_merge": false,
+    "lines": 0
+  },
+  {
+    "repo": "kitabe",
+    "hash": "a3b6d47f36",
+    "date": "2026-11-20T11:40:39+03:00",
+    "subject": "docs(widget): rapor, Android Yakınımda (kabul ölçütleri, kanıtlar, açık sorular); konum yorumu",
+    "score": 37,
+    "is_merge": false,
+    "lines": 139
   },
   {
     "repo": "wingwire-android",
@@ -33505,6 +33811,33 @@
     "score": 60,
     "is_merge": false,
     "lines": 2021
+  },
+  {
+    "repo": "kitabe",
+    "hash": "66d1284971",
+    "date": "2026-11-20T11:58:30+03:00",
+    "subject": "fix(konum): açılışta konum alınmaz; yalnız Harita/Yakındakiler/Yenile. Android Yakınımda 30 dk yenileme (izin geri alınınca)",
+    "score": 66,
+    "is_merge": false,
+    "lines": 415
+  },
+  {
+    "repo": "kitabe",
+    "hash": "6ca7e7763d",
+    "date": "2026-11-20T12:02:55+03:00",
+    "subject": "docs(gizlilik): konum 'yalnız bu cihazda tutulur, hiçbir yere gönderilmez'; politika Siri/Kestirmeler ve ana ekran widget maddeleri; izin metinleri, mağaza açıklamaları, inceleme notları; Play/App Store form gerekçesi kaynaklı",
+    "score": 39,
+    "is_merge": false,
+    "lines": 234
+  },
+  {
+    "repo": "kitabe",
+    "hash": "c33fff6467",
+    "date": "2026-11-20T12:09:27+03:00",
+    "subject": "docs(widget): rapor, konum gizlilik metni ve iki konum kararı (kabul ölçütleri, form cevabı kaynaklı, APK)",
+    "score": 37,
+    "is_merge": false,
+    "lines": 120
   },
   {
     "repo": "wingwire-android",
@@ -34938,6 +35271,24 @@
     "lines": 2568
   },
   {
+    "repo": "kitabe",
+    "hash": "fe21aaab26",
+    "date": "2026-11-21T20:09:45+03:00",
+    "subject": "test(ux-analiz): emülatörsüz ekran çekimi + ölçüm dökümü, görev akışları, performans test ölçümü, toplama betiği",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2261
+  },
+  {
+    "repo": "kitabe",
+    "hash": "323f0ff226",
+    "date": "2026-11-21T20:09:56+03:00",
+    "subject": "docs(ux-analiz): kod okumasıyla envanter taslağı, statik UI ölçüm raporu ve betikleri (scratch'ten kalıcıya)",
+    "score": 45,
+    "is_merge": false,
+    "lines": 6114
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "951e9e453e",
     "date": "2026-11-21T20:20:48+03:00",
@@ -34947,6 +35298,51 @@
     "lines": 1219
   },
   {
+    "repo": "kitabe",
+    "hash": "b49b9c7a85",
+    "date": "2026-11-21T20:23:22+03:00",
+    "subject": "test(ux-analiz): tembel liste kaydırma, varlık önbelleği, hata geleceği düzeltmeleri",
+    "score": 49,
+    "is_merge": false,
+    "lines": 51
+  },
+  {
+    "repo": "kitabe",
+    "hash": "c16ed21592",
+    "date": "2026-11-21T20:27:42+03:00",
+    "subject": "test(ux-analiz): akış düzeltmeleri, şerit betiği, akış özeti",
+    "score": 52,
+    "is_merge": false,
+    "lines": 148
+  },
+  {
+    "repo": "kitabe",
+    "hash": "1e89c695a3",
+    "date": "2026-11-21T20:43:00+03:00",
+    "subject": "ux-analiz: örtülü/perde arkası metin ayıklama, WCAG px eşiği, renk kaynağı; ölçüm verileri",
+    "score": 60,
+    "is_merge": false,
+    "lines": 25335
+  },
+  {
+    "repo": "kitabe",
+    "hash": "2d20ffd02f",
+    "date": "2026-11-21T20:50:58+03:00",
+    "subject": "docs(ux-analiz): ENVANTER.md (görüntü eşlemesi + kod okuması envanteri), üretici betik",
+    "score": 45,
+    "is_merge": false,
+    "lines": 3968
+  },
+  {
+    "repo": "kitabe",
+    "hash": "8daa0a125b",
+    "date": "2026-11-21T20:54:48+03:00",
+    "subject": "docs(ux-analiz): OLCUMLER, AKISLAR, YONTEM, README",
+    "score": 41,
+    "is_merge": false,
+    "lines": 427
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "0d2a6542a1",
     "date": "2026-11-21T22:21:14+03:00",
@@ -34954,6 +35350,51 @@
     "score": 50,
     "is_merge": true,
     "lines": 0
+  },
+  {
+    "repo": "kitabe",
+    "hash": "8e42032f0a",
+    "date": "2026-11-21T22:28:32+03:00",
+    "subject": "test(ux-paket1): ux-analiz ölçüm düzeneği (analiz/ux 8daa0a1'den) + madde madde önce/sonra çekim testi",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3118
+  },
+  {
+    "repo": "kitabe",
+    "hash": "5c49e594be",
+    "date": "2026-11-21T22:33:07+03:00",
+    "subject": "fix(gezinme): Android geri sekmede Keşif'e döner, yalnız Keşif'te kapatır (harita zinciri korunur); Kaydedilenler→kitabe→geri listeye; diğer kitabeler push; arama çubuğundan Arama'da alan odaklı + klavye (Paket 1 madde 1, 2, 3, 9)",
+    "score": 66,
+    "is_merge": false,
+    "lines": 437
+  },
+  {
+    "repo": "kitabe",
+    "hash": "6636962161",
+    "date": "2026-11-21T22:36:24+03:00",
+    "subject": "fix(ui): harita panelinde tek Paylaş, Yol tarifi 360 dp'de sığar; kitabe metni gövdesi mürekkep; düşük güven uyarısı metnin üstünde; metin sekmesi çipleri onay işaretsiz (satır zıplamaz) (Paket 1 madde 4, 5, 7, 11)",
+    "score": 63,
+    "is_merge": false,
+    "lines": 193
+  },
+  {
+    "repo": "kitabe",
+    "hash": "d29a90311b",
+    "date": "2026-11-21T22:37:29+03:00",
+    "subject": "fix(ui): Keşif sekmesi ikonu pusula (parıltı yalnız YZ işaretinde); kitabe detay üst çubuğu koyu mercan (beyaz başlık 6,54:1); pin sayı rozeti dolgulu, kroki belirsiz numarası #6E625D (≥4,5:1) (Paket 1 madde 6, 8, 12)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 25
+  },
+  {
+    "repo": "kitabe",
+    "hash": "a326b24517",
+    "date": "2026-11-21T22:40:58+03:00",
+    "subject": "fix(a11y): ekran okuyucu başlıkları headingLevel ile (AppBar 1, gövde başlığı 2, bölüm 3, alt bölüm 4; Keşif bölümleri, Arama sonuç başlığı, harita paneli dahil) — Flutter 3.47'de header:true tek başına iOS/Android'de etkisiz (Paket 1 madde 10)",
+    "score": 64,
+    "is_merge": false,
+    "lines": 236
   },
   {
     "repo": "wingwire-app-web",
@@ -34974,6 +35415,15 @@
     "lines": 1336
   },
   {
+    "repo": "kitabe",
+    "hash": "703024b051",
+    "date": "2026-11-21T22:49:02+03:00",
+    "subject": "fix(a11y): karşılama, harita varsayılanı penceresi ve tam ekran galeri başlıkları headingLevel 1 (Paket 1 madde 10, eksik ekranlar)",
+    "score": 56,
+    "is_merge": false,
+    "lines": 25
+  },
+  {
     "repo": "wingwire-app-web",
     "hash": "309902c851",
     "date": "2026-11-21T22:54:25+03:00",
@@ -34990,6 +35440,24 @@
     "score": 27,
     "is_merge": false,
     "lines": 27
+  },
+  {
+    "repo": "kitabe",
+    "hash": "a16d31bb78",
+    "date": "2026-11-21T22:54:58+03:00",
+    "subject": "test(ux-paket1): madde seçimi + 4 sekme çekimi; ölçüm verisi (ux-analiz yöntemiyle 6 set yeniden), önce/sonra karşılaştırma ve yan yana görsel betikleri",
+    "score": 60,
+    "is_merge": false,
+    "lines": 34103
+  },
+  {
+    "repo": "kitabe",
+    "hash": "f3dd5d1742",
+    "date": "2026-11-21T22:58:07+03:00",
+    "subject": "docs(ux-paket1): RAPOR — madde eşlemesi, önce/sonra ölçümleri, görseller, APK, açık sorular",
+    "score": 37,
+    "is_merge": false,
+    "lines": 117
   },
   {
     "repo": "wingwire-android",
@@ -35449,5 +35917,419 @@
     "score": 41,
     "is_merge": false,
     "lines": 4
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b13664d11d",
+    "date": "2026-11-25T13:42:06+03:00",
+    "subject": "feat(tek-kanal): A1a — kalıcı üretim sunucusu (server/prod.ts)",
+    "score": 92,
+    "is_merge": false,
+    "lines": 534
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "8d33aaf26f",
+    "date": "2026-11-25T13:51:02+03:00",
+    "subject": "fix(dagitim): WingWire 0.3.34 ucuncu kisiye dagitim temizligi",
+    "score": 67,
+    "is_merge": false,
+    "lines": 495
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "399e98fc1f",
+    "date": "2026-11-25T13:58:04+03:00",
+    "subject": "feat(tek-kanal): A2a — vekil izin listesi genişletme (temel)",
+    "score": 93,
+    "is_merge": false,
+    "lines": 774
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "8c251301b8",
+    "date": "2026-11-25T14:03:51+03:00",
+    "subject": "docs(qa): dagitim siberguvenlik 2. tur (ŞARTLI GEÇER, bilgi notları) + şartın kapanışı",
+    "score": 31,
+    "is_merge": false,
+    "lines": 102
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "b8c7738d2f",
+    "date": "2026-11-25T14:03:57+03:00",
+    "subject": "chore(release): 0.3.34 (versionCode 39) — Dağıtım temizliği: APK'da kişisel iz yok, APK mağazası kapalı ve indirmeler doğrulanıyor, lisans uygulama içinde",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "812436ff56",
+    "date": "2026-11-25T14:05:01+03:00",
+    "subject": "test(tek-kanal): A2a — yeni izin listesi satırları için birim testler",
+    "score": 55,
+    "is_merge": false,
+    "lines": 352
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a580970709",
+    "date": "2026-11-25T20:14:09+03:00",
+    "subject": "feat(tek-kanal): A2a — cihaz anahtarı (X-WW-Device-Token) guard + QA raporu",
+    "score": 91,
+    "is_merge": false,
+    "lines": 377
+  },
+  {
+    "repo": "kitabe",
+    "hash": "e0117a873c",
+    "date": "2026-11-26T09:46:36+03:00",
+    "subject": "Merge branch 'analiz/ux' (UX ölçüm paketi docs/ux-analiz; Yusuf merge onayı 2026-11-26)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "kitabe",
+    "hash": "1e18331136",
+    "date": "2026-11-26T09:46:36+03:00",
+    "subject": "Merge branch 'fix/ux-paket1' (UX Paket 1, 12 madde; Yusuf merge onayı 2026-11-26)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "kitabe",
+    "hash": "0b3befa8b6",
+    "date": "2026-11-26T09:46:36+03:00",
+    "subject": "Merge branch 'feat/widget' (Android/iOS widget, konum metni; Yusuf merge onayı 2026-11-26)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f40a41d725",
+    "date": "2026-11-26T11:06:24+03:00",
+    "subject": "test(tek-kanal): A2a, cihaz anahtari guard birim testleri",
+    "score": 55,
+    "is_merge": false,
+    "lines": 281
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "0f305388ac",
+    "date": "2026-11-26T16:42:39+03:00",
+    "subject": "docs(ajan-akisi): seçilen konsept B (zaman şeridi) + veri çıkarıcı referansı",
+    "score": 45,
+    "is_merge": false,
+    "lines": 5129
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "b5475bc781",
+    "date": "2026-11-26T17:11:15+03:00",
+    "subject": "feat(model-zinciri): Bağlam paneli › Model: yedek zinciri akışı",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1720
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "cfa9b482ef",
+    "date": "2026-11-26T17:21:18+03:00",
+    "subject": "merge: Bağlam paneli yedek model zinciri (feat/model-zinciri)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "fc2cba493f",
+    "date": "2026-11-26T17:21:18+03:00",
+    "subject": "docs(qa): model-zinciri siberguvenlik kontrolü (GEÇER)",
+    "score": 27,
+    "is_merge": false,
+    "lines": 34
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "2838840881",
+    "date": "2026-11-26T17:38:01+03:00",
+    "subject": "test(e2e): Ajan akışı (fikstür Hermes kökü, port 5241, masaüstü + 390)",
+    "score": 53,
+    "is_merge": false,
+    "lines": 197
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "cbdb7e5a65",
+    "date": "2026-11-26T17:38:01+03:00",
+    "subject": "feat(panel): Ajan akışı bölümü (konsept B zaman şeridi, açılır kapanır)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1842
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5ace373fd9",
+    "date": "2026-11-26T17:38:01+03:00",
+    "subject": "docs(mobil): /ww/agac sözleşmesi (§21) + MOBILE_GATE faz 1 GET + izole tarama satırı",
+    "score": 34,
+    "is_merge": false,
+    "lines": 48
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f4074d902b",
+    "date": "2026-11-26T17:38:01+03:00",
+    "subject": "feat(ajan-akisi): GET /ww/agac salt okuma ucu + sözleşme",
+    "score": 94,
+    "is_merge": false,
+    "lines": 1083
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "50b9461bdc",
+    "date": "2026-11-26T17:51:42+03:00",
+    "subject": "docs(qa): Ajan akışı raporu + fikstür ekran görüntüleri (1440 açık/koyu/katlı/ayrıntı/boş, 1920, 390)",
+    "score": 32,
+    "is_merge": false,
+    "lines": 149
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "1fbfb082f3",
+    "date": "2026-11-26T17:51:42+03:00",
+    "subject": "fix(ajan-akisi): oturum tablosu olmayan depo veri yok sayılır (503 değil); e2e menü + qa-tarama'ya panel-akis",
+    "score": 56,
+    "is_merge": false,
+    "lines": 25
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "082b2b90dd",
+    "date": "2026-11-26T18:04:29+03:00",
+    "subject": "feat(panel): Ajan akışı'nda Şerit | Ağaç görünümü (konsept A kartlı ağaç)",
+    "score": 93,
+    "is_merge": false,
+    "lines": 833
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "a17e10d174",
+    "date": "2026-11-26T18:04:29+03:00",
+    "subject": "docs(ajan-akisi): konsept A (kartlı ağaç) prototip + ekran görüntüleri",
+    "score": 45,
+    "is_merge": false,
+    "lines": 4800
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "f5b8c72d13",
+    "date": "2026-11-26T18:16:46+03:00",
+    "subject": "feat(panel): Genel bakış «Sen yokken» kartı + /ww/agac ortak yoklaması",
+    "score": 93,
+    "is_merge": false,
+    "lines": 807
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "5563663b25",
+    "date": "2026-11-26T18:20:04+03:00",
+    "subject": "merge: main → feat/tek-kanal",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "fc2aeb01e9",
+    "date": "2026-11-26T18:26:31+03:00",
+    "subject": "feat(sol-panel): «N ajan çalışıyor · M seni bekliyor» hapı (Running Now)",
+    "score": 89,
+    "is_merge": false,
+    "lines": 258
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "876a2c4c70",
+    "date": "2026-11-26T18:38:52+03:00",
+    "subject": "docs(qa): Ajan akışı 2. aşama raporu (Ağaç, Sen yokken, hap; kararlar, siberguvenlik notu)",
+    "score": 32,
+    "is_merge": false,
+    "lines": 121
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "190abfbd90",
+    "date": "2026-11-26T18:38:57+03:00",
+    "subject": "docs(qa): tek-kanal siberguvenlik 1. tur (ŞARTLI GEÇER, şart O1)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 62
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "fed7618c84",
+    "date": "2026-11-26T18:43:36+03:00",
+    "subject": "feat(sohbet): model yedek zinciri — Bağlam sayfasında Model bölümü + yedeğe düşme hapı (web §21 ile eşlik)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 1256
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "48d88f1cc0",
+    "date": "2026-11-26T18:44:29+03:00",
+    "subject": "fix(tek-kanal): şart O1 — kanban eklenti uçları vekil izin listesinden şimdilik çıkarıldı",
+    "score": 63,
+    "is_merge": false,
+    "lines": 195
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "28b2f90093",
+    "date": "2026-11-26T18:46:04+03:00",
+    "subject": "docs(qa): 2. aşama raporu — son tam vitest 5896/5897 yeşil",
+    "score": 19,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "f0e9a8dd6b",
+    "date": "2026-11-26T18:46:19+03:00",
+    "subject": "chore(release): 0.3.35 (versionCode 40) — Sohbette yedek model zinciri: hangi modelin cevap verdiği ve yedeğe düşülünce uyarı",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "3706b2b057",
+    "date": "2026-11-26T18:46:19+03:00",
+    "subject": "docs(qa): model-zinciri siberguvenlik (GEÇER)",
+    "score": 30,
+    "is_merge": false,
+    "lines": 65
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "4c6a7a672b",
+    "date": "2026-11-26T18:47:52+03:00",
+    "subject": "fix(tek-kanal): B1 — oturum PATCH/DELETE Hermes yazma kimliğini güvenle iletir",
+    "score": 66,
+    "is_merge": false,
+    "lines": 402
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "71a71131b2",
+    "date": "2026-11-26T18:51:21+03:00",
+    "subject": "fix(tek-kanal): B2 — üretim sunucusunda Host denetimi (Vite allowedHosts kuralı)",
+    "score": 63,
+    "is_merge": false,
+    "lines": 185
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "1cff4de386",
+    "date": "2026-11-26T18:54:02+03:00",
+    "subject": "merge: main (model-zinciri) → feat/ajan-akisi",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "46ec9311aa",
+    "date": "2026-11-26T18:57:01+03:00",
+    "subject": "docs(qa): tek-kanal RAPOR güncel — şart O1 kapanışı, B1, B2, doğrulama (B8)",
+    "score": 33,
+    "is_merge": false,
+    "lines": 159
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "4ba516588e",
+    "date": "2026-11-26T19:05:27+03:00",
+    "subject": "merge: tek kanal A1a + A2a (üretim sunucusu, vekil izin listesi, cihaz anahtarı; şart O1 kapalı)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "744a6012f9",
+    "date": "2026-11-26T19:05:27+03:00",
+    "subject": "docs(qa): tek-kanal siberguvenlik kontrolü (GEÇER)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 58
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "10cc706538",
+    "date": "2026-11-26T20:19:16+03:00",
+    "subject": "merge: main (tek-kanal) → feat/ajan-akisi",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "ed51fea630",
+    "date": "2026-11-26T20:19:16+03:00",
+    "subject": "docs(qa): ajan-akisi siberguvenlik (ŞARTLI GEÇER → Yusuf kabulü, şartın kapanışı)",
+    "score": 31,
+    "is_merge": false,
+    "lines": 103
+  },
+  {
+    "repo": "wingwire-app-web",
+    "hash": "906dfdfa39",
+    "date": "2026-11-26T20:21:35+03:00",
+    "subject": "merge: Panel › Ajan akışı (Şerit | Ağaç), Sen yokken, çalışan ajan hapı (feat/ajan-akisi)",
+    "score": 50,
+    "is_merge": true,
+    "lines": 0
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "943db3d656",
+    "date": "2026-11-26T21:08:29+03:00",
+    "subject": "feat(ajanlar): Ajan akışı — Şerit | Ağaç, açılır/kapanır dallar, ayrıntı + Ajanlar hapı (web §22 ile eşlik)",
+    "score": 95,
+    "is_merge": false,
+    "lines": 3749
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "71668ec218",
+    "date": "2026-11-26T21:15:26+03:00",
+    "subject": "feat(ajanlar): Ajan akışı hapı sıfırda «Ajan akışı ›» olur — bitmiş ağaçlara kalıcı giriş; veri yoksa / 404'te gizli",
+    "score": 87,
+    "is_merge": false,
+    "lines": 121
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "eef37e038f",
+    "date": "2026-11-26T21:17:55+03:00",
+    "subject": "chore(release): 0.3.36 (versionCode 41) — Ajan akışı: kim kimi başlattı, ne çalışıyor; Şerit ve Ağaç görünümü, açılır kapanır dallar",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "wingwire-android",
+    "hash": "24d6e678b0",
+    "date": "2026-11-26T21:17:55+03:00",
+    "subject": "docs(qa): ajan-akisi siberguvenlik (GEÇER)",
+    "score": 29,
+    "is_merge": false,
+    "lines": 55
   }
 ]
