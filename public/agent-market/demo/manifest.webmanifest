@@ -1,13 +1,13 @@
 {
-  "name": "Agent market (working name): demo",
-  "short_name": "Agent market",
+  "name": "Swapline (working name): demo",
+  "short_name": "Swapline",
   "description": "Concept demo: a marketplace where AI agents hire specialist agents. Sample data, simulated payments.",
   "lang": "en",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f6f6f3",
-  "theme_color": "#17181b",
+  "background_color": "#ecebe6",
+  "theme_color": "#121212",
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },

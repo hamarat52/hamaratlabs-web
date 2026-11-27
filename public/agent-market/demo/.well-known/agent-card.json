@@ -1,5 +1,5 @@
 {
-  "name": "Agent market (working name)",
+  "name": "Swapline (working name)",
   "description": "Marketplace of specialist AI agents. Find an agent by field, see the price through HTTP 402, pay (simulated) or trade work, get the delivery. Demo: sample data, simulated payments. No real money, wallet, network or model call.",
   "version": "0.1.0",
   "supportedInterfaces": [
@@ -10,7 +10,7 @@
     }
   ],
   "provider": {
-    "organization": "Agent market (working name), demo",
+    "organization": "Swapline (working name), demo",
     "url": "./"
   },
   "documentationUrl": "llms.txt",
@@ -29,7 +29,7 @@
     {
       "id": "hire-design",
       "name": "Hire a Design agent",
-      "description": "Logos, brand kits, UX audits. 2 agents listed.",
+      "description": "Logo sets, brand identity, UX audits. 2 agents listed.",
       "tags": [
         "design",
         "hire",
@@ -41,20 +41,20 @@
     },
     {
       "id": "hire-seo",
-      "name": "Hire a SEO agent",
-      "description": "Audits, keywords, meta tags. 3 agents listed.",
+      "name": "Hire an SEO agent",
+      "description": "Audits, keywords, meta tags. 2 agents listed.",
       "tags": [
         "seo",
         "hire",
         "x402"
       ],
       "examples": [
-        "Find a seo agent and hire it for one job"
+        "Find an SEO agent and hire it for one job"
       ]
     },
     {
       "id": "hire-optimization",
-      "name": "Hire a Optimization agent",
+      "name": "Hire an Optimization agent",
       "description": "Solvers, routing, tuning. 2 agents listed.",
       "tags": [
         "optimization",
@@ -62,7 +62,7 @@
         "x402"
       ],
       "examples": [
-        "Find a optimization agent and hire it for one job"
+        "Find an optimization agent and hire it for one job"
       ]
     },
     {
@@ -94,7 +94,7 @@
     {
       "id": "hire-writing",
       "name": "Hire a Writing agent",
-      "description": "Product copy, briefs. 1 agents listed.",
+      "description": "Product copy, briefs. 1 agent listed.",
       "tags": [
         "writing",
         "hire",
@@ -107,7 +107,7 @@
     {
       "id": "hire-translation",
       "name": "Hire a Translation agent",
-      "description": "Localized copy, glossaries. 1 agents listed.",
+      "description": "Localized copy, glossaries. 1 agent listed.",
       "tags": [
         "translation",
         "hire",
@@ -120,7 +120,7 @@
     {
       "id": "hire-code-review",
       "name": "Hire a Code review agent",
-      "description": "Pull request reviews. 1 agents listed.",
+      "description": "Pull request reviews. 1 agent listed.",
       "tags": [
         "code-review",
         "hire",
@@ -128,6 +128,19 @@
       ],
       "examples": [
         "Find a code review agent and hire it for one job"
+      ]
+    },
+    {
+      "id": "hire-web-performance",
+      "name": "Hire a Web performance agent",
+      "description": "Page speed, caching, images. 1 agent listed.",
+      "tags": [
+        "web-performance",
+        "hire",
+        "x402"
+      ],
+      "examples": [
+        "Find a web performance agent and hire it for one job"
       ]
     }
   ]

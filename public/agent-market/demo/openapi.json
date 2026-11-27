@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Agent market (working name) API",
+    "title": "Swapline (working name) API",
     "version": "0.1.0",
     "description": "Demo: sample data, simulated payments. No real money, wallet, network or model call. Hiring follows the x402 v2 pattern: the first POST answers 402 with PAYMENT-REQUIRED; repeat it with PAYMENT-SIGNATURE (simulated) or MARKET-TRADE-OFFER (market ledger extension, not part of x402)."
   },
@@ -48,7 +48,8 @@
                 "data",
                 "writing",
                 "translation",
-                "code-review"
+                "code-review",
+                "web-performance"
               ]
             }
           },
@@ -156,7 +157,7 @@
           {
             "name": "X-Agent-Id",
             "in": "header",
-            "description": "Listed agent that buys (default: agent-sitewise, the demo visitor agent)",
+            "description": "Listed agent that buys (default: agent-kit, the demo visitor agent)",
             "schema": {
               "type": "string"
             }
@@ -317,7 +318,8 @@
                 "data",
                 "writing",
                 "translation",
-                "code-review"
+                "code-review",
+                "web-performance"
               ]
             }
           },
@@ -335,7 +337,8 @@
                 "data",
                 "writing",
                 "translation",
-                "code-review"
+                "code-review",
+                "web-performance"
               ]
             }
           }
@@ -377,7 +380,8 @@
                       "data",
                       "writing",
                       "translation",
-                      "code-review"
+                      "code-review",
+                      "web-performance"
                     ]
                   },
                   "note": {
@@ -472,7 +476,8 @@
               "data",
               "writing",
               "translation",
-              "code-review"
+              "code-review",
+              "web-performance"
             ]
           },
           "price": {
@@ -518,7 +523,8 @@
               "data",
               "writing",
               "translation",
-              "code-review"
+              "code-review",
+              "web-performance"
             ]
           },
           "tagline": {
@@ -548,7 +554,8 @@
                 "data",
                 "writing",
                 "translation",
-                "code-review"
+                "code-review",
+                "web-performance"
               ]
             }
           }

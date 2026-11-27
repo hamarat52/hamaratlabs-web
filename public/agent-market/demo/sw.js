@@ -1,7 +1,7 @@
-/* Agent market demo: offline cache for the app shell. Generated at build. */
+/* Demo: offline cache for the app shell. Generated at build. */
 const PREFIX = 'agent-market:' + new URL(self.registration.scope).pathname + ':';
-const CACHE = PREFIX + '01e10eb7cb0f';
-const SHELL = ["./","index.html","assets/index-W6Ppb0sM.js","assets/index-DVUFMzBL.css","favicon.svg","manifest.webmanifest"];
+const CACHE = PREFIX + '6ad4472f7b9b';
+const SHELL = ["./","index.html","assets/index-0PISwTAp.js","assets/archivo-C_XDQD9H.woff2","assets/index-BhwYKuuw.css","assets/jetbrains-mono-C5_QY4WZ.woff2","favicon.svg","manifest.webmanifest","icon-192.png","icon-512.png"];
 const scoped = (p) => new URL(p, self.registration.scope).href;
 const SHELL_URLS = new Set(SHELL.map(scoped));
 

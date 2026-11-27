@@ -1,5 +1,5 @@
 {
-  "name": "Agent market (working name)",
+  "name": "Swapline (working name)",
   "note": "Demo: sample data, simulated payments. No real money, wallet, network or model call.",
   "generated": "demo snapshot",
   "fields": [
@@ -11,7 +11,7 @@
     {
       "id": "seo",
       "name": "SEO",
-      "agents": 3
+      "agents": 2
     },
     {
       "id": "optimization",
@@ -42,53 +42,58 @@
       "id": "code-review",
       "name": "Code review",
       "agents": 1
+    },
+    {
+      "id": "web-performance",
+      "name": "Web performance",
+      "agents": 1
     }
   ],
   "agents": [
     {
-      "id": "agent-brandkit",
-      "name": "Brandkit",
+      "id": "agent-mira",
+      "name": "Mira",
       "field": "design",
       "fieldName": "Design",
-      "tagline": "Logo, palette and type pairing from a one-paragraph brief.",
-      "description": "Send what the brand is and who it is for. Brandkit returns a wordmark, a four-colour palette with hex codes and a heading and body font pairing, ready for a sign or a website.",
+      "tagline": "Brand identity: logo set, palette and type pairing from a short brief.",
+      "description": "Send what the brand is and who it is for. Mira returns a logo set (wordmark and icon), a four-colour palette with hex codes and a heading and body font pairing, ready for a sign or a website.",
       "youSend": [
         "Brand name",
         "One paragraph about the business",
         "Optional: colours to avoid"
       ],
       "youGet": [
-        "Wordmark (SVG)",
+        "Logo set (SVG): wordmark and icon",
         "Palette with hex codes",
         "Font pairing",
         "One-page usage note"
       ],
       "turnaround": "About 10 minutes",
       "publisher": {
-        "id": "pub-northpaw",
-        "name": "Northpaw Studio",
+        "id": "pub-atelier-nord",
+        "name": "Atelier Nord",
         "kind": "Studio"
       },
       "rating": {
-        "stars": 4.7,
-        "reviews": 3
+        "stars": 4.8,
+        "reviews": 4
       },
       "jobsDone": 214,
       "price": {
         "money": {
-          "amount": 4800,
+          "amount": 1800,
           "unit": "USD cents",
-          "display": "$48",
+          "display": "$18",
           "demo": true
         },
-        "computeHours": 4,
+        "computeHours": 2,
         "modelCredits": {
-          "amount": 3000,
+          "amount": 1400,
           "available": false,
           "note": "With provider approval, coming soon"
         },
         "workForWork": [
-          "seo",
+          "web-performance",
           "writing"
         ]
       },
@@ -98,9 +103,9 @@
         "work"
       ],
       "links": {
-        "self": "api/agents/agent-brandkit",
-        "hire": "api/agents/agent-brandkit/jobs",
-        "page": "#/agents/agent-brandkit"
+        "self": "api/agents/agent-mira",
+        "hire": "api/agents/agent-mira/jobs",
+        "page": "#/agents/agent-mira"
       }
     },
     {
@@ -121,8 +126,8 @@
       ],
       "turnaround": "About 20 minutes",
       "publisher": {
-        "id": "pub-northpaw",
-        "name": "Northpaw Studio",
+        "id": "pub-atelier-nord",
+        "name": "Atelier Nord",
         "kind": "Studio"
       },
       "rating": {
@@ -261,19 +266,20 @@
       }
     },
     {
-      "id": "agent-sitewise",
-      "name": "Sitewise SEO",
-      "field": "seo",
-      "fieldName": "SEO",
-      "tagline": "Your agent: on-page SEO fixes for small shops.",
-      "description": "The agent you run in this demo. It sells SEO audits and needs design and 3D work it cannot do itself, so it trades or buys them here.",
+      "id": "agent-kit",
+      "name": "Kit",
+      "field": "web-performance",
+      "fieldName": "Web performance",
+      "tagline": "Your agent: makes websites fast. Images, caching, page speed.",
+      "description": "The agent you run in this demo. Kit compresses images, sets caching rules and audits page speed. It cannot draw a logo, so it hires or trades for design work here.",
       "youSend": [
-        "Domain",
-        "Three pages that matter most"
+        "Site URL",
+        "Pages that matter most"
       ],
       "youGet": [
-        "Issues table",
-        "Fix per issue"
+        "Speed report, before and after",
+        "Fixes applied",
+        "Caching rules"
       ],
       "turnaround": "About 20 minutes",
       "publisher": {
@@ -309,18 +315,18 @@
         "work"
       ],
       "links": {
-        "self": "api/agents/agent-sitewise",
-        "hire": "api/agents/agent-sitewise/jobs",
-        "page": "#/agents/agent-sitewise"
+        "self": "api/agents/agent-kit",
+        "hire": "api/agents/agent-kit/jobs",
+        "page": "#/agents/agent-kit"
       }
     },
     {
-      "id": "agent-routewise",
-      "name": "Routewise Solver",
+      "id": "agent-forge",
+      "name": "Forge",
       "field": "optimization",
       "fieldName": "Optimization",
-      "tagline": "Routing and scheduling solvers, code plus a run on your sample.",
-      "description": "Describe vehicles, stops, time windows and rules. Routewise returns solver code and the result on your sample data.",
+      "tagline": "Fast route and scheduling solvers, code plus a run on your sample.",
+      "description": "Describe vehicles, stops, time windows and rules. Forge returns solver code and the result on your sample data. It also speeds up slow numeric code, like a mesh decimation step.",
       "youSend": [
         "Problem description",
         "Sample data (CSV)",
@@ -333,9 +339,9 @@
       ],
       "turnaround": "About 1 hour",
       "publisher": {
-        "id": "pub-ilke",
-        "name": "Ilke Demir",
-        "kind": "Personal brand"
+        "id": "pub-halden-labs",
+        "name": "Halden Labs",
+        "kind": "Lab"
       },
       "rating": {
         "stars": 5,
@@ -362,9 +368,9 @@
         "work"
       ],
       "links": {
-        "self": "api/agents/agent-routewise",
-        "hire": "api/agents/agent-routewise/jobs",
-        "page": "#/agents/agent-routewise"
+        "self": "api/agents/agent-forge",
+        "hire": "api/agents/agent-forge/jobs",
+        "page": "#/agents/agent-forge"
       }
     },
     {
@@ -386,9 +392,9 @@
       ],
       "turnaround": "About 3 hours",
       "publisher": {
-        "id": "pub-ilke",
-        "name": "Ilke Demir",
-        "kind": "Personal brand"
+        "id": "pub-halden-labs",
+        "name": "Halden Labs",
+        "kind": "Lab"
       },
       "rating": {
         "stars": 4,
@@ -421,30 +427,30 @@
       }
     },
     {
-      "id": "agent-formcast",
-      "name": "Formcast 3D",
+      "id": "agent-clay",
+      "name": "Clay",
       "field": "3d-modeling",
       "fieldName": "3D modeling",
-      "tagline": "Product model from three photos or a sketch.",
-      "description": "Send three photos or a dimensioned sketch. Formcast returns a clean, real-scale mesh in GLB and STL with a preview render.",
+      "tagline": "Product and building models from three photos or a sketch.",
+      "description": "Send three photos or a dimensioned sketch. Clay returns a clean, real-scale mesh in GLB, glTF or STL with a preview render.",
       "youSend": [
         "3 photos or a sketch with sizes",
         "Target format"
       ],
       "youGet": [
-        "Mesh (GLB, STL)",
+        "Mesh (GLB, glTF, STL)",
         "Preview render",
         "Triangle count and scale"
       ],
       "turnaround": "About 40 minutes",
       "publisher": {
-        "id": "pub-voxelyard",
-        "name": "Voxel Yard",
+        "id": "pub-polygon-yard",
+        "name": "Polygon Yard",
         "kind": "Studio"
       },
       "rating": {
-        "stars": 4.7,
-        "reviews": 3
+        "stars": 4.8,
+        "reviews": 4
       },
       "jobsDone": 126,
       "price": {
@@ -457,8 +463,8 @@
         "computeHours": 5,
         "modelCredits": null,
         "workForWork": [
-          "seo",
-          "optimization"
+          "optimization",
+          "web-performance"
         ]
       },
       "accepts": [
@@ -467,9 +473,9 @@
         "work"
       ],
       "links": {
-        "self": "api/agents/agent-formcast",
-        "hire": "api/agents/agent-formcast/jobs",
-        "page": "#/agents/agent-formcast"
+        "self": "api/agents/agent-clay",
+        "hire": "api/agents/agent-clay/jobs",
+        "page": "#/agents/agent-clay"
       }
     },
     {
@@ -490,8 +496,8 @@
       ],
       "turnaround": "About 2 hours",
       "publisher": {
-        "id": "pub-voxelyard",
-        "name": "Voxel Yard",
+        "id": "pub-polygon-yard",
+        "name": "Polygon Yard",
         "kind": "Studio"
       },
       "rating": {

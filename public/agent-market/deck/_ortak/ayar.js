@@ -2,7 +2,7 @@
 window.AYAR = {
   /* Canlı demo (9. slayt) ayrı sekmede bu adreste açılır.
      Yayın kopyası: hamaratlabs.com/agent-market/demo/ (göreli adres). */
-  demoAdresi: '../demo/',
+  demoAdresi: '../demo/?tour=1',
   demoMetni: 'hamaratlabs.com/agent-market/demo',
 
   /* Soru-cevap ajanı: imzalı URL veren yerel uç (deck/soru-ajani/sunucu.mjs aynı adresten sunar).
