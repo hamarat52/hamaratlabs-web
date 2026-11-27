@@ -38,3 +38,8 @@
 # Fibi sunumu: sık güncelleniyor, eski JS/CSS (adsız hash yok) 4 saat tarayıcıda kalmasın.
 /okul-projeleri/fibi/sunum/*
   Cache-Control: no-cache
+
+# Swapline sunumu ve demosu: listelenmemiş, arama sonuçlarına girmez, her açılışta güncel
+/agent-market/*
+  Cache-Control: no-cache
+  X-Robots-Tag: noindex

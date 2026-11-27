@@ -1,0 +1,51 @@
+/* Swapline sunumu · kimlik token'ları (TEK dosya).
+   Kaynak: tanıtım sayfasının C tasarımı. agent-pazari-landing/site/tokens.css henüz yoktu (2026-11-27 19:19);
+   değerler agent-pazari-landing/drafts/C/c.css :root bloğundan birebir alındı, fontlar site/fonts'tan kopyalandı.
+   Sayfa token'ları değişirse yalnız bu dosya güncellenir; düzen dosyaları yalnız var(--...) kullanır.
+   Fontlar (Archivo, JetBrains Mono; OFL) deck/fonts/ içinde; @font-face tanımı deck/fonts.css'te base64 gömülü
+   (file:// ile açınca Chrome harici font dosyasını CORS'tan engelliyor). Font değişirse: python3 araclar/font-gom.py */
+
+:root {
+  /* renk: sayfanın C paleti */
+  --zemin: #ECEBE6;        /* beton grisi */
+  --kagit: #FFFFFF;
+  --siyah: #121212;        /* kutu */
+  --kutu-yan: #2A2A28;     /* kutunun sağ yüzü */
+  --kutu-ust: #3A3A37;     /* kutunun üst yüzü */
+  --gri: #5E5D58;
+  --gri-acik: #B7B5AE;     /* siyah üstü soluk yazı */
+  --cizgi: #CFCDC5;
+  --sari: #FFD23F;
+  --mavi: #2D5BFF;
+  --pembe: #FF5FA2;
+  --yesil: #17A86E;
+  --turuncu: #FF7A1A;
+  --not-sari: #FFE98A;
+  --not-pembe: #FFC2DC;
+  --not-mavi: #CFE0FF;
+  --kenar: #121212;        /* sahne dışı */
+
+  /* karakterler: ikisi de siyah kutu, ayıran çıkartma rengi */
+  --kit: var(--turuncu);
+  --mira: var(--pembe);
+  --soru: var(--sari);
+  --goz: #FFFFFF;
+  --bebek: #121212;
+
+  /* font: açık lisanslı, pakette (OFL) */
+  --font-baslik: "Archivo", sans-serif;
+  --font-govde: "Archivo", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --yazi: var(--siyah);
+
+  /* gölge: sayfadaki sert gölge */
+  --golge: 8px 8px 0 var(--siyah);
+  --golge-cik: 4px 5px 0 rgba(0, 0, 0, .25);
+
+  /* hareket */
+  --sure-gecis: 1000ms;
+  --egri-gecis: cubic-bezier(.7, 0, .25, 1);
+  --sure-adim: 600ms;
+  --egri-adim: cubic-bezier(.34, 1.4, .55, 1);
+  --egri-ucus: cubic-bezier(.5, 0, .2, 1.12);
+}

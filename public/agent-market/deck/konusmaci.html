@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<title>Speaker view · {ad}</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body { background: var(--siyah); color: var(--zemin); font-family: var(--font-govde); display: grid; grid-template-rows: auto 1fr auto; gap: 14px; padding: 14px 18px; overflow: hidden; }
+  header { display: flex; align-items: center; gap: 22px; font-family: var(--font-mono); font-size: 18px; }
+  .sure { font-size: 44px; font-weight: 800; color: var(--sari); letter-spacing: .02em; min-width: 4.2ch; }
+  .sure.asti { color: var(--pembe); }
+  .cubuk { flex: 1; height: 12px; background: #2A2A28; position: relative; }
+  .cubuk i { position: absolute; inset: 0 auto 0 0; background: var(--sari); width: 0; }
+  .cubuk.asti i { background: var(--pembe); }
+  .saat, .bag, .no { color: var(--gri-acik); white-space: nowrap; }
+  .no b { color: var(--zemin); font-size: 26px; }
+  .bag.var { color: var(--yesil); }
+  main { display: grid; grid-template-columns: 1.55fr 1fr; gap: 18px; min-height: 0; }
+  .sol, .sag { display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+  .kb { font-family: var(--font-mono); font-size: 14px; font-weight: 700; letter-spacing: .12em; color: var(--gri-acik); }
+  .ekran { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; outline: 2px solid #3A3A37; overflow: hidden; }
+  .ekran iframe { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; border: 0; transform-origin: 0 0; pointer-events: none; }
+  .ekran.kara::after { content: "BLACK SCREEN"; position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,.85); font-family: var(--font-mono); font-weight: 800; letter-spacing: .1em; }
+  .notlar { flex: 1; min-height: 0; overflow: auto; background: var(--zemin); color: var(--siyah); padding: 18px 22px; font-size: 25px; line-height: 1.42; font-weight: 500; }
+  .notlar .ok { background: var(--sari); font-family: var(--font-mono); font-weight: 800; font-size: 18px; padding: 0 6px; vertical-align: 3px; }
+  .notlar .ok.gecti { background: var(--cizgi); color: var(--gri); }
+  footer { display: flex; gap: 10px; align-items: center; }
+  button { font: 800 18px var(--font-baslik); text-transform: uppercase; padding: 10px 18px; border: 2px solid var(--zemin); background: transparent; color: var(--zemin); cursor: pointer; }
+  button.ana { background: var(--sari); color: var(--siyah); border-color: var(--sari); }
+  footer .ipucu { margin-left: auto; font-family: var(--font-mono); font-size: 14px; color: var(--gri-acik); }
+</style>
+</head>
+<body>
+<header>
+  <span class="sure" id="sure">00:00</span>
+  <div class="cubuk" id="cubuk" title="target time"><i></i></div>
+  <span class="no" id="no"><b>--</b> / --</span>
+  <span class="saat" id="saat">--:--</span>
+  <span class="bag" id="bag">not linked</span>
+</header>
+<main>
+  <section class="sol">
+    <p class="kb">NOW · <span id="simdi-ad">-</span></p>
+    <div class="ekran" id="ekran-simdi"><iframe id="cer-simdi" title="current slide" src="index.html?onizleme#1"></iframe></div>
+    <div class="notlar" id="notlar">Press S in the deck window, or move a slide, to link this view.</div>
+  </section>
+  <section class="sag">
+    <p class="kb">NEXT · <span id="sonraki-ad">-</span></p>
+    <div class="ekran" id="ekran-sonraki"><iframe id="cer-sonraki" title="next slide" src="index.html?onizleme#1"></iframe></div>
+    <p class="kb">SLIDE TIME · <span id="slayt-sure">0:00</span></p>
+  </section>
+</main>
+<footer>
+  <button type="button" id="geri">← Back</button>
+  <button type="button" class="ana" id="ileri">Next →</button>
+  <button type="button" id="kara">Black</button>
+  <button type="button" id="sifirla">Reset timer</button>
+  <span class="ipucu">Keys here: → ← PageUp PageDown Space · B black · R reset timer</span>
+</footer>
+<script src="_ortak/ayar.js"></script>
+<script src="_ortak/ad.js"></script>
+<script src="notlar.js"></script>
+<script>
+/* Konuşmacı ekranı. Ana pencereyle BroadcastChannel + postMessage (file:// yedeği) üzerinden konuşur.
+   Gelen: {tur:'durum', slayt, adim, enCok, toplam, id, kara}. Giden: {tur:'komut', ne, kimlik}. */
+(function () {
+  var ayar = window.AYAR || {};
+  var hedefMs = (ayar.hedefDakika || 7.5) * 60000;
+  var kanal = null;
+  try { kanal = new BroadcastChannel(ayar.kanal || 'sunum'); } catch (e) { kanal = null; }
+  var son = null, baslangic = 0, durdu = 0, slaytBas = Date.now(), ortaklar = {};
+  var $ = function (id) { return document.getElementById(id); };
+  var idler = [];
+
+  function gonder(ne) {
+    var m = { tur: 'komut', ne: ne, kimlik: Date.now() + '-' + Math.random().toString(36).slice(2) };
+    if (kanal) kanal.postMessage(m);
+    if (window.opener && !window.opener.closed) try { window.opener.postMessage(m, '*'); } catch (e) { /* */ }
+  }
+
+  function olcekle() {
+    ['ekran-simdi', 'ekran-sonraki'].forEach(function (k) {
+      var e = $(k), f = e.querySelector('iframe');
+      f.style.transform = 'scale(' + (e.clientWidth / 1920) + ')';
+    });
+  }
+
+  function notYaz(d) {
+    var ham = (window.NOTLAR || {})[d.id] || '(no note for this slide)';
+    ham = ham.split('{ad}').join(window.CALISMA_ADI || '');
+    var kac = 0;
+    var html = ham.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; })
+      .replace(/\[→\]/g, function () { kac++; return '<span class="ok' + (kac <= d.adim ? ' gecti' : '') + '">→ ' + kac + '</span>'; });
+    $('notlar').innerHTML = html;
+  }
+
+  function goster(d) {
+    var degisti = !son || son.slayt !== d.slayt;
+    if (degisti) slaytBas = Date.now();
+    if (!baslangic && son && son.slayt !== d.slayt) baslangic = Date.now();
+    son = d;
+    $('bag').textContent = 'linked';
+    $('bag').classList.add('var');
+    $('no').innerHTML = '<b>' + String(d.slayt).padStart(2, '0') + '</b> / ' + d.toplam + (d.enCok ? ' · step ' + d.adim + '/' + d.enCok : '');
+    $('simdi-ad').textContent = d.id;
+    $('cer-simdi').src = 'index.html?onizleme#' + d.slayt + '.' + d.adim;
+    var sonraki = d.adim < d.enCok ? d.slayt + '.' + (d.adim + 1) : (d.slayt < d.toplam ? (d.slayt + 1) + '.0' : null);
+    $('sonraki-ad').textContent = sonraki ? (d.adim < d.enCok ? 'step ' + (d.adim + 1) : (idler[d.slayt] || 'slide ' + (d.slayt + 1))) : 'end';
+    $('cer-sonraki').src = 'index.html?onizleme#' + (sonraki || d.slayt + '.' + d.adim);
+    $('ekran-simdi').classList.toggle('kara', !!d.kara);
+    notYaz(d);
+    document.body.dataset.slayt = d.slayt;
+    document.body.dataset.adim = d.adim;
+  }
+
+  function al(d) { if (d && d.tur === 'durum') goster(d); }
+  if (kanal) kanal.onmessage = function (e) { al(e.data); };
+  addEventListener('message', function (e) { al(e.data); });
+
+  function mmss(ms) { var s = Math.max(0, Math.floor(ms / 1000)); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }
+  setInterval(function () {
+    var gecen = baslangic ? Date.now() - baslangic : 0;
+    $('sure').textContent = mmss(gecen);
+    $('sure').classList.toggle('asti', gecen > hedefMs);
+    $('cubuk').classList.toggle('asti', gecen > hedefMs);
+    $('cubuk').querySelector('i').style.width = Math.min(100, gecen / hedefMs * 100) + '%';
+    var d = new Date();
+    $('saat').textContent = String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
+    var ss = Math.floor((Date.now() - slaytBas) / 1000);
+    $('slayt-sure').textContent = Math.floor(ss / 60) + ':' + String(ss % 60).padStart(2, '0');
+  }, 250);
+
+  $('ileri').onclick = function () { gonder('ileri'); };
+  $('geri').onclick = function () { gonder('geri'); };
+  $('kara').onclick = function () { gonder('kara'); };
+  $('sifirla').onclick = function () { baslangic = Date.now(); };
+  addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var k = e.key;
+    if (e.target.closest && e.target.closest('button') && (k === ' ' || k === 'Enter')) return;
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === ' ') { e.preventDefault(); gonder('ileri'); }
+    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); gonder('geri'); }
+    else if (k === 'b' || k === 'B' || k === '.') gonder('kara');
+    else if (k === 'r' || k === 'R') baslangic = Date.now();
+  });
+  addEventListener('resize', olcekle);
+  $('cer-simdi').addEventListener('load', function () {
+    try { idler = [].slice.call(this.contentDocument.querySelectorAll('.slayt')).map(function (s) { return s.dataset.id; }); } catch (e) { idler = []; }
+  });
+  olcekle();
+  gonder('sor');
+  setTimeout(function () { if (!son) gonder('sor'); }, 800);
+  window.KONUSMACI = { durum: function () { return son; } };
+})();
+</script>
+</body>
+</html>

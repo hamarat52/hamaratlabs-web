@@ -1,0 +1,36 @@
+/* Ortak sunum iskeleti. Renk, font ve hareket değeri YOK: hepsi deck/tokens.css'te.
+   Sahne 1920x1080 sabit; motor.js pencereye sığacak ölçeği --olcek olarak yazar. */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; }
+body { background: var(--kenar, #000); color: var(--yazi); font-family: var(--font-govde); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-synthesis: none; }
+
+.sahne {
+  position: absolute; left: 50%; top: 50%;
+  width: 1920px; height: 1080px;
+  transform: translate(-50%, -50%) scale(var(--olcek, 1));
+  transform-origin: 50% 50%;
+  overflow: hidden;
+  background: var(--zemin);
+}
+.slayt { position: absolute; inset: 0; visibility: hidden; overflow: hidden; }
+.slayt.aktif { visibility: visible; }
+.slayt.giren { z-index: 2; }
+.slayt.cikan { z-index: 1; }
+
+/* Adımlar: ok tuşuyla sırayla açılır. Gizli görünüşü yön değiştirebilir. */
+[data-adim] { transition-property: opacity, transform, clip-path; transition-duration: var(--sure-adim); transition-timing-function: var(--egri-adim); }
+h1, h2, .alt-baslik { text-wrap: balance; }
+[data-adim]:not(.acik) { opacity: 0; }
+
+/* Doğrudan adrese gidişte (ör. #2.3) ara geçiş oynamasın. */
+body.anlik *, body.anlik *::before, body.anlik *::after { transition: none !important; }
+
+/* Kara ekran (B ya da . tuşu). */
+body.kara .sahne { visibility: hidden; }
+
+/* Az hareket: ?az ya da işletim sistemi ayarı. Adımlar yalnız saydamlıkla, 200 ms. */
+.az [data-adim] { transition-property: opacity; transition-duration: 200ms; transform: none !important; clip-path: none !important; }
+.az * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+@media (prefers-reduced-motion: reduce) {
+  [data-adim] { transition-property: opacity; transition-duration: 200ms; transform: none !important; clip-path: none !important; }
+}
