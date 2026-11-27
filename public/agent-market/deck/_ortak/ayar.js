@@ -1,9 +1,9 @@
 /* Sunum ayarları TEK yerde. */
 window.AYAR = {
   /* Canlı demo (9. slayt) ayrı sekmede bu adreste açılır.
-     Şimdilik demo reposunun yerel önizlemesi: cd agent-pazari-demo && npm run build && npm run preview
-     Yayında hamaratlabs alt yolu olacak (adres henüz belli değil). */
+     Yayın kopyası: hamaratlabs.com/agent-market/demo/ (göreli adres). */
   demoAdresi: '../demo/',
+  demoMetni: 'hamaratlabs.com/agent-market/demo',
 
   /* Soru-cevap ajanı: imzalı URL veren yerel uç (deck/soru-ajani/sunucu.mjs aynı adresten sunar).
      Sunum file:// ile açıldıysa ya da uç cevap vermezse ajan yedek slayta düşer. */
@@ -22,6 +22,6 @@ window.AYAR = {
   if (!a) return;
   a.href = window.AYAR.demoAdresi;
   document.querySelectorAll('[data-demo-adres]').forEach(function (e) {
-    e.textContent = window.AYAR.demoAdresi.replace(/^https?:\/\//, '').replace(/\/$/, '');
+    e.textContent = window.AYAR.demoMetni || window.AYAR.demoAdresi.replace(/^https?:\/\//, '').replace(/\/$/, '');
   });
 })();

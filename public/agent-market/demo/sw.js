@@ -33,7 +33,7 @@ self.addEventListener('fetch', (event) => {
   if (!SHELL_URLS.has(key)) return;
   event.respondWith(
     caches.open(CACHE).then((cache) =>
-      cache.match(key).then((hit) => hit || fetch(req).then((res) => {
+      cache.match(key).then((hit) => (hit && hit.redirected ? new Response(hit.body, { status: hit.status, statusText: hit.statusText, headers: hit.headers }) : hit) || fetch(req).then((res) => {
         if (res.ok) cache.put(key, res.clone());
         return res;
       })),
