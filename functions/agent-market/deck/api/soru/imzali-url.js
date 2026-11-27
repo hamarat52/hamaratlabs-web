@@ -15,6 +15,7 @@ export async function onRequestGet({ request, env }) {
   if (!IZINLI.some((k) => kaynak.startsWith(k)) && !kaynak.includes('.hamaratlabs-web.pages.dev')) {
     return json(403, { hata: 'kaynak' });
   }
+  if (env.SORU_ACIK !== '1') return json(503, { hata: 'kapali' });
   if (!env.ELEVENLABS_API_KEY) return json(503, { hata: 'anahtar-yok' });
   try {
     const r = await fetch(
