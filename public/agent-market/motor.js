@@ -3,6 +3,9 @@
    - Görünüm: [data-mod="human|agent"] (düğme ya da bağlantı). ?mode=agent ya da #agent ajan görünümünü açar.
      Şalter her görünümde sabit; seçim adrese yazılır (aynı adres, ?mode=agent).
    - Kaydırma: [data-sahne] bölümüne --p (0..1). [data-at] eşiği geçince .on, [data-durum] .etkin, [data-say] sayar.
+     [data-akis] bölümler masaüstünde de yapışkan değildir; öğeler görüş alanına girince .on olur.
+   - Kopyala: [data-kopyala="#id"] düğmesi o öğenin metnini panoya yazar; [data-mutlak] yollar okunan adrese göre mutlaklaşır.
+     Pano kapalıysa makine görünümündeki blok açılır (elle kopyalama).
    - Dar ekranda (<760 px) ve az harekette sahneler yapışkan değil, akar. Az harekette her şey baştan görünür. */
 (function () {
   var kok = document.documentElement;
@@ -32,8 +35,9 @@
   function tick() {
     var vh = window.innerHeight;
     var az = azalt();
-    var akis = dar.matches || az;
+    var akisGenel = dar.matches || az;
     sahneler.forEach(function (s) {
+      var akis = akisGenel || s.hasAttribute('data-akis');
       var r = s.getBoundingClientRect();
       var p;
       if (akis) {
@@ -113,9 +117,56 @@
     tick();
   }
 
+  /* Ajan talimatı: [data-mutlak] göreli yolları okunan adrese göre mutlak yapar (alt yolda da doğru). */
+  function mutlakDoldur() {
+    document.querySelectorAll('[data-mutlak]').forEach(function (el) {
+      try {
+        var u = new URL(el.dataset.mutlak, location.href);
+        u.search = ''; u.hash = '';
+        el.textContent = u.href;
+      } catch (e) { /* bırak */ }
+    });
+  }
+
+  function panoyaYaz(metin) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(metin).catch(function () { return eskiYol(metin); });
+    }
+    return new Promise(function (tamam) { eskiYol(metin); tamam(); });
+  }
+  function eskiYol(metin) {
+    var t = document.createElement('textarea');
+    t.value = metin; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(t);
+    if (!ok) throw new Error('kopyalanamadı');
+  }
+
+  function kopyala(b) {
+    var kaynak = document.querySelector(b.dataset.kopyala);
+    if (!kaynak) return;
+    mutlakDoldur();
+    var durum = b.parentElement.querySelector('.kopya-durum') || (b.closest('.duzen') || document).querySelector('.kopya-durum');
+    panoyaYaz(kaynak.textContent.trim() + '\n').then(function () {
+      b.classList.add('kopyalandi');
+      if (durum) { durum.classList.remove('goster'); void durum.offsetWidth; durum.classList.add('goster'); }
+      clearTimeout(b._z);
+      b._z = setTimeout(function () { b.classList.remove('kopyalandi'); if (durum) durum.classList.remove('goster'); }, 4000);
+    }).catch(function () {
+      /* pano kapalıysa makine görünümündeki bloğu göster: elle kopyalanır */
+      modKur('agent', true);
+      var t = document.getElementById('ajan-talimat');
+      if (t) t.scrollIntoView({ block: 'center' });
+    });
+  }
+
   document.addEventListener('click', function (e) {
     var d = e.target.closest('[data-dil]');
     if (d) { dilKur(d.dataset.dil, true); return; }
+    var k = e.target.closest('[data-kopyala]');
+    if (k) { kopyala(k); return; }
     var m = e.target.closest('[data-mod]');
     if (m) { e.preventDefault(); modKur(m.dataset.mod, true); }
   });
@@ -123,9 +174,19 @@
   window.addEventListener('resize', istek);
   [dar, azaltMq].forEach(function (mq) { if (mq.addEventListener) mq.addEventListener('change', istek); });
 
+  /* Yorum şeridi: kesintisiz kayma için kartlar bir kez kopyalanır (kopyalar ekran okuyucudan gizli) */
+  document.querySelectorAll('.serit-ic').forEach(function (ul) {
+    [].slice.call(ul.children).forEach(function (li) {
+      var c = li.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      ul.appendChild(c);
+    });
+  });
+
   var ilkDil = q.get('lang');
   if (!ilkDil) { try { ilkDil = localStorage.getItem('swl-dil'); } catch (e) { ilkDil = null; } }
   dilKur(ilkDil === 'tr' ? 'tr' : 'en');
+  mutlakDoldur();
   modKur(q.get('mode') === 'agent' || location.hash === '#agent' ? 'agent' : 'human', false);
 
   window.SWL = { tick: tick, dilKur: dilKur, modKur: modKur };
