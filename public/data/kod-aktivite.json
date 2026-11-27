@@ -36331,5 +36331,473 @@
     "score": 29,
     "is_merge": false,
     "lines": 55
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "7eee3352db",
+    "date": "2026-11-27T18:28:01+03:00",
+    "subject": "Başlangıç: iş tanımı aşama 1",
+    "score": 49,
+    "is_merge": false,
+    "lines": 49
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "d38b91b1f9",
+    "date": "2026-11-27T18:29:34+03:00",
+    "subject": "gitignore",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "f8ebd8a4b4",
+    "date": "2026-11-27T18:29:34+03:00",
+    "subject": "İş tanımı: ajan modu eklendi",
+    "score": 44,
+    "is_merge": false,
+    "lines": 14
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "30aea924af",
+    "date": "2026-11-27T18:31:15+03:00",
+    "subject": "Ajanlar birincil kitle; Cloudflare Monetization Gateway araştırması",
+    "score": 47,
+    "is_merge": false,
+    "lines": 33
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "00dedf36a7",
+    "date": "2026-11-27T18:41:57+03:00",
+    "subject": "Başlangıç: demo iş tanımı",
+    "score": 49,
+    "is_merge": false,
+    "lines": 54
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "52909a874c",
+    "date": "2026-11-27T18:41:57+03:00",
+    "subject": "Ortak ürün gerçekleri ve demo iş tanımı",
+    "score": 50,
+    "is_merge": false,
+    "lines": 74
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "5afbb8ce84",
+    "date": "2026-11-27T18:43:44+03:00",
+    "subject": "Başlangıç: sunum iş tanımı",
+    "score": 48,
+    "is_merge": false,
+    "lines": 42
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "1b003b137a",
+    "date": "2026-11-27T18:45:14+03:00",
+    "subject": "Sunum: yatırımcı/jüri, İngilizce",
+    "score": 41,
+    "is_merge": false,
+    "lines": 4
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "52283b71de",
+    "date": "2026-11-27T18:46:25+03:00",
+    "subject": "Demo iş tanımı: yarışma gereksinimleri; ajan modu araştırması (WebDev)",
+    "score": 49,
+    "is_merge": false,
+    "lines": 53
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "5fb841c3a9",
+    "date": "2026-11-27T18:54:25+03:00",
+    "subject": "AŞAMA 2 eki: sesli soru-cevap ajanı",
+    "score": 45,
+    "is_merge": false,
+    "lines": 17
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "66457d113d",
+    "date": "2026-11-27T18:58:56+03:00",
+    "subject": "Aşama 1: üç tanıtım sayfası taslağı (A, B, C) ve ajan modu",
+    "score": 60,
+    "is_merge": false,
+    "lines": 3661
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "a25a90250f",
+    "date": "2026-11-27T18:59:19+03:00",
+    "subject": "Soru ajanı: dil ve ses",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "be1df2b343",
+    "date": "2026-11-27T19:00:28+03:00",
+    "subject": "Araştırma: rakipler/pazar ve hukuki riskler (Claude alt ajan, Organizer 4/4 nokta kontrol)",
+    "score": 55,
+    "is_merge": false,
+    "lines": 353
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "dbf05ce5eb",
+    "date": "2026-11-27T19:01:09+03:00",
+    "subject": "DEĞİŞİKLİK: model kredisi kilitli/yakında",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "a44564edc5",
+    "date": "2026-11-27T19:01:09+03:00",
+    "subject": "Ortak gerçekler: model kredisi 'yakında', TR kripto sınırı",
+    "score": 42,
+    "is_merge": false,
+    "lines": 7
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "4ee1e2f067",
+    "date": "2026-11-27T19:05:48+03:00",
+    "subject": "Sunum AŞAMA 1: üç yön taslağı (A Memo, B Wire, C Cast)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1200
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "ac1d1e93d6",
+    "date": "2026-11-27T19:05:57+03:00",
+    "subject": "Rapor: em dash karakteri komut alıntısından da çıkarıldı",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "1af412c381",
+    "date": "2026-11-27T19:06:20+03:00",
+    "subject": "Rapor: AŞAMA 2 sesli soru-cevap eki ile uyum notu",
+    "score": 39,
+    "is_merge": false,
+    "lines": 2
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "100b90b272",
+    "date": "2026-11-27T19:10:11+03:00",
+    "subject": "AŞAMA 2 iş tanımı: B anlatımı + C tasarımı",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "cb740a3442",
+    "date": "2026-11-27T19:10:17+03:00",
+    "subject": "gitignore: run logları",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "b0e55a6e4e",
+    "date": "2026-11-27T19:15:08+03:00",
+    "subject": "AŞAMA 2 iş tanımı: C Cast, sayfa C kimliği, demo ayrı sekme",
+    "score": 48,
+    "is_merge": false,
+    "lines": 39
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "abea516c4f",
+    "date": "2026-11-27T19:15:35+03:00",
+    "subject": "Zor sorular taslağı (Yusuf onayı bekliyor)",
+    "score": 50,
+    "is_merge": false,
+    "lines": 73
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "856b26d820",
+    "date": "2026-11-27T19:16:43+03:00",
+    "subject": "Demo: market domain, in-browser and Node API, all screens",
+    "score": 60,
+    "is_merge": false,
+    "lines": 10376
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "cc84aa15a8",
+    "date": "2026-11-27T19:17:41+03:00",
+    "subject": "Aşama 2 iskelet: site/tokens.css, marka.json, OFL yazı tipleri",
+    "score": 55,
+    "is_merge": false,
+    "lines": 316
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "e9f90c56c5",
+    "date": "2026-11-27T19:19:59+03:00",
+    "subject": "Model credits: shown but locked (with provider approval, coming soon)",
+    "score": 54,
+    "is_merge": false,
+    "lines": 230
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "392b78af9d",
+    "date": "2026-11-27T19:28:05+03:00",
+    "subject": "Zor sorular onaylandı (Yusuf yetkiyi Organizer'a verdi)",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "8d80303b28",
+    "date": "2026-11-27T19:29:09+03:00",
+    "subject": "Duraklatma notu",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "3272b008a6",
+    "date": "2026-11-27T19:29:09+03:00",
+    "subject": "Ara kayıt: AŞAMA 2 yarım iş (sunum önceliği için duraklatıldı, oturum local-f23cba82)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1901
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "e41d9ab969",
+    "date": "2026-11-27T19:31:30+03:00",
+    "subject": "AŞAMA 2: deck iskeleti ve 18 slayt (C Cast, sayfa C kimliği, Swapline)",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1574
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "8f75ccfebb",
+    "date": "2026-11-27T19:32:49+03:00",
+    "subject": "E2E on the static build under /x/y/, presenter script, README",
+    "score": 57,
+    "is_merge": false,
+    "lines": 640
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "f370ea9e1e",
+    "date": "2026-11-27T19:41:00+03:00",
+    "subject": "Photon.codes ilham notu ve AŞAMA 2 değişikliği",
+    "score": 46,
+    "is_merge": false,
+    "lines": 26
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "df35969ef4",
+    "date": "2026-11-27T19:45:37+03:00",
+    "subject": "AŞAMA 2: konuşmacı ekranı, notlar (tek kaynak + NOTLAR.md), soru-cevap ajanı kodu, gezinme testi",
+    "score": 60,
+    "is_merge": false,
+    "lines": 1337
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "bd27816f81",
+    "date": "2026-11-27T19:56:11+03:00",
+    "subject": "AŞAMA 2: soru-cevap sahte uç testi, internetsiz zip + PDF yedeği, rakam eşleme tablosu, test çıktıları",
+    "score": 57,
+    "is_merge": false,
+    "lines": 548
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "185eeb7027",
+    "date": "2026-11-27T19:57:48+03:00",
+    "subject": "Rapor: AŞAMA 2 (tam sunum, C Cast)",
+    "score": 52,
+    "is_merge": false,
+    "lines": 120
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "1392aa6201",
+    "date": "2026-11-27T19:58:27+03:00",
+    "subject": "Soru ajanı: onaylı zor-sorular.md bilgi tabanı listesinde; rapor güncellendi",
+    "score": 46,
+    "is_merge": false,
+    "lines": 20
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "46f8ca90f1",
+    "date": "2026-11-27T20:02:34+03:00",
+    "subject": "Yayın adresi, ElevenLabs ajanı kuruldu, Organizer kararları",
+    "score": 48,
+    "is_merge": false,
+    "lines": 44
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "b818b2ac0e",
+    "date": "2026-11-27T20:11:37+03:00",
+    "subject": "AŞAMA 1 report, screenshots, evidence; mobile layout fixes",
+    "score": 60,
+    "is_merge": false,
+    "lines": 2038
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "98936bad26",
+    "date": "2026-11-27T20:12:14+03:00",
+    "subject": "AŞAMA 2 iş tanımı + Organizer kararları",
+    "score": 47,
+    "is_merge": false,
+    "lines": 33
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "a19fcba061",
+    "date": "2026-11-27T20:13:38+03:00",
+    "subject": "Soru ajanı: canlı link için sınırlar (90 sn, günde 4, eşzamanlı 1)",
+    "score": 48,
+    "is_merge": false,
+    "lines": 46
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "d43011b3a1",
+    "date": "2026-11-27T20:15:12+03:00",
+    "subject": "Aşama 2: Photon.codes ilhamı (yapı), C kimliğinde",
+    "score": 57,
+    "is_merge": false,
+    "lines": 542
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "99f829f0b5",
+    "date": "2026-11-27T20:15:29+03:00",
+    "subject": "Rapor: canlı sesli ajan",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "9f71df33f5",
+    "date": "2026-11-27T20:17:01+03:00",
+    "subject": "Open from the deck: ?tour=1 starts the guided demo, Back to the deck closes the tab",
+    "score": 53,
+    "is_merge": false,
+    "lines": 176
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "9fa5218aa0",
+    "date": "2026-11-27T20:24:13+03:00",
+    "subject": "Aşama 2: QA geçişi, önizleme sunucusu, takas rozeti düzeltmesi",
+    "score": 51,
+    "is_merge": false,
+    "lines": 93
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "3cc1644ae2",
+    "date": "2026-11-27T20:25:11+03:00",
+    "subject": "Rapor: Aşama 2 (B + C + Photon yapısı)",
+    "score": 51,
+    "is_merge": false,
+    "lines": 88
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "de8db4a7ec",
+    "date": "2026-11-27T20:27:55+03:00",
+    "subject": "Tour follows the deck: Kit hires Mira; Forge, Clay, Polygon Yard, Halden Labs in the sample data",
+    "score": 58,
+    "is_merge": false,
+    "lines": 702
+  },
+  {
+    "repo": "agent-pazari-landing",
+    "hash": "4b4c4b0de8",
+    "date": "2026-11-27T20:29:05+03:00",
+    "subject": "Demo bağlantısı ve Organizer kararları",
+    "score": 43,
+    "is_merge": false,
+    "lines": 9
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "91c8fc7014",
+    "date": "2026-11-27T20:32:18+03:00",
+    "subject": "Working name Swapline from one setting (brand.json); published discovery addresses in llms.txt and agent mode",
+    "score": 53,
+    "is_merge": false,
+    "lines": 193
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "e34e7bd780",
+    "date": "2026-11-27T20:48:51+03:00",
+    "subject": "Rapor: kredi ve ajan kapalı",
+    "score": 37,
+    "is_merge": false,
+    "lines": 1
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "8e119e07cb",
+    "date": "2026-11-27T20:54:11+03:00",
+    "subject": "Identity: design C tokens, Archivo and JetBrains Mono, HUMAN/MACHINE switch, PNG icons, copy agent instructions",
+    "score": 59,
+    "is_merge": false,
+    "lines": 1120
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "e59edeaf14",
+    "date": "2026-11-27T21:10:30+03:00",
+    "subject": "Identity polish: yellow primary inside the console, tour actions wrap on the last step",
+    "score": 45,
+    "is_merge": false,
+    "lines": 19
+  },
+  {
+    "repo": "agent-pazari-demo",
+    "hash": "5ac6e899fc",
+    "date": "2026-11-27T21:11:07+03:00",
+    "subject": "AŞAMA 2 report, screenshots (15 screens x 2), evidence",
+    "score": 58,
+    "is_merge": false,
+    "lines": 776
+  },
+  {
+    "repo": "agent-pazari-sunum",
+    "hash": "dbcbac51b4",
+    "date": "2026-11-27T22:07:15+03:00",
+    "subject": "Sonuç: hackathon birinciliği",
+    "score": 40,
+    "is_merge": false,
+    "lines": 3
   }
 ]
