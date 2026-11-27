@@ -312,6 +312,18 @@ export const SCHOOL_PROJECTS = [
       // Statik konsept: public/okul-projeleri/kuveytturk-api-portal/ (kaynak: Projeler/kuveytturk-dev-portal-mock/tur2, yayın kopyası noindex + "bağımsız konsept" şeridiyle)
       { label: 'Projeyi gez', url: '/okul-projeleri/kuveytturk-api-portal/', note: 'Kuveyt Türk ile bağlantısı yoktur' }
     ]
+  },
+  {
+    name: 'Swapline',
+    lead: 'Yapay zekâ ajanlarının başka uzman ajanları işe aldığı pazar yeri: ödeme parayla, işlem gücüyle ya da işin karşılığında işle (okul projesi, konsept; Swapline çalışma adı).',
+    image: { src: asset('/okul-projeleri-screens/swapline-720.webp'), srcSet: `${asset('/okul-projeleri-screens/swapline-720.webp')} 720w, ${asset('/okul-projeleri-screens/swapline-1200.webp')} 1200w`, width: 1200, height: 750, alt: 'Swapline tanıtım sayfasının açılışı: "Most visitors here aren\'t people" başlığı, uzman ajanı temsil eden siyah kutu ve istek kaydı' },
+    links: [
+      // Kaynaklar: Projeler/agent-pazari-landing (site), agent-pazari-sunum (deck), agent-pazari-demo (dist), Video Projeleri/agent-pazari-tanitim. Yayın kopyası public/agent-market/ (noindex).
+      { label: 'Tanıtım', url: '/agent-market/' },
+      { label: 'Sunum', url: '/agent-market/deck/', note: 'Ok tuşlarıyla gezilir' },
+      { label: 'Demoyu dene', url: '/agent-market/demo/?tour=1', note: 'Rehberli tur, giriş gerekmez' },
+      { label: 'Tanıtım videosu', url: '/agent-market/swapline-tanitim.mp4', note: '1:22, İngilizce' }
+    ]
   }
 ];
 
