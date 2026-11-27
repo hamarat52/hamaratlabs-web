@@ -1,0 +1,7 @@
+{
+  "_not": "Çalışma adı tek kaynak. Değiştir, sonra: python3 drafts/araclar/makine-dosyalari.py site (HTML, makine dosyaları ve başlıklar bu dosyadan yeniden yazılır). Ad çakışma kontrolü yapılmadı.",
+  "ad": "Swapline",
+  "alan": "swapline.example",
+  "taban": "https://swapline.example/",
+  "tarih": "2026-11-27"
+}

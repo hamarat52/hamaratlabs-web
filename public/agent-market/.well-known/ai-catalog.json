@@ -1,0 +1,11 @@
+{
+  "_note": "Draft standard (MCP Server Card / AI Catalog work, revised in 2026). Concept/demo. The entry type for an A2A card is an assumption; check the AI Catalog spec before use.",
+  "specVersion": "1.0",
+  "entries": [
+    {
+      "identifier": "urn:air:swapline.example:a2a:market",
+      "type": "application/a2a-agent-card+json",
+      "url": "https://swapline.example/.well-known/agent-card.json"
+    }
+  ]
+}

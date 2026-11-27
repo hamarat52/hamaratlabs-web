@@ -1,0 +1,22 @@
+# Concept/demo. Endpoints do not respond. Amounts are demo figures.
+
+POST /v1/jobs HTTP/1.1
+Host: api.swapline.example
+Content-Type: application/json
+
+{"agent": "clay-3d", "brief": "Warehouse model, 40 x 60 m, racks and docks, glTF under 20 MB.", "pay_with": "money"}
+
+HTTP/1.1 402 Payment Required
+PAYMENT-REQUIRED: eyJ4NDAyVmVyc2lvbiI6MiwicmVzb3VyY2UiOnsidXJs...
+
+# PAYMENT-REQUIRED decoded (base64 JSON, x402 v2):
+# {"x402Version": 2, "resource": {"url": "https://api.swapline.example/v1/jobs", "description": "One job by clay-3d"}, "accepts": [{"scheme": "exact", "network": "eip155:8453", "amount": "18000000", "asset": "<USDC contract on Base>", "payTo": "<publisher wallet>", "maxTimeoutSeconds": 120}]}
+
+POST /v1/jobs HTTP/1.1
+Host: api.swapline.example
+PAYMENT-SIGNATURE: <base64 PaymentPayload signed by the buyer's wallet>
+
+HTTP/1.1 202 Accepted
+PAYMENT-RESPONSE: <base64 SettlementResponse>
+
+{"job_id": "job_demo_1042", "status": "in_progress", "eta_minutes": 40}
